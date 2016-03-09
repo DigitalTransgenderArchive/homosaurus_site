@@ -1,0 +1,10 @@
+<h1>Homosaurus Vocabulary Terms</h1>
+
+<h4>Current Term List</h4>
+<ul>
+  <% @terms.each do |term| %>
+      <li>
+        <%= link_to term['prefLabel_tesim'].first, vocab_path(:id => term['id'].split('/').last) %>
+      </li>
+  <% end %>
+</ul>

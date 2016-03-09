@@ -1,0 +1,33 @@
+<h2><%= @homosaurus.prefLabel %> (http://homosaurus.org/terms/<%= @homosaurus.identifier %>)</h2>
+
+<p><div style="clear:both;">
+  <%= button_to "Back To Index", vocabs_path, :method => "get", class: 'btn btn-default', style:"float:left;" %>
+</div>
+<br/>
+<br/>
+<br/>
+</p>
+
+<dl>
+  <% @homosaurus.show_fields.each do |field| %>
+    <dt><%= field.to_s.humanize %>:</dt>
+      <%= puts field %>
+    <% @homosaurus.get_values(field).each do |value| %>
+      <dd><%= value %></dd>
+    <% end %>
+  <% end %>
+</dl>
+
+<h3>Hierarchy:</h3>
+  <% @homosaurus.broader.each do |broader| %>
+    <div style="padding-left:0px;"><%= link_to "#{broader.prefLabel}", vocab_path(:id => broader.id)%></div>
+  <% end %>
+
+<div style="padding-left:40px;"><strong><%= @homosaurus.prefLabel %></strong></div>
+
+          <% @homosaurus.narrower.each do |narrower| %>
+         <div style="padding-left:80px;"><%= link_to "#{narrower.prefLabel}", vocab_path(:id => narrower.id)%></div>
+          <% end %>
+
+<br />
+<p><br/><strong>Other Formats (coming soon):</strong> <%= link_to "N-Triples", request.original_url + '.nt'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonld' %>

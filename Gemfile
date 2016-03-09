@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
+gem 'active-fedora', '9.8.2'
+gem 'hydra-head', '9.5.0'
+gem 'active_fedora-noid', '~> 1.0'
 
-
+# Use Bootstrap
+gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
