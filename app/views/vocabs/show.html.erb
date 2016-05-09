@@ -20,14 +20,14 @@
 
 <h3>Hierarchy:</h3>
   <% @homosaurus.broader.each do |broader| %>
-    <div style="padding-left:0px;"><%= link_to "#{broader.prefLabel}", vocab_path(:id => broader.id)%></div>
+    <div style="padding-left:0px;"><%= link_to "#{broader.prefLabel}", vocab_path(:id => broader.id.split('/').last)%></div>
   <% end %>
 
 <div style="padding-left:40px;"><strong><%= @homosaurus.prefLabel %></strong></div>
 
           <% @homosaurus.narrower.each do |narrower| %>
-         <div style="padding-left:80px;"><%= link_to "#{narrower.prefLabel}", vocab_path(:id => narrower.id)%></div>
+         <div style="padding-left:80px;"><%= link_to "#{narrower.prefLabel}", vocab_path(:id => narrower.id.split('/').last)%></div>
           <% end %>
 
 <br />
-<p><br/><strong>Other Formats (coming soon):</strong> <%= link_to "N-Triples", request.original_url + '.nt'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonld' %>
+<p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url + '.nt'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonld' %>, <%= link_to "TTL", request.original_url + '.ttl' %>
