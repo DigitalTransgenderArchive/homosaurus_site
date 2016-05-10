@@ -6,7 +6,7 @@ gem 'active_fedora-noid', '~> 1.0'
 # Use Bootstrap
 gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
