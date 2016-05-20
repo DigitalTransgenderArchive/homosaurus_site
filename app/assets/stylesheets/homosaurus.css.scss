@@ -1,0 +1,41 @@
+.panel {
+  max-width: 600px;
+}
+.panel-primary a:link {
+  color: white;
+}
+
+/* visited link */
+.panel-primary a:visited {
+  color: white;
+}
+
+/* mouse over link */
+.panel-primary a:hover {
+  color: white;
+}
+
+/* selected link */
+.panel-primary a:active {
+  color: white;
+}
+
+
+.panel-danger a:link {
+  color: #337ab7;
+}
+
+/* visited link */
+.panel-danger a:visited {
+  color: #337ab7;
+}
+
+/* mouse over link */
+.panel-danger a:hover {
+  color: #337ab7;
+}
+
+/* selected link */
+.panel-danger a:active {
+  color: #337ab7;
+}

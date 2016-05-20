@@ -1,27 +1,100 @@
 <h2><%= @homosaurus.prefLabel %> (http://homosaurus.org/terms/<%= @homosaurus.identifier %>)</h2>
 
 <p><div style="clear:both;">
-  <%= button_to "Back To Index", vocabs_path, :method => "get", class: 'btn btn-default', style:"float:left;" %>
+  <% if params[:search_term].present? %>
+      <%= button_to "Back To Search Results", search_results_path, :method => "get", class: 'btn btn-default', style:"float:left;", params: { :term=>params[:search_term]} %>
+  <% else %>
+      <%= button_to "Back To Index", vocabs_path, :method => "get", class: 'btn btn-default', style:"float:left;" %>
+  <% end %>
+
 </div>
 <br/>
 <br/>
 <br/>
 </p>
 
-<dl>
-  <% @homosaurus.show_fields.each do |field| %>
-    <dt><%= field.to_s.humanize %>:</dt>
-      <%= puts field %>
-    <% @homosaurus.get_values(field).each do |value| %>
-      <dd><%= value %></dd>
+<% @homosaurus.show_fields.each do |field| %>
+    <% term_values =  @homosaurus.get_values(field) %>
+    <% if term_values.first.present? %>
+        <% if field.to_s == 'identifier' %>
+            <div class="panel panel-primary">
+        <% else %>
+            <div class="panel panel-primary">
+        <% end %>
+
+          <div class="panel-heading">
+
+            <%= Homosaurus.getLabel(field.to_s).html_safe %>
+          </div>
+          <div class="panel-body">
+            <dl style="margin-bottom:0px">
+            <% term_values.each do |value| %>
+                  <dd><%= value %></dd>
+            <% end %>
+            </dl>
+          </div>
+        </div>
+    <% end %>
+
+<% end %>
+
+<% term_values =  @homosaurus.broader %>
+<% if term_values.first.present? %>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <%= Homosaurus.getLabel('broader').html_safe %>
+      </div>
+      <div class="panel-body">
+        <dl style="margin-bottom:0px">
+          <% term_values.each do |value| %>
+              <dd><%= link_to "#{value.prefLabel}", vocab_path(:id => value.id.split('/').last)%></dd>
+          <% end %>
+        </dl>
+      </div>
+    </div>
+<% end %>
+
+<% term_values =  @homosaurus.related %>
+<% if term_values.first.present? %>
+<div class="panel panel-danger">
+  <div class="panel-heading">
+    <%= Homosaurus.getLabel('related').html_safe %>
+  </div>
+  <div class="panel-body">
+    <dl style="margin-bottom:0px">
+      <% term_values.each do |value| %>
+          <dd><%= link_to "#{value.prefLabel}", vocab_path(:id => value.id.split('/').last)%></dd>
+      <% end %>
+    </dl>
+  </div>
+</div>
+<% end %>
+
+<% term_values =  @homosaurus.narrower %>
+<% if term_values.first.present? %>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <%= Homosaurus.getLabel('narrower').html_safe %>
+      </div>
+      <div class="panel-body">
+        <dl style="margin-bottom:0px">
+          <% term_values.each do |value| %>
+              <dd><%= link_to "#{value.prefLabel}", vocab_path(:id => value.id.split('/').last)%></dd>
+          <% end %>
+        </dl>
+      </div>
+    </div>
+<% end %>
+
+<h3>Hierarchy Display:</h3>
+  <% if @homosaurus.broader.first.blank? %>
+    <div style="padding-left:0px;">No Broader Term</div>
+  <% else %>
+    <% @homosaurus.broader.each do |broader| %>
+        <div style="padding-left:0px;"><%= link_to "#{broader.prefLabel}", vocab_path(:id => broader.id.split('/').last)%></div>
     <% end %>
   <% end %>
-</dl>
 
-<h3>Hierarchy:</h3>
-  <% @homosaurus.broader.each do |broader| %>
-    <div style="padding-left:0px;"><%= link_to "#{broader.prefLabel}", vocab_path(:id => broader.id.split('/').last)%></div>
-  <% end %>
 
 <div style="padding-left:40px;"><strong><%= @homosaurus.prefLabel %></strong></div>
 
@@ -30,4 +103,4 @@
           <% end %>
 
 <br />
-<p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url + '.nt'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonld' %>, <%= link_to "TTL", request.original_url + '.ttl' %>
+<p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url + '.nt'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonld' %>, <%= link_to "TTL", request.original_url + '.ttl' %></p>

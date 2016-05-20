@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  get 'search/index'
+
   resources :vocabs, only: [:index, :show], :path => :terms
   root to: 'homepage#index'
+
+  get 'search' => 'search#index', as: :search_results
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

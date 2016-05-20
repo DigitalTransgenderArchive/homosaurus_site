@@ -4,9 +4,7 @@ class Homosaurus < ActiveFedora::Base
   has_and_belongs_to_many :narrower, predicate: ::RDF::Vocab::SKOS.narrower, class_name: "Homosaurus"
   has_and_belongs_to_many :related, predicate: ::RDF::Vocab::SKOS.related, class_name: "Homosaurus"
 
-  property :identifier, predicate: ::RDF::Vocab::DC.identifier, multiple: false do |index|
-    index.as :stored_sortable
-  end
+
 
   property :prefLabel, predicate: ::RDF::Vocab::SKOS.prefLabel, multiple: false do |index|
     index.as :stored_searchable, :symbol
@@ -24,6 +22,10 @@ class Homosaurus < ActiveFedora::Base
     index.as :stored_searchable, :symbol
   end
 
+  property :identifier, predicate: ::RDF::Vocab::DC.identifier, multiple: false do |index|
+    index.as :stored_sortable
+  end
+
   property :issued, predicate: ::RDF::DC.issued, multiple: false do |index|
     index.as :stored_sortable
   end
@@ -38,6 +40,35 @@ class Homosaurus < ActiveFedora::Base
 
   property :closeMatch, predicate: ::RDF::Vocab::SKOS.closeMatch, multiple: true do |index|
     index.as :stored_searchable, :symbol
+  end
+
+  def self.getLabel field
+    case field
+      when "identifier"
+        "<a href='http://purl.org/dc/terms/identifier' target='blank' title='Definition of Identifier in the Dublin Core Terms Vocabulary'>Identifier</a>"
+      when "prefLabel"
+        "<a href='http://www.w3.org/2004/02/skos/core#prefLabel' target='blank'  title='Definition of Preferred Label in the SKOS Vocabulary'>Preferred Label</a>"
+      when "altLabel"
+        "<a href='http://www.w3.org/2004/02/skos/core#altLabel' target='blank'  title='Definition of Alternative Label in the SKOS Vocabulary'>Alternative Label (Use For)</a>"
+      when "description"
+        "<a href='http://www.w3.org/2000/01/rdf-schema#comment' target='blank'  title='Definition of Comment in the RDF Schema Vocabulary'>Description</a>"
+      when "issued"
+        "<a href='http://purl.org/dc/terms/issued' target='blank'  title='Definition of Issued in the Dublin Core Terms Vocabulary'>Issued (Created)</a>"
+      when "modified"
+        "<a href='http://purl.org/dc/terms/modified' target='blank'  title='Definition Modified in the Dublin Core Terms Vocabulary'>Modified</a>"
+      when "exactMatch"
+        "<a href='http://www.w3.org/2004/02/skos/core#exactMatch' target='blank'  title='Definition of exactMatch in the SKOS Vocabulary'>External Exact Match</a>"
+      when "closeMatch"
+        "<a href='http://www.w3.org/2004/02/skos/core#closeMatch' target='blank'  title='Definition of Modified in the SKOS Vocabulary'>External Close Match</a>"
+      when "related"
+        "<a href='http://www.w3.org/2004/02/skos/core#related' target='blank'  title='Definition of Related in the SKOS Vocabulary'>Related Terms</a>"
+      when "broader"
+        "<a href='http://www.w3.org/2004/02/skos/core#broader' target='blank'  title='Definition of Broader in the SKOS Vocabulary'>Broader Terms</a>"
+      when "narrower"
+        "<a href='http://www.w3.org/2004/02/skos/core#narrower' target='blank'  title='Definition of Narrower in the SKOS Vocabulary'>Narrower Terms</a>"
+      else
+        field.humanize
+    end
   end
 
   def show_fields
