@@ -40,8 +40,10 @@ class SearchController < ApplicationController
     opts[:q] = term
     opts[:pf] = 'prefLabel_tesim'
     opts[:qf] = 'prefLabel_tesim altLabel_tesim description_tesim identifier_tesim'
-    opts[:fl] = 'id,prefLabel_tesim,description_tesim,altLabel_tesim'
+    opts[:fl] = 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim'
     opts[:fq] = 'active_fedora_model_ssi:Homosaurus'
+
+
     # set default sort to created date ascending
     #opts[:sort] = 'prefLabel_tesim ascending'
 
