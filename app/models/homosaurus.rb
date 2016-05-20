@@ -109,9 +109,14 @@ class Homosaurus < ActiveFedora::Base
 
   end
 
-  def self.all_terms_full_graph
-    all_terms = Homosaurus.find_with_conditions("*:*", rows: '10000', fl: 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim' )
-    all_terms = all_terms.sort_by { |term| term["prefLabel_tesim"].first }
+  def self.all_terms_full_graph(limited_terms=nil)
+    all_terms = []
+    if limited_terms.nil?
+      all_terms = Homosaurus.find_with_conditions("*:*", rows: '10000', fl: 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim' )
+      all_terms = all_terms.sort_by { |term| term["prefLabel_tesim"].first }
+    else
+      all_terms = limited_terms
+    end
 
     graph = ::RDF::Graph.new
 
@@ -152,8 +157,6 @@ class Homosaurus < ActiveFedora::Base
 
     end
     graph
-
-
   end
 
   def full_graph

@@ -1,8 +1,8 @@
 <h2><%= @homosaurus.prefLabel %> (http://homosaurus.org/terms/<%= @homosaurus.identifier %>)</h2>
 
 <p><div style="clear:both;">
-  <% if params[:search_term].present? %>
-      <%= button_to "Back To Search Results", search_results_path, :method => "get", class: 'btn btn-default', style:"float:left;", params: { :term=>params[:search_term]} %>
+  <% if params[:from_q].present? %>
+      <%= button_to "Back To Search Results", search_results_path, :method => "get", class: 'btn btn-default', style:"float:left;", params: { :q=>params[:from_q]} %>
   <% else %>
       <%= button_to "Back To Index", vocabs_path, :method => "get", class: 'btn btn-default', style:"float:left;" %>
   <% end %>
@@ -103,4 +103,4 @@
           <% end %>
 
 <br />
-<p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url + '.nt'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonld' %>, <%= link_to "TTL", request.original_url + '.ttl' %></p>
+<p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.nt'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonld' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttl' %></p>
