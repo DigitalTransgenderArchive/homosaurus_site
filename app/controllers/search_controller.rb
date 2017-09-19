@@ -2,7 +2,7 @@ class SearchController < ApplicationController
   def index
     #@terms = Homosaurus.find_with_conditions({q: params[:term], pf: 'prefLabel_tesim',  qf: "prefLabel_tesim altLabel_tesim description_tesim identifier_tesim"}, rows: '10000' )
     #See def find_in_batches(conditions, opts = {}) method in finder_methods in Active Fedora under lib/active_fedora/relation
-    if params[:term].present?
+    if params[:q].present?
 =begin
       opts = {}
       opts[:q] = params[:term]
@@ -15,16 +15,23 @@ class SearchController < ApplicationController
 
 
       @terms = []
-      SearchController.custom_find_in_batches(params[:term]) do |group|
+      SearchController.custom_find_in_batches(params[:q]) do |group|
         group.each { |object|
           @terms << object
         }
       end
 
-      #@terms = Homosaurus.find_with_conditions({q: params[:term], pf: 'prefLabel_tesim',  qf: "prefLabel_tesim altLabel_tesim description_tesim identifier_tesim"}, rows: '10000' )
+      #@terms = @terms.sort_by { |term| term["prefLabel_tesim"].first }
 
-      @terms = @terms.sort_by { |term| term["prefLabel_tesim"].first }
+      respond_to do |format|
+        format.html
+        format.nt { render body: Homosaurus.all_terms_full_graph(@terms).dump(:ntriples), :content_type => Mime::NT }
+        format.jsonld { render body: Homosaurus.all_terms_full_graph(@terms).dump(:jsonld, standard_prefixes: true), :content_type => Mime::JSONLD }
+        format.ttl { render body: Homosaurus.all_terms_full_graph(@terms).dump(:ttl, standard_prefixes: true), :content_type => Mime::TTL }
+      end
     end
+
+
   end
 
 
@@ -33,8 +40,10 @@ class SearchController < ApplicationController
     opts[:q] = term
     opts[:pf] = 'prefLabel_tesim'
     opts[:qf] = 'prefLabel_tesim altLabel_tesim description_tesim identifier_tesim'
-    opts[:fl] = 'id,prefLabel_tesim,description_tesim,altLabel_tesim'
+    opts[:fl] = 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim'
     opts[:fq] = 'active_fedora_model_ssi:Homosaurus'
+
+
     # set default sort to created date ascending
     #opts[:sort] = 'prefLabel_tesim ascending'
 

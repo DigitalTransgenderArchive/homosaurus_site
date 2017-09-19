@@ -1,13 +1,13 @@
 <br/>
 <br/>
 
-<%= form_tag(search_results_path, :method => "get", id: "search-form", class: 'form-inline') do %>
-    <%= text_field_tag :term, params[:term], placeholder: "Search Vocab", class: 'form-control', placeholder: 'Enter Search Term' %>
-    <%= submit_tag "Search", class: 'form-control  btn-primary'%>
+<%= form_tag(search_results_path, :method => "get", id: "search-form", class: 'form-inline', enforce_utf8: false) do %>
+    <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Enter Search Term' %>
+    <%= submit_tag "Search", name: nil, class: 'form-control  btn-primary'%>
 <% end %>
 
-<% if params[:term].present? %>
-    <h2>Search Results for: <%= params[:term] %></h2>
+<% if params[:q].present? %>
+    <h2>Search Results for: <%= params[:q] %></h2>
 
 
     <% @terms.each do |term| %>
@@ -15,12 +15,12 @@
           <div class="panel-heading">
 
 
-            <%= link_to term['prefLabel_tesim'].first, vocab_path(:id => term['id'].split('/').last, :search_term=>params[:term]) %>
+            <%= link_to term['prefLabel_tesim'].first, vocab_path(:id => term['id'].split('/').last, :from_q=>params[:q]) %>
           </div>
           <% if term['altLabel_tesim'].present? or term['description_tesim'].present? %>
           <div class="panel-body">
             <% if term['altLabel_tesim'].present? %>
-                <strong>Alternative Labels:</strong> <%= term['altLabel_tesim'].join(',') %><br />
+                <strong>Alternative Labels:</strong> <%= term['altLabel_tesim'].join(', ') %><br />
             <% end %>
             <% if term['description_tesim'].present? %>
                 <strong>Description:</strong> <%= term['description_tesim'].first %>
@@ -34,6 +34,10 @@
 
 
     <% end %>
+
+    <p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url.gsub('/search', '/search.nt')  %>, <%= link_to "JSON-LD", request.original_url.gsub('/search', '/search.jsonld') %>, <%= link_to "TTL", request.original_url.gsub('/search', '/search.ttl') %>
+
+
 <% end %>
 
 
