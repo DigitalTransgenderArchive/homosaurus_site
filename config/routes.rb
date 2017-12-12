@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   get 'search/index'
 
+  resources :vocabs_v2, only: [:index, :show], :path => '/terms/v2'
+
   resources :vocabs, only: [:index, :show], :path => :terms
+
+
   root to: 'homepage#index'
 
   get 'search' => 'search#index', as: :search_results
+
+  get 'search' => 'search_v2#index', as: :search_results_v2, :path => '/v2/search'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
