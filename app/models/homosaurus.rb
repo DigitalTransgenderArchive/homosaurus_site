@@ -1,46 +1,4 @@
-class Homosaurus < ActiveFedora::Base
-
-  has_and_belongs_to_many :broader, predicate: ::RDF::Vocab::SKOS.broader, class_name: "Homosaurus"
-  has_and_belongs_to_many :narrower, predicate: ::RDF::Vocab::SKOS.narrower, class_name: "Homosaurus"
-  has_and_belongs_to_many :related, predicate: ::RDF::Vocab::SKOS.related, class_name: "Homosaurus"
-
-
-
-  property :prefLabel, predicate: ::RDF::Vocab::SKOS.prefLabel, multiple: false do |index|
-    index.as :stored_searchable, :symbol
-  end
-
-  property :altLabel, predicate: ::RDF::Vocab::SKOS.altLabel, multiple: true do |index|
-    index.as :stored_searchable, :symbol
-  end
-
-  property :description, predicate: ::RDF::RDFS.comment, multiple: false do |index|
-    index.as :stored_searchable, :symbol
-  end
-
-  property :description, predicate: ::RDF::RDFS.comment, multiple: false do |index|
-    index.as :stored_searchable, :symbol
-  end
-
-  property :identifier, predicate: ::RDF::Vocab::DC.identifier, multiple: false do |index|
-    index.as :stored_sortable
-  end
-
-  property :issued, predicate: ::RDF::DC.issued, multiple: false do |index|
-    index.as :stored_sortable
-  end
-
-  property :modified, predicate: ::RDF::DC.modified, multiple: false do |index|
-    index.as :stored_sortable
-  end
-
-  property :exactMatch, predicate: ::RDF::Vocab::SKOS.exactMatch, multiple: true do |index|
-    index.as :stored_searchable, :symbol
-  end
-
-  property :closeMatch, predicate: ::RDF::Vocab::SKOS.closeMatch, multiple: true do |index|
-    index.as :stored_searchable, :symbol
-  end
+class Homosaurus
 
   def self.getLabel field
     case field
@@ -93,30 +51,26 @@ class Homosaurus < ActiveFedora::Base
   end
 =end
 
-
-  def to_solr(doc = {} )
-    doc = super(doc)
-
-    doc['dta_homosaurus_lcase_prefLabel_ssi'] = self.prefLabel.downcase
-    doc['dta_homosaurus_lcase_altLabel_ssim'] = []
-    doc['topConcept_ssim'] = []
-    self.altLabel.each do |alt|
-      doc['dta_homosaurus_lcase_altLabel_ssim'] << alt
-    end
-
-    doc['dta_homosaurus_lcase_comment_tesi'] = self.description
-
-    @broadest_terms = []
-    get_broadest(self)
-    doc['topConcept_ssim'] = @broadest_terms if @broadest_terms.present?
-    doc
-
+  def self.find_with_conditions(q:, rows:, fl:)
+    opts = {}
+    opts[:q] = q
+    opts[:fl] = fl
+    opts[:rows] = rows
+    opts[:fq] = 'active_fedora_model_ssi:Homosaurus'
+    result = DSolr.find(opts)
+    result
   end
+
+  def self.find(q)
+    DSolr.find_by_id(q)
+  end
+
+
 
   def self.all_terms_full_graph(limited_terms=nil)
     all_terms = []
     if limited_terms.nil?
-      all_terms = Homosaurus.find_with_conditions("*:*", rows: '10000', fl: 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim, topConcept_ssim' )
+      all_terms = Homosaurus.find_with_conditions(q:"*:*", rows: '10000', fl: 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim, topConcept_ssim' )
       all_terms = all_terms.sort_by { |term| term["prefLabel_tesim"].first }
     else
       all_terms = limited_terms

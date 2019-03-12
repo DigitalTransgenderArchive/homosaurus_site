@@ -3,7 +3,7 @@ class VocabsController < ApplicationController
   def index
     #@terms = Homosaurus.all.sort_by { |term| term.preferred_label }
     #@terms = Homosaurus.all
-    @terms = Homosaurus.find_with_conditions("*:*", rows: '10000', fl: 'id,prefLabel_tesim' )
+    @terms = Homosaurus.find_with_conditions(q: "*:*", rows: '10000', fl: 'id,prefLabel_tesim' )
     @terms = @terms.sort_by { |term| term["prefLabel_tesim"].first }
 
     respond_to do |format|

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get 'search' => 'search#index', as: :search_results
 
-  get 'search' => 'search_v2#index', as: :search_results_v2, :path => '/v2/search'
+  #get 'search' => 'search_v2#index', as: :search_results_v2, :path => '/v2/search'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
