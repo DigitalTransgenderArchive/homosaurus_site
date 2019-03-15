@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.5'
 
 #gem 'rdf'
 gem 'rdf', '1.99.0'
+gem "rdf-vocab"
+gem "mime-types"
+gem "linkeddata", '1.99.0'
 #gem 'rdf-blazegraph', github: "ruby-rdf/rdf-blazegraph", branch: 'develop'
 #gem 'active-triples', github: "scande3/ActiveTriples", branch: 'develop'
 

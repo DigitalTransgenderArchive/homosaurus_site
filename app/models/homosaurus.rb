@@ -1,4 +1,46 @@
-class Homosaurus
+
+class Homosaurus < ActiveRecord::Base
+  self.table_name = "dta.homosaurus_subjects"
+
+  serialize :alt_labels, Array
+  serialize :broader, Array
+  serialize :narrower, Array
+  serialize :related, Array
+  serialize :closeMatch, Array
+  serialize :exactMatch, Array
+
+  def self.show_fields
+    ['prefLabel', 'altLabel', 'description', 'identifier', 'issued', 'modified', 'exactMatch', 'closeMatch']
+  end
+
+  def self.get_values(field, obj)
+    case field
+      when "identifier"
+        [obj["identifier_ssi"]] || []
+      when "prefLabel"
+        obj["prefLabel_ssim"] || []
+      when "altLabel"
+        obj["altLabel_ssim"] || []
+      when "description"
+        [obj["description_ssi"]] || []
+      when "issued"
+        obj["date_created_ssim"] || []
+      when "modified"
+        obj["date_created_ssim"] || []
+      when "exactMatch"
+        [nil]
+      when "closeMatch"
+        [nil]
+      when "related"
+        obj["related_ssim"] || []
+      when "broader"
+        obj["broader_ssim"] || []
+      when "narrower"
+        obj["narrower_ssim"] || []
+      else
+       [nil]
+    end
+  end
 
   def self.getLabel field
     case field
@@ -128,33 +170,36 @@ class Homosaurus
   def full_graph
     base_uri = ::RDF::URI.new("http://homosaurus.org/terms/#{self.identifier}")
     graph = ::RDF::Graph.new << [base_uri, ::RDF::Vocab::DC.identifier, "#{self.identifier}"]
-    graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{self.prefLabel}"]
-    self.altLabel.each do |alt|
+    graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{self.label}"]
+    self.alt_labels.each do |alt|
       graph << [base_uri, ::RDF::Vocab::SKOS.altLabel, "#{alt}"] if alt.present?
     end
     graph << [base_uri, ::RDF::RDFS.comment, "#{self.description}"] if self.description.present?
     #From: https://github.com/ruby-rdf/rdf/blob/7dd766fe34fe4f960fd3e7539f3ef5d556b25013/lib/rdf/model/literal.rb
     #graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.issued}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
     #graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.modified}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
-    graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.issued}", datatype: ::RDF::XSD.date)]
-    graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.modified}", datatype: ::RDF::XSD.date)]
+    graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
+    graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
 
-    self.broader.each do |current_broader|
-        graph << [base_uri, ::RDF::Vocab::SKOS.broader, ::RDF::URI.new("http://homosaurus.org/terms/#{current_broader.id.split('/').last}")] if current_broader.present?
+    self.broader.each do |cb|
+      current_broader = Homosaurus.find_by(identifier: cb)
+        graph << [base_uri, ::RDF::Vocab::SKOS.broader, ::RDF::URI.new("http://homosaurus.org/terms/#{current_broader.identifier}")] if current_broader.present?
     end
 
     @broadest_terms = []
-    get_broadest self
+    get_broadest self.identifier
     @broadest_terms.each do |broad_term|
       graph << [base_uri, ::RDF::Vocab::SKOS.hasTopConcept, ::RDF::URI.new("http://homosaurus.org/terms/#{broad_term}")]
     end
 
-    self.narrower.each do |current_narrower|
-      graph << [base_uri, ::RDF::Vocab::SKOS.narrower, ::RDF::URI.new("http://homosaurus.org/terms/#{current_narrower.id.split('/').last}")] if current_narrower.present?
+    self.narrower.each do |cn|
+      current_narrower = Homosaurus.find_by(identifier: cn)
+      graph << [base_uri, ::RDF::Vocab::SKOS.narrower, ::RDF::URI.new("http://homosaurus.org/terms/#{current_narrower.identifier}")] if current_narrower.present?
     end
 
-    self.related.each do |current_related|
-      graph << [base_uri, ::RDF::Vocab::SKOS.related, ::RDF::URI.new("http://homosaurus.org/terms/#{current_related.id.split('/').last}")] if current_related.present?
+    self.related.each do |cr|
+      current_related = Homosaurus.find_by(identifier: cr)
+      graph << [base_uri, ::RDF::Vocab::SKOS.related, ::RDF::URI.new("http://homosaurus.org/terms/#{current_related.identifier}")] if current_related.present?
     end
 
     graph << [base_uri, ::RDF::Vocab::SKOS.exactMatch, ::RDF::URI.new("#{self.exactMatch}")] if self.exactMatch.present?
@@ -165,15 +210,15 @@ class Homosaurus
     graph
   end
 
-  def get_broadest(item)
-    if item.broader.blank?
-      @broadest_terms << item.id.split('/').last
-    else
-      item.broader.each do |current_broader|
-        get_broadest(current_broader)
-      end
+def get_broadest(item)
+  if Homosaurus.find_by(identifier: item).broader.blank?
+    @broadest_terms << item.split('/').last
+  else
+    Homosaurus.find_by(identifier: item).broader.each do |current_broader|
+      get_broadest(current_broader)
     end
   end
+end
 
 
 end

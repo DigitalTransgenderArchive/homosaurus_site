@@ -1,4 +1,4 @@
-<h2><%= @homosaurus["prefLabel_tesim"] %> (http://homosaurus.org/terms/<%= @homosaurus["id"] %>)</h2>
+<h2><%= @homosaurus["prefLabel_tesim"].first %> (http://homosaurus.org/terms/<%= @homosaurus["identifier_ssi"] %>)</h2>
 
 <p><div style="clear:both;">
   <% if params[:from_q].present? %>
@@ -13,8 +13,8 @@
 <br/>
 </p>
 
-<% @homosaurus.show_fields.each do |field| %>
-    <% term_values =  @homosaurus.get_values(field) %>
+<% Homosaurus.show_fields.each do |field| %>
+    <% term_values =  Homosaurus.get_values(field, @homosaurus) %>
     <% if term_values.first.present? %>
         <% if field.to_s == 'identifier' %>
             <div class="panel panel-primary">
@@ -38,7 +38,7 @@
 
 <% end %>
 
-<% term_values =  @homosaurus.broader %>
+<% term_values = Homosaurus.get_values('broader', @homosaurus) %>
 <% if term_values.first.present? %>
     <div class="panel panel-danger">
       <div class="panel-heading">
@@ -47,14 +47,15 @@
       <div class="panel-body">
         <dl style="margin-bottom:0px">
           <% term_values.each do |value| %>
-              <dd><%= link_to "#{value.prefLabel}", vocab_path(:id => value.id.split('/').last)%></dd>
+            <% obj = Homosaurus.find_by(identifier: value) %>
+              <dd><%= link_to "#{obj.label}", vocab_path(:id => value.split('/').last)%></dd>
           <% end %>
         </dl>
       </div>
     </div>
 <% end %>
 
-<% term_values =  @homosaurus.related %>
+<% term_values = Homosaurus.get_values('related', @homosaurus) %>
 <% if term_values.first.present? %>
 <div class="panel panel-danger">
   <div class="panel-heading">
@@ -63,14 +64,15 @@
   <div class="panel-body">
     <dl style="margin-bottom:0px">
       <% term_values.each do |value| %>
-          <dd><%= link_to "#{value.prefLabel}", vocab_path(:id => value.id.split('/').last)%></dd>
+        <% obj = Homosaurus.find_by(identifier: value) %>
+          <dd><%= link_to "#{obj.label}", vocab_path(:id => value.split('/').last)%></dd>
       <% end %>
     </dl>
   </div>
 </div>
 <% end %>
 
-<% term_values =  @homosaurus.narrower %>
+<% term_values =  Homosaurus.get_values('narrower', @homosaurus) %>
 <% if term_values.first.present? %>
     <div class="panel panel-danger">
       <div class="panel-heading">
@@ -79,7 +81,8 @@
       <div class="panel-body">
         <dl style="margin-bottom:0px">
           <% term_values.each do |value| %>
-              <dd><%= link_to "#{value.prefLabel}", vocab_path(:id => value.id.split('/').last)%></dd>
+            <% obj = Homosaurus.find_by(identifier: value) %>
+              <dd><%= link_to "#{obj.label}", vocab_path(:id => value.split('/').last)%></dd>
           <% end %>
         </dl>
       </div>
@@ -87,19 +90,21 @@
 <% end %>
 
 <h3>Hierarchy Display:</h3>
-  <% if @homosaurus.broader.first.blank? %>
+  <% if  Homosaurus.get_values('broader', @homosaurus).first.blank? %>
     <div style="padding-left:0px;">No Broader Term</div>
   <% else %>
-    <% @homosaurus.broader.each do |broader| %>
-        <div style="padding-left:0px;"><%= link_to "#{broader.prefLabel}", vocab_path(:id => broader.id.split('/').last)%></div>
+    <%  Homosaurus.get_values('broader', @homosaurus).each do |broader| %>
+       <% obj = Homosaurus.find_by(identifier: broader) %>
+        <div style="padding-left:0px;"><%= link_to "#{obj.label}", vocab_path(:id => broader.split('/').last)%></div>
     <% end %>
   <% end %>
 
 
-<div style="padding-left:40px;"><strong><%= @homosaurus.prefLabel %></strong></div>
+<div style="padding-left:40px;"><strong><%=  Homosaurus.get_values('prefLabel', @homosaurus).first %></strong></div>
 
-          <% @homosaurus.narrower.each do |narrower| %>
-         <div style="padding-left:80px;"><%= link_to "#{narrower.prefLabel}", vocab_path(:id => narrower.id.split('/').last)%></div>
+          <%  @homosaurus_obj.narrower.each do |narrower| %>
+           <% obj = Homosaurus.find_by(identifier: narrower) %>
+         <div style="padding-left:80px;"><%= link_to "#{obj.label}", vocab_path(:id => narrower.split('/').last)%></div>
           <% end %>
 
 <br />
