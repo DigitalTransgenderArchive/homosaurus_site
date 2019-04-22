@@ -13,8 +13,8 @@
 <br/>
 </p>
 
-<% Homosaurus.show_fields.each do |field| %>
-    <% term_values =  Homosaurus.get_values(field, @homosaurus) %>
+<% HomosaurusSubject.show_fields.each do |field| %>
+    <% term_values =  HomosaurusSubject.get_values(field, @homosaurus) %>
     <% if term_values.first.present? %>
         <% if field.to_s == 'identifier' %>
             <div class="panel panel-primary">
@@ -24,7 +24,7 @@
 
           <div class="panel-heading">
 
-            <%= Homosaurus.getLabel(field.to_s).html_safe %>
+            <%= HomosaurusSubject.getLabel(field.to_s).html_safe %>
           </div>
           <div class="panel-body">
             <dl style="margin-bottom:0px">
@@ -38,16 +38,16 @@
 
 <% end %>
 
-<% term_values = Homosaurus.get_values('broader', @homosaurus) %>
+<% term_values = HomosaurusSubject.get_values('broader', @homosaurus) %>
 <% if term_values.first.present? %>
     <div class="panel panel-danger">
       <div class="panel-heading">
-        <%= Homosaurus.getLabel('broader').html_safe %>
+        <%= HomosaurusSubject.getLabel('broader').html_safe %>
       </div>
       <div class="panel-body">
         <dl style="margin-bottom:0px">
           <% term_values.each do |value| %>
-            <% obj = Homosaurus.find_by(identifier: value) %>
+            <% obj = HomosaurusSubject.find_by(identifier: value) %>
               <dd><%= link_to "#{obj.label}", vocab_path(:id => value.split('/').last)%></dd>
           <% end %>
         </dl>
@@ -55,16 +55,16 @@
     </div>
 <% end %>
 
-<% term_values = Homosaurus.get_values('related', @homosaurus) %>
+<% term_values = HomosaurusSubject.get_values('related', @homosaurus) %>
 <% if term_values.first.present? %>
 <div class="panel panel-danger">
   <div class="panel-heading">
-    <%= Homosaurus.getLabel('related').html_safe %>
+    <%= HomosaurusSubject.getLabel('related').html_safe %>
   </div>
   <div class="panel-body">
     <dl style="margin-bottom:0px">
       <% term_values.each do |value| %>
-        <% obj = Homosaurus.find_by(identifier: value) %>
+        <% obj = HomosaurusSubject.find_by(identifier: value) %>
           <dd><%= link_to "#{obj.label}", vocab_path(:id => value.split('/').last)%></dd>
       <% end %>
     </dl>
@@ -72,16 +72,16 @@
 </div>
 <% end %>
 
-<% term_values =  Homosaurus.get_values('narrower', @homosaurus) %>
+<% term_values =  HomosaurusSubject.get_values('narrower', @homosaurus) %>
 <% if term_values.first.present? %>
     <div class="panel panel-danger">
       <div class="panel-heading">
-        <%= Homosaurus.getLabel('narrower').html_safe %>
+        <%= HomosaurusSubject.getLabel('narrower').html_safe %>
       </div>
       <div class="panel-body">
         <dl style="margin-bottom:0px">
           <% term_values.each do |value| %>
-            <% obj = Homosaurus.find_by(identifier: value) %>
+            <% obj = HomosaurusSubject.find_by(identifier: value) %>
               <dd><%= link_to "#{obj.label}", vocab_path(:id => value.split('/').last)%></dd>
           <% end %>
         </dl>
@@ -90,20 +90,20 @@
 <% end %>
 
 <h3>Hierarchy Display:</h3>
-  <% if  Homosaurus.get_values('broader', @homosaurus).first.blank? %>
+  <% if  HomosaurusSubject.get_values('broader', @homosaurus).first.blank? %>
     <div style="padding-left:0px;">No Broader Term</div>
   <% else %>
-    <%  Homosaurus.get_values('broader', @homosaurus).each do |broader| %>
-       <% obj = Homosaurus.find_by(identifier: broader) %>
+    <%  HomosaurusSubject.get_values('broader', @homosaurus).each do |broader| %>
+       <% obj = HomosaurusSubject.find_by(identifier: broader) %>
         <div style="padding-left:0px;"><%= link_to "#{obj.label}", vocab_path(:id => broader.split('/').last)%></div>
     <% end %>
   <% end %>
 
 
-<div style="padding-left:40px;"><strong><%=  Homosaurus.get_values('prefLabel', @homosaurus).first %></strong></div>
+<div style="padding-left:40px;"><strong><%=  HomosaurusSubject.get_values('prefLabel', @homosaurus).first %></strong></div>
 
           <%  @homosaurus_obj.narrower.each do |narrower| %>
-           <% obj = Homosaurus.find_by(identifier: narrower) %>
+           <% obj = HomosaurusSubject.find_by(identifier: narrower) %>
          <div style="padding-left:80px;"><%= link_to "#{obj.label}", vocab_path(:id => narrower.split('/').last)%></div>
           <% end %>
 

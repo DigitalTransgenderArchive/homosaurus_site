@@ -35,9 +35,9 @@ class SearchController < ApplicationController
 
       respond_to do |format|
         format.html
-        format.nt { render body: Homosaurus.all_terms_full_graph(@terms).dump(:ntriples), :content_type => Mime::NT }
-        format.jsonld { render body: Homosaurus.all_terms_full_graph(@terms).dump(:jsonld, standard_prefixes: true), :content_type => Mime::JSONLD }
-        format.ttl { render body: Homosaurus.all_terms_full_graph(@terms).dump(:ttl, standard_prefixes: true), :content_type => Mime::TTL }
+        format.nt { render body: HomosaurusSubject.all_terms_full_graph(@terms).dump(:ntriples), :content_type => "application/n-triples" }
+        format.jsonld { render body: HomosaurusSubject.all_terms_full_graph(@terms).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+        format.ttl { render body: HomosaurusSubject.all_terms_full_graph(@terms).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
       end
     end
 

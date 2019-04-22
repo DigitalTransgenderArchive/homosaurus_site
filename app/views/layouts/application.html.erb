@@ -15,12 +15,18 @@
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li><%= link_to "Home", '/' %></li>
-        <li><%= link_to "Vocabulary", vocabs_path %></li>
-        <% if request.original_url.include? '/v2' %>
-            <li><%= link_to "Search", search_results_v2_path %></li>
-        <% else %>
 
-            <li><%= link_to "Search", search_results_path %></li>
+        <% if request.original_url.include? '/terms' %>
+          <li><%= link_to "V1 Vocabulary", vocabs_path %></li>
+        <% else %>
+          <li><%= link_to "Vocabulary", vocabs_v2_index_path %></li>
+        <% end %>
+
+
+        <% if request.original_url.include? '/terms' %>
+          <li><%= link_to "V1 Search", search_results_path %></li>
+        <% else %>
+          <li><%= link_to "Search", search_results_v2_path %></li>
         <% end %>
 
       </ul>
