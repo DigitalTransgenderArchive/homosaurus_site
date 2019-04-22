@@ -15,19 +15,29 @@ class SearchController < ApplicationController
 
 
       @terms = []
-      SearchController.custom_find_in_batches(params[:q]) do |group|
-        group.each { |object|
-          @terms << object
-        }
-      end
+      opts = {}
+      opts[:q] = params[:q]
+      opts[:pf] = 'prefLabel_tesim'
+      opts[:qf] = 'prefLabel_tesim altLabel_tesim description_tesim identifier_tesim'
+      opts[:fl] = 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim'
+      opts[:fq] = 'active_fedora_model_ssi:Homosaurus'
+      response = DSolr.find(opts)
+      docs = response
+      @terms = docs
+
+      #SearchController.custom_find_in_batches(params[:q]) do |group|
+        #group.each { |object|
+          #@terms << object
+        #}
+      #end
 
       #@terms = @terms.sort_by { |term| term["prefLabel_tesim"].first }
 
       respond_to do |format|
         format.html
-        format.nt { render body: Homosaurus.all_terms_full_graph(@terms).dump(:ntriples), :content_type => Mime::NT }
-        format.jsonld { render body: Homosaurus.all_terms_full_graph(@terms).dump(:jsonld, standard_prefixes: true), :content_type => Mime::JSONLD }
-        format.ttl { render body: Homosaurus.all_terms_full_graph(@terms).dump(:ttl, standard_prefixes: true), :content_type => Mime::TTL }
+        format.nt { render body: HomosaurusSubject.all_terms_full_graph(@terms).dump(:ntriples), :content_type => "application/n-triples" }
+        format.jsonld { render body: HomosaurusSubject.all_terms_full_graph(@terms).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+        format.ttl { render body: HomosaurusSubject.all_terms_full_graph(@terms).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
       end
     end
 
@@ -52,7 +62,7 @@ class SearchController < ApplicationController
     counter = 0
     loop do
       counter += 1
-      response = ActiveFedora::SolrService.instance.conn.paginate counter, batch_size, "select", params: opts
+      #response = ActiveFedora::SolrService.instance.conn.paginate counter, batch_size, "select", params: opts
       docs = response["response"]["docs"]
       yield docs
       break unless docs.has_next?

@@ -35,7 +35,7 @@
 
     <% end %>
 
-    <p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url.gsub('/v2/search', '/search.nt')  %>, <%= link_to "JSON-LD", request.original_url.gsub('/search', '/search.jsonld') %>, <%= link_to "TTL", request.original_url.gsub('/search', '/search.ttl') %>
+    <p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url.gsub('/search/v2', '/search/v2.nt')  %>, <%= link_to "JSON-LD", request.original_url.gsub('/search/v2', '/search/v2.jsonld') %>, <%= link_to "TTL", request.original_url.gsub('/search/v2', '/search/v2.ttl') %>
 
 
 <% end %>
