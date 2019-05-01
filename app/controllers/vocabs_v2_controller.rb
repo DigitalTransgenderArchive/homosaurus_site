@@ -4,7 +4,7 @@ class VocabsV2Controller < ApplicationController
     #@terms = Homosaurus.all.sort_by { |term| term.preferred_label }
     #@terms = Homosaurus.all
     @terms = HomosaurusV2Subject.find_with_conditions(q: "*:*", rows: '10000', fl: 'id,prefLabel_tesim' )
-    @terms = @terms.sort_by { |term| term["prefLabel_tesim"].first }
+    @terms = @terms.sort_by { |term| term["prefLabel_tesim"].first.downcase }
 
     respond_to do |format|
       format.html
