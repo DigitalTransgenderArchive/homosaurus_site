@@ -3,7 +3,7 @@ source 'https://rails-assets.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'mysql2', '0.4.10'
-gem 'rails', '~> 5.2.2.1'
+gem 'rails', '~> 5.2.3'
 gem 'rsolr', '>= 1.0', '< 3'
 
 # Use Bootstrap
