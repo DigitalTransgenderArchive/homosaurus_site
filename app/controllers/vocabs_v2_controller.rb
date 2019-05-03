@@ -8,9 +8,9 @@ class VocabsV2Controller < ApplicationController
 
     respond_to do |format|
       format.html
-      format.nt { render body: HomosaurusV2Subject.all_terms_full_graph.dump(:ntriples), :content_type => Mime::NT }
-      format.jsonld { render body: HomosaurusV2Subject.all_terms_full_graph.dump(:jsonld, standard_prefixes: true), :content_type => Mime::JSONLD }
-      format.ttl { render body: HomosaurusV2Subject.all_terms_full_graph.dump(:ttl, standard_prefixes: true), :content_type => Mime::TTL }
+      format.nt { render body: HomosaurusV2Subject.all_terms_full_graph.dump(:ntriples), :content_type => "application/n-triples" }
+      format.jsonld { render body: HomosaurusV2Subject.all_terms_full_graph.dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+      format.ttl { render body: HomosaurusV2Subject.all_terms_full_graph.dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
     end
   end
 
