@@ -12,6 +12,11 @@ Rails.application.routes.draw do
 
   get 'search/v2' => 'search_v2#index', as: :search_results_v2
 
+  get 'tree' => 'graph#tree', as: :tree
+  get 'tree_data' => 'graph#tree_data', as: :tree_data
+
+  get 'indented_tree' => 'graph#indented_tree', as: :indented_tree
+
   #get 'search' => 'search_v2#index', as: :search_results_v2, :path => '/v2/search'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

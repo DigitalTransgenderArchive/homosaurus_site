@@ -29,6 +29,11 @@
           <li><%= link_to "Search", search_results_v2_path %></li>
         <% end %>
 
+        <% if !request.original_url.include? '/terms' %>
+          <li><%= link_to "Tree View", tree_path %></li>
+          <li><%= link_to "Indented Bars View", indented_tree_path %></li>
+        <% end %>
+
       </ul>
 
     </div><!--/.nav-collapse -->

@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 source 'https://rails-assets.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem "d3-rails", '4.13.0'
+
 gem 'mysql2', '0.4.10'
 gem 'rails', '~> 5.2.3'
 gem 'rsolr', '>= 1.0', '< 3'

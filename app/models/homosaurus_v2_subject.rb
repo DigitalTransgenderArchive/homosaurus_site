@@ -15,12 +15,92 @@ def self.find(q)
 end
 
 
+def self.csv_download(limited_terms=nil)
+  all_terms = []
+  if limited_terms.nil?
+    all_terms = HomosaurusV2Subject.find_with_conditions(q:"*:*", rows: '10000', fl: 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim, topConcept_ssim' )
+    all_terms = all_terms.sort_by { |term| term["prefLabel_tesim"].first.downcase }
+  else
+    all_terms = limited_terms
+  end
+
+  full_graph = []
+
+  all_terms.each do |current_term|
+    graph = {}
+
+    base_uri = "http://homosaurus.org/v2/#{current_term['identifier_ssi']}"
+    graph[:uri] = base_uri
+    graph[:identifier] = current_term['identifier_ssi']
+    graph[:prefLabel] = current_term['prefLabel_tesim'].first
+    graph[:engLabel] = '' # needs label_eng
+    graph[:altLabel] = []
+    if current_term['altLabel_tesim'].present?
+      current_term['altLabel_tesim'].each do |alt|
+        graph[:altLabel] << alt if alt.present?
+      end
+    end
+    graph[:altLabel] = graph[:altLabel].join("||")
+
+    graph[:description] = current_term['description_tesim'][0]
+
+    graph[:broader] = []
+    if current_term['broader_ssim'].present?
+      current_term['broader_ssim'].each do |current_broader|
+        graph[:broader] << "http://homosaurus.org/v2/#{current_broader.split('/').last}" if current_broader.present?
+      end
+    end
+    graph[:broader] = graph[:broader].join("||")
+
+    graph[:narrower] = []
+    if current_term['narrower_ssim'].present?
+      current_term['narrower_ssim'].each do |current_narrower|
+        graph[:narrower] << "http://homosaurus.org/v2/#{current_narrower.split('/').last}" if current_narrower.present?
+      end
+    end
+    graph[:narrower] = graph[:narrower].join("||")
+
+    graph[:related] = []
+    if current_term['related_ssim'].present?
+      current_term['related_ssim'].each do |current_related|
+        graph[:related] << "http://homosaurus.org/v2/#{current_related.split('/').last}" if current_related.present?
+      end
+    end
+    graph[:related] = graph[:related].join("||")
+
+    graph[:topConcept] =  []
+    if current_term['topConcept_ssim'].present?
+      current_term['topConcept_ssim'].each do |top_concept|
+        graph[:topConcept]  << "http://homosaurus.org/v2/#{top_concept}" if top_concept.present?
+      end
+    end
+    graph[:topConcept] = graph[:topConcept].join("||")
+
+    graph[:issued] = current_term['issued_dtsi'].split('T').first
+    graph[:modified] = current_term['modified_dtsi'].split('T').first
+
+    full_graph << graph
+  end
+
+  csv_string = CSV.generate do |csv|
+    cols = ["URI", "identifier", "prefLabel", "label@eng-us", "altLabel", "comment", "broader", "narrower", "related", "hasTopConcept", "issued", "modified"]
+
+    csv << cols
+    full_graph.each do |term|
+      csv << term.values
+    end
+  end
+
+  csv_string
+
+end
+
 
 def self.all_terms_full_graph(limited_terms=nil)
   all_terms = []
   if limited_terms.nil?
     all_terms = HomosaurusV2Subject.find_with_conditions(q:"*:*", rows: '10000', fl: 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim, topConcept_ssim' )
-    all_terms = all_terms.sort_by { |term| term["prefLabel_tesim"].first }
+    all_terms = all_terms.sort_by { |term| term["prefLabel_tesim"].first.downcase }
   else
     all_terms = limited_terms
   end
@@ -37,7 +117,7 @@ def self.all_terms_full_graph(limited_terms=nil)
       end
     end
 
-    graph << [base_uri, ::RDF::RDFS.comment, "#{current_term['description_tesim']}"] if current_term['description_tesim'].present?
+    graph << [base_uri, ::RDF::RDFS.comment, "#{current_term['description_tesim'][0]}"] if current_term['description_tesim'].present? and current_term['description_tesim'][0].present?
     graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{current_term['issued_dtsi'].split('T').first}", datatype: ::RDF::XSD.date)]
     graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{current_term['modified_dtsi'].split('T').first}", datatype: ::RDF::XSD.date)]
 
