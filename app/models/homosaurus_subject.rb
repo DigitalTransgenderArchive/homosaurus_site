@@ -28,9 +28,9 @@ class HomosaurusSubject < ActiveRecord::Base
       when "modified"
         obj["date_created_ssim"] || []
       when "exactMatch"
-        [nil]
+        obj["exactMatch_ssim"] || []
       when "closeMatch"
-        [nil]
+        obj["closeMatch_ssim"] || []
       when "related"
         obj["related_ssim"] || []
       when "broader"
