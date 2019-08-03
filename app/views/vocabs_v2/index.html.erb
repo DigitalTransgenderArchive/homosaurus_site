@@ -1,5 +1,13 @@
 <h1>Homosaurus Vocabulary Terms</h1>
 
+<h4>Graphical Views</h4>
+<% if !request.original_url.include? '/terms' %>
+  <ul>
+    <li><%= link_to "Tree View", tree_path %></li>
+    <li><%= link_to "Indented Bars View", indented_tree_path %></li>
+  </ul>
+<% end %>
+
 <h4>Current Term List</h4>
 <ul>
   <% @terms.each do |term| %>
