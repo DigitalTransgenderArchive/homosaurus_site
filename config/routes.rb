@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
 
   root to: 'homepage#index'
+  get 'about' => 'homepage#about', as: :about
+  get 'contact' => 'homepage#contact', as: :contact
 
   get 'search/terms' => 'search#index', as: :search_results
 

@@ -34,12 +34,9 @@
         <% else %>
           <li><%= link_to "Search", search_results_v2_path %></li>
         <% end %>
+        <li><%= link_to "About", about_path %></li>
 
-        <% if !request.original_url.include? '/terms' %>
-          <li><%= link_to "Tree View", tree_path %></li>
-          <li><%= link_to "Indented Bars View", indented_tree_path %></li>
-        <% end %>
-
+        <li><%= link_to "Contact", contact_path %></li>
       </ul>
 
     </div><!--/.nav-collapse -->
@@ -61,10 +58,8 @@
   </div><!-- /.container -->
 </div>
 <div class="footer" style="margin-top:50px; width:100%; color:white; background-color: #000000;">
-  <div class="container">
-
-    Homosaurus.org is a linked data service, maintained by the <%= link_to("College of the Holy Cross", "http://www.holycross.edu") %>. <br />
-    For questions or inquiries, please use the Digital Transgender Archive contact form at: <%= link_to("Contact Us", "https://www.digitaltransgenderarchive.net/contact") %>.
+  <div class="container" style="padding-top: 10px; padding-bottom: 10px;">
+    Homosaurus.org is a linked data service maintained by the <%= link_to("Digital Transgender Archive", "https://www.digitaltransgenderarchive.net") %>
   </div>
 </div>
 

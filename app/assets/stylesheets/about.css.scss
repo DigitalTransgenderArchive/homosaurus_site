@@ -1,0 +1,92 @@
+div#about {
+
+  h2 {
+    font-family: inherit;
+    line-height: 1.1;
+    color: inherit;
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 18px;
+    border-bottom: 2px #BACBE7 dotted;
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  div.info_section {
+    padding-left: 28px;
+  }
+
+  table {
+    width: 100%;
+    border-top: 0;
+    margin: 0 auto;
+    max-width: 1400px;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-sizing: border-box;
+
+    tbody {
+      tr {
+        border-top: 0;
+        border-bottom: 2px #BACBE7 dotted;
+      }
+
+      tr:last-child  {
+        border-bottom: 0;
+      }
+
+      td {
+        border: 0;
+        padding: 8px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+        line-height: 1.428571429;
+        vertical-align: top;
+
+        div.media {
+          margin-top: 0;
+          zoom: 1;
+          overflow: visible;
+
+          div.media-left {
+            display: table-cell;
+            vertical-align: top;
+            padding-right: 10px;
+          }
+
+            img {
+              width: 125px;
+              vertical-align: middle;
+              border: 0;
+            }
+        }
+
+        div.media-body {
+          overflow: visible;
+          display: table-cell;
+          vertical-align: top;
+          width: 10000px;
+          zoom: 1;
+
+          h4.media-heading {
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 18px;
+            font-family: inherit;
+            font-weight: 500;
+            line-height: 1.1;
+            color: inherit;
+          }
+
+          p {
+            margin: 0 0 10px;
+          }
+        }
+      }
+    }
+
+
+  }
+
+}
