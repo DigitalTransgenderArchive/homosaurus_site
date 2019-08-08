@@ -25,6 +25,8 @@ fedora.yml
 solr.yml
 secrets.yml
 blacklight.yml
+homosaurus.yml
+contact_emails.yml
 
 # Files to ignore by default in Git #
 #####################################

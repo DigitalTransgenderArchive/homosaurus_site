@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   root to: 'homepage#index'
   get 'about' => 'homepage#about', as: :about
   get 'contact' => 'homepage#contact', as: :contact
+  post 'contact' => 'homepage#contact'
+  get 'feedback_complete' => 'homepage#feedback_complete', as: :feedback_complete
+
 
   get 'search/terms' => 'search#index', as: :search_results
 

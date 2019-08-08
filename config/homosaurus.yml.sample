@@ -1,0 +1,11 @@
+default: &default
+  #google_analytics_id: ''
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

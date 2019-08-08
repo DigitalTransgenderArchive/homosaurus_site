@@ -1,0 +1,11 @@
+development:
+  general_email: someone@example.org
+  support_bcc_emails: someone@example.org
+
+test:
+  general_email: someone@example.org
+  support_bcc_emails: someone@example.org
+
+production:
+  general_email: someone@example.org
+  support_bcc_emails: someone@example.org

@@ -32,4 +32,10 @@ class Settings
     @env ||= Rails.env if defined?(Rails) and defined?(Rails.root)
     @env ||= 'development'
   end
+
+
+  def self.google_analytics_id
+    @google_analytics_id ||= Settings.homosaurus_config["google_analytics_id"]
+  end
+
 end
