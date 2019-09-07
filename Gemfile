@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 source 'https://rails-assets.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+
+# Recaptcha (https://github.com/ambethia/recaptcha)
+gem "recaptcha"
+
 gem "d3-rails", '4.13.0'
 
 gem 'mysql2', '0.4.10'

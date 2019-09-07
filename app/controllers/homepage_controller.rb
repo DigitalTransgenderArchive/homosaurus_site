@@ -5,7 +5,20 @@ class HomepageController < ApplicationController
   end
 
   def about
+    @errors=[]
+    @reveal_email = false
+    if request.post?
+      unless verify_recaptcha(action: 'contact', minimum_score: 0.45, secret_key: Settings.recaptcha_secret_key_v3)
+        if verify_recaptcha
+          @show_captcha_v2 = false
+        else
+          @show_captcha_v2 = true
+          @errors << 'Background recaptcha failed. Please fill out the below checkbox captcha and try clicking "[Reveal Email]" again.'
+        end
+      end
 
+      @reveal_emails = @errors.empty?
+    end
   end
 
   def contact
@@ -34,9 +47,15 @@ class HomepageController < ApplicationController
     unless params[:message] =~ /\w+/
       @errors << "Please enter a message."
     end
-    #unless simple_captcha_valid?
-    #  @errors << 'Captcha did not match'
-    #end
+    unless verify_recaptcha(action: 'contact', minimum_score: 0.4, secret_key: Settings.recaptcha_secret_key_v3)
+      if verify_recaptcha
+        @show_captcha_v2 = false
+      else
+        @show_captcha_v2 = true
+        @errors << 'Background recaptcha failed. Please try submitting your message again with the added checkbox captcha.'
+      end
+
+    end
     @errors.empty?
   end
 

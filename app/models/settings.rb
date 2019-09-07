@@ -38,4 +38,20 @@ class Settings
     @google_analytics_id ||= Settings.homosaurus_config["google_analytics_id"]
   end
 
+  def self.recaptcha_site_key
+    @recaptcha_site_key ||= Settings.homosaurus_config["recaptcha_site_key"]
+  end
+
+  def self.recaptcha_secret_key
+    @recaptcha_secret_key ||= Settings.homosaurus_config["recaptcha_secret_key"]
+  end
+
+  def self.recaptcha_site_key_v3
+    @recaptcha_site_key_v3 ||= Settings.homosaurus_config["recaptcha_site_key_v3"]
+  end
+
+  def self.recaptcha_secret_key_v3
+    @recaptcha_secret_key_v3 ||= Settings.homosaurus_config["recaptcha_secret_key_v3"]
+  end
+
 end

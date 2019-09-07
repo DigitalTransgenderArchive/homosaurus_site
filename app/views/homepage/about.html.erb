@@ -1,6 +1,33 @@
+<%= form_tag(reveal_emails_path, :id => 'captcha_form', :class => 'form-horizontal') do %>
+  <%= recaptcha_v3(action: 'contact', site_key: Settings.recaptcha_site_key_v3) %>
+
 <div id="about" class="col-sm-12 col-md-12">
 
-<h2>Mission</h2>
+  <% unless @errors.empty? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <ul class="errors">
+        <% @errors.each do |msg| %>
+          <li style="font-size: 18px;"><%= msg %></li>
+        <% end %>
+        <% if  @show_captcha_v2 %>
+          <li>
+                <%= recaptcha_tags %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @reveal_emails %>
+    <div id="error_explanation" class="alert alert-success">
+      <ul class="errors">
+          <li style="font-size: 18px;">Emails on the page are now revealed.</li>
+      </ul>
+    </div>
+    <% end %>
+
+
+  <h2>Mission</h2>
 
   <div class="info_section">
     <p>The Homosaurus is an international linked data vocabulary of LGBTQ terms that supports improved access to LGBTQ resources within cultural institutions. Designed to serve as a companion to broad subject term vocabularies, the Homosaurus is a robust and cutting-edge vocabulary of LGBTQ-specific terminology that enhances the discoverability of LGBTQ resources. </p>
@@ -36,7 +63,7 @@
             Amber Billey
           </h4>
           <p>
-            Amber Billey is the Systems & Metadata Librarian at Bard College. Prior to joining Bard, she was the Metadata Librarian at Columbia University Libraries where she worked on the LD4P project contributing to ontology development, tooling, and MARC to RDF mapping. Her research focuses on ethics and social justice in library metadata and information organization. She can be reached at <%= link_to "@justbilley", "https://twitter.com/justbilley", target: "_blank" %> or <%= link_to "abilley@bard.edu", "mailto:abilley@bard.edu" %>.
+            Amber Billey is the Systems & Metadata Librarian at Bard College. Prior to joining Bard, she was the Metadata Librarian at Columbia University Libraries where she worked on the LD4P project contributing to ontology development, tooling, and MARC to RDF mapping. Her research focuses on ethics and social justice in library metadata and information organization. She can be reached at <%= link_to "@justbilley", "https://twitter.com/justbilley", target: "_blank" %> or <%= hidden_email("abilley@bard.edu", @reveal_emails) %>.
           </p>
         </div>
         </div>
@@ -55,7 +82,7 @@
               Marika Cifor
             </h4>
             <p>
-              Marika Cifor is an Assistant Professor in the Information School at the University of Washington. She is a feminist scholar working at the intersections of archival studies and digital studies. Her research investigates how through archives, records, and data produced within digital cultures, individuals and communities marginalized by sexuality, race, class, gender, and HIV-status enact and give substance to their identities, collective memories, and social movements. She can be reached at <%= link_to "@marika_louise", "https://twitter.com/marika_louise", target: "_blank" %> or <%= link_to "mcifor@uw.edu", "mailto:mcifor@uw.edu" %>.
+              Marika Cifor is an Assistant Professor in the Information School at the University of Washington. She is a feminist scholar working at the intersections of archival studies and digital studies. Her research investigates how through archives, records, and data produced within digital cultures, individuals and communities marginalized by sexuality, race, class, gender, and HIV-status enact and give substance to their identities, collective memories, and social movements. She can be reached at <%= link_to "@marika_louise", "https://twitter.com/marika_louise", target: "_blank" %> or <%= hidden_email("mcifor@uw.edu", @reveal_emails) %>.
             </p>
           </div>
         </div>
@@ -74,7 +101,7 @@
               Clair Kronk
             </h4>
             <p>
-              Clair Kronk is a PhD student in biomedical informatics at the University of Cincinnati Medical School. Her current work focuses on LGBTQIA+ language use in healthcare settings and on transgender health outcomes. Clair previously graduated with a bachelor degree in bioinformatics from the University of Pittsburgh and has partnered with the Max-Planck-Institute (MPI) for Developmental Biology and the Air Force Research Laboratory (AFRL) on multiple occasions. She can be reached at kronkcj @ mail.uc.edu.
+              Clair Kronk is a PhD student in biomedical informatics at the University of Cincinnati Medical School. Her current work focuses on LGBTQIA+ language use in healthcare settings and on transgender health outcomes. Clair previously graduated with a bachelor degree in bioinformatics from the University of Pittsburgh and has partnered with the Max-Planck-Institute (MPI) for Developmental Biology and the Air Force Research Laboratory (AFRL) on multiple occasions. She can be reached at <%= hidden_email("kronkcj@mail.uc.edu", @reveal_emails) %>.
             </p>
           </div>
         </div>
@@ -150,7 +177,7 @@
               Jack van der Wel
             </h4>
             <p>
-              Jack van der Wel (Co-Chair) is Head Collections and Cataloging at IHLIA LGBT Heritage in Amsterdam. He was one of the founders of Homodok in 1978, a predecessor of IHLIA. He presented the ongoing work on the Homosaurus on several LGBTQ ALMS Conferences since 2011. Contact Information: <%= link_to "jack@ihlia.nl", "mailto:jack@ihlia.nl" %>
+              Jack van der Wel (Co-Chair) is Head Collections and Cataloging at IHLIA LGBT Heritage in Amsterdam. He was one of the founders of Homodok in 1978, a predecessor of IHLIA. He presented the ongoing work on the Homosaurus on several LGBTQ ALMS Conferences since 2011. Contact Information: <%= hidden_email("jack@ihlia.nl", @reveal_emails) %>
             </p>
           </div>
         </div>
@@ -169,7 +196,7 @@
               Brian M. Watson
             </h4>
             <p>
-              Brian M. Watson is the Archivist-Historian of the American Psychological Association’s Division 44 (Consensual Non-Monogamy), a historian of the book and sexuality, and a graduate archivist at the Kinsey Institute. They hold a master’s degree in History & Culture from Drew University, and are working on a MLIS (soon PhD) focusing on Archives, Digital Humanities, and Metadata at Indiana University Bloomington. They have published on antisex censorship, obscenity and are currently researching queer archives and sexual nomenclature. Contact them at <%= link_to "briwats@iu.edu", "mailto:briwats@iu.edu" %> or <%= link_to "@brimwats", "https://twitter.com/brimwats", target: "_blank" %>.
+              Brian M. Watson is the Archivist-Historian of the American Psychological Association’s Division 44 (Consensual Non-Monogamy), a historian of the book and sexuality, and a graduate archivist at the Kinsey Institute. They hold a master’s degree in History & Culture from Drew University, and are working on a MLIS (soon PhD) focusing on Archives, Digital Humanities, and Metadata at Indiana University Bloomington. They have published on antisex censorship, obscenity and are currently researching queer archives and sexual nomenclature. Contact them at <%= hidden_email("briwats@iu.edu", @reveal_emails) %> or <%= link_to "@brimwats", "https://twitter.com/brimwats", target: "_blank" %>.
             </p>
           </div>
         </div>
@@ -187,3 +214,4 @@
 </div>
 
 </div>
+<% end %>

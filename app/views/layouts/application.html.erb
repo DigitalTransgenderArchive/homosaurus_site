@@ -11,7 +11,13 @@
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
+
     <div class="navbar-header">
+      <% if 1==0 %>
+      <div class="header_logo">
+        <%= link_to "homosaurus.org", root_path, :id => 'header_logo_link' %>
+      </div>
+      <% end  %>
       <%= link_to "homosaurus.org", '/', class: "navbar-brand"%>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
@@ -53,7 +59,9 @@
   <div class="container">
     <div class="starter-template">
       <% flash.each do |key, value| %>
-          <%= content_tag :div, value, class: "flash #{key}" %>
+           <% unless key.to_s == "recaptcha_error"%>
+               <%= content_tag :div, value, class: "flash #{key}" %>
+            <% end %>
       <% end %>
       <%= yield %>
     </div>
@@ -67,3 +75,5 @@
 
 </body>
 </html>
+
+<div class="modal fade" id="homosaurus-main-modal" tabindex="-1" role="dialog" data-backdrop="static" aria-hidden="true" data-keyboard="false">Loading...</div>

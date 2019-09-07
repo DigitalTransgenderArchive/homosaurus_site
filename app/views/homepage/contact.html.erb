@@ -11,7 +11,7 @@
         <p>The Homosaurus is a work in progress and we welcome suggestions for new terms to be added or changes to be made within the vocabulary. The Homosaurus Editorial Board oversees the upkeep of the vocabulary and will consider all proposed terms and changes on a quarterly basis.</p>
         <br/>
         <% unless @errors.empty? %>
-          <div id="error_explanation" class="alert alert-error">
+          <div id="error_explanation" class="alert alert-danger">
             <ul class="errors">
               <% @errors.each do |msg| %>
                 <li style="color:red;"><%= msg %></li>
@@ -21,6 +21,7 @@
         <% end %>
           <br/>
         <%= form_tag(contact_path, :id => 'feedback_form', :class => 'form-horizontal') do %>
+            <%= recaptcha_v3(action: 'contact', site_key: Settings.recaptcha_site_key_v3) %>
           <div class="form-group">
             <label class="col-sm-3 control-label">Your Name:</label>
             <div class="col-sm-7 col-md-6">
@@ -48,6 +49,16 @@
               <%= text_area_tag :message, params[:message], :size => '24x8', :class =>  'form-control' %>
             </div>
           </div>
+
+            <% if  @show_captcha_v2 %>
+              <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-7 col-md-6">
+                  <div class="newsletter_checkbox pull-right">
+                    <%= recaptcha_tags %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
 
           <div class="form-group">
             <div class="col-sm-offset-3 col-sm-7 col-md-6">
