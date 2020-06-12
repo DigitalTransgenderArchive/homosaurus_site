@@ -21,6 +21,10 @@ class HomepageController < ApplicationController
     end
   end
 
+  def release
+
+  end
+
   def contact
     @errors=[]
     if request.post?

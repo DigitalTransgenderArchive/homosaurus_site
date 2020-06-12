@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
 
   root to: 'homepage#index'
+  get 'releases' => 'homepage#release', as: :release
   get 'about' => 'homepage#about', as: :about
   post 'about' => 'homepage#about', as: :reveal_emails
   get 'contact' => 'homepage#contact', as: :contact

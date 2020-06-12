@@ -12,6 +12,30 @@ div#about {
     margin-left: 0px;
   }
 
+  div.release_title {
+    margin-top: 18px;
+    padding-bottom: 0px;
+    border-bottom: 2px #BACBE7 dotted;
+    width: 100%;
+    margin-bottom: 15px;
+    h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      line-height: 1.1;
+      border-bottom: none;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
   div.info_section {
     padding-left: 28px;
   }
