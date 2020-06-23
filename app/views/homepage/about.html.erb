@@ -1,3 +1,15 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $(".walter_cat_walker_tribute").shorten({
+            "showChars": 986,
+            "moreText": "[Expand To Read Full Tribute]",
+            "lessText"	: "",
+        });
+
+    });
+</script>
+
 <%= form_tag(reveal_emails_path, :id => 'captcha_form', :class => 'form-horizontal') do %>
   <%= recaptcha_v3(action: 'about', site_key: Settings.recaptcha_site_key_v3) %>
 
@@ -151,25 +163,6 @@
       <td>
         <div class="media">
           <div class="media-left">
-            <%= image_tag("about/about_walter_walker.jpg", class: 'hidden-xs') %>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Walter “Cat” Walker
-            </h4>
-            <p>
-              Walter “Cat” Walker has been the Head Cataloging Librarian at Loyola Marymount University in Los Angeles, California, since 2004.  He is also a Director-at-Large of the American Library Association’s Rainbow Roundtable (ALA RRT).  Cat has been a volunteer at ONE National Gay & Lesbian Archives at the USC Libraries for 25 years, and a member of the Homosaurus Editorial Board since 2016.  A founding member of the AIDS activist group ACT UP Los Angeles, Cat is a radical faerie and longtime resident of West Hollywood, California, with his husband Patrick, and loves cats (of course!).
-            </p>
-          </div>
-        </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
             <%= image_tag("about/about_jack_van_der_wel.jpg", class: 'hidden-xs') %>
           </div>
           <div class="media-body">
@@ -202,7 +195,6 @@
         </div>
       </td>
     </tr>
-
     <tr>
       <td>&nbsp;</td>
       <td>
@@ -225,6 +217,37 @@
     </tbody>
   </table>
 
+  <h2>Former Editorial Board Members</h2>
+  <table class="table_with_image">
+    <caption class="sr-only">List of former editorial board members</caption>
+    <tbody>
+    <tr>
+      <td>&nbsp;</td>
+      <td>
+        <div class="media">
+          <div class="media-left">
+            <%= image_tag("about/about_walter_walker.jpg", class: 'hidden-xs') %>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">
+              Walter "Cat" Walker
+            </h4>
+            <p class="walter_cat_walker_tribute">
+              Walter "Cat" Walker served as the Head Cataloging Librarian at Loyola Marymount University in Los Angeles, California from 2004 until his untimely death in 2020. He was also a Director-at-Large of the American Library Association's Gay Lesbian Bisexual Transgender Roundtable (ALA GLBTRT) and he volunteered at the ONE National Gay & Lesbian Archives at the USC Libraries for 25 years.
+            <br /><br />
+              Cat Walker joined the Editorial Board of the Homosaurus in 2016 after he met Jack van der Wel at the LGBTQ ALMS conference in London. At this conference, Cat presented a keynote titled "Overcoming the Barriers: Improving Access to LGBTQ+ Content in Collections." Cat’s lifelong activism and passion for LGBTQ libraries and archives motivated him to join the Editorial Board and he quickly became an active member of our team. At the next LGBTQ ALMS Conference in Berlin in 2019, Cat and Jack presented a paper together on the Abridged Homosaurus.
+              <br /><br />
+              It is difficult to overstate Cat's contributions to the Homosaurus over the four years that he worked on the project. As the board dramatically revised the first version of the Homosaurus, Cat played a central role in helping us to make use of many more terms and LGBTQ-related contexts, representations, and histories. Cat worked extensively on reconciling Homosaurus version one to version two, examining the vocabulary with a close eye and pulling terms that required revision, lacked consistency across the list, or had a unique value that could be extended for related searches and needs. This list, composed of new suggested terms as well as adaptations of existing ones, was one of Cat’s most recent and ambitious contributions to the board’s work. At the time of his death, his documentation of related and suggested terms encompassed over 250 changes and/or new terms––important work that we will be sure to complete on his behalf and in his honor.
+              <br /><br />
+              Above all, Cat was a patient, kind, and gracious teacher and collaborator and he was always the first to volunteer to take on new projects. Cat’s attention to detail, as well as his commitment to making the Homosaurus a truly beautiful and inclusive set of terms, will be impossible to replace. We are endlessly grateful to him as we celebrate all that he contributed to this important project.
+            </p>
+
+          </div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
 <h2>Gratitude</h2>
 <div class="info_section">
