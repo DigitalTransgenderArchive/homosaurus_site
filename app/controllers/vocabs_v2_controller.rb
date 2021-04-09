@@ -24,6 +24,7 @@ class VocabsV2Controller < ApplicationController
       format.html
       format.nt { render body: @homosaurus_obj.full_graph.dump(:ntriples), :content_type => "application/n-triples" }
       format.jsonld { render body: @homosaurus_obj.full_graph.dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+      format.json { render body: @homosaurus_obj.full_graph_expanded_json, :content_type => 'application/json' }
       format.ttl { render body: @homosaurus_obj.full_graph.dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
     end
   end

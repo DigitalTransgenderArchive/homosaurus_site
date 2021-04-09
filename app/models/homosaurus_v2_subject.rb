@@ -154,58 +154,113 @@ def self.all_terms_full_graph(limited_terms=nil)
   graph
 end
 
-def full_graph
-  base_uri = ::RDF::URI.new("http://homosaurus.org/v2/#{self.identifier}")
-  graph = ::RDF::Graph.new << [base_uri, ::RDF::Vocab::DC.identifier, "#{self.identifier}"]
-  graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{self.label}"]
-  self.alt_labels.each do |alt|
-    graph << [base_uri, ::RDF::Vocab::SKOS.altLabel, "#{alt}"] if alt.present?
+  def full_graph
+    base_uri = ::RDF::URI.new("http://homosaurus.org/v2/#{self.identifier}")
+    graph = ::RDF::Graph.new << [base_uri, ::RDF::Vocab::DC.identifier, "#{self.identifier}"]
+    graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{self.label}"]
+    self.alt_labels.each do |alt|
+      graph << [base_uri, ::RDF::Vocab::SKOS.altLabel, "#{alt}"] if alt.present?
+    end
+    graph << [base_uri, ::RDF::RDFS.comment, "#{self.description}"] if self.description.present?
+    #From: https://github.com/ruby-rdf/rdf/blob/7dd766fe34fe4f960fd3e7539f3ef5d556b25013/lib/rdf/model/literal.rb
+    #graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.issued}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
+    #graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.modified}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
+    graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
+    graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
+
+    self.broader.each do |cb|
+      current_broader = HomosaurusV2Subject.find_by(identifier: cb)
+      graph << [base_uri, ::RDF::Vocab::SKOS.broader, ::RDF::URI.new("http://homosaurus.org/v2/#{current_broader.identifier}")] if current_broader.present?
+    end
+
+    @broadest_terms = []
+    get_broadest self.identifier
+    @broadest_terms.each do |broad_term|
+      graph << [base_uri, ::RDF::Vocab::SKOS.hasTopConcept, ::RDF::URI.new("http://homosaurus.org/v2/#{broad_term}")]
+    end
+
+    self.narrower.each do |cn|
+      current_narrower = HomosaurusV2Subject.find_by(identifier: cn)
+      graph << [base_uri, ::RDF::Vocab::SKOS.narrower, ::RDF::URI.new("http://homosaurus.org/v2/#{current_narrower.identifier}")] if current_narrower.present?
+    end
+
+    self.related.each do |cr|
+      current_related = HomosaurusV2Subject.find_by(identifier: cr)
+      graph << [base_uri, ::RDF::Vocab::SKOS.related, ::RDF::URI.new("http://homosaurus.org/v2/#{current_related.identifier}")] if current_related.present?
+    end
+
+    graph << [base_uri, ::RDF::Vocab::SKOS.exactMatch, ::RDF::URI.new("#{self.exactMatch}")] if self.exactMatch.present?
+    graph << [base_uri, ::RDF::Vocab::SKOS.closeMatch, ::RDF::URI.new("#{self.closeMatch}")] if self.closeMatch.present?
+
+    graph << [base_uri, ::RDF.type, ::RDF::Vocab::SKOS.Concept]
+    graph << [base_uri, ::RDF::Vocab::SKOS.inScheme, ::RDF::URI.new("http://homosaurus.org/terms")]
+    graph
   end
-  graph << [base_uri, ::RDF::RDFS.comment, "#{self.description}"] if self.description.present?
-  #From: https://github.com/ruby-rdf/rdf/blob/7dd766fe34fe4f960fd3e7539f3ef5d556b25013/lib/rdf/model/literal.rb
-  #graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.issued}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
-  #graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.modified}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
-  graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
-  graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
 
-  self.broader.each do |cb|
-    current_broader = HomosaurusV2Subject.find_by(identifier: cb)
-    graph << [base_uri, ::RDF::Vocab::SKOS.broader, ::RDF::URI.new("http://homosaurus.org/v2/#{current_broader.identifier}")] if current_broader.present?
+  def full_graph_expanded_json
+    base_uri = ::RDF::URI.new("http://homosaurus.org/v2/#{self.identifier}")
+    graph = ::RDF::Graph.new << [base_uri, ::RDF::Vocab::DC.identifier, "#{self.identifier}"]
+    graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{self.label}"]
+    self.alt_labels.each do |alt|
+      graph << [base_uri, ::RDF::Vocab::SKOS.altLabel, "#{alt}"] if alt.present?
+    end
+    graph << [base_uri, ::RDF::RDFS.comment, "#{self.description}"] if self.description.present?
+    #From: https://github.com/ruby-rdf/rdf/blob/7dd766fe34fe4f960fd3e7539f3ef5d556b25013/lib/rdf/model/literal.rb
+    #graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.issued}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
+    #graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.modified}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
+    graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
+    graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
+
+    graph << [base_uri, ::RDF::Vocab::SKOS.exactMatch, ::RDF::URI.new("#{self.exactMatch}")] if self.exactMatch.present?
+    graph << [base_uri, ::RDF::Vocab::SKOS.closeMatch, ::RDF::URI.new("#{self.closeMatch}")] if self.closeMatch.present?
+
+    graph << [base_uri, ::RDF.type, ::RDF::Vocab::SKOS.Concept]
+    graph << [base_uri, ::RDF::Vocab::SKOS.inScheme, ::RDF::URI.new("http://homosaurus.org/terms")]
+
+    json_graph = JSON.parse(graph.dump(:jsonld, standard_prefixes: true))
+    self.broader.each do |cb|
+      current_broader = HomosaurusV2Subject.find_by(identifier: cb)
+      if current_broader.present?
+        json_graph["skos:broader"] = {"@id": "http://homosaurus.org/v2/#{current_broader.identifier}",
+                                      "skos:prefLabel":"#{current_broader.label}"}
+      end
+    end
+
+    @broadest_terms = []
+    get_broadest self.identifier
+    @broadest_terms.each do |broad_term|
+      broadest_label = HomosaurusV2Subject.find_by(identifier: broad_term).label
+      json_graph["skos:hasTopConcept"] = {"@id": "http://homosaurus.org/v2/#{broad_term}",
+                                    "skos:prefLabel":"#{broadest_label}"}
+    end
+
+    self.narrower.each do |cn|
+      current_narrower = HomosaurusV2Subject.find_by(identifier: cn)
+      if current_narrower.present?
+        json_graph["skos:narrower"] = {"@id": "http://homosaurus.org/v2/#{current_narrower.identifier}",
+                                       "skos:prefLabel":"#{current_narrower.label}"}
+      end
+    end
+
+    self.related.each do |cr|
+      current_related = HomosaurusV2Subject.find_by(identifier: cr)
+      if current_related.present?
+        json_graph["skos:narrower"] = {"@id": "http://homosaurus.org/v2/#{current_related.identifier}",
+                                       "skos:prefLabel":"#{current_related.label}"}
+      end
+    end
+    
+    json_graph.to_json
   end
 
-  @broadest_terms = []
-  get_broadest self.identifier
-  @broadest_terms.each do |broad_term|
-    graph << [base_uri, ::RDF::Vocab::SKOS.hasTopConcept, ::RDF::URI.new("http://homosaurus.org/v2/#{broad_term}")]
-  end
-
-  self.narrower.each do |cn|
-    current_narrower = HomosaurusV2Subject.find_by(identifier: cn)
-    graph << [base_uri, ::RDF::Vocab::SKOS.narrower, ::RDF::URI.new("http://homosaurus.org/v2/#{current_narrower.identifier}")] if current_narrower.present?
-  end
-
-  self.related.each do |cr|
-    current_related = HomosaurusV2Subject.find_by(identifier: cr)
-    graph << [base_uri, ::RDF::Vocab::SKOS.related, ::RDF::URI.new("http://homosaurus.org/v2/#{current_related.identifier}")] if current_related.present?
-  end
-
-  graph << [base_uri, ::RDF::Vocab::SKOS.exactMatch, ::RDF::URI.new("#{self.exactMatch}")] if self.exactMatch.present?
-  graph << [base_uri, ::RDF::Vocab::SKOS.closeMatch, ::RDF::URI.new("#{self.closeMatch}")] if self.closeMatch.present?
-
-  graph << [base_uri, ::RDF.type, ::RDF::Vocab::SKOS.Concept]
-  graph << [base_uri, ::RDF::Vocab::SKOS.inScheme, ::RDF::URI.new("http://homosaurus.org/terms")]
-  graph
-end
-
-def get_broadest(item)
-  if HomosaurusV2Subject.find_by(identifier: item).broader.blank?
-    @broadest_terms << item.split('/').last
-  else
-    HomosaurusV2Subject.find_by(identifier: item).broader.each do |current_broader|
-      get_broadest(current_broader)
+  def get_broadest(item)
+    if HomosaurusV2Subject.find_by(identifier: item).broader.blank?
+      @broadest_terms << item.split('/').last
+    else
+      HomosaurusV2Subject.find_by(identifier: item).broader.each do |current_broader|
+        get_broadest(current_broader)
+      end
     end
   end
-end
-
 
 end
