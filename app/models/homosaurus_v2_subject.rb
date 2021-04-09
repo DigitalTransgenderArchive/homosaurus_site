@@ -221,35 +221,40 @@ end
     self.broader.each do |cb|
       current_broader = HomosaurusV2Subject.find_by(identifier: cb)
       if current_broader.present?
-        json_graph["skos:broader"] = {"@id": "http://homosaurus.org/v2/#{current_broader.identifier}",
-                                      "skos:prefLabel":"#{current_broader.label}"}
+        json_graph["skos:broader"] ||= []
+        json_graph["skos:broader"] << [{"@id": "http://homosaurus.org/v2/#{current_broader.identifier}",
+                                      "skos:prefLabel":"#{current_broader.label}"}]
       end
     end
 
     @broadest_terms = []
     get_broadest self.identifier
+    @broadest_terms.uniq!
     @broadest_terms.each do |broad_term|
+      json_graph["skos:hasTopConcept"] ||= []
       broadest_label = HomosaurusV2Subject.find_by(identifier: broad_term).label
-      json_graph["skos:hasTopConcept"] = {"@id": "http://homosaurus.org/v2/#{broad_term}",
-                                    "skos:prefLabel":"#{broadest_label}"}
+      json_graph["skos:hasTopConcept"] << [{"@id": "http://homosaurus.org/v2/#{broad_term}",
+                                    "skos:prefLabel":"#{broadest_label}"}]
     end
 
     self.narrower.each do |cn|
       current_narrower = HomosaurusV2Subject.find_by(identifier: cn)
       if current_narrower.present?
-        json_graph["skos:narrower"] = {"@id": "http://homosaurus.org/v2/#{current_narrower.identifier}",
-                                       "skos:prefLabel":"#{current_narrower.label}"}
+        json_graph["skos:narrower"] ||= []
+        json_graph["skos:narrower"] << [{"@id": "http://homosaurus.org/v2/#{current_narrower.identifier}",
+                                       "skos:prefLabel":"#{current_narrower.label}"}]
       end
     end
 
     self.related.each do |cr|
       current_related = HomosaurusV2Subject.find_by(identifier: cr)
       if current_related.present?
-        json_graph["skos:narrower"] = {"@id": "http://homosaurus.org/v2/#{current_related.identifier}",
-                                       "skos:prefLabel":"#{current_related.label}"}
+        json_graph["skos:related"] ||= []
+        json_graph["skos:related"] << [{"@id": "http://homosaurus.org/v2/#{current_related.identifier}",
+                                       "skos:prefLabel":"#{current_related.label}"}]
       end
     end
-    
+
     json_graph.to_json
   end
 
