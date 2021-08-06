@@ -30,7 +30,7 @@ class HomepageController < ApplicationController
     if request.post?
       if validate_email
         Notifier.feedback(params).deliver_now
-        puts "EMAIL WAS SENT HERE: #{params[:email]} -- #{params[:message]}"
+        logger.warn "EMAIL WAS SENT HERE: #{params[:name]} -- #{params[:email]} -- #{params[:message]}"
         redirect_to feedback_complete_path
       end
     end
