@@ -37,6 +37,10 @@ class HomosaurusSubject < ActiveRecord::Base
         obj["broader_ssim"] || []
       when "narrower"
         obj["narrower_ssim"] || []
+    when "isReplacedBy"
+      obj["isReplacedBy_ssim"] || []
+    when "replaces"
+      obj["replaces_ssim"] || []
       else
        [nil]
     end
@@ -66,6 +70,10 @@ class HomosaurusSubject < ActiveRecord::Base
         "<a href='http://www.w3.org/2004/02/skos/core#broader' target='blank'  title='Definition of Broader in the SKOS Vocabulary'>Broader Terms</a>"
       when "narrower"
         "<a href='http://www.w3.org/2004/02/skos/core#narrower' target='blank'  title='Definition of Narrower in the SKOS Vocabulary'>Narrower Terms</a>"
+    when "isReplacedBy"
+      "<a href='http://purl.org/dc/terms/isReplacedBy' target='blank'  title='Definition of isReplacedBy in the Dublin Core Terms Vocabulary'>Is Replaced By</a>"
+    when "replaces"
+      "<a href='http://purl.org/dc/terms/replaces' target='blank'  title='Definition of replaces in the Dublin Core Terms Vocabulary'>Replaces</a>"
       else
         field.humanize
     end

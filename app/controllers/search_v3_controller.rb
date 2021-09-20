@@ -1,4 +1,4 @@
-class SearchV2Controller < ApplicationController
+class SearchV3Controller < ApplicationController
   def index
     if params[:q].present?
 
@@ -8,16 +8,16 @@ class SearchV2Controller < ApplicationController
       opts[:pf] = 'prefLabel_tesim'
       opts[:qf] = 'prefLabel_tesim altLabel_tesim description_tesim identifier_tesim'
       opts[:fl] = 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim, isReplacedBy_ssim, replaces_ssim'
-      opts[:fq] = 'active_fedora_model_ssi:HomosaurusV2'
+      opts[:fq] = 'active_fedora_model_ssi:HomosaurusV3'
       response = DSolr.find(opts)
       docs = response
       @terms = docs
 
       respond_to do |format|
         format.html
-        format.nt { render body: HomosaurusV2Subject.all_terms_full_graph(@terms).dump(:ntriples), :content_type => "application/n-triples" }
-        format.jsonld { render body: HomosaurusV2Subject.all_terms_full_graph(@terms).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-        format.ttl { render body: HomosaurusV2Subject.all_terms_full_graph(@terms).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
+        format.nt { render body: HomosaurusV3Subject.all_terms_full_graph(@terms).dump(:ntriples), :content_type => "application/n-triples" }
+        format.jsonld { render body: HomosaurusV3Subject.all_terms_full_graph(@terms).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+        format.ttl { render body: HomosaurusV3Subject.all_terms_full_graph(@terms).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
       end
     end
 
@@ -31,7 +31,7 @@ class SearchV2Controller < ApplicationController
     opts[:pf] = 'prefLabel_tesim'
     opts[:qf] = 'prefLabel_tesim altLabel_tesim description_tesim identifier_tesim'
     opts[:fl] = 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim'
-    opts[:fq] = 'active_fedora_model_ssi:HomosaurusV2'
+    opts[:fq] = 'active_fedora_model_ssi:HomosaurusV3'
 
     batch_size = 10000
 

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'search/index'
 
+  resources :vocabs_v3, only: [:index, :show], :path => '/v3'
+
   resources :vocabs_v2, only: [:index, :show], :path => '/v2'
 
   resources :vocabs, only: [:index, :show], :path => :terms
@@ -16,8 +18,8 @@ Rails.application.routes.draw do
 
 
   get 'search/terms' => 'search#index', as: :search_results
-
   get 'search/v2' => 'search_v2#index', as: :search_results_v2
+  get 'search/v3' => 'search_v3#index', as: :search_results_v3
 
   get 'tree' => 'graph#tree', as: :tree
   get 'tree_data' => 'graph#tree_data', as: :tree_data
