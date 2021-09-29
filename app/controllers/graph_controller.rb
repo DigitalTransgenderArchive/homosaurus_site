@@ -1,10 +1,10 @@
 class GraphController < ApplicationController
   def tree
-    @terms = HomosaurusV2Subject.find_with_conditions(q: "*:*", rows: '10000', fl: 'identifier_ssi, prefLabel_tesim, narrower_ssim' )
-    @data = {name: "Homosaurus V2"}
+    @terms = HomosaurusV3Subject.find_with_conditions(q: "*:*", rows: '10000', fl: 'identifier_ssi, prefLabel_tesim, narrower_ssim' )
+    @data = {name: "Homosaurus V3"}
     @data[:children] = []
 
-    top_level = HomosaurusV2Subject.where(broader: []).sort_by { |t| t.label.downcase }
+    top_level = HomosaurusV3Subject.where(broader: []).sort_by { |t| t.label.downcase }
 
     top_level.each do |top|
       top_row = { name: top.label, ident: top.identifier }
@@ -31,11 +31,11 @@ class GraphController < ApplicationController
 
 
   def tree_data
-    @terms = HomosaurusV2Subject.find_with_conditions(q: "*:*", rows: '10000', fl: 'identifier_ssi, prefLabel_tesim, narrower_ssim' )
-    @data = {name: "Homosaurus V2"}
+    @terms = HomosaurusV3Subject.find_with_conditions(q: "*:*", rows: '10000', fl: 'identifier_ssi, prefLabel_tesim, narrower_ssim' )
+    @data = {name: "Homosaurus V3"}
     @data[:children] = []
 
-    top_level = HomosaurusV2Subject.where(broader: []).sort_by { |t| t.label.downcase }
+    top_level = HomosaurusV3Subject.where(broader: []).sort_by { |t| t.label.downcase }
 
     top_level.each do |top|
       top_row = { name: top.label, ident: top.identifier }

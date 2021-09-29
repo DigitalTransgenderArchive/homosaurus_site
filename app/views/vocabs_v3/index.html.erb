@@ -1,7 +1,7 @@
 <h1>Homosaurus Vocabulary Terms</h1>
 
 <h4>Graphical Views</h4>
-<% if !request.original_url.include? '/v3' %>
+<% if request.original_url.include? '/v3' %>
   <ul>
     <li><%= link_to "Tree View", tree_path %></li>
     <li><%= link_to "Indented Bars View", indented_tree_path %></li>

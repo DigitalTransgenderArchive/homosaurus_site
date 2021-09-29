@@ -32,19 +32,20 @@
 
         <% if request.original_url.include? '/terms' %>
           <li><%= link_to "V1 Vocabulary", vocabs_path %></li>
-        <% elsif request.original_url.include? '/v3' %>
-          <li><%= link_to "V3 Vocabulary", vocabs_v3_index_path %></li>
+        <% elsif request.original_url.include? '/v2' %>
+          <li><%= link_to "V2 Vocabulary", vocabs_v2_index_path %></li>
         <% else %>
-          <li><%= link_to "Vocabulary", vocabs_v2_index_path %></li>
+          <li><%= link_to "Vocabulary", vocabs_v3_index_path %></li>
         <% end %>
 
 
         <% if request.original_url.include? '/terms' %>
           <li><%= link_to "V1 Search", search_results_path %></li>
-          <% elsif request.original_url.include? '/v3' %>
-              <li><%= link_to "V3 Search", search_results_v3_path %></li>
+        <% elsif request.original_url.include? '/v2' %>
+          <li><%= link_to "V2 Search", search_results_v2_path %></li>
+
         <% else %>
-          <li><%= link_to "Search", search_results_v2_path %></li>
+          <li><%= link_to "Search", search_results_v3_path %></li>
         <% end %>
 
         <li><%= link_to "Releases", release_path %></li>
