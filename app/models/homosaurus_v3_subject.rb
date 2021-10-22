@@ -18,7 +18,7 @@ end
 def self.csv_download(limited_terms=nil)
   all_terms = []
   if limited_terms.nil?
-    all_terms = HomosaurusV3Subject.find_with_conditions(q:"*:*", rows: '10000', fl: 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim, topConcept_ssim' )
+    all_terms = HomosaurusV3Subject.find_with_conditions(q:"*:*", rows: '10000', fl: 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim, topConcept_ssim, isReplacedBy_ssim, replaces_ssim' )
     all_terms = all_terms.sort_by { |term| term["prefLabel_tesim"].first.downcase }
   else
     all_terms = limited_terms
@@ -85,12 +85,15 @@ def self.csv_download(limited_terms=nil)
         graph[:isReplacedBy]  << replaced_by_concept if replaced_by_concept.present?
       end
     end
+    graph[:isReplacedBy] = graph[:isReplacedBy].join("||")
+
     graph[:replaces] =  []
     if current_term['replaces_ssim'].present?
       current_term['replaces_ssim'].each do |replaces_concept|
         graph[:replaces]  << replaces_concept if replaces_concept.present?
       end
     end
+    graph[:replaces] = graph[:replaces].join("||")
 
     full_graph << graph
   end
