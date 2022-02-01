@@ -70,3 +70,4 @@ Gemfile.lock
 # New files to ignore
 db/schema.rb
 db/secondbase
+/config/master.key
