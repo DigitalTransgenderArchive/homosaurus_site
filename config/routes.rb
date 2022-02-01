@@ -5,6 +5,16 @@ Rails.application.routes.draw do
   get 'search/:id' => 'vocabulary#search', as: :vocabulary_search_results
   get 'tree' => 'graph#tree', as: :tree
   get 'tree_data' => 'graph#tree_data', as: :tree_data
+  get 'indented_tree' => 'graph#indented_tree', as: :indented_tree
+
+  get 'releases' => 'homepage#release', as: :release
+  get 'about' => 'homepage#about', as: :about
+  post 'about' => 'homepage#about', as: :reveal_emails
+  get 'contact' => 'homepage#contact', as: :contact
+  post 'contact' => 'homepage#contact'
+  get 'feedback_complete' => 'homepage#feedback_complete', as: :feedback_complete
+
+  # These have to be last
   get ':id' => 'vocabulary#index', as: :vocabulary_index
   get ':vocab_id/:id' => 'vocabulary#show', as: :vocabulary_show
 
@@ -16,19 +26,11 @@ Rails.application.routes.draw do
 
 
   root to: 'homepage#index'
-  get 'releases' => 'homepage#release', as: :release
-  get 'about' => 'homepage#about', as: :about
-  post 'about' => 'homepage#about', as: :reveal_emails
-  get 'contact' => 'homepage#contact', as: :contact
-  post 'contact' => 'homepage#contact'
-  get 'feedback_complete' => 'homepage#feedback_complete', as: :feedback_complete
 
 
   #get 'search/terms' => 'search#index', as: :search_results
   #get 'search/v2' => 'search_v2#index', as: :search_results_v2
   #get 'search/v3' => 'search_v3#index', as: :search_results_v3
-
-  get 'indented_tree' => 'graph#indented_tree', as: :indented_tree
 
   #get 'search' => 'search_v2#index', as: :search_results_v2, :path => '/v2/search'
   # The priority is based upon order of creation: first created -> highest priority.
