@@ -1,7 +1,7 @@
 <br/>
 <br/>
 
-<%= form_tag(search_results_v3_path, :method => "get", id: "search-form", class: 'form-inline', enforce_utf8: false) do %>
+<%= form_tag(vocabulary_search_results_path(id: @vocabulary_identifier), :method => "get", id: "search-form", class: 'form-inline', enforce_utf8: false) do %>
     <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Enter Search Term' %>
     <%= submit_tag "Search", name: nil, class: 'form-control  btn-primary'%>
 <% end %>
@@ -9,24 +9,19 @@
 <% if params[:q].present? %>
     <h2>Search Results for: <%= params[:q] %></h2>
 
-
     <% @terms.each do |term| %>
         <div class="panel panel-primary">
           <div class="panel-heading">
-
-
-            <%= link_to term['prefLabel_tesim'].first, vocabs_v3_path(:id => term['id'].split('/').last, :from_q=>params[:q]) %>
+            <%= link_to term.pref_label, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier, :from_q=>params[:q]) %>
           </div>
-          <% if term['altLabel_tesim'].present? or term['description_tesim'].present? %>
+          <% if term.alt_labels[0].present? or term.description.present? %>
           <div class="panel-body">
-            <% if term['altLabel_tesim'].present? %>
-                <strong>Alternative Terms:</strong> <%= term['altLabel_tesim'].join(', ') %><br />
+            <% if term.alt_labels[0].present? %>
+                <strong>Alternative Labels:</strong> <%= term.alt_labels.join(', ') %><br />
             <% end %>
-            <% if term['description_tesim'].present? %>
-                <strong>Description:</strong> <%= term['description_tesim'].first %>
+            <% if term.description.present? %>
+                <strong>Description:</strong> <%= term.description %>
             <% end %>
-
-
 
           </div>
           <% end %>

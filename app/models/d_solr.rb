@@ -97,10 +97,7 @@ class DSolr
   end
 
   def self.reindex_all
-    reindex("Inst")
-    reindex("Coll")
     reindex("HomosaurusSubject")
-    reindex("GenericObject")
   end
 
 end

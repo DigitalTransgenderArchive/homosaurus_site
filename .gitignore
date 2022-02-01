@@ -1,4 +1,4 @@
-thub #
+# temp files #
 ##################################
 *.rbc
 *.sassc
@@ -66,3 +66,7 @@ Gemfile.lock
 
 *~
 ._*
+
+# New files to ignore
+db/schema.rb
+db/secondbase

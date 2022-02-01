@@ -31,21 +31,20 @@
         <li><%= link_to "Home", '/' %></li>
 
         <% if request.original_url.include? '/terms' %>
-          <li><%= link_to "V1 Vocabulary", vocabs_path %></li>
+          <li><%= link_to "V1 Vocabulary", vocabulary_index_path(id: "terms") %></li>
         <% elsif request.original_url.include? '/v2' %>
-          <li><%= link_to "V2 Vocabulary", vocabs_v2_index_path %></li>
+          <li><%= link_to "V2 Vocabulary", vocabulary_index_path(id: "v2") %></li>
         <% else %>
-          <li><%= link_to "Vocabulary", vocabs_v3_index_path %></li>
+          <li><%= link_to "Vocabulary", vocabulary_index_path(id: "v3") %></li>
         <% end %>
 
 
         <% if request.original_url.include? '/terms' %>
-          <li><%= link_to "V1 Search", search_results_path %></li>
+          <li><%= link_to "V1 Search", vocabulary_search_results_path(id: "terms") %></li>
         <% elsif request.original_url.include? '/v2' %>
-          <li><%= link_to "V2 Search", search_results_v2_path %></li>
-
+          <li><%= link_to "V2 Search", vocabulary_search_results_path(id: "v2")  %></li>
         <% else %>
-          <li><%= link_to "Search", search_results_v3_path %></li>
+          <li><%= link_to "Search", vocabulary_search_results_path(id: "v3")  %></li>
         <% end %>
 
         <li><%= link_to "Releases", release_path %></li>

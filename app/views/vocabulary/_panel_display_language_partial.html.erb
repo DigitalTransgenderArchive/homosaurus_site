@@ -1,0 +1,36 @@
+<%
+  panel_class ||= 'primary'
+  title ||= ''
+  values ||= []
+%>
+<% if values[0].present? %>
+  <div class="panel panel-<%=panel_class%>">
+
+  <div class="panel-heading">
+    <%= title.html_safe %>
+  </div>
+  <div class="panel-body">
+    <dl style="margin-bottom:0px">
+      <table width="100%">
+        <% values.each do |value| %>
+        <tr>
+          <td><%= value.split('@')[0] %></td>
+          <% if value.include?('@') %>
+            <% lang_id = value.split('@').last
+               lang_value = "English (USA)" if lang_id == 'en-US'
+               lang_value = "English (UK)" if lang_id == 'en-GB'
+               lang_value ||= ISO_639.find_by_code(value.split('@').last)[3]
+            %>
+            <td width="100px;"><div class="well_language clear:both;">
+              <%= lang_value %>
+            </div></td>
+          <% else %>
+            <td>&nbsp;</td>
+          <% end %>
+        </tr>
+        <% end %>
+      </table>
+    </dl>
+  </div>
+  </div>
+<% end %>

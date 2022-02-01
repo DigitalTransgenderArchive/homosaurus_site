@@ -113,7 +113,7 @@
             })
             .text(function(d) { return d.data.name; });*/
         nodeEnter.append('a')
-            .attr("xlink:href", function(d) { return 'v2/' + d.data.ident; })
+            .attr("xlink:href", function(d) { return 'v3/' + d.data.ident; })
             .attr("target", "_blank")
             .append("text")
              .attr("dy", ".35em")

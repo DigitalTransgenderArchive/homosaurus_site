@@ -2,14 +2,18 @@ source 'https://rubygems.org'
 source 'https://rails-assets.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+# Authentication
+gem 'devise'
+gem "hydra-role-management"
+gem 'secondbase'
 
 # Recaptcha (https://github.com/ambethia/recaptcha)
-gem "recaptcha"
+gem "recaptcha", "5.1.0"
 
 gem "d3-rails", '4.13.0'
 
 gem 'mysql2', '0.4.10'
-gem 'rails', '~> 5.2.3'
+gem 'rails', github: 'rails/rails', branch: '5-2-stable'
 gem 'rsolr', '>= 1.0', '< 3'
 
 # Use Bootstrap
@@ -38,6 +42,8 @@ gem 'rdf', '1.99.0'
 gem "rdf-vocab"
 gem "mime-types"
 gem "linkeddata", '1.99.0'
+gem "iso-639"
+gem 'emoji_flag'
 #gem 'rdf-blazegraph', github: "ruby-rdf/rdf-blazegraph", branch: 'develop'
 #gem 'active-triples', github: "scande3/ActiveTriples", branch: 'develop'
 
