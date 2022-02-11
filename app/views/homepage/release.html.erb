@@ -1,5 +1,950 @@
 <div id="about" class="col-sm-12 col-md-12">
   <div class="release_title">
+    <h2>Homosaurus v. 3.1 Updates</h2>
+    <h3>Released December 2021</h3>
+  </div>
+  <div class="info_section">
+    <p>
+      <strong>List of changes:</strong>
+      <ol>
+        <li>All instances of LGBTQ in terms and acronyms changed to LGBTQ+ (see full list below)</li>
+        <li>All terms formatted as [Term] (LGBTQ) changed to LGBTQ+ [term] (see full list below)</li>
+        <li>Nudes changed to <%= link_to "Nude art", "/v3/homoit0001052" %></li>
+      </ol>
+    </p>
+    <p>
+      <strong>List terms removed:</strong>
+    <ol>
+      <li><%= link_to "Ephebophilia", "/v3/homoit0000397" %></li>
+      <li><%= link_to "Gerontophilia", "/v3/homoit0000586" %></li>
+      <li><%= link_to "Hebephilia", "/v3/homoit0000615" %></li>
+    </ol>
+    </p>
+    <p>
+      <strong>List of new terms added::</strong>
+    <ol>
+      <li><%= link_to "2SLGBTQ+", "/v3/homoit0001789" %></li>
+      <li><%= link_to "Alloromanticism", "/v3/homoit0001791" %></li>
+      <li><%= link_to "Anti-intersex violence", "/v3/homoit0001770" %></li>
+      <li><%= link_to "Anti-two-spirit violence", "/v3/homoit0001769" %></li>
+      <li><%= link_to "Aromantic authors", "/v3/homoit0001748" %></li>
+      <li><%= link_to "Aromantic families", "/v3/homoit0001757" %></li>
+      <li><%= link_to "Aromantic fiction", "/v3/homoit0001753" %></li>
+      <li><%= link_to "Aromantic parents", "/v3/homoit0001761" %></li>
+      <li><%= link_to "Beards", "/v3/homoit0001788" %></li>
+
+      <li><%= link_to "Biromanticism", "/v3/homoit0001792" %></li>
+      <li><%= link_to "Bisexual authors", "/v3/homoit0001726" %></li>
+      <li><%= link_to "Bisexual autobiographies", "/v3/homoit0001732" %></li>
+      <li><%= link_to "Bisexual chefs", "/v3/homoit0001774" %></li>
+      <li><%= link_to "Bisexual autobiographies", "/v3/homoit0001732" %></li>
+      <li><%= link_to "Bisexual chefs", "/v3/homoit0001774" %></li>
+      <li><%= link_to "Bisexual employment", "/v3/homoit0001720" %></li>
+      <li><%= link_to "Bisexual-focused businesses", "/v3/homoit0001744" %></li>
+      <li><%= link_to "Bisexual-owned businesses", "/v3/homoit0001738" %></li>
+
+      <li><%= link_to "BlaQueer people", "/v3/homoit0001782" %></li>
+      <li><%= link_to "Children of aromantic people", "/v3/homoit0001765" %></li>
+      <li><%= link_to "Children of asexual people", "/v3/homoit0001766" %></li>
+      <li><%= link_to "Children of intersex people", "/v3/homoit0001767" %></li>
+      <li><%= link_to "Children of two-spirit people", "/v3/homoit0001768" %></li>
+      <li><%= link_to "Clocking (Transgender)", "/v3/homoit0001781" %></li>
+      <li><%= link_to "Closeted intersex people", "/v3/homoit0001786" %></li>
+      <li><%= link_to "Closeted LGBTQ+ people", "/v3/homoit0001783" %></li>
+      <li><%= link_to "Closeted queer people", "/v3/homoit0001784" %></li>
+
+      <li><%= link_to "Closeted two-spirit people", "/v3/homoit0001787" %></li>
+      <li><%= link_to "Gay authors", "/v3/homoit0001725" %></li>
+      <li><%= link_to "Gay autobiographies", "/v3/homoit0001731" %></li>
+      <li><%= link_to "Gay chefs", "/v3/homoit0001773" %></li>
+      <li><%= link_to "Gay employment", "/v3/homoit0001719" %></li>
+      <li><%= link_to "Gay-focused businesses", "/v3/homoit0001743" %></li>
+      <li><%= link_to "Gay-owned businesses", "/v3/homoit0001737" %></li>
+      <li><%= link_to "Gender creative", "/v3/homoit0001756" %></li>
+      <li><%= link_to "Heteromanticism", "/v3/homoit0001794" %></li>
+
+      <li><%= link_to "Homoromanticism", "/v3/homoit0001793" %></li>
+      <li><%= link_to "Intersex authors", "/v3/homoit0001749" %></li>
+      <li><%= link_to "Intersex chefs", "/v3/homoit0001777" %></li>
+      <li><%= link_to "Intersex families", "/v3/homoit0001759" %></li>
+      <li><%= link_to "Intersex fiction", "/v3/homoit0001752" %></li>
+      <li><%= link_to "Intersex parents", "/v3/homoit0001763" %></li>
+      <li><%= link_to "Lesbian authors", "/v3/homoit0001724" %></li>
+      <li><%= link_to "Lesbian autobiographies", "/v3/homoit0001730" %></li>
+      <li><%= link_to "Lesbian chefs", "/v3/homoit0001772" %></li>
+
+      <li><%= link_to "Lesbian employment", "/v3/homoit0001718" %></li>
+      <li><%= link_to "Lesbian-focused businesses", "/v3/homoit0001742" %></li>
+      <li><%= link_to "Lesbian-owned businesses", "/v3/homoit0001736" %></li>
+      <li><%= link_to "LGBTQ+ authors", "/v3/homoit0001723" %></li>
+      <li><%= link_to "LGBTQ+ autobiographies", "/v3/homoit0001729" %></li>
+      <li><%= link_to "LGBTQ+ chefs", "/v3/homoit0001771" %></li>
+      <li><%= link_to "LGBTQ+ cultural heritage institutions", "/v3/homoit0001755" %></li>
+      <li><%= link_to "LGBTQ+ employment", "/v3/homoit0001717" %></li>
+      <li><%= link_to "LGBTQ+-focused businesses", "/v3/homoit0001741" %></li>
+
+      <li><%= link_to "LGBTQ+-owned businesses", "/v3/homoit0001735" %></li>
+      <li><%= link_to "Packers (Phallus)", "/v3/homoit0001790" %></li>
+      <li><%= link_to "Panromanticism", "/v3/homoit0001795" %></li>
+      <li><%= link_to "Queer authors", "/v3/homoit0001728" %></li>
+      <li><%= link_to "Queer autobiographies", "/v3/homoit0001734" %></li>
+      <li><%= link_to "Queer chefs", "/v3/homoit0001776" %></li>
+      <li><%= link_to "Queer employment", "/v3/homoit0001722" %></li>
+      <li><%= link_to "Queer-focused businesses", "/v3/homoit0001746" %></li>
+      <li><%= link_to "Queer-owned businesses", "/v3/homoit0001740" %></li>
+
+      <li><%= link_to "T4T (Trans for Trans)", "/v3/homoit0001780" %></li>
+      <li><%= link_to "Transgender authors", "/v3/homoit0001727" %></li>
+      <li><%= link_to "Transgender autobiographies", "/v3/homoit0001733" %></li>
+      <li><%= link_to "Transgender chefs", "/v3/homoit0001775" %></li>
+      <li><%= link_to "Transgender employment", "/v3/homoit0001721" %></li>
+      <li><%= link_to "Transgender-focused businesses", "/v3/homoit0001745" %></li>
+      <li><%= link_to "Transgender-owned businesses", "/v3/homoit0001739" %></li>
+      <li><%= link_to "Two-spirit authors", "/v3/homoit0001750" %></li>
+      <li><%= link_to "Two-spirit chefs", "/v3/homoit0001778" %></li>
+
+      <li><%= link_to "Two-spirit families", "/v3/homoit0001760" %></li>
+      <li><%= link_to "Two-spirit families", "/v3/homoit0001760" %></li>
+      <li><%= link_to "Two-spirit fiction", "/v3/homoit0001751" %></li>
+      <li><%= link_to "Two-spirit parents", "/v3/homoit0001764" %></li>
+      <li><%= link_to "Vers", "/v3/homoit0001779" %></li>
+    </ol>
+    </p>
+    <p>
+      <strong>List of revised LGBTQ+ terms:</strong><br />
+      <a href="#" onClick="$('#3_1_revised_terms').toggleClass('hidden'); return false;">(Click here show or hide the list)</a>
+      <ol id="3_1_revised_terms" class="hidden" >
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000059">Anti-LGBTQ+ violence</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000068">Arrests of LGBTQ+ people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000226">Buddy care for LGBTQ+ people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000260">Children of LGBTQ+ people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000843">Conception by LGBTQ+ people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000348">Detention of LGBTQ+ people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000349">Detention of LGBTQ+ people under a hospital order</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000614">Health care for LGBTQ+ people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000112">Intolerance towards LGBTQ+ people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000002">LGBTQ+ Aboriginal people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000808">LGBTQ+ action campaigns</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000006">LGBTQ+ activism</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000007">LGBTQ+ activists</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000008">LGBTQ+ actors</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000809">LGBTQ+ adoption</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000810">LGBTQ+ adoptive families</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000811">LGBTQ+ adoptive parenthood</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000812">LGBTQ+ adoptive parents</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000813">LGBTQ+ African religions</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000015">LGBTQ+ African-Americans</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000016">LGBTQ+ Afro-Canadians</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000017">LGBTQ+ Afro-Caribbeans</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000018">LGBTQ+ Afro-Europeans</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000019">LGBTQ+ Afro-Latin Americans</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001540">LGBTQ+ alcoholics</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000048">LGBTQ+ Anglicans</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000066">LGBTQ+ archives</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000815">LGBTQ+ art censorship</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000070">LGBTQ+ artists</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000816">LGBTQ+ arts</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000817">LGBTQ+ Asian religions</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000073">LGBTQ+ Asian-Americans</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000074">LGBTQ+ Asians</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000082">LGBTQ+ atheists</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000818">LGBTQ+ awards</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000097">LGBTQ+ Baptists</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000100">LGBTQ+ bars</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000104">LGBTQ+ beaches</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001614">LGBTQ+ biographies</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000819">LGBTQ+ biological parents</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000820">LGBTQ+ biracial people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000821">LGBTQ+ birth parents</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000208">LGBTQ+ Black people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000822">LGBTQ+ blind people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000823">LGBTQ+ blogs</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000824">LGBTQ+ blood donors</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000825">LGBTQ+ book censorship</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000826">LGBTQ+ book clubs</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000827">LGBTQ+ books</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000216">LGBTQ+ bookshops</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000225">LGBTQ+ Buddhists</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000237">LGBTQ+ Calvinists</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000828">LGBTQ+ cartoons</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000829">LGBTQ+ censorship</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000830">LGBTQ+ centres</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000831">LGBTQ+ challenged books</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000249">LGBTQ+ characters</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000832">LGBTQ+ chatrooms</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000256">LGBTQ+ children</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001541">LGBTQ+ children of alcoholics</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000833">LGBTQ+ choruses</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000834">LGBTQ+ chosen families</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000265">LGBTQ+ Christians</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000835">LGBTQ+ civil disobedience</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000276">LGBTQ+ civil rights</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001624">LGBTQ+ clergy</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000836">LGBTQ+ clubs</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000837">LGBTQ+ co-fathers</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000838">LGBTQ+ co-mothers</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000839">LGBTQ+ co-parenthood</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000840">LGBTQ+ co-parents</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000841">LGBTQ+ comics</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000842">LGBTQ+ communes</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000297">LGBTQ+ communities</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000298">LGBTQ+ community centres</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000300">LGBTQ+ Confucianists</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000844">LGBTQ+ conscientious objection</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000310">LGBTQ+ couples</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000845">LGBTQ+ cruises</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000846">LGBTQ+ dating applications</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000847">LGBTQ+ dating websites</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000330">LGBTQ+ daughters</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000337">LGBTQ+ deaf people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000848">LGBTQ+ death and dying</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000849">LGBTQ+ death notices</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000850">LGBTQ+ defamation campaigns</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000851">LGBTQ+ demonstrations</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000853">LGBTQ+ direct action</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000356">LGBTQ+ discrimination</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000854">LGBTQ+ divorce</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000855">LGBTQ+ domestic violence</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000363">LGBTQ+ dominatrices</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000376">LGBTQ+ drama</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000386">LGBTQ+ Eastern Orthodox Christians</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000857">LGBTQ+ emancipation</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000858">LGBTQ+ emotions</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000859">LGBTQ+ erotic literature</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000860">LGBTQ+ ethnic groups</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000861">LGBTQ+ events</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000863">LGBTQ+ ex-partners</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000420">LGBTQ+ families</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000864">LGBTQ+ family planning</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000865">LGBTQ+ fantasy fiction</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000866">LGBTQ+ fatherhood</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000443">LGBTQ+ fiction</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000867">LGBTQ+ film censorship</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000868">LGBTQ+ film festivals</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000869">LGBTQ+ films</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000870">LGBTQ+ foster families</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000871">LGBTQ+ foster parenthood</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000872">LGBTQ+ foster parents</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000873">LGBTQ+ friendliness</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000874">LGBTQ+ graphic novels</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000876">LGBTQ+ health care centres</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000877">LGBTQ+ health education</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000633">LGBTQ+ Hindus</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000878">LGBTQ+ historical terms</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000879">LGBTQ+ homeless people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000880">LGBTQ+ homeless youth</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001580">LGBTQ+ horror fiction</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000881">LGBTQ+ hotels</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000883">LGBTQ+ immigration rights</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000884">LGBTQ+ imprisonment</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000885">LGBTQ+ incest victims</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000886">LGBTQ+ indigenous people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000660">LGBTQ+ information centres</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000888">LGBTQ+ Internet forums</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000889">LGBTQ+ intimacy</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000676">LGBTQ+ Inuit</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000680">LGBTQ+ Jehovah's Witnesses</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000682">LGBTQ+ Jews</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000890">LGBTQ+ Judaism</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000253">LGBTQ+ Latinx</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000968">LGBTQ+ libraries</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000891">LGBTQ+ literary awards</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001602">LGBTQ+ literary criticism</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000892">LGBTQ+ literary salons</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000972">LGBTQ+ literature</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000893">LGBTQ+ lobbying</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000894">LGBTQ+ love</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000895">LGBTQ+ lovers</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000896">LGBTQ+ magazines</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000897">LGBTQ+ manga</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000899">LGBTQ+ marketing</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000999">LGBTQ+ masters</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000900">LGBTQ+ meeting places</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000901">LGBTQ+ memorials</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000902">LGBTQ+ migrants</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001018">LGBTQ+ mistresses</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000904">LGBTQ+ Mormons</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000905">LGBTQ+ motherhood</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000906">LGBTQ+ motorcycle clubs</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001026">LGBTQ+ movement</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000903">LGBTQ+ multi-racial people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001030">LGBTQ+ museums</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000907">LGBTQ+ museums</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000908">LGBTQ+ musicians</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001032">LGBTQ+ Muslims</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000852">LGBTQ+ mystery and detective fiction</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000814">LGBTQ+ Native American religions</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001037">LGBTQ+ Native Americans</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000558">LGBTQ+ neighbourhoods</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001041">LGBTQ+ newsletters</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001042">LGBTQ+ newspapers</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000909">LGBTQ+ night life</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000910">LGBTQ+ nonviolent resistance</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000911">LGBTQ+ obituaries</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000912">LGBTQ+ Old Catholic Church</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000393">LGBTQ+ older people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000856">LGBTQ+ older people's organisations</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001069">LGBTQ+ Pagans</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000913">LGBTQ+ Papuans</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000914">LGBTQ+ parenthood</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001075">LGBTQ+ parents</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001083">LGBTQ+ partners</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001542">LGBTQ+ partners of alcoholics</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000915">LGBTQ+ people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001543">LGBTQ+ people in Adult Children of Alcoholics</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001544">LGBTQ+ people in Al-Anon</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001545">LGBTQ+ people in Alcoholics Anonymous</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001546">LGBTQ+ people in Cocaine Anonymous</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001547">LGBTQ+ people in Crystal Meth Anonymous</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001548">LGBTQ+ people in Narcotics Anonymous</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001549">LGBTQ+ people in recovery</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001100">LGBTQ+ people in the military</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001101">LGBTQ+ people of colour</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001550">LGBTQ+ people with addictions</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000916">LGBTQ+ people with physical disabilities</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000917">LGBTQ+ people with visual disabilities</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001108">LGBTQ+ persecutions</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000918">LGBTQ+ personal and family law</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000919">LGBTQ+ petitions</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000920">LGBTQ+ phobia</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000921">LGBTQ+ platonic love</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000922">LGBTQ+ plays</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001118">LGBTQ+ poetry</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000013">LGBTQ+ porn films</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000923">LGBTQ+ porn magazines</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001132">LGBTQ+ press</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000887">LGBTQ+ prisoners</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000924">LGBTQ+ prisoners of conscience</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001137">LGBTQ+ Protestants</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001144">LGBTQ+ publishers</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000925">LGBTQ+ pubs</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000926">LGBTQ+ Quakers</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001231">LGBTQ+ radio</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001551">LGBTQ+ recovery groups</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000927">LGBTQ+ refugees</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001237">LGBTQ+ relationships</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000928">LGBTQ+ religions</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000929">LGBTQ+ resorts</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000930">LGBTQ+ restaurants</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000931">LGBTQ+ retirement homes</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000932">LGBTQ+ riots</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000875">LGBTQ+ Roma</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001244">LGBTQ+ Roman Catholics</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001586">LGBTQ+ romance fiction</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000934">LGBTQ+ science fiction</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000935">LGBTQ+ self-defence</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000936">LGBTQ+ self-repression</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000937">LGBTQ+ separation</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001277">LGBTQ+ sex workers</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000938">LGBTQ+ sexual abuse</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000939">LGBTQ+ shamans</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000940">LGBTQ+ Shintoists</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001608">LGBTQ+ short stories</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000941">LGBTQ+ single fathers</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000942">LGBTQ+ single mothers</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000943">LGBTQ+ single parent families</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000944">LGBTQ+ single parents</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001317">LGBTQ+ slang</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000946">LGBTQ+ social media</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000945">LGBTQ+ social parenthood</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000947">LGBTQ+ social processes</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001329">LGBTQ+ sons</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000948">LGBTQ+ spirituality</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000949">LGBTQ+ sporting events</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000950">LGBTQ+ sports clubs</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001552">LGBTQ+ step work</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000951">LGBTQ+ students' clubs</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000952">LGBTQ+ suicide</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000953">LGBTQ+ support groups</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001349">LGBTQ+ survivors of hate crimes</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001350">LGBTQ+ survivors of rape</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001351">LGBTQ+ survivors of sexual abuse</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001352">LGBTQ+ survivors of war</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000954">LGBTQ+ symbols</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000955">LGBTQ+ Taoists</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001359">LGBTQ+ television</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001363">LGBTQ+ theatre</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001364">LGBTQ+ theology</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000956">LGBTQ+ tourism</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000957">LGBTQ+ unrequited love</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000862">LGBTQ+ veterans</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000312">LGBTQ+ victims of crime</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000613">LGBTQ+ victims of hate crimes</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000958">LGBTQ+ victims of rape</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000959">LGBTQ+ victims of sexual abuse</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000961">LGBTQ+ victims of war</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001492">LGBTQ+ victims' rights</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000960">LGBTQ+ visibility</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000962">LGBTQ+ websites</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000963">LGBTQ+ weddings</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000243">LGBTQ+ white people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001521">LGBTQ+ youth</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000964">LGBTQ+ youth centres</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001522">LGBTQ+ youth literature</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000965">LGBTQ+ zines</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001012">Mental health care for LGBTQ+ people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000641">Murders of LGBTQ+ people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001113">Physical health care for LGBTQ+ people</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0000933">Schools for LGBTQ+ youth</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001307">Sexually abused LGBTQ+ children</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001348">Survivors of anti-LGBTQ+ violence</a>
+        </li>
+        <li>
+          <a href="https://homosaurus.org/v3/homoit0001482">Undocumented LGBTQ+ residents</a>
+        </li>
+      </ol>
+    </p>
+  </div>
+
+
+  <div class="release_title">
     <h2>Homosaurus v. 3 Released</h2>
     <h3>Released September 2021</h3>
   </div>

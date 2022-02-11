@@ -5,7 +5,6 @@
       <div id="static_holder_content" class="static_holder_content">
         <h2>Sign up</h2>
 
-        <div class="well"><strong>Why Register?</strong><br />Registration currently gives one the ability to "Favorite" items to one's account.</div>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
           <div class="form-group">
