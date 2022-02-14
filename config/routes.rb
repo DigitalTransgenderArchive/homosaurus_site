@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  mount Hydra::RoleManagement::Engine => '/'
 
   #get 'search/index'
   get 'search/:id' => 'vocabulary#search', as: :vocabulary_search_results
@@ -14,9 +15,20 @@ Rails.application.routes.draw do
   post 'contact' => 'homepage#contact'
   get 'feedback_complete' => 'homepage#feedback_complete', as: :feedback_complete
 
+  # Autocomplete Routes
+  get '/autocomplete/exact_match_lcsh', to: "autocomplete#lcsh_subject", as: :exact_match_lcsh_autocomplete
+  get '/autocomplete/close_match_lcsh', to: "autocomplete#lcsh_subject", as: :close_match_lcsh_autocomplete
+
+  # These should be next to last
+  get ':vocab_id/new_term' => 'vocabulary#new', as: :vocabulary_term_new
+  post ':vocab_id/new_term' => 'vocabulary#create', as: :vocabulary_term_create
+  get ':vocab_id/:id/edit' => 'vocabulary#edit', as: :vocabulary_term_edit
+  patch ':vocab_id/:id/update' => 'vocabulary#update', as: :vocabulary_term_update
+
   # These have to be last
   get ':id' => 'vocabulary#index', as: :vocabulary_index
   get ':vocab_id/:id' => 'vocabulary#show', as: :vocabulary_show
+
 
   #resources :vocabs_v3, only: [:index, :show], :path => '/v3'
 

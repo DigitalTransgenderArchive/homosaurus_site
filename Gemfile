@@ -37,15 +37,16 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-#gem 'rdf'
-gem 'rdf', '1.99.0'
+gem 'rdf'
+#gem 'rdf', '1.99.0'
 gem "rdf-vocab"
 gem "mime-types"
-gem "linkeddata", '1.99.0'
+gem "linkeddata"
+#gem "linkeddata", '1.99.0'
 gem "iso-639"
 gem 'emoji_flag'
-#gem 'rdf-blazegraph', github: "ruby-rdf/rdf-blazegraph", branch: 'develop'
-#gem 'active-triples', github: "scande3/ActiveTriples", branch: 'develop'
+gem 'rdf-blazegraph', github: "ruby-rdf/rdf-blazegraph", branch: 'develop'
+gem 'active-triples', github: "scande3/ActiveTriples", branch: 'develop'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -55,6 +56,12 @@ gem 'emoji_flag'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'simple_form'
+gem "rails-assets-onmount"
+gem 'select2-rails'
+gem 'qa'
+gem 'rest-client'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

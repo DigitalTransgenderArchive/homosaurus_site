@@ -1,4 +1,9 @@
 <h1>Homosaurus Vocabulary Terms</h1>
+<% if current_user.present? && current_user.contributor? && request.original_url.include?('/v3') %>
+  <h4>Admin Actions:</h4>
+  <%= button_to "Add A New Term", vocabulary_term_new_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default' %>
+<% end %>
+
 <h4>Download Formats:</h4>
 <ul>
   <li><%= link_to "N-Triples", request.original_url + '.nt'  %></li>

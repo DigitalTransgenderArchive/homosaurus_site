@@ -1,0 +1,229 @@
+<% dropdown_opts ||= '' %>
+<div class="modal fade" id="meiLookupModal_<%=key%>" tabindex="-1" role="dialog" aria-labelledby="meiLookupModalLabel_<%=key%>" style="width:90%;">
+  <div class="modal-dialog" role="document" style="width:90%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="meiLookupModalLabel_<%=key%>">Add <%=key.to_s.gsub('_', ' ').upcase%> Term</h4>
+      </div>
+      <div class="modal-body">
+
+          <div class="form-group">
+            <div class="row">
+              <% if dropdown_opts.present? %>
+                  <div class="col-xs-2">
+                    <label for="recipient-name" class="control-label">Qualifier:</label>
+                    <select name="mei_lcsh_extra_<%=key%>" class="form-control" id="mei_lcsh_extra_<%=key%>">
+                      <% dropdown_opts.each do |opt| %>
+                          <option value="<%=opt.last%>"><%=opt.first%></option>
+                      <% end %>
+                    </select>
+                  </div>
+
+                  <div class="col-xs-4">
+                    <label for="recipient-name" class="control-label">Search Term:</label>
+                    <input type="text" class="form-control" id="mei_lcsh_term_<%=key%>">
+                  </div>
+              <% else %>
+                  <div class="col-xs-6">
+                    <label for="recipient-name" class="control-label">Search Term:</label>
+                    <input type="text" class="form-control" id="mei_lcsh_term_<%=key%>">
+                  </div>
+              <% end %>
+
+
+                <div class="col-xs-4">
+
+                  <div style="padding-top:23px;float:left;"><button type="button" class="btn btn-default" onClick="mei_lookup_<%=key%>();">Lookup</button></div>
+                  <div style="padding-top:23px;margin-left:40px;float:left;"><button type="button" class="btn btn-default" onClick="mei_use_last_<%=key%>();">Use Last Search</button></div>
+                </div>
+            </div>
+
+          </div>
+          <div class="form-group">
+
+            <label for="message-text" class="control-label">Results:</label>
+
+            <div id="mei_results_<%=key%>"></div>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!--<button type="button" class="btn btn-primary">Send message</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    var mei_element_to_update_<%=key%>;
+    var mei_last_value_<%=key%> = '';
+
+    //Shown is after bootstrap modal transitions have completed. See: http://getbootstrap.com/javascript/#modals-events
+    $("#meiLookupModal_<%=key%>").on('shown.bs.modal', function (event) {
+      $('#mei_lcsh_term_<%=key%>').focus();
+    });
+
+    $("#meiLookupModal_<%=key%>").on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        //alert(button.prev().val());
+        //mei_element_to_update_<%=key%> = button.prev();
+        mei_element_to_update_<%=key%> = button.closest(".field-wrapper").find('.duplicateable');
+        $('#mei_results_<%=key%>').text('');
+        $('#mei_lcsh_term_<%=key%>').val('');
+        //var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        //var modal = $(this)
+        //modal.find('.modal-title').text('New message to ' + recipient)
+        //modal.find('.modal-body input').val(recipient)
+    });
+
+    function mei_use_last_<%=key%>() {
+        if(mei_last_value_<%=key%> == '' &&  $('#mei_lcsh_term_<%=key%>').val() != '') {
+            alert('No last search value present. Are you sure you didn\'t mean to click "Lookup"?');
+            return false;
+        } else if(mei_last_value_<%=key%> == '') {
+            alert('No stored last value to search by!');
+            return false;
+        }
+        $('#mei_lcsh_term_<%=key%>').val(mei_last_value_<%=key%>);
+        mei_lookup_<%=key%>();
+    }
+
+  function mei_lookup_<%=key%>()
+  {
+      $('#mei_results_<%=key%>').text('LOADING...');
+      mei_last_value_<%=key%> = $('#mei_lcsh_term_<%=key%>').val();
+
+      $.getJSON( "/autocomplete/<%=key%>", {
+          q: $('#mei_lcsh_term_<%=key%>').val(),
+          e: $('#mei_lcsh_extra_<%=key%>').val()
+      }, function( data ) {
+          //var json_obj = $.parseJSON(data);//parse JSON
+          json_obj = data;
+
+          counter = 0;
+          var output='<table border="1" class="mei_table_style"><tr class="mei_alt_table_row"><th style="text-align:center">Broader Terms</th><th style="text-align:center">Actual Search Term</th><th style="text-align:center">Narrower Terms</th>';
+        related_found = false;
+        for (i = 0; i < json_obj.length; i++)
+        {
+          if(json_obj[i].related && json_obj[i].related != '' && json_obj[i].related != [])
+          {
+            output+='<th style="text-align:center">Related Terms</th>';
+            related_found = true;
+            i = 10000;
+          }
+        }
+
+        output+='</tr>';
+
+
+          for (var i in json_obj)
+          {
+              counter++;
+              if(counter % 2 == 0) {
+                  output+='<tr class="mei_alt_table_row"><td>';
+              } else {
+                  output+='<tr><td>';
+              }
+
+
+              for (var j in json_obj[i].broader)
+              {
+                  output+= '<a href="#" onClick="setMeiLCSHSubjVal_<%=key%>(\'' + json_obj[i].broader[j].label.replace(/'/g, "\\'") + ' (' + json_obj[i].broader[j].uri_link + ')' + '\'); return false;">' + json_obj[i].broader[j].label + '</a> &nbsp;';
+                output+= '<a href="#" onClick="setMeiSearchField_<%=key%>(\'' + json_obj[i].broader[j].label.replace(/'/g, "\\'") + '\'); return false"><span class="glyphicon glyphicon-search" aria-hidden="true"><span></a> &nbsp;';
+                output+='<a href="' + json_obj[i].broader[j].uri_link + '" target="_blank"><span class="glyphicon glyphicon-share" aria-hidden="true"><span></a><br />';
+              }
+              output+="</td><td width='35%'>";
+
+              output+='<a href="#" onClick="setMeiLCSHSubjVal_<%=key%>(\'' + json_obj[i].label.replace(/'/g, "\\'") + ' (' + json_obj[i].uri_link + ')' + '\'); return false;"><strong>' + json_obj[i].label + '</strong></a> (' + json_obj[i].count + ') &nbsp;';
+            output+= '<a href="' + json_obj[i].uri_link + '" target="_blank"><span class="glyphicon glyphicon-share" aria-hidden="true"><span></a><br />';
+
+            if(json_obj[i].variants && json_obj[i].variants != '')
+              {
+                  output+='<span style="font-size:10px;">(<em>'
+                  /*              for (var j in json_obj[i].variants)
+                   {
+                   output+='<em>'
+                   }*/
+                  output+=json_obj[i].variants.join(', ')
+                  output+='</em>)</span>'
+              }
+
+
+              output+="</td><td>";
+
+              for (var j in json_obj[i].narrower)
+              {
+                output+= '<a href="#" onClick="setMeiLCSHSubjVal_<%=key%>(\'' + json_obj[i].narrower[j].label.replace(/'/g, "\\'") + ' (' + json_obj[i].narrower[j].uri_link + ')' + '\'); return false;">' + json_obj[i].narrower[j].label + '</a> &nbsp;';
+                output+= '<a href="#" onClick="setMeiSearchField_<%=key%>(\'' + json_obj[i].narrower[j].label.replace(/'/g, "\\'") + '\'); return false"><span class="glyphicon glyphicon-search" aria-hidden="true"><span></a> &nbsp;';
+                output+='<a href="' + json_obj[i].narrower[j].uri_link + '" target="_blank"><span class="glyphicon glyphicon-share" aria-hidden="true"><span></a><br />';
+              }
+
+            if(related_found) {
+              output+='</td><td width="16%">';
+            }
+            if(json_obj[i].related && json_obj[i].related != ''  && json_obj[i].related != [])
+            {
+
+              for (var j in json_obj[i].related)
+              {
+                output+= '<a href="#" onClick="setMeiLCSHSubjVal_<%=key%>(\'' + json_obj[i].related[j].label.replace(/'/g, "\\'") + ' (' + json_obj[i].related[j].uri_link + ')' + '\'); return false;">' + json_obj[i].related[j].label + '</a> &nbsp;';
+                output+= '<a href="#" onClick="setMeiSearchField_<%=key%>(\'' + json_obj[i].related[j].label.replace(/'/g, "\\'") + '\'); return false"><span class="glyphicon glyphicon-search" aria-hidden="true"><span></a> &nbsp;';
+                output+='<a href="' + json_obj[i].related[j].uri_link + '" target="_blank"><span class="glyphicon glyphicon-share" aria-hidden="true"><span></a><br />';
+              }
+            } else {
+              output+= '&nbsp;'
+            }
+              output+="</td></tr>";
+
+          }
+          output+="</table>";
+
+          //$('#mei_results').innerHTML = output;
+          $('#mei_results_<%=key%>').html(output);
+          //$('mei_lcsh_term').value = 'wtf man';
+
+          //alert(output);
+
+/*          var items = [];
+          $.each( data, function( key, val ) {
+              $.each( val, function( key2, val2 ) {
+                  items.push( "<li id='" + key2 + "'>" + val2 + "</li>" );
+              });
+
+          });
+
+          alert(items[1]);
+
+          $( "<ul/>", {
+              "class": "my-new-list",
+              html: items.join( "" )
+          }).appendTo( $('results') );*/
+      });
+
+  }
+
+    function setMeiSearchField_<%=key%>(val) {
+      console.log('hi there');
+        $('#mei_lcsh_term_<%=key%>').val(val)
+        mei_lookup_<%=key%>();
+    }
+
+        function setMeiLCSHSubjVal_<%=key%>(val) {
+            mei_element_to_update_<%=key%>.val(val);
+          $('#meiLookupModal_<%=key%>').modal('toggle');
+          return false;
+        }
+
+    $("#mei_lcsh_term_<%=key%>").keydown(function(event){
+      if(event.keyCode == 13){
+        event.preventDefault();
+        mei_lookup_<%=key%>();
+        return true;
+      }
+    });
+
+</script>

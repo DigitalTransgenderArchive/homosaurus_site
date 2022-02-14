@@ -14,4 +14,8 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require d3
+//= require onmount
 //= require_tree .
+
+$(document).on('ready turbolinks:load', function () { $.onmount() });
+$(document).on('turbolinks:before-cache', function () { $.onmount.teardown() });

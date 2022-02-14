@@ -52,6 +52,27 @@
         <li><%= link_to "About", about_path %></li>
 
         <li><%= link_to "Contact", contact_path %></li>
+
+        <% if current_user.blank? %>
+          &nbsp;
+        <% elsif current_user.present? %>
+          <li class="dropdown user_account_link">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">ACCOUNT <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <% if current_user.superuser? %>
+                <li class="divider"></li>
+                <li><%= link_to 'Roles', role_management.roles_path, :class=>"nav_button" %></li>
+              <% end %>
+              <% if current_user.superuser? || current_user.contributor? || current_user.admin? %>
+                <li class="divider"></li>
+                <li><%= link_to 'Add Homosaurus Term', vocabulary_term_new_path(vocab_id: "v3"), :class=>"nav_button" %></li>
+              <% end %>
+              <li class="divider"></li>
+              <li><%= link_to 'Log Out', destroy_user_session_path, :class=>"nav_button" %></li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
       </ul>
 
     </div><!--/.nav-collapse -->

@@ -1,0 +1,14 @@
+<div class="row-padded">
+  <h1>Edit</h1>
+  <div style="width:50em;">
+    <%= simple_form_for(@term, :url => vocabulary_term_update_path(vocab_id: @vocab_id, id: @term.identifier), :as => :term) do |f| %>
+      <%= render :partial => "form_id", :locals => {:f => f, :key=>:identifier} %>
+      <%= render :partial => "form", locals: {f: f} %>
+      <div>
+        <%= button_tag class: 'btn btn-primary btn-lg', id: "upload_submit", name: "update_descriptions", data: { disable_with: "Please wait..." } do %>
+          <i class="glyphicon glyphicon-floppy-disk"></i> Edit Term
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

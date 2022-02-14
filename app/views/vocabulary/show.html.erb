@@ -12,6 +12,10 @@
       <%= button_to "Back To Index", vocabulary_index_path(id: @homosaurus_obj.vocabulary_identifier), :method => "get", class: 'btn btn-default', style:"float:left;" %>
   <% end %>
 
+  <% if current_user.present? && current_user.contributor? && request.original_url.include?('/v3') %>
+    <%= button_to "Edit Term", vocabulary_term_edit_path(vocab_id: "v3", id: @homosaurus_obj.identifier), :method => "get", class: 'btn btn-default', style:"float:left;" %>
+  <% end %>
+
 </div>
 <br/>
 <br/>

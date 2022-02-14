@@ -1,6 +1,6 @@
 class Term < ActiveRecord::Base
-  #before_destroy :remove_from_solr
-  #after_save :send_solr
+  before_destroy :remove_from_solr
+  after_save :send_solr
 
   belongs_to :vocabulary
 
@@ -17,6 +17,12 @@ class Term < ActiveRecord::Base
   serialize :exact_match_homosaurus, Array
   serialize :close_match_lcsh, Array
   serialize :exact_match_lcsh, Array
+
+  def self.mint(vocab_id: "v3")
+    numeric_pid = Term.where(vocabulary_identifier: vocab_id).maximum(:numeric_pid) || 0
+    numeric_pid = numeric_pid + 1
+    numeric_pid
+  end
 
   def self.find_with_conditions(model, q:, rows:, fl:)
     opts = {}
@@ -256,12 +262,12 @@ class Term < ActiveRecord::Base
       graph << [base_uri, ::RDF::Vocab::SKOS.altLabel, "#{alt}"] if alt.present?
     end
 
-    graph << [base_uri, ::RDF::RDFS.comment, "#{self.description}"] if self.description.present?
+    graph << [base_uri, ::RDF::Vocab::RDFS.comment, "#{self.description}"] if self.description.present?
     #From: https://github.com/ruby-rdf/rdf/blob/7dd766fe34fe4f960fd3e7539f3ef5d556b25013/lib/rdf/model/literal.rb
     #graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.issued}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
     #graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.modified}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
-    graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
-    graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.manual_update_date.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
+    graph << [base_uri, ::RDF::Vocab::DC.issued, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
+    graph << [base_uri, ::RDF::Vocab::DC.modified, ::RDF::Literal.new("#{self.manual_update_date.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
 
     self.broader.each do |cb|
       graph << [base_uri, ::RDF::Vocab::SKOS.broader, ::RDF::URI.new("#{cb}")]
@@ -312,8 +318,8 @@ class Term < ActiveRecord::Base
     #From: https://github.com/ruby-rdf/rdf/blob/7dd766fe34fe4f960fd3e7539f3ef5d556b25013/lib/rdf/model/literal.rb
     #graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.issued}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
     #graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.modified}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
-    graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
-    graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.manual_update_date.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
+    graph << [base_uri, ::RDF::Vocab::DC.issued, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
+    graph << [base_uri, ::RDF::Vocab::DC.modified, ::RDF::Literal.new("#{self.manual_update_date.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
 
     self.exact_match_lcsh.each do |match|
       graph << [base_uri, ::RDF::Vocab::SKOS.exactMatch, ::RDF::URI.new("#{match}")] if match.present?
@@ -373,6 +379,11 @@ class Term < ActiveRecord::Base
     DSolr.delete_by_id "homosaurus/#{self.vocabulary.identifier}/#{self.identifier}"
   end
 
+  def send_solr
+    doc = generate_solr_content
+    DSolr.put doc
+  end
+
   def generate_solr_content(doc={})
     # FIXME: id prefix fix? Next time.
     doc[:id] = "homosaurus/#{self.vocabulary.identifier}/#{self.identifier}"
@@ -419,12 +430,12 @@ class Term < ActiveRecord::Base
     doc[:identifier_ssi] = self.identifier
     doc[:description_ssi] = self.description
     doc[:description_tesim] = [self.description]
-    doc[:languageLabel_ssim] = self.language_labels
+    doc[:languageLabel_ssim] = self.labels_language
 
     doc[:exactMatch_ssim] = self.exact_match.dup
     doc[:closeMatch_ssim] = self.close_match.dup
 
-    doc[:dta_homosaurus_lcase_prefLabel_ssi] = self.label.downcase
+    doc[:dta_homosaurus_lcase_prefLabel_ssi] = self.pref_label.downcase
     doc[:dta_homosaurus_lcase_altLabel_ssim] = []
     self.alt_labels.each do |alt|
       doc[:dta_homosaurus_lcase_altLabel_ssim] << alt.downcase
