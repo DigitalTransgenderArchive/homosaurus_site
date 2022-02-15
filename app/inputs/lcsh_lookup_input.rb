@@ -7,7 +7,8 @@ class LcshLookupInput < MeiMultiLookupInput
       if  value.blank? and !@rendered_first_element
         buffer << yield(value, index)
       elsif value.present?
-          buffer << yield("#{value.label} (#{value.uri})", index)
+          l = LcshSubjectCache.find_by(uri: value)
+          buffer << yield("#{l.label} (#{l.uri})", index)
       end
     end
   end

@@ -83,41 +83,14 @@ class VocabularyController < ApplicationController
       @term.vocabulary = @vocabulary
       @term.visibility = "visible"
       @term.manual_update_date = Time.now
-      preflbl = params[:term][:pref_label_language][0].split('@')[0]
-      preflbl_language = params[:term][:pref_label_language][0]
-      if preflbl_language.include?('@')
-        lang_check = preflbl_language.split('@').last
-        unless lang_check == 'en-GB' || lang_check == 'en-US' || ISO_639.find_by_code(lang_check).present?
-          preflbl_language = preflbl
-        end
-      end
-      @term.pref_label = preflbl
-      @term.pref_label_language = preflbl_language
 
+      set_match_relationship(params[:term], "exact_match_lcsh")
+      set_match_relationship(params[:term], "close_match_lcsh")
+
+      @term.pref_label_language = params[:term][:pref_label_language][0]
+      @term.labels_language = params[:term][:labels_language]
+      @term.alt_labels_language = params[:term][:alt_labels_language]
       @term.update(term_params)
-      language_labels = []
-      params[:term][:labels_language].each do |lbl|
-        if lbl.include?('@')
-          lang_check = lbl.split('@').last
-          if lang_check == 'en-GB' || lang_check == 'en-US' || ISO_639.find_by_code(lang_check).present?
-            language_labels << lbl
-          end
-        end
-      end
-      @term.labels_language = language_labels
-      @term.labels = language_labels.map { |lbl| lbl.split('@')[0]}
-
-      alt_labels_language = []
-      params[:term][:alt_labels_language].each do |lbl|
-        if lbl.include?('@')
-          lang_check = lbl.split('@').last
-          if lang_check == 'en-GB' || lang_check == 'en-US' || ISO_639.find_by_code(lang_check).present?
-            alt_labels_language << lbl
-          end
-        end
-      end
-      @term.alt_labels_language = alt_labels_language
-      @term.alt_labels = alt_labels_language.map { |lbl| lbl.split('@')[0]}
 
       @term.save
 
@@ -236,42 +209,11 @@ class VocabularyController < ApplicationController
         set_match_relationship(params[:term], "exact_match_lcsh")
         set_match_relationship(params[:term], "close_match_lcsh")
 
-        preflbl = params[:term][:pref_label_language][0].split('@')[0]
-        preflbl_language = params[:term][:pref_label_language][0]
-        if preflbl_language.include?('@')
-          lang_check = preflbl_language.split('@').last
-          unless lang_check == 'en-GB' || lang_check == 'en-US' || ISO_639.find_by_code(lang_check).present?
-            preflbl_language = preflbl
-          end
-        end
-        @term.pref_label = preflbl
-        @term.pref_label_language = preflbl_language
+        @term.pref_label_language = params[:term][:pref_label_language][0]
+        @term.labels_language = params[:term][:labels_language]
+        @term.alt_labels_language = params[:term][:alt_labels_language]
 
         @term.update(term_params)
-        language_labels = []
-        params[:term][:labels_language].each do |lbl|
-          if lbl.include?('@')
-            lang_check = lbl.split('@').last
-            if lang_check == 'en-GB' || lang_check == 'en-US' || ISO_639.find_by_code(lang_check).present?
-              language_labels << lbl
-            end
-          end
-        end
-        @term.labels_language = language_labels
-        @term.labels = language_labels.map { |lbl| lbl.split('@')[0]}
-
-        alt_labels_language = []
-        params[:term][:alt_labels_language].each do |lbl|
-          if lbl.include?('@')
-            lang_check = lbl.split('@').last
-            if lang_check == 'en-GB' || lang_check == 'en-US' || ISO_639.find_by_code(lang_check).present?
-              alt_labels_language << lbl
-            end
-          end
-        end
-        @term.alt_labels_language = alt_labels_language
-        @term.alt_labels = alt_labels_language.map { |lbl| lbl.split('@')[0]}
-
         @term.save
 
         # FIXME: DO THIS BETTER
