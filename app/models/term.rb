@@ -439,7 +439,7 @@ class Term < ActiveRecord::Base
     doc[:dta_homosaurus_lcase_prefLabel_ssi] = self.pref_label.downcase
     doc[:dta_homosaurus_lcase_altLabel_ssim] = []
     self.alt_labels.each do |alt|
-      doc[:dta_homosaurus_lcase_altLabel_ssim] << alt.downcase
+      doc[:dta_homosaurus_lcase_altLabel_ssim] << alt.downcase if alt.present?
     end
 
     @broadest_terms = []
