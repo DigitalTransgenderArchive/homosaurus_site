@@ -5,3 +5,7 @@
 Mime::Type.register "application/ld+json", :jsonld
 Mime::Type.register "application/n-triples", :nt
 Mime::Type.register "text/turtle", :ttl
+
+Mime::Type.register "application/ld+json", :jsonldV2
+Mime::Type.register "application/n-triples", :ntV2
+Mime::Type.register "text/turtle", :ttlV2

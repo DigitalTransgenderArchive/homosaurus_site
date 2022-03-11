@@ -39,10 +39,18 @@
 
     <%= f.input :description, as: :single_base,
                 input_html: { include_help: 'Descriptive note about this term',
-                              help_label: 'Description',
+                              help_label: 'Description (Scope Note)',
                               rows: '9', type: 'textarea',
                 },
-                required: false, label: 'Description'
+                required: false, label: 'Description (Scope Note)'
+    %>
+
+    <%= f.input :history_note, as: :single_base,
+                input_html: { include_help: 'History note about this term',
+                              help_label: 'History Note',
+                              rows: '5', type: 'textarea',
+                },
+                required: false, label: 'History Note'
     %>
 
 

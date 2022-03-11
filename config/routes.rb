@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   post ':vocab_id/new_term' => 'vocabulary#create', as: :vocabulary_term_create
   get ':vocab_id/:id/edit' => 'vocabulary#edit', as: :vocabulary_term_edit
   patch ':vocab_id/:id/update' => 'vocabulary#update', as: :vocabulary_term_update
+  delete ':vocab_id/:id/delete' => 'vocabulary#destroy', as: :vocabulary_term_delete
+  get ':vocab_id/:id/restore' => 'vocabulary#restore', as: :vocabulary_term_restore
+  get ':vocab_id/:id/replace/:replacement_id' => 'vocabulary#replace', as: :replace
 
   # These have to be last
   get ':id' => 'vocabulary#index', as: :vocabulary_index

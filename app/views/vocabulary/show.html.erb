@@ -9,11 +9,17 @@
   <% if params[:from_q].present? %>
       <%= button_to "Back To Search Results", vocabulary_search_results_path(id: @homosaurus_obj.vocabulary_identifier), :method => "get", class: 'btn btn-default', style:"float:left;", params: { :q=>params[:from_q]} %>
   <% else %>
-      <%= button_to "Back To Index", vocabulary_index_path(id: @homosaurus_obj.vocabulary_identifier), :method => "get", class: 'btn btn-default', style:"float:left;" %>
+      <%= button_to "Back To Index", vocabulary_index_path(id: @homosaurus_obj.vocabulary_identifier), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;" %>
   <% end %>
 
   <% if current_user.present? && current_user.contributor? && request.original_url.include?('/v3') %>
-    <%= button_to "Edit Term", vocabulary_term_edit_path(vocab_id: "v3", id: @homosaurus_obj.identifier), :method => "get", class: 'btn btn-default', style:"float:left;" %>
+    <%= button_to "Edit Term", vocabulary_term_edit_path(vocab_id: "v3", id: @homosaurus_obj.identifier), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;" %>
+    <% if @homosaurus_obj.visibility == "deleted" %>
+      <%= button_to "Restore Term", vocabulary_term_restore_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => "get", class: 'btn btn-danger',  data: { confirm: "Are you sure you want to restore #{@homosaurus_obj.pref_label}?" }, style:"float:left; margin-left:20px;" %>
+    <% else %>
+      <%= button_to "Delete Term", vocabulary_term_delete_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => :delete, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to delete #{@homosaurus_obj.pref_label}?" }, style:"float:left; margin-left:20px;" %>
+    <% end %>
+    <input class="btn btn-danger" style="float:left; margin-left:20px;" type="button" value="Replace Other Term" onClick='var identifer = prompt("Enter the identifier of the term to replace with this term. This OTHER TERM will redirect to this record."); window.location="/<%=@homosaurus_obj.vocabulary_identifier%>/<%=@homosaurus_obj.identifier%>/replace/" + identifer;'>
   <% end %>
 
 </div>
@@ -45,6 +51,11 @@
 <%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("description"),
      :values=>[@homosaurus_obj.description]}
+%>
+
+<%= render :partial => "panel_display_partial", :locals =>
+    {:title => Term.getLabel("historyNote"),
+     :values=>[@homosaurus_obj.history_note]}
 %>
 
 <%= render :partial => "panel_display_partial", :locals =>
@@ -112,3 +123,4 @@
 
 <br />
 <p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.nt'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonld' %>, <%= link_to "Extended JSON", request.original_url.split('?').first + '.json' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttl' %></p>
+<p><br/><strong>Temporary Experimental Formats (includes language identifiers):</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonldV2' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttlV2' %></p>

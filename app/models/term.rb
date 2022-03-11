@@ -83,7 +83,7 @@ class Term < ActiveRecord::Base
     when "altLabel"
       "<a href='http://www.w3.org/2004/02/skos/core#altLabel' target='blank'  title='Definition of Alternative Label in the SKOS Vocabulary'>Alternative Term (Use For)</a>"
     when "description"
-      "<a href='http://www.w3.org/2000/01/rdf-schema#comment' target='blank'  title='Definition of Comment in the RDF Schema Vocabulary'>Description</a>"
+      "<a href='http://www.w3.org/2000/01/rdf-schema#comment' target='blank'  title='Definition of Comment in the RDF Schema Vocabulary'>Description (Scope Note)</a>"
     when "issued"
       "<a href='http://purl.org/dc/terms/issued' target='blank'  title='Definition of Issued in the Dublin Core Terms Vocabulary'>Issued (Created)</a>"
     when "modified"
@@ -102,6 +102,8 @@ class Term < ActiveRecord::Base
       "<a href='http://purl.org/dc/terms/isReplacedBy' target='blank'  title='Definition of isReplacedBy in the Dublin Core Terms Vocabulary'>Is Replaced By</a>"
     when "replaces"
       "<a href='http://purl.org/dc/terms/replaces' target='blank'  title='Definition of replaces in the Dublin Core Terms Vocabulary'>Replaces</a>"
+    when "historyNote"
+      "<a href='http://www.w3.org/2004/02/skos/core#historyNote' target='blank'  title='Definition of historyNote in the SKOS Vocabulary'>History Note</a>"
     else
       field.humanize
     end
@@ -151,85 +153,68 @@ class Term < ActiveRecord::Base
   end
 
 
-  def self.csv_download(identifier, limited_terms=nil)
-    all_terms = Term.get_terms_from_solr(identifier, limited_terms)
-    vocabulary = Vocabulary.find_by(identifier: identifier)
+  def self.csv_download(all_terms)
+    #if limited_terms.present?
+    #all_terms = Term.where(vocabulary_identifier: identifier, visibility: 'visible', identifier: limited_terms).order("lower(pref_label) ASC")
+    #else
+    #all_terms = Term.where(vocabulary_identifier: identifier, visibility: 'visible').order("lower(pref_label) ASC")
+    #end
+
+    #vocabulary = Vocabulary.find_by(identifier: identifier)
     full_graph = []
 
     all_terms.each do |current_term|
       graph = {}
 
-      base_uri = "#{vocabulary.base_uri}/#{current_term['identifier_ssi']}"
+      base_uri = current_term.uri
       graph[:uri] = base_uri
-      graph[:identifier] = current_term['identifier_ssi']
-      graph[:prefLabel] = current_term['prefLabel_tesim'].first
-      graph[:engLabel] = '' # needs label_eng
+      graph[:identifier] = current_term.identifier
+      graph[:prefLabel] = current_term.pref_label
+      graph[:other_labels] = []
+      current_term.labels.each do |lbl|
+        graph[:other_labels] << lbl
+      end
+      graph[:other_labels] = graph[:other_labels].join("||")
+
       graph[:altLabel] = []
-      if current_term['altLabel_tesim'].present?
-        current_term['altLabel_tesim'].each do |alt|
-          graph[:altLabel] << alt if alt.present?
-        end
+      current_term.alt_labels.each do |alt|
+        graph[:altLabel] << alt
       end
       graph[:altLabel] = graph[:altLabel].join("||")
 
-      graph[:description] = current_term['description_tesim'][0]
+      # Note: This can have commas and semicolons
+      graph[:description] = current_term.description
 
-      graph[:broader] = []
-      if current_term['broader_ssim'].present?
-        current_term['broader_ssim'].each do |current_broader|
-          graph[:broader] << "http://homosaurus.org/v3/#{current_broader.split('/').last}" if current_broader.present?
-        end
-      end
+      graph[:broader] = current_term.broader
       graph[:broader] = graph[:broader].join("||")
 
-      graph[:narrower] = []
-      if current_term['narrower_ssim'].present?
-        current_term['narrower_ssim'].each do |current_narrower|
-          graph[:narrower] << "http://homosaurus.org/v3/#{current_narrower.split('/').last}" if current_narrower.present?
-        end
-      end
+      graph[:narrower] = current_term.narrower
       graph[:narrower] = graph[:narrower].join("||")
 
-      graph[:related] = []
-      if current_term['related_ssim'].present?
-        current_term['related_ssim'].each do |current_related|
-          graph[:related] << "http://homosaurus.org/v3/#{current_related.split('/').last}" if current_related.present?
-        end
-      end
+      graph[:related] = current_term.related
       graph[:related] = graph[:related].join("||")
 
-      graph[:topConcept] =  []
-      if current_term['topConcept_ssim'].present?
-        current_term['topConcept_ssim'].each do |top_concept|
-          graph[:topConcept]  << "http://homosaurus.org/v3/#{top_concept}" if top_concept.present?
-        end
-      end
-      graph[:topConcept] = graph[:topConcept].join("||")
+      graph[:issued] = current_term.created_at.iso8601.split('T').first
+      graph[:modified] = current_term.manual_update_date.iso8601.split('T').first
 
-      graph[:issued] = current_term['issued_dtsi'].split('T').first
-      graph[:modified] = current_term['modified_dtsi'].split('T').first
-
-      graph[:isReplacedBy] =  []
-      if current_term['isReplacedBy_ssim'].present?
-        current_term['isReplacedBy_ssim'].each do |replaced_by_concept|
-          graph[:isReplacedBy]  << replaced_by_concept if replaced_by_concept.present?
-        end
+      graph[:isReplacedBy] = []
+      if current_term.is_replaced_by.present?
+        graph[:isReplacedBy] <<  current_term.is_replaced_by
       end
       graph[:isReplacedBy] = graph[:isReplacedBy].join("||")
 
-      graph[:replaces] =  []
-      if current_term['replaces_ssim'].present?
-        current_term['replaces_ssim'].each do |replaces_concept|
-          graph[:replaces]  << replaces_concept if replaces_concept.present?
-        end
+      graph[:replaces] = []
+      if current_term.replaces.present?
+        graph[:replaces] <<  current_term.replaces
       end
       graph[:replaces] = graph[:replaces].join("||")
 
       full_graph << graph
     end
 
-    csv_string = CSV.generate do |csv|
-      cols = ["URI", "identifier", "prefLabel", "label@eng-us", "altLabel", "comment", "broader", "narrower", "related", "hasTopConcept", "issued", "modified", "isReplacedBy", "replaces"]
+    #csv_string = CSV.generate(col_sep: "\t") do |csv|
+    csv_string = CSV.generate(col_sep: "\t") do |csv|
+      cols = ["URI", "identifier", "prefLabel", "prefLabel Alternate Spellings", "altLabel", "comment", "broader", "narrower", "related", "issued", "modified", "isReplacedBy", "replaces"]
 
       csv << cols
       full_graph.each do |term|
@@ -255,9 +240,9 @@ class Term < ActiveRecord::Base
     graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{self.pref_label}"]
 
     # FIXME: Handle these labels better?
-    self.labels.each do |lbl|
-      graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{lbl}"] if lbl.present?
-    end
+    # self.labels.each do |lbl|
+    # graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{lbl}"] if lbl.present?
+    # end
 
     self.alt_labels.each do |alt|
       graph << [base_uri, ::RDF::Vocab::SKOS.altLabel, "#{alt}"] if alt.present?
@@ -304,14 +289,89 @@ class Term < ActiveRecord::Base
     graph
   end
 
+  def self.all_terms_full_graph_v2(terms)
+    graph = ::RDF::Graph.new
+    concept_statement = RDF::Statement(::RDF::URI.new("#{terms.first.vocabulary.base_uri}"), ::RDF.type, ::RDF::Vocab::SKOS.ConceptScheme)
+    graph << concept_statement
+
+    terms.each do |current_term|
+      current_term.full_graph_v2(graph, false)
+    end
+    graph
+  end
+
+  def full_graph_v2(graph=::RDF::Graph.new, include_concept_schema=true)
+    base_uri = ::RDF::URI.new("#{self.uri}")
+    graph << [base_uri, ::RDF::Vocab::DC.identifier, "#{self.identifier}"]
+    graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{self.pref_label}"]
+    if self.pref_label_language.include?('@')
+      graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, ::RDF::Literal.new(self.pref_label_language.split('@')[0], language: self.pref_label_language.split('@')[1].to_sym)]
+    end
+
+    # FIXME: Handle these labels better?
+    self.labels_language.each do |lbl|
+      if lbl.include?('@')
+        graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, ::RDF::Literal.new(lbl.split('@')[0], language: lbl.split('@')[1].to_sym)]
+      end
+    end
+
+    self.alt_labels_language.each do |alt|
+      if alt.present?
+        if alt.include?('@')
+          graph << [base_uri, ::RDF::Vocab::SKOS.altLabel, ::RDF::Literal.new(alt.split('@')[0], language: alt.split('@')[1].to_sym)]
+        else
+          graph << [base_uri, ::RDF::Vocab::SKOS.altLabel, "#{alt}"]
+        end
+      end
+    end
+
+    graph << [base_uri, ::RDF::Vocab::RDFS.comment, "#{self.description}"] if self.description.present?
+    #From: https://github.com/ruby-rdf/rdf/blob/7dd766fe34fe4f960fd3e7539f3ef5d556b25013/lib/rdf/model/literal.rb
+    #graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.issued}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
+    #graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.modified}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
+    graph << [base_uri, ::RDF::Vocab::DC.issued, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
+    graph << [base_uri, ::RDF::Vocab::DC.modified, ::RDF::Literal.new("#{self.manual_update_date.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
+
+    self.broader.each do |cb|
+      graph << [base_uri, ::RDF::Vocab::SKOS.broader, ::RDF::URI.new("#{cb}")]
+    end
+
+    self.narrower.each do |cn|
+      graph << [base_uri, ::RDF::Vocab::SKOS.narrower, ::RDF::URI.new("#{cn}")]
+    end
+
+    self.related.each do |cr|
+      graph << [base_uri, ::RDF::Vocab::SKOS.related, ::RDF::URI.new("#{cr}")]
+    end
+
+    self.exact_match_lcsh.each do |match|
+      graph << [base_uri, ::RDF::Vocab::SKOS.exactMatch, ::RDF::URI.new("#{match}")] if match.present?
+    end
+    self.close_match_lcsh.each do |match|
+      graph << [base_uri, ::RDF::Vocab::SKOS.closeMatch, ::RDF::URI.new("#{match}")] if match.present?
+    end
+
+    graph << [base_uri, ::RDF::Vocab::DC.isReplacedBy, ::RDF::URI.new("#{self.is_replaced_by}")] if self.is_replaced_by.present?
+    graph << [base_uri, ::RDF::Vocab::DC.replaces, ::RDF::URI.new("#{self.replaces}")] if self.replaces.present?
+
+    graph << [base_uri, ::RDF.type, ::RDF::Vocab::SKOS.Concept]
+    if include_concept_schema
+      concept_statement = RDF::Statement(::RDF::URI.new("#{self.vocabulary.base_uri}"), ::RDF.type, ::RDF::Vocab::SKOS.ConceptScheme)
+      graph << concept_statement
+    end
+    #graph << [::RDF::URI.new("#{self.vocabulary.base_uri}"), ::RDF.type, ::RDF::Vocab::SKOS.ConceptScheme]
+    graph << [base_uri, ::RDF::Vocab::SKOS.inScheme, ::RDF::URI.new("#{self.vocabulary.base_uri}")]
+    graph
+  end
+
   def full_graph_expanded_json
     base_uri = ::RDF::URI.new("#{self.uri}")
     graph = ::RDF::Graph.new << [base_uri, ::RDF::Vocab::DC.identifier, "#{self.identifier}"]
     graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{self.pref_label}"]
     # FIXME!!!
-    self.labels.each do |lbl|
-      graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{self.lbl}"] if lbl.present?
-    end
+    # self.labels.each do |lbl|
+    # graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{self.lbl}"] if lbl.present?
+    # end
     self.alt_labels.each do |alt|
       graph << [base_uri, ::RDF::Vocab::SKOS.altLabel, "#{alt}"] if alt.present?
     end
@@ -453,6 +513,7 @@ class Term < ActiveRecord::Base
     doc[:topConcept_uri_ssim] = @broadest_terms.uniq if @broadest_terms.present?
     doc[:new_model_ssi] = self.vocabulary.solr_model + 'Subject'
     doc[:active_fedora_model_ssi] = self.vocabulary.solr_model
+    doc[:visbility_ssi] = self.visibility
     doc
   end
 

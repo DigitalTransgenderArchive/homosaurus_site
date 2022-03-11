@@ -1,5 +1,5 @@
 class VocabularyController < ApplicationController
-  before_action :verify_permission, :only => [:new, :edit, :create, :update]
+  before_action :verify_permission, :only => [:new, :edit, :create, :update, :destroy, :replace, :restore]
 
   def index
     identifier = params[:id]
@@ -15,6 +15,9 @@ class VocabularyController < ApplicationController
       format.jsonld { render body: Term.all_terms_full_graph(@terms).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
       format.ttl { render body: Term.all_terms_full_graph(@terms).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
       format.csv { send_data Term.csv_download(@terms), filename: "Homosaurus_#{identifier}_#{Date.today}.csv" }
+      format.ntV2 { render body: Term.all_terms_full_graph_v2(@terms).dump(:ntriples), :content_type => "application/n-triples" }
+      format.jsonldV2 { render body: Term.all_terms_full_graph_v2(@terms).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+      format.ttlV2 { render body: Term.all_terms_full_graph_v2(@terms).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
     end
   end
 
@@ -33,6 +36,10 @@ class VocabularyController < ApplicationController
       format.jsonld { render body: @homosaurus_obj.full_graph.dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
       format.json { render body: @homosaurus_obj.full_graph_expanded_json, :content_type => 'application/json' }
       format.ttl { render body: @homosaurus_obj.full_graph.dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
+
+      format.ntV2 { render body: @homosaurus_obj.full_graph_v2.dump(:ntriples), :content_type => "application/n-triples" }
+      format.jsonldV2 { render body: @homosaurus_obj.full_graph_v2.dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+      format.ttlV2 { render body: @homosaurus_obj.full_graph_v2.dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
     end
   end
 
@@ -267,41 +274,91 @@ class VocabularyController < ApplicationController
   end
 
   def destroy
+    @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
 
-    @homosaurus = HomosaurusV3Subject.find(params[:id])
+    clear_relations(@term)
+    @term.visibility = "deleted"
+    @term.save!
+    #@homosaurus.broader = []
+    #@homosaurus.narrower = []
+    #@homosaurus.related = []
 
-    @homosaurus.broader.each do |broader|
-      hier_object = HomosaurusV3Subject.find_by(identifier: broader)
-      hier_object.narrower.delete(@homosaurus.identifier)
-      hier_object.save
-    end
-
-
-    @homosaurus.narrower.each do |narrower|
-      hier_object = HomosaurusV3Subject.find_by(identifier: narrower)
-      hier_object.broader.delete(@homosaurus.identifier)
-      hier_object.save
-    end
-
-
-    @homosaurus.related.each do |related|
-      hier_object = HomosaurusV3Subject.find_by(identifier: related)
-      hier_object.related.delete(@homosaurus.identifier)
-      hier_object.save
-    end
-    @homosaurus.reload
-
-    @homosaurus.broader = []
-    @homosaurus.narrower = []
-    @homosaurus.related = []
-
-    @homosaurus.destroy
-    redirect_to homosaurus_v3_index_path, notice: "HomosaurusV3 term was deleted!"
+    #@homosaurus.destroy
+    #redirect_to homosaurus_v3_index_path, notice: "HomosaurusV3 term was deleted!"
+    redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "Term was marked as deleted! Relations were removed from related terms."
   end
 
+  def replace
+    @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
+    @term_being_replaced = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:replacement_id])
+
+    if @term.blank? || @term_being_replaced.blank? || params[:vocab_id] == params[:replacement_id]
+      redirect_to vocabulary_index_path(id: "v3"), notice: "Replacement of term failed"
+    else
+      clear_relations(@term_being_replaced)
+      @term_being_replaced.is_replaced_by = @term.uri
+      @term_being_replaced.visibility = "redirect"
+      @term_being_replaced.save!
+
+      redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "The old term of #{@term_being_replaced.uri} should redirect here now."
+    end
+  end
+
+  def restore
+    @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
+
+    set_restore_relations(@term)
+
+    @term.visibility = "visible"
+    @term.save!
+
+    redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "Term was restored!"
+  end
+
+  def clear_relations(term)
+    term.broader.each do |broader|
+      hier_object = Term.find_by(uri: broader)
+      hier_object.narrower.delete(term.uri)
+      hier_object.save
+    end
+
+    term.narrower.each do |narrower|
+      hier_object = Term.find_by(uri: narrower)
+      hier_object.broader.delete(term.uri)
+      hier_object.save
+    end
+
+    term.related.each do |related|
+      hier_object = Term.find_by(uri: related)
+      hier_object.related.delete(term.uri)
+      hier_object.save
+    end
+  end
+
+  def set_restore_relations(term)
+    term.broader.each do |broader|
+      hier_object = Term.find_by(uri: broader)
+      hier_object.narrower = hier_object.narrower + [term.uri]
+      hier_object.save
+    end
+
+
+    term.narrower.each do |narrower|
+      hier_object = Term.find_by(uri: narrower)
+      hier_object.narrower = hier_object.narrower + [term.uri]
+      hier_object.save
+    end
+
+
+    term.related.each do |related|
+      hier_object = Term.find_by(uri: related)
+      hier_object.narrower = hier_object.narrower + [term.uri]
+      hier_object.save
+    end
+  end
 
   def term_params
-    params.require(:term).permit(:identifier, :description, :exactMatch, :closeMatch)
+    params.require(:term).permit(:identifier, :description, :history_note, :exactMatch, :closeMatch)
   end
 
   def verify_permission
