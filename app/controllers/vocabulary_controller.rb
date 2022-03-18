@@ -7,7 +7,10 @@ class VocabularyController < ApplicationController
     #@terms = Term.find_with_conditions(@vocabulary.solr_model, q: "*:*", rows: '10000', fl: 'id,prefLabel_tesim' )
     #@terms = @terms.sort_by { |term| term["prefLabel_tesim"].first.downcase }
 
-    @terms = Term.where(vocabulary_identifier: identifier, visibility: 'visible').order("lower(pref_label) ASC")
+    display_mode = params[:display_mode]
+    display_mode ||= "visible"
+
+    @terms = Term.where(vocabulary_identifier: identifier, visibility: display_mode).order("lower(pref_label) ASC")
 
     respond_to do |format|
       format.html

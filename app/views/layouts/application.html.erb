@@ -86,11 +86,23 @@
 <div class="container-full" style="margin-top:50px;">
   <div class="container">
     <div class="starter-template">
-      <% flash.each do |key, value| %>
-           <% unless key.to_s == "recaptcha_error"%>
-               <%= content_tag :div, value, class: "flash #{key}" %>
-            <% end %>
-      <% end %>
+      <div class="flash_messages">
+        <% [:success, :notice, :error, :alert].each do |type| %>
+          <%- alert_class = case type
+                            when :success then "alert-success"
+                            when :notice  then "alert-info"
+                            when :alert   then "alert-warning"
+                            when :error   then "alert-danger"
+                            else "alert-#{type}"
+                            end
+          -%>
+          <% if flash[type] && flash[type].to_s != "recaptcha_error" %>
+            <div class="alert <%=alert_class %>"><%= flash[type] %>
+              <a class="close" data-dismiss="alert" href="#">&times;</a>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
       <%= yield %>
     </div>
   </div><!-- /.container -->

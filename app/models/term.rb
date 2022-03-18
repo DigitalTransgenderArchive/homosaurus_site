@@ -185,6 +185,8 @@ class Term < ActiveRecord::Base
       # Note: This can have commas and semicolons
       graph[:description] = current_term.description
 
+      graph[:historyNote] = current_term.history_note
+
       graph[:broader] = current_term.broader
       graph[:broader] = graph[:broader].join("||")
 
@@ -214,7 +216,7 @@ class Term < ActiveRecord::Base
 
     #csv_string = CSV.generate(col_sep: "\t") do |csv|
     csv_string = CSV.generate(col_sep: "\t") do |csv|
-      cols = ["URI", "identifier", "prefLabel", "prefLabel Alternate Spellings", "altLabel", "comment", "broader", "narrower", "related", "issued", "modified", "isReplacedBy", "replaces"]
+      cols = ["URI", "identifier", "prefLabel", "prefLabel Alternate Spellings", "altLabel", "description", "historyNote", "broader", "narrower", "related", "issued", "modified", "isReplacedBy", "replaces"]
 
       csv << cols
       full_graph.each do |term|
@@ -326,6 +328,8 @@ class Term < ActiveRecord::Base
     end
 
     graph << [base_uri, ::RDF::Vocab::RDFS.comment, "#{self.description}"] if self.description.present?
+    graph << [base_uri, ::RDF::Vocab::SKOS.historyNote, "#{self.description}"] if self.history_note.present?
+
     #From: https://github.com/ruby-rdf/rdf/blob/7dd766fe34fe4f960fd3e7539f3ef5d556b25013/lib/rdf/model/literal.rb
     #graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.issued}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
     #graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.modified}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]

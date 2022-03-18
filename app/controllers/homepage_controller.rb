@@ -13,7 +13,7 @@ class HomepageController < ApplicationController
           @show_captcha_v2 = false
         else
           @show_captcha_v2 = true
-          @errors << 'Background recaptcha failed. Please fill out the below checkbox captcha and try clicking "[Reveal Email]" again.'
+          @errors << 'Background recaptcha failed. Please fill out the captcha checkbox and try clicking "[Reveal Email]" again.'
         end
       end
 

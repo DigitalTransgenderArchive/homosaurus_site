@@ -1,7 +1,11 @@
 <h1>Homosaurus Vocabulary Terms</h1>
 <% if current_user.present? && current_user.contributor? && request.original_url.include?('/v3') %>
   <h4>Admin Actions:</h4>
-  <%= button_to "Add A New Term", vocabulary_term_new_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default' %>
+  <%= button_to "Add A New Term", vocabulary_term_new_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left;" %>
+  <%= button_to "Show Visible Terms", vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;", params: { display_mode: "visible" } %>
+  <%= button_to "Show Deleted Terms", vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;", params: { display_mode: "deleted" } %>
+  <%= button_to "Show Redirect Terms", vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;", params: { display_mode: "redirect" }  %>
+  <div style="clear:both"></div>
 <% end %>
 
 <h4>Download Formats:</h4>
