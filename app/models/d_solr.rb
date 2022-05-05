@@ -97,7 +97,7 @@ class DSolr
   end
 
   def self.reindex_all
-    reindex("HomosaurusSubject")
+    reindex("Term")
   end
 
 end
