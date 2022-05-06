@@ -1,5 +1,8 @@
 class Term < ActiveRecord::Base
   include TermAssignments
+  include ::Hist::Model
+
+  has_hist associations: {all: {}}
   before_destroy :remove_from_solr
   after_save :send_solr
 
@@ -133,7 +136,7 @@ class Term < ActiveRecord::Base
     result
   end
 
-  def self.find(q)
+  def self.find_solr(q)
     DSolr.find_by_id(q)
   end
 

@@ -1,5 +1,5 @@
 class VocabularyController < ApplicationController
-  before_action :verify_permission, :only => [:new, :edit, :create, :update, :destroy, :replace, :restore]
+  before_action :verify_permission, :only => [:new, :edit, :create, :update, :destroy, :replace, :restore, :destroy_version, :update_immediate]
 
   def index
     identifier = params[:id]
@@ -11,6 +11,7 @@ class VocabularyController < ApplicationController
     display_mode ||= "visible"
 
     @terms = Term.where(vocabulary_identifier: identifier, visibility: display_mode).order("lower(pref_label) ASC")
+    @edited_terms = Hist::Pending.all
 
     respond_to do |format|
       format.html
@@ -25,8 +26,14 @@ class VocabularyController < ApplicationController
   end
 
   def show
-    @homosaurus_obj = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
-    @homosaurus = Term.find(@homosaurus_obj.identifier)
+    if params[:pending_id].present?
+      pending = Hist::Pending.find(params[:pending_id])
+      @homosaurus_obj = pending.reify
+    else
+      @homosaurus_obj = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
+    end
+
+    @homosaurus = Term.find_solr(@homosaurus_obj.identifier)
 
     # For terms  that are combined / replaced
     if @homosaurus_obj.visibility == "redirect" and @homosaurus_obj.is_replaced_by.present?
@@ -56,7 +63,7 @@ class VocabularyController < ApplicationController
       opts[:qf] = 'prefLabel_tesim altLabel_tesim description_tesim identifier_tesim'
       opts[:fl] = 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim, isReplacedBy_ssim, replaces_ssim'
       opts[:fq] = "active_fedora_model_ssi:#{@vocabulary.solr_model}"
-      response = DSolr.find(opts)
+      response = DSolr.find_solr(opts)
       docs = response
       @terms = Term.where(pid: docs.pluck("id"), visibility: 'visible')
 
@@ -91,7 +98,12 @@ class VocabularyController < ApplicationController
       @term.uri = "https://homosaurus.org/v3/#{identifier}"
       @term.vocabulary_identifier = "v3"
       @term.vocabulary = @vocabulary
-      @term.visibility = "visible"
+      if params[:immediate].present?
+        @term.visibility = "visible"
+      else
+        @term.visibility = "pending"
+      end
+
       @term.manual_update_date = Time.now
 
       set_match_relationship(params[:term], "exact_match_lcsh")
@@ -104,41 +116,43 @@ class VocabularyController < ApplicationController
 
       @term.save
 
-      if params[:term][:broader].present?
-        params[:term][:broader].each do |broader|
-          if broader.present?
-            #broader = broader.split("(").last[0..-1]
-            broader_object = Term.find_by(uri: broader)
-            @term.broader = @term.broader + [broader_object.uri]
-            broader_object.narrower = broader_object.narrower + [@term.uri]
-            broader_object.save
+      if params[:immediate].present?
+        if params[:term][:broader].present?
+          params[:term][:broader].each do |broader|
+            if broader.present?
+              #broader = broader.split("(").last[0..-1]
+              broader_object = Term.find_by(uri: broader)
+              @term.broader = @term.broader + [broader_object.uri]
+              broader_object.narrower = broader_object.narrower + [@term.uri]
+              broader_object.save
+            end
           end
         end
-      end
 
-      if params[:term][:narrower].present?
-        params[:term][:narrower].each do |narrower|
-          if narrower.present?
-            #narrower = narrower.split("(").last[0..-1]
-            narrower_object = Term.find_by(uri: narrower)
-            @term.narrower = @term.narrower + [narrower_object.uri]
-            narrower_object.broader = narrower_object.broader + [@term.uri]
-            narrower_object.save
+        if params[:term][:narrower].present?
+          params[:term][:narrower].each do |narrower|
+            if narrower.present?
+              #narrower = narrower.split("(").last[0..-1]
+              narrower_object = Term.find_by(uri: narrower)
+              @term.narrower = @term.narrower + [narrower_object.uri]
+              narrower_object.broader = narrower_object.broader + [@term.uri]
+              narrower_object.save
+            end
+
           end
-
         end
-      end
 
-      if params[:term][:related].present?
-        params[:term][:related].each do |related|
-          if related.present?
-            #related = related.split("(").last[0..-1]
-            related_object = Term.find_by(uri: related)
-            @term.related = @term.related + [related_object.uri]
-            related_object.related = related_object.related + [@term.uri]
-            related_object.save
+        if params[:term][:related].present?
+          params[:term][:related].each do |related|
+            if related.present?
+              #related = related.split("(").last[0..-1]
+              related_object = Term.find_by(uri: related)
+              @term.related = @term.related + [related_object.uri]
+              related_object.related = related_object.related + [@term.uri]
+              related_object.save
+            end
+
           end
-
         end
       end
 
@@ -172,8 +186,36 @@ class VocabularyController < ApplicationController
     end
   end
 
-  # FIX the related stuff not needing identifiers for value
   def update
+    if !params[:term][:identifier].match(/^[0-9a-zA-Z_\-+]+$/) || params[:term][:identifier].match(/ /)
+      redirect_to vocabulary_show_path(vocab_id: "v3", id: params[:id]), notice: "Please use camel case for identifier like 'discrimationWithAbleism'... do not use spaces. Contact K.J. if this is seen for some other valid entry."
+    else
+      @term = Term.find_by(vocabulary_identifier: "v3", identifier: params[:id])
+      if @term.raw_pendings.present?
+        @term.raw_pendings[0].destroy!
+        @term.reload
+      end
+      Hist::Pending.start_pending do
+        set_match_relationship(params[:term], "exact_match_lcsh")
+        set_match_relationship(params[:term], "close_match_lcsh")
+        @term.pref_label_language = params[:term][:pref_label_language][0]
+        @term.labels_language = params[:term][:labels_language]
+        @term.alt_labels_language = params[:term][:alt_labels_language]
+        @term.visibility = "pending"
+
+        @term.update(term_params)
+      end
+      @term.record_pending
+      @term.reload
+
+      redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier, pending_id: @term.raw_pendings.first.id), notice: "HomosaurusV3 term had a pending version added!"
+
+    end
+
+  end
+
+  # FIX the related stuff not needing identifiers for value
+  def update_immediate
     if !params[:term][:identifier].match(/^[0-9a-zA-Z_\-+]+$/) || params[:term][:identifier].match(/ /)
       redirect_to vocabulary_show_path(vocab_id: "v3", id: params[:id]), notice: "Please use camel case for identifier like 'discrimationWithAbleism'... do not use spaces. Contact K.J. if this is seen for some other valid entry."
     else
@@ -289,6 +331,18 @@ class VocabularyController < ApplicationController
     #@homosaurus.destroy
     #redirect_to homosaurus_v3_index_path, notice: "HomosaurusV3 term was deleted!"
     redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "Term was marked as deleted! Relations were removed from related terms."
+  end
+
+  def destroy_version
+    @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
+    if @term.pendings.present?
+      @term = @term.pendings.first
+      @term.destroy!
+    else
+      @term.destroy!
+    end
+
+    redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "Term pending version release was removed!"
   end
 
   def replace

@@ -3,6 +3,7 @@
   <h4>Admin Actions:</h4>
   <%= button_to "Add A New Term", vocabulary_term_new_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left;" %>
   <%= button_to "Show Visible Terms", vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;", params: { display_mode: "visible" } %>
+  <%= button_to "Show Next Version Terms", vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;", params: { display_mode: "pending" } %>
   <%= button_to "Show Deleted Terms", vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;", params: { display_mode: "deleted" } %>
   <%= button_to "Show Redirect Terms", vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;", params: { display_mode: "redirect" }  %>
   <div style="clear:both"></div>
@@ -27,9 +28,16 @@
 <ul>
   <% @terms.each do |term| %>
       <li>
-        <%= link_to term.pref_label, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier) %>
+          <%= link_to term.pref_label, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier) %>
       </li>
   <% end %>
+  <% @edited_terms.each do |pending| %>
+    <% term = pending.reify %>
+    <li>
+      <%= link_to term.pref_label, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier, pending_id: pending.id) %>
+    </li>
+  <% end %>
+
 </ul>
 
 <p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url + '.nt'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonld' %>, <%= link_to "TTL", request.original_url + '.ttl' %>, <%= link_to "CSV (Split by Tabs only)", request.original_url + '.csv' %>

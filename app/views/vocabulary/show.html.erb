@@ -4,6 +4,10 @@
     This term has been removed from the vocabulary and is no longer in use.<br />
     Apologies for the inconvenience.
   </div>
+<% elsif @homosaurus_obj.visibility == "pending" %>
+  <div class="alert alert-danger" role="alert">
+    This term is a pending object set to be in the next release.
+  </div>
 <% end %>
 <p><div style="clear:both;">
   <% if params[:from_q].present? %>
@@ -16,7 +20,9 @@
     <%= button_to "Edit Term", vocabulary_term_edit_path(vocab_id: "v3", id: @homosaurus_obj.identifier), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;" %>
     <% if @homosaurus_obj.visibility == "deleted" %>
       <%= button_to "Restore Term", vocabulary_term_restore_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => "get", class: 'btn btn-danger',  data: { confirm: "Are you sure you want to restore #{@homosaurus_obj.pref_label}?" }, style:"float:left; margin-left:20px;" %>
-    <% else %>
+    <% elsif @homosaurus_obj.visibility == "pending" %>
+      <%= button_to "Delete Term", vocabulary_term_delete_version_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => :delete, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to delete the unpublished #{@homosaurus_obj.pref_label}?" }, style:"float:left; margin-left:20px;" %>
+<% else %>
       <%= button_to "Delete Term", vocabulary_term_delete_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => :delete, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to delete #{@homosaurus_obj.pref_label}?" }, style:"float:left; margin-left:20px;" %>
     <% end %>
     <input class="btn btn-danger" style="float:left; margin-left:20px;" type="button" value="Replace Other Term" onClick='var identifer = prompt("Enter the identifier of the term to replace with this term. This OTHER TERM will redirect to this record."); window.location="/<%=@homosaurus_obj.vocabulary_identifier%>/<%=@homosaurus_obj.identifier%>/replace/" + identifer;'>
