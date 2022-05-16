@@ -1,9 +1,6 @@
 class CreateHistPendings < ActiveRecord::Migration[5.2]
-  # The largest text column available in all supported RDBMS is
-  # 1024^3 - 1 bytes, roughly one gibibyte.  We specify a size
-  # so that MySQL will use `longtext` instead of `text`.  Otherwise,
-  # when serializing very large objects, `text` might not be big enough.
-  TEXT_BYTES = 1_073_741_823
+  # Edited from normal migration to be medium text in size.
+  TEXT_BYTES = 16_770_000
 
   def change
     unless ActiveRecord::Base.connection.table_exists?(:hist_pendings)

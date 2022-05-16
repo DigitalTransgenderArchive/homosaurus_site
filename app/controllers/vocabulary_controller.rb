@@ -1,5 +1,5 @@
 class VocabularyController < ApplicationController
-  before_action :verify_permission, :only => [:new, :edit, :create, :update, :destroy, :replace, :restore, :destroy_version, :update_immediate]
+  before_action :verify_permission, :only => [:new, :edit, :create, :update, :destroy, :replace, :restore, :destroy_version] # ,  :update_immediate
 
   def index
     identifier = params[:id]
@@ -115,8 +115,11 @@ class VocabularyController < ApplicationController
       @term.update(term_params)
 
       @term.save
-
-      if params[:immediate].present?
+      if params[:immediate].blank?
+        set_match_relationship(params[:term], "broader")
+        set_match_relationship(params[:term], "narrower")
+        set_match_relationship(params[:term], "related")
+      elsif params[:immediate].present?
         if params[:term][:broader].present?
           params[:term][:broader].each do |broader|
             if broader.present?
@@ -167,6 +170,9 @@ class VocabularyController < ApplicationController
   def edit
     @vocab_id = params[:vocab_id]
     @term = Term.find_by(vocabulary_identifier: @vocab_id, identifier: params[:id])
+    if @term.pendings.present?
+      @term = @term.pendings[0]
+    end
     term_query = Term.where(vocabulary_identifier: params[:vocab_id]).order("lower(pref_label) ASC")
     @all_terms = []
     term_query.each { |term| @all_terms << [term.identifier + " (" + term.pref_label + ")", term.uri] }
@@ -191,26 +197,67 @@ class VocabularyController < ApplicationController
       redirect_to vocabulary_show_path(vocab_id: "v3", id: params[:id]), notice: "Please use camel case for identifier like 'discrimationWithAbleism'... do not use spaces. Contact K.J. if this is seen for some other valid entry."
     else
       @term = Term.find_by(vocabulary_identifier: "v3", identifier: params[:id])
-      if @term.raw_pendings.present?
-        @term.raw_pendings[0].destroy!
-        @term.reload
-      end
-      Hist::Pending.start_pending do
+      if @term.visibility == "pending"
         set_match_relationship(params[:term], "exact_match_lcsh")
         set_match_relationship(params[:term], "close_match_lcsh")
+        set_match_relationship(params[:term], "broader")
+        set_match_relationship(params[:term], "narrower")
+        set_match_relationship(params[:term], "related")
         @term.pref_label_language = params[:term][:pref_label_language][0]
         @term.labels_language = params[:term][:labels_language]
+        @term.labels_language = params[:term][:labels_language]
         @term.alt_labels_language = params[:term][:alt_labels_language]
-        @term.visibility = "pending"
 
         @term.update(term_params)
-      end
-      @term.record_pending
-      @term.reload
+        @term.save!
+        redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "HomosaurusV3 pending term updated!"
+      else
+        Hist::Pending.start_pending do
+          set_match_relationship(params[:term], "exact_match_lcsh")
+          set_match_relationship(params[:term], "close_match_lcsh")
+          set_match_relationship(params[:term], "broader")
+          set_match_relationship(params[:term], "narrower")
+          set_match_relationship(params[:term], "related")
+          @term.pref_label_language = params[:term][:pref_label_language][0]
+          @term.labels_language = params[:term][:labels_language]
+          @term.labels_language = params[:term][:labels_language]
+          @term.alt_labels_language = params[:term][:alt_labels_language]
+          @term.visibility = "pending"
 
-      redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier, pending_id: @term.raw_pendings.first.id), notice: "HomosaurusV3 term had a pending version added!"
+          @term.update(term_params)
+        end
+        @term.record_pending
+
+        # Delete any other raw pending object
+        if @term.raw_pendings.present? && @term.raw_pendings.size >= 2
+          @term.raw_pendings.last.destroy!
+          @term.reload
+          redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier, pending_id: @term.raw_pendings.first.id), notice: "HomosaurusV3 pending term updated!"
+        else
+          redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier, pending_id: @term.raw_pendings.first.id), notice: "HomosaurusV3 term had a pending version added!"
+        end
+
+
+      end
 
     end
+
+  end
+
+  def publish_single_obj
+    @term = Term.find_by(vocabulary_identifier: "v3", identifier: params[:id])
+    if @term.visibility != "pending"
+      if @term.pendings.present?
+        ActiveRecord::Base.transaction do
+          pending = Hist::Pending.find(@term.raw_pendings[0].id)
+          obj_reified = pending.reify
+          obj_reified.save!
+          pending.destroy!
+          @term.reload
+        end
+      end
+    end
+
 
   end
 
@@ -335,14 +382,14 @@ class VocabularyController < ApplicationController
 
   def destroy_version
     @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
-    if @term.pendings.present?
-      @term = @term.pendings.first
+    if @term.raw_pendings.present?
+      pending = Hist::Pending.find(@term.raw_pendings[0].id)
+      pending.destroy!
+      redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "Existing Term pending version release was removed!"
+    elsif @term.visibility == "pending"
       @term.destroy!
-    else
-      @term.destroy!
+      redirect_to vocabulary_term_new_path(vocab_id: "v3"), notice: "New term pending version release was removed!"
     end
-
-    redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "Term pending version release was removed!"
   end
 
   def replace

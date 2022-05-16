@@ -21,11 +21,13 @@
     <% if @homosaurus_obj.visibility == "deleted" %>
       <%= button_to "Restore Term", vocabulary_term_restore_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => "get", class: 'btn btn-danger',  data: { confirm: "Are you sure you want to restore #{@homosaurus_obj.pref_label}?" }, style:"float:left; margin-left:20px;" %>
     <% elsif @homosaurus_obj.visibility == "pending" %>
-      <%= button_to "Delete Term", vocabulary_term_delete_version_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => :delete, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to delete the unpublished #{@homosaurus_obj.pref_label}?" }, style:"float:left; margin-left:20px;" %>
-<% else %>
+      <%= button_to "Delete Pending Term", vocabulary_term_delete_version_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => :delete, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to delete the unpublished #{@homosaurus_obj.pref_label}?" }, style:"float:left; margin-left:20px;" %>
+    <% else %>
       <%= button_to "Delete Term", vocabulary_term_delete_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => :delete, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to delete #{@homosaurus_obj.pref_label}?" }, style:"float:left; margin-left:20px;" %>
     <% end %>
-    <input class="btn btn-danger" style="float:left; margin-left:20px;" type="button" value="Replace Other Term" onClick='var identifer = prompt("Enter the identifier of the term to replace with this term. This OTHER TERM will redirect to this record."); window.location="/<%=@homosaurus_obj.vocabulary_identifier%>/<%=@homosaurus_obj.identifier%>/replace/" + identifer;'>
+    <% if @homosaurus_obj.visibility != "pending" %>
+      <input class="btn btn-danger" style="float:left; margin-left:20px;" type="button" value="Replace Other Term" onClick='var identifer = prompt("Enter the identifier of the term to replace with this term. This OTHER TERM will redirect to this record."); window.location="/<%=@homosaurus_obj.vocabulary_identifier%>/<%=@homosaurus_obj.identifier%>/replace/" + identifer;'>
+    <% end %>
   <% end %>
 
 </div>
@@ -74,16 +76,6 @@
      :values=>[@homosaurus_obj.manual_update_date]}
 %>
 
-<%= render :partial => "panel_display_partial", :locals =>
-    {:title => Term.getLabel("exactMatch"),
-     :values=>@homosaurus_obj.exact_match}
-%>
-
-<%= render :partial => "panel_display_partial", :locals =>
-    {:title => Term.getLabel("closeMatch"),
-     :values=>@homosaurus_obj.close_match}
-%>
-
 <%= render :partial => "panel_display_relation_partial", :locals =>
     {:title => Term.getLabel("broader"),
      :values=>@homosaurus_obj.broader}
@@ -107,6 +99,16 @@
 <%= render :partial => "panel_display_relation_partial", :locals =>
     {:title => Term.getLabel("replaces"),
      :values=>[@homosaurus_obj.replaces]}
+%>
+
+<%= render :partial => "panel_display_partial", :locals =>
+    {:title => Term.getLabel("exactMatch"),
+     :values=>@homosaurus_obj.exact_match_lcsh}
+%>
+
+<%= render :partial => "panel_display_partial", :locals =>
+    {:title => Term.getLabel("closeMatch"),
+     :values=>@homosaurus_obj.close_match_lcsh}
 %>
 
 <h3>Hierarchy Display:</h3>

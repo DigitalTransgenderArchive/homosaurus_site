@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   post ':vocab_id/new_term' => 'vocabulary#create', as: :vocabulary_term_create
   get ':vocab_id/:id/edit' => 'vocabulary#edit', as: :vocabulary_term_edit
   patch ':vocab_id/:id/update' => 'vocabulary#update', as: :vocabulary_term_update
-  patch ':vocab_id/:id/update_immediate' => 'vocabulary#update_immediate', as: :vocabulary_term_update_immediate
+  #patch ':vocab_id/:id/update_immediate' => 'vocabulary#update_immediate', as: :vocabulary_term_update_immediate
   delete ':vocab_id/:id/delete' => 'vocabulary#destroy', as: :vocabulary_term_delete
   delete ':vocab_id/:id/delete_version' => 'vocabulary#destroy_version', as: :vocabulary_term_delete_version
   get ':vocab_id/:id/restore' => 'vocabulary#restore', as: :vocabulary_term_restore
