@@ -520,7 +520,7 @@ class Term < ActiveRecord::Base
     doc[:topConcept_uri_ssim] = @broadest_terms.uniq if @broadest_terms.present?
     doc[:new_model_ssi] = self.vocabulary.solr_model + 'Subject'
     doc[:active_fedora_model_ssi] = self.vocabulary.solr_model
-    doc[:visbility_ssi] = self.visibility
+    doc[:visibility_ssi] = self.visibility
     doc
   end
 
