@@ -11,7 +11,11 @@ class VocabularyController < ApplicationController
     display_mode ||= "visible"
 
     @terms = Term.where(vocabulary_identifier: identifier, visibility: display_mode).order("lower(pref_label) ASC")
-    @edited_terms = Hist::Pending.all
+
+    @edited_terms = []
+    if display_mode == "pending"
+      @edited_terms = Hist::Pending.all
+    end
 
     respond_to do |format|
       format.html
