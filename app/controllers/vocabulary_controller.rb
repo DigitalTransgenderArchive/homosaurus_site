@@ -201,6 +201,7 @@ class VocabularyController < ApplicationController
       redirect_to vocabulary_show_path(vocab_id: "v3", id: params[:id]), notice: "Please use camel case for identifier like 'discrimationWithAbleism'... do not use spaces. Contact K.J. if this is seen for some other valid entry."
     else
       @term = Term.find_by(vocabulary_identifier: "v3", identifier: params[:id])
+      # Update to upcoming new term.
       if @term.visibility == "pending"
         set_match_relationship(params[:term], "exact_match_lcsh")
         set_match_relationship(params[:term], "close_match_lcsh")
@@ -215,7 +216,8 @@ class VocabularyController < ApplicationController
         @term.update(term_params)
         @term.save!
         redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "HomosaurusV3 pending term updated!"
-      else
+        # else create version if this is a version or if the pref_label has changed.
+      elsif params[:term][:pref_label_language][0] != @term.pref_label_language || (@term.raw_pendings.present? && @term.raw_pendings.size >= 1)
         Hist::Pending.start_pending do
           set_match_relationship(params[:term], "exact_match_lcsh")
           set_match_relationship(params[:term], "close_match_lcsh")
@@ -240,8 +242,9 @@ class VocabularyController < ApplicationController
         else
           redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier, pending_id: @term.raw_pendings.first.id), notice: "HomosaurusV3 term had a pending version added!"
         end
-
-
+        # minor update only detected.
+      else
+        self.update_immediate
       end
 
     end
