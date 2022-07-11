@@ -91,12 +91,12 @@
      :values=>@homosaurus_obj.narrower}
 %>
 
-<%= render :partial => "panel_display_relation_partial", :locals =>
+<%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("isReplacedBy"),
      :values=>[@homosaurus_obj.is_replaced_by]}
 %>
 
-<%= render :partial => "panel_display_relation_partial", :locals =>
+<%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("replaces"),
      :values=>[@homosaurus_obj.replaces]}
 %>

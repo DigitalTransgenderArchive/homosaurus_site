@@ -328,7 +328,9 @@ class VocabularyController < ApplicationController
             if broader.present?
               broader_object = Term.find_by(uri: broader)
               @term.broader = @term.broader + [broader_object.uri]
+              @term.broader.uniq!
               broader_object.narrower = broader_object.narrower + [@term.uri]
+              broader_object.narrower.uniq!
               broader_object.save
             end
           end
@@ -339,7 +341,9 @@ class VocabularyController < ApplicationController
             if narrower.present?
               narrower_object = Term.find_by(uri: narrower)
               @term.narrower = @term.narrower + [narrower_object.uri]
+              @term.narrower.uniq!
               narrower_object.broader = narrower_object.broader + [@term.uri]
+              narrower_object.broader.uniq!
               narrower_object.save
             end
 
@@ -351,10 +355,11 @@ class VocabularyController < ApplicationController
             if related.present?
               related_object = Term.find_by(uri: related)
               @term.related = @term.related + [related_object.uri]
+              @term.related.uniq!
               related_object.related = related_object.related + [@term.uri]
+              related_object.related.uniq!
               related_object.save
             end
-
           end
         end
 
@@ -394,7 +399,27 @@ class VocabularyController < ApplicationController
       pending.destroy!
       redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "Existing Term pending version release was removed!"
     elsif @term.visibility == "pending"
-      @term.destroy!
+      Term.transaction do
+        relation_terms = Term.where("broader like ?", "%#{@term.uri}%")
+        relation_terms.each do |term|
+          term.broader.delete(@term.uri)
+          term.save
+        end
+
+        relation_terms = Term.where("related like ?", "%#{@term.uri}%")
+        relation_terms.each do |term|
+          term.related.delete(@term.uri)
+          term.save
+        end
+
+        relation_terms = Term.where("narrower like ?", "%#{@term.uri}%")
+        relation_terms.each do |term|
+          term.narrower.delete(@term.uri)
+          term.save
+        end
+
+        @term.destroy!
+      end
       redirect_to vocabulary_term_new_path(vocab_id: "v3"), notice: "New term pending version release was removed!"
     end
   end
