@@ -11,11 +11,13 @@
   </div>
   <div class="panel-body">
     <dl style="margin-bottom:0px">
-      <% values.each do |value| %>
-        <% relation_obj = Term.find_by(uri: value) %>
-        <dd>
-          <%= link_to "#{relation_obj.pref_label}", vocabulary_show_path(vocab_id: relation_obj.vocabulary_identifier, id: relation_obj.identifier)%>
-        </dd>
+      <% if values.present? && values[0].present? %>
+        <% objs_sorted = Term.where(uri: values).sort_by { |obj| obj.pref_label.downcase } %>
+        <% objs_sorted.each do |relation_obj| %>
+          <dd>
+            <%= link_to "#{relation_obj.pref_label}", vocabulary_show_path(vocab_id: relation_obj.vocabulary_identifier, id: relation_obj.identifier)%>
+          </dd>
+        <% end %>
       <% end %>
     </dl>
   </div>
