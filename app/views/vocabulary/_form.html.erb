@@ -53,6 +53,13 @@
                 required: false, label: 'History Note'
     %>
 
+    <%= f.input :internal_note, as: :single_base,
+                input_html: { include_help: 'Internal note about this term (not shared)',
+                              help_label: 'Internal Note',
+                              rows: '5', type: 'textarea',
+                },
+                required: false, label: 'Internal Note'
+    %>
 
     <%= f.input :broader, as: :prefix_multi_select_v3, collection: @all_terms,
                 input_html: { class: 'form-control', include_help: 'Broader terms for this term.', help_label: 'Broader', multiple: false }, include_blank: true

@@ -331,6 +331,11 @@ class VocabularyController < ApplicationController
               @term.broader.uniq!
               broader_object.narrower = broader_object.narrower + [@term.uri]
               broader_object.narrower.uniq!
+
+              # Alphabeticalize
+              # broader_object.narrower = sort_relations(Term.where(uri: broader_object.narrower))
+              # End
+
               broader_object.save
             end
           end
@@ -375,6 +380,10 @@ class VocabularyController < ApplicationController
         end
       end
     end
+  end
+
+  def sort_relations(objs)
+    return objs.sort_by { |obj| obj.pref_label.downcase }.map { |obj| obj.uri }
   end
 
   def destroy
@@ -494,7 +503,7 @@ class VocabularyController < ApplicationController
   end
 
   def term_params
-    params.require(:term).permit(:identifier, :description, :history_note, :exactMatch, :closeMatch)
+    params.require(:term).permit(:identifier, :description, :history_note, :internal_note, :exactMatch, :closeMatch)
   end
 
   def verify_permission
