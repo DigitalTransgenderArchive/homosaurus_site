@@ -233,6 +233,7 @@ class VocabularyController < ApplicationController
           @term.update(term_params)
         end
         @term.record_pending
+        @term.reload
 
         # Delete any other raw pending object
         if @term.raw_pendings.present? && @term.raw_pendings.size >= 2
