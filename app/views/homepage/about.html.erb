@@ -1,6 +1,45 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $(".walter_cat_walker_tribute").shorten({
+            "showChars": 986,
+            "moreText": "[Expand To Read Full Tribute]",
+            "lessText"	: "",
+        });
+
+    });
+</script>
+
+<%= form_tag(reveal_emails_path, :id => 'captcha_form', :class => 'form-horizontal') do %>
+  <%= recaptcha_v3(action: 'about', site_key: Settings.recaptcha_site_key_v3) %>
+
 <div id="about" class="col-sm-12 col-md-12">
 
-<h2>Mission</h2>
+  <% unless @errors.empty? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <ul class="errors">
+        <% @errors.each do |msg| %>
+          <li style="font-size: 18px;"><%= msg %></li>
+        <% end %>
+        <% if  @show_captcha_v2 %>
+          <li>
+                <%= recaptcha_tags %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @reveal_emails %>
+    <div id="error_explanation" class="alert alert-success">
+      <ul class="errors">
+          <li style="font-size: 18px;">Emails on the page are now revealed.</li>
+      </ul>
+    </div>
+    <% end %>
+
+
+  <h2>Mission</h2>
 
   <div class="info_section">
     <p>The Homosaurus is an international linked data vocabulary of LGBTQ terms that supports improved access to LGBTQ resources within cultural institutions. Designed to serve as a companion to broad subject term vocabularies, the Homosaurus is a robust and cutting-edge vocabulary of LGBTQ-specific terminology that enhances the discoverability of LGBTQ resources. </p>
@@ -10,7 +49,7 @@
   <div class="info_section">
     <p>The Homosaurus was originally created in 1997 by <%= link_to "IHLIA LGBT Heritage", "https://www.ihlia.nl/?lang=en", target: "_blank" %> as a Dutch and English gay and lesbian thesaurus that was used as a standalone vocabulary to describe their collections. Over time, terms relating to bisexuality, trans, gender, and intersex concepts were added, but not methodically. This original version of the vocabulary (which we refer to as version 0) had an overly flat structure and, due to the lack of connections, terms were too isolated from one another and therefore easily missed. But, it became apparent that a vocabulary developed by an LGBTQ archives to describe LGBTQ resources could be a powerful tool.</p>
 
-    <p>In 2013, Jack van der Wel, with the help of Ellen Greenblatt, transformed the original Homosaurus into a more inclusive and hierarchical thesaurus (<%= link_to "version 1", vocabs_path, target: "_blank" %>). Hundreds of terms were added and each term was put in relation to others in a hierarchical structure. At this point, the vocabulary only existed as an offline document that was circulated as a Word document or PDF. The results of this major editing project were presented at numerous LGBTQ ALMS Conferences and the vocabulary began to be used by other LGBTQ archives, libraries, and documentation centres throughout the world. </p>
+    <p>In 2013, Jack van der Wel, with the help of Ellen Greenblatt, transformed the original Homosaurus into a more inclusive and hierarchical thesaurus (<%= link_to "version 1", vocabulary_index_path(id: "terms"), target: "_blank" %>). Hundreds of terms were added and each term was put in relation to others in a hierarchical structure. At this point, the vocabulary only existed as an offline document that was circulated as a Word document or PDF. The results of this major editing project were presented at numerous LGBTQ ALMS Conferences and the vocabulary began to be used by other LGBTQ archives, libraries, and documentation centres throughout the world. </p>
 
     <p>In 2015, the <%= link_to "Digital Transgender Archive", "https://www.digitaltransgenderarchive.net", target: "_blank" %> (DTA) became one of the handful of LGBTQ archives using version 1 of the Homosaurus to describe resources in their collections. When it became apparent to the DTA’s Director, K.J. Rawson, how useful the vocabulary was and how many institutions could benefit from using it, he collaborated with Jack van der Wel to transform version 1 into an online linked data vocabulary. This dramatically increased the accessibility of the vocabulary and allowed cultural institutions from around the world to link to a common vocabulary.</p>
 
@@ -36,7 +75,7 @@
             Amber Billey
           </h4>
           <p>
-            Amber Billey is the Systems & Metadata Librarian at Bard College. Prior to joining Bard, she was the Metadata Librarian at Columbia University Libraries where she worked on the LD4P project contributing to ontology development, tooling, and MARC to RDF mapping. Her research focuses on ethics and social justice in library metadata and information organization. She can be reached at <%= link_to "@justbilley", "https://twitter.com/justbilley", target: "_blank" %> or <%= link_to "abilley@bard.edu", "mailto:abilley@bard.edu" %>.
+            Amber Billey is the Systems & Metadata Librarian at Bard College. Prior to joining Bard, she was the Metadata Librarian at Columbia University Libraries where she worked on the LD4P project contributing to ontology development, tooling, and MARC to RDF mapping. Her research focuses on ethics and social justice in library metadata and information organization. She can be reached at <%= link_to "@justbilley", "https://twitter.com/justbilley", target: "_blank" %> or <%= hidden_email("abilley@bard.edu", @reveal_emails) %>.
           </p>
         </div>
         </div>
@@ -55,7 +94,65 @@
               Marika Cifor
             </h4>
             <p>
-              Marika Cifor is an Assistant Professor in the Information School at the University of Washington. She is a feminist scholar working at the intersections of archival studies and digital studies. Her research investigates how through archives, records, and data produced within digital cultures, individuals and communities marginalized by sexuality, race, class, gender, and HIV-status enact and give substance to their identities, collective memories, and social movements. She can be reached at <%= link_to "@marika_louise", "https://twitter.com/marika_louise", target: "_blank" %> or <%= link_to "mcifor@uw.edu", "mailto:mcifor@uw.edu" %>.
+              Marika Cifor is an Assistant Professor in the Information School at the University of Washington. She is a feminist scholar working at the intersections of archival studies and digital studies. Her research investigates how through archives, records, and data produced within digital cultures, individuals and communities marginalized by sexuality, race, class, gender, and HIV-status enact and give substance to their identities, collective memories, and social movements. She can be reached at <%= link_to "@marika_louise", "https://twitter.com/marika_louise", target: "_blank" %> or <%= hidden_email("mcifor@uw.edu", @reveal_emails) %>.
+            </p>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>&nbsp;</td>
+      <td>
+        <div class="media">
+          <div class="media-left">
+            <%= image_tag("about/about_jay_l_colbert.jpg", class: 'hidden-xs', alt: "Photo of Jay Colbert") %>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">
+              Jay L. Colbert
+            </h4>
+            <p>
+              Jay L. Colbert is the Library Director at the Longy School of Music of Bard College. He holds a MSLIS from the University of Illinois at Urbana-Champaign, where he completed a thesis on patron-driven subject access and queer controlled vocabulary via a critical framework of queer theory and semiotics. His subsequent publications build on this research. Jay haunts New England with his bearded dragon Coop and his tuxedo cat King Arthur. Contact him at <%= hidden_email("jay.colbert@unh.edu", @reveal_emails) %>.</p>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>&nbsp;</td>
+      <td>
+        <div class="media">
+          <div class="media-left">
+            <%= image_tag("about/about_janaya_kizzie.jpg", class: 'hidden-xs', alt: "Photo of Janaya Kizzie") %>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">
+              Janaya Kizzie
+            </h4>
+            <p>
+              Janaya Kizzie is an archivist, artist, and public humanitarian.  A graduate of Bard College (BA) and the University of Rhode Island (MLIS), Kizzie processed and developed archival infrastructures for the American Academy of Arts and Sciences in Cambridge, Massachusetts Citizens Bank, and Concord Free Public Library. Kizzie's work in historical collections has most recently included the processing of the AS220 Collection at Providence Public Library, the Rhode Island Arts and Culture Research Fellowship recording the recent history of Rhode Island Arts and Culture. In 2020, Kizzie was named Rhode Island Public Humanities Scholar by the Rhode Island Council for the Humanities. Currently Events Coordinator at Providence Public Library, Kizzie strives to redefine library standards and practices for community empowerment and engagement.
+            </p>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>&nbsp;</td>
+      <td>
+        <div class="media">
+          <div class="media-left">
+            <%= image_tag("about/about_clair_kronk.jpg", class: 'hidden-xs') %>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">
+              Clair Kronk
+            </h4>
+            <p>
+              Clair Kronk is a PhD student in biomedical informatics at the University of Cincinnati Medical School. Her current work focuses on LGBTQIA+ language use in healthcare settings and on transgender health outcomes. Clair previously graduated with a bachelor degree in bioinformatics from the University of Pittsburgh and has partnered with the Max-Planck-Institute (MPI) for Developmental Biology and the Air Force Research Laboratory (AFRL) on multiple occasions. She can be reached at <%= hidden_email("kronkcj@mail.uc.edu", @reveal_emails) %>.
             </p>
           </div>
         </div>
@@ -90,48 +187,10 @@
           </div>
           <div class="media-body">
             <h4 class="media-heading">
-              K.J. Rawson
+              K.J. Rawson (Chair of the Board)
             </h4>
             <p>
-              K.J. Rawson (Co-Chair) is an Associate Professor of English at the College of the Holy Cross. He is also the founder and director of the <%= link_to "Digital Transgender Archive", "https://www.digitaltransgenderarchive.net", target: "_blank" %>, an online database and digital repository of transgender-related historical materials. His scholarship has appeared in Archivaria, Enculturation, Present Tense, QED, RSQ,TSQ, and several edited collections.
-            </p>
-          </div>
-        </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_walter_walker.jpg", class: 'hidden-xs') %>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Walter “Cat” Walker
-            </h4>
-            <p>
-              Walter “Cat” Walker has been the Head Cataloging Librarian at Loyola Marymount University in Los Angeles, California, since 2004.  He is also a Director-at-Large of the American Library Association’s Rainbow Roundtable (ALA RRT).  Cat has been a volunteer at ONE National Gay & Lesbian Archives at the USC Libraries for 25 years, and a member of the Homosaurus Editorial Board since 2016.  A founding member of the AIDS activist group ACT UP Los Angeles, Cat is a radical faerie and longtime resident of West Hollywood, California, with his husband Patrick, and loves cats (of course!).
-            </p>
-          </div>
-        </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_jack_van_der_wel.jpg", class: 'hidden-xs') %>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Jack van der Wel
-            </h4>
-            <p>
-              Jack van der Wel (Co-Chair) is Head Collections and Cataloging at IHLIA LGBT Heritage in Amsterdam. He was one of the founders of Homodok in 1978, a predecessor of IHLIA. He presented the ongoing work on the Homosaurus on several LGBTQ ALMS Conferences since 2011. Contact Information: <%= link_to "jack@ihlia.nl", "mailto:jack@ihlia.nl" %>
+              K.J. Rawson is an Associate Professor of English and Women's, Gender, and Sexuality Studies at Northeastern University. He is also the founder and director of the <%= link_to "Digital Transgender Archive", "https://www.digitaltransgenderarchive.net", target: "_blank" %>, an award-winning online repository of trans-related historical materials, and he is the co-chair of the editorial board of the Homosaurus, an international LGBTQ linked data vocabulary. His work is at the intersections of the Digital Humanities and Rhetoric, LGBTQ+, and Feminist Studies. Focusing on archives as key sites of cultural power, Rawson studies the rhetorical work of queer and transgender archival collections in both brick-and-mortar and digital spaces. He has co-edited special issues of <em>Peitho</em> and <em>TSQ</em>> and he co-edited <em>Rhetorica in Motion: Feminist Rhetorical Methods and Methodologies</em> (University of Pittsburgh Press, 2010). Rawson’s scholarship has appeared in <em>Archivaria</em>, <em>Enculturation</em>, <em>Peitho</em>, <em>Present Tense</em>, <em>QED</em>, <em>RSQ</em>, <em>TSQ</em>, and several edited collections.
             </p>
           </div>
         </div>
@@ -150,17 +209,85 @@
               Brian M. Watson
             </h4>
             <p>
-              Brian M. Watson is the Archivist-Historian of the American Psychological Association’s Division 44 (Consensual Non-Monogamy), a historian of the book and sexuality, and a graduate archivist at the Kinsey Institute. They hold a master’s degree in History & Culture from Drew University, and are working on a MLIS (soon PhD) focusing on Archives, Digital Humanities, and Metadata at Indiana University Bloomington. They have published on antisex censorship, obscenity and are currently researching queer archives and sexual nomenclature. Contact them at <%= link_to "briwats@iu.edu", "mailto:briwats@iu.edu" %> or <%= link_to "@brimwats", "https://twitter.com/brimwats", target: "_blank" %>.
+              Brian M. Watson is the Archivist-Historian of the American Psychological Association’s Division 44 (Consensual Non-Monogamy), a historian of the book and sexuality, and a graduate archivist at the Kinsey Institute. They hold a master’s degree in History & Culture from Drew University, and are working on a MLIS (soon PhD) focusing on Archives, Digital Humanities, and Metadata at Indiana University Bloomington. They have published on antisex censorship, obscenity and are currently researching queer archives and sexual nomenclature. Contact them at <%= hidden_email("briwats@iu.edu", @reveal_emails) %> or <%= link_to "@brimwats", "https://twitter.com/brimwats", target: "_blank" %>.
             </p>
           </div>
         </div>
       </td>
     </tr>
 
+    <tr>
+      <td>&nbsp;</td>
+      <td>
+        <div class="media">
+          <div class="media-left">
+            <%= image_tag("about/about_jack_van_der_wel.jpg", class: 'hidden-xs') %>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">
+              Jack van der Wel
+            </h4>
+            <p>
+              Jack van der Wel (Co-Chair) is Head Collections and Cataloging at IHLIA LGBT Heritage in Amsterdam. He was one of the founders of Homodok in 1978, a predecessor of IHLIA. He presented the ongoing work on the Homosaurus on several LGBTQ ALMS Conferences since 2011. Contact Information: <%= hidden_email("jack@ihlia.nl", @reveal_emails) %>
+            </p>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>&nbsp;</td>
+      <td>
+        <div class="media">
+          <div class="media-left">
+            <%= image_tag("about/about_adrian_williams.jpg", class: 'hidden-xs') %>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">
+              Adrian Williams
+            </h4>
+            <p>
+              Adrian Williams is the Cataloging & Metadata Librarian at the University of Kentucky Libraries. They have an MLIS from Florida State University. Their research interests include inclusive and user-accessible subject headings, and the history of cataloging and of the library catalog. They can be reached at <%= link_to "@metadatagoblin", "https://twitter.com/metadatagoblin", target: "_blank" %> or <%= hidden_email("adrian.d.williams@uky.edu", @reveal_emails) %>.
+            </p>
+          </div>
+        </div>
+      </td>
+    </tr>
 
     </tbody>
   </table>
 
+  <h2>Former Editorial Board Members</h2>
+  <table class="table_with_image">
+    <caption class="sr-only">List of former editorial board members</caption>
+    <tbody>
+    <tr>
+      <td>&nbsp;</td>
+      <td>
+        <div class="media">
+          <div class="media-left">
+            <%= image_tag("about/about_walter_walker.jpg", class: 'hidden-xs') %>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">
+              Walter "Cat" Walker
+            </h4>
+            <p class="walter_cat_walker_tribute">
+              Walter "Cat" Walker served as the Head Cataloging Librarian at Loyola Marymount University in Los Angeles, California from 2004 until his untimely death in 2020. He was also a Director-at-Large of the American Library Association's Gay Lesbian Bisexual Transgender Roundtable (ALA GLBTRT) and he volunteered at the ONE National Gay & Lesbian Archives at the USC Libraries for 25 years.
+            <br /><br />
+              Cat Walker joined the Editorial Board of the Homosaurus in 2016 after he met Jack van der Wel at the LGBTQ ALMS conference in London. At this conference, Cat presented a keynote titled "Overcoming the Barriers: Improving Access to LGBTQ+ Content in Collections." Cat’s lifelong activism and passion for LGBTQ libraries and archives motivated him to join the Editorial Board and he quickly became an active member of our team. At the next LGBTQ ALMS Conference in Berlin in 2019, Cat and Jack presented a paper together on the Abridged Homosaurus.
+              <br /><br />
+              It is difficult to overstate Cat's contributions to the Homosaurus over the four years that he worked on the project. As the board dramatically revised the first version of the Homosaurus, Cat played a central role in helping us to make use of many more terms and LGBTQ-related contexts, representations, and histories. Cat worked extensively on reconciling Homosaurus version one to version two, examining the vocabulary with a close eye and pulling terms that required revision, lacked consistency across the list, or had a unique value that could be extended for related searches and needs. This list, composed of new suggested terms as well as adaptations of existing ones, was one of Cat’s most recent and ambitious contributions to the board’s work. At the time of his death, his documentation of related and suggested terms encompassed over 250 changes and/or new terms––important work that we will be sure to complete on his behalf and in his honor.
+              <br /><br />
+              Above all, Cat was a patient, kind, and gracious teacher and collaborator and he was always the first to volunteer to take on new projects. Cat’s attention to detail, as well as his commitment to making the Homosaurus a truly beautiful and inclusive set of terms, will be impossible to replace. We are endlessly grateful to him as we celebrate all that he contributed to this important project.
+            </p>
+
+          </div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
 <h2>Gratitude</h2>
 <div class="info_section">
@@ -168,3 +295,4 @@
 </div>
 
 </div>
+<% end %>

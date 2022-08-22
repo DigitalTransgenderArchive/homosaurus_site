@@ -1,3 +1,78 @@
-<br /><br />
+<% @page_title = "Contact Us" %>
+<div id="static_holder" class="container-fluid contact-us">
+  <div class="row">
+    <div class="col-xs-12 static_holder_content_container">
+      <div id="static_holder_content" class="static_holder_content">
+        <h2>Contact Us</h2>
+        <div class="info_section">
 
-<strong>Under Development.</strong> In the meantime, please visit <%= link_to "Digital Transgender Archive Contact Us", "https://www.digitaltransgenderarchive.net/contact" %>
+        <p>If you are using the Homosaurus, we want to hear from you! Please reach out to let us know how you are using this vocabulary and share any feedback you might have. We are also open to having new members join our Editorial Board so please let us know if that is something you are interested in.</p>
+
+        <p>The Homosaurus is a work in progress and we welcome suggestions for new terms to be added or changes to be made within the vocabulary. The Homosaurus Editorial Board oversees the upkeep of the vocabulary and will consider all proposed terms and changes on a quarterly basis.</p>
+        <br/>
+        <% unless @errors.empty? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <ul class="errors">
+              <% @errors.each do |msg| %>
+                <li style="color:red;"><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+          <br/>
+        <%= form_tag(contact_path, :id => 'feedback_form', :class => 'form-horizontal') do %>
+            <%= recaptcha_v3(action: 'contact', site_key: Settings.recaptcha_site_key_v3) %>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Your Name:</label>
+            <div class="col-sm-7 col-md-6">
+              <%= text_field_tag :name, params[:name], :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Your Email:</label>
+            <div class="col-sm-7 col-md-6">
+              <%= text_field_tag :email, params[:email], :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Topic:</label>
+            <div class="col-sm-7 col-md-6">
+              <%= select_tag(:topic,
+                             options_for_select(['Feedback', 'Broken link / site error', 'Other']),
+                             :class => 'form-control', :label => 'Topic:')
+              %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Your Message:</label>
+            <div class="col-sm-7 col-md-6">
+              <%= text_area_tag :message, params[:message], :size => '24x8', :class =>  'form-control' %>
+            </div>
+          </div>
+
+            <% if  1==1 || @show_captcha_v2 %>
+              <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-7 col-md-6">
+                  <div class="newsletter_checkbox pull-right">
+                    <%= recaptcha_tags %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-7 col-md-6">
+              <%= submit_tag("Send", :class => 'btn btn-default pull-right', id: 'contact_submit') %>
+            </div>
+          </div>
+
+        <% end %>
+
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

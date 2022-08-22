@@ -1,0 +1,100 @@
+div.contact-us {
+
+  input, select {
+    border-radius: 30px 30px 30px 30px;
+    #background-color: rgba(186, 203, 231, 0.3);
+    #color: #002D59;
+  }
+  textarea {
+    #background-color: rgba(186, 203, 231, 0.3);
+    #color: #002D59;
+  }
+
+  div.newsletter_checkbox {
+    color: #002D59;
+    margin-right: 2px;
+  }
+
+  #contact_submit {
+    background-color: #002D59;
+    width: 130px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    height: 35px;
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  p {
+    color: #000000;
+  }
+
+  h2 {
+    font-family: inherit;
+    line-height: 1.1;
+    color: inherit;
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 18px;
+    border-bottom: 2px #BACBE7 dotted;
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  div.info_section {
+    padding-left: 28px;
+  }
+
+  h2#email_subheader {
+    /* border: 0; */
+    margin-top: 12px;
+    margin-bottom: 20px;
+  }
+  h3 {
+    color: #002D59;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 0px;
+  }
+
+  /*Change icons size here*/
+  ul.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+    margin-top: 22px;
+  }
+  ul.list-inline li {
+    display: inline-block;
+    padding-right: 4px;
+    padding-left: 4px;
+    margin-bottom: 10px;
+
+    i {
+      color: #002D59;
+      display: inline-block;
+      font-size: 50px;
+      width: 60px;
+      height: 60px;
+      line-height: 34px;
+      text-align: center;
+      vertical-align: middle;
+      margin: 0 1px 8px;
+      -webkit-border-radius: 17px;
+      -moz-border-radius: 17px;
+      border-radius: 17px;
+
+      &:hover {
+        color: #002D59;
+      }
+    }
+  }
+
+  ul.back_link {
+    margin-bottom: 25px;
+    a {
+      font-size: 17px;
+    }
+  }
+
+}

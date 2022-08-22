@@ -1,0 +1,46 @@
+<h1>Homosaurus Vocabulary Terms</h1>
+<% if current_user.present? && current_user.contributor? && request.original_url.include?('/v3') %>
+  <h4>Admin Actions:</h4>
+  <%= button_to "Add A New Term", vocabulary_term_new_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left;" %>
+  <%= button_to "Show Visible Terms", vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;", params: { display_mode: "visible" } %>
+  <%= button_to "Show Next Version Terms", vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;", params: { display_mode: "pending" } %>
+  <%= button_to "Show Deleted Terms", vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;", params: { display_mode: "deleted" } %>
+  <%= button_to "Show Redirect Terms", vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;", params: { display_mode: "redirect" }  %>
+  <div style="clear:both"></div>
+<% end %>
+
+<h4>Download Formats:</h4>
+<ul>
+  <li><%= link_to "N-Triples", request.original_url + '.nt'  %></li>
+  <li><%= link_to "JSON-LD", request.original_url + '.jsonld' %></li>
+  <li><%= link_to "TTL", request.original_url + '.ttl' %></li>
+</ul>
+
+<h4>Graphical Views</h4>
+<% if request.original_url.include? '/v3' %>
+  <ul>
+    <li><%= link_to "Tree View", tree_path %></li>
+    <li><%= link_to "Indented Bars View", indented_tree_path %></li>
+  </ul>
+<% end %>
+
+<h4>Current Term List</h4>
+<ul>
+  <% @terms.each do |term| %>
+      <li>
+          <%= link_to term.pref_label, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier) %>
+      </li>
+  <% end %>
+  <% @edited_terms.each do |pending| %>
+    <% term = pending.reify %>
+    <li>
+      <%= link_to term.pref_label, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier, pending_id: pending.id) %>
+    </li>
+  <% end %>
+
+</ul>
+
+<p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url + '.nt'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonld' %>, <%= link_to "TTL", request.original_url + '.ttl' %>, <%= link_to "CSV (Split by Tabs only)", request.original_url + '.csv' %>
+<p><br/><strong>Experimental Upcoming Formats With Language Labels:</strong> <%= link_to "N-Triples", request.original_url + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonldV2' %>, <%= link_to "TTL", request.original_url + '.ttlV2' %>
+
+

@@ -1,0 +1,20 @@
+<%
+  panel_class ||= 'primary'
+  title ||= ''
+  values ||= []
+%>
+<% if values[0].present? %>
+  <div class="panel panel-<%=panel_class%>">
+
+  <div class="panel-heading">
+    <%= title.html_safe %>
+  </div>
+  <div class="panel-body">
+    <dl style="margin-bottom:0px">
+      <% values.each do |value| %>
+        <dd><%= value %></dd>
+      <% end %>
+    </dl>
+  </div>
+  </div>
+<% end %>

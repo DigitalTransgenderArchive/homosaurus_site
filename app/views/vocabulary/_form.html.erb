@@ -1,0 +1,91 @@
+
+    <%
+      #ISO_639::ISO_639_2.each.map { |t| [t[3], t[0]] }
+      langugage_options = [['English', 'en'], ['English (USA)', 'en-US'], ['English (UK)', 'en-GB']]
+      ISO_639::ISO_639_2.each do |lang|
+        if lang[3] == 'English'
+
+        elsif lang[2].present?
+          langugage_options << [lang[3], lang[2]]
+        else
+          langugage_options << [lang[3], lang[0]]
+        end
+      end
+    %>
+
+    <%= render :partial => "mei/form_language_labels", :locals => {:f => f, :key=>:pref_label_language, :dropdown_opts=>langugage_options} %>
+    <%= f.input :pref_label_language, as: :preflanguage_labels_mei,
+                input_html: { include_help: "The preferred label for this concept (with optional langugage tag).",
+                              help_label: 'Preferred Label',
+                              tabindex: 14,},
+                required: true, readonly: false, label: 'Preferred Label'
+    %>
+
+    <%= render :partial => "mei/form_language_labels", :locals => {:f => f, :key=>:labels_language, :dropdown_opts=>langugage_options} %>
+    <%= f.input :labels_language, as: :language_labels_mei,
+                input_html: { include_help: "Other preferred labels for this term with language identifiers",
+                              help_label: 'Language Labels',
+                              tabindex: 14,},
+                required: false, readonly: false, label: 'Language Labels'
+    %>
+
+    <%= render :partial => "mei/form_language_labels", :locals => {:f => f, :key=>:alt_labels_language, :dropdown_opts=>langugage_options} %>
+    <%= f.input :alt_labels_language, as: :language_labels_mei,
+                input_html: { include_help: "Alternative Labels'",
+                              help_label: 'Alternative Labels (Use For)',
+                              tabindex: 14,},
+                required: false, readonly: false, label: 'Alternative Labels (Use For)'
+    %>
+
+    <%= f.input :description, as: :single_base,
+                input_html: { include_help: 'Descriptive note about this term',
+                              help_label: 'Description (Scope Note)',
+                              rows: '9', type: 'textarea',
+                },
+                required: false, label: 'Description (Scope Note)'
+    %>
+
+    <%= f.input :history_note, as: :single_base,
+                input_html: { include_help: 'History note about this term',
+                              help_label: 'History Note',
+                              rows: '5', type: 'textarea',
+                },
+                required: false, label: 'History Note'
+    %>
+
+    <%= f.input :internal_note, as: :single_base,
+                input_html: { include_help: 'Internal note about this term (not shared)',
+                              help_label: 'Internal Note',
+                              rows: '5', type: 'textarea',
+                },
+                required: false, label: 'Internal Note'
+    %>
+
+    <%= f.input :broader, as: :prefix_multi_select_v3, collection: @all_terms,
+                input_html: { class: 'form-control', include_help: 'Broader terms for this term.', help_label: 'Broader', multiple: false }, include_blank: true
+    %>
+
+    <%= f.input :narrower, as: :prefix_multi_select_v3, collection: @all_terms,
+                input_html: { class: 'form-control', include_help: 'Narrower terms for this term.', help_label: 'Narrower', multiple: false }, include_blank: true
+    %>
+
+    <%= f.input :related, as: :prefix_multi_select_v3, collection: @all_terms,
+                input_html: { class: 'form-control', include_help: 'Related terms for this term.', help_label: 'Related', multiple: false }, include_blank: true
+    %>
+
+    <%= render :partial => "mei/form", :locals => {:f => f, :key=>:exact_match_lcsh} %>
+    <%= f.input :exact_match_lcsh, as: :lcsh_lookup,
+                input_html: { include_help: "Look up LCSH Subjects",
+                              help_label: 'Exact Match–LC Subject Headings'},
+                required: false, readonly: true, label: 'Exact Match–LC Subject Headings'
+    %>
+
+    <%= render :partial => "mei/form", :locals => {:f => f, :key=>:close_match_lcsh} %>
+    <%= f.input :close_match_lcsh, as: :lcsh_lookup,
+                input_html: { include_help: "Look up LCSH Subjects",
+                              help_label: 'Close Match–LC Subject Headings'},
+                required: false, readonly: true, label: 'Close Match–LC Subject Headings'
+    %>
+
+
+    <br /><br />

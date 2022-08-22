@@ -1,0 +1,83 @@
+<% dropdown_opts ||= '' %>
+<div class="modal fade" id="meiLookupModal_<%=key%>" tabindex="-1" role="dialog" aria-labelledby="meiLookupModalLabel_<%=key%>" style="width:90%;">
+  <div class="modal-dialog" role="document" style="width:90%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="meiLookupModalLabel_<%=key%>">Add <%=key.to_s.gsub('_', ' ').upcase%> Term</h4>
+      </div>
+      <div class="modal-body">
+
+          <div class="form-group">
+            <div class="row">
+                  <div class="col-xs-2">
+                    <label for="recipient-name" class="control-label">Languages:</label>
+                    <select name="mei_lcsh_extra_<%=key%>" class="form-control" id="mei_lcsh_extra_<%=key%>">
+                      <% dropdown_opts.each do |opt| %>
+                          <option value="<%=opt.last%>"><%=opt.first%></option>
+                      <% end %>
+                    </select>
+                  </div>
+
+                  <div class="col-xs-4">
+                    <label for="recipient-name" class="control-label">Label:</label>
+                    <input type="text" class="form-control" id="mei_lcsh_term_<%=key%>">
+                  </div>
+                <div class="col-xs-4">
+                  <div style="padding-top:23px;float:left;"><button type="button" class="btn btn-default" onClick="mei_add_<%=key%>();">Add Label</button></div>
+                </div>
+            </div>
+
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!--<button type="button" class="btn btn-primary">Send message</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    var mei_element_to_update_<%=key%>;
+    var mei_last_value_<%=key%> = '';
+
+    //Shown is after bootstrap modal transitions have completed. See: http://getbootstrap.com/javascript/#modals-events
+    $("#meiLookupModal_<%=key%>").on('shown.bs.modal', function (event) {
+      $('#mei_lcsh_term_<%=key%>').focus();
+    });
+
+    $("#meiLookupModal_<%=key%>").on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        //alert(button.prev().val());
+        //mei_element_to_update_<%=key%> = button.prev();
+        mei_element_to_update_<%=key%> = button.closest(".field-wrapper").find('.duplicateable');
+        $('#mei_results_<%=key%>').text('');
+        $('#mei_lcsh_term_<%=key%>').val('');
+        //var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        //var modal = $(this)
+        //modal.find('.modal-title').text('New message to ' + recipient)
+        //modal.find('.modal-body input').val(recipient)
+    });
+
+
+  function mei_add_<%=key%>()
+  {
+      var val = $('#mei_lcsh_term_<%=key%>').val() + '@' + $('#mei_lcsh_extra_<%=key%>').val();
+      mei_element_to_update_<%=key%>.val(val);
+      $('#meiLookupModal_<%=key%>').modal('toggle');
+      return false;
+  }
+
+    $("#mei_lcsh_term_<%=key%>").keydown(function(event){
+      if(event.keyCode == 13){
+        event.preventDefault();
+        mei_add_<%=key%>();
+        return true;
+      }
+    });
+
+</script>

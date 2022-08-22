@@ -1,4 +1,4 @@
-thub #
+# temp files #
 ##################################
 *.rbc
 *.sassc
@@ -25,6 +25,8 @@ fedora.yml
 solr.yml
 secrets.yml
 blacklight.yml
+homosaurus.yml
+contact_emails.yml
 
 # Files to ignore by default in Git #
 #####################################
@@ -64,3 +66,8 @@ Gemfile.lock
 
 *~
 ._*
+
+# New files to ignore
+db/schema.rb
+db/secondbase
+/config/master.key

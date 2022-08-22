@@ -1,23 +1,56 @@
 Rails.application.routes.draw do
-  get 'search/index'
+  # routes for Hist
+  mount Hist::Engine => '/hist'
 
-  resources :vocabs_v2, only: [:index, :show], :path => '/v2'
+  devise_for :users
+  mount Hydra::RoleManagement::Engine => '/'
 
-  resources :vocabs, only: [:index, :show], :path => :terms
+  #get 'search/index'
+  get 'search/:id' => 'vocabulary#search', as: :vocabulary_search_results
+  get 'tree' => 'graph#tree', as: :tree
+  get 'tree_data' => 'graph#tree_data', as: :tree_data
+  get 'indented_tree' => 'graph#indented_tree', as: :indented_tree
+
+  get 'releases' => 'homepage#release', as: :release
+  get 'about' => 'homepage#about', as: :about
+  post 'about' => 'homepage#about', as: :reveal_emails
+  get 'contact' => 'homepage#contact', as: :contact
+  post 'contact' => 'homepage#contact'
+  get 'feedback_complete' => 'homepage#feedback_complete', as: :feedback_complete
+
+  # Autocomplete Routes
+  get '/autocomplete/exact_match_lcsh', to: "autocomplete#lcsh_subject", as: :exact_match_lcsh_autocomplete
+  get '/autocomplete/close_match_lcsh', to: "autocomplete#lcsh_subject", as: :close_match_lcsh_autocomplete
+
+  # These should be next to last
+  get ':vocab_id/new_term' => 'vocabulary#new', as: :vocabulary_term_new
+  post ':vocab_id/new_term' => 'vocabulary#create', as: :vocabulary_term_create
+  get ':vocab_id/:id/edit' => 'vocabulary#edit', as: :vocabulary_term_edit
+  patch ':vocab_id/:id/update' => 'vocabulary#update', as: :vocabulary_term_update
+  #patch ':vocab_id/:id/update_immediate' => 'vocabulary#update_immediate', as: :vocabulary_term_update_immediate
+  delete ':vocab_id/:id/delete' => 'vocabulary#destroy', as: :vocabulary_term_delete
+  delete ':vocab_id/:id/delete_version' => 'vocabulary#destroy_version', as: :vocabulary_term_delete_version
+  get ':vocab_id/:id/restore' => 'vocabulary#restore', as: :vocabulary_term_restore
+  get ':vocab_id/:id/replace/:replacement_id' => 'vocabulary#replace', as: :replace
+
+  # These have to be last
+  get ':id' => 'vocabulary#index', as: :vocabulary_index
+  get ':vocab_id/:id' => 'vocabulary#show', as: :vocabulary_show
+
+
+  #resources :vocabs_v3, only: [:index, :show], :path => '/v3'
+
+  #resources :vocabs_v2, only: [:index, :show], :path => '/v2'
+
+  #resources :vocabs, only: [:index, :show], :path => :terms
 
 
   root to: 'homepage#index'
-  get 'about' => 'homepage#about', as: :about
-  get 'contact' => 'homepage#contact', as: :contact
 
-  get 'search/terms' => 'search#index', as: :search_results
 
-  get 'search/v2' => 'search_v2#index', as: :search_results_v2
-
-  get 'tree' => 'graph#tree', as: :tree
-  get 'tree_data' => 'graph#tree_data', as: :tree_data
-
-  get 'indented_tree' => 'graph#indented_tree', as: :indented_tree
+  #get 'search/terms' => 'search#index', as: :search_results
+  #get 'search/v2' => 'search_v2#index', as: :search_results_v2
+  #get 'search/v3' => 'search_v3#index', as: :search_results_v3
 
   #get 'search' => 'search_v2#index', as: :search_results_v2, :path => '/v2/search'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,25 @@
+<%
+  panel_class ||= 'danger'
+  title ||= ''
+  values ||= []
+%>
+<% if values[0].present? %>
+  <div class="panel panel-<%=panel_class%>">
+
+  <div class="panel-heading">
+    <%= title.html_safe %>
+  </div>
+  <div class="panel-body">
+    <dl style="margin-bottom:0px">
+      <% if values.present? && values[0].present? %>
+        <% objs_sorted = Term.where(uri: values).sort_by { |obj| obj.pref_label.downcase } %>
+        <% objs_sorted.each do |relation_obj| %>
+          <dd>
+            <%= link_to "#{relation_obj.pref_label}", vocabulary_show_path(vocab_id: relation_obj.vocabulary_identifier, id: relation_obj.identifier)%>
+          </dd>
+        <% end %>
+      <% end %>
+    </dl>
+  </div>
+  </div>
+<% end %>

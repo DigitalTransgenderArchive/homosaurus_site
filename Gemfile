@@ -2,10 +2,18 @@ source 'https://rubygems.org'
 source 'https://rails-assets.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+# Authentication
+gem 'devise'
+gem "hydra-role-management"
+gem 'secondbase'
+
+# Recaptcha (https://github.com/ambethia/recaptcha)
+gem "recaptcha", "5.1.0"
+
 gem "d3-rails", '4.13.0'
 
 gem 'mysql2', '0.4.10'
-gem 'rails', '~> 5.2.3'
+gem 'rails', github: 'rails/rails', branch: '5-2-stable'
 gem 'rsolr', '>= 1.0', '< 3'
 
 # Use Bootstrap
@@ -29,13 +37,16 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-#gem 'rdf'
-gem 'rdf', '1.99.0'
+gem 'rdf'
+#gem 'rdf', '1.99.0'
 gem "rdf-vocab"
 gem "mime-types"
-gem "linkeddata", '1.99.0'
-#gem 'rdf-blazegraph', github: "ruby-rdf/rdf-blazegraph", branch: 'develop'
-#gem 'active-triples', github: "scande3/ActiveTriples", branch: 'develop'
+gem "linkeddata"
+#gem "linkeddata", '1.99.0'
+gem "iso-639"
+gem 'emoji_flag'
+gem 'rdf-blazegraph', github: "ruby-rdf/rdf-blazegraph", branch: 'develop'
+gem 'active-triples', github: "scande3/ActiveTriples", branch: 'develop'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -45,6 +56,16 @@ gem "linkeddata", '1.99.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'simple_form'
+gem "rails-assets-onmount"
+gem 'select2-rails'
+gem 'qa'
+gem 'rest-client'
+
+gem 'hist'
+#gem 'hist', path: '/home/bluewolf/railsApps/hist'
+gem 'ace-rails-ap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

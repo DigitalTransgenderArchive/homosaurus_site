@@ -4,12 +4,20 @@
   <title>Homosaurus Vocabulary Site</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- Google Analytics -->
+  <%= render partial: '/ga', formats: [:html] %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
+
     <div class="navbar-header">
+      <% if 1==0 %>
+      <div class="header_logo">
+        <%= link_to "homosaurus.org", root_path, :id => 'header_logo_link' %>
+      </div>
+      <% end  %>
       <%= link_to "homosaurus.org", '/', class: "navbar-brand"%>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
@@ -23,20 +31,48 @@
         <li><%= link_to "Home", '/' %></li>
 
         <% if request.original_url.include? '/terms' %>
-          <li><%= link_to "V1 Vocabulary", vocabs_path %></li>
+          <li><%= link_to "V1 Vocabulary", vocabulary_index_path(id: "terms") %></li>
+        <% elsif request.original_url.include? '/v2' %>
+          <li><%= link_to "V2 Vocabulary", vocabulary_index_path(id: "v2") %></li>
         <% else %>
-          <li><%= link_to "Vocabulary", vocabs_v2_index_path %></li>
+          <li><%= link_to "Vocabulary", vocabulary_index_path(id: "v3") %></li>
         <% end %>
 
 
         <% if request.original_url.include? '/terms' %>
-          <li><%= link_to "V1 Search", search_results_path %></li>
+          <li><%= link_to "V1 Search", vocabulary_search_results_path(id: "terms") %></li>
+        <% elsif request.original_url.include? '/v2' %>
+          <li><%= link_to "V2 Search", vocabulary_search_results_path(id: "v2")  %></li>
         <% else %>
-          <li><%= link_to "Search", search_results_v2_path %></li>
+          <li><%= link_to "Search", vocabulary_search_results_path(id: "v3")  %></li>
         <% end %>
+
+        <li><%= link_to "Releases", release_path %></li>
+
         <li><%= link_to "About", about_path %></li>
 
         <li><%= link_to "Contact", contact_path %></li>
+
+        <% if current_user.blank? %>
+          &nbsp;
+        <% elsif current_user.present? %>
+          <li class="dropdown user_account_link">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">ACCOUNT <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <% if current_user.superuser? %>
+                <li class="divider"></li>
+                <li><%= link_to 'Roles', role_management.roles_path, :class=>"nav_button" %></li>
+              <% end %>
+              <% if current_user.superuser? || current_user.contributor? || current_user.admin? %>
+                <li class="divider"></li>
+                <li><%= link_to 'Add Homosaurus Term', vocabulary_term_new_path(vocab_id: "v3"), :class=>"nav_button" %></li>
+              <% end %>
+              <li class="divider"></li>
+              <li><%= link_to 'Log Out', destroy_user_session_path, :class=>"nav_button" %></li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
       </ul>
 
     </div><!--/.nav-collapse -->
@@ -50,9 +86,23 @@
 <div class="container-full" style="margin-top:50px;">
   <div class="container">
     <div class="starter-template">
-      <% flash.each do |key, value| %>
-          <%= content_tag :div, value, class: "flash #{key}" %>
-      <% end %>
+      <div class="flash_messages">
+        <% [:success, :notice, :error, :alert].each do |type| %>
+          <%- alert_class = case type
+                            when :success then "alert-success"
+                            when :notice  then "alert-info"
+                            when :alert   then "alert-warning"
+                            when :error   then "alert-danger"
+                            else "alert-#{type}"
+                            end
+          -%>
+          <% if flash[type] && flash[type].to_s != "recaptcha_error" %>
+            <div class="alert <%=alert_class %>"><%= flash[type] %>
+              <a class="close" data-dismiss="alert" href="#">&times;</a>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
       <%= yield %>
     </div>
   </div><!-- /.container -->
@@ -65,3 +115,5 @@
 
 </body>
 </html>
+
+<div class="modal fade" id="homosaurus-main-modal" tabindex="-1" role="dialog" data-backdrop="static" aria-hidden="true" data-keyboard="false">Loading...</div>
