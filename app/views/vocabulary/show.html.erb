@@ -66,6 +66,12 @@
      :values=>[@homosaurus_obj.history_note]}
 %>
 
+
+<%= render :partial => "internal_panel_display_partial", :locals =>
+    {:title => Term.getLabel("internalNote"),
+     :values=>[@homosaurus_obj.internal_note]}
+%>
+
 <%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("issued"),
      :values=>[@homosaurus_obj.created_at]}

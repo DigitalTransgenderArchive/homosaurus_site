@@ -107,6 +107,8 @@ class Term < ActiveRecord::Base
       "<a href='http://purl.org/dc/terms/replaces' target='blank'  title='Definition of replaces in the Dublin Core Terms Vocabulary'>Replaces</a>"
     when "historyNote"
       "<a href='http://www.w3.org/2004/02/skos/core#historyNote' target='blank'  title='Definition of historyNote in the SKOS Vocabulary'>History Note</a>"
+    when "internalNote"
+      "Internal Note (Only Displayed Logged In)"
     else
       field.humanize
     end

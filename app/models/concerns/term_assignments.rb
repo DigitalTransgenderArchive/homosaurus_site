@@ -29,6 +29,9 @@ module TermAssignments
   def labels_language=(value)
     r = []
     values = clean_values(value)
+    if values.present? && values.size > 1 && values[0].class == String
+      values.sort!
+    end
     values.each do |val|
       if val.class == String
         if val.include?('@')
@@ -51,6 +54,9 @@ module TermAssignments
   def alt_labels_language=(value)
     r = []
     values = clean_values(value)
+    if values.present? && values.size > 1 && values[0].class == String
+      values.sort!
+    end
     values.each do |val|
       if val.class == String
         if val.include?('@')
