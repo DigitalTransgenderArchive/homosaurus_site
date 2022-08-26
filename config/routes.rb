@@ -18,6 +18,14 @@ Rails.application.routes.draw do
   post 'contact' => 'homepage#contact'
   get 'feedback_complete' => 'homepage#feedback_complete', as: :feedback_complete
 
+  # Archives releases
+  get 'releases/archive/release_notes_2_1' => 'release#release_notes_2_1', as: :archive_release_2_1
+  get 'releases/archive/release_notes_2_2' => 'release#release_notes_2_2', as: :archive_release_2_2
+  get 'releases/archive/release_notes_2_3' => 'release#release_notes_2_3', as: :archive_release_2_3
+  get 'releases/archive/release_notes_3_0' => 'release#release_notes_3_0', as: :archive_release_3_0
+  get 'releases/archive/release_notes_3_1' => 'release#release_notes_3_1', as: :archive_release_3_1
+  get 'releases/archive/release_notes_3_2' => 'release#release_notes_3_2', as: :archive_release_3_2
+
   # Autocomplete Routes
   get '/autocomplete/exact_match_lcsh', to: "autocomplete#lcsh_subject", as: :exact_match_lcsh_autocomplete
   get '/autocomplete/close_match_lcsh', to: "autocomplete#lcsh_subject", as: :close_match_lcsh_autocomplete
