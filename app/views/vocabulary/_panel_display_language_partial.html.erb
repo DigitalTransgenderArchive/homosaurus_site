@@ -19,7 +19,8 @@
             <% lang_id = value.split('@').last
                lang_value = "English (USA)" if lang_id == 'en-US'
                lang_value = "English (UK)" if lang_id == 'en-GB'
-               lang_value ||= ISO_639.find_by_code(value.split('@').last)[3]
+               # lang_value ||= ISO_639.find_by_code(value.split('@').last)[3]
+               lang_value ||= Languages[value.split('@').last.to_sym].name
             %>
             <td width="100px;"><div class="well_language clear:both;">
               <%= lang_value %>

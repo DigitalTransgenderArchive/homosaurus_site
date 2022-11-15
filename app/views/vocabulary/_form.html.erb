@@ -1,4 +1,6 @@
-
+  <script type="text/javascript">
+      $.fn.modal.Constructor.prototype.enforceFocus = function() {};
+  </script>
     <%
       #ISO_639::ISO_639_2.each.map { |t| [t[3], t[0]] }
       langugage_options = [['English', 'en'], ['English (USA)', 'en-US'], ['English (UK)', 'en-GB']]
@@ -11,9 +13,11 @@
           langugage_options << [lang[3], lang[0]]
         end
       end
+
+      language_options_expanded = AutocompleteController.form_languages
     %>
 
-    <%= render :partial => "mei/form_language_labels", :locals => {:f => f, :key=>:pref_label_language, :dropdown_opts=>langugage_options} %>
+    <%= render :partial => "mei/form_language_labels", :locals => {:f => f, :key=>:pref_label_language, :dropdown_opts=>language_options_expanded} %>
     <%= f.input :pref_label_language, as: :preflanguage_labels_mei,
                 input_html: { include_help: "The preferred label for this concept (with optional langugage tag).",
                               help_label: 'Preferred Label',
@@ -21,7 +25,7 @@
                 required: true, readonly: false, label: 'Preferred Label'
     %>
 
-    <%= render :partial => "mei/form_language_labels", :locals => {:f => f, :key=>:labels_language, :dropdown_opts=>langugage_options} %>
+    <%= render :partial => "mei/form_language_labels", :locals => {:f => f, :key=>:labels_language, :dropdown_opts=>language_options_expanded} %>
     <%= f.input :labels_language, as: :language_labels_mei,
                 input_html: { include_help: "Other preferred labels for this term with language identifiers",
                               help_label: 'Language Labels',
@@ -29,7 +33,7 @@
                 required: false, readonly: false, label: 'Language Labels'
     %>
 
-    <%= render :partial => "mei/form_language_labels", :locals => {:f => f, :key=>:alt_labels_language, :dropdown_opts=>langugage_options} %>
+    <%= render :partial => "mei/form_language_labels", :locals => {:f => f, :key=>:alt_labels_language, :dropdown_opts=>language_options_expanded} %>
     <%= f.input :alt_labels_language, as: :language_labels_mei,
                 input_html: { include_help: "Alternative Labels'",
                               help_label: 'Alternative Labels (Use For)',
