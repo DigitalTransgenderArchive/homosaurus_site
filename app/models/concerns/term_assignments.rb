@@ -1,4 +1,6 @@
 module TermAssignments
+  require 'languages'
+
   def clean_values(value)
     case value.class.to_s
     when 'String'
@@ -36,7 +38,7 @@ module TermAssignments
       if val.class == String
         if val.include?('@')
           lang_check = val.split('@').last
-          if lang_check == 'en-GB' || lang_check == 'en-US' || ISO_639.find_by_code(lang_check).present?
+          if lang_check == 'en-GB' || lang_check == 'en-US' || ISO_639.find_by_code(lang_check).present? || Languages[lang_check.to_sym].present?
             r << val
           end
         else
