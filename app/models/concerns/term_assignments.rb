@@ -19,7 +19,7 @@ module TermAssignments
   def pref_label_language=(value)
     if value.include?('@')
       lang_check = value.split('@').last
-      unless lang_check == 'en-GB' || lang_check == 'en-US' || ISO_639.find_by_code(lang_check).present?
+      unless lang_check == 'en-GB' || lang_check == 'en-US' || ISO_639.find_by_code(lang_check).present? || Languages[lang_check.to_sym].present?
         value = value.split('@').first
       end
     end
@@ -63,7 +63,7 @@ module TermAssignments
       if val.class == String
         if val.include?('@')
           lang_check = val.split('@').last
-          if lang_check == 'en-GB' || lang_check == 'en-US' || ISO_639.find_by_code(lang_check).present?
+          if lang_check == 'en-GB' || lang_check == 'en-US' || ISO_639.find_by_code(lang_check).present? || Languages[lang_check.to_sym].present?
             r << val
           end
         else
