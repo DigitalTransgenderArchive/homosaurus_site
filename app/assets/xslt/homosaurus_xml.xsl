@@ -23,12 +23,10 @@
           </xsl:otherwise>
         </xsl:choose>
 
-      </xsl:variable>"
+      </xsl:variable>
                   <!-- Control field 008 needs processed-->
       <controlfield tag="008">
-        <xsl:value-of select="$mod_date"/>
-|||anznnbab||||||||||||||a|||||||d
-      </controlfield>
+        <xsl:value-of select="$mod_date"/>|||anznnbab||||||||||||||a|||||||d</controlfield>
 
       <xsl:if test="//identifier">
         <datafield tag="024" ind1="8" ind2=" ">

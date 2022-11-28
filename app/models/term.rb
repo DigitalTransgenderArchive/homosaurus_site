@@ -445,6 +445,84 @@ class Term < ActiveRecord::Base
     json_graph.to_json
   end
 
+  def xml_basic
+    builder = Nokogiri::XML::Builder.new do |xml|
+      xml.record {
+        xml.id self.uri
+        xml.identifier self.identifier
+        xml.prefLabel self.pref_label
+
+        xml.issued {
+          xml.value self.created_at.iso8601.split('T')[0]
+          xml.name "xsd:date"
+        }
+        xml.modified {
+          xml.value self.manual_update_date.iso8601.split('T')[0]
+          xml.name "xsd:date"
+        }
+        self.broader.each do |cb|
+          current_broader = Term.find_by(uri: cb)
+          xml.broader {
+            xml.id current_broader.uri
+            xml.prefLabel current_broader.pref_label
+          }
+        end
+
+        self.narrower.each do |cb|
+          current_narrower = Term.find_by(uri: cb)
+          xml.narrower {
+            xml.id current_narrower.uri
+            xml.prefLabel current_narrower.pref_label
+          }
+        end
+
+        self.related.each do |cb|
+          current_related = Term.find_by(uri: cb)
+          xml.related {
+            xml.id current_related.uri
+            xml.prefLabel current_related.pref_label
+          }
+        end
+
+        @broadest_terms = []
+        get_broadest self.uri
+        @broadest_terms.uniq!
+        @broadest_terms.each do |broad_term|
+          broadest_term = Term.find_by(uri: broad_term)
+          xml.hasTopConcept {
+            xml.id broadest_term.uri
+            xml.prefLabel broadest_term.pref_label
+          }
+        end
+
+        xml.comment_ self.description
+      }
+    end
+
+    builder.to_xml
+  end
+
+  def marc_basic
+    xslt  = Nokogiri::XSLT(File.read(Rails.root.join('app', 'assets', 'xslt', 'homosaurus_xml.xsl')))
+    xslt.transform(Nokogiri::XML(self.xml_basic))
+  end
+
+  def self.xml_basic_for_terms(terms)
+    builder = Nokogiri::XML::Builder.new do |xml|
+      xml.records do |r|
+        terms.each do |term|
+          r << term.xml_basic.gsub("<?xml version=\"1.0\"?>", "")
+        end
+      end
+    end
+    builder.to_xml
+  end
+
+  def self.marc_basic_for_terms(terms)
+    xslt  = Nokogiri::XSLT(File.read(Rails.root.join('app', 'assets', 'xslt', 'homosaurus_xml.xsl')))
+    xslt.transform(Nokogiri::XML(Term.xml_basic_for_terms(terms)))
+  end
+
   def remove_from_solr
     DSolr.delete_by_id "homosaurus/#{self.vocabulary.identifier}/#{self.identifier}"
   end
