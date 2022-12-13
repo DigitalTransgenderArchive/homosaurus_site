@@ -7,6 +7,7 @@ class Term < ActiveRecord::Base
   after_save :send_solr
 
   belongs_to :vocabulary
+  has_many :version_release_term
 
   serialize :labels, Array
   serialize :labels_language, Array

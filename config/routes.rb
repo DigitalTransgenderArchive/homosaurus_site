@@ -29,6 +29,11 @@ Rails.application.routes.draw do
   # Autocomplete Routes
   get '/autocomplete/exact_match_lcsh', to: "autocomplete#lcsh_subject", as: :exact_match_lcsh_autocomplete
   get '/autocomplete/close_match_lcsh', to: "autocomplete#lcsh_subject", as: :close_match_lcsh_autocomplete
+  get '/autocomplete/languages', to: "autocomplete#languages", as: :languages_autocomplete
+
+  # Admin Routes
+  get '/admin/version/new' => 'admin#version_new', as: :version_publish_new
+  post '/admin/version/publish' => 'admin#version_create', as: :version_publish_create
 
   # These should be next to last
   get ':vocab_id/new_term' => 'vocabulary#new', as: :vocabulary_term_new

@@ -1,0 +1,13 @@
+<div class="row-padded">
+  <h1>Publish New Version</h1>
+  <div style="width:50em;">
+    <%= simple_form_for(@version_release, :url => version_publish_create_path, :as => :version_release) do |f| %>
+      <%= render :partial => "new_version_form", locals: {f: f} %>
+      <div>
+        <%= button_tag class: 'btn btn-primary btn-lg', id: "upload_submit", name: "publish_version", data: { disable_with: "Please wait..." } do %>
+          <i class="glyphicon glyphicon-floppy-disk"></i> Publish Version
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

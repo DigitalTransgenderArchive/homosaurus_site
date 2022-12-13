@@ -1,0 +1,9 @@
+<% required = true if required.nil? %>
+
+<%= f.label label_val, required: required %>
+<%=
+    if include_help
+      help_label ||= label_val
+      render partial: "partials/help_icon", locals: { help_label: help_label, help_content: include_help }
+  end
+%>
