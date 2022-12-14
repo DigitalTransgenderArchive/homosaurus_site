@@ -1,20 +1,27 @@
 <div id="about" class="col-sm-12 col-md-12">
   <div class="release_title">
     <h2>Homosaurus Releases</h2>
-    <h3>Released June 2022</h3>
+    <% if @releases.first.present? %>
+    <h3>Last Updated: <%= @releases.first.release_date %></h3>
+    <% end %>
   </div>
   <div class="info_section">
     <p>
-      <strong>Current Release:</strong>
+      <strong>Recent Releases:</strong>
       <ol>
-        <li>
-          <a href="/releases/archive/release_notes_3_2">Homosaurus v. 3.2 (June 2022)</a>
-        </li>
+        <% @releases.each do |release| %>
+          <li>
+            <%= link_to "Homosaurus v.#{release.release_identifier} (#{release.release_date})", release_show_path(:release_id => release.id) %>
+          </li>
+        <% end %>
       </ol>
     </p>
     <p>
       <strong>Older Release:</strong>
     <ol>
+      <li>
+        <a href="/releases/archive/release_notes_3_2">Homosaurus v. 3.2 (June 2022)</a>
+      </li>
       <li>
         <a href="/releases/archive/release_notes_3_1">Homosaurus v. 3.1 (December 2021)</a>
       </li>

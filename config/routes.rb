@@ -11,12 +11,15 @@ Rails.application.routes.draw do
   get 'tree_data' => 'graph#tree_data', as: :tree_data
   get 'indented_tree' => 'graph#indented_tree', as: :indented_tree
 
-  get 'releases' => 'homepage#release', as: :release
   get 'about' => 'homepage#about', as: :about
   post 'about' => 'homepage#about', as: :reveal_emails
   get 'contact' => 'homepage#contact', as: :contact
   post 'contact' => 'homepage#contact'
   get 'feedback_complete' => 'homepage#feedback_complete', as: :feedback_complete
+
+  # releases
+  get 'releases' => 'release#index', as: :release
+  get 'releases/show/:release_id' => 'release#show', as: :release_show
 
   # Archives releases
   get 'releases/archive/release_notes_2_1' => 'release#release_notes_2_1', as: :archive_release_2_1

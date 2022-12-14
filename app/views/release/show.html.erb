@@ -1,0 +1,36 @@
+<div id="about" class="col-sm-12 col-md-12">
+  <div class="release_title">
+    <h2>Homosaurus v. <%= @release.release_identifier %> Updates</h2>
+    <h3>Released <%= @release.release_date %></h3>
+  </div>
+  <div class="info_section">
+    <p>
+      <strong>List of new terms added:</strong>
+    <ol>
+      <% @release_terms.each do |release_term| %>
+        <% if release_term.change_type == "new" %>
+          <li>
+            <a href="<%=release_term.term.uri%>"><%=release_term.term.pref_label%></a>
+          </li>
+        <% end %>
+      <% end %>
+    </ol>
+  </div>
+
+  <div class="info_section">
+    <p>
+      <strong>List of terms with preferred label changes:</strong>
+    <ol>
+      <% @release_terms.each do |release_term| %>
+        <% if release_term.change_type == "update" %>
+          <li>
+            <a href="<%=release_term.term.uri%>"><%=release_term.term.pref_label%></a> (was <%=release_term.previous_label %>)
+          </li>
+        <% end %>
+      <% end %>
+    </ol>
+  </div>
+</div>
+
+<p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url + '.nt'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonld' %>, <%= link_to "TTL", request.original_url + '.ttl' %>, <%= link_to "CSV (Split by Tabs only)", request.original_url + '.csv' %>, <%= link_to "XML", request.original_url + '.xml' %>
+<p><br/><strong>Experimental Upcoming Formats With Language Labels:</strong> <%= link_to "N-Triples", request.original_url + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonldV2' %>, <%= link_to "TTL", request.original_url + '.ttlV2' %>
