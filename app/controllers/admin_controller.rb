@@ -55,7 +55,7 @@ class AdminController < ApplicationController
   end
 
   def verify_permission
-    if !current_user.contributor?
+    if !current_user.superuser?
       redirect_to root_path
     end
   end

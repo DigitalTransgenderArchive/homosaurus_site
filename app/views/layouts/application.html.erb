@@ -67,7 +67,7 @@
                 <li class="divider"></li>
                 <li><%= link_to 'Add Homosaurus Term', vocabulary_term_new_path(vocab_id: "v3"), :class=>"nav_button" %></li>
               <% end %>
-              <% if current_user.superuser? || current_user.admin? %>
+              <% if current_user.superuser? %>
                 <li class="divider"></li>
                 <li><%= link_to 'Publish New Version', version_publish_new_path, :class=>"nav_button" %></li>
               <% end %>
