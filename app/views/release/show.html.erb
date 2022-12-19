@@ -30,6 +30,25 @@
       <% end %>
     </ol>
   </div>
+
+  <div class="info_section">
+    <p>
+      <strong>List of terms that have replaced existing terms:</strong>
+    <ol>
+      <% @release_terms.each do |release_term| %>
+        <% if release_term.change_type == "redirect" %>
+          <li>
+            <a href="<%=release_term.term.uri%>"><%=release_term.term.pref_label%></a><br/>Replaces:
+            <ul>
+              <% release_term.changed_uris.each_with_index do |changed_uri, index| %>
+                <li><%=release_term.changed_uri_labels[index] %> (<%= changed_uri %>)</li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      <% end %>
+    </ol>
+  </div>
 </div>
 
 <p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url + '.nt'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonld' %>, <%= link_to "TTL", request.original_url + '.ttl' %>, <%= link_to "CSV (Split by Tabs only)", request.original_url + '.csv' %>, <%= link_to "XML", request.original_url + '.xml' %>

@@ -10,6 +10,8 @@ class ReleaseController < ApplicationController
     @release_terms = @release_terms.sort_by { |release_term| release_term.term.pref_label.downcase }
     @terms = @release_terms.map { |rt| rt.term }
     @terms.sort_by! { |term| term.pref_label.downcase }
+    # Replaces can duplicate?
+    @terms.uniq!
 
     respond_to do |format|
       format.html
