@@ -1,4 +1,5 @@
 class Vocabulary < ActiveRecord::Base
+  require 'csv'
   has_many :terms
   has_many :version_releases
 
@@ -249,5 +250,111 @@ class Vocabulary < ActiveRecord::Base
         end
       end
     end
+  end
+
+  def fix_relationships
+    # Handle Visible Case
+    self.terms.where(visibility: 'visible').each do |current_term|
+      # Fix broader
+      current_term.broader.each do |broader|
+        broader_term = Term.find_by(uri: broader)
+
+        unless broader_term.narrower.include? current_term.uri
+          broader_term.narrower += [current_term.uri]
+          broader_term.save!
+        end
+      end
+
+      # Fix narrower
+      current_term.narrower.each do |narrower|
+        narrower_term = Term.find_by(uri: narrower)
+
+        unless narrower_term.broader.include? current_term.uri
+          narrower_term.broader += [current_term.uri]
+          narrower_term.save!
+        end
+      end
+
+      # Fix related
+      current_term.related.each do |related|
+        related_term = Term.find_by(uri: related)
+
+        unless related_term.related.include? current_term.uri
+          related_term.related += [current_term.uri]
+          related_term.save!
+        end
+      end
+    end
+
+    # Handle Redirect Case
+    file = "#{Rails.root}/public/redirected_term_errors.csv"
+    headers = ["Redirected_Term_URI", "URI_Of_Term_With_Reference", "Destination_Of_Redirected_Term"]
+    CSV.open(file, 'w', write_headers: true, headers: headers) do |writer|
+      self.terms.where(visibility: 'redirect').each do |current_term|
+        # Fix broader
+        current_term.broader.each do |broader|
+          broader_term = Term.find_by(uri: broader)
+
+          if broader_term.narrower.include? current_term.uri
+            writer << [current_term.uri, broader_term.uri, current_term.is_replaced_by]
+          end
+        end
+
+        # Fix narrower
+        current_term.narrower.each do |narrower|
+          narrower_term = Term.find_by(uri: narrower)
+
+          if narrower_term.broader.include? current_term.uri
+            writer << [current_term.uri, narrower_term.uri, current_term.is_replaced_by]
+          end
+        end
+
+        # Fix related
+        current_term.related.each do |related|
+          related_term = Term.find_by(uri: related)
+
+          if related_term.related.include? current_term.uri
+            writer << [current_term.uri, related_term.uri, current_term.is_replaced_by]
+          end
+        end
+      end
+    end
+
+
+    # Handle Deleted Case
+    file = "#{Rails.root}/public/deleted_term_errors.csv"
+    headers = ["Redirected_Term_URI", "URI_Of_Term_With_Reference"]
+
+    CSV.open(file, 'w', write_headers: true, headers: headers) do |writer|
+      self.terms.where(visibility: 'deleted').each do |current_term|
+        # Fix broader
+        current_term.broader.each do |broader|
+          broader_term = Term.find_by(uri: broader)
+
+          if broader_term.narrower.include? current_term.uri
+            writer << [current_term.uri, broader_term.uri, current_term.is_replaced_by]
+          end
+        end
+
+        # Fix narrower
+        current_term.narrower.each do |narrower|
+          narrower_term = Term.find_by(uri: narrower)
+
+          if narrower_term.broader.include? current_term.uri
+            writer << [current_term.uri, narrower_term.uri, current_term.is_replaced_by]
+          end
+        end
+
+        # Fix related
+        current_term.related.each do |related|
+          related_term = Term.find_by(uri: related)
+
+          if related_term.related.include? current_term.uri
+            writer << [current_term.uri, related_term.uri, current_term.is_replaced_by]
+          end
+        end
+      end
+    end
+
   end
 end  
