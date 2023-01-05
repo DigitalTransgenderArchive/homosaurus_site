@@ -12,6 +12,7 @@ class ReleaseController < ApplicationController
     @terms.sort_by! { |term| term.pref_label.downcase }
     # Replaces can duplicate?
     @terms.uniq!
+    identifier = @release.release_identifier.gsub('.', '_')
 
     respond_to do |format|
       format.html
