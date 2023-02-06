@@ -16,3 +16,11 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#new_term .popover {
+  max-width: 900px;
+}
+
+#edit_term .popover {
+  max-width: 900px;
+}

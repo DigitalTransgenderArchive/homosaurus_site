@@ -19,7 +19,7 @@
 
     <%= render :partial => "mei/form_language_labels", :locals => {:f => f, :key=>:pref_label_language, :dropdown_opts=>language_options_expanded} %>
     <%= f.input :pref_label_language, as: :preflanguage_labels_mei,
-                input_html: { include_help: "The preferred label for this concept (with optional langugage tag).",
+                input_html: { include_help: t("admin_help.preferred_term"),
                               help_label: 'Preferred Label',
                               tabindex: 14,},
                 required: true, readonly: false, label: 'Preferred Label'
@@ -27,7 +27,7 @@
 
     <%= render :partial => "mei/form_language_labels", :locals => {:f => f, :key=>:labels_language, :dropdown_opts=>language_options_expanded} %>
     <%= f.input :labels_language, as: :language_labels_mei,
-                input_html: { include_help: "Other preferred labels for this term with language identifiers",
+                input_html: { include_help: t("admin_help.other_preferred_terms"),
                               help_label: 'Language Labels',
                               tabindex: 14,},
                 required: false, readonly: false, label: 'Language Labels'
@@ -35,14 +35,14 @@
 
     <%= render :partial => "mei/form_language_labels", :locals => {:f => f, :key=>:alt_labels_language, :dropdown_opts=>language_options_expanded} %>
     <%= f.input :alt_labels_language, as: :language_labels_mei,
-                input_html: { include_help: "Alternative Labels'",
+                input_html: { include_help: t("admin_help.alternative_terms"),
                               help_label: 'Alternative Labels (Use For)',
                               tabindex: 14,},
                 required: false, readonly: false, label: 'Alternative Labels (Use For)'
     %>
 
     <%= f.input :description, as: :single_base,
-                input_html: { include_help: 'Descriptive note about this term',
+                input_html: { include_help: t("admin_help.scope_note"),
                               help_label: 'Description (Scope Note)',
                               rows: '9', type: 'textarea',
                 },
@@ -50,7 +50,7 @@
     %>
 
     <%= f.input :history_note, as: :single_base,
-                input_html: { include_help: 'History note about this term',
+                input_html: { include_help: t("admin_help.history_note"),
                               help_label: 'History Note',
                               rows: '5', type: 'textarea',
                 },
@@ -58,7 +58,7 @@
     %>
 
     <%= f.input :internal_note, as: :single_base,
-                input_html: { include_help: 'Internal note about this term (not shared)',
+                input_html: { include_help: t("admin_help.internal_note"),
                               help_label: 'Internal Note',
                               rows: '5', type: 'textarea',
                 },
