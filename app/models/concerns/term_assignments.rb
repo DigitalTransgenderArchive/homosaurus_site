@@ -209,4 +209,38 @@ module TermAssignments
     super
   end
 
+  def sources=(value)
+    r = []
+    values = clean_values(value)
+    if values.present? && values.size > 1 && values[0].class == String
+      values.sort!
+    end
+    values.each do |val|
+      if val.class == String
+        r << val
+      else
+        raise 'Unhandled Sources assignment for: ' + val.class.to_s
+      end
+    end
+    value = r
+    super
+  end
+
+  def contributors=(value)
+    r = []
+    values = clean_values(value)
+    if values.present? && values.size > 1 && values[0].class == String
+      values.sort!
+    end
+    values.each do |val|
+      if val.class == String
+        r << val
+      else
+        raise 'Unhandled contributors assignment for: ' + val.class.to_s
+      end
+    end
+    value = r
+    super
+  end
+
 end

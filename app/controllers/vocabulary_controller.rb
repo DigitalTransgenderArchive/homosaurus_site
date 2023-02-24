@@ -217,6 +217,8 @@ class VocabularyController < ApplicationController
         @term.labels_language = params[:term][:labels_language]
         @term.labels_language = params[:term][:labels_language]
         @term.alt_labels_language = params[:term][:alt_labels_language]
+        @term.sources = params[:term][:sources]
+        @term.contributors = params[:term][:contributors]
 
         @term.update(term_params)
         @term.save!
@@ -233,6 +235,8 @@ class VocabularyController < ApplicationController
           @term.labels_language = params[:term][:labels_language]
           @term.labels_language = params[:term][:labels_language]
           @term.alt_labels_language = params[:term][:alt_labels_language]
+          @term.sources = params[:term][:sources]
+          @term.contributors = params[:term][:contributors]
           @term.visibility = "pending"
 
           @term.update(term_params)
@@ -324,6 +328,8 @@ class VocabularyController < ApplicationController
         @term.pref_label_language = params[:term][:pref_label_language][0]
         @term.labels_language = params[:term][:labels_language]
         @term.alt_labels_language = params[:term][:alt_labels_language]
+        @term.sources = params[:term][:sources]
+        @term.contributors = params[:term][:contributors]
 
         @term.update(term_params)
         @term.save

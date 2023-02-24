@@ -22,6 +22,8 @@ class Term < ActiveRecord::Base
   serialize :exact_match_homosaurus, Array
   serialize :close_match_lcsh, Array
   serialize :exact_match_lcsh, Array
+  serialize :contributors, Array
+  serialize :sources, Array
 
   def self.mint(vocab_id: "v3")
     numeric_pid = Term.where(vocabulary_identifier: vocab_id).maximum(:numeric_pid) || 0
