@@ -51,16 +51,16 @@
 
   <%= f.input :sources, as: :multi_base,
               input_html: { include_help: t("admin_help.sources"),
-                            help_label: 'Sources',
+                            help_label: 'Source',
               },
-              required: false, label: 'Sources'
+              required: false, label: 'Source'
   %>
 
   <%= f.input :contributors, as: :multi_base,
               input_html: { include_help: t("admin_help.contributors"),
-                            help_label: 'Contributors',
+                            help_label: 'Contributor',
               },
-              required: false, label: 'Contributors'
+              required: false, label: 'Contributor'
   %>
 
     <%= f.input :history_note, as: :single_base,
