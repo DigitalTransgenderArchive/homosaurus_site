@@ -55,7 +55,9 @@
 
     <p>In 2016, Rawson and van der Wel then established an Editorial Board to oversee a second major revision of the Homosaurus. The board ultimately decided to transform the Homosaurus from a broader, standalone vocabulary (which included hundreds of non-LGBTQ terms, e.g., “advertising” and “literature”) to a narrower, LGBTQ-specific vocabulary that was intended to supplement existing thesauri (primarily the Library of Congress Subject Headings). This was a major conceptual shift and this revision resulted in version 2, which is the current version of the vocabulary.</p>
 
-    <p>In May, 2019, version 2 of the Homosaurus was released at <%= link_to "www.homosaurus.org", root_path %> as a linked data vocabulary. The Editorial Board is now focused on publicizing the project and making ongoing edits to the vocabulary.</p>
+    <p>In May, 2019, version 2 of the Homosaurus was released as a linked data vocabulary and is still accessible at <%= link_to "https://homosaurus.org/v2", vocabulary_index_path(vocab_id: "v2") %>. The Editorial Board is now focused on publicizing the project and making ongoing edits to the vocabulary.</p>
+
+    <p>In September 2021, version 3 of the Homosaurus changed identifiers to be more consistent along with adding some initial language support. This is the current version of the volabulary available today at: <%= link_to "https://homosaurus.org/v3", vocabulary_index_path(vocab_id: "v3") %></p>
   </div>
 
 <h2>Editorial Board</h2>
@@ -75,7 +77,7 @@
             Amber Billey
           </h4>
           <p>
-            Amber Billey is the Systems & Metadata Librarian at Bard College. Prior to joining Bard, she was the Metadata Librarian at Columbia University Libraries where she worked on the LD4P project contributing to ontology development, tooling, and MARC to RDF mapping. Her research focuses on ethics and social justice in library metadata and information organization. She can be reached at <%= link_to "@justbilley", "https://twitter.com/justbilley", target: "_blank" %> or <%= hidden_email("abilley@bard.edu", @reveal_emails) %>.
+            Amber Billey is the Systems & Metadata Librarian at Bard College. Prior to joining Bard, she was the Metadata Librarian at Columbia University Libraries where she worked on the LD4P project contributing to ontology development, tooling, and MARC to RDF mapping. Her research focuses on ethics and social justice in library metadata and information organization.
           </p>
         </div>
         </div>
@@ -94,7 +96,7 @@
               Marika Cifor
             </h4>
             <p>
-              Marika Cifor is an Assistant Professor in the Information School at the University of Washington. She is a feminist scholar working at the intersections of archival studies and digital studies. Her research investigates how through archives, records, and data produced within digital cultures, individuals and communities marginalized by sexuality, race, class, gender, and HIV-status enact and give substance to their identities, collective memories, and social movements. She can be reached at <%= link_to "@marika_louise", "https://twitter.com/marika_louise", target: "_blank" %> or <%= hidden_email("mcifor@uw.edu", @reveal_emails) %>.
+              Marika Cifor is an Assistant Professor in the Information School at the University of Washington. She is a feminist scholar working at the intersections of archival studies and digital studies. Her research investigates how through archives, records, and data produced within digital cultures, individuals and communities marginalized by sexuality, race, class, gender, and HIV-status enact and give substance to their identities, collective memories, and social movements.
             </p>
           </div>
         </div>
@@ -114,7 +116,8 @@
               Jay L. Colbert
             </h4>
             <p>
-              Jay L. Colbert is the Library Director at the Longy School of Music of Bard College. He holds a MSLIS from the University of Illinois at Urbana-Champaign, where he completed a thesis on patron-driven subject access and queer controlled vocabulary via a critical framework of queer theory and semiotics. His subsequent publications build on this research. Jay haunts New England with his bearded dragon Coop and his tuxedo cat King Arthur. Contact him at <%= hidden_email("jay.colbert@unh.edu", @reveal_emails) %>.</p>
+              Jay L. Colbert is the Library Director at the Longy School of Music of Bard College. He holds a MSLIS from the University of Illinois at Urbana-Champaign, where he completed a thesis on patron-driven subject access and queer controlled vocabulary via a critical framework of queer theory and semiotics. His subsequent publications build on this research. Jay haunts New England with his bearded dragon Coop and his tuxedo cat King Arthur.
+            </p>
           </div>
         </div>
       </td>
@@ -190,7 +193,7 @@
               Brian M. Watson
             </h4>
             <p>
-              Brian M. Watson is the Archivist-Historian of the American Psychological Association’s Division 44 (Consensual Non-Monogamy), a historian of the book and sexuality, and a graduate archivist at the Kinsey Institute. They hold a master’s degree in History & Culture from Drew University, and are working on a MLIS (soon PhD) focusing on Archives, Digital Humanities, and Metadata at Indiana University Bloomington. They have published on antisex censorship, obscenity and are currently researching queer archives and sexual nomenclature. Contact them at <%= hidden_email("briwats@iu.edu", @reveal_emails) %> or <%= link_to "@brimwats", "https://twitter.com/brimwats", target: "_blank" %>.
+              Brian M. Watson is the Archivist-Historian of the American Psychological Association’s Division 44 (Consensual Non-Monogamy), a historian of the book and sexuality, and a graduate archivist at the Kinsey Institute. They hold a master’s degree in History & Culture from Drew University, and are working on a MLIS (soon PhD) focusing on Archives, Digital Humanities, and Metadata at Indiana University Bloomington. They have published on antisex censorship, obscenity and are currently researching queer archives and sexual nomenclature.
             </p>
           </div>
         </div>
@@ -209,7 +212,7 @@
               Jack van der Wel
             </h4>
             <p>
-              Jack van der Wel (Co-Chair) is Head Collections and Cataloging at IHLIA LGBT Heritage in Amsterdam. He was one of the founders of Homodok in 1978, a predecessor of IHLIA. He presented the ongoing work on the Homosaurus on several LGBTQ ALMS Conferences since 2011. Contact Information: <%= hidden_email("jack@ihlia.nl", @reveal_emails) %>
+              Jack van der Wel (Co-Chair) is Head Collections and Cataloging at IHLIA LGBT Heritage in Amsterdam. He was one of the founders of Homodok in 1978, a predecessor of IHLIA. He presented the ongoing work on the Homosaurus on several LGBTQ ALMS Conferences since 2011.
             </p>
           </div>
         </div>
@@ -228,7 +231,7 @@
               Adrian Williams
             </h4>
             <p>
-              Adrian Williams is the Cataloging & Metadata Librarian at the University of Kentucky Libraries. They have an MLIS from Florida State University. Their research interests include inclusive and user-accessible subject headings, and the history of cataloging and of the library catalog. They can be reached at <%= link_to "@metadatagoblin", "https://twitter.com/metadatagoblin", target: "_blank" %> or <%= hidden_email("adrian.d.williams@uky.edu", @reveal_emails) %>.
+              Adrian Williams is the Cataloging & Metadata Librarian at the University of Kentucky Libraries. They have an MLIS from Florida State University. Their research interests include inclusive and user-accessible subject headings, and the history of cataloging and of the library catalog.
             </p>
           </div>
         </div>
@@ -281,7 +284,7 @@
               Clair Kronk
             </h4>
             <p>
-              Clair Kronk is a PhD student in biomedical informatics at the University of Cincinnati Medical School. Her current work focuses on LGBTQIA+ language use in healthcare settings and on transgender health outcomes. Clair previously graduated with a bachelor degree in bioinformatics from the University of Pittsburgh and has partnered with the Max-Planck-Institute (MPI) for Developmental Biology and the Air Force Research Laboratory (AFRL) on multiple occasions. She can be reached at <%= hidden_email("kronkcj@mail.uc.edu", @reveal_emails) %>.
+              Clair Kronk is a PhD student in biomedical informatics at the University of Cincinnati Medical School. Her current work focuses on LGBTQIA+ language use in healthcare settings and on transgender health outcomes. Clair previously graduated with a bachelor degree in bioinformatics from the University of Pittsburgh and has partnered with the Max-Planck-Institute (MPI) for Developmental Biology and the Air Force Research Laboratory (AFRL) on multiple occasions.
             </p>
           </div>
         </div>
