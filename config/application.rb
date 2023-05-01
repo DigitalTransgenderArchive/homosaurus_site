@@ -14,6 +14,10 @@ module HomosaurusSite
     config.eager_load_paths << Rails.root.join('lib')
 
     config.encoding = "utf-8"
+
+    #Needed for newer rails, see: https://stackoverflow.com/questions/71332602/upgrading-to-ruby-3-1-causes-psychdisallowedclass-exception-when-using-yaml-lo
+    config.active_record.use_yaml_unsafe_load = true
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

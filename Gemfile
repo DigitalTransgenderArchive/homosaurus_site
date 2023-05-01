@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Authentication
 gem 'devise'
-gem "hydra-role-management"
+gem "hydra-role-management", '1.0.3' # 1.1.0 breaks things?
 gem 'secondbase'
 
 # Recaptcha (https://github.com/ambethia/recaptcha)
