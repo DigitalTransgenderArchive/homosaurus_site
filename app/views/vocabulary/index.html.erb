@@ -29,13 +29,22 @@
 <ul>
   <% @terms.each do |term| %>
       <li>
+        <% if term.pref_label.blank? %>
+          <%= link_to "(EMPTY)", vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier) %>
+        <% else %>
           <%= link_to term.pref_label, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier) %>
+        <% end %>
       </li>
   <% end %>
   <% @edited_terms.each do |pending| %>
     <% term = pending.reify %>
     <li>
-      <%= link_to term.pref_label, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier, pending_id: pending.id) %>
+      <% if term.pref_label.blank? %>
+        <%= link_to "(EMPTY)", vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier, pending_id: pending.id) %>
+      <% else %>
+        <%= link_to term.pref_label, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier, pending_id: pending.id) %>
+      <% end %>
+
     </li>
   <% end %>
 
