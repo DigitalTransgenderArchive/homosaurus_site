@@ -6,6 +6,7 @@ class AdminController < ApplicationController
   end
 
   def version_create
+    updated_term_identifiers = []
     ActiveRecord::Base.transaction do
       @version_release = VersionRelease.new
       @version_release.release_type = "Major"
@@ -26,6 +27,7 @@ class AdminController < ApplicationController
 
         term.visibility = "visible"
         term.save!
+        updated_term_identifiers << term.identifier
       end
 
       @edited_terms = Hist::Pending.all
@@ -48,6 +50,47 @@ class AdminController < ApplicationController
         term.visibility = "visible"
         term.save!
         term_needs_reify.destroy!
+        updated_term_identifiers << term.identifier
+      end
+    end
+
+    # FIXME: What about relationships that are removed?...
+    updated_term_identifiers.each do |identifier|
+      term = Term.find_by(identifier: identifier)
+
+      if term.broader.present?
+        term.broader.each do |broader|
+          if broader.present?
+            broader_object = Term.find_by(uri: broader)
+            broader_object.narrower = broader_object.narrower + [term.uri]
+            broader_object.narrower.uniq
+            broader_object.save
+          end
+        end
+      end
+
+      if term.narrower.present?
+        term.narrower.each do |narrower|
+          if narrower.present?
+            narrower_object = Term.find_by(uri: narrower)
+            narrower_object.broader = narrower_object.broader + [term.uri]
+            narrower_object.broader.uniq
+            narrower_object.save
+          end
+
+        end
+      end
+
+      if term.related.present?
+        term.related.each do |related|
+          if related.present?
+            #related = related.split("(").last[0..-1]
+            related_object = Term.find_by(uri: related)
+            related_object.related = related_object.related + [term.uri]
+            related_object.related.uniq
+            related_object.save
+          end
+        end
       end
     end
 
