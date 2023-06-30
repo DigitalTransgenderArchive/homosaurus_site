@@ -10,7 +10,13 @@
       <% @release_terms.each do |release_term| %>
         <% if release_term.change_type == "new" %>
           <li>
-            <a href="<%=release_term.term.uri%>"><%=release_term.term.pref_label%></a>
+            <%  if @host.include?("-dev.org") || @host.include?("localhost")
+                  uri = "/v3/#{release_term.term.identifier}"
+                else
+                  uri = release_term.term.uri
+                end
+            %>
+            <a href="<%=uri%>"><%=release_term.term.pref_label%></a>
           </li>
         <% end %>
       <% end %>
@@ -24,7 +30,13 @@
       <% @release_terms.each do |release_term| %>
         <% if release_term.change_type == "update" %>
           <li>
-            <a href="<%=release_term.term.uri%>"><%=release_term.term.pref_label%></a> (was <%=release_term.previous_label %>)
+            <%  if @host.include?("-dev.org") || @host.include?("localhost")
+                  uri = "/v3/#{release_term.term.identifier}"
+                else
+                  uri = release_term.term.uri
+                end
+            %>
+            <a href="<%=uri%>"><%=release_term.term.pref_label%></a> (was <%=release_term.previous_label %>)
           </li>
         <% end %>
       <% end %>
@@ -38,7 +50,13 @@
       <% @release_terms.each do |release_term| %>
         <% if release_term.change_type == "redirect" %>
           <li>
-            <a href="<%=release_term.term.uri%>"><%=release_term.term.pref_label%></a><br/>Replaces:
+            <%  if @host.include?("-dev.org") || @host.include?("localhost")
+                  uri = "/v3/#{release_term.term.identifier}"
+                else
+                  uri = release_term.term.uri
+                end
+            %>
+            <a href="<%=uri%>"><%=release_term.term.pref_label%></a><br/>Replaces:
             <ul>
               <% release_term.changed_uris.each_with_index do |changed_uri, index| %>
                 <li><%=release_term.changed_uri_labels[index] %> (<%= changed_uri %>)</li>
