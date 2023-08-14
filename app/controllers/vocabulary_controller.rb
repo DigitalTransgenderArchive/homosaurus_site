@@ -44,9 +44,7 @@ class VocabularyController < ApplicationController
 
     # For terms  that are combined / replaced
     if @homosaurus_obj.visibility == "redirect" and @homosaurus_obj.is_replaced_by.present?
-      if request.formats.present? and request.formats[0].present? and request.formats[0].symbol.to_s != "html"
-        redirect_to "#{@homosaurus_obj.is_replaced_by}.#{request.formats[0].symbol.to_s}" and return
-      else
+      unless request.formats.present? and request.formats[0].present? and request.formats[0].symbol.to_s != "html"
         redirect_to @homosaurus_obj.is_replaced_by and return
       end
 
