@@ -401,13 +401,28 @@ class Term < ActiveRecord::Base
       graph << [base_uri, ::RDF::Vocab::SKOS.closeMatch, ::RDF::URI.new("#{match}")] if match.present?
     end
 
-    graph << [base_uri, ::RDF::Vocab::DC.isReplacedBy, ::RDF::URI.new("#{self.is_replaced_by}")] if self.is_replaced_by.present?
-    graph << [base_uri, ::RDF::Vocab::DC.replaces, ::RDF::URI.new("#{self.replaces}")] if self.replaces.present?
-
     graph << [base_uri, ::RDF.type, ::RDF::Vocab::SKOS.Concept]
     graph << [base_uri, ::RDF::Vocab::SKOS.inScheme, ::RDF::URI.new("#{self.vocabulary.base_uri}")]
 
     json_graph = JSON.parse(graph.dump(:jsonld, standard_prefixes: true))
+
+    if self.is_replaced_by.present?
+      replaced_by_term = Term.find_by(uri: self.is_replaced_by)
+      if replaced_by_term.present?
+        json_graph["dc:isReplacedBy"] ||= []
+        json_graph["dc:isReplacedBy"] << [{"@id": "#{self.is_replaced_by}",
+                                           "skos:prefLabel":"#{replaced_by_term.pref_label}"}]
+      end
+    end
+    if self.replaces.present?
+      replaces_term = Term.find_by(uri: self.replaces)
+      if replaces_term.present?
+        json_graph["dc:replaces"] ||= []
+        json_graph["dc:replaces"] << [{"@id": "#{self.replaces}",
+                                       "skos:prefLabel":"#{replaces_term.pref_label}"}]
+      end
+    end
+
     self.broader.each do |cb|
       current_broader = Term.find_by(uri: cb)
       if current_broader.present?
