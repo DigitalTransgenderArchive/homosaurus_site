@@ -37,6 +37,10 @@ Rails.application.routes.draw do
   # Admin Routes
   get '/admin/version/new' => 'admin#version_new', as: :version_publish_new
   post '/admin/version/publish' => 'admin#version_create', as: :version_publish_create
+  get '/admin/site/reload' => 'admin#restart_application', as: :restart_application
+
+  # Reconcile Routes
+  get '/reconcile' => 'reconcile#index', as: :reconcile_index
 
   # These should be next to last
   get ':vocab_id/new_term' => 'vocabulary#new', as: :vocabulary_term_new

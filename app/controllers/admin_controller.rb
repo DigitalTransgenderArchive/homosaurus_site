@@ -97,6 +97,18 @@ class AdminController < ApplicationController
     redirect_to vocabulary_term_new_path(vocab_id: "v3")
   end
 
+  # From: https://github.com/CollegeOfTheHolyCross/dta_sufia/blob/bd445b07af17175d886cf8ee4eb9a1609daec231/app/controllers/commands_controller.rb
+  def restart_application
+    `git pull origin master`
+    `bundle exec rake assets:precompile --trace RAILS_ENV=production`
+    `service apache2 reload`
+    #`touch tmp/restart.txt`
+
+    respond_to do |format|
+      format.html { render :text => "Updated." }
+    end
+  end
+
   def verify_permission
     if !current_user.superuser?
       redirect_to root_path
