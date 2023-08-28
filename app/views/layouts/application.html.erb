@@ -70,6 +70,8 @@
               <% if current_user.superuser? %>
                 <li class="divider"></li>
                 <li><%= link_to 'Publish New Version', version_publish_new_path, :class=>"nav_button" %></li>
+                <li class="divider"></li>
+                <li><%= link_to 'Reload Application', restart_application_path, :class=>"nav_button" %></li>
               <% end %>
               <li class="divider"></li>
               <li><%= link_to 'Log Out', destroy_user_session_path, :class=>"nav_button" %></li>
