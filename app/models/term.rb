@@ -112,6 +112,8 @@ class Term < ActiveRecord::Base
       "<a href='http://www.w3.org/2004/02/skos/core#historyNote' target='blank'  title='Definition of historyNote in the SKOS Vocabulary'>History Note</a>"
     when "internalNote"
       "Internal Note (Only Displayed Logged In)"
+    when "contributors"
+      "<a href='http://purl.org/dc/terms/contributor' target='blank'  title='Definition of contributor in the Dublin Core Terms Vocabulary'>Contributors</a>"
     else
       field.humanize
     end

@@ -73,6 +73,11 @@
 %>
 
 <%= render :partial => "panel_display_partial", :locals =>
+    {:title => Term.getLabel("contributors"),
+     :values=>@homosaurus_obj.contributors}
+%>
+
+<%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("issued"),
      :values=>[@homosaurus_obj.created_at]}
 %>
