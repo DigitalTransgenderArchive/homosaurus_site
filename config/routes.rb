@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
   # Reconcile Routes
   get '/reconcile' => 'reconcile#index', as: :reconcile_index
+  get '/reconcile/suggest' => 'reconcile#suggest', as: :reconcile_suggest
 
   # These should be next to last
   get ':vocab_id/new_term' => 'vocabulary#new', as: :vocabulary_term_new
