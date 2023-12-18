@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Authentication
 gem 'devise'
 gem "hydra-role-management", '1.0.3' # 1.1.0 breaks things?
-gem 'secondbase'
+# gem 'secondbase' # No longer used, was only used for migration in the past.
 
 # Recaptcha (https://github.com/ambethia/recaptcha)
 gem "recaptcha", "5.1.0"
