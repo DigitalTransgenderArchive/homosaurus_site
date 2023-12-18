@@ -1,5 +1,10 @@
 default: &default
-  #google_analytics_id: ''
+  recaptcha_site_key: ""
+  recaptcha_secret_key: ""
+  recaptcha_site_key_v3: ""
+  recaptcha_secret_key_v3: ""
+  proxy_host: ""
+  proxy_port: ""
 
 development:
   <<: *default

@@ -27,6 +27,7 @@ secrets.yml
 blacklight.yml
 homosaurus.yml
 contact_emails.yml
+blazegraph.yml
 
 # Files to ignore by default in Git #
 #####################################
@@ -60,6 +61,11 @@ Gemfile.lock
 /fedora_conf/*
 /hydra-jetty/*
 /*jetty*
+/solr/instance/*
+/solr/solr*
+/solr/binary/*.tgz
+/solr/binary/*.zip
+/solr/binary/*.sha512
 
 # Ignore edited Linux files #
 #############################

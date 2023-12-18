@@ -1,5 +1,0 @@
-== README
-
-This is the source repository for https://homosaurus.org.
-
-Originally based on the Oregon Digital Controlled Vocabulary Manager before being heavily modified: https://github.com/OregonDigital/ControlledVocabularyManager
