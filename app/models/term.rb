@@ -599,6 +599,7 @@ class Term < ActiveRecord::Base
     doc[:description_ssi] = self.description
     doc[:description_tesim] = [self.description]
     doc[:languageLabel_ssim] = self.labels_language
+    doc[:otherPrefLabel_tesim] = self.labels
 
     doc[:exactMatch_ssim] = self.exact_match.dup
     doc[:closeMatch_ssim] = self.close_match.dup
@@ -689,5 +690,20 @@ class Term < ActiveRecord::Base
         end
       end
     end
+  end
+
+  # Fix Functions -- not currently used and not tested
+  def self.merge_redirect_terms(termAsPrimary, secondTerm)
+    pTerm = Term.find_by(identifier: termAsPrimary)
+    sTerm = Term.find_by(identifier: secondTerm)
+
+    pTerm.broader += sTerm.broader
+    pTerm.broader.uniq!
+    pTerm.narrower += sTerm.narrower
+    pTerm.narrower.uniq!
+    pTerm.related += sTerm.related
+    pTerm.related.uniq!
+
+    pTerm.save!
   end
 end
