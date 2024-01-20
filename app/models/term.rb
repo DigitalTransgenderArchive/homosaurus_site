@@ -163,7 +163,7 @@ class Term < ActiveRecord::Base
   end
 
 
-  def self.csv_download(all_terms)
+  def self.csv_download(all_terms,edited_terms=[])
     #if limited_terms.present?
     #all_terms = Term.where(vocabulary_identifier: identifier, visibility: 'visible', identifier: limited_terms).order("lower(pref_label) ASC")
     #else
@@ -174,54 +174,12 @@ class Term < ActiveRecord::Base
     full_graph = []
 
     all_terms.each do |current_term|
-      graph = {}
+      full_graph << Term.term_to_csv_graph(current_term)
+    end
 
-      base_uri = current_term.uri
-      graph[:uri] = base_uri
-      graph[:identifier] = current_term.identifier
-      graph[:prefLabel] = current_term.pref_label
-      graph[:other_labels] = []
-      current_term.labels.each do |lbl|
-        graph[:other_labels] << lbl
-      end
-      graph[:other_labels] = graph[:other_labels].join("||")
-
-      graph[:altLabel] = []
-      current_term.alt_labels.each do |alt|
-        graph[:altLabel] << alt
-      end
-      graph[:altLabel] = graph[:altLabel].join("||")
-
-      # Note: This can have commas and semicolons
-      graph[:description] = current_term.description
-
-      graph[:historyNote] = current_term.history_note
-
-      graph[:broader] = current_term.broader
-      graph[:broader] = graph[:broader].join("||")
-
-      graph[:narrower] = current_term.narrower
-      graph[:narrower] = graph[:narrower].join("||")
-
-      graph[:related] = current_term.related
-      graph[:related] = graph[:related].join("||")
-
-      graph[:issued] = current_term.created_at.iso8601.split('T').first
-      graph[:modified] = current_term.manual_update_date.iso8601.split('T').first
-
-      graph[:isReplacedBy] = []
-      if current_term.is_replaced_by.present?
-        graph[:isReplacedBy] <<  current_term.is_replaced_by
-      end
-      graph[:isReplacedBy] = graph[:isReplacedBy].join("||")
-
-      graph[:replaces] = []
-      if current_term.replaces.present?
-        graph[:replaces] <<  current_term.replaces
-      end
-      graph[:replaces] = graph[:replaces].join("||")
-
-      full_graph << graph
+    edited_terms.each do |current_term|
+      current_term = current_term.reify
+      full_graph << Term.term_to_csv_graph(current_term)
     end
 
     #csv_string = CSV.generate(col_sep: "\t") do |csv|
@@ -235,6 +193,56 @@ class Term < ActiveRecord::Base
     end
 
     csv_string
+  end
+
+  def self.term_to_csv_graph(current_term)
+    graph = {}
+    base_uri = current_term.uri
+    graph[:uri] = base_uri
+    graph[:identifier] = current_term.identifier
+    graph[:prefLabel] = current_term.pref_label
+    graph[:other_labels] = []
+    current_term.labels.each do |lbl|
+      graph[:other_labels] << lbl
+    end
+    graph[:other_labels] = graph[:other_labels].join("||")
+
+    graph[:altLabel] = []
+    current_term.alt_labels.each do |alt|
+      graph[:altLabel] << alt
+    end
+    graph[:altLabel] = graph[:altLabel].join("||")
+
+    # Note: This can have commas and semicolons
+    graph[:description] = current_term.description
+
+    graph[:historyNote] = current_term.history_note
+
+    graph[:broader] = current_term.broader
+    graph[:broader] = graph[:broader].join("||")
+
+    graph[:narrower] = current_term.narrower
+    graph[:narrower] = graph[:narrower].join("||")
+
+    graph[:related] = current_term.related
+    graph[:related] = graph[:related].join("||")
+
+    graph[:issued] = current_term.created_at.iso8601.split('T').first
+    graph[:modified] = current_term.manual_update_date.iso8601.split('T').first
+
+    graph[:isReplacedBy] = []
+    if current_term.is_replaced_by.present?
+      graph[:isReplacedBy] <<  current_term.is_replaced_by
+    end
+    graph[:isReplacedBy] = graph[:isReplacedBy].join("||")
+
+    graph[:replaces] = []
+    if current_term.replaces.present?
+      graph[:replaces] <<  current_term.replaces
+    end
+    graph[:replaces] = graph[:replaces].join("||")
+
+    return graph
   end
 
   def self.all_terms_full_graph(terms)
