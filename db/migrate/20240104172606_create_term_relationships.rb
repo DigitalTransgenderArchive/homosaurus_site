@@ -50,9 +50,10 @@ class CreateTermRelationships < ActiveRecord::Migration[5.2]
           end
         end
       end
-      say_with_time "Migrating replacements" do
-        ActiveRecord::Base.connection.execute("SELECT terms.id, t2.id FROM `terms` JOIN terms as t2 on terms.is_replaced_by = t2.uri").each do |t|
-          tr = TermRelationship.create(:term_id => t[0], :relation_id => 5, :data => t[1])
+      say_with_time "Migrating replacements/redirects" do
+        ActiveRecord::Base.connection.execute("SELECT terms.id, t2.id, terms.visibility FROM `terms` JOIN terms as t2 on terms.is_replaced_by = t2.uri").each do |t|
+          rel_id = t[2] == "redirect" ? 12 : 5
+          tr = TermRelationship.create(:term_id => t[0], :relation_id => rel_id, :data => t[1])
           tr.save
         end
       end

@@ -9,6 +9,7 @@ class Term < ActiveRecord::Base
   belongs_to :vocabulary
   has_many :version_release_term
   has_many :term_relationships
+  has_many :edit_requests
 
   serialize :labels, Array
   serialize :labels_language, Array
