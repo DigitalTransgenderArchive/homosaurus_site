@@ -1,0 +1,46 @@
+<style>
+  .card-header .collapse-icon:after {
+    /* symbol for "opening" panels */
+      font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+      content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+      float: right;        /* adjust as needed */
+      color: grey;         /* adjust as needed */
+  }
+  .card-header.collapsed .collapse-icon:after {
+      /* symbol for "collapsed" panels */
+      content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+  }
+</style>
+<h2> History: <%= @homosaurus_obj.pref_label %> (<%= @homosaurus_obj.uri %>)</h2>
+<% if @homosaurus_obj.visibility == "deleted" %>
+  <div class="alert alert-danger" role="alert">
+    This term has been removed from the vocabulary and is no longer in use.<br />
+    Apologies for the inconvenience.
+  </div>
+<% elsif @homosaurus_obj.visibility == "pending" %>
+  <div class="alert alert-danger" role="alert">
+    This term is a pending object set to be in the next release.
+  </div>
+<% end %>
+<p><div style="clear:both;">
+    <%= button_to "Back To Term", vocabulary_show_path(vocab_id: @homosaurus_obj.vocabulary_identifier, id: @homosaurus_obj.identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
+  <% if current_user.present? && current_user.contributor? && request.original_url.include?('/v3') %>
+    <% if @homosaurus_obj.visibility != "pending" %>
+      <input class="btn btn-danger" style="float:left; margin-left:20px;" type="button" value="Replace Other Term" onClick='var identifer = prompt("Enter the identifier of the term to replace with this term. This OTHER TERM will redirect to this record."); window.location="/<%=@homosaurus_obj.vocabulary_identifier%>/<%=@homosaurus_obj.identifier%>/replace/" + identifer;'>
+    <% end %>
+  <% end %>
+
+</div>
+<br/>
+<br/>
+<br/>
+</p>
+<div class="container-fluid">
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <% @edit_requests.each do |er|  %>
+      <%= render partial:"edit_request", locals: {edit_request: er, relations: Relation.all} %>
+    <% end %>
+  </div>
+</div>
+
+

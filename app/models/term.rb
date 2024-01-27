@@ -121,6 +121,16 @@ class Term < ActiveRecord::Base
     end
   end
 
+  def get_edit_requests
+    unless self.edit_requests.count
+      return []
+    end
+    all_edit_requests = [self.edit_requests[-1]]
+    while (prev = all_edit_requests[-1].previous)
+      all_edit_requests << prev
+    end
+    return all_edit_requests
+  end
   def show_fields
     attributes.keys - ["id", "broader_ids", "narrower_ids", "related_ids"]
   end

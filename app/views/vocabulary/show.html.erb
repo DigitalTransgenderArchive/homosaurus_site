@@ -15,7 +15,7 @@
   <% else %>
       <%= button_to "Back To Index", vocabulary_index_path(id: @homosaurus_obj.vocabulary_identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
   <% end %>
-
+  <%= button_to "View History", vocabulary_term_history_path(vocab_id: @homosaurus_obj.vocabulary_identifier, id: @homosaurus_obj.identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
   <% if current_user.present? && current_user.contributor? && request.original_url.include?('/v3') %>
     <%= button_to "Edit Term", vocabulary_term_edit_path(vocab_id: "v3", id: @homosaurus_obj.identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
     <% if @homosaurus_obj.visibility == "deleted" %>

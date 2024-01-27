@@ -54,6 +54,8 @@ Rails.application.routes.draw do
   get ':vocab_id/:id/restore' => 'vocabulary#restore', as: :vocabulary_term_restore
   get ':vocab_id/:id/replace/:replacement_id' => 'vocabulary#replace', as: :replace
 
+  get ':vocab_id/:id/history' => 'vocabulary#history', as: :vocabulary_term_history
+  
   # These have to be last
   get ':id' => 'vocabulary#index', as: :vocabulary_index
   get ':vocab_id/:id' => 'vocabulary#show', as: :vocabulary_show

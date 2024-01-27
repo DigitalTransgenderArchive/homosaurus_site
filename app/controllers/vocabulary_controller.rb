@@ -88,6 +88,14 @@ class VocabularyController < ApplicationController
     end
   end
 
+  def history
+    @homosaurus_obj = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
+    @homosaurus = Term.find_solr(@homosaurus_obj.identifier)
+    @edit_requests = @homosaurus_obj.get_edit_requests()
+    respond_to do |format|
+      format.html
+    end
+  end
   def new
     @vocab_id = params[:vocab_id]
     @term = Term.new
