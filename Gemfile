@@ -17,7 +17,6 @@ gem 'rails', github: 'rails/rails', branch: '5-2-stable'
 gem 'rsolr', '>= 1.0', '< 3'
 
 # Use Bootstrap
-gem 'bootstrap-sass'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '1.3.13'
@@ -83,3 +82,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+
+gem "bootstrap", "~> 5.3"
+
+
+gem "sassc-rails", "~> 2.1"

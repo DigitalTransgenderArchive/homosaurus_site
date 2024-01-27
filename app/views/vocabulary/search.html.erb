@@ -1,21 +1,24 @@
-<br/>
-<br/>
-
-<%= form_tag(vocabulary_search_results_path(id: @vocabulary_identifier), :method => "get", id: "search-form", class: 'form-inline', enforce_utf8: false) do %>
-    <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Enter Search Term' %>
-    <%= submit_tag "Search", name: nil, class: 'form-control  btn-primary'%>
+<%= form_tag(vocabulary_search_results_path(id: @vocabulary_identifier), :method => "get", id: "search-form", class: 'form-inline row', enforce_utf8: false) do %>
+<div class="col-auto">
+  <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Enter Search Term' %>
+</div>
+<div class="col-auto">
+  <%= submit_tag "Search", name: nil, class: 'form-control  btn btn-primary'%>
+</div>
 <% end %>
 
 <% if params[:q].present? %>
     <h2>Search Results for: <%= params[:q] %></h2>
-
+    <div class="container p-0">
     <% @terms.each do |term| %>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <%= link_to term.pref_label, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier, :from_q=>params[:q]) %>
+        <div class="card mb-3">
+          <div class="card-header text-bg-primary">
+	    <h4 class="text-white">
+              <%= link_to term.pref_label, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier, :from_q=>params[:q]), :class => "text-white"%>
+	    </h4>
           </div>
           <% if term.alt_labels[0].present? or term.description.present? %>
-          <div class="panel-body">
+          <div class="card-body">
             <% if term.alt_labels[0].present? %>
                 <strong>Alternative Labels:</strong> <%= term.alt_labels.join(', ') %><br />
             <% end %>
@@ -27,8 +30,9 @@
           <% end %>
         </div>
 
-
-    <% end %>
+	<% end %>
+    </div>
+	
 
     <p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url.gsub('/search/v3', '/search/v3.nt')  %>, <%= link_to "JSON-LD", request.original_url.gsub('/search/v3', '/search/v3.jsonld') %>, <%= link_to "TTL", request.original_url.gsub('/search/v3', '/search/v3.ttl') %>
 

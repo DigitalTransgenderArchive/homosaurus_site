@@ -9,72 +9,74 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-fixed-top navbar-expand-lg text-bg-dark" role="navigation">
   <div class="container">
-
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="navbar-header">
       <% if 1==0 %>
       <div class="header_logo">
         <%= link_to "homosaurus.org", root_path, :id => 'header_logo_link' %>
       </div>
       <% end  %>
-      <%= link_to "homosaurus.org", '/', class: "navbar-brand"%>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+      <%= link_to "homosaurus.org", '/', class: "navbar-brand text-white" %>
+      <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"> -->
+      <!--   <span class="sr-only">Toggle navigation</span> -->
+      <!--   <span class="icon-bar"></span> -->
+      <!--   <span class="icon-bar"></span> -->
+      <!--   <span class="icon-bar"></span> -->
+      <!-- </button> -->
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Home", '/' %></li>
+        <li class="nav-item"><%= link_to "Home", '/', :class => "nav-link text-white" %></li>
 
         <% if request.original_url.include? '/terms' %>
-          <li><%= link_to "V1 Vocabulary", vocabulary_index_path(id: "terms") %></li>
+          <li class="nav-item"><%= link_to "V1 Vocabulary", vocabulary_index_path(id: "terms"), :class => "nav-link text-white" %></li>
         <% elsif request.original_url.include? '/v2' %>
-          <li><%= link_to "V2 Vocabulary", vocabulary_index_path(id: "v2") %></li>
+          <li class="nav-item"><%= link_to "V2 Vocabulary", vocabulary_index_path(id: "v2"), :class => "nav-link text-white" %></li>
         <% else %>
-          <li><%= link_to "Vocabulary", vocabulary_index_path(id: "v3") %></li>
+          <li class="nav-item"><%= link_to "Vocabulary", vocabulary_index_path(id: "v3"), :class => "nav-link text-white" %></li>
         <% end %>
 
 
         <% if request.original_url.include? '/terms' %>
-          <li><%= link_to "V1 Search", vocabulary_search_results_path(id: "terms") %></li>
+          <li class="nav-item"><%= link_to "V1 Search", vocabulary_search_results_path(id: "terms"), :class => "nav-link text-white" %></li>
         <% elsif request.original_url.include? '/v2' %>
-          <li><%= link_to "V2 Search", vocabulary_search_results_path(id: "v2")  %></li>
+          <li class="nav-item"><%= link_to "V2 Search", vocabulary_search_results_path(id: "v2") , :class => "nav-link text-white" %></li>
         <% else %>
-          <li><%= link_to "Search", vocabulary_search_results_path(id: "v3")  %></li>
+          <li class="nav-item"><%= link_to "Search", vocabulary_search_results_path(id: "v3") , :class => "nav-link text-white" %></li>
         <% end %>
 
-        <li><%= link_to "Releases", release_path %></li>
+        <li class="nav-item"><%= link_to "Releases", release_path, :class => "nav-link text-white" %></li>
 
-        <li><%= link_to "About", about_path %></li>
+        <li class="nav-item"><%= link_to "About", about_path, :class => "nav-link text-white" %></li>
 
-        <li><%= link_to "Contact", contact_path %></li>
+        <li class="nav-item"><%= link_to "Contact", contact_path, :class => "nav-link text-white" %></li>
 
         <% if current_user.blank? %>
           &nbsp;
         <% elsif current_user.present? %>
-          <li class="dropdown user_account_link">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">ACCOUNT <span class="caret"></span></a>
-            <ul class="dropdown-menu">
+          <li class="nav-item dropdown user_account_link">
+            <a class="nav-link text-white dropdown-toggle" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">ACCOUNT <span class="caret"></span></a>
+            <ul class="dropdown-menu text-bg-dark">
               <% if current_user.superuser? %>
                 <li class="divider"></li>
-                <li><%= link_to 'Roles', role_management.roles_path, :class=>"nav_button" %></li>
+                <li><%= link_to 'Roles', role_management.roles_path, :class=>"dropdown-item text-white" %></li>
               <% end %>
               <% if current_user.superuser? || current_user.contributor? || current_user.admin? %>
                 <li class="divider"></li>
-                <li><%= link_to 'Add Homosaurus Term', vocabulary_term_new_path(vocab_id: "v3"), :class=>"nav_button" %></li>
+                <li><%= link_to 'Add Homosaurus Term', vocabulary_term_new_path(vocab_id: "v3"), :class=>"dropdown-item text-white" %></li>
               <% end %>
               <% if current_user.superuser? %>
                 <li class="divider"></li>
-                <li><%= link_to 'Publish New Version', version_publish_new_path, :class=>"nav_button" %></li>
+                <li><%= link_to 'Publish New Version', version_publish_new_path, :class=>"dropdown-item text-white" %></li>
                 <li class="divider"></li>
-                <li><%= link_to 'Reload Application', restart_application_path, :class=>"nav_button" %></li>
+                <li><%= link_to 'Reload Application', restart_application_path, :class=>"dropdown-item text-white" %></li>
               <% end %>
               <li class="divider"></li>
-              <li><%= link_to 'Log Out', destroy_user_session_path, :class=>"nav_button" %></li>
+              <li><%= link_to 'Log Out', destroy_user_session_path, :class=>"dropdown-item text-white" %></li>
             </ul>
           </li>
         <% end %>

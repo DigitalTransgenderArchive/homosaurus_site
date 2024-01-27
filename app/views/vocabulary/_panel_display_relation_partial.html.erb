@@ -4,12 +4,12 @@
   values ||= []
 %>
 <% if values[0].present? %>
-  <div class="panel panel-<%=panel_class%>">
+  <div class="card card-<%=panel_class%> mb-3 col-lg-6 col-md-8 col-sm-12">
 
-  <div class="panel-heading">
+  <div class="card-header text-bg-<%=panel_class%>">
     <%= title.html_safe %>
   </div>
-  <div class="panel-body">
+  <div class="card-body">
     <dl style="margin-bottom:0px">
       <% if values.present? && values[0].present? %>
         <% objs_sorted = Term.where(uri: values).sort_by { |obj| obj.pref_label.downcase } %>

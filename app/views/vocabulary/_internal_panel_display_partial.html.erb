@@ -6,12 +6,12 @@
   %>
 
   <% if values[0].present? %>
-    <div class="panel panel-<%=panel_class%>">
+    <div class="card card-<%=panel_class%> mb-3  col-lg-6 col-md-8 col-sm-12">
 
-      <div class="panel-heading">
+      <div class="card-header text-bg-<%=panel_class%>">
         <%= title.html_safe %>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
         <dl style="margin-bottom:0px">
           <% values.each do |value| %>
             <dd><%= value %></dd>

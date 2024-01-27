@@ -19,22 +19,23 @@
             </ul>
           </div>
         <% end %>
-          <br/>
-        <%= form_tag(contact_path, :id => 'feedback_form', :class => 'form-horizontal') do %>
+        <br/>
+	<div class="container">
+        <%= form_tag(contact_path, :id => 'feedback_form', :class => 'w-75 mx-auto') do %>
             <%= recaptcha_v3(action: 'contact', site_key: Settings.recaptcha_site_key_v3) %>
-          <div class="form-group">
+          <div class="row mb-3">
             <label class="col-sm-3 control-label">Your Name:</label>
             <div class="col-sm-7 col-md-6">
               <%= text_field_tag :name, params[:name], :class => 'form-control' %>
             </div>
           </div>
-          <div class="form-group">
+          <div class="row mb-3">
             <label class="col-sm-3 control-label">Your Email:</label>
             <div class="col-sm-7 col-md-6">
               <%= text_field_tag :email, params[:email], :class => 'form-control' %>
             </div>
           </div>
-          <div class="form-group">
+          <div class="row mb-3">
             <label class="col-sm-3 control-label">Topic:</label>
             <div class="col-sm-7 col-md-6">
               <%= select_tag(:topic,
@@ -43,30 +44,31 @@
               %>
             </div>
           </div>
-          <div class="form-group">
+          <div class="row mb-3">
             <label class="col-sm-3 control-label">Your Message:</label>
             <div class="col-sm-7 col-md-6">
               <%= text_area_tag :message, params[:message], :size => '24x8', :class =>  'form-control' %>
             </div>
           </div>
 
-            <% if  1==1 || @show_captcha_v2 %>
-              <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-7 col-md-6">
-                  <div class="newsletter_checkbox pull-right">
-                    <%= recaptcha_tags %>
-                  </div>
+          <% if  1==1 || @show_captcha_v2 %>
+            <div class="row mb-3">
+	      <label class="col-sm-3 control-label">&nbsp;</label>
+              <div class="col-sm-offset-3 col-sm-7 col-md-6">
+                <div class="newsletter_checkbox float-end">
+                  <%= recaptcha_tags %>
                 </div>
               </div>
-            <% end %>
-
-          <div class="form-group">
+            </div>
+          <% end %>
+          <div class="row mb-3">
+	    <label class="col-sm-3 control-label">&nbsp;</label>
             <div class="col-sm-offset-3 col-sm-7 col-md-6">
-              <%= submit_tag("Send", :class => 'btn btn-default pull-right', id: 'contact_submit') %>
+	      <%= submit_tag("Send", :class => 'btn btn-default float-end', id: 'contact_submit') %>
             </div>
           </div>
-
-        <% end %>
+          <% end %>
+	  </div>
 
 
         </div>

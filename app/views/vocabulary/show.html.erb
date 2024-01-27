@@ -11,13 +11,13 @@
 <% end %>
 <p><div style="clear:both;">
   <% if params[:from_q].present? %>
-      <%= button_to "Back To Search Results", vocabulary_search_results_path(id: @homosaurus_obj.vocabulary_identifier), :method => "get", class: 'btn btn-default', style:"float:left;", params: { :q=>params[:from_q]} %>
+      <%= button_to "Back To Search Results", vocabulary_search_results_path(id: @homosaurus_obj.vocabulary_identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left;", params: { :q=>params[:from_q]} %>
   <% else %>
-      <%= button_to "Back To Index", vocabulary_index_path(id: @homosaurus_obj.vocabulary_identifier), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;" %>
+      <%= button_to "Back To Index", vocabulary_index_path(id: @homosaurus_obj.vocabulary_identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
   <% end %>
 
   <% if current_user.present? && current_user.contributor? && request.original_url.include?('/v3') %>
-    <%= button_to "Edit Term", vocabulary_term_edit_path(vocab_id: "v3", id: @homosaurus_obj.identifier), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;" %>
+    <%= button_to "Edit Term", vocabulary_term_edit_path(vocab_id: "v3", id: @homosaurus_obj.identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
     <% if @homosaurus_obj.visibility == "deleted" %>
       <%= button_to "Restore Term", vocabulary_term_restore_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => "get", class: 'btn btn-danger',  data: { confirm: "Are you sure you want to restore #{@homosaurus_obj.pref_label}?" }, style:"float:left; margin-left:20px;" %>
     <% elsif @homosaurus_obj.visibility == "pending" %>
