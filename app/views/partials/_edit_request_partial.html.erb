@@ -1,0 +1,92 @@
+<%
+  release_page ||= false
+  is_new = edit_request.previous().nil?
+  redirect = edit_request.my_changes[12]
+  is_redirect = (redirect and redirect.length > 0)
+  pref_label = edit_request.my_changes[2].length > 0 ? edit_request.my_changes[2][0][2] : edit_request.term.pref_label
+%>
+
+<div class="card container ">
+  <div class="card-header collapsed row" data-bs-toggle="collapse" aria-expanded="false"
+       href="#<%= edit_request.id %>" aria-controls="<%= edit_request.id %>">
+
+    <div class="col col-1">
+      <% if not release_page %>
+        <span class="badge text-bg-dark">V. <%= edit_request.version_release.release_identifier %></span>
+      <% elsif is_new %>
+        <span class="badge text-bg-success">New Term</span>
+      <% elsif is_redirect %>
+        <span class="badge text-bg-warning">Redirected</span>
+      <% else %>
+        <span class="badge text-bg-primary">Modified</span>
+      <% end %>
+    </div>
+    <% if release_page %>
+        <div class="col col-5">
+	  <%= pref_label %> [<%= edit_request.my_changes["identifier"] %>]
+	</div>
+    <% end %>
+    <div class="col col-2 p-0">
+      <%= edit_request.created_at.to_s %>
+    </div>
+    <div class="col col-auto me-auto"></div>
+    <% if release_page %>
+      <div class="col col-2 p-0">
+        <button class="btn btn-link border-black" data-bs-toggle="" onclick="window.location.href = '<%= edit_request.my_changes['uri'] %>';">View Term</button>
+      </div>
+    <% end %>
+    <div class="col col-auto collapse-icon ml-auto"></div>
+  </div>
+
+  <div class="card-body collapse" id="<%= edit_request.id %>">
+    <% identifier = edit_request.my_changes["identifier"]
+       prev_term = edit_request.previous() %>
+    <% relations.each do |r| %>
+      <% changes = edit_request.my_changes[r.id] %>
+      <% if not changes.nil? and changes.length > 0 %>
+        <h4><%= r.name %></h4>
+	<table class="table">
+	  <% changes.each do |c| %>
+	    <% change_class = c[0] == "+" ? "success" : "danger"
+	       change_icon = c[0] == "+" ? "plus" : "minus"
+	       lang = (c[1].nil? ? "All" : Language.find_by(id: c[1]).name)
+	       val = c[2]
+	       %>
+	    <tr class="table-<%= change_class %>">
+	      <td class="col col-1"><h5 class="text-<%= change_class %>"><%= c[0] %></h5> </td>
+	      <td class="col col-1"><span class="well_language"><%= lang %></span></td>
+	      <td class="col col-8">
+		<% if r.links_to == 1 %>
+		  <a href="<%= Term.find_by(id: val).uri %>"> <%= Term.find_by(id: val).pref_label  %></a>
+		<% else %>
+		  <%= val %>
+		<% end %>
+	      </td>
+	    </tr>
+	  <% end %>
+	</table>
+      <% end %>
+    <% end %>
+    <% ['identifier', 'uri'].each do |field| %>
+      <% cur = edit_request.my_changes[field]
+	 prev_term = edit_request.previous() %>
+      <% if prev_term.nil? or (prev_term.my_changes[field] != cur) %>
+        <h4><%= field.capitalize %></h4>
+	<table class="table">
+	  <% unless prev_term.nil? %>
+          <tr class="table-danger">
+	    <td class="col col-1"><h5 class="text-danger">-</h5> </td>
+	    <td class="col col-1"><span class="well_language">All</span></td>
+	    <td class="col col-8"><%= prev_term.my_changes[field] %></td>
+	  </tr>
+	  <% end %>
+	  <tr class="table-success">
+	    <td class="col col-1"><h5 class="text-success">+</h5> </td>
+	    <td class="col col-1"><span class="well_language">All</span></td>
+	    <td class="col col-8"><%= cur %></td>
+	  </tr>
+	</table>
+      <% end %>
+    <% end %>
+  </div>
+</div>

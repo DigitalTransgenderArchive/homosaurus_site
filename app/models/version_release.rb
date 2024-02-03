@@ -1,6 +1,7 @@
 class VersionRelease < ActiveRecord::Base
   belongs_to :vocabulary
   has_many :version_release_terms
+  has_many :edit_requests
 
   # Remove terms from a release
   def delete_term_from_release(term_identifiers)

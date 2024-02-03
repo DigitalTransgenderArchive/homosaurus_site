@@ -4,68 +4,23 @@
     <h3>Released <%= @release.release_date %></h3>
   </div>
   <div class="info_section">
-    <p>
-      <strong>List of new terms added:</strong>
-    <ol>
-      <% @release_terms.each do |release_term| %>
-        <% if release_term.change_type == "new" %>
-          <li>
-            <%  if @host.include?("-dev.org") || @host.include?("localhost")
-                  uri = "/v3/#{release_term.term.identifier}"
-                else
-                  uri = release_term.term.uri
-                end
-            %>
-            <a href="<%=uri%>"><%=release_term.term.pref_label%></a>
-          </li>
-        <% end %>
+    <% @release.edit_requests.each do |er| %>
+      <% if er.previous().nil? %>
+        <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, release_page: true} %>
       <% end %>
-    </ol>
-  </div>
+    <% end %>
 
-  <div class="info_section">
-    <p>
-      <strong>List of terms with preferred term changes:</strong>
-    <ol>
-      <% @release_terms.each do |release_term| %>
-        <% if release_term.change_type == "update" %>
-          <li>
-            <%  if @host.include?("-dev.org") || @host.include?("localhost")
-                  uri = "/v3/#{release_term.term.identifier}"
-                else
-                  uri = release_term.term.uri
-                end
-            %>
-            <a href="<%=uri%>"><%=release_term.term.pref_label%></a> (was <%=release_term.previous_label %>)
-          </li>
-        <% end %>
+    <% @release.edit_requests.each do |er| %>
+      <% if (not er.previous().nil?) and (not er.my_changes[12] or er.my_changes[12].length == 0) %>
+        <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, release_page: true} %>
       <% end %>
-    </ol>
-  </div>
+    <% end %>
 
-  <div class="info_section">
-    <p>
-      <strong>List of terms that have replaced existing terms:</strong>
-    <ol>
-      <% @release_terms.each do |release_term| %>
-        <% if release_term.change_type == "redirect" %>
-          <li>
-            <%  if @host.include?("-dev.org") || @host.include?("localhost")
-                  uri = "/v3/#{release_term.term.identifier}"
-                else
-                  uri = release_term.term.uri
-                end
-            %>
-            <a href="<%=uri%>"><%=release_term.term.pref_label%></a><br/>Replaces:
-            <ul>
-              <% release_term.changed_uris.each_with_index do |changed_uri, index| %>
-                <li><%=release_term.changed_uri_labels[index] %> (<%= changed_uri %>)</li>
-              <% end %>
-            </ul>
-          </li>
-        <% end %>
+    <% @release.edit_requests.each do |er| %>
+      <% if (not er.previous().nil?) and (er.my_changes[12] and er.my_changes[12].length > 0) %>
+        <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, release_page: true} %>
       <% end %>
-    </ol>
+    <% end %>
   </div>
 </div>
 

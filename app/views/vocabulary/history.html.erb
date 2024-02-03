@@ -1,16 +1,3 @@
-<style>
-  .card-header .collapse-icon:after {
-    /* symbol for "opening" panels */
-      font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
-      content: "\e114";    /* adjust as needed, taken from bootstrap.css */
-      float: right;        /* adjust as needed */
-      color: grey;         /* adjust as needed */
-  }
-  .card-header.collapsed .collapse-icon:after {
-      /* symbol for "collapsed" panels */
-      content: "\e080";    /* adjust as needed, taken from bootstrap.css */
-  }
-</style>
 <h2> History: <%= @homosaurus_obj.pref_label %> (<%= @homosaurus_obj.uri %>)</h2>
 <% if @homosaurus_obj.visibility == "deleted" %>
   <div class="alert alert-danger" role="alert">
@@ -38,7 +25,7 @@
 <div class="container-fluid">
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <% @edit_requests.each do |er|  %>
-      <%= render partial:"edit_request", locals: {edit_request: er, relations: Relation.all} %>
+      <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all} %>
     <% end %>
   </div>
 </div>
