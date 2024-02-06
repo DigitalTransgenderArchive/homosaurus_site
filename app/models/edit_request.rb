@@ -2,15 +2,26 @@ class EditRequest < ActiveRecord::Base
   belongs_to :term
   belongs_to :version_release
   serialize  :my_changes
+  belongs_to :parent, :class_name => 'EditRequest', optional: true
+  has_many :children, :class_name => 'EditRequest', :foreign_key => 'parent_id'
   #accepts_nested_attributes_for :my_changes
   
-  def self.makeFromTerm(term_id, version_release_id)    
+  def self.makeFromTerm(term_id, version_release_id)
     my_changes = Hash.new
     t = Term.find_by(id: term_id)
+    er_history = t.get_edit_requests()
+    if er_history.count > 0
+      prev_er = er_history[0]
+    elsif not t.replaces.nil?
+      prev_er = Term.find_by(uri: t.replaces).get_edit_requests()[0]
+    end
     Relation.pluck(:id).each do |r|
       my_changes[r] = Array.new
       t.term_relationships.where(relation_id: r).each do |tr|
-        my_changes[r] << ["+", tr.language_id, tr.data]
+        d = ["+", tr.language_id, tr.data]
+        unless prev_er and prev_er.my_changes[r].include?(d)
+          my_changes[r] << d
+        end
       end
     end
     my_changes["visibility"] = t.visibility
@@ -29,9 +40,8 @@ class EditRequest < ActiveRecord::Base
                          :my_changes => my_changes)
 
     er.save!
-    
   end
-  def self.makeEmptyER(term_id, created_at, vid, vis = "Published", uri = "", identifier = "")
+  def self.makeEmptyER(term_id, created_at, vid, vis = "Published", uri = "", identifier = "", parent = nil)
     my_changes = Hash.new
     Relation.pluck(:id).each do |r|
       my_changes[r] = Array.new
@@ -43,7 +53,8 @@ class EditRequest < ActiveRecord::Base
                               :created_at => created_at,
                               :version_release_id => vid,
                               :status => "published",
-                              :my_changes => my_changes)
+                              :my_changes => my_changes,
+                              :parent_id => parent)
   end
 
   def previous()
@@ -57,5 +68,4 @@ class EditRequest < ActiveRecord::Base
       return self.term.edit_requests[er_index - 1]
     end
   end
-
 end

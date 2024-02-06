@@ -1,5 +1,5 @@
 class CreateRelations < ActiveRecord::Migration[5.2]
-  def change
+  def up
     unless ActiveRecord::Base.connection.table_exists?(:relations)
       create_table :relations do |t|
         t.string  :name,     null: false, unique: true
@@ -7,10 +7,7 @@ class CreateRelations < ActiveRecord::Migration[5.2]
         t.string  :description
         t.string  :description_url
         t.boolean :serializable, :default => false
-        
       end
-    end
-    unless Relation.count() > 1
       Relation.create(
         [
           {:name => "Description",
@@ -31,6 +28,9 @@ class CreateRelations < ActiveRecord::Migration[5.2]
           {:name => "Narrower", :links_to => 1,
            :description => "Definition of Narrower in the SKOS Vocabulary",
            :description_url => "http://www.w3.org/2004/02/skos/core#narrower"},
+          {:name => "Broader", :links_to => 1,
+           :description => "Definition of Broader in the SKOS Vocabulary",
+           :description_url => "http://www.w3.org/2004/02/skos/core#broader"},
           {:name => "Related", :links_to => 1,
            :description => "Definition of Related in the SKOS Vocabulary",
            :description_url => "http://www.w3.org/2004/02/skos/core#related"},
@@ -45,6 +45,11 @@ class CreateRelations < ActiveRecord::Migration[5.2]
           {:name => "Redirects to", :links_to => 1}
         ] 
       )
+    end
+  end
+  def down
+    if ActiveRecord::Base.connection.table_exists?(:relations)
+      drop_table :relations
     end
   end
 end

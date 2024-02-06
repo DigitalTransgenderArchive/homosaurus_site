@@ -12,10 +12,23 @@ class CreateTermRelationships < ActiveRecord::Migration[5.2]
     unless TermRelationship.count() > 1
       say_with_time "Migrating descriptions and preferred labels" do
         Term.all().each do |t|
-          tr = TermRelationship.create(:term_id => t.id, :relation_id => 1, :language_id => "en", :data => t.description)
-          tr.save
-
-          tr = TermRelationship.create(:term_id => t.id, :relation_id => 2, :language_id => "en", :data => t.pref_label)
+          if t.description != "" and t.description
+            tr = TermRelationship.create(:term_id => t.id, :relation_id => Relation::Description, :language_id => "en", :data => t.description)
+            tr.save
+          end
+          pref_label = t.pref_label_language.nil? ? [t.pref_label] : t.pref_label_language.split("@")
+          tr = TermRelationship.create(:term_id => t.id, :relation_id => Relation::Pref_label,
+                                       :language_id => pref_label.length > 1 ?
+                                                         (case pref_label[1]
+                                                          when "jpn" then "ja"
+                                                          when "to" then "ton"
+                                                          when "es" then "spa"
+                                                          when "th" then "tha"
+                                                          when "sm" then "smo"
+                                                          when "hi" then "hil"
+                                                          when "ch" then "chy"
+                                                          else pref_label[1] end) :
+                                                         'en', :data => pref_label[0])
           tr.save
         end
       end
@@ -23,7 +36,7 @@ class CreateTermRelationships < ActiveRecord::Migration[5.2]
         Term.where.not(labels_language: [""]).each do |t|
           t.labels_language.each do |t_label|
             t_label = t_label.split("@")
-            tr = TermRelationship.create(:term_id => t.id, :relation_id => 3,
+            tr = TermRelationship.create(:term_id => t.id, :relation_id => Relation::Label,
                                          :language_id => t_label.length > 1 ?
                                                            (case t_label[1]
                                                             when "jpn" then "ja"
@@ -38,7 +51,7 @@ class CreateTermRelationships < ActiveRecord::Migration[5.2]
         Term.where.not(alt_labels_language: [""]).each do |t|
           t.alt_labels_language.each do |t_alt_label|
             t_alt_label = t_alt_label.split("@")
-            tr = TermRelationship.create(:term_id => t.id, :relation_id => 4,
+            tr = TermRelationship.create(:term_id => t.id, :relation_id => Relation::Alt_label,
                                          :language_id => t_alt_label.length > 1 ?
                                                            (case t_alt_label[1]
                                                             when "jpn" then "ja"
@@ -52,15 +65,21 @@ class CreateTermRelationships < ActiveRecord::Migration[5.2]
       end
       say_with_time "Migrating replacements/redirects" do
         ActiveRecord::Base.connection.execute("SELECT terms.id, t2.id, terms.visibility FROM `terms` JOIN terms as t2 on terms.is_replaced_by = t2.uri").each do |t|
-          rel_id = t[2] == "redirect" ? 12 : 5
+          rel_id = (t[2] == "redirect") ? Relation::Redirects_to : Relation::Replaced_by
           tr = TermRelationship.create(:term_id => t[0], :relation_id => rel_id, :data => t[1])
           tr.save
         end
       end
-      say_with_time "Migrating narrower terms" do
+      say_with_time "Migrating broader/narrower terms" do
         Term.where.not(narrower: [""]).each do |t|
           Term.where(uri: t.narrower).select("id, pref_label").each do |t_narrow|
-            tr = TermRelationship.create(:term_id => t.id, :relation_id => 6, :data => t_narrow.id)
+            tr = TermRelationship.create(:term_id => t.id, :relation_id => Relation::Narrower, :data => t_narrow.id)
+            tr.save
+          end
+        end
+        Term.where.not(broader: [""]).each do |t|
+          Term.where(uri: t.broader).select("id, pref_label").each do |t_broad|
+            tr = TermRelationship.create(:term_id => t.id, :relation_id => Relation::Broader, :data => t_broad.id)
             tr.save
           end
         end
@@ -68,21 +87,21 @@ class CreateTermRelationships < ActiveRecord::Migration[5.2]
       say_with_time "Migrating related term" do
         Term.where.not(related: [""]).each do |t|
           Term.where(uri: t.related).select("id, pref_label").each do |t_related|
-            tr = TermRelationship.create(:term_id => t.id, :relation_id => 7, :data => t_related.id)
+            tr = TermRelationship.create(:term_id => t.id, :relation_id => Relation::Related, :data => t_related.id)
             tr.save
           end
         end
       end
       say_with_time "Migrating LCSH exact matches" do
         Term.where.not(exact_match_lcsh: [""]).each do |t|
-          tr = TermRelationship.create(:term_id => t.id, :relation_id => 8, :data => t.exact_match_lcsh[0])
+          tr = TermRelationship.create(:term_id => t.id, :relation_id => Relation::Lcsh_exact, :data => t.exact_match_lcsh[0])
           tr.save
         end
       end
       say_with_time "Migrating LCSH close matches" do
         Term.where.not(close_match_lcsh: [""]).each do |t|
           t.close_match_lcsh.each do |t_close_match|
-            tr = TermRelationship.create(:term_id => t.id, :relation_id => 9, :data => t_close_match)
+            tr = TermRelationship.create(:term_id => t.id, :relation_id => Relation::Lcsh_close, :data => t_close_match)
             tr.save
           end
         end
@@ -90,7 +109,7 @@ class CreateTermRelationships < ActiveRecord::Migration[5.2]
       say_with_time "Migrating Homosaurus exact matches" do
         Term.where.not(exact_match_homosaurus: [""]).each do |t|
           Term.where(uri: t.exact_match_homosaurus).select("id, pref_label").each do |t_exact_match|
-            tr = TermRelationship.create(:term_id => t.id, :relation_id => 10, :data => t_exact_match.id)
+            tr = TermRelationship.create(:term_id => t.id, :relation_id => Relation::Close_match, :data => t_exact_match.id)
             tr.save
           end
         end
@@ -98,7 +117,7 @@ class CreateTermRelationships < ActiveRecord::Migration[5.2]
       say_with_time "Migrating Homosaurus close matches" do
         Term.where.not(close_match_homosaurus: [""]).each do |t|
           Term.where(uri: t.close_match_homosaurus).select("id, pref_label").each do |t_close_match|
-            tr = TermRelationship.create(:term_id => t.id, :relation_id => 11, :data => t_close_match.id)
+            tr = TermRelationship.create(:term_id => t.id, :relation_id => Relation::Exact_match, :data => t_close_match.id)
             tr.save
           end
         end

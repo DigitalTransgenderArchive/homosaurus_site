@@ -16,7 +16,7 @@ class AddLanguageToRoles < ActiveRecord::Migration[5.2]
   end
   def down
     if ActiveRecord::Base.connection.column_exists?(:roles_users, :language_id)
-      remove_index :roles_users, column: [:user_id, :language_id]
+      #remove_index :roles_users, column: [:user_id, :language_id]
       remove_column :roles_users, :language_id
       #remove_reference :roles_users, :language, foreign_key: true
     end

@@ -122,7 +122,7 @@ class Term < ActiveRecord::Base
   end
 
   def get_edit_requests
-    unless self.edit_requests.count
+    unless self.edit_requests.count and not self.edit_requests[0].nil?
       return []
     end
     all_edit_requests = [self.edit_requests[-1]]
@@ -130,6 +130,24 @@ class Term < ActiveRecord::Base
       all_edit_requests << prev
     end
     return all_edit_requests
+  end
+  def get_relationship_at_version_release(rel_id, vid)
+    my_hist = self.get_edit_requests().reverse()
+    values = Array.new
+    my_hist.each do |er|
+      if er.version_release_id > vid
+        break
+      end
+      er.my_changes[rel_id].each do |rc|
+        rel_change = [rc[1], rc[2]]
+        if rc[0] == "+"
+          values << rel_change
+        else
+          values.delete(rel_change)
+        end
+      end
+    end
+    return values
   end
   def show_fields
     attributes.keys - ["id", "broader_ids", "narrower_ids", "related_ids"]
