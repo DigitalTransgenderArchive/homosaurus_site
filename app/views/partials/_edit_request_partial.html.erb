@@ -1,9 +1,17 @@
 <%
   release_page ||= false
   is_new = edit_request.previous().nil?
-  redirect = edit_request.my_changes[12]
+  redirect = edit_request.my_changes[Relation::Redirects_to]
   is_redirect = (redirect and redirect.length > 0)
   pref_label = edit_request.my_changes[2].length > 0 ? edit_request.my_changes[2][0][2] : edit_request.term.pref_label
+  is_linked = ((edit_request.my_changes[Relation::Broader].length > 0) or (edit_request.my_changes[Relation::Narrower].length > 0))
+  is_linked_new = is_linked
+  Relation.pluck(:id).each do |r|
+    next if r == Relation::Broader or r == Relation::Narrower
+    if edit_request.my_changes[r].count > 0
+      is_linked_new = false
+    end
+  end
 %>
 
 <div class="card container ">
@@ -17,6 +25,8 @@
         <span class="badge text-bg-success">New Term</span>
       <% elsif is_redirect %>
         <span class="badge text-bg-warning">Redirected</span>
+      <% elsif is_linked_new %>
+        <span class="badge text-bg-info">Linked</span>
       <% else %>
         <span class="badge text-bg-primary">Modified</span>
       <% end %>
