@@ -1,5 +1,6 @@
 <%
   release_page ||= false
+  discussion_page ||= false
   is_new = edit_request.previous().nil?
   redirect = edit_request.my_changes[Relation::Redirects_to]
   is_redirect = (redirect and redirect.length > 0)
@@ -32,19 +33,35 @@
       <% end %>
     </div>
     <% if release_page %>
-        <div class="col col-5">
-	  <%= pref_label %> [<%= edit_request.my_changes["identifier"] %>]
+        <div class="col col-4">
+	  <%= pref_label %> <br>[<%= edit_request.my_changes["identifier"] %>]
 	</div>
     <% end %>
     <div class="col col-2 p-0">
       <%= edit_request.created_at.to_s %>
     </div>
     <div class="col col-auto me-auto"></div>
-    <% if release_page %>
-      <div class="col col-2 p-0">
-        <button class="btn btn-link border-black" data-bs-toggle="" onclick="window.location.href = '<%= edit_request.my_changes['uri'] %>';">View Term</button>
+    <div class="col col-4 p-0">
+      <div class="d-inline-flex gap-1">
+	<% if release_page %>
+	  <% if current_user.present? %>
+            <%= button_to "View Term",
+		vocabulary_show_path(
+		  vocab_id: edit_request.version_release.vocabulary.identifier,
+		  id: edit_request.my_changes["identifier"]),
+		:method => "get", class: 'btn btn-link border-black', form_class: 'btn p-0' %>
+	  <% end %>
+	<% end %>
+	<% if current_user.present? and not discussion_page %>
+          <%= button_to "View Discussion",
+	      edit_request_discussion_path(
+	        vocab_id: edit_request.version_release.vocabulary.identifier,
+	        id: edit_request.my_changes["identifier"],
+	        release_id: edit_request.version_release.release_identifier),
+	      :method => "get", class: 'btn btn-link border-black', form_class: 'btn p-0' %>
+       <% end %>
       </div>
-    <% end %>
+    </div>
     <div class="col col-auto collapse-icon ml-auto"></div>
   </div>
 

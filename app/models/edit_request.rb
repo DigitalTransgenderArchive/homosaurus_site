@@ -1,4 +1,5 @@
 class EditRequest < ActiveRecord::Base
+  has_many :comments, as: :commentable
   belongs_to :term
   belongs_to :version_release
   serialize  :my_changes

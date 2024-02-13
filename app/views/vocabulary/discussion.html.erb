@@ -1,0 +1,93 @@
+<%
+  pref_label = (@discussion_type == "Term") ? @homosaurus_obj.pref_label : @homosaurus_obj.term.get_relationship_at_version_release(Relation::Pref_label, @vid)[0][1]
+  identifier = (@discussion_type == "Term") ? @homosaurus_obj.identifier : @homosaurus_obj.my_changes["identifier"]
+  vocabulary_identifier = (@discussion_type == "Term") ? @homosaurus_obj.vocabulary_identifier : @homosaurus_obj.version_release.vocabulary.identifier
+  %>
+<h2> Discussion:
+  <% if @discussion_type == "EditRequest" %>
+  <span class="badge text-bg-dark">V. <%= @homosaurus_obj.version_release.release_identifier %> Changes</span>
+  <% end %>&nbsp;
+  <%= pref_label %> [<%= identifier %>]</h2>
+<% if @discussion_type == "Term" %>
+  <% if @homosaurus_obj.visibility == "deleted" %>
+    <div class="alert alert-danger" role="alert">
+      This term has been removed from the vocabulary and is no longer in use.<br />
+    Apologies for the inconvenience.
+    </div>
+  <% elsif @homosaurus_obj.visibility == "pending" %>
+    <div class="alert alert-danger" role="alert">
+      This term is a pending object set to be in the next release.
+    </div>
+  <% end %>
+<% end %>
+  
+<p><div style="clear:both;">
+    <%= button_to "Back To Term", vocabulary_show_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
+    <%= button_to "View History", vocabulary_term_history_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
+    <% if @discussion_type == "EditRequest" %>
+      <%= button_to "View Release", release_show_path(release_id: @homosaurus_obj.version_release.release_identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
+    <% end %>
+    <button class="btn btn-primary discussion-add-topic" style="margin-left:20px;"
+	    data-bs-toggle="modal" data-bs-target="#new-topic-modal">Add New Topic (+)</button>
+</div>
+<br/>
+
+<div class="container-fluid">
+  <% if @discussion_type == "EditRequest" %>
+    <h2>Changes</h2>
+    <%= render partial: "partials/edit_request_partial", locals: {edit_request: @homosaurus_obj, relations: Relation.all, discussion_page: true} %>
+    <h2>Comments</h2>
+  <% end %>
+  <% @comments.each do |c|  %>
+  <%= render partial:"partials/comment_partial", locals: {comment: c} %>
+  <% end %>
+</div>
+<div id="new-topic-modal" class="modal modal-lg modal-fullscreen-sm-down"
+     tab-index="-1" aria-hidden="true" aria-labelledby="new-topic-modal-label">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <%= form_with url: request.fullpath + "/post_comment", method: :get, local: true do |f| %>
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="new-topic-modal-label">Add new topic</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	
+	  <input type="hidden" name="user" value="<%= current_user.id %>">
+	  <input type="hidden" name="parent" value="<%= @homosaurus_obj.id %>">
+	  <input type="hidden" name="parent_type" value="<%= @discussion_type %>">
+          <div class="mb-3">
+	    <label for="new-topic-subject" class="form-label">Subject</label>
+	    <input name="subject" type="text" class="form-control" id="new-topic-subject" placeholder="Enter Subject">
+	  </div>
+	  <div class="mb-3">
+	    <label for="new-topic-content" class="form-label">Comment</label>
+	    <textarea name="content" type="textarea" class="form-control" id="new-topic-content" placeholder="Enter Comment"></textarea>
+	  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Post</button>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<script type='text/javascript'>
+  // Scroll to highlighted comment if exists
+    $(document).ready(function() {
+	var scrolled_id = $(location).attr('hash');
+	if(scrolled_id != ""){
+	    $n = $(scrolled_id);
+	    $n.parents().each(function(i, e){
+		console.log(e);
+		$(e).collapse("show");
+	    })
+	    setTimeout(function(){}, 2000);
+	    $n[0].scrollIntoView();
+	};
+    });
+</script>
+

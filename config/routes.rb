@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   # releases
   get 'releases' => 'release#index', as: :release
-  get 'releases/show/:release_id' => 'release#show', as: :release_show
+  get 'releases/show/:release_id' => 'release#show', as: :release_show, constraints: { release_id: /.*/ }
 
   # Archives releases
   get 'releases/archive/release_notes_2_1' => 'release#release_notes_2_1', as: :archive_release_2_1
@@ -55,7 +55,12 @@ Rails.application.routes.draw do
   get ':vocab_id/:id/replace/:replacement_id' => 'vocabulary#replace', as: :replace
 
   get ':vocab_id/:id/history' => 'vocabulary#history', as: :vocabulary_term_history
-  
+  get ':vocab_id/:id/:release_id' => 'vocabulary#discussion', as: :edit_request_discussion, constraints: { release_id: /[\d\.]+/ }
+  get ':vocab_id/:id/:release_id/post_comment' => 'vocabulary#post_comment', as: :edit_request_discussion_post_comment, constraints: { release_id: /[\d\.]+/ }
+  get ':vocab_id/:id/discussion' => 'vocabulary#discussion', as: :vocabulary_term_discussion  
+  get ':vocab_id/:id/discussion/post_comment' => 'vocabulary#post_comment', as: :vocabulary_discussion_post_comment
+
+
   # These have to be last
   get ':id' => 'vocabulary#index', as: :vocabulary_index
   get ':vocab_id/:id' => 'vocabulary#show', as: :vocabulary_show

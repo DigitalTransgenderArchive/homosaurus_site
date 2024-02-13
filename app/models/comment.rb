@@ -1,0 +1,37 @@
+class Comment < ActiveRecord::Base
+  belongs_to :commentable, polymorphic: true
+  belongs_to :user
+  has_many :comments, as: :commentable
+
+  def get_root_type
+    if self.commentable_type == "Comment"
+      return self.commentable.get_root_type()
+    else
+      return self.commentable_type
+    end
+  end
+
+  # Returns the term or edit request this comment is related to 
+  def get_root
+    if self.commentable_type == "Comment"
+      return self.commentable.get_root()
+    else
+      return self.commentable
+    end
+  end
+
+  def thread_last_active
+    time = self.updated_at
+    arr = [self]
+    while arr.count > 0
+      current = arr.shift
+      if current.updated_at > time
+        time = current.updated_at
+      end
+      current.comments.each do |c|
+        arr << c
+      end
+    end
+    return time
+  end
+end

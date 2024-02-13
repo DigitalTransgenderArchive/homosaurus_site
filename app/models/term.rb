@@ -1,4 +1,5 @@
 class Term < ActiveRecord::Base
+  has_many :comments, as: :commentable
   include TermAssignments
   include ::Hist::Model
 

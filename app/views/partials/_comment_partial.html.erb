@@ -1,0 +1,62 @@
+<%
+  child ||= false
+  type  ||= comment.get_root_type()
+  %>
+<div class="container comment-and-replies position-relative p-0">
+  <div class="card comment <%= child ? 'reply-comment' : '' %> mb-2" id="comment-<%= comment.id %>">
+    <% unless comment.subject.nil? %>
+    <div class="card-header position-relative">
+      <span class="comment-subject fw-bold text-decoration-underline">
+	<%= comment.subject %>
+      </span>
+      <span class="badge bg-secondary thread-last-active float-end">Thread last active: <%= comment.thread_last_active() %> </span>
+    </div>
+    <% end %>
+    <div class="card-body position-relative">
+      <%= comment.content %>
+      <br>
+      <span class="badge bg-secondary">
+	@<%= comment.user.email %>
+      </span> - <span class=""> <%= comment.created_at %> </span>
+    </div>
+    <div class="card-footer">
+      <button type="button" class="btn btn-primary leave-reply" data-bs-toggle="collapse"
+	      data-bs-target="#comment-<%= comment.id %>-reply-box" aria-expanded="false"
+	      aria-controls="#comment-<%= comment.id %>-reply-box">
+	Reply
+      </button>
+      <% if comment.comments.count > 0 %>
+      <button type="button" class="btn btn-link comment-show-replies" data-bs-toggle="collapse"
+	      data-bs-target="#comment-<%= comment.id %>-replies" aria-expanded="false"
+	      aria-controls="#comment-<%= comment.id %>-replies">
+	Show/hide replies &nbsp;
+      </button>
+      <% end %>
+
+      <%= form_with url: request.fullpath + "/post_comment", class: "reply-box-form", method: :get, local: true do |f| %>
+        <div class="input-group mt-2 reply-box collapse" id="comment-<%= comment.id %>-reply-box">
+	  <input type="hidden" name="user" value="<%= current_user.id %>">
+	  <input type="hidden" name="parent" value="<%= comment.id %>">
+	  <input type="hidden" name="parent_type" value="Comment">
+	  <input type="textarea" class="form-control" placeholder="Leave reply here" name="content">
+	  <button type="button" class="btn btn-danger" data-bs-toggle="collapse"
+	      data-bs-target="#comment-<%= comment.id %>-reply-box" aria-expanded="false"
+	      aria-controls="#comment-<%= comment.id %>-reply-box">Cancel</button>
+	  <button class="btn btn-primary" type="submit">Post Reply</button>
+	</div>
+      <% end %>
+    </div>      
+  </div>
+  
+  <% if comment.comments.count > 0 %>
+  <div class="reply-container container collapse p-0 ps-5 position-relative"
+       id="comment-<%= comment.id %>-replies">
+  <% end %>
+  <% comment.comments.each do |c| %>
+    <%= render partial:"partials/comment_partial", locals: {comment: c, child: true} %>
+  <% end %>
+  <% if comment.comments.count > 0 %>
+    </div>
+  <% end %>
+</div>
+

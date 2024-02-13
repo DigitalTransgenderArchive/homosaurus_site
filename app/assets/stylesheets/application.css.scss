@@ -29,7 +29,7 @@
   max-width: 900px;
 }
 
-.card-header .collapse-icon:after {
+.collapse-icon:after {
     /* symbol for "opening" panels */
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
     content: "\e114";    /* adjust as needed, taken from bootstrap.css */
@@ -40,3 +40,26 @@
     /* symbol for "collapsed" panels */
     content: "\e080";    /* adjust as needed, taken from bootstrap.css */
 }
+
+.reply-comment .card-body::before {
+    height: 100%;
+    width: 40px;
+    position: absolute;
+    content: "";
+    transform: translate(-100%, -50%);
+    border-radius: 0px 15px;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    z-index:-1;
+}
+
+.reply-container .comment-and-replies:not(:last-child)::before {
+    height: 100%;
+    width: 23px;
+    position: absolute;
+    content: "";
+    transform: translate(-100%, 0);
+    border-left: 1px solid black;
+    z-index:-1;
+}
+

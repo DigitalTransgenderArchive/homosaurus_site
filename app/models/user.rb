@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include Hydra::RoleManagement::UserRoles
+  has_many :comments
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

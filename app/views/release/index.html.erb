@@ -10,7 +10,7 @@
       <ol>
         <% @releases.each do |release| %>
           <li>
-            <%= link_to "Homosaurus v.#{release.release_identifier} (#{release.release_date})", release_show_path(:release_id => release.id) %>
+            <%= link_to "Homosaurus v.#{release.release_identifier} (#{release.release_date})", release_show_path(:release_id => release.release_identifier) %>
           </li>
         <% end %>
       </ol>

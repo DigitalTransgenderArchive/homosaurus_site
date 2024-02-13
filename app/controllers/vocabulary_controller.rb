@@ -1,5 +1,5 @@
 class VocabularyController < ApplicationController
-  before_action :verify_permission, :only => [:new, :edit, :create, :update, :destroy, :replace, :restore, :destroy_version] # ,  :update_immediate
+  before_action :verify_permission, :only => [:new, :edit, :discussion, :post_reply, :create, :update, :destroy, :replace, :restore, :destroy_version] # ,  :update_immediate
 
   def index
     identifier = params[:id]
@@ -96,6 +96,39 @@ class VocabularyController < ApplicationController
       format.html
     end
   end
+  def discussion
+    @homosaurus_obj = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
+    @discussion_type = "Term"
+    if params[:release_id]
+      @vid = VersionRelease.find_by(release_identifier: params[:release_id]).id
+      @homosaurus_obj = @homosaurus_obj.edit_requests.find_by(version_release_id: @vid)
+      @discussion_type = "EditRequest"
+    end
+    @comments = @homosaurus_obj.comments
+    respond_to do |format|
+      format.html
+    end
+  end
+  def post_comment
+    parent = nil
+    if params["parent_type"] == "Term"
+      parent = Term.find_by(id: params["parent"])
+    elsif params["parent_type"] == "EditRequest"
+      parent = EditRequest.find_by(id: params["parent"])
+    else
+      parent = Comment.find_by(id: params["parent"])
+    end
+    @c = Comment.create(user_id: params["user"],
+                        subject: params["subject"] || nil,
+                        commentable: parent,
+                        content: params["content"])
+    if @c.get_root_type() == "Term"
+      redirect_to vocabulary_term_discussion_path(:anchor => "comment-#{@c.id}")#, format: :html)
+    else
+      redirect_to edit_request_discussion_path(:anchor => "comment-#{@c.id}")
+    end
+  end
+  
   def new
     @vocab_id = params[:vocab_id]
     @term = Term.new
