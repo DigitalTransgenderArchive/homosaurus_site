@@ -5,7 +5,7 @@
   %>
 <h2> Discussion:
   <% if @discussion_type == "EditRequest" %>
-  <span class="badge text-bg-dark">V. <%= @homosaurus_obj.version_release.release_identifier %> Changes</span>
+  <span class="badge text-bg-dark">V. <%= @homosaurus_obj.version_release.release_identifier %> Changes [<%= @homosaurus_obj.version_release.status %>]</span>
   <% end %>&nbsp;
   <%= pref_label %> [<%= identifier %>]</h2>
 <% if @discussion_type == "Term" %>
@@ -29,6 +29,10 @@
     <% end %>
     <button class="btn btn-primary discussion-add-topic" style="margin-left:20px;"
 	    data-bs-toggle="modal" data-bs-target="#new-topic-modal">Add New Topic (+)</button>
+    <% if @discussion_type == "EditRequest" and @homosaurus_obj.version_release.status == "Pending" and not @homosaurus_obj.hasUserVoted(current_user) %>
+      <button class="btn btn-primary discussion-add-vote" style="margin-left:20px;"
+	      data-bs-toggle="modal" data-bs-target="#new-vote-modal">Add New Vote (+)</button>
+    <% end %>
 </div>
 <br/>
 
@@ -36,6 +40,12 @@
   <% if @discussion_type == "EditRequest" %>
     <h2>Changes</h2>
     <%= render partial: "partials/edit_request_partial", locals: {edit_request: @homosaurus_obj, relations: Relation.all, discussion_page: true} %>
+    <h2>Comments & Votes</h2>
+    <h3>Vote Tally: &nbsp; <% @homosaurus_obj.voteSummary().each do |k, v| %>
+      	<span class='<%= Comment::vote_badge_class(k) %>'><%= k %><span class='badge text-bg-light'><%= v %></span></span>
+
+    <% end %></h3>
+  <% else %>
     <h2>Comments</h2>
   <% end %>
   <% @comments.each do |c|  %>
@@ -52,8 +62,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-	
 	  <input type="hidden" name="user" value="<%= current_user.id %>">
+	  <input type="hidden" name="is_vote" value="false">
 	  <input type="hidden" name="parent" value="<%= @homosaurus_obj.id %>">
 	  <input type="hidden" name="parent_type" value="<%= @discussion_type %>">
           <div class="mb-3">
@@ -74,6 +84,44 @@
     </div>
   </div>
 </div>
+
+<div id="new-vote-modal" class="modal modal-lg modal-fullscreen-sm-down"
+     tab-index="-1" aria-hidden="true" aria-labelledby="new-topic-modal-label">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <%= form_with url: request.fullpath + "/post_comment", method: :get, local: true do |f| %>
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="new-topic-modal-label">Add new vote</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	  <input type="hidden" name="user" value="<%= current_user.id %>">
+	  <input type="hidden" name="is_vote" value="true">
+	  <input type="hidden" name="parent" value="<%= @homosaurus_obj.id %>">
+	  <input type="hidden" name="parent_type" value="<%= @discussion_type %>">
+          <div class="input-group mb-3">
+	    <label for="vote-select" class="input-group-text">Vote</label>
+	    <select id="vote-select" name="subject" class="form-select">
+	      <option value="Accept">Accept</option>
+	      <option value="Reject">Reject</option>
+	      <option value="Table">Table</option>
+	    </select>
+	  </div>
+	  <div class="mb-3">
+	    <label for="new-topic-content" class="form-label">Comment</label>
+	    <textarea name="content" type="textarea" class="form-control" id="new-topic-content" placeholder="Enter Comment"></textarea>
+	  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Post</button>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
 
 <script type='text/javascript'>
   // Scroll to highlighted comment if exists

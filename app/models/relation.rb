@@ -12,7 +12,7 @@ class Relation < ActiveRecord::Base
   Close_match = 11
   Exact_match = 12
   Redirects_to = 13
-  
+  ValueStruct = Struct.new(:data, :language_id)
   self.table_name = "relations"
   has_many :term_relationships
 end

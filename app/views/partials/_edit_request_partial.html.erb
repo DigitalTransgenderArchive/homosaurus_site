@@ -1,6 +1,7 @@
 <%
   release_page ||= false
   discussion_page ||= false
+  child_edit ||= false
   is_new = edit_request.previous().nil?
   redirect = edit_request.my_changes[Relation::Redirects_to]
   is_redirect = (redirect and redirect.length > 0)
@@ -12,6 +13,10 @@
     if edit_request.my_changes[r].count > 0
       is_linked_new = false
     end
+end
+  release_identifier = edit_request.version_release.release_identifier
+  if release_identifier == "unversioned"
+    release_identifier = "?"
   end
 %>
 
@@ -19,19 +24,25 @@
   <div class="card-header collapsed row" data-bs-toggle="collapse" aria-expanded="false"
        href="#<%= edit_request.id %>" aria-controls="<%= edit_request.id %>">
 
-    <div class="col col-1">
-      <% if not release_page %>
-        <span class="badge text-bg-dark">V. <%= edit_request.version_release.release_identifier %></span>
-      <% elsif is_new %>
-        <span class="badge text-bg-success">New Term</span>
-      <% elsif is_redirect %>
-        <span class="badge text-bg-warning">Redirected</span>
-      <% elsif is_linked_new %>
-        <span class="badge text-bg-info">Linked</span>
-      <% else %>
-        <span class="badge text-bg-primary">Modified</span>
-      <% end %>
-    </div>
+    <% unless child_edit %>
+      <div class="col col-1">
+        <% if not release_page %>
+	  <span class="badge text-bg-dark">V. <%= release_identifier %></span>
+	<% elsif is_new %>
+	  <span class="badge text-bg-success">New Term</span>
+	<% elsif is_redirect %>
+	  <span class="badge text-bg-warning">Redirected</span>
+	<% elsif is_linked_new %>
+	  <span class="badge text-bg-info">Linked</span>
+	<% else %>
+	  <span class="badge text-bg-primary">Modified</span>
+	<% end %>
+      </div>
+    <% else %>
+      <div class="col col-3">
+	<span class="badge text-bg-info"><%= edit_request.creator.nil? ? 'MigrationBot' : edit_request.creator.email %></span>
+      </div>
+    <% end %>
     <% if release_page %>
         <div class="col col-4">
 	  <%= pref_label %> <br>[<%= edit_request.my_changes["identifier"] %>]
@@ -43,16 +54,14 @@
     <div class="col col-auto me-auto"></div>
     <div class="col col-4 p-0">
       <div class="d-inline-flex gap-1">
-	<% if release_page %>
-	  <% if current_user.present? %>
-            <%= button_to "View Term",
-		vocabulary_show_path(
-		  vocab_id: edit_request.version_release.vocabulary.identifier,
-		  id: edit_request.my_changes["identifier"]),
-		:method => "get", class: 'btn btn-link border-black', form_class: 'btn p-0' %>
-	  <% end %>
+	<% if release_page and not child_edit %>
+          <%= button_to "View Term",
+	      vocabulary_show_path(
+	      vocab_id: edit_request.version_release.vocabulary.identifier,
+	      id: edit_request.my_changes["identifier"]),
+	      :method => "get", class: 'btn btn-link border-black', form_class: 'btn p-0' %>
 	<% end %>
-	<% if current_user.present? and not discussion_page %>
+	<% if current_user.present? and not discussion_page and not child_edit %>
           <%= button_to "View Discussion",
 	      edit_request_discussion_path(
 	        vocab_id: edit_request.version_release.vocabulary.identifier,
@@ -113,6 +122,12 @@
 	    <td class="col col-8"><%= cur %></td>
 	  </tr>
 	</table>
+      <% end %>
+    <% end %>
+    <% if not child_edit and current_user.present? and edit_request.children.count %>
+      <div class="border-top my-3"></div>
+      <% edit_request.children.each do |erc| %>
+        <%= render partial:"partials/edit_request_partial", locals: {edit_request: erc, relations: Relation.all, child_edit: true} %>
       <% end %>
     <% end %>
   </div>

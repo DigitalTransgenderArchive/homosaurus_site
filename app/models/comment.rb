@@ -34,4 +34,22 @@ class Comment < ActiveRecord::Base
     end
     return time
   end
+
+  def self.vote_badge_class(subject)
+    return "badge text-bg-" + (
+             case subject
+             when "Reject"
+               "danger"
+             when "Accept"
+               "success"
+             when "Table"
+               "warning"
+             else
+               "secondary"
+             end)
+  end
+  def vote_badge_class
+    return '' if not self.is_vote
+    return Comment::vote_badge_class(self.subject)
+  end
 end

@@ -35,7 +35,9 @@ Rails.application.routes.draw do
   get '/autocomplete/languages', to: "autocomplete#languages", as: :languages_autocomplete
 
   # Admin Routes
-  get '/admin/version/new' => 'admin#version_new', as: :version_publish_new
+  post '/admin/version/new/:release_type' => 'admin#version_new', as: :version_publish_new
+  post '/admin/version/publish/:release_identifier' => 'admin#version_publish', as: :version_publish, constraints: { release_identifier: /.*/ }
+  get '/admin/version/manage' => 'admin#version_manage', as: :version_manage
   post '/admin/version/publish' => 'admin#version_create', as: :version_publish_create
   get '/admin/site/reload' => 'admin#restart_application', as: :restart_application
 
@@ -47,6 +49,7 @@ Rails.application.routes.draw do
   get ':vocab_id/new_term' => 'vocabulary#new', as: :vocabulary_term_new
   post ':vocab_id/new_term' => 'vocabulary#create', as: :vocabulary_term_create
   get ':vocab_id/:id/edit' => 'vocabulary#edit', as: :vocabulary_term_edit
+  get ':vocab_id/:id/edit/:release_id' => 'vocabulary#edit', as: :vocabulary_term_edit_version, constraints: { release_id: /[\d\.]+/ }
   patch ':vocab_id/:id/update' => 'vocabulary#update', as: :vocabulary_term_update
   #patch ':vocab_id/:id/update_immediate' => 'vocabulary#update_immediate', as: :vocabulary_term_update_immediate
   delete ':vocab_id/:id/delete' => 'vocabulary#destroy', as: :vocabulary_term_delete

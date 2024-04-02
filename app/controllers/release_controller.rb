@@ -2,6 +2,9 @@ class ReleaseController < ApplicationController
 
   def index
     @releases = VersionRelease.all.order('id DESC')
+    unless current_user.present?
+      @releases = @releases.where(status: "published")
+    end
   end
 
   def show

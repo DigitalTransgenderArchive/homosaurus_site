@@ -1,10 +1,17 @@
 <div class="row-padded">
   <h1>Edit</h1>
+  <%= button_to "Back To Term", vocabulary_show_path(vocab_id: @vocab_id, id: params[:id]), :method => "get", class: 'btn text-bg-primary' %>
+  <br/>
   <div style="width:50em;">
-    <%= simple_form_for(@term, :url => vocabulary_term_update_path(vocab_id: @vocab_id, id: @term.identifier), :as => :term) do |f| %>
+    <%= simple_form_for(@term, :url => vocabulary_term_update_path(vocab_id: @vocab_id, id: @term.identifier), :as => :term, method: :patch) do |f| %>
+    <div class="input-group">
+      <label class="input-group-text" for="version_release"> Version</label>
+      <%= select_tag "version_release", options_for_select(VersionRelease.where(status: "Pending").pluck(:release_identifier, :id), @release_id_num), class: "form-select", onchange: "window.location.href='#{request.original_url.split('edit')[0] + 'edit/'}' + $(this).find('option:selected').text()" %>
+    </div>
       <%= render :partial => "form_id", :locals => {:f => f, :key=>:identifier} %>
       <%= render :partial => "form", locals: {f: f} %>
       <div>
+		
         <%= button_tag class: 'btn btn-primary btn-lg', id: "upload_submit", name: "update_descriptions", data: { disable_with: "Please wait..." } do %>
           <i class="glyphicon glyphicon-floppy-disk"></i> Edit Term
         <% end %>

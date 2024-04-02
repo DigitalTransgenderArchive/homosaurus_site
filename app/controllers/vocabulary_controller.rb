@@ -33,21 +33,27 @@ class VocabularyController < ApplicationController
   end
 
   def show
-    if params[:pending_id].present?
-      pending = Hist::Pending.find(params[:pending_id])
-      @homosaurus_obj = pending.reify
-    else
-      @homosaurus_obj = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
-    end
+    logger.debug params
+    @homosaurus_obj = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
+    logger.debug @homosaurus_obj
+    # if params[:pending_id].present?
+    #   pending = Hist::Pending.find(params[:pending_id])
+    #   @homosaurus_obj = pending.reify
+    # else
+      
+    # end
 
-    @homosaurus = Term.find_solr(@homosaurus_obj.identifier)
+    #@homosaurus = Term.find_solr(@homosaurus_obj.identifier)
 
     # For terms  that are combined / replaced
     if @homosaurus_obj.visibility == "redirect" and @homosaurus_obj.is_replaced_by.present?
       unless request.formats.present? and request.formats[0].present? and request.formats[0].symbol.to_s != "html"
         redirect_to @homosaurus_obj.is_replaced_by and return
       end
+    end
 
+    if @homosaurus_obj.visibility == "pending" and not current_user.present?
+      redirect_to vocabulary_index_path(id: params[:vocab_id])
     end
 
     respond_to do |format|
@@ -92,6 +98,10 @@ class VocabularyController < ApplicationController
     @homosaurus_obj = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
     @homosaurus = Term.find_solr(@homosaurus_obj.identifier)
     @edit_requests = @homosaurus_obj.get_edit_requests()
+    logger.debug @edit_requests
+    if not current_user.present?
+      @edit_requests.reject!{|er| er.version_release.status != "Published" and er.status != "approved"}
+    end
     respond_to do |format|
       format.html
     end
@@ -118,10 +128,12 @@ class VocabularyController < ApplicationController
     else
       parent = Comment.find_by(id: params["parent"])
     end
+    is_vote = params["is_vote"] == "true" ? true : false
     @c = Comment.create(user_id: params["user"],
                         subject: params["subject"] || nil,
                         commentable: parent,
-                        content: params["content"])
+                        content: params["content"],
+                        is_vote: is_vote)
     if @c.get_root_type() == "Term"
       redirect_to vocabulary_term_discussion_path(:anchor => "comment-#{@c.id}")#, format: :html)
     else
@@ -132,13 +144,59 @@ class VocabularyController < ApplicationController
   def new
     @vocab_id = params[:vocab_id]
     @term = Term.new
+    @term.identifier = "homoit" + (Term.where("vocabulary_id >= 3").order(:identifier).pluck(:identifier).last.split("homoit")[1].to_i + 1).to_s.to_s.rjust(7, "0")
     term_query = Term.where(vocabulary_identifier: params[:vocab_id]).order("lower(pref_label) ASC")
     @all_terms = []
-    term_query.each { |term| @all_terms << [term.identifier + " (" + term.pref_label + ")", term.uri] }
+    term_query.each { |term| @all_terms << [term.identifier + " (" + term.pref_label + ")", term.id] }
   end
 
   def create
-    ActiveRecord::Base.transaction do
+    @vocab_id = params[:vocab_id]
+    @vocabulary = Vocabulary.find_by(identifier: @vocab_id)
+    @term = Term.new
+    tparams = params[:term]
+    identifier = tparams["identifier"]
+    @term.numeric_pid = identifier.split("homoit")[1].to_i
+    @term.identifier = identifier
+    @term.pid = "homosaurus/v3/#{identifier}"
+    @term.uri = "https://homosaurus.org/v3/#{identifier}"
+    @term.vocabulary_identifier = "v3"
+    @term.vocabulary = @vocabulary
+    @term.visibility = "pending"
+    @term.manual_update_date = Time.now
+    @term.pref_label = tparams["relation_#{Relation::Pref_label}"][0]["data"]
+    @term.save!
+    er = EditRequest.new(:term_id => @term.id,
+                         :created_at => DateTime.now,
+                         :version_release_id => params[:version_release].to_i,
+                         :my_changes => EditRequest::makeChangeHash(@term.visibility, @term.uri, params[:id]),
+                         :parent_id => nil, :status => "pending")
+    er_change = EditRequest.new(:term_id => nil,
+                                :creator_id => current_user.id,
+                                :created_at => DateTime.now,
+                                :version_release_id => nil,
+                                :status => "approved",
+                                :my_changes => EditRequest::makeChangeHash(@term.visibility, @term.uri, params[:id]),
+                                :parent_id => er.id)
+    logger.debug tparams
+    tparams.select{|k,v| k.include? "relation_"}.each do |k, v|
+      rel_id = k.split("_")[1].to_i
+      v.reject{|x| x["data"] == ""}.each do |d|
+        c = ["+", d["language_id"] == "" ? nil : d["language_id"], d["data"]]
+        er.my_changes[rel_id] << c
+        er_change.my_changes[rel_id] << c
+      end
+    end
+    [["identifier", identifier], ["uri", @term.uri], ["visibility", "pending"]].each do |k, v|
+      er.my_changes[k] = v
+      er_change.my_changes[k] = v
+    end
+    er.save!
+    er_change.parent_id = er.id
+    er_change.save!
+
+    #ActiveRecord::Base.transaction do
+    if 1 == 0
       @vocabulary = Vocabulary.find_by(identifier: "v3")
       @term = Term.new
       # Fix the below
@@ -223,12 +281,20 @@ class VocabularyController < ApplicationController
   def edit
     @vocab_id = params[:vocab_id]
     @term = Term.find_by(vocabulary_identifier: @vocab_id, identifier: params[:id])
-    if @term.pendings.present?
-      @term = @term.pendings[0]
+    unless params[:release_id]
+      redirect_to vocabulary_term_edit_version_path(vocab_id: @vocab_id, id: params[:id],
+                                                    release_id: VersionRelease.where(status:'Pending')[0].release_identifier)
+      return
     end
+    @release_id = params[:release_id]
+    @release_id_num = VersionRelease.find_by(release_identifier: @release_id).id
+    pp "RELEASE ID IS " + @release_id
+    # if @term.pendings.present?
+    #   @term = @term.pendings[0]
+    # end
     term_query = Term.where(vocabulary_identifier: params[:vocab_id]).order("lower(pref_label) ASC")
     @all_terms = []
-    term_query.each { |term| @all_terms << [term.identifier + " (" + term.pref_label + ")", term.uri] }
+    term_query.each { |term| @all_terms << [term.identifier + " (" + term.pref_label + ")", term.id] }
   end
 
   def set_match_relationship(form_fields, key)
@@ -244,12 +310,103 @@ class VocabularyController < ApplicationController
       @term.send("#{key}=", [])
     end
   end
-
+  
   def update
-    if !params[:term][:identifier].match(/^[0-9a-zA-Z_\-+]+$/) || params[:term][:identifier].match(/ /)
-      redirect_to vocabulary_show_path(vocab_id: "v3", id: params[:id]), notice: "Please use camel case for identifier like 'discrimationWithAbleism'... do not use spaces. Contact K.J. if this is seen for some other valid entry."
+    @term = Term.find_by(vocabulary_identifier: "v3", identifier: params[:id])
+    er = nil
+    vr_exists = false
+
+    my_changes = EditRequest::makeChangeHash(@term.visibility, @term.uri, params[:id])
+    # Use existing ER for VR if it exists, else create new one
+    if @term.edit_requests.where(status: "pending").pluck(:version_release_id).include? params[:version_release].to_i
+      er = @term.edit_requests.find_by(version_release_id: params[:version_release].to_i)
+      vr_exists = true
     else
-      @term = Term.find_by(vocabulary_identifier: "v3", identifier: params[:id])
+      er = EditRequest.new(:term_id => @term.id,
+                           :created_at => DateTime.now,
+                           :version_release_id => params[:version_release].to_i,
+                           :my_changes => my_changes,
+                           :parent_id => nil,
+                           :status => "pending")
+    end
+    er_change = EditRequest.new(:term_id => nil,
+                                :creator_id => current_user.id,
+                                :created_at => DateTime.now,
+                                :version_release_id => nil,
+                                :status => "approved",
+                                :my_changes => EditRequest::makeChangeHash(@term.visibility, @term.uri, params[:id]),
+                                :parent_id => er.id)
+    
+    changed = false
+
+    # Get the currently pending values and the currently live ones
+    all_current_values = @term.get_relationships_at_version_release(params[:version_release].to_i)
+    all_published_values = @term.get_relationships_at_version_release(@term.latest_published_release().id)
+
+    if vr_exists
+      er.my_changes = my_changes
+    end
+    
+    # Loop over the term relationship related paramaters
+    params["term"].each do |k, v|
+      if k.include? "relation_"
+        rel_id = k.split("_")[1].to_i
+        
+        param_values = v.map { |x| Relation::ValueStruct.new(x["data"], x["language_id"] == "" ? nil : x["language_id"]) }.to_set
+        param_values.reject!{|x| x.data == ""}
+        param_values ||= Set.new()
+        
+        published_values = all_published_values[rel_id].map { |x| Relation::ValueStruct.new(x[1], x[0]) }.to_set
+        
+        #current_values = all_current_values[rel_id].map { |x| Relation::ValueStruct.new(x[1], x[0]) }.to_set
+        
+        
+        added_values = param_values - published_values
+        removed_values = published_values - param_values
+        
+        # Set ER changes
+        change_type = "+"
+        [added_values, removed_values].each do |values|
+          values.each do |v|
+            er.addChange(rel_id, [change_type, v.language_id, v.data])
+            unless vr_exists
+              er_change.addChange(rel_id, [change_type, v.language_id, v.data])
+            end
+            changed = true
+          end
+          change_type = "-"
+        end
+        # If the term has an er in the release, record how this modifies it
+        if vr_exists
+          current_values = all_current_values[rel_id].map { |x| Relation::ValueStruct.new(x[1], x[0]) }.to_set
+          added_values = param_values - current_values
+          removed_values = current_values - param_values
+          change_type = "+"
+          [added_values, removed_values].each do |values|
+            values.each do |v|
+              er_change.addChange(rel_id, [change_type, v.language_id, v.data])
+              changed = true
+            end
+            change_type = "-"
+          end
+        end
+      end
+    end
+    
+    if changed
+      pp er
+      pp er_change
+
+      er.save!
+      er_change.updated(:parent_id, er.id)
+      er_change.save!
+      
+      redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "HomosaurusV3 pending term updated!"
+    else
+      redirect_to vocabulary_term_edit_path(vocab_id: "v3",  id: @term.identifier), notice: "No changes were made."
+    end
+    # Legacy code
+    if 1 == 0
       # Update to upcoming new term.
       if @term.visibility == "pending"
         set_match_relationship(params[:term], "exact_match_lcsh")

@@ -17,10 +17,10 @@
     <div class="navbar-header">
       <% if 1==0 %>
       <div class="header_logo">
-        <%= link_to "homosaurus.org", root_path, :id => 'header_logo_link' %>
+        <%= link_to "homosaurus.info", root_path, :id => 'header_logo_link' %>
       </div>
       <% end  %>
-      <%= link_to "homosaurus.org", '/', class: "navbar-brand text-white" %>
+      <%= link_to "homosaurus.info", '/', class: "navbar-brand text-white" %>
       <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"> -->
       <!--   <span class="sr-only">Toggle navigation</span> -->
       <!--   <span class="icon-bar"></span> -->
@@ -71,7 +71,7 @@
               <% end %>
               <% if current_user.superuser? %>
                 <li class="divider"></li>
-                <li><%= link_to 'Publish New Version', version_publish_new_path, :class=>"dropdown-item text-white" %></li>
+                <li><%= link_to 'Manage Version Releases', version_manage_path, :class=>"dropdown-item text-white" %></li>
                 <li class="divider"></li>
                 <li><%= link_to 'Reload Application', restart_application_path, :class=>"dropdown-item text-white" %></li>
               <% end %>
@@ -95,6 +95,11 @@
   <div class="container">
     <div class="starter-template">
       <div class="flash_messages">
+	<% if not current_user.present? %>
+	<div class="alert alert-warning">Warning: This is the development site for version 4 of the Homosaurus. For the current stable website, please visit <a href="https://homosaurus.org">homosaurus.org</a>
+	  <a class="close" data-dismiss="alert" href="#">&times;</a>
+	</div>
+	<% end %>
         <% [:success, :notice, :error, :alert].each do |type| %>
           <%- alert_class = case type
                             when :success then "alert-success"

@@ -62,4 +62,21 @@ class VersionRelease < ActiveRecord::Base
     release_term.visibility = "redirect"
     release_term.save!
   end
+
+  def self.get_next_identifier(change_type)
+    current_identifier = VersionRelease.all()[-1].release_identifier
+    ci_parts = current_identifier.split(".").map{ |x| x.to_i }
+    if change_type == "Major"
+      ci_parts[0] += 1
+      ci_parts[1] = 0
+      ci_parts[2] = 0
+    elsif change_type == "Minor"
+      ci_parts[1] += 1
+      ci_parts[2] = 0
+    elsif change_type == "Patch"
+      ci_parts[2] += 1
+    end
+    return ci_parts.join(".")
+  end
+
 end

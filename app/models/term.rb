@@ -10,6 +10,8 @@ class Term < ActiveRecord::Base
   belongs_to :vocabulary
   has_many :version_release_term
   has_many :term_relationships
+  has_many :relations, :through => :term_relationships
+
   has_many :edit_requests
 
   serialize :labels, Array
@@ -149,6 +151,52 @@ class Term < ActiveRecord::Base
       end
     end
     return values
+  end
+  def get_relationships_at_version_release(vid, full_lang = false)
+    pp vid
+    if not vid.is_a? Integer
+      pp "not int"
+      vid = VersionRelease.find_by(release_identifier: vid).id
+    end
+    pp vid
+    my_hist = self.get_edit_requests().reverse().reject{ |er| er.version_release_id > vid }
+    values = Relation.all().pluck(:id).map{|rel_id| [rel_id, []]}.to_h
+    my_hist.each do |er|
+      Relation.all().pluck(:id).each do |rel_id|
+        er.my_changes[rel_id].each do |rc|
+          lang_id = rc[1].nil? ? nil : (full_lang ? Language.find_by(id: rc[1]).name : rc[1])
+          rel_change = [lang_id, rc[2]]
+          if rc[0] == "+"
+            values[rel_id] << rel_change
+          else
+            values[rel_id].delete(rel_change)
+          end
+        end
+      end
+      values["identifier"] = er.my_changes["identifier"]
+      values["uri"] = er.my_changes["uri"]
+    end
+    return values
+  end
+  def get_pending_changes
+    updated_relationships = get_relationships_at_version_release(self.get_edit_requests.last().id)
+    my_changes = Relation.all().pluck(:id).map{|rel_id| [rel_id, []]}.to_h
+    Relation.all().pluck(:id).each do |rel_id|
+      current_relationships = self.term_relationships.where(relation_id: rel_id).map{|tr| [tr.language_id, tr.data]}.to_set
+      updated_relationships = fully_updated_relationships[rel_id].to_set
+
+      (current_relationships - updated_relationships).each do |r|
+        my_changes[rel_id] << ["-", r[0], r[1]]
+      end
+     
+    end
+    last_er = self.get_edit_requests().reject{|er| er.status == "Pending"}.last()
+    my_hist = self.get_edit_requests().reverse
+    values  = Array.new
+    my
+  end
+  def latest_published_release
+    return self.get_edit_requests().reject{|er| er.status != "approved" or er.version_release.status != "Published"}[0].version_release
   end
   def show_fields
     attributes.keys - ["id", "broader_ids", "narrower_ids", "related_ids"]

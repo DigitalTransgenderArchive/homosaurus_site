@@ -2,9 +2,25 @@ class AdminController < ApplicationController
   before_action :verify_permission
 
   def version_new
+    @version_release = VersionRelease.create(
+      #:id => pendings.id - 1,
+      :release_identifier => VersionRelease::get_next_identifier(params[:release_type]),
+      :release_type => params[:release_type],
+      :created_at => DateTime.now,
+      :updated_at => DateTime.now,
+      :vocabulary_identifier => "v3",
+      :vocabulary_id => 3,
+      :status => "Pending")
+    redirect_to version_manage_path
+  end
+  def version_publish
+    @vr = VersionRelease.find_by(release_identifier: params[:release_identifier])
+    @vr.update(status: "Published")
+    redirect_to version_manage_path
+  end
+  def version_manage
     @version_release = VersionRelease.new
   end
-
   def version_create
     updated_term_identifiers = []
     ActiveRecord::Base.transaction do

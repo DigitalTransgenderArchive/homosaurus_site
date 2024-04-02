@@ -23,7 +23,9 @@ class MultiBaseInput < SimpleForm::Inputs::CollectionInput
   protected
 
   def buffer_each(collection)
+    pp "New each"
     collection.each_with_object('').with_index do |(value, buffer), index|
+      pp "BUFFER EACH MBI -> #{value}"
       buffer << yield(value, index) unless @rendered_first_element && value.blank?
     end
   end
@@ -54,20 +56,32 @@ class MultiBaseInput < SimpleForm::Inputs::CollectionInput
   # Although the 'index' parameter is not used in this implementation it is useful in an
   # an overridden version of this method, especially when the field is a complex object and
   # the override defines nested fields.
-  def build_field_options(value, index)
+  def build_field_options(value, index, lang=false)
     options = input_html_options.dup
-
     options[:value] = value
+    options[:name] = "#{object_name}[#{attribute_name}]"
+    options[:name] << "[]"
+    if lang
+      options[:name] << "[language_id]"
+      options[:selected] = value
+    else
+      options[:name] << "[data]"
+    end
     if @rendered_first_element
       #options[:id] = nil
-      options[:id] ||= input_dom_id #FIXME: Snould update javascript to use something other than id...
+      options[:id] ||= input_dom_id + (lang ? "_lang" : "") #FIXME: Snould update javascript to use something other than id...
       options[:required] = nil
     else
-      options[:id] ||= input_dom_id
+      options[:id] ||= input_dom_id + (lang ? "_lang" : "")
     end
     options[:class] ||= []
     options[:class] += ["#{input_dom_id} form-control multi-text-field"]
+    if lang
+      options[:class] += ["language-selector"]
+    end
     options[:'aria-labelledby'] = label_id
+    #options[:name] = options[:id]
+
     @rendered_first_element = true
 
     options
@@ -92,17 +106,24 @@ class MultiBaseInput < SimpleForm::Inputs::CollectionInput
   end
 
   def collection
-=begin
-    if attribute_name.to_s == 'alt_titles'
-      raise 'Got Here ' + object.send(attribute_name).to_s
-    end
-=end
-    if object.present?
-      @collection ||= Array.wrap(object.send(attribute_name)).reject { |value| value.to_s.strip.blank? } + ['']
-    else
-      ['']
-    end
+    @collection ||= [['', nil]]
   end
+  
+  # def collection
+# =begin
+#     if attribute_name.to_s == 'alt_titles'
+#       raise 'Got Here ' + object.send(attribute_name).to_s
+#     end
+# =end
+#     pp "COLLECTION IS #{@collection}"
+#     pp "COLLECTION IS ALSO #{@collection}"
+#     if object.present?
+#       pp "OBJECT IS #{object}"
+#       @collection ||= Array.wrap(object.send(attribute_name)).reject { |value| value.to_s.strip.blank? } + ['']
+#     else
+#       @collection ||= ['']
+#     end
+#   end
 
   def multiple?; true; end
 end

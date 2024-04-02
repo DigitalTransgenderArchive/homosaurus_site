@@ -6,7 +6,10 @@
   <div class="card comment <%= child ? 'reply-comment' : '' %> mb-2" id="comment-<%= comment.id %>">
     <% unless comment.subject.nil? %>
     <div class="card-header position-relative">
-      <span class="comment-subject fw-bold text-decoration-underline">
+      <% if comment.is_vote %>
+      <span class="fw-bold text-decoration-underline">Vote:</span>&nbsp;
+      <% end %>
+      <span class="comment-subject fw-bold <%= comment.is_vote ? comment.vote_badge_class() : 'text-decoration-underline' %>">
 	<%= comment.subject %>
       </span>
       <span class="badge bg-secondary thread-last-active float-end">Thread last active: <%= comment.thread_last_active() %> </span>

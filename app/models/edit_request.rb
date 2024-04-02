@@ -1,7 +1,8 @@
 class EditRequest < ActiveRecord::Base
   has_many :comments, as: :commentable
-  belongs_to :term
-  belongs_to :version_release
+  belongs_to :term, optional: true
+  belongs_to :version_release, optional: true
+  belongs_to :creator, :class_name => 'User', :foreign_key => 'creator_id', optional: true
   serialize  :my_changes
   belongs_to :parent, :class_name => 'EditRequest', optional: true
   has_many :children, :class_name => 'EditRequest', :foreign_key => 'parent_id'
@@ -37,28 +38,62 @@ class EditRequest < ActiveRecord::Base
                          :prev_term_id => replaces,
                          :created_at => t.created_at,
                          :version_release_id => version_release_id,
-                         :status => "published",
+                         :status => "approved",
                          :my_changes => my_changes)
 
     er.save!
   end
   def self.makeEmptyER(term_id, created_at, vid, vis = "Published", uri = "", identifier = "", parent = nil)
+    my_changes = EditRequest::makeChangeHash(vis, uri, identifier)
+    return EditRequest.create(:term_id => term_id,
+                              :created_at => created_at,
+                              :version_release_id => vid,
+                              :status => "approved",
+                              :my_changes => my_changes,
+                              :parent_id => parent)
+  end
+  def self.makeChangeHash(visibility, uri, identifier)
     my_changes = Hash.new
     Relation.pluck(:id).each do |r|
       my_changes[r] = Array.new
     end
-    my_changes["visibility"] = vis
     my_changes["uri"] = uri
     my_changes["identifier"] = identifier
-    return EditRequest.create(:term_id => term_id,
-                              :created_at => created_at,
-                              :version_release_id => vid,
-                              :status => "published",
-                              :my_changes => my_changes,
-                              :parent_id => parent)
+    return my_changes
   end
 
+  def addChange(rel_id, change)
+    inverse_change = [change[0] == "+" ? "-" : "+", change[1], change[2]]
+    if self.my_changes[rel_id].include? inverse_change
+      self.my_changes.remove!(inverse_change)
+    else
+      self.my_changes[rel_id] << change
+    end
+  end
+  def voteSummary()
+    return self.comments.where(is_vote: true).group(:subject).distinct.count(:id)
+  end
+
+  def hasUserVoted(user)
+    return self.comments.where(is_vote: true).where(user_id: user.id).count > 0
+  end
+
+  def term
+    super || self.parent.term
+  end
+  def version_release
+    super || self.parent.version_release
+  end
+  
   def previous()
+    unless self.parent_id.nil?
+      er_index = self.parent.children.find_index(self)
+      if er_index == 0
+        return self.parent.previous()
+      else
+        return self.parent.children[er_index - 1]
+      end
+    end
     er_index = self.term.edit_requests.find_index(self)
     if er_index == 0
       if self.prev_term_id.nil?

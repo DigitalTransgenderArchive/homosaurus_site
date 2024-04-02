@@ -1,4 +1,8 @@
-  <script type="text/javascript">
+<%
+  rel_id = @release_id || VersionRelease.where(status: "Pending").pluck(:id)[0]
+  vr_relations = @term.get_relationships_at_version_release(rel_id)
+  %>
+<script type="text/javascript">
       $.fn.modal.Constructor.prototype.enforceFocus = function() {};
   </script>
     <%
@@ -16,93 +20,42 @@
 
       language_options_expanded = AutocompleteController.form_languages
     %>
-
-    <%= render :partial => "mei/form_language_labels", :locals => {:f => f, :key=>:pref_label_language, :dropdown_opts=>language_options_expanded} %>
-    <%= f.input :pref_label_language, as: :preflanguage_labels_mei,
+    <%= f.input "relation_#{Relation::Pref_label}", collection: vr_relations[Relation::Pref_label], as: :preflanguage_labels_mei,
                 input_html: { include_help: t("admin_help.preferred_term"),
                               help_label: 'Preferred Term',
                               tabindex: 14,},
                 required: true, readonly: false, label: 'Preferred Term'
     %>
 
-    <%= render :partial => "mei/form_language_labels", :locals => {:f => f, :key=>:labels_language, :dropdown_opts=>language_options_expanded} %>
-    <%= f.input :labels_language, as: :language_labels_mei,
+    <%= f.input "relation_#{Relation::Label}", collection: vr_relations[Relation::Label], as: :language_labels_mei,
                 input_html: { include_help: t("admin_help.other_preferred_terms"),
                               help_label: 'Other Preferred Terms',
                               tabindex: 14,},
                 required: false, readonly: false, label: 'Other Preferred Terms'
     %>
 
-    <%= render :partial => "mei/form_language_labels", :locals => {:f => f, :key=>:alt_labels_language, :dropdown_opts=>language_options_expanded} %>
-    <%= f.input :alt_labels_language, as: :language_labels_mei,
-                input_html: { include_help: t("admin_help.alternative_terms"),
-                              help_label: 'Alternative Terms (Use For)',
+    <%= f.input "relation_#{Relation::Alt_label}", collection: vr_relations[Relation::Alt_label], as: :language_labels_mei,
+                input_html: { include_help: t("admin_help.other_preferred_terms"),
+                              help_label: 'Other Preferred Terms',
                               tabindex: 14,},
-                required: false, readonly: false, label: 'Alternative Terms (Use For)'
+                required: false, readonly: false, label: 'Alternative Terms'
     %>
 
-    <%= f.input :description, as: :single_base,
+    <%= f.input "relation_#{Relation::Description}", collection: vr_relations[Relation::Description], as: :language_labels_mei,
                 input_html: { include_help: t("admin_help.scope_note"),
                               help_label: 'Description (Scope Note)',
-                              rows: '9', type: 'textarea',
+                              rows: '4', type: 'textarea',
                 },
-                required: true, label: 'Description (Scope Note)'
+                required: true, readonly:false, label: 'Description (Scope Note)'
+	%>
+    <%= f.input "relation_#{Relation::Broader}", as: :prefix_multi_select_v3, collection: vr_relations[Relation::Broader], collection2: @all_terms,
+                input_html: { class: 'form-control', include_help: 'Broader terms for this term.', help_label: 'Broader', multiple: false }, include_blank: true, label: 'Broader terms'
     %>
-
-  <%= f.input :sources, as: :multi_base,
-              input_html: { include_help: t("admin_help.sources"),
-                            help_label: 'Source',
-              },
-              required: false, label: 'Source'
-  %>
-
-  <%= f.input :contributors, as: :multi_base,
-              input_html: { include_help: t("admin_help.contributors"),
-                            help_label: 'Contributor',
-              },
-              required: false, label: 'Contributor'
-  %>
-
-    <%= f.input :history_note, as: :single_base,
-                input_html: { include_help: t("admin_help.history_note"),
-                              help_label: 'History Note',
-                              rows: '5', type: 'textarea',
-                },
-                required: false, label: 'History Note'
-    %>
-
-    <%= f.input :internal_note, as: :single_base,
-                input_html: { include_help: t("admin_help.internal_note"),
-                              help_label: 'Internal Note',
-                              rows: '5', type: 'textarea',
-                },
-                required: false, label: 'Internal Note'
-    %>
-
-    <%= f.input :broader, as: :prefix_multi_select_v3, collection: @all_terms,
-                input_html: { class: 'form-control', include_help: 'Broader terms for this term.', help_label: 'Broader', multiple: false }, include_blank: true
-    %>
-
-    <%= f.input :narrower, as: :prefix_multi_select_v3, collection: @all_terms,
-                input_html: { class: 'form-control', include_help: 'Narrower terms for this term.', help_label: 'Narrower', multiple: false }, include_blank: true
-    %>
-
-    <%= f.input :related, as: :prefix_multi_select_v3, collection: @all_terms,
-                input_html: { class: 'form-control', include_help: 'Related terms for this term.', help_label: 'Related', multiple: false }, include_blank: true
-    %>
-
-    <%= render :partial => "mei/form", :locals => {:f => f, :key=>:exact_match_lcsh} %>
-    <%= f.input :exact_match_lcsh, as: :lcsh_lookup,
-                input_html: { include_help: "Look up LCSH Subjects",
-                              help_label: 'Exact Match–LC Subject Headings'},
-                required: false, readonly: true, label: 'Exact Match–LC Subject Headings'
-    %>
-
-    <%= render :partial => "mei/form", :locals => {:f => f, :key=>:close_match_lcsh} %>
-    <%= f.input :close_match_lcsh, as: :lcsh_lookup,
-                input_html: { include_help: "Look up LCSH Subjects",
-                              help_label: 'Close Match–LC Subject Headings'},
-                required: false, readonly: true, label: 'Close Match–LC Subject Headings'
+    <%= f.input "relation_#{Relation::Narrower}", as: :prefix_multi_select_v3, collection: vr_relations[Relation::Narrower], collection2: @all_terms,
+                input_html: { class: 'form-control', include_help: 'Narrower terms for this term.', help_label: 'Narrower', multiple: false }, include_blank: true, label: 'Narrower terms'
+	%>
+    <%= f.input "relation_#{Relation::Related}", as: :prefix_multi_select_v3, collection: vr_relations[Relation::Related], collection2: @all_terms,
+                input_html: { class: 'form-control', include_help: 'Related terms for this term.', help_label: 'Related', multiple: false }, include_blank: true, label: 'Related terms'
     %>
 
 

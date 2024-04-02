@@ -1,3 +1,4 @@
+/* Functions for the homosaurus term edit form */
 // initialize the bootstrap popovers
 $.onmount("a[data-toggle=popover]", function () {
     $(this).popover({html: true})
@@ -58,7 +59,6 @@ function delete_field_click(event) {
         $(event.target).closest(".field-wrapper").remove();
     }
 }
-
 $.onmount("[data-js-duplicate-audits-field]", function () {
     $(this).click(duplicate_field_click);
 });
@@ -95,4 +95,3 @@ $.onmount("[data-js-toggle-disable-form-field]", function () {
         })
     });
 });
-

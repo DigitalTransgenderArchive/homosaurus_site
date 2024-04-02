@@ -10,8 +10,6 @@ class MeiMultiLookupInput < MultiBaseInput
           <li class="field-wrapper">
              <div class="input-group col-sm-12">
               #{yield}
-
-             <span class="input-group-btn"><button style="width:auto; margin-right: 10px;" type="button" class="btn btn-default" data-toggle="modal" data-target="#meiLookupModal_#{attribute_name}", tabindex="#{input_html_options[:tabindex]}" >Lookup</button></span>
               <span class="input-group-btn regular_audits_duplicate_span">
                 <button class="btn btn-success" data-js-duplicate-audits-field="true" type="button", tabindex="-1">+</button>
               </span>
@@ -24,13 +22,20 @@ class MeiMultiLookupInput < MultiBaseInput
   end
 
   def build_field(value, index)
-    options = build_field_options(value, index)
+    options = build_field_options(value == "" ? "" : value[1], index)
     options[:class] += ["duplicateable"]
+    out = ""
     if options.delete(:type) == 'textarea'.freeze
-      @builder.text_area(attribute_name, options)
+      out << @builder.text_area(attribute_name, options)
     else
-      @builder.text_field(attribute_name, options)
+      out << @builder.text_field(attribute_name, options)
     end
+
+    new_options = build_field_options(value == "" ? "" : value[0], index, true)
+    #out << @builder.select("#{attribute_name}", Language.all().pluck(:name, :id), {}, new_options)
+    new_options[:class] += ["form-select"]
+    out << template.select_tag(attribute_name, template.options_for_select(Language.all().pluck(:name, :id), value[0]), new_options)
+    out
   end
 
 end

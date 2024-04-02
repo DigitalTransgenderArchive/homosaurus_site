@@ -17,14 +17,23 @@ class PrefixMultiSelectV3Input < MultiSelectInput
           </li>
     HTML
   end
-
+  # def collection
+  #   @collection = attribute_name.split("_")[1]
+  # end
+  def input(wrapper_options)
+    @collection2 = options[:collection2]
+    super
+  end
+  def collection
+    @collection ||= ['', nil]
+  end
   def buffer_each(collection)
     collection.each_with_object('').with_index do |(value, buffer), index|
       if !@rendered_first_element && value.blank?
         buffer << yield(value, index)
       elsif value.present?
-        term = Term.find_by(uri: value)
-        buffer << yield(["#{term.identifier} (#{term.pref_label})", term.uri], index) unless @rendered_first_element && value.blank?
+        term = Term.find_by(id: value[1])
+        buffer << yield(["#{term.identifier} (#{term.pref_label})", term.id], index) unless @rendered_first_element && value.blank?
       end
     end
   end

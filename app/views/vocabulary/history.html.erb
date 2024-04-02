@@ -25,7 +25,7 @@
 <div class="container-fluid">
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <% @edit_requests.each do |er|  %>
-      <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, discussion_page: true} %>
+      <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all} %>
     <% end %>
   </div>
 </div>
