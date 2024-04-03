@@ -60,8 +60,12 @@ Rails.application.routes.draw do
   get ':vocab_id/:id/history' => 'vocabulary#history', as: :vocabulary_term_history
   get ':vocab_id/:id/:release_id' => 'vocabulary#discussion', as: :edit_request_discussion, constraints: { release_id: /[\d\.]+/ }
   get ':vocab_id/:id/:release_id/post_comment' => 'vocabulary#post_comment', as: :edit_request_discussion_post_comment, constraints: { release_id: /[\d\.]+/ }
+  get ':vocab_id/:id/:release_id/edit_comment' => 'vocabulary#edit_comment', as: :edit_request_discussion_edit_comment, constraints: { release_id: /[\d\.]+/ }
+  
   get ':vocab_id/:id/discussion' => 'vocabulary#discussion', as: :vocabulary_term_discussion  
   get ':vocab_id/:id/discussion/post_comment' => 'vocabulary#post_comment', as: :vocabulary_discussion_post_comment
+
+  get ':vocab_id/:id/discussion/edit_comment' => 'vocabulary#edit_comment', as: :vocabulary_discussion_edit_comment
 
 
   # These have to be last

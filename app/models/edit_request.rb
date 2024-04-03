@@ -71,11 +71,12 @@ class EditRequest < ActiveRecord::Base
     end
   end
   def voteSummary()
-    return self.comments.where(is_vote: true).group(:subject).distinct.count(:id)
+    votes = self.comments.where(replaces_comment_id: nil).where(is_vote: true).map{ |c| c.subject }
+    return votes.uniq.map{ |v| [v, votes.count(v)] }.to_h
   end
 
   def hasUserVoted(user)
-    return self.comments.where(is_vote: true).where(user_id: user.id).count > 0
+    return self.comments.where(replaces_comment_id: nil).where(is_vote: true).where(user_id: user.id).count > 0
   end
 
   def term

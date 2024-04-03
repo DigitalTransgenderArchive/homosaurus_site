@@ -21,6 +21,10 @@
       <span class="badge bg-secondary">
 	@<%= comment.user.email %>
       </span> - <span class=""> <%= comment.created_at %> </span>
+      <% if comment.created_at != comment.updated_at %>
+      <br>
+      <span>* Updated at: <%= comment.updated_at %> </span>
+      <% end %>
     </div>
     <div class="card-footer">
       <button type="button" class="btn btn-primary leave-reply" data-bs-toggle="collapse"
@@ -35,6 +39,12 @@
 	Show/hide replies &nbsp;
       </button>
       <% end %>
+      <% if current_user.id == comment.user.id %>
+      <button type="button" class="btn btn-danger edit-comment" data-bs-toggle="modal"
+	      data-bs-target="#edit-comment-modal" data-bs-subject="<%= comment.subject %>"
+	      data-bs-content="<%= comment.content %>" data-bs-isvote="<%= comment.is_vote %>"
+	      data-bs-comment-id="<%= comment.id %>">Edit <%= comment.is_vote ? 'Vote' : 'Comment' %></button>
+      <% end  %>
 
       <%= form_with url: request.fullpath + "/post_comment", class: "reply-box-form", method: :get, local: true do |f| %>
         <div class="input-group mt-2 reply-box collapse" id="comment-<%= comment.id %>-reply-box">

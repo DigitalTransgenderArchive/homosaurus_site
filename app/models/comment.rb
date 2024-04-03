@@ -52,4 +52,23 @@ class Comment < ActiveRecord::Base
     return '' if not self.is_vote
     return Comment::vote_badge_class(self.subject)
   end
+
+  # Override the default getters to grab the subject/content of the latest revision
+  def subject
+    replacements = Comment.where(replaces_comment_id: self.id)
+    if replacements.count > 0
+      return replacements[-1].subject
+    else
+      return self[:subject]
+    end
+  end
+
+  def content
+    replacements = Comment.where(replaces_comment_id: self.id)
+    if replacements.count > 0
+      return replacements[-1].content
+    else
+      return self[:content]
+    end
+  end
 end

@@ -1,5 +1,5 @@
 class VocabularyController < ApplicationController
-  before_action :verify_permission, :only => [:new, :edit, :discussion, :post_reply, :create, :update, :destroy, :replace, :restore, :destroy_version] # ,  :update_immediate
+  before_action :verify_permission, :only => [:new, :edit, :discussion, :post_comment, :post_reply, :edit_comment, :create, :update, :destroy, :replace, :restore, :destroy_version] # ,  :update_immediate
 
   def index
     identifier = params[:id]
@@ -114,11 +114,12 @@ class VocabularyController < ApplicationController
       @homosaurus_obj = @homosaurus_obj.edit_requests.find_by(version_release_id: @vid)
       @discussion_type = "EditRequest"
     end
-    @comments = @homosaurus_obj.comments
+    @comments = @homosaurus_obj.comments.where(replaces_comment_id: nil)
     respond_to do |format|
       format.html
     end
   end
+
   def post_comment
     parent = nil
     if params["parent_type"] == "Term"
@@ -138,6 +139,33 @@ class VocabularyController < ApplicationController
       redirect_to vocabulary_term_discussion_path(:anchor => "comment-#{@c.id}")#, format: :html)
     else
       redirect_to edit_request_discussion_path(:anchor => "comment-#{@c.id}")
+    end
+  end
+
+  def edit_comment
+    comment = Comment.find_by(id: params['comment_id'])
+    is_vote = (params["is_vote"] == "true")
+    subject = is_vote ? params['vote-subject'] : params['subject']
+    content = params['content']
+    notice = "Comment succesfully edited"
+    if comment.subject == subject and comment.content == content
+      notice = "No changes made."
+      @c = comment
+    else
+      @c = Comment.create(user_id: comment.user.id,
+                          subject: subject,
+                          commentable: comment.commentable,
+                          content: content,
+                          is_vote: is_vote,
+                          replaces_comment_id: comment.id,
+                          language_id: comment.language_id)
+      comment.updated_at = Time.now
+      comment.save!
+    end
+    if @c.get_root_type() == "Term"
+      redirect_to vocabulary_term_discussion_path(:anchor => "comment-#{comment.id}"), notice: notice
+    else
+      redirect_to edit_request_discussion_path(:anchor => "comment-#{comment.id}"), notice: notice
     end
   end
   

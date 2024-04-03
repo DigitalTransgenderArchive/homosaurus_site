@@ -122,6 +122,42 @@
   </div>
 </div>
 
+<div class="modal fade" id="edit-comment-modal" tabindex="-1" aria-labelledby="edit-comment-modal-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= form_with url: request.fullpath + "/edit_comment", method: :get, local: true do |f| %>
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="edit-comment-modal-label">Edit Comment/Vote</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	<input type="hidden" name="comment_id" id="edit-comment-modal-comment-id" value="">
+	<input type="hidden" name="is_vote" id="edit-comment-modal-isvote" value="">
+        <div id="edit-comment-subject" class="mb-3">
+          <label for="edit-comment-modal-subject" class="col-form-label">Subject:</label>
+          <input name="subject" type="text" class="form-control" id="edit-comment-modal-subject">
+        </div>
+	<div id="edit-vote-selection" class="input-group mb-3">
+	    <label for="vote-select" class="input-group-text">Vote</label>
+	    <select id="edit-comment-modal-vote" name="vote-subject" class="form-select">
+	      <option value="Accept">Accept</option>
+	      <option value="Reject">Reject</option>
+	      <option value="Table">Table</option>
+	    </select>
+	  </div>
+        <div class="mb-3">
+          <label for="message-text" class="col-form-label">Comment:</label>
+          <input type="textarea" name="content" class="form-control" id="edit-comment-modal-content">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <script type='text/javascript'>
   // Scroll to highlighted comment if exists
@@ -130,12 +166,40 @@
 	if(scrolled_id != ""){
 	    $n = $(scrolled_id);
 	    $n.parents().each(function(i, e){
-		console.log(e);
 		$(e).collapse("show");
 	    })
 	    setTimeout(function(){}, 2000);
 	    $n[0].scrollIntoView();
 	};
+	$editModal = $('#edit-comment-modal');
+	$editModal.on('show.bs.modal', function(event){
+	    console.log("editing comment");
+	    // Button that triggered the modal
+	    $button = event.relatedTarget
+	    // Extract info from data-bs-* attributes
+	    var commentId = $button.getAttribute('data-bs-comment-id')
+	    var isVote = $button.getAttribute('data-bs-isvote')
+	    var subject = $button.getAttribute('data-bs-subject')
+	    var content = $button.getAttribute('data-bs-content')
+
+	    $('#edit-comment-modal-comment-id').val(commentId);
+	    $('#edit-comment-modal-isvote').val(isVote);
+
+	    if(isVote == "true"){
+		$('#edit-comment-modal-label').text('Edit Vote');
+		$('#edit-comment-subject').hide();
+		$('#edit-vote-selection').show();
+		var $modalSubject = $('#edit-comment-modal-vote');
+	    }else{
+		$('#edit-comment-modal-label').text('Edit Comment');
+		$('#edit-comment-subject').show();
+		$('#edit-vote-selection').hide();
+		var $modalSubject = $('#edit-comment-modal-subject');
+	    }
+	    $modalSubject.val(subject);
+	    var $modalContent = $('#edit-comment-modal-content');
+	    $modalContent.val(content);
+	});
     });
 </script>
 
