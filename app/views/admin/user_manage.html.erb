@@ -1,0 +1,49 @@
+<div class="row-padded">
+  <h1>Manage Users</h1>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+	<tr>
+	  <th scope="col">User</th>
+	  <th scope="col">All</th>
+	  <% Language.supported.each do |l| %>
+	  <th scope="col"><%= t("languages.#{l.id}") %></th>
+	  <% end %>
+	</tr>
+      </thead>
+      <tbody>
+	<% @users.each do |u| %>
+	<tr>
+	  <th scope="row"><%= u.username %></th>
+	  <% glob_l_obj = u.user_language_roles.find_by("role_id <= 2")
+	     is_admin = (not glob_l_obj.nil?)
+	     glob_l_obj = glob_l_obj.nil? ? UserLanguageRole.new(user_id: u.id, language_id: nil) : glob_l_obj %>
+	  <td>
+	    <%= form_with model: glob_l_obj, url: user_update_path, method: :post do |form| %>
+	    <%= form.hidden_field :user_id, value: u.id %>
+	    <%= form.hidden_field :language_id, value: nil %>
+	    <%= select_tag :role_id, options_for_select([["unassigned", nil]] + Role.where("id <= 2").pluck(:name, :id), glob_l_obj.role_id), onchange: "this.form.submit();" %>
+	    <% end %>
+	  </td>
+	  <% Language.supported.each do |l|
+	     l_obj = l.user_language_roles.where("role_id > 2").find_by(user_id: u.id)
+	     l_obj = l_obj.nil? ? UserLanguageRole.new(user_id: u.id, language_id: l.id) : l_obj
+	     %>
+	  <td scope="col">
+	    <% if is_admin %>
+            ...
+	    <% else %>
+            <%= form_with model: l_obj, url: user_update_path, method: :post do |form| %>
+	    <%= form.hidden_field :user_id, value: u.id %>
+	    <%= form.hidden_field :language_id, value: l.id %>
+	    <%= select_tag :role_id, options_for_select([["unassigned", nil]] + Role.where("id > 2").pluck(:name, :id), l_obj.role_id), onchange: "this.form.submit();" %>
+	    <% end %>
+	    <% end %>
+	  </td>
+	  <% end %>
+	</tr>
+	<% end %>
+      </tbody>
+    </table>
+    </div>
+</div>

@@ -113,6 +113,26 @@ class AdminController < ApplicationController
     redirect_to vocabulary_term_new_path(vocab_id: "v3")
   end
 
+  def user_manage
+    @users = User.all
+  end
+
+  def user_update
+    ulr = params["user_language_role"].to_unsafe_h
+    ulr["language_id"] = ulr["language_id"] == '' ? nil : ulr["language_id"]
+    ulr["role_id"] = params["role_id"]
+    ulr_obj = UserLanguageRole.where(user_id: ulr["user_id"]).where(language_id: ulr["language_id"])
+    if ulr["role_id"] == ""
+      ulr_obj.delete_all()
+    else
+      if ulr_obj.count > 0
+        ulr_obj.update_all(role_id: ulr["role_id"])
+      else
+        ulr_obj = UserLanguageRole.create(ulr)
+      end
+    end
+    redirect_to user_manage_path
+  end
   # From: https://github.com/CollegeOfTheHolyCross/dta_sufia/blob/bd445b07af17175d886cf8ee4eb9a1609daec231/app/controllers/commands_controller.rb
   def restart_application
     `git pull origin master`

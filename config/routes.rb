@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   post '/admin/version/new/:release_type' => 'admin#version_new', as: :version_publish_new
   post '/admin/version/publish/:release_identifier' => 'admin#version_publish', as: :version_publish, constraints: { release_identifier: /.*/ }
   get '/admin/version/manage' => 'admin#version_manage', as: :version_manage
+  get '/admin/users/manage' => 'admin#user_manage', as: :user_manage
+  post '/admin/users/update_role' => 'admin#user_update', as: :user_update
   post '/admin/version/publish' => 'admin#version_create', as: :version_publish_create
   get '/admin/site/reload' => 'admin#restart_application', as: :restart_application
 
