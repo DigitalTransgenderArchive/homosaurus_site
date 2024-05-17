@@ -51,6 +51,7 @@
 	  <input type="hidden" name="user" value="<%= current_user.id %>">
 	  <input type="hidden" name="parent" value="<%= comment.id %>">
 	  <input type="hidden" name="parent_type" value="Comment">
+	  <input type="hidden" name="language_id" value="<%= I18n.locale %>">
 	  <input type="textarea" class="form-control" placeholder="Leave reply here" name="content">
 	  <button type="button" class="btn btn-danger" data-bs-toggle="collapse"
 	      data-bs-target="#comment-<%= comment.id %>-reply-box" aria-expanded="false"

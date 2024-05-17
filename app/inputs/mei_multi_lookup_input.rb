@@ -30,12 +30,24 @@ class MeiMultiLookupInput < MultiBaseInput
     else
       out << @builder.text_field(attribute_name, options)
     end
-
+    pp "VAL IS -> #{value}"
     new_options = build_field_options(value == "" ? "" : value[0], index, true)
+    disabled_langs = Language.where(supported: true).where.not(id: I18n.locale).pluck(:id)
     #out << @builder.select("#{attribute_name}", Language.all().pluck(:name, :id), {}, new_options)
+    if disabled_langs.include?(value[0])
+      new_options[:disabled] = true
+    end
     new_options[:class] += ["form-select"]
-    out << template.select_tag(attribute_name, template.options_for_select(Language.all().pluck(:name, :id), value[0]), new_options)
+    out << template.select_tag(attribute_name, template.options_for_select(
+                                 Language.order('supported desc', 'name asc').pluck(:name, :id),
+                                 selected: value[0],
+                                 disabled: Language.where(supported: true).where.not(id: I18n.locale).pluck(:id)
+                               ), new_options)
     out
   end
+
+  def collection
+    @collection.empty? ? ['', nil] : @collection
+  end  
 
 end

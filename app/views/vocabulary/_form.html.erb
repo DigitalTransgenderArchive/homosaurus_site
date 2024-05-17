@@ -3,8 +3,24 @@
   vr_relations = @term.get_relationships_at_version_release(rel_id)
   %>
 <script type="text/javascript">
-      $.fn.modal.Constructor.prototype.enforceFocus = function() {};
-  </script>
+  $(document).ready(function(){
+      console.log("loaded");
+      $('.language-selector:disabled').each(function(){
+	  var $self = $(this);
+	  var $p = $self.parent();
+	  var $inp = $($p.children()[0]);
+	  $inp.prop('readonly', true);
+	  $hid_inp = $('<input type="hidden">');
+	  $hid_inp.attr('name', $self.attr('name'));
+	  $hid_inp.val($self.find('option:selected').map(function(i, v){return this.value}).get()[0]);
+	  $p.append($hid_inp);
+	  var $del_button = $($p.children()[3]).find('button');
+	  $del_button.prop('disabled', true);
+      })
+  })
+  //$.fn.modal.Constructor.prototype.enforceFocus = function() {};
+
+</script>
     <%
       #ISO_639::ISO_639_2.each.map { |t| [t[3], t[0]] }
       langugage_options = [['English', 'en'], ['English (USA)', 'en-US'], ['English (UK)', 'en-GB']]
@@ -20,7 +36,7 @@
 
       language_options_expanded = AutocompleteController.form_languages
     %>
-    <%= f.input "relation_#{Relation::Pref_label}", collection: vr_relations[Relation::Pref_label], as: :preflanguage_labels_mei,
+    <%= f.input "relation_#{Relation::Pref_label}", collection: vr_relations[Relation::Pref_label], as: :language_labels_mei,
                 input_html: { include_help: t("admin_help.preferred_term"),
                               help_label: 'Preferred Term',
                               tabindex: 14,},

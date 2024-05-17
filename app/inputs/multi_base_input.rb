@@ -7,6 +7,8 @@ class MultiBaseInput < SimpleForm::Inputs::CollectionInput
   end
 
   def input(wrapper_options)
+    pp options[:collection]
+    @collection = options[:collection]
     @rendered_first_element = false
     input_html_classes.unshift("string")
     input_html_options[:name] ||= "#{object_name}[#{attribute_name}][]"
@@ -23,9 +25,7 @@ class MultiBaseInput < SimpleForm::Inputs::CollectionInput
   protected
 
   def buffer_each(collection)
-    pp "New each"
     collection.each_with_object('').with_index do |(value, buffer), index|
-      pp "BUFFER EACH MBI -> #{value}"
       buffer << yield(value, index) unless @rendered_first_element && value.blank?
     end
   end

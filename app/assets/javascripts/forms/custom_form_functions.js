@@ -23,7 +23,12 @@ function duplicate_field_click(event) {
     cloned_element.find("input").val("");
     cloned_element.find("textarea").val("");
     cloned_element.find("select").val("");
-
+    cloned_element.find("input").prop('readonly', false);
+    cloned_element.find("textarea").prop('readonly', false);
+    cloned_element.find('.input-group-btn button').prop('disabled', false)
+    cloned_element.find(".language-selector").val(window.location.host.split(".")[0]);
+    cloned_element.find(".language-selector").prop('disabled', false);
+    cloned_element.find('input[type=hidden]').remove();
     // Remove any initial values
     if(is_autocomplete_select2) {
         $(cloned_element).find('.duplicateable').removeAttr('data-initial_value');
@@ -95,3 +100,4 @@ $.onmount("[data-js-toggle-disable-form-field]", function () {
         })
     });
 });
+
