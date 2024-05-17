@@ -1,5 +1,5 @@
 class VocabularyController < ApplicationController
-  before_action :verify_permission, :only => [:new, :edit, :discussion, :post_comment, :post_reply, :edit_comment, :create, :update, :destroy, :replace, :restore, :destroy_version] # ,  :update_immediate
+  before_action :verify_permission, :only => [:new, :edit, :discussion, :post_comment, :post_reply, :edit_comment, :approve_release, :create, :update, :destroy, :replace, :restore, :destroy_version] # ,  :update_immediate
 
   def index
     identifier = params[:id]
@@ -95,12 +95,14 @@ class VocabularyController < ApplicationController
   end
 
   def history
+
+    pp current_user
     @homosaurus_obj = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
     @homosaurus = Term.find_solr(@homosaurus_obj.identifier)
     @edit_requests = @homosaurus_obj.get_edit_requests()
     logger.debug @edit_requests
     if not current_user.present?
-      @edit_requests.reject!{|er| er.version_release.status != "Published" and er.status != "approved"}
+      @edit_requests.reject!{|er| er.version_release.status != "Published" or er.vote_status != "approved"}
     end
     respond_to do |format|
       format.html
@@ -114,7 +116,7 @@ class VocabularyController < ApplicationController
       @homosaurus_obj = @homosaurus_obj.edit_requests.find_by(version_release_id: @vid)
       @discussion_type = "EditRequest"
     end
-    @comments = @homosaurus_obj.comments.where(replaces_comment_id: nil)
+    @comments = @homosaurus_obj.comments.where(replaces_comment_id: nil).where(language_id: I18n.locale)
     respond_to do |format|
       format.html
     end
@@ -134,7 +136,8 @@ class VocabularyController < ApplicationController
                         subject: params["subject"] || nil,
                         commentable: parent,
                         content: params["content"],
-                        is_vote: is_vote)
+                        is_vote: is_vote,
+                        language_id: params["language_id"])
     if @c.get_root_type() == "Term"
       redirect_to vocabulary_term_discussion_path(:anchor => "comment-#{@c.id}")#, format: :html)
     else
@@ -168,7 +171,26 @@ class VocabularyController < ApplicationController
       redirect_to edit_request_discussion_path(:anchor => "comment-#{comment.id}"), notice: notice
     end
   end
-  
+
+  def approve_release
+    pp params
+    vid = VersionRelease.find_by(release_identifier: params["release_id"])
+    er = Term.find_by(identifier: params["id"]).edit_requests.find_by(version_release_id: vid)
+    vs = er.vote_statuses.find_by(language_id: I18n.locale)
+    if vs.nil?
+      vs = VoteStatus.create!(
+        :votable => er,
+        :reviewer_id => current_user.id,
+        :language_id => I18n.locale,
+        :status => "approved"
+      )
+    else
+      vs.update(status: "approved")
+      vs.update(reviewer_id: current_user.id)
+    end
+    redirect_to edit_request_discussion_path
+
+  end
   def new
     @vocab_id = params[:vocab_id]
     @term = Term.new
@@ -343,7 +365,7 @@ class VocabularyController < ApplicationController
     @term = Term.find_by(vocabulary_identifier: "v3", identifier: params[:id])
     er = nil
     vr_exists = false
-
+    pp params
     my_changes = EditRequest::makeChangeHash(@term.visibility, @term.uri, params[:id])
     # Use existing ER for VR if it exists, else create new one
     if @term.edit_requests.where(status: "pending").pluck(:version_release_id).include? params[:version_release].to_i
@@ -369,7 +391,8 @@ class VocabularyController < ApplicationController
 
     # Get the currently pending values and the currently live ones
     all_current_values = @term.get_relationships_at_version_release(params[:version_release].to_i)
-    all_published_values = @term.get_relationships_at_version_release(@term.latest_published_release().id)
+    lpr = @term.latest_published_release()
+    all_published_values = @term.get_relationships_at_version_release(lpr.nil? ? 1 : lpr.id)
 
     if vr_exists
       er.my_changes = my_changes
@@ -426,7 +449,7 @@ class VocabularyController < ApplicationController
       pp er_change
 
       er.save!
-      er_change.updated(:parent_id, er.id)
+      er_change.update(parent_id: er.id)
       er_change.save!
       
       redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "HomosaurusV3 pending term updated!"

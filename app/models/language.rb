@@ -4,6 +4,7 @@ class Language < ActiveRecord::Base
   has_many :term_relationships
   belongs_to :parent, :class_name => 'Language', optional: true
   has_many :localizations, :class_name => 'Language', :foreign_key => 'localizes_language_id'
+  has_many :vote_statuses
 
   has_many :user_language_roles 
 

@@ -1,5 +1,6 @@
 class Term < ActiveRecord::Base
   has_many :comments, as: :commentable
+  has_many :vote_statuses, as: :votable
   include TermAssignments
   include ::Hist::Model
 
@@ -124,6 +125,7 @@ class Term < ActiveRecord::Base
     end
   end
 
+  # Get all edits tied to this term (and that it replaces)
   def get_edit_requests
     unless self.edit_requests.count and not self.edit_requests[0].nil?
       return []
@@ -134,6 +136,8 @@ class Term < ActiveRecord::Base
     end
     return all_edit_requests
   end
+
+  # Get TermRelationship(s) at the point of a specified version release
   def get_relationship_at_version_release(rel_id, vid)
     my_hist = self.get_edit_requests().reverse()
     values = Array.new
@@ -190,14 +194,39 @@ class Term < ActiveRecord::Base
       end
      
     end
-    last_er = self.get_edit_requests().reject{|er| er.status == "Pending"}.last()
+    last_er = self.get_edit_requests().reject{|er| er.vote_status == "pending"}.last()
     my_hist = self.get_edit_requests().reverse
     values  = Array.new
     my
   end
+  # Get latest published release term was edited in
   def latest_published_release
-    return self.get_edit_requests().reject{|er| er.status != "approved" or er.version_release.status != "Published"}[0].version_release
+    pp self.get_edit_requests().map{|er| er}
+    published_releases = self.get_edit_requests().reject{|er| er.vote_status != "approved" or er.version_release.status != "Published"}
+    return published_releases.empty? ? nil : published_releases[0].version_release
   end
+
+  # Returns whether a translation exists for a given language
+  # Translation = description, >1 (preferred/alt/normal) label, >1 broader/narrower/related terms
+  def translation_exists?(lang_id)
+    # Get relationships for this lang and localizations
+    lang_ids = Language.where(localizes_language_id: lang_id).pluck(:id) << lang_id
+    lang_relationships = self.term_relationships.where(language_id: lang_ids)
+    
+    lang_desc = lang_relationships.where(relation_id: Relation::Description).count
+    lang_labels = lang_relationships.where(relation_id: [Relation::Pref_label, Relation::Label, Relation::Alt_label]).count
+    relations = self.term_relationships.where(relation_id: [Relation::Broader, Relation::Narrower, Relation::Related]).count
+    # logger.debug("========================================= lol ====================")
+    # logger.debug([lang_desc, lang_pref, lang_labels, relations])
+    return (lang_desc * lang_labels * relations) > 0
+    
+  end
+
+  def translated_languages
+    langs = self.term_relationships.pluck(:language_id).uniq.reject{|x| x.nil?}
+    return langs.reject{|l| not translation_exists?(l)}
+  end
+  
   def show_fields
     attributes.keys - ["id", "broader_ids", "narrower_ids", "related_ids"]
   end

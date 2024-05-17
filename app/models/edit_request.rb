@@ -1,5 +1,6 @@
 class EditRequest < ActiveRecord::Base
   has_many :comments, as: :commentable
+  has_many :vote_statuses, as: :votable
   belongs_to :term, optional: true
   belongs_to :version_release, optional: true
   belongs_to :creator, :class_name => 'User', :foreign_key => 'creator_id', optional: true
@@ -71,12 +72,16 @@ class EditRequest < ActiveRecord::Base
     end
   end
   def voteSummary()
-    votes = self.comments.where(replaces_comment_id: nil).where(is_vote: true).map{ |c| c.subject }
+    pp "LOCALE IS #{I18n.locale}"
+    votes = self.comments.where(language_id: I18n.locale).where(replaces_comment_id: nil).where(is_vote: true).map{ |c| c.subject }
     return votes.uniq.map{ |v| [v, votes.count(v)] }.to_h
   end
 
   def hasUserVoted(user)
     return self.comments.where(replaces_comment_id: nil).where(is_vote: true).where(user_id: user.id).count > 0
+  end
+
+  def getVoteStatus(lang_id)
   end
 
   def term
@@ -104,5 +109,13 @@ class EditRequest < ActiveRecord::Base
     else
       return self.term.edit_requests[er_index - 1]
     end
+  end
+
+  def vote_status
+    vs = self.vote_statuses[0]#.find_by(language_id: I18n.locale)
+    if vs.nil?
+      return "pending"
+    end
+    return vs.status
   end
 end
