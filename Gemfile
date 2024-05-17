@@ -87,3 +87,7 @@ gem "bootstrap", "~> 5.3"
 
 
 gem "sassc-rails", "~> 2.1"
+
+gem "i18n", "~> 1.14"
+
+gem "i18n_data", "~> 0.17.1"

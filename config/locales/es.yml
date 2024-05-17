@@ -1,0 +1,89 @@
+es:
+  menu:
+    home: "Inicio"
+    vocab: "Vocabulario"
+    search: "Buscar"
+    releases: "Lanzamientos"
+    about: "Sobre nosotros"
+    contact: "Contacto"
+    account: "Cuenta"
+    roles: "Administrar roles"
+    add_term: "Agregar término"
+    manage_releases: "Administrar lanzamientos"
+    reload: "Recargar aplicación"
+    logout: "Cerrar sesión"
+
+  vocab:
+    admin:
+      actions: "Acciones de administrador"
+      new_term: "Agregar un término nuevo"
+      show_visible: "Mostrar terminos visibles"
+      show_next: "Mostrar términos de la próxima versión"
+      show_deleted: "Mostrar términos eliminados"
+      show_redirects: "Mostrar términos redirigidos"
+    current_terms: "Lista de términos actuales"
+    label: "Términos del vocabulario Homosaurus"
+
+  download:
+    formats: "Formatos de descarga"
+    graphical_views: "Vistas gráficas"
+
+  search:
+    placeholder: "Introduzca el término de búsqueda"
+    results_label: "Resultados de búsqueda para"
+
+  release:
+    label: "Publicar"
+    updates: "Actualizaciones"
+
+  status:
+    pending: "Pendiente"
+    published: "Publicado"
+    deleted: "Eliminado"
+    redirected: "Redirigido"
+    modified: "Modificado"
+    
+    new_term_label: "Nuevo término"
+    linked_label: "Vinculado"
+
+  edit_request:
+    view_term: "Ver término"
+    view_discussion: "Ver discusión"
+    view_release: "Ver lanzamiento"
+
+  misc:
+    translation_needed: "Se necesita traducción"
+
+  term:
+    back_to_index: "Volver al índice"
+    back_to_search: "Volver a buscar"
+    view_history: "Ver historial"
+    edit_term: "Editar término"
+    delete_term: "Eliminar término"
+    replace_term: "Remplazar otro término"
+    hierarchy_label: "Visualización de jerarquía"
+
+  discussion:
+    label: "Discusión"
+    back_to_term: "Volver a terminario"
+    add_topic: "Agregar nuevo tema"
+    add_vote: "Agregar voto"
+    vote_tally: "Cuenta de las votas"
+    vote_label: "Votar"
+
+    vote_accept: "Aceptar"
+    vote_reject: "Rechazar"
+    vote_table: "Tabla"
+
+    changes_label: "Cambios"
+    comment_vote_label: "Comentarios y Votos"
+    comment_label: "Comentarios"
+
+  languages:
+    "en": "Ingles"
+    "es": "Español"
+    "fr": "Francés"
+    "nl": "Holandés"
+    "sv": "Sueco"
+    "hi": "Hindi"
+    "bn": "Bengalí"

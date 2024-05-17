@@ -20,15 +20,92 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-  admin_help:
-    preferred_term: "A term authorized to represent a specific concept. The Homosaurus Editorial Board advises users to adopt the preferred term for a concept within their own records. A preferred term is typically the most popularly used version of a term, though the Homosaurus Editorial Board may adopt a less commonly used version of a term if it better represents the project's values and/or users' needs.<ul><li>All terms must have language labels. To apply a language label, click \"Lookup,\" select the language, type in the preferred term, and click \"Add Label.\" Language labels can also be applied by typing the preferred term into the text field, followed by the \"at\" symbol and the <a href='https://www.andiamo.co.uk/resources/iso-language-codes/' target='_blank>ISO 639-1 standard language code</a> or the <a href='https://iso639-3.sil.org/code_tables/639/data' target='_blank'>ISO 639-3 standard language code</a>, provided in the lookup.</li>For English (USA) terms with English (UK) counterparts, add the US version (@en-US) as the preferred term and the UK (@en-GB) version as an additional preferred term.</li><li>Use diacritics in the preferred term (e.g., <a href='https://homosaurus.org/v3/homoit0000979' target='_blank'>Māhū</a>) and include any anglicized version as an alternative term (e.g., Mahu). Avoid using other special characters. In the case of many or nonstandardized anglicizations, the choice for the preferred term to be used will be on a case-by-case basis.</li><li>Capitalize the first letter of the first word, unless it is commonly written in lowercase letters, and then follow sentence case.</li><li>Follow <a href='https://iso.org/standard/53657.html' target='_blank'>ISO 25964-1:2011</a> when determining whether a preferred term should be expressed as a plural or singular. In general, all preferred terms must be expressed as plurals (e.g., <a href='https://homosaurus.org/v3/homoit0000506' target='blank'>Gay men</a>, not Gay man) if they represent countable entities. The only exception is names of parts of the body, which are expressed as singulars (e.g., <a href='https://homosaurus.org/v3/homoit0000222' target='_blank'>Breast</a>, not Breasts). If the preferred term represents an entity that cannot be counted, it should be expressed as a singular (e.g., <a href='https://homosaurus.org/v3/homoit0000245' target='_blank>Censorship</a>, not Censorships).</li><li>For terms that are action verbs, use the present participle -ing (e.g., <a href='https://homosaurus.org/v3/homoit0000206' target='_blank'>Biting</a>, not Bites).</li><li>For terms that could be mistaken for other, unrelated concepts, use parenthetical qualifiers to add context (e.g., <a href='https://homosaurus.org/v3/homoit0000105' target='_blank>Bears (Gay culture)</a>).</li><li>For terms that are most commonly known as acronyms, provide the acronym in capital letters followed by the full, unabbreviated term in parentheses. The only exception is terms that are abbreviated to obscure their meaning from outsiders (e.g., <a href='https://homosaurus.org/v3/homoit0001780' target='_blank'>t4t</a>).</li><li>All Preferred Terms must be assigned at least one RT, NT, or BT to avoid orphan terms.</li></ul>Example: <a href='https://homosaurus.org/v3/homoit0000033' target='blank'>ARC (AIDS-Related Complex)</a><br/>Example: <a href='https://homosaurus.org/v3/homoit0000726' target='_blank'>Black lesbians</a><br/>Example: <a href='https://homosaurus.org/v3/homoit0001063' target='_blank'>Otters (Gay culture)</a>"
-    other_preferred_terms: "Terms authorized to represent a specific concept in a language other than English or in an English language variation.<ul><li>All terms must have language labels. To apply a language label, click \"Lookup,\" select the language, type in the preferred term, and click \"Add Label.\" Language labels can also be applied by typing the preferred term into the text field, followed by the \"at\" symbol and the <a href='https://www.andiamo.co.uk/resources/iso-language-codes/' target='_blank>ISO 639-1 standard language code</a> or the <a href='https://iso639-3.sil.org/code_tables/639/data' target='_blank'>ISO 639-3 standard language code</a>, provided in the lookup.</li><li>Use diacritics in the preferred term (e.g., <a href='https://homosaurus.org/v3/homoit0000979' target='_blank'>Māhū</a>) and include any anglicized version as an alternative term (e.g., Mahu). Avoid using other special characters. In the case of many or nonstandardized anglicizations, the choice for the preferred term to be used will be on a case-by-case basis.</li><li>Capitalize the first letter of the first word, unless it is commonly written in lowercase letters, and then follow sentence case.</li><li>Follow <a href='https://iso.org/standard/53657.html' target='_blank'>ISO 25964-1:2011</a> guidelines for the specific language when determining whether other preferred terms should be expressed as plurals or singulars.</li><li>For terms that are action verbs, use the present participle -ing (e.g., <a href='https://homosaurus.org/v3/homoit0000206' target='_blank'>Biting</a>, not Bites).</li><li>For terms that could be mistaken for other, unrelated concepts, use parenthetical qualifiers to add context (e.g., <a href='https://homosaurus.org/v3/homoit0000105' target='_blank>Bears (Gay culture)</a>).</li><li>For terms that are most commonly known as acronyms, provide the acronym in capital letters followed by the full, unabbreviated term in parentheses. The only exception is terms that are abbreviated to obscure their meaning from outsiders (e.g., <a href='https://homosaurus.org/v3/homoit0001780' target='_blank'>t4t</a>).</li></ul>Example: Behavioural therapy (for <a href='https://homosaurus.org/v3/homoit0000106' target='_blank'>Behavioral therapy</a>)<br/>Example: Medicalisation (for <a href='https://homosaurus.org/v3/homoit0001006' target='_blank'>Medicalization</a><br/>Women's community centres (for <a href='https://homosaurus.org/v3/homoit0001512' target='_blank'>Women's community centers</a>)"
-    alternative_terms: "Words commonly used to represent the concept a term describes. An alternative term is an unauthorized variant of a term provided to improve searchability. The Homosaurus Editorial Board advises users to adopt the preferred term within their own records. This field is often abbreviated as UF.<ul><li>All terms must have language labels. To apply a language label, click \"Lookup,\" select the language, type in the preferred term, and click \"Add Label.\" Language labels can also be applied by typing the preferred term into the text field, followed by the \"at\" symbol and the <a href='https://www.andiamo.co.uk/resources/iso-language-codes/' target='_blank>ISO 639-1 standard language code</a> or the <a href='https://iso639-3.sil.org/code_tables/639/data' target='_blank'>ISO 639-3 standard language code</a>, provided in the lookup.</li><li>Capitalize the first letter of the first word, unless it is commonly written in lowercase letters, and then follow sentence case.</li><li>For preferred terms that have diacritics (e.g., <a href='https://homosaurus.org/v3/homoit0000979' target='_blank'>Māhū</a>), add the anglicized form as an alternative term (e.g., Mahu).</li><li>To improve searchability, alternative terms are not required to follow the same input guidelines as preferred terms. Instead, they should comprise all other commonly used forms of a given term.</li></ul>Example: Arse; Ass; Bum; Buttock; Buttocks (for <a href='https://homosaurus.org/v3/homoit0000232' target='_blank'>Butt</a>)<br/>Example: Genitalia (for <a href='https://homosaurus.org/v3/homoit0000585' target='_blank'>Genitals</a>)<br/>Example: 2S people; Two Spirit people; Two Spirited people; Two-Spirited people (for <a href='https://homosaurus.org/v3/homoit0001480' target='_blank'>Two-Spirit people</a>)"
-    scope_note: "A brief summary of how the Homosaurus Editorial Board understands the concept and, often, recommendations for usage. The scope note does not attempt to dictate a single, authoritative definition of a concept, though it does seek to specify the specific concept referenced by a term in order to avoid confusion. Additionally, the scope note outlines the contexts in which a term should be applied or not applied. This field is often abbreviated as SN.<ul><li>Follow sentence case for capitalization.</li><li>When describing terms for identities and peoples, note that such terms should only be applied to individuals who self-identify with them.</li><li>To the extent possible, specify the time and place that historical terms were most popularly used.</li><li>Clearly note when terms are considered offensive, outdated, and/or are regarded as slurs. For reclaimed slurs, advise users to follow the preferences of the individuals or organizations being described.</li><li>Clearly note when terms are considered colloquial or slang. If possible, specify the communities or places in which the slang originates and/or primarily circulates.</li></ul>Example: <a href='https://homosaurus.org/v3/homoit0001674' target='_blank'>Co/Co/Coself (Pronouns)</a>: A set of pronouns. Used in this manner: Co went to the Homosaurus website. I watched co browse the Homosaurus. Co uses the Homosaurus coself.<br/>Example: <a href='https://homosaurus.org/v3/homoit0000618' target='_blank'>Intersex people</a>: Individuals whose genitalia, hormones, internal anatomy, and/or chromosomes do not fully or exclusively conform to medical or social expectations for males or females; only use to describe people who self-identify as intersex.<br/>Example: <a href='https://homosaurus.org/v3/homoit0001484' target='_blank'>Uranians:</a> 19th century term used to refer to gender and sexual minorities; use only in historical contexts."
-    source: "A related resource from which the preferred term and/or scope note is derived.<ul><li>Follow sentence case for capitalization.</li><li>Add access date when possible.</li><li>When providing a source citation for a scope note, use clear attribution that includes the name of the author or organization and, if applicable, the title or stable URI/URL of the relevant resource.</li><li>Resources may include entries in other vocabularies, language guides created by LGBTQ+ organizations, community Wikis, published literature, etc. When possible, include sources which are open-access and not behind paywalls. When considering slurs or reclaimed terms, avoid (where possible) citing cases of direct derogation.</li><li>Note that individuals and organizations who suggest terms should not be included in this field, but rather in the Contributor field.</li></ul>"
-    contributor: "An individual, organization, or other entity who has suggested a preferred term or or any of its components.<ul><li>Follow sentence case for capitalization.</li><li>Add contributor dates when possible.</li></ul>"
-    history_note: "Account of the changes made to a term within the vocabulary since its first publication. May include citations for scope notes and other information that does not clearly fall within other fields. This field is often abbreviated as HN.<ul><li>Follow sentence case for capitalization.</li></ul>Example: Term changed from \"Latinx\" to \"Latino/a/x\" to acknowledge the variation in use among the affected community.<br/>Example: As part of the v3.3 update, the following terms were redirected to this term to better reflect the scope of the Homosaurus: \"Ephebophilia,\" \"Gerontophilia,\" and \"Hebephilia.\" We recommend that users replace those terms with the term \"Fetishism\" in their records.<br/>Example: To acknowledge their multiple marginalization, terms for people of color who are LGBTQ+ use the following format: Racial or ethnic identity followed by gender or sexual identity (e.g., <a href='https://homosaurus.org/v3/homoit0000726' target='_blank'>Black lesbians</a>)."
-    internal_note: "A space in which to flag issues with a term, document backend conversations surrounding a term, and/or record details as to a term’s provenance. This field is only visible when logged into the administrative interface.<ul><li>Follow sentence case for capitalization.</li><li>Be as clear as possible, remembering that the internal note will eventually be read by individuals who were not part of the project when the internal note was first written.</li><li>Provide your name or initials to indicate the author of the internal note and/or distinguish between different individuals’ contributions.</li></ul>Example: KJR: A user suggested adding a qualifier to this term and its siblings. Suggestions? CFR: How about (Gay community)? (Gay culture)?<br/>Example: JW: Should <a href='https://homosaurus.org/v3/homoit0001878' target='_blank'>LGBTQ+ Deaf culture</a> should get BT \"Subcultures\" or is \"LGBTQ+ communities\" a better BT?<br />Example: KJR: Note that terms for body parts should be in the singular form, per ISO."
-    sources: "A related resource from which the preferred term and/or scope note is derived.<ul><li>Follow sentence case for capitalization.</li></li>Add access date when possible.</li><li>When providing a source citation for a scope note, use clear attribution that includes the name of the author or organization and, if applicable, the title or stable URI/URL of the relevant resource.</li><li>Resources may include entries in other vocabularies, language guides created by LGBTQ+ organizations, community Wikis, published literature, etc. When possible, include sources which are open-access and not behind paywalls. When considering slurs or reclaimed terms, avoid (where possible) citing cases of direct derogation.<li>Note that individuals and organizations who suggest terms should not be included in this field, but rather in the Contributor field.</li></ul>Example: Adapted from Wikipedia entry on \"Androgen Insensitivity Syndrome,\" <a href='https://en.wikipedia.org/wiki/Androgen_insensitivity_syndrome' target='_blank'>https://en.wikipedia.org/wiki/Androgen_insensitivity_syndrome</a>, accessed 12 June 2022.<br />Example: Developed from the Oxford English Dictionary entry for \"mothers,\" accessed 18 Jan 2023."
-    contributors: "An individual, organization, or other entity who has suggested a preferred term or or any of its components.<ul><li>Follow sentence case for capitalization.</li><li>Add contributor dates when possible.</li></ul>Example: Suggested by Kru Maekdo in 2022.<br />Example: Developed during an extended collaboration with the Leather Archives & Museum, 2021–2023."
+  menu:
+    home: "Home"
+    vocab: "Vocabulary"
+    search: "Search"
+    releases: "Releases"
+    about: "About"
+    contact: "Contact"
+    account: "Account"
+    roles: "Manage Roles"
+    add_term: "Add Term"
+    manage_releases: "Manage Releases"
+    manage_users: "Manage Users"
+    reload: "Reload Application"
+    logout: "Log Out"
+
+  vocab:
+    admin:
+      actions: "Admin Actions"
+      new_term: "Add A New Term"
+      show_visible: "Show Visible Terms"
+      show_next: "Show Next Version Terms"
+      show_deleted: "Show Deleted Terms"
+      show_redirects: "Show Redirected Terms"
+    current_terms: "Current Term List"
+    label: "Homosaurus Vocabulary Terms"
+
+  download:
+    formats: "Download Formats"
+    graphical_views: "Graphical Views"
+    
+  search:
+    placeholder: "Enter Search Term"
+    results_label: "Search Results For"
+
+  release:
+    label: "Release"
+    updates: "Updates"
+
+  status:
+    pending: "Pending"
+    published: "Published"
+    deleted: "Deleted"
+    redirected: "Redirected"
+    modified: "Modified"
+
+    new_term_label: "New Term"
+    linked_label: "Linked"
+
+  edit_request:
+    view_term: "View Term"
+    view_discussion: "View Discussion"
+    view_release: "View Release"
+
+  misc:
+    translation_needed: "Translation needed"
+
+  term:
+    back_to_index: "Back to Index"
+    back_to_search: "Back To Search Results"
+    view_history: "View History"
+    edit_term: "Edit Term"
+    delete_term: "Delete Term"
+    replace_term: "Replace Other Term"
+    hierarchy_label: "Hierarchy Display"
+
+  discussion:
+    label: "Discussion"
+    back_to_term: "Back to Term"
+    add_topic: "Add New Topic"
+    add_vote: "Add Vote"
+    vote_tally: "Vote Tally"
+    vote_label: "Vote"
+
+    vote_accept: "Accept"
+    vote_reject: "Reject"
+    vote_table: "Table"
+
+    changes_label: "Changes"
+    comment_vote_label: "Comments & Votes"
+    comment_label: "Comments"
+
+  languages:
+    "en": "English"
+    "es": "Spanish"
+    "fr": "French"
+    "nl": "Dutch"
+    "sv": "Swedish"
+    "hi": "Hindi"
+    "bn": "Bengali"
