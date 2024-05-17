@@ -1,14 +1,14 @@
 <%= form_tag(vocabulary_search_results_path(id: @vocabulary_identifier), :method => "get", id: "search-form", class: 'form-inline row', enforce_utf8: false) do %>
 <div class="col-auto">
-  <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Enter Search Term' %>
+  <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: t("search.placeholder") %>
 </div>
 <div class="col-auto">
-  <%= submit_tag "Search", name: nil, class: 'form-control  btn btn-primary'%>
+  <%= submit_tag t("menu.search"), name: nil, class: 'form-control  btn btn-primary'%>
 </div>
 <% end %>
 
 <% if params[:q].present? %>
-    <h2>Search Results for: <%= params[:q] %></h2>
+    <h2><%= t("search.results_label") %>: <%= params[:q] %></h2>
     <div class="container p-0">
     <% @terms.each do |term| %>
         <div class="card mb-3">

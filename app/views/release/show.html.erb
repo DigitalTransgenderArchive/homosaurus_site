@@ -1,8 +1,8 @@
 <div id="about" class="col-sm-12 col-md-12">
   <div class="release_title">
-    <h2>Homosaurus v. <%= @release.release_identifier %> Updates</h2>
+    <h2>Homosaurus v. <%= @release.release_identifier %> <%= t("release.updates") %></h2>
     <% if @release.status != "Published" %>
-    <h3> Pending </h3>
+    <h3> <%= t("status.pending") %> </h3>
     <% else %>
     <h3>Released <%= @release.release_date %></h3>
     <% end %>

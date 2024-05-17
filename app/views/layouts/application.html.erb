@@ -30,14 +30,14 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="nav-item"><%= link_to "Home", '/', :class => "nav-link text-white" %></li>
+        <li class="nav-item"><%= link_to t("menu.home"), '/', :class => "nav-link text-white" %></li>
 
         <% if request.original_url.include? '/terms' %>
           <li class="nav-item"><%= link_to "V1 Vocabulary", vocabulary_index_path(id: "terms"), :class => "nav-link text-white" %></li>
         <% elsif request.original_url.include? '/v2' %>
           <li class="nav-item"><%= link_to "V2 Vocabulary", vocabulary_index_path(id: "v2"), :class => "nav-link text-white" %></li>
         <% else %>
-          <li class="nav-item"><%= link_to "Vocabulary", vocabulary_index_path(id: "v3"), :class => "nav-link text-white" %></li>
+          <li class="nav-item"><%= link_to t("menu.vocab"), vocabulary_index_path(id: "v3"), :class => "nav-link text-white" %></li>
         <% end %>
 
 
@@ -46,40 +46,55 @@
         <% elsif request.original_url.include? '/v2' %>
           <li class="nav-item"><%= link_to "V2 Search", vocabulary_search_results_path(id: "v2") , :class => "nav-link text-white" %></li>
         <% else %>
-          <li class="nav-item"><%= link_to "Search", vocabulary_search_results_path(id: "v3") , :class => "nav-link text-white" %></li>
+          <li class="nav-item"><%= link_to t("menu.search"), vocabulary_search_results_path(id: "v3") , :class => "nav-link text-white" %></li>
         <% end %>
 
-        <li class="nav-item"><%= link_to "Releases", release_path, :class => "nav-link text-white" %></li>
+        <li class="nav-item"><%= link_to t("menu.releases"), release_path, :class => "nav-link text-white" %></li>
 
-        <li class="nav-item"><%= link_to "About", about_path, :class => "nav-link text-white" %></li>
+        <li class="nav-item"><%= link_to t("menu.about"), about_path, :class => "nav-link text-white" %></li>
 
-        <li class="nav-item"><%= link_to "Contact", contact_path, :class => "nav-link text-white" %></li>
+        <li class="nav-item"><%= link_to t("menu.contact"), contact_path, :class => "nav-link text-white" %></li>
 
         <% if current_user.blank? %>
           &nbsp;
         <% elsif current_user.present? %>
           <li class="nav-item dropdown user_account_link">
-            <a class="nav-link text-white dropdown-toggle" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">ACCOUNT <span class="caret"></span></a>
+            <a class="nav-link text-white dropdown-toggle" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false"><%= t("menu.account") %> <span class="caret"></span></a>
             <ul class="dropdown-menu text-bg-dark">
               <% if current_user.superuser? %>
                 <li class="divider"></li>
-                <li><%= link_to 'Roles', role_management.roles_path, :class=>"dropdown-item text-white" %></li>
+                <li><%= link_to t("menu.roles"), role_management.roles_path, :class=>"dropdown-item text-white" %></li>
               <% end %>
               <% if current_user.superuser? || current_user.contributor? || current_user.admin? %>
                 <li class="divider"></li>
-                <li><%= link_to 'Add Homosaurus Term', vocabulary_term_new_path(vocab_id: "v3"), :class=>"dropdown-item text-white" %></li>
+                <li><%= link_to t("menu.add_term"), vocabulary_term_new_path(vocab_id: "v3"), :class=>"dropdown-item text-white" %></li>
               <% end %>
               <% if current_user.superuser? %>
                 <li class="divider"></li>
-                <li><%= link_to 'Manage Version Releases', version_manage_path, :class=>"dropdown-item text-white" %></li>
+              <li><%= link_to t("menu.manage_releases"), version_manage_path, :class=>"dropdown-item text-white" %></li>
+	      <li><%= link_to t("menu.manage_users"), user_manage_path, :class=>"dropdown-item text-white" %></li>
                 <li class="divider"></li>
-                <li><%= link_to 'Reload Application', restart_application_path, :class=>"dropdown-item text-white" %></li>
+                <li><%= link_to t("menu.reload"), restart_application_path, :class=>"dropdown-item text-white" %></li>
               <% end %>
               <li class="divider"></li>
-              <li><%= link_to 'Log Out', destroy_user_session_path, :class=>"dropdown-item text-white" %></li>
+              <li><%= link_to t("menu.logout"), destroy_user_session_path, :class=>"dropdown-item text-white" %></li>
             </ul>
           </li>
         <% end %>
+	<li class="nav-item dropdown">
+	  <a class="nav-link text-white dropdown-toggle"
+	     data-bs-toggle="dropdown" href="#"
+	     aria-haspopup="true" aria-expanded="false">
+	    <%= t("languages." << I18n.locale.to_s) %> <span class="caret"></span>
+          </a>
+	  <ul class="dropdown-menu text-bg-dark">
+	    <% I18n.available_locales.reject{|l| l == I18n.locale}.map{|l| l.to_s }.each do |loc| %>
+	    <li class="divider"></li>
+	    <li><%= link_to t("languages." << loc), request.original_url.gsub(/\/\/.*homosaurus/, "//homosaurus").gsub("homosaurus", loc << ".homosaurus").gsub("en.homo", "homo"), :class=>"dropdown-item text-white" %>
+	    </li>
+	    <% end %>
+	  </ul>
+	</li>
       </ul>
       </ul>
 

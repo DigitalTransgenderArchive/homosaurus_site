@@ -2,10 +2,11 @@
   pref_label = (@discussion_type == "Term") ? @homosaurus_obj.pref_label : @homosaurus_obj.term.get_relationship_at_version_release(Relation::Pref_label, @vid)[0][1]
   identifier = (@discussion_type == "Term") ? @homosaurus_obj.identifier : @homosaurus_obj.my_changes["identifier"]
   vocabulary_identifier = (@discussion_type == "Term") ? @homosaurus_obj.vocabulary_identifier : @homosaurus_obj.version_release.vocabulary.identifier
+
   %>
-<h2> Discussion:
+<h2><%= t("discussion.label") %>:
   <% if @discussion_type == "EditRequest" %>
-  <span class="badge text-bg-dark">V. <%= @homosaurus_obj.version_release.release_identifier %> Changes [<%= @homosaurus_obj.version_release.status %>]</span>
+  <span class="badge text-bg-dark">V. <%= @homosaurus_obj.version_release.release_identifier %> Changes [<%= @homosaurus_obj.vote_status %>]</span>
   <% end %>&nbsp;
   <%= pref_label %> [<%= identifier %>]</h2>
 <% if @discussion_type == "Term" %>
@@ -22,31 +23,36 @@
 <% end %>
   
 <p><div style="clear:both;">
-    <%= button_to "Back To Term", vocabulary_show_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
-    <%= button_to "View History", vocabulary_term_history_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
+    <%= button_to t("discussion.back_to_term"), vocabulary_show_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
+    <%= button_to t("term.view_history"), vocabulary_term_history_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
     <% if @discussion_type == "EditRequest" %>
-      <%= button_to "View Release", release_show_path(release_id: @homosaurus_obj.version_release.release_identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
+      <%= button_to t("edit_request.view_release"), release_show_path(release_id: @homosaurus_obj.version_release.release_identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
     <% end %>
     <button class="btn btn-primary discussion-add-topic" style="margin-left:20px;"
-	    data-bs-toggle="modal" data-bs-target="#new-topic-modal">Add New Topic (+)</button>
-    <% if @discussion_type == "EditRequest" and @homosaurus_obj.version_release.status == "Pending" and not @homosaurus_obj.hasUserVoted(current_user) %>
+	    data-bs-toggle="modal" data-bs-target="#new-topic-modal"><%= t("discussion.add_topic") %> (+)</button>
+    <% if @discussion_type == "EditRequest" and @homosaurus_obj.vote_status == "pending" and not @homosaurus_obj.hasUserVoted(current_user) %>
       <button class="btn btn-primary discussion-add-vote" style="margin-left:20px;"
-	      data-bs-toggle="modal" data-bs-target="#new-vote-modal">Add New Vote (+)</button>
-    <% end %>
+	      data-bs-toggle="modal" data-bs-target="#new-vote-modal"><%= t("discussion.add_vote") %> (+)</button>
+      <% end %>
+
+      <% if @discussion_type == "EditRequest" and current_user.admin? and @homosaurus_obj.vote_status == "pending" %>
+      <%= button_to "Approve changes", edit_request_approve_release_path(vocab_id: vocabulary_identifier, id: identifier, release_id: @homosaurus_obj.version_release.release_identifier), :method => "post", class: 'btn btn-primary', data: {confirm: "Are you sure you want to approve this?" } %>
+      
+      <% end %>
 </div>
 <br/>
 
 <div class="container-fluid">
   <% if @discussion_type == "EditRequest" %>
-    <h2>Changes</h2>
+    <h2><%= t("discussion.changes_label") %></h2>
     <%= render partial: "partials/edit_request_partial", locals: {edit_request: @homosaurus_obj, relations: Relation.all, discussion_page: true} %>
-    <h2>Comments & Votes</h2>
+    <h2><%= t("discussion.comment_vote_label") %></h2>
     <h3>Vote Tally: &nbsp; <% @homosaurus_obj.voteSummary().each do |k, v| %>
       	<span class='<%= Comment::vote_badge_class(k) %>'><%= k %><span class='badge text-bg-light'><%= v %></span></span>
 
     <% end %></h3>
   <% else %>
-    <h2>Comments</h2>
+    <h2><%= t("discussion.comment_label") %></h2>
   <% end %>
   <% @comments.each do |c|  %>
   <%= render partial:"partials/comment_partial", locals: {comment: c} %>
@@ -58,7 +64,7 @@
     <div class="modal-content">
       <%= form_with url: request.fullpath + "/post_comment", method: :get, local: true do |f| %>
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="new-topic-modal-label">Add new topic</h1>
+        <h1 class="modal-title fs-5" id="new-topic-modal-label"><%= t("discussion.add_topic") %></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -66,6 +72,7 @@
 	  <input type="hidden" name="is_vote" value="false">
 	  <input type="hidden" name="parent" value="<%= @homosaurus_obj.id %>">
 	  <input type="hidden" name="parent_type" value="<%= @discussion_type %>">
+	  <input type="hidden" name="language_id" value="<%= I18n.locale %>">
           <div class="mb-3">
 	    <label for="new-topic-subject" class="form-label">Subject</label>
 	    <input name="subject" type="text" class="form-control" id="new-topic-subject" placeholder="Enter Subject">

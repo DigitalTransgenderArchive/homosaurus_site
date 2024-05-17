@@ -1,15 +1,15 @@
-<h1>Homosaurus Vocabulary Terms</h1>
+<h1><%= t("vocab.label") %></h1>
 <% if current_user.present? && current_user.contributor? && request.original_url.include?('/v3') %>
-  <h4>Admin Actions:</h4>
-  <%= button_to "Add A New Term", vocabulary_term_new_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left;" %>
-  <%= button_to "Show Visible Terms", vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;", params: { display_mode: "visible" } %>
-  <%= button_to "Show Next Version Terms", vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;", params: { display_mode: "pending" } %>
-  <%= button_to "Show Deleted Terms", vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;", params: { display_mode: "deleted" } %>
-  <%= button_to "Show Redirect Terms", vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;", params: { display_mode: "redirect" }  %>
+  <h4><%= t("vocab.admin.actions") %></h4>
+  <%= button_to t("vocab.admin.new_term"), vocabulary_term_new_path(vocab_id: "v3"), :method => "get", class: 'btn btn-primary', style:"float:left;" %>
+  <%= button_to t("vocab.admin.show_visible"), vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "visible" } %>
+  <%= button_to t("vocab.admin.show_next"), vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "pending" } %>
+  <%= button_to t("vocab.admin.show_deleted"), vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "deleted" } %>
+  <%= button_to t("vocab.admin.show_redirects"), vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "redirect" }  %>
   <div style="clear:both"></div>
 <% end %>
 
-<h4>Download Formats:</h4>
+<h4><%= t("download.formats") %></h4>
 <ul>
   <li><%= link_to "N-Triples", request.original_url + '.nt'  %></li>
   <li><%= link_to "JSON-LD", request.original_url + '.jsonld' %></li>
@@ -17,7 +17,7 @@
   <li><%= link_to "XML", request.original_url + '.xml' %></li>
 </ul>
 
-<h4>Graphical Views</h4>
+<h4><%= t("download.graphical_views") %></h4>
 <% if request.original_url.include? '/v3' %>
   <ul>
     <li><%= link_to "Tree View", tree_path %></li>
@@ -25,7 +25,7 @@
   </ul>
 <% end %>
 
-<h4>Current Term List</h4>
+<h4><%= t("vocab.current_terms") %> <%= I18n.locale %></h4>
 <ul>
   <% @terms.each do |term| %>
       <li>
@@ -33,7 +33,10 @@
           <%= link_to "(EMPTY)", vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier) %>
         <% else %>
           <%= link_to term.pref_label, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier) %>
-        <% end %>
+          <% end %>
+	<% if not term.translation_exists?(I18n.locale) %>
+	  <span class="badge text-bg-danger"><%= t("misc.translation_needed") %></span>
+	<% end %>
       </li>
   <% end %>
   <% @edited_terms.each do |pending| %>

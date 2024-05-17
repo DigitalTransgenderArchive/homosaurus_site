@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   include Hydra::RoleManagement::UserRoles
   has_many :comments
+  has_many :user_language_roles 
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -28,7 +29,7 @@ class User < ActiveRecord::Base
 
   def superuser?
     #return false
-  	roles.where(name: 'superuser').exists?
+    roles.where(name: 'superuser').exists?
   end
 
   def contributor?
@@ -40,4 +41,5 @@ class User < ActiveRecord::Base
     #return false
     roles.where(name: 'homosaurus').exists? || roles.where(name: 'admin').exists? || roles.where(name: 'superuser').exists?
   end
+
 end

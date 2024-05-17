@@ -18,6 +18,7 @@ end
   if release_identifier == "unversioned"
     release_identifier = "?"
   end
+  er_status = edit_request.vote_status
 %>
 
 <div class="card container ">
@@ -29,13 +30,18 @@ end
         <% if not release_page %>
 	  <span class="badge text-bg-dark">V. <%= release_identifier %></span>
 	<% elsif is_new %>
-	  <span class="badge text-bg-success">New Term</span>
+	  <span class="badge text-bg-success"><%= t("status.new_term_label") %></span>
 	<% elsif is_redirect %>
-	  <span class="badge text-bg-warning">Redirected</span>
+	  <span class="badge text-bg-warning"><%= t("status.redirected") %></span>
 	<% elsif is_linked_new %>
-	  <span class="badge text-bg-info">Linked</span>
+	  <span class="badge text-bg-info"><%= t("status.linked_label") %></span>
 	<% else %>
-	  <span class="badge text-bg-primary">Modified</span>
+	  <span class="badge text-bg-primary"><%= t("status.modified") %></span>
+	<% end %>
+	<% if current_user and not discussion_page %>
+	  <span class="badge text-bg-<%= er_status == 'approved' ? 'success' : 'warning' %>">
+	  <%= er_status %>
+	  </span>
 	<% end %>
       </div>
     <% else %>
@@ -55,14 +61,14 @@ end
     <div class="col col-4 p-0">
       <div class="d-inline-flex gap-1">
 	<% if release_page and not child_edit %>
-          <%= button_to "View Term",
+          <%= button_to t("edit_request.view_term"),
 	      vocabulary_show_path(
 	      vocab_id: edit_request.version_release.vocabulary.identifier,
 	      id: edit_request.my_changes["identifier"]),
 	      :method => "get", class: 'btn btn-link border-black', form_class: 'btn p-0' %>
 	<% end %>
 	<% if current_user.present? and not discussion_page and not child_edit %>
-          <%= button_to "View Discussion",
+          <%= button_to t("edit_request.view_discussion"),
 	      edit_request_discussion_path(
 	        vocab_id: edit_request.version_release.vocabulary.identifier,
 	        id: edit_request.my_changes["identifier"],
