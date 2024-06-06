@@ -157,12 +157,9 @@ class Term < ActiveRecord::Base
     return values
   end
   def get_relationships_at_version_release(vid, full_lang = false)
-    pp vid
     if not vid.is_a? Integer
-      pp "not int"
       vid = VersionRelease.find_by(release_identifier: vid).id
     end
-    pp vid
     my_hist = self.get_edit_requests().reverse().reject{ |er| er.version_release_id > vid }
     values = Relation.all().pluck(:id).map{|rel_id| [rel_id, []]}.to_h
     my_hist.each do |er|
@@ -201,7 +198,6 @@ class Term < ActiveRecord::Base
   end
   # Get latest published release term was edited in
   def latest_published_release
-    pp self.get_edit_requests().map{|er| er}
     published_releases = self.get_edit_requests().reject{|er| er.vote_status != "approved" or er.version_release.status != "Published"}
     return published_releases.empty? ? nil : published_releases[0].version_release
   end
@@ -282,6 +278,9 @@ class Term < ActiveRecord::Base
     full_graph = []
 
     all_terms.each do |current_term|
+
+      relationships = current_term.get_relationships_at_version_release(VersionRelease.where(status: "Published").pluck(:id)[-1])
+      
       graph = {}
 
       base_uri = current_term.uri
@@ -308,8 +307,11 @@ class Term < ActiveRecord::Base
       graph[:broader] = current_term.broader
       graph[:broader] = graph[:broader].join("||")
 
-      graph[:narrower] = current_term.narrower
-      graph[:narrower] = graph[:narrower].join("||")
+      #graph[:narrower] = relationships.where()
+      graph[:narrower] = relationships[Relation::Narrower].map{|r| Term.find_by(id: r[1].to_i).uri}.join("||")
+
+      # graph[:narrower] = current_term.narrower
+      # graph[:narrower] = graph[:narrower].join("||")
 
       graph[:related] = current_term.related
       graph[:related] = graph[:related].join("||")
@@ -345,235 +347,90 @@ class Term < ActiveRecord::Base
     csv_string
   end
 
-  def self.all_terms_full_graph(terms)
+  def self.all_terms_full_graph(terms, include_lang: true)
     graph = ::RDF::Graph.new
 
     terms.each do |current_term|
-      current_term.full_graph(graph)
+      current_term.full_graph(graph: graph, include_lang: include_lang)
     end
     graph
   end
 
-  def full_graph(graph=::RDF::Graph.new)
+  def full_graph(graph: nil, include_lang: true)
+    graph = graph.nil? ? ::RDF::Graph.new : graph
+    string_func = ->(r) { include_lang ? ::RDF::Literal.new(r[1], language: r[0].to_sym) : "#{r[1]}" }
     base_uri = ::RDF::URI.new("#{self.uri}")
     graph << [base_uri, ::RDF::Vocab::DC.identifier, "#{self.identifier}"]
-    graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{self.pref_label}"]
+    
+    latest_release = self.latest_published_release
+    relationships = self.get_relationships_at_version_release(latest_release.id)
 
-    # FIXME: Handle these labels better?
-    # self.labels.each do |lbl|
-    # graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{lbl}"] if lbl.present?
-    # end
-
-    self.alt_labels.each do |alt|
-      graph << [base_uri, ::RDF::Vocab::SKOS.altLabel, "#{alt}"] if alt.present?
+    relationships[Relation::Pref_label].each do |r|
+      graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, string_func.call(r)]
+    end
+    relationships[Relation::Label].each do |r|
+      graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, string_func.call(r)]
     end
 
-    graph << [base_uri, ::RDF::Vocab::RDFS.comment, "#{self.description}"] if self.description.present?
-    #From: https://github.com/ruby-rdf/rdf/blob/7dd766fe34fe4f960fd3e7539f3ef5d556b25013/lib/rdf/model/literal.rb
-    #graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.issued}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
-    #graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.modified}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
-    graph << [base_uri, ::RDF::Vocab::DC.issued, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
-    graph << [base_uri, ::RDF::Vocab::DC.modified, ::RDF::Literal.new("#{self.manual_update_date.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
-
-    self.broader.each do |cb|
-      graph << [base_uri, ::RDF::Vocab::SKOS.broader, ::RDF::URI.new("#{cb}")]
+    relationships[Relation::Alt_label].each do |r|
+      graph << [base_uri, ::RDF::Vocab::SKOS.altLabel, string_func.call(r)]
+    end
+    relationships[Relation::Description].each do |r|
+      graph << [base_uri, ::RDF::Vocab::RDFS.comment, string_func.call(r)]
+    end
+    
+    relationships[Relation::Broader].each do |r|
+      graph << [base_uri, ::RDF::Vocab::SKOS.broader, ::RDF::URI.new(Term.find_by(id: r[1].to_i).uri)]
+    end
+    relationships[Relation::Narrower].each do |r|
+      graph << [base_uri, ::RDF::Vocab::SKOS.narrower, ::RDF::URI.new(Term.find_by(id: r[1].to_i).uri)]
+    end
+    relationships[Relation::Related].each do |r|
+      graph << [base_uri, ::RDF::Vocab::SKOS.related, ::RDF::URI.new(Term.find_by(id: r[1].to_i).uri)]
     end
 
-    @broadest_terms = []
-    get_broadest self.uri
-    @broadest_terms.uniq!
-    @broadest_terms.each do |broad_term|
-      graph << [base_uri, ::RDF::Vocab::SKOS.hasTopConcept, ::RDF::URI.new("#{broad_term}")]
+    relationships[Relation::Lcsh_exact].each do |r|
+      graph << [base_uri, ::RDF::Vocab::SKOS.exactMatch, ::RDF::URI.new("#{r[1]}")]
+    end
+    relationships[Relation::Lcsh_close].each do |r|
+      graph << [base_uri, ::RDF::Vocab::SKOS.closeMatch, ::RDF::URI.new("#{r[1]}")]
     end
 
-    self.narrower.each do |cn|
-      graph << [base_uri, ::RDF::Vocab::SKOS.narrower, ::RDF::URI.new("#{cn}")]
-    end
-
-    self.related.each do |cr|
-      graph << [base_uri, ::RDF::Vocab::SKOS.related, ::RDF::URI.new("#{cr}")]
-    end
-
-    self.exact_match_lcsh.each do |match|
-      graph << [base_uri, ::RDF::Vocab::SKOS.exactMatch, ::RDF::URI.new("#{match}")] if match.present?
-    end
-    self.close_match_lcsh.each do |match|
-      graph << [base_uri, ::RDF::Vocab::SKOS.closeMatch, ::RDF::URI.new("#{match}")] if match.present?
-    end
+    graph << [base_uri, ::RDF::Vocab::SKOS.hasTopConcept, ::RDF::URI.new(self.get_broadest(latest_release.id).uri)]
 
     graph << [base_uri, ::RDF::Vocab::DC.isReplacedBy, ::RDF::URI.new("#{self.is_replaced_by}")] if self.is_replaced_by.present?
     graph << [base_uri, ::RDF::Vocab::DC.replaces, ::RDF::URI.new("#{self.replaces}")] if self.replaces.present?
 
-    graph << [base_uri, ::RDF.type, ::RDF::Vocab::SKOS.Concept]
-    graph << [base_uri, ::RDF::Vocab::SKOS.inScheme, ::RDF::URI.new("#{self.vocabulary.base_uri}")]
-    graph
-  end
-
-  def self.all_terms_full_graph_v2(terms)
-    graph = ::RDF::Graph.new
-    concept_statement = RDF::Statement(::RDF::URI.new("#{terms.first.vocabulary.base_uri}"), ::RDF.type, ::RDF::Vocab::SKOS.ConceptScheme)
-    graph << concept_statement
-
-    terms.each do |current_term|
-      current_term.full_graph_v2(graph, false)
-    end
-    graph
-  end
-
-  def full_graph_v2(graph=::RDF::Graph.new, include_concept_schema=true)
-    base_uri = ::RDF::URI.new("#{self.uri}")
-    graph << [base_uri, ::RDF::Vocab::DC.identifier, "#{self.identifier}"]
-    graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{self.pref_label}"]
-    if self.pref_label_language.include?('@')
-      graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, ::RDF::Literal.new(self.pref_label_language.split('@')[0], language: self.pref_label_language.split('@')[1].to_sym)]
-    end
-
-    # FIXME: Handle these labels better?
-    self.labels_language.each do |lbl|
-      if lbl.include?('@')
-        graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, ::RDF::Literal.new(lbl.split('@')[0], language: lbl.split('@')[1].to_sym)]
-      end
-    end
-
-    self.alt_labels_language.each do |alt|
-      if alt.present?
-        if alt.include?('@')
-          graph << [base_uri, ::RDF::Vocab::SKOS.altLabel, ::RDF::Literal.new(alt.split('@')[0], language: alt.split('@')[1].to_sym)]
-        else
-          graph << [base_uri, ::RDF::Vocab::SKOS.altLabel, "#{alt}"]
-        end
-      end
-    end
-
-    graph << [base_uri, ::RDF::Vocab::RDFS.comment, "#{self.description}"] if self.description.present?
-    graph << [base_uri, ::RDF::Vocab::SKOS.historyNote, "#{self.description}"] if self.history_note.present?
-
-    #From: https://github.com/ruby-rdf/rdf/blob/7dd766fe34fe4f960fd3e7539f3ef5d556b25013/lib/rdf/model/literal.rb
-    #graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.issued}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
-    #graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.modified}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
     graph << [base_uri, ::RDF::Vocab::DC.issued, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
-    graph << [base_uri, ::RDF::Vocab::DC.modified, ::RDF::Literal.new("#{self.manual_update_date.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
-
-    self.broader.each do |cb|
-      graph << [base_uri, ::RDF::Vocab::SKOS.broader, ::RDF::URI.new("#{cb}")]
-    end
-
-    self.narrower.each do |cn|
-      graph << [base_uri, ::RDF::Vocab::SKOS.narrower, ::RDF::URI.new("#{cn}")]
-    end
-
-    self.related.each do |cr|
-      graph << [base_uri, ::RDF::Vocab::SKOS.related, ::RDF::URI.new("#{cr}")]
-    end
-
-    self.exact_match_lcsh.each do |match|
-      graph << [base_uri, ::RDF::Vocab::SKOS.exactMatch, ::RDF::URI.new("#{match}")] if match.present?
-    end
-    self.close_match_lcsh.each do |match|
-      graph << [base_uri, ::RDF::Vocab::SKOS.closeMatch, ::RDF::URI.new("#{match}")] if match.present?
-    end
-
-    graph << [base_uri, ::RDF::Vocab::DC.isReplacedBy, ::RDF::URI.new("#{self.is_replaced_by}")] if self.is_replaced_by.present?
-    graph << [base_uri, ::RDF::Vocab::DC.replaces, ::RDF::URI.new("#{self.replaces}")] if self.replaces.present?
-
+    graph << [base_uri, ::RDF::Vocab::DC.modified, ::RDF::Literal.new("#{self.updated_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
+    
     graph << [base_uri, ::RDF.type, ::RDF::Vocab::SKOS.Concept]
-    if include_concept_schema
-      concept_statement = RDF::Statement(::RDF::URI.new("#{self.vocabulary.base_uri}"), ::RDF.type, ::RDF::Vocab::SKOS.ConceptScheme)
-      graph << concept_statement
-    end
-    #graph << [::RDF::URI.new("#{self.vocabulary.base_uri}"), ::RDF.type, ::RDF::Vocab::SKOS.ConceptScheme]
     graph << [base_uri, ::RDF::Vocab::SKOS.inScheme, ::RDF::URI.new("#{self.vocabulary.base_uri}")]
+
     graph
   end
 
   def full_graph_expanded_json
     base_uri = ::RDF::URI.new("#{self.uri}")
-    graph = ::RDF::Graph.new << [base_uri, ::RDF::Vocab::DC.identifier, "#{self.identifier}"]
-    graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{self.pref_label}"]
-    # FIXME!!!
-    # self.labels.each do |lbl|
-    # graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, "#{self.lbl}"] if lbl.present?
-    # end
-    self.alt_labels.each do |alt|
-      graph << [base_uri, ::RDF::Vocab::SKOS.altLabel, "#{alt}"] if alt.present?
-    end
-    graph << [base_uri, ::RDF::RDFS.comment, "#{self.description}"] if self.description.present?
-    #From: https://github.com/ruby-rdf/rdf/blob/7dd766fe34fe4f960fd3e7539f3ef5d556b25013/lib/rdf/model/literal.rb
-    #graph << [base_uri, ::RDF::DC.issued, ::RDF::Literal.new("#{self.issued}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
-    #graph << [base_uri, ::RDF::DC.modified, ::RDF::Literal.new("#{self.modified}", datatype: ::RDF::URI.new('https://www.loc.gov/standards/datetime/pre-submission.html'))]
-    graph << [base_uri, ::RDF::Vocab::DC.issued, ::RDF::Literal.new("#{self.created_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
-    graph << [base_uri, ::RDF::Vocab::DC.modified, ::RDF::Literal.new("#{self.manual_update_date.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)]
-
-    self.exact_match_lcsh.each do |match|
-      graph << [base_uri, ::RDF::Vocab::SKOS.exactMatch, ::RDF::URI.new("#{match}")] if match.present?
-    end
-    self.close_match_lcsh.each do |match|
-      graph << [base_uri, ::RDF::Vocab::SKOS.closeMatch, ::RDF::URI.new("#{match}")] if match.present?
-    end
-
-    graph << [base_uri, ::RDF.type, ::RDF::Vocab::SKOS.Concept]
-    graph << [base_uri, ::RDF::Vocab::SKOS.inScheme, ::RDF::URI.new("#{self.vocabulary.base_uri}")]
-
+    graph = full_graph()
+    
     json_graph = JSON.parse(graph.dump(:jsonld, standard_prefixes: true))
-
-    if self.is_replaced_by.present?
-      replaced_by_term = Term.find_by(uri: self.is_replaced_by)
-      if replaced_by_term.present?
-        json_graph["dc:isReplacedBy"] ||= []
-        json_graph["dc:isReplacedBy"] << [{"@id": "#{self.is_replaced_by}",
-                                           "skos:prefLabel":"#{replaced_by_term.pref_label}"}]
+    ["skos:narrower", "skos:broader", "skos:related", "dc:replaces", "dc:isReplacedBy"].each do |r|
+      if json_graph[r].nil?
+        json_graph[r] = []
       end
-    end
-    if self.replaces.present?
-      replaces_term = Term.find_by(uri: self.replaces)
-      if replaces_term.present?
-        json_graph["dc:replaces"] ||= []
-        json_graph["dc:replaces"] << [{"@id": "#{self.replaces}",
-                                       "skos:prefLabel":"#{replaces_term.pref_label}"}]
+      unless json_graph[r].kind_of?(Array)
+        json_graph[r] = [json_graph[r]]
       end
+      json_graph[r].map!{|i| {"@id" => i["@id"], "skos:prefLabel" => Term.find_by(uri: i["@id"]).pref_label}}
     end
-
-    self.broader.each do |cb|
-      current_broader = Term.find_by(uri: cb)
-      if current_broader.present?
-        json_graph["skos:broader"] ||= []
-        json_graph["skos:broader"] << [{"@id": "#{current_broader.uri}",
-                                        "skos:prefLabel":"#{current_broader.pref_label}"}]
-      end
-    end
-
-    @broadest_terms = []
-    get_broadest self.uri
-    @broadest_terms.uniq!
-    @broadest_terms.each do |broad_term|
-      json_graph["skos:hasTopConcept"] ||= []
-      broadest_tern = Term.find_by(uri: broad_term)
-      json_graph["skos:hasTopConcept"] << [{"@id": "#{broadest_tern.uri}",
-                                            "skos:prefLabel":"#{broadest_tern.pref_label}"}]
-    end
-
-    self.narrower.each do |cn|
-      current_narrower = Term.find_by(uri: cn)
-      if current_narrower.present?
-        json_graph["skos:narrower"] ||= []
-        json_graph["skos:narrower"] << [{"@id": "#{current_narrower.uri}",
-                                         "skos:prefLabel":"#{current_narrower.pref_label}"}]
-      end
-    end
-
-    self.related.each do |cr|
-      current_related = Term.find_by(uri: cr)
-      if current_related.present?
-        json_graph["skos:related"] ||= []
-        json_graph["skos:related"] << [{"@id": "#{current_related.uri}",
-                                        "skos:prefLabel":"#{current_related.pref_label}"}]
-      end
-    end
-
     json_graph.to_json
   end
 
   def xml_basic
+    latest_release = self.latest_published_release
+    relationships = self.get_relationships_at_version_release(latest_release.id)
+    
     builder = Nokogiri::XML::Builder.new do |xml|
       xml.record {
         xml.id self.uri
@@ -588,41 +445,30 @@ class Term < ActiveRecord::Base
           xml.value self.manual_update_date.iso8601.split('T')[0]
           xml.name "xsd:date"
         }
-        self.broader.each do |cb|
-          current_broader = Term.find_by(uri: cb)
+
+        relationships[Relation::Broader].each do |r|
+          rel_term = Term.find_by(id: r[1])
           xml.broader {
-            xml.id current_broader.uri
-            xml.prefLabel current_broader.pref_label
+            xml.id rel_term.uri
+            xml.prefLabel rel_term.pref_label
           }
         end
 
-        self.narrower.each do |cb|
-          current_narrower = Term.find_by(uri: cb)
+        relationships[Relation::Narrower].each do |r|
+          rel_term = Term.find_by(id: r[1])
           xml.narrower {
-            xml.id current_narrower.uri
-            xml.prefLabel current_narrower.pref_label
+            xml.id rel_term.uri
+            xml.prefLabel rel_term.pref_label
           }
         end
 
-        self.related.each do |cb|
-          current_related = Term.find_by(uri: cb)
+        relationships[Relation::Related].each do |r|
+          rel_term = Term.find_by(id: r[1])
           xml.related {
-            xml.id current_related.uri
-            xml.prefLabel current_related.pref_label
+            xml.id rel_term.uri
+            xml.prefLabel rel_term.pref_label
           }
         end
-
-        @broadest_terms = []
-        get_broadest self.uri
-        @broadest_terms.uniq!
-        @broadest_terms.each do |broad_term|
-          broadest_term = Term.find_by(uri: broad_term)
-          xml.hasTopConcept {
-            xml.id broadest_term.uri
-            xml.prefLabel broadest_term.pref_label
-          }
-        end
-
         xml.comment_ self.description
       }
     end
@@ -717,13 +563,8 @@ class Term < ActiveRecord::Base
       doc[:dta_homosaurus_lcase_altLabel_ssim] << alt.downcase if alt.present?
     end
 
-    @broadest_terms = []
-    get_broadest(self.uri)
-
     doc[:topConcept_ssim] = []
-    @broadest_terms.each do |broadest|
-      doc[:topConcept_ssim] << broadest.split('/').last if broadest.present?
-    end
+    doc[:topConcept_ssim] << self.get_broadest(20)
     doc[:topConcept_ssim].uniq!
     doc[:topConcept_uri_ssim] = @broadest_terms.uniq if @broadest_terms.present?
     doc[:new_model_ssi] = self.vocabulary.solr_model + 'Subject'
@@ -732,13 +573,12 @@ class Term < ActiveRecord::Base
     doc
   end
 
-  def get_broadest(item)
-    if Term.find_by(uri: item).broader.blank?
-      @broadest_terms << uri
+  def get_broadest(v_id)
+    broader_id = self.get_relationship_at_version_release(Relation::Broader, v_id)[0]
+    if broader_id
+      return Term.find_by(id: broader_id[1].to_i).get_broadest(v_id)
     else
-      Term.find_by(uri: item).broader.each do |current_broader|
-        get_broadest(current_broader)
-      end
+      return self
     end
   end
 
@@ -797,5 +637,27 @@ class Term < ActiveRecord::Base
         end
       end
     end
+  end
+
+  def remove_connection(to_term, rel_id, vid)
+    connection = term_relationships.where(relation_id: rel_id).find_by(data: to_term.id)
+    if connection.nil?
+      return
+    end
+    my_changes = EditRequest::makeChangeHash(visibility, uri, identifier)
+    er = EditRequest.new(:term_id => id,
+                           :created_at => DateTime.now,
+                           :version_release_id => vid,
+                           :my_changes => my_changes,
+                           :parent_id => nil,
+                           :status => "pending")
+
+    er_change = EditRequest.new(:term_id => nil,
+                                :creator_id => current_user.id,
+                                :created_at => DateTime.now,
+                                :version_release_id => nil,
+                                :status => "approved",
+                                :my_changes => EditRequest::makeChangeHash(visibility, uri, identifier),
+                                :parent_id => er.id)
   end
 end

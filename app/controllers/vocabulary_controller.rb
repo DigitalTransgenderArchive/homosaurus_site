@@ -26,9 +26,9 @@ class VocabularyController < ApplicationController
       format.xml { render body: Term.xml_basic_for_terms(@terms), :content_type => 'text/xml' }
       format.marc { render body: Term.marc_basic_for_terms(@terms), :content_type => 'text/xml' }
 
-      format.ntV2 { render body: Term.all_terms_full_graph_v2(@terms).dump(:ntriples), :content_type => "application/n-triples" }
-      format.jsonldV2 { render body: Term.all_terms_full_graph_v2(@terms).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-      format.ttlV2 { render body: Term.all_terms_full_graph_v2(@terms).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
+      format.ntV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false).dump(:ntriples), :content_type => "application/n-triples" }
+      format.jsonldV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+      format.ttlV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
     end
   end
 
@@ -65,9 +65,9 @@ class VocabularyController < ApplicationController
       format.xml { render body: @homosaurus_obj.xml_basic, :content_type => 'text/xml' }
       format.marc { render body: @homosaurus_obj.marc_basic, :content_type => 'text/xml' }
 
-      format.ntV2 { render body: @homosaurus_obj.full_graph_v2.dump(:ntriples), :content_type => "application/n-triples" }
-      format.jsonldV2 { render body: @homosaurus_obj.full_graph_v2.dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-      format.ttlV2 { render body: @homosaurus_obj.full_graph_v2.dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
+      format.ntV2 { render body: @homosaurus_obj.full_graph(include_lang: false).dump(:ntriples), :content_type => "application/n-triples" }
+      format.jsonldV2 { render body: @homosaurus_obj.full_graph(include_lang: false).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+      format.ttlV2 { render body: @homosaurus_obj.full_graph(include_lang: false)..dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
     end
   end
 
