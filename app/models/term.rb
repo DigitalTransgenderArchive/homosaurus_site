@@ -639,25 +639,89 @@ class Term < ActiveRecord::Base
     end
   end
 
-  def remove_connection(to_term, rel_id, vid)
-    connection = term_relationships.where(relation_id: rel_id).find_by(data: to_term.id)
+  # Remove a term relationship and create/modify an edit request.
+  def remove_connection(to_term, rel_id, vid, uid)
+    connection = term_relationships.where(relation_id: rel_id).find_by(data: "#{to_term.id}")
+    # Skip deleting unlinked turns
     if connection.nil?
       return
     end
     my_changes = EditRequest::makeChangeHash(visibility, uri, identifier)
-    er = EditRequest.new(:term_id => id,
+    #get the er for the version or create one
+    er = nil
+    if self.edit_requests.pluck(:version_release_id).include?(vid)
+      er = self.edit_requests.find_by(version_release_id: vid)
+    else
+      er = EditRequest.new(:term_id => id,
                            :created_at => DateTime.now,
                            :version_release_id => vid,
                            :my_changes => my_changes,
                            :parent_id => nil,
                            :status => "pending")
+    end
+    #remove the connection from the top-level er
+    if er.my_changes[rel_id].include?(["+", nil, "#{to_term.id}"])
+      er.my_changes[rel_id].delete(["+", nil, "#{to_term.id}"])
+    else
+      er.my_changes[rel_id] << ["-", nil, "#{to_term.id}"]
+    end
 
-    er_change = EditRequest.new(:term_id => nil,
-                                :creator_id => current_user.id,
-                                :created_at => DateTime.now,
-                                :version_release_id => nil,
-                                :status => "approved",
-                                :my_changes => EditRequest::makeChangeHash(visibility, uri, identifier),
-                                :parent_id => er.id)
+    er.save
+    # Create an ER removing the connection
+    er_change = EditRequest.create(:term_id => nil,
+                                   :creator_id => uid,
+                                   :created_at => DateTime.now,
+                                   :version_release_id => nil,
+                                   :status => "approved",
+                                   :my_changes => EditRequest::makeChangeHash(visibility, uri, identifier),
+                                   :parent_id => er.id)
+    er_change.my_changes[rel_id] << ["-", nil, "#{to_term.id}"]
+    er.save
+    er_change.save
+  end
+
+  # Remove links on redirect/deletion for a given version
+  def clear_relations(vid, uid)
+    self.term_relationships.where(relation_id: [Relation::Broader,
+                                               Relation::Narrower,
+                                               Relation::Related]).each do |tr|
+      tr.linked_term.remove_connection(self, Relation.inverse(tr.relation_id), vid, uid)
+    end
+  end
+
+  # Redirect this term to another, creating edit request
+  def redirect_term(to_term, vid, uid)
+    
+    #get the er for the version or create one
+    er = nil
+    if to_term.edit_requests.pluck(:version_release_id).include?(vid)
+      er = to_term.edit_requests.find_by(version_release_id: vid)
+    else
+      my_changes = EditRequest::makeChangeHash(visibility, to_term.uri, to_term.identifier)
+      er = EditRequest.new(:term_id => self.id,
+                           :created_at => DateTime.now,
+                           :version_release_id => vid,
+                           :my_changes => my_changes,
+                           :parent_id => nil,
+                           :status => "pending")
+    end
+    #remove the connection if
+    er.my_changes[Relation::Redirects_to] = [["+", nil, "#{to_term.id}"]]
+
+    er.save
+    er_change = EditRequest.create(:term_id => nil,
+                                   :creator_id => uid,
+                                   :created_at => DateTime.now,
+                                   :version_release_id => nil,
+                                   :status => "approved",
+                                   :my_changes => EditRequest::makeChangeHash(visibility, to_term.uri, to_term.identifier),
+                                   :parent_id => er.id)
+    er_change.my_changes[Relation::Redirects_to] = [["+", nil, "#{to_term.id}"]]
+
+    er_change.save
+    er.save
+
+    self.clear_relations(vid, uid)
+
   end
 end

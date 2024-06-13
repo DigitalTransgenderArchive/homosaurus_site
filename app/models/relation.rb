@@ -15,4 +15,14 @@ class Relation < ActiveRecord::Base
   ValueStruct = Struct.new(:data, :language_id)
   self.table_name = "relations"
   has_many :term_relationships
+
+  def self.inverse(rid)
+    if rid == Relation::Narrower
+      return Relation::Broader
+    elsif rid == Relation::Broader
+      return Relation::Narrower
+    elsif rid == Relation::Related
+      return Relation::Related
+    end
+  end
 end

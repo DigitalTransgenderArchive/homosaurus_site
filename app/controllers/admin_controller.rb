@@ -16,6 +16,30 @@ class AdminController < ApplicationController
   def version_publish
     @vr = VersionRelease.find_by(release_identifier: params[:release_identifier])
     @vr.update(status: "Published")
+    @vr.edit_requests.each do |er|
+      if er.term.visibility == "pending"
+        er.term.update(visibility: "visibile")
+        er.save
+      end
+    end
+    @vr.edit_requests.each do |er|
+      t = er.term
+      tr = t.get_relationships_at_version_release(@vr.id)
+      TermRelationship.where(term_id: t.id).delete_all
+      Relation.all.each do |r|
+        tr[r.id].each do |rel|
+          TermRelationship.create(term_id: t.id,
+                                  relation_id: r.id,
+                                  language_id: rel[0],
+                                  data: rel[1])
+        end
+      end
+      if tr[Relation::Redirects_to].nil?
+        self.is_replaced_by = Term.find_by(id: tr[Relation::Redirects_to][0][1].to_i).uri
+        self.visibility = "redirect"
+        self.save!
+      end
+    end
     redirect_to version_manage_path
   end
   def version_manage

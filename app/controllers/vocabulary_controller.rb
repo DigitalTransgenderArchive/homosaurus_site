@@ -173,9 +173,8 @@ class VocabularyController < ApplicationController
   end
 
   def approve_release
-    pp params
-    vid = VersionRelease.find_by(release_identifier: params["release_id"])
-    er = Term.find_by(identifier: params["id"]).edit_requests.find_by(version_release_id: vid)
+    vr = VersionRelease.find_by(release_identifier: params["release_id"])
+    er = Term.find_by(identifier: params["id"]).edit_requests.find_by(version_release_id: vr.id)
     vs = er.vote_statuses.find_by(language_id: I18n.locale)
     if vs.nil?
       vs = VoteStatus.create!(
@@ -699,15 +698,14 @@ class VocabularyController < ApplicationController
 
   def replace
     @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
-    @term_being_replaced = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:replacement_id])
+    @term_being_replaced = Term.find_by(id: params[:replacement_id].to_i)
+    @vr = VersionRelease.find_by(id: params["vid"].to_i)
 
     if @term.blank? || @term_being_replaced.blank? || params[:vocab_id] == params[:replacement_id]
       redirect_to vocabulary_index_path(id: "v3"), notice: "Replacement of term failed"
     else
-      clear_relations(@term_being_replaced)
-      @term_being_replaced.is_replaced_by = @term.uri
-      @term_being_replaced.visibility = "redirect"
-      @term_being_replaced.save!
+
+      @term_being_replaced.redirect_term(@term, @vr.id, current_user.id)
 
       redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "The old term of #{@term_being_replaced.uri} should redirect here now."
     end
@@ -722,26 +720,6 @@ class VocabularyController < ApplicationController
     @term.save!
 
     redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "Term was restored!"
-  end
-
-  def clear_relations(term)
-    term.broader.each do |broader|
-      hier_object = Term.find_by(uri: broader)
-      hier_object.narrower.delete(term.uri)
-      hier_object.save
-    end
-
-    term.narrower.each do |narrower|
-      hier_object = Term.find_by(uri: narrower)
-      hier_object.broader.delete(term.uri)
-      hier_object.save
-    end
-
-    term.related.each do |related|
-      hier_object = Term.find_by(uri: related)
-      hier_object.related.delete(term.uri)
-      hier_object.save
-    end
   end
 
   def set_restore_relations(term)

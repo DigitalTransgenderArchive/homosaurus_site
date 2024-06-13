@@ -39,7 +39,8 @@
       <%= button_to t("term.delete_term"), vocabulary_term_delete_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => :delete, form_class: form_class, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to delete #{@homosaurus_obj.pref_label}?" } %>
     <% end %>
     <% if @homosaurus_obj.visibility != "pending" %>
-      <input class="btn btn-danger" type="button" value="Replace Other Term" onClick='var identifer = prompt("Enter the identifier of the term to replace with this term. This OTHER TERM will redirect to this record."); window.location="/<%=@homosaurus_obj.vocabulary_identifier%>/<%=@homosaurus_obj.identifier%>/replace/" + identifer;'>
+    <button class="btn btn-danger"
+	    data-bs-toggle="modal" data-bs-target="#replace-term-modal">Replace other term</button>
     <% end %>
   <% end %>
 
@@ -138,20 +139,51 @@
 <% if  @homosaurus_obj.broader.blank? %>
   <div style="padding-left:0px;">No Broader Term</div>
 <% else %>
-  <%  @homosaurus_obj.broader.each do |broader| %>
-    <% relation_obj = Term.find_by(uri: broader) %>
+  <% vr_relations[Relation::Broader].each do |broader| %>
+    <% relation_obj = Term.find_by(id: broader[2].to_i) %>
     <div style="padding-left:0px;"><%= link_to "#{relation_obj.pref_label}", vocabulary_show_path(vocab_id: relation_obj.vocabulary_identifier, id: relation_obj.identifier)%></div>
   <% end %>
 <% end %>
 
-
 <div style="padding-left:40px;"><strong><%=  @homosaurus_obj.pref_label %></strong></div>
 
-<%  @homosaurus_obj.narrower.each do |narrower| %>
-  <% relation_obj = Term.find_by(uri: narrower) %>
+<%  vr_relations[Relation::Narrower].each do |narrower| %>
+  <% relation_obj = Term.find_by(uri: narrower[2].to_i) %>
   <div style="padding-left:80px;"><%= link_to "#{relation_obj.pref_label}", vocabulary_show_path(vocab_id: relation_obj.vocabulary_identifier, id: relation_obj.identifier)%></div>
 <% end %>
 
 <br />
 <p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.nt'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonld' %>, <%= link_to "Extended JSON", request.original_url.split('?').first + '.json' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttl' %>, <%= link_to "XML", request.original_url.split('?').first + '.xml' %>, <%= link_to "MARC XML", request.original_url.split('?').first + '.marc' %></p>
 <p><br/><strong>Temporary Experimental Formats (includes language identifiers):</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonldV2' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttlV2' %></p>
+
+<div id="replace-term-modal" class="modal modal-lg modal-fullscreen-sm-down"
+     tab-index="-1" aria-hidden="true" aria-labelledby="replace-term-modal-label">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <%= form_with url: request.fullpath + "/replace", method: :get, local: true do |f| %>
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="new-topic-modal-label">Select term to redirect here</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	<p>The term you select here will redirect to this record. </p>
+	<select id="vote-select" name="replacement_id" class="form-select">
+	<%= Term.all.where(vocabulary_id: @homosaurus_obj.vocabulary_id).each do |t| %>
+	  <option value="<%= t.id %>"><%= t.pref_label %></option>
+	<% end %>
+	</select>
+	<p>The redirect will occur in this version.</p>
+	<select id="vote-select" name="vid" class="form-select">
+	  <%= VersionRelease.where(status: "Pending").each do |vr| %>
+	  <option value="<%= vr.id %>"><%= vr.release_identifier %></option>
+	  <% end %>
+	</select>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Post</button>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
