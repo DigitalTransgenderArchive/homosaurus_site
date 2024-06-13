@@ -17,13 +17,17 @@
               <%= link_to term.pref_label, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier, :from_q=>params[:q]), :class => "text-white"%>
 	    </h4>
           </div>
-          <% if term.alt_labels[0].present? or term.description.present? %>
+	  <% alt_labels = term.term_relationships.where(relation_id: Relation::Alt_label) %>
+	  <% descriptions = term.term_relationships.where(relation_id: Relation::Description) %>
+          <% if alt_labels or descriptions %>
           <div class="card-body">
-            <% if term.alt_labels[0].present? %>
-                <strong>Alternative Labels:</strong> <%= term.alt_labels.join(', ') %><br />
+            <% if alt_labels %>
+                <strong>Alternative Labels:</strong> <%= alt_labels.map{|l| "#{l.data}@#{l.language_id}"}.join(", ") %><br />
             <% end %>
-            <% if term.description.present? %>
-                <strong>Description:</strong> <%= term.description %>
+            <% if descriptions %>
+	      <% descriptions.each do |d| %>
+	        <strong>Description:</strong> <%= "#{d.data}@#{d.language_id}" %>
+	      <% end %>
             <% end %>
 
           </div>

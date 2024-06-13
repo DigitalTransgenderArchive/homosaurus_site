@@ -18,7 +18,7 @@ class AdminController < ApplicationController
     @vr.update(status: "Published")
     @vr.edit_requests.each do |er|
       if er.term.visibility == "pending"
-        er.term.update(visibility: "visibile")
+        er.term.update(visibility: "visible")
         er.save
       end
     end
@@ -40,6 +40,7 @@ class AdminController < ApplicationController
         self.save!
       end
     end
+    DSolr.reindex_all
     redirect_to version_manage_path
   end
   def version_manage

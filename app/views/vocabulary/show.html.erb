@@ -140,7 +140,7 @@
   <div style="padding-left:0px;">No Broader Term</div>
 <% else %>
   <% vr_relations[Relation::Broader].each do |broader| %>
-    <% relation_obj = Term.find_by(id: broader[2].to_i) %>
+    <% relation_obj = Term.find_by(id: broader[1].to_i) %>
     <div style="padding-left:0px;"><%= link_to "#{relation_obj.pref_label}", vocabulary_show_path(vocab_id: relation_obj.vocabulary_identifier, id: relation_obj.identifier)%></div>
   <% end %>
 <% end %>
@@ -148,7 +148,7 @@
 <div style="padding-left:40px;"><strong><%=  @homosaurus_obj.pref_label %></strong></div>
 
 <%  vr_relations[Relation::Narrower].each do |narrower| %>
-  <% relation_obj = Term.find_by(uri: narrower[2].to_i) %>
+  <% relation_obj = Term.find_by(id: narrower[1].to_i) %>
   <div style="padding-left:80px;"><%= link_to "#{relation_obj.pref_label}", vocabulary_show_path(vocab_id: relation_obj.vocabulary_identifier, id: relation_obj.identifier)%></div>
 <% end %>
 
