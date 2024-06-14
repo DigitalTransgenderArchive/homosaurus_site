@@ -16,12 +16,12 @@ class CreateVoteStatuses < ActiveRecord::Migration[5.2]
     if Language.where(id: "spa").count > 0
       Language.create([{:id => "es", :name => "Spanish", :approval_cutoff => 5}])
       TermRelationship.where(language_id: "spa").update_all(language_id: "es")
-      Language.delete(id: "spa")
+      Language.find_by(id: "spa").delete
     end
     if Language.where(id: "ben").count > 0
       Language.create([{:id => "bn", :name => "Bengali", :approval_cutoff => 5}])
       TermRelationship.where(language_id: "ben").update_all(language_id: "bn")
-      Language.delete(id: "ben")
+      Language.find_by(id: "ben").delete
     end
     if Language.where(id: "fr").count == 0
       Language.create([{:id => "fr", :name => "French", :approval_cutoff => 5},
