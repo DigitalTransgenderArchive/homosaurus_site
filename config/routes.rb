@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   post '/admin/version/publish' => 'admin#version_create', as: :version_publish_create
   get '/admin/site/reload' => 'admin#restart_application', as: :restart_application
 
+
   # Reconcile Routes
   get '/reconcile' => 'reconcile#index', as: :reconcile_index
   get '/reconcile/suggest' => 'reconcile#suggest', as: :reconcile_suggest
@@ -57,7 +58,7 @@ Rails.application.routes.draw do
   delete ':vocab_id/:id/delete' => 'vocabulary#destroy', as: :vocabulary_term_delete
   delete ':vocab_id/:id/delete_version' => 'vocabulary#destroy_version', as: :vocabulary_term_delete_version
   get ':vocab_id/:id/restore' => 'vocabulary#restore', as: :vocabulary_term_restore
-  get ':vocab_id/:id/replace/:replacement_id' => 'vocabulary#replace', as: :replace
+  get ':vocab_id/:id/replace' => 'vocabulary#replace', as: :replace
 
   get ':vocab_id/:id/history' => 'vocabulary#history', as: :vocabulary_term_history
   get ':vocab_id/:id/:release_id' => 'vocabulary#discussion', as: :edit_request_discussion, constraints: { release_id: /[\d\.]+/ }
