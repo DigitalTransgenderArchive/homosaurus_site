@@ -12,10 +12,10 @@
   <div class="card-body">
     <dl style="margin-bottom:0px">
       <% if values.present? && values[0].present? %>
-        <% objs_sorted = Term.where(id: values.map{|v| v[1]}).sort_by { |obj| obj.pref_label.downcase } %>
+        <% objs_sorted = Term.where(id: values.map{|v| v[1]}).sort_by { |obj| obj.pref_label_localized.data.downcase } %>
         <% objs_sorted.each do |relation_obj| %>
           <dd>
-            <%= link_to "#{relation_obj.pref_label}", vocabulary_show_path(vocab_id: relation_obj.vocabulary_identifier, id: relation_obj.identifier)%>
+            <%= link_to "#{relation_obj.pref_label_localized.data} [#{relation_obj.identifier}]", vocabulary_show_path(vocab_id: relation_obj.vocabulary_identifier, id: relation_obj.identifier)%>
           </dd>
         <% end %>
       <% end %>

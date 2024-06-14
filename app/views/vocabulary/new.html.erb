@@ -1,5 +1,5 @@
 <div class="row-padded">
-  <h1>Create New Term</h1>
+  <h1><%= t('vocab.admin.new_term') %></h1>
   <div style="width:50em;">
     <%= simple_form_for(@term, :url => vocabulary_term_create_path(vocab_id: @vocab_id), :as => :term) do |f| %>
       <div class="input-group">

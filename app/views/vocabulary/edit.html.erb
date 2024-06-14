@@ -1,7 +1,7 @@
 <% available_versions = VersionRelease.where(status: "Pending") %>
 <% disabled_versions = @term.edit_requests.reject{|er| er.vote_status != "approved"}.pluck(:version_release_id) %>
 <div class="row-padded">
-  <h1>Edit</h1>
+  <h1><%= t('term.edit_term') %></h1>
   <%= button_to "Back To Term", vocabulary_show_path(vocab_id: @vocab_id, id: params[:id]), :method => "get", class: 'btn text-bg-primary' %>
   <br/>
   <div style="width:50em;">

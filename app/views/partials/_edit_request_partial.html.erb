@@ -99,7 +99,7 @@ end
 	      <td class="col col-1"><span class="well_language"><%= lang %></span></td>
 	      <td class="col col-8">
 		<% if r.links_to == 1 %>
-		  <a href="<%= Term.find_by(id: val).uri %>"> <%= Term.find_by(id: val).pref_label  %></a>
+		  <a href="<%= Term.find_by(id: val).uri_localized %>"> <%= Term.find_by(id: val).pref_label_localized.data  %> [<%= Term.find_by(id: val).identifier %>] </a>
 		<% else %>
 		  <%= val %>
 		<% end %>

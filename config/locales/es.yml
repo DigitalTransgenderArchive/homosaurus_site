@@ -57,6 +57,7 @@ es:
   term:
     back_to_index: "Volver al índice"
     back_to_search: "Volver a buscar"
+    history: "Historial"
     view_history: "Ver historial"
     edit_term: "Editar término"
     delete_term: "Eliminar término"

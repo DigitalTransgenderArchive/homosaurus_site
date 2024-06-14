@@ -125,6 +125,14 @@ class Term < ActiveRecord::Base
     end
   end
 
+  # Gets preferred language, preferably in current localization, returns as term_relationship
+  def pref_label_localized(lang_id = I18n.locale)
+    return self.term_relationships.where(relation_id: Relation::Pref_label).order("language_id = '#{lang_id}' DESC")[0]
+  end
+  def uri_localized(lang_id = I18n.locale)
+    return self.uri.sub('//', "//#{lang_id}.")
+  end
+  
   # Get all edits tied to this term (and that it replaces)
   def get_edit_requests
     unless self.edit_requests.count and not self.edit_requests[0].nil?

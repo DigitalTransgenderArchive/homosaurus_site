@@ -79,6 +79,7 @@ en:
   term:
     back_to_index: "Back to Index"
     back_to_search: "Back To Search Results"
+    history: "History"
     view_history: "View History"
     edit_term: "Edit Term"
     delete_term: "Delete Term"
