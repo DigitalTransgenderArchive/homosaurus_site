@@ -1,112 +1,79 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
+---
 en:
+  discussion:
+    add_topic: Add New Topic
+    add_vote: Add Vote
+    back_to_term: Back to Term
+    changes_label: Changes
+    comment_label: Comments
+    comment_vote_label: Comments & Votes
+    label: Discussion
+    vote_accept: Accept
+    vote_label: Vote
+    vote_reject: Reject
+    vote_table: Table
+    vote_tally: Vote Tally
+  download:
+    formats: Download Formats
+    graphical_views: Graphical Views
+  edit_request:
+    view_discussion: View Discussion
+    view_release: View Release
+    view_term: View Term
+  languages:
+    bn: Bengali
+    en: English
+    es: Spanish
+    fr: French
+    hi: Hindi
+    nl: Dutch
+    sv: Swedish
   menu:
-    home: "Home"
-    vocab: "Vocabulary"
-    search: "Search"
-    releases: "Releases"
-    about: "About"
-    contact: "Contact"
-    account: "Account"
-    roles: "Manage Roles"
-    add_term: "Add Term"
-    manage_releases: "Manage Releases"
-    manage_users: "Manage Users"
-    reload: "Reload Application"
-    logout: "Log Out"
-
+    about: About
+    account: Account
+    add_term: Add Term
+    contact: Contact
+    home: Home
+    logout: Log Out
+    manage_releases: Manage Releases
+    manage_users: Manage Users
+    releases: Releases
+    reload: Reload Application
+    roles: Manage Roles
+    search: Search
+    vocab: Vocabulary
+  misc:
+    translation_needed: Translation needed
+  release:
+    label: Release
+    updates: Updates
+  search:
+    placeholder: Enter Search Term
+    results_label: Search Results For
+  status:
+    deleted: Deleted
+    linked_label: Linked
+    modified: Modified
+    new_term_label: New Term
+    pending: Pending
+    published: Published
+    redirected: Redirected
+  term:
+    back_to_index: Back to Index
+    back_to_search: Back To Search Results
+    delete_term: Delete Term
+    edit_term: Edit Term
+    hierarchy_label: Hierarchy Display
+    history: History
+    replace_term: Replace Other Term
+    view_history: View History
   vocab:
     admin:
-      actions: "Admin Actions"
-      new_term: "Add A New Term"
-      show_visible: "Show Visible Terms"
-      show_next: "Show Next Version Terms"
-      show_deleted: "Show Deleted Terms"
-      show_redirects: "Show Redirected Terms"
-    current_terms: "Current Term List"
-    label: "Homosaurus Vocabulary Terms"
-
-  download:
-    formats: "Download Formats"
-    graphical_views: "Graphical Views"
-    
-  search:
-    placeholder: "Enter Search Term"
-    results_label: "Search Results For"
-
-  release:
-    label: "Release"
-    updates: "Updates"
-
-  status:
-    pending: "Pending"
-    published: "Published"
-    deleted: "Deleted"
-    redirected: "Redirected"
-    modified: "Modified"
-
-    new_term_label: "New Term"
-    linked_label: "Linked"
-
-  edit_request:
-    view_term: "View Term"
-    view_discussion: "View Discussion"
-    view_release: "View Release"
-
-  misc:
-    translation_needed: "Translation needed"
-
-  term:
-    back_to_index: "Back to Index"
-    back_to_search: "Back To Search Results"
-    history: "History"
-    view_history: "View History"
-    edit_term: "Edit Term"
-    delete_term: "Delete Term"
-    replace_term: "Replace Other Term"
-    hierarchy_label: "Hierarchy Display"
-
-  discussion:
-    label: "Discussion"
-    back_to_term: "Back to Term"
-    add_topic: "Add New Topic"
-    add_vote: "Add Vote"
-    vote_tally: "Vote Tally"
-    vote_label: "Vote"
-
-    vote_accept: "Accept"
-    vote_reject: "Reject"
-    vote_table: "Table"
-
-    changes_label: "Changes"
-    comment_vote_label: "Comments & Votes"
-    comment_label: "Comments"
-
-  languages:
-    "en": "English"
-    "es": "Spanish"
-    "fr": "French"
-    "nl": "Dutch"
-    "sv": "Swedish"
-    "hi": "Hindi"
-    "bn": "Bengali"
+      actions: Admin Actions
+      new_term: Add A New Term
+      show_deleted: Show Deleted Terms
+      show_next: Show Next Version Terms
+      show_redirects: Show Redirected Terms
+      show_visible: Show Visible Terms
+    current_terms: Current Term List
+    label: Homosaurus Vocabulary Terms

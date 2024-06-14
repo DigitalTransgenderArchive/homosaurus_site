@@ -1,6 +1,6 @@
 <div class="row-padded">
   <h1>Add New Pending Release</h1>
-  <% ["Major", "Minor", "Patch"].each do |t| %>
+  <% ["Minor", "Patch"].each do |t| %>
     <%= button_to "#{t} (#{VersionRelease.get_next_identifier(t)})", version_publish_new_path(release_type: t), :method => :post, form_class: 'btn p-0', class: 'btn btn-primary', data: { confirm: "Are you sure you want to add a new version release? It will not be public until later specified." } %>
   <% end %>
   </div>

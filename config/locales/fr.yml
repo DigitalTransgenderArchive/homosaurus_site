@@ -1,0 +1,80 @@
+---
+fr:
+  discussion:
+    add_topic: Ajouter un nouveau sujet
+    add_vote: Ajouter un vote
+    back_to_term: Retour au terme
+    changes_label: Changements
+    comment_label: Commentaires
+    comment_post: Publier
+    comment_reply: Répondre
+    comment_showhide: Afficher/masquer les réponses
+    comment_vote_label: Commentaires et votes
+    label: Discussion
+    vote_accept: Accepter
+    vote_label: Vote
+    vote_reject: Rejeter
+    vote_table: Tableau
+    vote_tally: Décompte des votes
+  download:
+    formats: Formats de téléchargement
+    graphical_views: Graphiques
+  edit_request:
+    view_discussion: Voir la discussion
+    view_release: Voir la version mise en ligne
+    view_term: Voir le terme
+  languages:
+    bn: Bengalí
+    en: Ingles
+    es: Español
+    fr: Francés
+    hi: Hindi
+    nl: Holandés
+    sv: Sueco
+  menu:
+    about: À propos
+    account: Se connecter
+    add_term: Ajouter un terme
+    contact: Nous joindre
+    home: Accueil
+    logout: Se déconnecter
+    releases: Gestion des mises à jour
+    reload: Recharger l'application
+    search: Recherche
+    vocab: Thésaurus
+  misc:
+    translation_needed: Traduction nécessaire
+  release:
+    label: Actualités
+    updates: Mises à jour
+  search:
+    placeholder: Saisir un terme de recherche
+    results_label: Résultats de la recherche pour
+  status:
+    deleted: Effacé
+    linked_label: Lié
+    new_term_label: Nouveau terme
+    pending: En cours
+    published: Publié
+    redirected: Redirigé
+    modified: Modifié
+  term:
+    back_to_index: Retour à l'index
+    delete_term: Effacer le terme
+    edit_term: Éditer le terme
+    hierarchy_label: Affichage de la hiérarchie
+    history: Historique
+    other_formats: Autres formats
+    replace_term: Remplacer l'autre terme
+    temp_formats: 'Formats expérimentaux temporaires (y compris les identificateurs de langue):'
+    view_history: Voir l'historique
+  vocab:
+    admin:
+      actions: Actions de l'administration
+      new_term: Ajouter un nouveau terme
+      show_deleted: Afficher les termes supprimés
+      show_next: Afficher les termes de la prochaine version
+      show_redirects: Afficher les termes redirigés
+      show_visible: Afficher les termes visibles
+    current_terms: Liste des termes courants
+    label: Termes de l'Homosaurus

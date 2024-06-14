@@ -91,3 +91,7 @@ gem "sassc-rails", "~> 2.1"
 gem "i18n", "~> 1.14"
 
 gem "i18n_data", "~> 0.17.1"
+
+gem 'i18n-tasks', '~> 1.0.14'
+
+gem 'ffi', '~> 1.16.3'

@@ -1,90 +1,78 @@
+---
 es:
+  discussion:
+    add_topic: Agregar nuevo tema
+    add_vote: Agregar voto
+    back_to_term: Volver a terminario
+    changes_label: Cambios
+    comment_label: Comentarios
+    comment_vote_label: Comentarios y Votos
+    label: Discusión
+    vote_accept: Aceptar
+    vote_label: Votar
+    vote_reject: Rechazar
+    vote_table: Tabla
+    vote_tally: Cuenta de las votas
+  download:
+    formats: Formatos de descarga
+    graphical_views: Vistas gráficas
+  edit_request:
+    view_discussion: Ver discusión
+    view_release: Ver lanzamiento
+    view_term: Ver término
+  languages:
+    bn: Bengalí
+    en: Ingles
+    es: Español
+    fr: Francés
+    hi: Hindi
+    nl: Holandés
+    sv: Sueco
   menu:
-    home: "Inicio"
-    vocab: "Vocabulario"
-    search: "Buscar"
-    releases: "Lanzamientos"
-    about: "Sobre nosotros"
-    contact: "Contacto"
-    account: "Cuenta"
-    roles: "Administrar roles"
-    add_term: "Agregar término"
-    manage_releases: "Administrar lanzamientos"
-    reload: "Recargar aplicación"
-    logout: "Cerrar sesión"
-
+    about: Sobre nosotros
+    account: Cuenta
+    add_term: Agregar término
+    contact: Contacto
+    home: Inicio
+    logout: Cerrar sesión
+    manage_releases: Administrar lanzamientos
+    releases: Lanzamientos
+    reload: Recargar aplicación
+    roles: Administrar roles
+    search: Buscar
+    vocab: Vocabulario
+  misc:
+    translation_needed: Se necesita traducción
+  release:
+    label: Publicar
+    updates: Actualizaciones
+  search:
+    placeholder: Introduzca el término de búsqueda
+    results_label: Resultados de búsqueda para
+  status:
+    deleted: Eliminado
+    linked_label: Vinculado
+    modified: Modificado
+    new_term_label: Nuevo término
+    pending: Pendiente
+    published: Publicado
+    redirected: Redirigido
+  term:
+    back_to_index: Volver al índice
+    back_to_search: Volver a buscar
+    delete_term: Eliminar término
+    edit_term: Editar término
+    hierarchy_label: Visualización de jerarquía
+    history: Historial
+    replace_term: Remplazar otro término
+    view_history: Ver historial
   vocab:
     admin:
-      actions: "Acciones de administrador"
-      new_term: "Agregar un término nuevo"
-      show_visible: "Mostrar terminos visibles"
-      show_next: "Mostrar términos de la próxima versión"
-      show_deleted: "Mostrar términos eliminados"
-      show_redirects: "Mostrar términos redirigidos"
-    current_terms: "Lista de términos actuales"
-    label: "Términos del vocabulario Homosaurus"
-
-  download:
-    formats: "Formatos de descarga"
-    graphical_views: "Vistas gráficas"
-
-  search:
-    placeholder: "Introduzca el término de búsqueda"
-    results_label: "Resultados de búsqueda para"
-
-  release:
-    label: "Publicar"
-    updates: "Actualizaciones"
-
-  status:
-    pending: "Pendiente"
-    published: "Publicado"
-    deleted: "Eliminado"
-    redirected: "Redirigido"
-    modified: "Modificado"
-    
-    new_term_label: "Nuevo término"
-    linked_label: "Vinculado"
-
-  edit_request:
-    view_term: "Ver término"
-    view_discussion: "Ver discusión"
-    view_release: "Ver lanzamiento"
-
-  misc:
-    translation_needed: "Se necesita traducción"
-
-  term:
-    back_to_index: "Volver al índice"
-    back_to_search: "Volver a buscar"
-    history: "Historial"
-    view_history: "Ver historial"
-    edit_term: "Editar término"
-    delete_term: "Eliminar término"
-    replace_term: "Remplazar otro término"
-    hierarchy_label: "Visualización de jerarquía"
-
-  discussion:
-    label: "Discusión"
-    back_to_term: "Volver a terminario"
-    add_topic: "Agregar nuevo tema"
-    add_vote: "Agregar voto"
-    vote_tally: "Cuenta de las votas"
-    vote_label: "Votar"
-
-    vote_accept: "Aceptar"
-    vote_reject: "Rechazar"
-    vote_table: "Tabla"
-
-    changes_label: "Cambios"
-    comment_vote_label: "Comentarios y Votos"
-    comment_label: "Comentarios"
-
-  languages:
-    "en": "Ingles"
-    "es": "Español"
-    "fr": "Francés"
-    "nl": "Holandés"
-    "sv": "Sueco"
-    "hi": "Hindi"
-    "bn": "Bengalí"
+      actions: Acciones de administrador
+      new_term: Agregar un término nuevo
+      show_deleted: Mostrar términos eliminados
+      show_next: Mostrar términos de la próxima versión
+      show_redirects: Mostrar términos redirigidos
+      show_visible: Mostrar terminos visibles
+    current_terms: Lista de términos actuales
+    label: Términos del vocabulario Homosaurus
