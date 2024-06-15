@@ -1,0 +1,83 @@
+---
+sv:
+  discussion:
+    add_topic: Skapa nytt ämne
+    add_vote: Lägg till röst
+    changes_label: Ändringar
+    comment_label: Kommentarer
+    comment_post: Inlägg
+    comment_reply: Svara
+    comment_showhide: Visa/dölj svar
+    comment_vote_label: Kommentarer och röster
+    label: Diskussion
+    vote_accept: Bifall
+    vote_label: Rösta
+    vote_reject: Avslå
+    vote_table: Bordläggs
+    vote_tally: Röstningsresultat
+  download:
+    formats: Nedladdningsformat
+    graphical_views: Grafiska vyer
+  edit_request:
+    view_discussion: Se diskussion
+    view_release: Se version
+    view_term: Se term
+  languages:
+    en: Engelska
+    bn: Bengali
+    es: Spanska
+    fr: Franska
+    hi: Hindi
+    nl: Holländska
+    sv: Svenska
+  menu:
+    about: Om
+    account: Konto
+    add_term: Lägg till ämnesord
+    contact: Kontakt
+    home: Hem
+    logout: Logga ut
+    releases: Administrera versioner
+    reload: Ladda om applikationen
+    roles: Administrera roller
+    search: Sök
+    vocab: Tesaurus
+  misc:
+    translation_needed: Översättning behövs
+  release:
+    label: Version
+    updates: Uppdateringar
+  search:
+    placeholder: Fyll i sökord
+    results_label: Sökresultat för
+  status:
+    deleted: Raderad
+    linked_label: Länkad
+    new_term_label: Ny term
+    pending: Väntar
+    published: Publicerad
+    redirected: Omdirigerad
+  term:
+    back_to_index: Tillbaka till index
+    back_to_search: Tillbaka för att söka
+    delete_term: Stryk term
+    edit_term: Redigera term
+    hierarchy_label: Hierarkisk vy
+    history: Historik
+    other_formats: Andra format
+    replace_term: Ersätt annan term
+    temp_formats: Temporära experimentella format (inkluderar språkidentifierare)
+    view_history: Se historik
+  vocab:
+    admin:
+      actions: Administratörsfunktioner
+      new_term: Lägg till nytt ämnesord
+      show_deleted: Visa strukna ämnesord
+      show_next: Visa ämnesord för nästa version
+      show_redirects: Visa omdirigerade ämnesord
+      show_visible: Visa synliga ämnesord
+    current_terms: Aktuell lista med ämnesord
+    label: Homosaurus ämnesord
+  footnote:
+    msg_1_html: Homosaurus.org är en länkad datatjänst som drivs av <a href="https://www.digitaltransgenderarchive.net/">Digital Transgender Archive</a>
+    msg_2_html: Denna vokabulär publiceras under en <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.sv">Creative Commons Erkännande-Ickekommersiell-IngaBearbetningar 4.0 Internationell licens (CC BY NC-ND 4.0)</a>

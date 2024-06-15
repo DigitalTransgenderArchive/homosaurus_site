@@ -1,0 +1,85 @@
+---
+bn:
+  discussion:
+    add_topic: নতুন বিষয় যোগ করুন
+    add_vote: ভোট যোগ করুন
+    back_to_term: মেয়াদে ফিরে
+    changes_label: পরিবর্তনসমূহ
+    comment_label: মন্তব্যসমূহ
+    comment_post: পোস্ট করুন
+    comment_reply: উত্তর
+    comment_showhide: উত্তরগুলি দেখান/আড়াল করুন
+    comment_vote_label: মন্তব্য এবং ভোট
+    label: আলোচনা
+    vote_accept: গ্রহণ করুন
+    vote_label: ভোট
+    vote_reject: প্রত্যাখ্যান করুন
+    vote_table: টেবিল
+    vote_tally: ভোট গণনা
+  download:
+    formats: ফরম্যাট ডাউনলোড করুন
+    graphical_views: গ্রাফিকাল ভিউ
+  edit_request:
+    view_discussion: আলোচনা দেখুন
+    view_release: রিলিজ দেখুন
+    view_term: টার্ম দেখুন
+  languages:
+    bn: বাংলা
+    en: ইংরেজি
+    es: স্প্যানিশ
+    fr: ফরাসি
+    hi: হিন্দি
+    nl: ডাচ
+    sv: সুইডিশ
+  menu:
+    about: হোমোসরাস সম্পর্কে জানুন
+    account: অ্যাকাউন্ট
+    add_term: পরিভাষা যোগ করুন
+    contact: যোগাযোগ করুন
+    home: হোম
+    logout: লগ আউট
+    releases: রিলিজ পরিচালনা করুন
+    reload: অ্যাপ্লিকেশনটি পুনরায় লোড করুন
+    roles: ভূমিকা পরিচালনা করুন
+    search: অনুসন্ধান
+    vocab: পারিভাষিক শব্দভাণ্ডার
+  misc:
+    translation_needed: অনুবাদ প্রয়োজন
+  release:
+    label: মুক্তিপ্রাপ্ত সংস্করণ
+    updates: আপডেট সমূহ
+  search:
+    placeholder: এখানে অনুসন্ধান বাক্যাংশ লিখুন
+    results_label: অনুসন্ধান ফলাফল
+  status:
+    deleted: মুছে ফেলা হয়েছে
+    linked_label: লিঙ্ক করা হয়েছে
+    modified: পরিবর্তিত
+    new_term_label: নতুন পদ
+    pending: মুলতবি
+    published: প্রকাশিত হয়েছে
+    redirected: পুনঃনির্দেশিত
+  term:
+    back_to_index: ইনডেক্সে ফিরে যান
+    back_to_search: অনুসন্ধান ফলাফলে ফিরে যান
+    delete_term: শব্দটি মুছুন
+    edit_term: টার্ম এডিট করুন
+    hierarchy_label: অনুক্রম প্রদর্শন
+    history: ইতিহাস
+    other_formats: অন্যান্য ফরম্যাট
+    replace_term: অন্য শব্দ দ্বারা প্রতিস্থাপন করুন
+    temp_formats: অস্থায়ী পরীক্ষামূলক ফর্ম্যাট (ভাষা সনাক্তকারী অন্তর্ভুক্ত)
+    view_history: ইতিহাস দেখুন
+  vocab:
+    admin:
+      actions: অ্যাডমিন অ্যাকশন
+      new_term: একটি নতুন পরিভাষা যোগ করুন
+      show_deleted: মুছে ফেলা পরিভাষাগুলি দেখান
+      show_next: পরবর্তী সংস্করণের পরিভাষাগুলি দেখান
+      show_redirects: পুনঃনির্দেশিত পরিভাষাগুলি দেখান
+      show_visible: দৃশ্যমান পরিভাষাগুলি দেখান
+    current_terms: বর্তমান পরিভাষা তালিকা
+    label: হোমোসরাস শব্দভান্ডারের শব্দাবলি
+  footnote:
+    msg_1_html: Homosaurus.org একটি লিঙ্কযুক্ত ডেটা পরিষেবা যা<a href="https://www.digitaltransgenderarchive.net/"> ডিজিটাল ট্রান্সজেন্ডার আর্কাইভ</a> দ্বারা রক্ষণাবেক্ষণ করা হয় 
+    msg_2_html: এই শব্দভাণ্ডারটি<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.bn"> ক্রিয়েটিভ কমন্স অ্যাট্রিবিউশন-অ-বাণিজ্যিক-না ডেরিভেটিভস ৪. ০ </a> আন্তর্জাতিক লাইসেন্সের অধীনে উপলব্ধ করা হয়েছে ।

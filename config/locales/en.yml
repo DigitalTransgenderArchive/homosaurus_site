@@ -6,6 +6,9 @@ en:
     back_to_term: Back to Term
     changes_label: Changes
     comment_label: Comments
+    comment_post: Post
+    comment_reply: Reply
+    comment_showhide: Show/hide comments
     comment_vote_label: Comments & Votes
     label: Discussion
     vote_accept: Accept
@@ -77,3 +80,6 @@ en:
       show_visible: Show Visible Terms
     current_terms: Current Term List
     label: Homosaurus Vocabulary Terms
+  footnote:
+    msg_1_html: Homosaurus.org is a linked data service maintained by the <a href="https://www.digitaltransgenderarchive.net/">Digital Transgender Archive </a>
+    msg_2_html:  This vocabulary is made available under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International license (CC BY NC-ND 4.0)</a>

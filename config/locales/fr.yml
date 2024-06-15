@@ -53,11 +53,11 @@ fr:
   status:
     deleted: Effacé
     linked_label: Lié
+    modified: Modifié
     new_term_label: Nouveau terme
     pending: En cours
     published: Publié
     redirected: Redirigé
-    modified: Modifié
   term:
     back_to_index: Retour à l'index
     delete_term: Effacer le terme
@@ -78,3 +78,6 @@ fr:
       show_visible: Afficher les termes visibles
     current_terms: Liste des termes courants
     label: Termes de l'Homosaurus
+  footnote:
+    msg_1_html: Homosaurus.org est un service de données liées géré par le <a href="https://www.digitaltransgenderarchive.net/">Digital Transgender Archive </a>
+    msg_2_html:  Ce thésaurus est mis à disposition sous une  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr">licence Creative Commons Attribution-Pas d'utilisation commerciale- Pas de modification 4.0 International (CC BY NC-ND 4.0)</a>

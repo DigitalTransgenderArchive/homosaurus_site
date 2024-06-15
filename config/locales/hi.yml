@@ -1,0 +1,88 @@
+---
+hi:
+  discussion:
+    add_topic: नया विषय जोड़ें
+    add_vote: वोट जोड़ें
+    back_to_term: वापस टर्म पर
+    changes_label: परिवर्तन
+    comment_label: टिप्पणियाँ
+    comment_post: पोस्ट करें
+    comment_reply: जवाब
+    comment_showhide: जवाब दिखाएँ/छिपाएँ
+    comment_vote_label: टिप्पणियाँ और वोट
+    label: चर्चा
+    vote_accept: स्वीकार करें
+    vote_label: वोट
+    vote_reject: नामंज़ूर करें
+    vote_table: मेज़
+    vote_tally: वोट टैली
+  download:
+    formats: फ़ॉर्मेट डाउनलोड करें
+    graphical_views: ग्राफ़िकल व्यू
+  edit:
+    edit_label: बदलाव करें
+    version: संस्करण
+  edit_request:
+    view_discussion: चर्चा देखें
+    view_release: रिलीज़ देखें
+    view_term: शब्द देखें
+  languages:
+    bn: बंगाली
+    en: अंग्रेजी
+    es: स्पेनिश
+    fr: फ्रेंच
+    hi: हिंदी
+    nl: डच
+    sv: स्वीडिश
+  menu:
+    about: होमोसॉरस के बारे में जानें
+    account: खाता
+    add_term: शब्द जोड़ें
+    contact: संपर्क करें
+    home: होम
+    logout: लॉग आउट
+    releases: रिलीज़ मैनेज करें
+    reload: एप्लिकेशन फिर से लोड करें
+    roles: रोले मैनेज करें
+    search: खोज
+    vocab: पारिभाषिक शब्दावली
+  misc:
+    translation_needed: अनुवाद आवश्यक
+  release:
+    label: जारी किया गया संस्करण
+    updates: अपडेट
+  search:
+    placeholder: ढूंढा जाने वाला वाक्यांश यहां पर भरें
+    results_label: के लिए सर्च परिणाम
+  status:
+    deleted: डिलीट किया गया
+    linked_label: जुड़ा हुआ
+    modified: संशोधित
+    new_term_label: नया शब्द
+    pending: लंबित
+    published: प्रकाशित
+    redirected: पुनः निर्देशित
+  term:
+    back_to_index: इंडेक्स पर वापस जाएँ
+    back_to_search: जाँच परिणाम में वापस
+    delete_term: शब्द हटाएँ
+    edit_term: शब्द में बदलाव करें
+    hierarchy_label: पदानुक्रम प्रदर्शन
+    history: इतिहास
+    other_formats: अन्य फ़ॉर्मेट
+    replace_term: अन्य शब्द बदलें
+    temp_formats: अस्थायी प्रायोगिक प्रारूप (भाषा पहचानकर्ता शामिल हैं)
+    view_history: इतिहास देखें
+  vocab:
+    admin:
+      actions: एडमिन की कार्रवाइयाँ
+      new_term: एक नया शब्द जोड़ें
+      show_deleted: हटाई गई शर्तें दिखाएँ
+      show_next: अगले संस्करण की शर्तें दिखाएँ
+      show_redirects: रीडायरेक्ट की गई शर्तें दिखाएँ
+      show_visible: दृश्यमान शर्तें दिखाएँ
+    current_terms: शर्तों की वर्तमान सूची
+    label: होमोसॉरस शब्दावली शब्द
+  footnote:
+    msg_1_html: Homosaurus.org एक लिंक्ड डेटा सेवा है जिसका रखरखाव <a href="https://www.digitaltransgenderarchive.net/"> डिजिटल ट्रांसजेंडर आर्काइव</a> द्वारा किया जाता है
+    msg_2_html: यह शब्दावली <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.hi">क्रिएटिव कॉमन्स श्रेय-गैरवाणिज्यिक-व्युत्पन्ननहीं 4.0 अंतर्राष्ट्रीय  (CC BY NC-ND 4.0)</a> लाइसेंस के तहत उपलब्ध कराई गई है। 

@@ -6,6 +6,9 @@ es:
     back_to_term: Volver a terminario
     changes_label: Cambios
     comment_label: Comentarios
+    comment_post: Publicar
+    comment_reply: Responder
+    comment_showhide: Mostrar/esconder respuestas
     comment_vote_label: Comentarios y Votos
     label: Discusión
     vote_accept: Aceptar
@@ -76,3 +79,6 @@ es:
       show_visible: Mostrar terminos visibles
     current_terms: Lista de términos actuales
     label: Términos del vocabulario Homosaurus
+  footnote:
+    msg_1_html: Homosaurus.org es un servicio de datos vinculado mantenido por el <a href="https://www.digitaltransgenderarchive.net/">Digital Transgender Archive</a>
+    msg_2_html:  Este vocabulario está disponible bajo una <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es">licencia Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 internacional  (CC BY NC-ND 4.0)</a>
