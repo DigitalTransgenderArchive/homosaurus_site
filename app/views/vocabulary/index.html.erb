@@ -33,22 +33,11 @@
           <%= link_to "(EMPTY)", vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier) %>
         <% else %>
           <%= link_to term.pref_label_localized.data, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier) %>
-          <% end %>
-	<% if not term.translation_exists?(I18n.locale) %>
+        <% end %>
+	<% if current_user.present? && (not term.translation_exists?(I18n.locale)) %>
 	  <span class="badge text-bg-danger"><%= t("misc.translation_needed") %></span>
 	<% end %>
       </li>
-  <% end %>
-  <% @edited_terms.each do |pending| %>
-    <% term = pending.reify %>
-    <li>
-      <% if term.pref_label.blank? %>
-        <%= link_to "(EMPTY)", vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier, pending_id: pending.id) %>
-      <% else %>
-        <%= link_to term.pref_label_localized.data, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier, pending_id: pending.id) %>
-      <% end %>
-
-    </li>
   <% end %>
 
 </ul>
