@@ -22,9 +22,14 @@ sv:
     view_discussion: Se diskussion
     view_release: Se version
     view_term: Se term
+  footnote:
+    msg_1_html: Homosaurus.org är en länkad datatjänst som drivs av <a href="https://www.digitaltransgenderarchive.net/">Digital Transgender Archive</a>
+    msg_2_html: Denna vokabulär publiceras under en <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.sv">Creative Commons Erkännande-Ickekommersiell-IngaBearbetningar 4.0 Internationell licens (CC BY NC-ND 4.0)</a>
+  homepage:
+    welcome_html: '<p>Välkommen till Homosaurus! Homosaurus är en internationell tesaurus med länkade data-termer rörande homosexuella, bisexuella, transpersoner och queera (hbtq). Tesaurusen är avsedd att fungera som ett komplement till generella ämnesordssystem, som Library of Congress Subject Headings eller Svenska ämnesord. Bibliotek, arkiv, museer och andra institutioner uppmuntras att använda Homosaurus för att stödja hbtq-forskning genom att förbättra upptäckbarheten av deras hbtq-resurser.</p><p>Om du är intresserad av att köpa Homosaurus-prylar, besök vår <a href="https://homosaurus.threadless.com">onlinebutik</a>. Alla intäkter används för att stödja projektet eller doneras till hbtq+-organisationer.</p><p>Om du använder Homosaurus vill vi höra från dig! <a href="%{contact_path}">Kontakta oss</a> gärna för att berätta hur du använder den här tesaurusen och om du har några synpunkter. Du kan också gå med i vår Google-grupp på: <a href="https://groups.google.com/g/homoitcommunity">https://groups.google.com/g/homoitcommunity</a></p>'
   languages:
-    en: Engelska
     bn: Bengali
+    en: Engelska
     es: Spanska
     fr: Franska
     hi: Hindi
@@ -43,6 +48,7 @@ sv:
     search: Sök
     vocab: Tesaurus
   misc:
+    tagline: En internationell hbtq+-tesaurus med länkade data
     translation_needed: Översättning behövs
   release:
     label: Version
@@ -78,6 +84,3 @@ sv:
       show_visible: Visa synliga ämnesord
     current_terms: Aktuell lista med ämnesord
     label: Homosaurus ämnesord
-  footnote:
-    msg_1_html: Homosaurus.org är en länkad datatjänst som drivs av <a href="https://www.digitaltransgenderarchive.net/">Digital Transgender Archive</a>
-    msg_2_html: Denna vokabulär publiceras under en <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.sv">Creative Commons Erkännande-Ickekommersiell-IngaBearbetningar 4.0 Internationell licens (CC BY NC-ND 4.0)</a>

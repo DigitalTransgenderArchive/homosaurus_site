@@ -23,6 +23,11 @@ fr:
     view_discussion: Voir la discussion
     view_release: Voir la version mise en ligne
     view_term: Voir le terme
+  footnote:
+    msg_1_html: Homosaurus.org est un service de données liées géré par le <a href="https://www.digitaltransgenderarchive.net/">Digital Transgender Archive </a>
+    msg_2_html: Ce thésaurus est mis à disposition sous une  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr">licence Creative Commons Attribution-Pas d'utilisation commerciale- Pas de modification 4.0 International (CC BY NC-ND 4.0)</a>
+  homepage:
+    welcome_html: '<p>Bienvenue sur le site de l''Homosaurus! L''Homosaurus est un thésaurus international de données liées portant sur les personnes, la culture et les enjeux LGBTQ+. Ce thésaurus est destiné à accompagner les thésaurus et vocabulaires de termes généraux, comme les vedettes-matière de la Bibliothèque du Congrès (LCSH). Les bibliothèques, archives, musées et autres institutions sont encouragé·es à utiliser l''Homosaurus pour soutenir la recherche LGBTQ+, tout en améliorant la découvrabilité et l''accès à leurs ressources portant sur cette thématique. </p><p>Si vous souhaitez acheter des articles de l''Homosaurus, veuillez visiter notre <a href="https://homosaurus.threadless.com">boutique en ligne</a>. Toutes les sommes recueillies sont utilisées pour soutenir le projet ou sont reversées à des organisations LGBTQ+.</p><p>Si vous utilisez l''Homosaurus, nous aimerions avoir de vos nouvelles! N''hésitez pas à nous <a href="%{contact_path}">contacter pour nous</a> dire comment vous utilisez ce thésaurus et nous faire part de vos commentaires. Vous pouvez également rejoindre notre communauté sur Google à l''adresse suivante: <a href="https://groups.google.com/g/homoitcommunity">https://groups.google.com/g/homoitcommunity</a></p>'
   languages:
     bn: Bengalí
     en: Ingles
@@ -43,6 +48,7 @@ fr:
     search: Recherche
     vocab: Thésaurus
   misc:
+    tagline: Un thésaurus LGBTQ+ international de données liées
     translation_needed: Traduction nécessaire
   release:
     label: Actualités
@@ -78,6 +84,3 @@ fr:
       show_visible: Afficher les termes visibles
     current_terms: Liste des termes courants
     label: Termes de l'Homosaurus
-  footnote:
-    msg_1_html: Homosaurus.org est un service de données liées géré par le <a href="https://www.digitaltransgenderarchive.net/">Digital Transgender Archive </a>
-    msg_2_html:  Ce thésaurus est mis à disposition sous une  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr">licence Creative Commons Attribution-Pas d'utilisation commerciale- Pas de modification 4.0 International (CC BY NC-ND 4.0)</a>
