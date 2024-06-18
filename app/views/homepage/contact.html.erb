@@ -6,9 +6,7 @@
         <h2>Contact Us</h2>
         <div class="info_section">
 
-        <p>If you are using the Homosaurus, we want to hear from you! Please reach out to let us know how you are using this vocabulary and share any feedback you might have. We are also open to having new members join our Editorial Board so please let us know if that is something you are interested in.</p>
-
-        <p>The Homosaurus is a work in progress and we welcome suggestions for new terms to be added or changes to be made within the vocabulary. The Homosaurus Editorial Board oversees the upkeep of the vocabulary and will consider all proposed terms and changes on a quarterly basis.</p>
+        <p><%= t('contact.message_html') %></p>
         <br/>
         <% unless @errors.empty? %>
           <div id="error_explanation" class="alert alert-danger">
@@ -24,19 +22,19 @@
         <%= form_tag(contact_path, :id => 'feedback_form', :class => 'w-75 mx-auto') do %>
             <%= recaptcha_v3(action: 'contact', site_key: Settings.recaptcha_site_key_v3) %>
           <div class="row mb-3">
-            <label class="col-sm-3 control-label">Your Name:</label>
+            <label class="col-sm-3 control-label"><%= t('contact.name') %>:</label>
             <div class="col-sm-7 col-md-6">
               <%= text_field_tag :name, params[:name], :class => 'form-control' %>
             </div>
           </div>
           <div class="row mb-3">
-            <label class="col-sm-3 control-label">Your Email:</label>
+            <label class="col-sm-3 control-label"><%= t('contact.email') %></label>
             <div class="col-sm-7 col-md-6">
               <%= text_field_tag :email, params[:email], :class => 'form-control' %>
             </div>
           </div>
           <div class="row mb-3">
-            <label class="col-sm-3 control-label">Topic:</label>
+            <label class="col-sm-3 control-label"><%= t('contact.topic') %>:</label>
             <div class="col-sm-7 col-md-6">
               <%= select_tag(:topic,
                              options_for_select(['Feedback', 'Broken link / site error', 'Other']),
@@ -45,7 +43,7 @@
             </div>
           </div>
           <div class="row mb-3">
-            <label class="col-sm-3 control-label">Your Message:</label>
+            <label class="col-sm-3 control-label"><%= t('contact.message') %>:</label>
             <div class="col-sm-7 col-md-6">
               <%= text_area_tag :message, params[:message], :size => '24x8', :class =>  'form-control' %>
             </div>
@@ -64,7 +62,7 @@
           <div class="row mb-3">
 	    <label class="col-sm-3 control-label">&nbsp;</label>
             <div class="col-sm-offset-3 col-sm-7 col-md-6">
-	      <%= submit_tag("Send", :class => 'btn btn-default float-end', id: 'contact_submit') %>
+	      <%= submit_tag(t('contact.send'), :class => 'btn btn-default float-end', id: 'contact_submit') %>
             </div>
           </div>
           <% end %>

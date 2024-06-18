@@ -1,5 +1,12 @@
 ---
 es:
+  contact:
+    email: Email
+    message: Mensaje
+    message_html: Si estás utilizando el Homosaurus, ¡queremos saber de ti! Comunícate con nosotros para informarnos cómo estás utilizando este vocabulario y comparte cualquier comentario que tengas. También estamos abiertos a que nuevos miembros se unan a nuestro Comité Editorial, así que haznos saber si es algo que te interesa. </br>El Homosaurus es un trabajo en progreso y agradecemos sugerencias sobre nuevos términos para agregar o cambios en el vocabulario. El comité editorial de el Homosaurus supervisa el mantenimiento del vocabulario, considerará todos los términos y cambios propuestos trimestralmente.
+    name: Nombre
+    send: Enviar
+    topic: Tema
   discussion:
     add_topic: Agregar nuevo tema
     add_vote: Agregar voto
