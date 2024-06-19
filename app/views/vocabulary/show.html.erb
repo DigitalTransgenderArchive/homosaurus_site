@@ -52,26 +52,31 @@
 
 <%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("identifier"),
+     :rel_id => 'identifier',
      :values=>[@homosaurus_obj.identifier]}
 %>
 
 <%= render :partial => "panel_display_language_partial", :locals =>
-    {:title => Term.getLabel("prefLabel"),
+     {:title => Term.getLabel("prefLabel"),
+     :rel_id => Relation::Pref_label,
      :values=>vr_relations[Relation::Pref_label]}
 %>
 
 <%= render :partial => "panel_display_language_partial", :locals =>
-    {:title => Term.getLabel("label"),
+     {:title => Term.getLabel("label"),
+     :rel_id => Relation::Label,
      :values=>vr_relations[Relation::Label]}
 %>
 
 <%= render :partial => "panel_display_language_partial", :locals =>
-    {:title => Term.getLabel("altLabel"),
+     {:title => Term.getLabel("altLabel"),
+     :rel_id => Relation::Alt_label,
      :values=>vr_relations[Relation::Alt_label]}
 %>
 
 <%= render :partial => "panel_display_language_partial", :locals =>
-    {:title => Term.getLabel("description"),
+     {:title => Term.getLabel("description"),
+     :rel_id => Relation::Description,
      :values=>vr_relations[Relation::Description]}
 %>
 
@@ -101,17 +106,20 @@
 %>
 
 <%= render :partial => "panel_display_relation_partial", :locals =>
-    {:title => Term.getLabel("broader"),
+     {:title => Term.getLabel("broader"),
+     :rel_id => Relation::Broader,
      :values=>vr_relations[Relation::Broader]}
 %>
 
 <%= render :partial => "panel_display_relation_partial", :locals =>
-    {:title => Term.getLabel("related"),
+     {:title => Term.getLabel("related"),
+     :rel_id => Relation::Related,
      :values=>vr_relations[Relation::Related]}
 %>
 
 <%= render :partial => "panel_display_relation_partial", :locals =>
-    {:title => Term.getLabel("narrower"),
+     {:title => Term.getLabel("narrower"),
+     :rel_id => Relation::Narrower,
      :values=>vr_relations[Relation::Narrower]}
 %>
 

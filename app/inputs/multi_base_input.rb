@@ -7,7 +7,6 @@ class MultiBaseInput < SimpleForm::Inputs::CollectionInput
   end
 
   def input(wrapper_options)
-    pp options[:collection]
     @collection = options[:collection]
     @rendered_first_element = false
     input_html_classes.unshift("string")

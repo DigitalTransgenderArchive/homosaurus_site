@@ -7,7 +7,11 @@
   <div class="card card-<%=panel_class%> mb-3 col-lg-6 col-md-8 col-sm-12">
 
   <div class="card-header text-bg-<%=panel_class%>">
-    <%= title.html_safe %>
+  <% if rel_id != "identifier" %>    
+    <a class="text-white" href="<%= Relation.find_by(id: rel_id).description_url %>"><%= t("relations.#{rel_id}") %></a>
+  <% else %>
+    <a class="text-white" href="http://purl.org/dc/terms/identifier">Identifier</a>
+  <% end %>    
   </div>
   <div class="card-body">
     <dl style="margin-bottom:0px">

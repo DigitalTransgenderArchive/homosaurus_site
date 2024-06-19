@@ -91,3 +91,18 @@ fr:
       show_visible: Afficher les termes visibles
     current_terms: Liste des termes courants
     label: Termes de l'Homosaurus
+  relations:
+    1: Description
+    2: Étiquette privilégiée
+    3: Étiquette  
+    4: Étiquette alternative
+    5: Remplacer par
+    6: Plus précis
+    7: Plus large
+    8: Relié
+    9: Correspondance exacte avec LCSH
+    10: Corresponsdance proche avec LCSH
+    11: Correspondance proche
+    12: Correspondance exacte  
+    13: Redirection vers    
+    identifier: Identifiant

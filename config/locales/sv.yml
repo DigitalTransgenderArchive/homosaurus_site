@@ -91,3 +91,18 @@ sv:
       show_visible: Visa synliga ämnesord
     current_terms: Aktuell lista med ämnesord
     label: Homosaurus ämnesord
+  relations:
+    1: Beskrivning
+    2: Föredragen benämning
+    3: Benämning
+    4: Variant
+    5: Ersätts av
+    6: Smalare
+    7: Bredare
+    8: Relaterade
+    9: LCSH motsvarar
+    10: LCSH motsvarar ungefär
+    11: Motsvarar ungefär
+    12: Motsvarar
+    13: Omdirigeras till
+    identifier: Identifierare

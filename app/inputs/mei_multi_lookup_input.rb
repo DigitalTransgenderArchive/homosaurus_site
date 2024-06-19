@@ -30,7 +30,6 @@ class MeiMultiLookupInput < MultiBaseInput
     else
       out << @builder.text_field(attribute_name, options)
     end
-    pp "VAL IS -> #{value}"
     new_options = build_field_options(value == "" ? "" : value[0], index, true)
     disabled_langs = Language.where(supported: true).where.not(id: I18n.locale).pluck(:id)
     #out << @builder.select("#{attribute_name}", Language.all().pluck(:name, :id), {}, new_options)

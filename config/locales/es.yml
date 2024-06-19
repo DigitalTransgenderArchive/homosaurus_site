@@ -92,3 +92,19 @@ es:
       show_visible: Mostrar terminos visibles
     current_terms: Lista de términos actuales
     label: Términos del vocabulario Homosaurus
+  relations:
+    1: Descripción 
+    2: Etiqueta preferida
+    3: Etiqueta
+    4: Etiqueta alternativa
+    5: Remplazado por
+    6: Más específico 
+    7: Más amplio 
+    8: Relacionado
+    9: LCSH Correspondencia exacta
+    10: LCSH Correspondencia cercana
+    11: Correspondencia crecana
+    12: Correspondencia exacta
+    13: Redirecciona a    
+    identifier: Identificador
+

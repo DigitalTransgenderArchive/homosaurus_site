@@ -40,21 +40,21 @@
                 input_html: { include_help: t("admin_help.preferred_term"),
                               help_label: 'Preferred Term',
                               tabindex: 14,},
-                required: true, readonly: false, label: 'Preferred Term'
+                required: true, readonly: false, label: t("relations.#{Relation::Pref_label}")
     %>
 
     <%= f.input "relation_#{Relation::Label}", collection: vr_relations[Relation::Label], as: :language_labels_mei,
                 input_html: { include_help: t("admin_help.other_preferred_terms"),
                               help_label: 'Other Preferred Terms',
                               tabindex: 14,},
-                required: false, readonly: false, label: 'Other Preferred Terms'
+                required: false, readonly: false, label: t("relations.#{Relation::Label}")
     %>
 
     <%= f.input "relation_#{Relation::Alt_label}", collection: vr_relations[Relation::Alt_label], as: :language_labels_mei,
                 input_html: { include_help: t("admin_help.other_preferred_terms"),
                               help_label: 'Other Preferred Terms',
                               tabindex: 14,},
-                required: false, readonly: false, label: 'Alternative Terms'
+                required: false, readonly: false, label: t("relations.#{Relation::Alt_label}")
     %>
 
     <%= f.input "relation_#{Relation::Description}", collection: vr_relations[Relation::Description], as: :language_labels_mei,
@@ -62,16 +62,16 @@
                               help_label: 'Description (Scope Note)',
                               rows: '4', type: 'textarea',
                 },
-                required: true, readonly:false, label: 'Description (Scope Note)'
+                required: true, readonly:false, label: t("relations.#{Relation::Description}")
 	%>
     <%= f.input "relation_#{Relation::Broader}", as: :prefix_multi_select_v3, collection: vr_relations[Relation::Broader], collection2: @all_terms,
-                input_html: { class: 'form-control', include_help: 'Broader terms for this term.', help_label: 'Broader', multiple: false }, include_blank: true, label: 'Broader terms'
+                input_html: { class: 'form-control', include_help: 'Broader terms for this term.', help_label: 'Broader', multiple: false }, include_blank: true, label: t("relations.#{Relation::Broader}")
     %>
     <%= f.input "relation_#{Relation::Narrower}", as: :prefix_multi_select_v3, collection: vr_relations[Relation::Narrower], collection2: @all_terms,
-                input_html: { class: 'form-control', include_help: 'Narrower terms for this term.', help_label: 'Narrower', multiple: false }, include_blank: true, label: 'Narrower terms'
+                input_html: { class: 'form-control', include_help: 'Narrower terms for this term.', help_label: 'Narrower', multiple: false }, include_blank: true, label: t("relations.#{Relation::Narrower}")
 	%>
     <%= f.input "relation_#{Relation::Related}", as: :prefix_multi_select_v3, collection: vr_relations[Relation::Related], collection2: @all_terms,
-                input_html: { class: 'form-control', include_help: 'Related terms for this term.', help_label: 'Related', multiple: false }, include_blank: true, label: 'Related terms'
+                input_html: { class: 'form-control', include_help: 'Related terms for this term.', help_label: 'Related', multiple: false }, include_blank: true, label: t("relations.#{Relation::Related}")
     %>
 
 

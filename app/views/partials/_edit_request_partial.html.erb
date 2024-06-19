@@ -86,7 +86,7 @@ end
     <% relations.each do |r| %>
       <% changes = edit_request.my_changes[r.id] %>
       <% if not changes.nil? and changes.length > 0 %>
-        <h4><%= r.name %></h4>
+        <h4><%= t("relations.#{r.id}") %></h4>
 	<table class="table">
 	  <% changes.each do |c| %>
 	    <% change_class = c[0] == "+" ? "success" : "danger"
@@ -113,7 +113,7 @@ end
       <% cur = edit_request.my_changes[field]
 	 prev_term = edit_request.previous() %>
       <% if prev_term.nil? or (prev_term.my_changes[field] != cur) %>
-        <h4><%= field.capitalize %></h4>
+        <h4><%= field == "identifier" ? t("relations.identifier") : field.capitalize %></h4>
 	<table class="table">
 	  <% unless prev_term.nil? %>
           <tr class="table-danger">
