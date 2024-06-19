@@ -133,14 +133,16 @@
      :values=>[@homosaurus_obj.replaces]}
 %>
 
-<%= render :partial => "panel_display_partial", :locals =>
+<%= render :partial => "panel_display_relation_partial", :locals =>
     {:title => Term.getLabel("exactMatch"),
-     :values=>@homosaurus_obj.exact_match_lcsh}
+     :rel_id => Relation::Lcsh_exact,
+     :values=>vr_relations[Relation::Lcsh_exact]}
 %>
 
-<%= render :partial => "panel_display_partial", :locals =>
+<%= render :partial => "panel_display_relation_partial", :locals =>
     {:title => Term.getLabel("closeMatch"),
-     :values=>@homosaurus_obj.close_match_lcsh}
+     :rel_id => Relation::Lcsh_close,
+     :values=>vr_relations[Relation::Lcsh_close]}
 %>
 
 <h3><%= t("term.hierarchy_label") %></h3>

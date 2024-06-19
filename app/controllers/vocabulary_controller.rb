@@ -340,6 +340,7 @@ class VocabularyController < ApplicationController
     term_query = Term.where(vocabulary_identifier: params[:vocab_id]).order("lower(pref_label) ASC")
     @all_terms = []
     term_query.each { |term| @all_terms << [term.identifier + " (" + term.pref_label + ")", term.id] }
+    @LCSH_types = LcshSubjectCache.pluck(:label, :uri)
   end
 
   def set_match_relationship(form_fields, key)

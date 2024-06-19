@@ -16,12 +16,21 @@
   <div class="card-body">
     <dl style="margin-bottom:0px">
       <% if values.present? && values[0].present? %>
-        <% objs_sorted = Term.where(id: values.map{|v| v[1]}).sort_by { |obj| obj.pref_label_localized.data.downcase } %>
-        <% objs_sorted.each do |relation_obj| %>
-          <dd>
-            <%= link_to "#{relation_obj.pref_label_localized.data} [#{relation_obj.identifier}]", vocabulary_show_path(vocab_id: relation_obj.vocabulary_identifier, id: relation_obj.identifier)%>
-          </dd>
-        <% end %>
+        <% unless [Relation::Lcsh_exact, Relation::Lcsh_close].include? rel_id %>
+          <% objs_sorted = Term.where(id: values.map{|v| v[1]}).sort_by { |obj| obj.pref_label_localized.data.downcase } %>
+          <% objs_sorted.each do |relation_obj| %>
+            <dd>
+              <%= link_to "#{relation_obj.pref_label_localized.data} [#{relation_obj.identifier}]", vocabulary_show_path(vocab_id: relation_obj.vocabulary_identifier, id: relation_obj.identifier)%>
+            </dd>
+          <% end %>
+	<% else %>
+          <% objs_sorted = LcshSubjectCache.where(uri: values.map{|v| v[1]}).sort_by { |obj| obj.label.downcase } %>
+          <% objs_sorted.each do |relation_obj| %>
+            <dd>
+              <%= link_to "#{relation_obj.label} [#{relation_obj.uri}]", relation_obj.uri%>
+            </dd>
+          <% end %>	
+	<% end %>
       <% end %>
     </dl>
   </div>

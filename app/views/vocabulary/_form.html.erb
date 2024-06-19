@@ -72,7 +72,13 @@
 	%>
     <%= f.input "relation_#{Relation::Related}", as: :prefix_multi_select_v3, collection: vr_relations[Relation::Related], collection2: @all_terms,
                 input_html: { class: 'form-control', include_help: 'Related terms for this term.', help_label: 'Related', multiple: false }, include_blank: true, label: t("relations.#{Relation::Related}")
-    %>
+	%>
+    <%= f.input "relation_#{Relation::Lcsh_exact}", as: :lcsh_lookup, collection: vr_relations[Relation::Lcsh_exact], collection2: @LCSH_types,
+                input_html: { class: 'form-control',  multiple: false }, include_blank: true, label: t("relations.#{Relation::Lcsh_exact}")
+	%>
+    <%= f.input "relation_#{Relation::Lcsh_close}", as: :lcsh_lookup, collection: vr_relations[Relation::Lcsh_close], collection2: @LCSH_types,
+                input_html: { class: 'form-control',  multiple: false }, include_blank: true, label: t("relations.#{Relation::Lcsh_close}")
+    %>        
 
 
     <br /><br />
