@@ -112,7 +112,7 @@ class VocabularyController < ApplicationController
       @homosaurus_obj = @homosaurus_obj.edit_requests.find_by(version_release_id: @vid)
       @discussion_type = "EditRequest"
     end
-    @comments = @homosaurus_obj.comments.where(replaces_comment_id: nil).where(language_id: I18n.locale)
+    @comments = @homosaurus_obj.comments.where(replaces_comment_id: nil)#.where(language_id: I18n.locale)
     respond_to do |format|
       format.html
     end
@@ -340,7 +340,7 @@ class VocabularyController < ApplicationController
     term_query = Term.where(vocabulary_identifier: params[:vocab_id]).order("lower(pref_label) ASC")
     @all_terms = []
     term_query.each { |term| @all_terms << [term.identifier + " (" + term.pref_label + ")", term.id] }
-    @LCSH_types = LcshSubjectCache.pluck(:label, :uri)
+    @LCSH_types = LcshSubjectCache.pluck("concat(label,' (', uri, ')'), uri")
   end
 
   def set_match_relationship(form_fields, key)

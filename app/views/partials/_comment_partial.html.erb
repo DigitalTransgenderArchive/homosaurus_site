@@ -7,10 +7,14 @@
     <% unless comment.subject.nil? %>
     <div class="card-header position-relative">
       <% if comment.is_vote %>
-      <span class="fw-bold text-decoration-underline">Vote:</span>&nbsp;
+      <span class="fw-bold text-decoration-underline"><%= t('discussion.vote_label') %>:</span>&nbsp;
       <% end %>
       <span class="comment-subject fw-bold <%= comment.is_vote ? comment.vote_badge_class() : 'text-decoration-underline' %>">
+	<% if comment.is_vote %>
+	<%= t("discussion.vote_#{comment.subject.downcase}") %>
+	<% else %>
 	<%= comment.subject %>
+	<% end %>
       </span>
       <span class="badge bg-secondary thread-last-active float-end">Thread last active: <%= comment.thread_last_active() %> </span>
     </div>
@@ -20,7 +24,7 @@
       <br>
       <span class="badge bg-secondary">
 	@<%= comment.user.email %>
-      </span> - <span class=""> <%= comment.created_at %> </span>
+      </span> - <span class=""> <%= comment.created_at %> </span> - <span class="badge text-bg-secondary"><%= t("languages.#{comment.language_id}") %></span>
       <% if comment.created_at != comment.updated_at %>
       <br>
       <span>* Updated at: <%= comment.updated_at %> </span>
@@ -30,13 +34,13 @@
       <button type="button" class="btn btn-primary leave-reply" data-bs-toggle="collapse"
 	      data-bs-target="#comment-<%= comment.id %>-reply-box" aria-expanded="false"
 	      aria-controls="#comment-<%= comment.id %>-reply-box">
-	Reply
+	<%= t('discussion.comment_reply') %>
       </button>
       <% if comment.comments.count > 0 %>
       <button type="button" class="btn btn-link comment-show-replies" data-bs-toggle="collapse"
 	      data-bs-target="#comment-<%= comment.id %>-replies" aria-expanded="false"
 	      aria-controls="#comment-<%= comment.id %>-replies">
-	Show/hide replies &nbsp;
+	<%= t('discussion.comment_showhide') %> &nbsp;
       </button>
       <% end %>
       <% if current_user.id == comment.user.id %>
@@ -52,11 +56,11 @@
 	  <input type="hidden" name="parent" value="<%= comment.id %>">
 	  <input type="hidden" name="parent_type" value="Comment">
 	  <input type="hidden" name="language_id" value="<%= I18n.locale %>">
-	  <input type="textarea" class="form-control" placeholder="Leave reply here" name="content">
+	  <input type="textarea" class="form-control" placeholder="<%= t('discussion.comment_reply_message') %>" name="content">
 	  <button type="button" class="btn btn-danger" data-bs-toggle="collapse"
 	      data-bs-target="#comment-<%= comment.id %>-reply-box" aria-expanded="false"
-	      aria-controls="#comment-<%= comment.id %>-reply-box">Cancel</button>
-	  <button class="btn btn-primary" type="submit">Post Reply</button>
+	      aria-controls="#comment-<%= comment.id %>-reply-box"><%= t('misc.cancel') %></button>
+	  <button class="btn btn-primary" type="submit"><%= t('misc.post') %></button>
 	</div>
       <% end %>
     </div>      

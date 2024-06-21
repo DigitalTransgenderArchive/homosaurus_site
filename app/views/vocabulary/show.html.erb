@@ -40,7 +40,7 @@
     <% end %>
     <% if @homosaurus_obj.visibility != "pending" %>
     <button class="btn btn-danger"
-	    data-bs-toggle="modal" data-bs-target="#replace-term-modal">Replace other term</button>
+	    data-bs-toggle="modal" data-bs-target="#replace-term-modal"><%= t('term.replace_term') %></button>
     <% end %>
   <% end %>
 
@@ -163,8 +163,8 @@
 <% end %>
 
 <br />
-<p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.nt'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonld' %>, <%= link_to "Extended JSON", request.original_url.split('?').first + '.json' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttl' %>, <%= link_to "XML", request.original_url.split('?').first + '.xml' %>, <%= link_to "MARC XML", request.original_url.split('?').first + '.marc' %></p>
-<p><br/><strong>Temporary Experimental Formats (includes language identifiers):</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonldV2' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttlV2' %></p>
+<p><br/><strong><%= t('term.other_formats') %>:</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.nt'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonld' %>, <%= link_to "Extended JSON", request.original_url.split('?').first + '.json' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttl' %>, <%= link_to "XML", request.original_url.split('?').first + '.xml' %>, <%= link_to "MARC XML", request.original_url.split('?').first + '.marc' %></p>
+<p><br/><strong><%= t('term.other_formats_legacy') %></strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonldV2' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttlV2' %></p>
 
 <div id="replace-term-modal" class="modal modal-lg modal-fullscreen-sm-down"
      tab-index="-1" aria-hidden="true" aria-labelledby="replace-term-modal-label">

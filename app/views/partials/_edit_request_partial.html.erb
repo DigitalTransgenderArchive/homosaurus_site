@@ -40,7 +40,7 @@ end
 	<% end %>
 	<% if current_user and not discussion_page %>
 	  <span class="badge text-bg-<%= er_status == 'approved' ? 'success' : 'warning' %>">
-	  <%= er_status %>
+	  <%= t("status.#{er_status}") %>
 	  </span>
 	<% end %>
       </div>

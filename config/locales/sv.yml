@@ -1,7 +1,29 @@
 ---
 sv:
+  about:
+    board:
+      billey: Billey Albina är system- och metadata-bibliotekarie på Bard College. Innan hon började på Bard var hon metadatabibliotekarie vid Columbia University Libraries, där hon arbetade med LD4P-projektet och bidrog till utvecklingen av ontologier, verktyg och konvertering från MARC till RDF. Hennes forskning fokuserar på etik och social rättvisa inom bibliotekets metadata och informationsorganisation.
+      cifor: Marika Cifor är biträdande professor vid informationsskolan på University of Washington. Hon är en feministisk forskare som arbetar i skärningspunkten mellan arkivstudier och digitala studier. Genom sin forskning undersöker hon hur marginaliserade grupper, utifrån sexualitet, ras, klass, kön och HIV-status, använder arkiv, dokument och data skapade inom digitala kulturer för att skapa och bevara sina identiteter, kollektiva minnen och sociala rörelser.
+      colbert: Jay L. Colbert är bibliotekschef vid Longy School of Music of Bard College. Han har en masterexamen i biblioteks- och informationsvetenskap från University of Illinois i Urbana-Champaign, där han skrev en avhandling om användardriven ämnesåtkomst och queera kontrollerade vokabulärer genom en kritisk ram av queerteori och semiotik. Hans senare publikationer bygger vidare på denna forskning. Jay hemsöker New England med sin skäggagam Coop och sin tuxedokatt King Arthur.
+      kizzie: Janaya Kizzie är arkivarie, konstnär och humanistisk aktivist. Hon är utexaminerad från Bard College (BA) och University of Rhode Island (MLIS). Kizzie har arbetat med att medverka i och utveckla arkivinfrastrukturer för American Academy of Arts and Sciences i Cambridge, Massachusetts, Citizens Bank och Concord Free Public Library. Kizzies arbete med historiska samlingar har nyligen inkluderat bearbetningen av AS220-samlingen på Providence Public Library samt Rhode Island Arts and Culture Research Fellowship, som dokumenterar den modern konst- och kulturhistoria i Rhode Island. År 2020 utnämndes Kizzie till Rhode Island Public Humanities Scholar av Rhode Island Council for the Humanities. För närvarande är Kizzie evenemangssamordnare på Providence Public Library och strävar efter att omdefiniera biblioteksstandarder och praxis för att stärka och engagera gemenskaper.
+      kronk: Clair Kronk är doktorand i biomedicinsk informatik vid University of Cincinnati Medical School. Hennes nuvarande arbete fokuserar på användning av hbtqia+-språk inom vårdmiljöer och på hälsoutfall för transpersoner. Clair tog tidigare en kandidatexamen i bioinformatik från University of Pittsburgh och har samarbetat med Max-Planck-Institutet (MPI) för utvecklingsbiologi och Air Force Research Laboratory (AFRL) vid flera tillfällen.
+      noland: Chloe Noland (sekreterare) är bibliotekarie och som för närvarande bor och arbetar i Los Angeles, Kalifornien. Hon tog sin Bachelor från California College of the Arts i litteratur och kreativt skrivande och fick därefter sin masterexamen i biblioteks- och informationsvetenskap från San Jose State University, där hon upptäckte en kärlek till katalogisering och berikning med metadata. Hennes passion för språk, kultur och taxonomier har lett henne till projekt som Homosaurus, vilket hon är mycket entusiastisk över att vara en del av.
+      rawson: 'K.J. Rawson är biträdande professor i engelska samt kvinno-, genus- och sexualitetsstudier vid Northeastern University. Han är också grundare och ledare för Digital Transgender Archive, en prisbelönt onlinedatabas för transrelaterat historiskt material, och han är medordförande för redaktionen för Homosaurus, en internationell HBTQ-vokabulär byggd med länkad data. Hans arbete befinner sig i skärningspunkten mellan digital humaniora och retorik, LGBTQ+ och feministiska studier. Genom att fokusera på arkiv som nyckelplatser för kulturell makt studerar Rawson det retoriska arbetet inom queera och transarkivsamlingar både i fysiska och digitala utrymmen. Han har varit medredaktör för specialutgåvor av Peitho och TSQ> och han var medredaktör för Rhetorica in Motion: Feminist Rhetorical Methods and Methodologies (University of Pittsburgh Press, 2010). Rawsons forskning har publicerats i Archivaria, Enculturation, Peitho, Present Tense, QED, RSQ, TSQ och flera antologier.'
+      van_der_wel: Jack van der Wel (medordförande) är chef för samlingar och katalogisering vid IHLIA LGBT Heritage i Amsterdam. Han var en av grundarna av Homodok 1978, en föregångare till IHLIA. Han har presenterat det pågående arbetet med Homosaurus vid flera LGBTQ ALMS-konferenser sedan 2011.
+      walker_html: 'Walter "Cat" Walker var ansvarig katalogisatör vid Loyola Marymount University i Los Angeles, Kalifornien från 2004 fram till sin för tidiga död 2020. Han var också en director-at-large för American Library Association''s Gay Lesbian Bisexual Transgender Roundtable (ALA GLBTRT) och han volontärarbetade vid ONE National Gay & Lesbian Archives vid USC Libraries i 25 år.</br></br>Cat Walker gick med i redaktionsrådet för Homosaurus 2016 efter att ha träffat Jack van der Wel på LGBTQ ALMS-konferensen i London. Vid denna konferens presenterade Cat ett huvudanförande med titeln ""Overcoming the Barriers: Improving Access to LGBTQ+ Content in Collections."" Cats livslånga aktivism och passion för HBTQ-bibliotek och arkiv fick honom att gå med i redaktionsrådet och han blev snabbt en aktiv medlem i vårt team. Vid LGBTQ ALMS-konferens i Berlin 2019 presenterade Cat och Jack tillsammans en uppsats om den förkortade versionen av Homosaurus.</br></br>Det är svårt att överdriva Cats bidrag till Homosaurus under de fyra år han arbetade med projektet. När styrelsen dramatiskt reviderade den första versionen av Homosaurus spelade Cat en central roll i att hjälpa oss att använda många fler termer och HBTQ-relaterade sammanhang, representationer och historier. Cat arbetade omfattande med att sammanfoga Homosaurus version ett med version två, granskade vokabulären noggrant och identifierade termer som behövde revideras, saknade konsistens över listan, eller hade ett unikt värde som kunde utvidgas för relaterade sökningar och behov. Denna lista, bestående av nya föreslagna termer samt anpassningar av befintliga, var en av Cats senaste och mest ambitiösa bidrag till styrelsens arbete. Vid tiden för hans död omfattade hans dokumentation av relaterade och föreslagna termer över 250 förändringar och/eller nya termer – viktigt arbete som vi kommer att slutföra för hans räkning och till hans ära.</br></br>Framför allt var Cat en tålmodig, vänlig och välvillig lärare och samarbetspartner, och han var alltid den första att anmäla sig för att ta på sig nya projekt. Cats öga för detaljer, samt hans engagemang för att göra Homosaurus till en verkligt vacker och inkluderande uppsättning termer, kommer att vara omöjlig att ersätta. Vi är oändligt tacksamma för honom och hedrar alla hans bidrag till detta viktiga projekt.'
+      watson: Bri Watson är arkivarie/historiker för American Psychological Association's Division 44 (etisk icke-monogami), bok- och sexualitetshistoriker samt praktiserar som arkivarie vid Kinsey Institute. De har en masterexamen i historia och kultur från Drew University och arbetar på en MLIS (snart doktorsexamen) med fokus på arkiv, digital humaniora och metadata vid Indiana University Bloomington. De har publicerat om antisex-censur, obscenitet och forskar för närvarande om queera arkiv och sexuell nomenklatur.
+      williams: 'Adrian Williams är katalogiserings- och metadatabibliotekarie vid University of Kentuckys universitetsbibliotek. De har en masterexamen i biblioteks- och informationsvetenskap från Florida State University. Deras forskningsintressen omfattar inkluderande och användarvänliga ämnesord samt katalogiseringens och bibliotekskatalogens historia. '
+    board_label: Redaktion
+    former_board_label: Tidigare ledamöter i redaktionen
+    gratitude_label: Tack
+    gratitude_message: 'Redaktionsrådet vill tacka våra fantastiska samarbetspartners: AVEN, Black Lesbian Archives, COLAGE, InterACT, Leather Archives & Museum och the Sex Worker Project. Vi vill också tacka de många användarna av Homosaurus som har föreslagit termer och gett feedback genom åren. Särskilt tacksamma är vi till Orla Egan, Alice Galvinhill, Ellen Greenblatt, Juniper Johnson, Dee Michel, Cailin Roles och Lydia Willoughby för deras bidrag.'
+    history_html: Översättning behövs
+    mission_label: Uppdrag
+    mission_statement: Homosaurus är en internationell tesaurus med länkade data-termer rörande hbtq+-ämnen. Homosaurus är en stabil och banbrytande tesaurus, framtagen för att komplettera generella ämnesordssystem och göra det lättare att hitta hbtq+-resurser och -information.
+    resources_label: Resurser
   contact:
     email: Epost
+    label: Kontakta Oss
     message: Meddelande
     message_html: Om du använder Homosaurus vill vi gärna höra från dig! Hör gärna av dig för att berätta hur du använder den här vokabulären och dela med dig av all feedback du kan ha. Vi är också öppna för att ta in nya medlemmar i vårt redaktionsråd, så låt oss veta om det är något du är intresserad av. </br>Homosaurus är ett pågående arbete och vi välkomnar förslag på nya termer som kan läggas till eller ändringar som kan göras i vokabulären. Homosaurus-redaktionen övervakar underhållet av vokabulären och kommer att överväga alla föreslagna termer och ändringar kvartalsvis.
     name: Namn
@@ -10,11 +32,16 @@ sv:
   discussion:
     add_topic: Skapa nytt ämne
     add_vote: Lägg till röst
+    back_to_term: Tillbaka till terminen
     changes_label: Ändringar
+    comment_content: Kommentar
+    comment_content_message: Ange ämne
     comment_label: Kommentarer
-    comment_post: Inlägg
     comment_reply: Svara
+    comment_reply_message: Ange svar
     comment_showhide: Visa/dölj svar
+    comment_subject: Ämne
+    comment_subject_message: Kommentar
     comment_vote_label: Kommentarer och röster
     label: Diskussion
     vote_accept: Bifall
@@ -55,8 +82,26 @@ sv:
     search: Sök
     vocab: Tesaurus
   misc:
+    cancel: Annullera
+    close: Stänga
+    post: Inlägg
     tagline: En internationell hbtq+-tesaurus med länkade data
     translation_needed: Översättning behövs
+  relations:
+    '1': Beskrivning
+    '10': LCSH motsvarar ungefär
+    '11': Motsvarar ungefär
+    '12': Motsvarar
+    '13': Omdirigeras till
+    '2': Föredragen benämning
+    '3': Benämning
+    '4': Variant
+    '5': Ersätts av
+    '6': Smalare
+    '7': Bredare
+    '8': Relaterade
+    '9': LCSH motsvarar
+    identifier: Identifierare
   release:
     label: Version
     updates: Uppdateringar
@@ -64,8 +109,10 @@ sv:
     placeholder: Fyll i sökord
     results_label: Sökresultat för
   status:
+    approved: Godkänd
     deleted: Raderad
     linked_label: Länkad
+    modified: Ändrad
     new_term_label: Ny term
     pending: Väntar
     published: Publicerad
@@ -77,9 +124,9 @@ sv:
     edit_term: Redigera term
     hierarchy_label: Hierarkisk vy
     history: Historik
-    other_formats: Andra format
+    other_formats: Andra format (inklusive språkidentifierare)
+    other_formats_legacy: Äldre format (utan språkidentifierare)
     replace_term: Ersätt annan term
-    temp_formats: Temporära experimentella format (inkluderar språkidentifierare)
     view_history: Se historik
   vocab:
     admin:
@@ -91,38 +138,3 @@ sv:
       show_visible: Visa synliga ämnesord
     current_terms: Aktuell lista med ämnesord
     label: Homosaurus ämnesord
-  relations:
-    1: Beskrivning
-    2: Föredragen benämning
-    3: Benämning
-    4: Variant
-    5: Ersätts av
-    6: Smalare
-    7: Bredare
-    8: Relaterade
-    9: LCSH motsvarar
-    10: LCSH motsvarar ungefär
-    11: Motsvarar ungefär
-    12: Motsvarar
-    13: Omdirigeras till
-    identifier: Identifierare
-  about:
-    mission_label: Uppdrag
-    mission_statement: Homosaurus är en internationell tesaurus med länkade data-termer rörande hbtq+-ämnen. Homosaurus är en stabil och banbrytande tesaurus, framtagen för att komplettera generella ämnesordssystem och göra det lättare att hitta hbtq+-resurser och -information.
-    resources_label: Resurser
-    board_label: Redaktion
-    former_board_label: Tidigare ledamöter i redaktionen
-    board:
-      billey: "Billey Albina är system- och metadata-bibliotekarie på Bard College. Innan hon började på Bard var hon metadatabibliotekarie vid Columbia University Libraries, där hon arbetade med LD4P-projektet och bidrog till utvecklingen av ontologier, verktyg och konvertering från MARC till RDF. Hennes forskning fokuserar på etik och social rättvisa inom bibliotekets metadata och informationsorganisation."
-      cifor: "Marika Cifor är biträdande professor vid informationsskolan på University of Washington. Hon är en feministisk forskare som arbetar i skärningspunkten mellan arkivstudier och digitala studier. Genom sin forskning undersöker hon hur marginaliserade grupper, utifrån sexualitet, ras, klass, kön och HIV-status, använder arkiv, dokument och data skapade inom digitala kulturer för att skapa och bevara sina identiteter, kollektiva minnen och sociala rörelser."
-      colbert: "Jay L. Colbert är bibliotekschef vid Longy School of Music of Bard College. Han har en masterexamen i biblioteks- och informationsvetenskap från University of Illinois i Urbana-Champaign, där han skrev en avhandling om användardriven ämnesåtkomst och queera kontrollerade vokabulärer genom en kritisk ram av queerteori och semiotik. Hans senare publikationer bygger vidare på denna forskning. Jay hemsöker New England med sin skäggagam Coop och sin tuxedokatt King Arthur."
-      kizzie: "Janaya Kizzie är arkivarie, konstnär och humanistisk aktivist. Hon är utexaminerad från Bard College (BA) och University of Rhode Island (MLIS). Kizzie har arbetat med att medverka i och utveckla arkivinfrastrukturer för American Academy of Arts and Sciences i Cambridge, Massachusetts, Citizens Bank och Concord Free Public Library. Kizzies arbete med historiska samlingar har nyligen inkluderat bearbetningen av AS220-samlingen på Providence Public Library samt Rhode Island Arts and Culture Research Fellowship, som dokumenterar den modern konst- och kulturhistoria i Rhode Island. År 2020 utnämndes Kizzie till Rhode Island Public Humanities Scholar av Rhode Island Council for the Humanities. För närvarande är Kizzie evenemangssamordnare på Providence Public Library och strävar efter att omdefiniera biblioteksstandarder och praxis för att stärka och engagera gemenskaper."
-      noland: "Chloe Noland (sekreterare) är bibliotekarie och som för närvarande bor och arbetar i Los Angeles, Kalifornien. Hon tog sin Bachelor från California College of the Arts i litteratur och kreativt skrivande och fick därefter sin masterexamen i biblioteks- och informationsvetenskap från San Jose State University, där hon upptäckte en kärlek till katalogisering och berikning med metadata. Hennes passion för språk, kultur och taxonomier har lett henne till projekt som Homosaurus, vilket hon är mycket entusiastisk över att vara en del av."
-      rawson: "K.J. Rawson är biträdande professor i engelska samt kvinno-, genus- och sexualitetsstudier vid Northeastern University. Han är också grundare och ledare för Digital Transgender Archive, en prisbelönt onlinedatabas för transrelaterat historiskt material, och han är medordförande för redaktionen för Homosaurus, en internationell HBTQ-vokabulär byggd med länkad data. Hans arbete befinner sig i skärningspunkten mellan digital humaniora och retorik, LGBTQ+ och feministiska studier. Genom att fokusera på arkiv som nyckelplatser för kulturell makt studerar Rawson det retoriska arbetet inom queera och transarkivsamlingar både i fysiska och digitala utrymmen. Han har varit medredaktör för specialutgåvor av Peitho och TSQ> och han var medredaktör för Rhetorica in Motion: Feminist Rhetorical Methods and Methodologies (University of Pittsburgh Press, 2010). Rawsons forskning har publicerats i Archivaria, Enculturation, Peitho, Present Tense, QED, RSQ, TSQ och flera antologier."
-      watson: "Bri Watson är arkivarie/historiker för American Psychological Association's Division 44 (etisk icke-monogami), bok- och sexualitetshistoriker samt praktiserar som arkivarie vid Kinsey Institute. De har en masterexamen i historia och kultur från Drew University och arbetar på en MLIS (snart doktorsexamen) med fokus på arkiv, digital humaniora och metadata vid Indiana University Bloomington. De har publicerat om antisex-censur, obscenitet och forskar för närvarande om queera arkiv och sexuell nomenklatur."
-      van_der_wel: "Jack van der Wel (medordförande) är chef för samlingar och katalogisering vid IHLIA LGBT Heritage i Amsterdam. Han var en av grundarna av Homodok 1978, en föregångare till IHLIA. Han har presenterat det pågående arbetet med Homosaurus vid flera LGBTQ ALMS-konferenser sedan 2011."
-      williams: "Adrian Williams är katalogiserings- och metadatabibliotekarie vid University of Kentuckys universitetsbibliotek. De har en masterexamen i biblioteks- och informationsvetenskap från Florida State University. Deras forskningsintressen omfattar inkluderande och användarvänliga ämnesord samt katalogiseringens och bibliotekskatalogens historia. "
-      kronk: "Clair Kronk är doktorand i biomedicinsk informatik vid University of Cincinnati Medical School. Hennes nuvarande arbete fokuserar på användning av hbtqia+-språk inom vårdmiljöer och på hälsoutfall för transpersoner. Clair tog tidigare en kandidatexamen i bioinformatik från University of Pittsburgh och har samarbetat med Max-Planck-Institutet (MPI) för utvecklingsbiologi och Air Force Research Laboratory (AFRL) vid flera tillfällen."
-      walker_html: 'Walter "Cat" Walker var ansvarig katalogisatör vid Loyola Marymount University i Los Angeles, Kalifornien från 2004 fram till sin för tidiga död 2020. Han var också en director-at-large för American Library Association''s Gay Lesbian Bisexual Transgender Roundtable (ALA GLBTRT) och han volontärarbetade vid ONE National Gay & Lesbian Archives vid USC Libraries i 25 år.</br></br>Cat Walker gick med i redaktionsrådet för Homosaurus 2016 efter att ha träffat Jack van der Wel på LGBTQ ALMS-konferensen i London. Vid denna konferens presenterade Cat ett huvudanförande med titeln ""Overcoming the Barriers: Improving Access to LGBTQ+ Content in Collections."" Cats livslånga aktivism och passion för HBTQ-bibliotek och arkiv fick honom att gå med i redaktionsrådet och han blev snabbt en aktiv medlem i vårt team. Vid LGBTQ ALMS-konferens i Berlin 2019 presenterade Cat och Jack tillsammans en uppsats om den förkortade versionen av Homosaurus.</br></br>Det är svårt att överdriva Cats bidrag till Homosaurus under de fyra år han arbetade med projektet. När styrelsen dramatiskt reviderade den första versionen av Homosaurus spelade Cat en central roll i att hjälpa oss att använda många fler termer och HBTQ-relaterade sammanhang, representationer och historier. Cat arbetade omfattande med att sammanfoga Homosaurus version ett med version två, granskade vokabulären noggrant och identifierade termer som behövde revideras, saknade konsistens över listan, eller hade ett unikt värde som kunde utvidgas för relaterade sökningar och behov. Denna lista, bestående av nya föreslagna termer samt anpassningar av befintliga, var en av Cats senaste och mest ambitiösa bidrag till styrelsens arbete. Vid tiden för hans död omfattade hans dokumentation av relaterade och föreslagna termer över 250 förändringar och/eller nya termer – viktigt arbete som vi kommer att slutföra för hans räkning och till hans ära.</br></br>Framför allt var Cat en tålmodig, vänlig och välvillig lärare och samarbetspartner, och han var alltid den första att anmäla sig för att ta på sig nya projekt. Cats öga för detaljer, samt hans engagemang för att göra Homosaurus till en verkligt vacker och inkluderande uppsättning termer, kommer att vara omöjlig att ersätta. Vi är oändligt tacksamma för honom och hedrar alla hans bidrag till detta viktiga projekt.'
-    gratitude_label: Tack
-    gratitude_message: "Redaktionsrådet vill tacka våra fantastiska samarbetspartners: AVEN, Black Lesbian Archives, COLAGE, InterACT, Leather Archives & Museum och the Sex Worker Project. Vi vill också tacka de många användarna av Homosaurus som har föreslagit termer och gett feedback genom åren. Särskilt tacksamma är vi till Orla Egan, Alice Galvinhill, Ellen Greenblatt, Juniper Johnson, Dee Michel, Cailin Roles och Lydia Willoughby för deras bidrag."

@@ -23,11 +23,11 @@
 <% end %>
   
 <p><div style="clear:both;">
-    <%= button_to t("discussion.back_to_term"), vocabulary_show_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
-    <%= button_to t("term.view_history"), vocabulary_term_history_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
+    <%= button_to t("discussion.back_to_term"), vocabulary_show_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", class: 'btn btn-outline-secondary', style:"margin-left:20px;" %>
+    <%= button_to t("term.view_history"), vocabulary_term_history_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", class: 'btn btn-outline-secondary', style:"margin-left:20px;" %>
     <% if @discussion_type == "EditRequest" %>
-      <%= button_to t("edit_request.view_release"), release_show_path(release_id: @homosaurus_obj.version_release.release_identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
-    <% end %>
+      <%= button_to t("edit_request.view_release"), release_show_path(release_id: @homosaurus_obj.version_release.release_identifier), :method => "get", class: 'btn btn-outline-secondary', style:"margin-left:20px;" %>
+      <% end %>
     <button class="btn btn-primary discussion-add-topic" style="margin-left:20px;"
 	    data-bs-toggle="modal" data-bs-target="#new-topic-modal"><%= t("discussion.add_topic") %> (+)</button>
     <% if @discussion_type == "EditRequest" and @homosaurus_obj.vote_status == "pending" and not @homosaurus_obj.hasUserVoted(current_user) %>
@@ -47,7 +47,7 @@
     <h2><%= t("discussion.changes_label") %></h2>
     <%= render partial: "partials/edit_request_partial", locals: {edit_request: @homosaurus_obj, relations: Relation.all, discussion_page: true} %>
     <h2><%= t("discussion.comment_vote_label") %></h2>
-    <h3>Vote Tally: &nbsp; <% @homosaurus_obj.voteSummary().each do |k, v| %>
+    <h3><%= t("discussion.vote_tally") %>: &nbsp; <% @homosaurus_obj.voteSummary().each do |k, v| %>
       	<span class='<%= Comment::vote_badge_class(k) %>'><%= k %><span class='badge text-bg-light'><%= v %></span></span>
 
     <% end %></h3>
@@ -74,17 +74,17 @@
 	  <input type="hidden" name="parent_type" value="<%= @discussion_type %>">
 	  <input type="hidden" name="language_id" value="<%= I18n.locale %>">
           <div class="mb-3">
-	    <label for="new-topic-subject" class="form-label">Subject</label>
-	    <input name="subject" type="text" class="form-control" id="new-topic-subject" placeholder="Enter Subject">
+	    <label for="new-topic-subject" class="form-label"><%= t('discussion.comment_subject') %></label>
+	    <input name="subject" type="text" class="form-control" id="new-topic-subject" placeholder="<%= t('discussion.comment_subject_message') %>">
 	  </div>
 	  <div class="mb-3">
-	    <label for="new-topic-content" class="form-label">Comment</label>
-	    <textarea name="content" type="textarea" class="form-control" id="new-topic-content" placeholder="Enter Comment"></textarea>
+	    <label for="new-topic-content" class="form-label"><%= t('discussion.comment_content') %></label>
+	    <textarea name="content" type="textarea" class="form-control" id="new-topic-content" placeholder="<%= t('discussion.comment_content_message') %>"></textarea>
 	  </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary">Post</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><%= t('misc.cancel') %></button>
+        <button type="submit" class="btn btn-primary"><%= t('misc.post') %></button>
       </div>
       <% end %>
 
@@ -107,11 +107,11 @@
 	  <input type="hidden" name="parent" value="<%= @homosaurus_obj.id %>">
 	  <input type="hidden" name="parent_type" value="<%= @discussion_type %>">
           <div class="input-group mb-3">
-	    <label for="vote-select" class="input-group-text">Vote</label>
+	    <label for="vote-select" class="input-group-text"><%= t('discussion.vote_label') %></label>
 	    <select id="vote-select" name="subject" class="form-select">
-	      <option value="Accept">Accept</option>
-	      <option value="Reject">Reject</option>
-	      <option value="Table">Table</option>
+	      <option value="Accept"><%= t('discussion.vote_accept') %></option>
+	      <option value="Reject"><%= t('discussion.vote_reject') %></option>
+	      <option value="Table"><%= t('discussion.vote_table') %></option>
 	    </select>
 	  </div>
 	  <div class="mb-3">
@@ -120,8 +120,8 @@
 	  </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary">Post</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><%= t('misc.cancel') %></button>
+        <button type="submit" class="btn btn-primary"><%= t('misc.post') %></button>
       </div>
       <% end %>
 
@@ -141,25 +141,25 @@
 	<input type="hidden" name="comment_id" id="edit-comment-modal-comment-id" value="">
 	<input type="hidden" name="is_vote" id="edit-comment-modal-isvote" value="">
         <div id="edit-comment-subject" class="mb-3">
-          <label for="edit-comment-modal-subject" class="col-form-label">Subject:</label>
+          <label for="edit-comment-modal-subject" class="col-form-label"><%= t('discussion.comment_subject') %>:</label>
           <input name="subject" type="text" class="form-control" id="edit-comment-modal-subject">
         </div>
 	<div id="edit-vote-selection" class="input-group mb-3">
-	    <label for="vote-select" class="input-group-text">Vote</label>
+	    <label for="vote-select" class="input-group-text"><%= t('discussion.vote_label') %></label>
 	    <select id="edit-comment-modal-vote" name="vote-subject" class="form-select">
-	      <option value="Accept">Accept</option>
-	      <option value="Reject">Reject</option>
-	      <option value="Table">Table</option>
+	      <option value="Accept"><%= t('discussion.vote_accept') %></option>
+	      <option value="Reject"><%= t('discussion.vote_reject') %></option>
+	      <option value="Table"><%= t('discussion.vote_table') %></option>
 	    </select>
 	  </div>
         <div class="mb-3">
-          <label for="message-text" class="col-form-label">Comment:</label>
+          <label for="message-text" class="col-form-label"><%= t('discussion.comment_content') %>:</label>
           <input type="textarea" name="content" class="form-control" id="edit-comment-modal-content">
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><%= t('misc.cancel') %></button>
+        <button type="submit" class="btn btn-primary"><%= t('misc.post') %></button>
       </div>
       <% end %>
     </div>

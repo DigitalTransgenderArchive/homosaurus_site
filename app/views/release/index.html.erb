@@ -8,7 +8,7 @@
       <li class="list-group-item">
 	<% link_name = "Homosaurus v.#{release.release_identifier} (#{release.release_date})"
 	   if current_user.present?
-	     link_name += " [#{release.status}]"
+	     link_name += " [" + t("status.#{release.status.downcase}") + "]"
 	   end
 	   %>
         <%= link_to link_name, release_show_path(:release_id => release.release_identifier) %>
