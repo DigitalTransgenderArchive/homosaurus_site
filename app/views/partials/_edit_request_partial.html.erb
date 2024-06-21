@@ -21,7 +21,7 @@ end
   er_status = edit_request.vote_status
 %>
 
-<div class="card container ">
+<div class="card container-lg ">
   <div class="card-header collapsed row" data-bs-toggle="collapse" aria-expanded="false"
        href="#<%= edit_request.id %>" aria-controls="<%= edit_request.id %>">
 
@@ -95,7 +95,7 @@ end
 	       val = c[2]
 	       %>
 	    <tr class="table-<%= change_class %>">
-	      <td class="col col-1"><h5 class="text-<%= change_class %>"><%= c[0] %></h5> </td>
+	      <td class="col col-1"><h3 class="text-<%= change_class %> m-0"><%= c[0] %></h3> </td>
 	      <td class="col col-1"><span class="well_language"><%= lang %></span></td>
 	      <td class="col col-8">
 		<% if r.links_to == 1 %>
@@ -117,13 +117,13 @@ end
 	<table class="table">
 	  <% unless prev_term.nil? %>
           <tr class="table-danger">
-	    <td class="col col-1"><h5 class="text-danger">-</h5> </td>
+	    <td class="col col-1"><h3 class="text-danger m-0">-</h3> </td>
 	    <td class="col col-1"><span class="well_language">All</span></td>
 	    <td class="col col-8"><%= prev_term.my_changes[field] %></td>
 	  </tr>
 	  <% end %>
 	  <tr class="table-success">
-	    <td class="col col-1"><h5 class="text-success">+</h5> </td>
+	    <td class="col col-1"><h3 class="text-success m-0">+</h3> </td>
 	    <td class="col col-1"><span class="well_language">All</span></td>
 	    <td class="col col-8"><%= cur %></td>
 	  </tr>
