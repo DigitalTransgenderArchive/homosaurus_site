@@ -112,11 +112,6 @@
   <div class="container-lg">
     <div class="starter-template">
       <div class="flash_messages">
-	<% if not current_user.present? %>
-	<div class="alert alert-warning">Warning: This is the development site for version 4 of the Homosaurus. For the current stable website, please visit <a href="https://homosaurus.org">homosaurus.org</a>
-	  <a class="close" data-dismiss="alert" href="#">&times;</a>
-	</div>
-	<% end %>
         <% [:success, :notice, :error, :alert].each do |type| %>
           <%- alert_class = case type
                             when :success then "alert-success"
