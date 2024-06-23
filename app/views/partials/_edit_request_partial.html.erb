@@ -6,10 +6,10 @@
   redirect = edit_request.my_changes[Relation::Redirects_to]
   is_redirect = (redirect and redirect.length > 0)
   pref_label = edit_request.my_changes[2].length > 0 ? edit_request.my_changes[2][0][2] : edit_request.term.pref_label
-  is_linked = ((edit_request.my_changes[Relation::Broader].length > 0) or (edit_request.my_changes[Relation::Narrower].length > 0))
+  is_linked = ((edit_request.my_changes[Relation::Broader].length > 0) or (edit_request.my_changes[Relation::Narrower].length > 0) or (edit_request.my_changes[Relation::Related].length > 0))
   is_linked_new = is_linked
   Relation.pluck(:id).each do |r|
-    next if r == Relation::Broader or r == Relation::Narrower
+    next if r == Relation::Broader or r == Relation::Narrower or r == Relation::Related
     if edit_request.my_changes[r].count > 0
       is_linked_new = false
     end

@@ -684,12 +684,61 @@ class Term < ActiveRecord::Base
     er_change.save
   end
 
+  def add_connection(to_term, rel_id, vid, uid)
+    connection = term_relationships.where(relation_id: rel_id).find_by(data: "#{to_term.id}")
+    # Skip adding linked turns
+    unless connection.nil?
+      return
+    end
+    my_changes = EditRequest::makeChangeHash(visibility, uri, identifier)
+    #get the er for the version or create one
+    er = nil
+    if self.edit_requests.pluck(:version_release_id).include?(vid)
+      er = self.edit_requests.find_by(version_release_id: vid)
+    else
+      er = EditRequest.new(:term_id => id,
+                           :created_at => DateTime.now,
+                           :version_release_id => vid,
+                           :my_changes => my_changes,
+                           :parent_id => nil,
+                           :status => "pending")
+    end
+    #add the connection from the top-level er
+    if er.my_changes[rel_id].include?(["-", nil, "#{to_term.id}"])
+      er.my_changes[rel_id].delete(["-", nil, "#{to_term.id}"])
+    end
+    unless er.my_changes[rel_id].include?(["+", nil, "#{to_term.id}"])
+      er.my_changes[rel_id] << ["+", nil, "#{to_term.id}"]
+    end
+
+    er.save
+    # Create an ER adding the connection
+    er_change = EditRequest.create(:term_id => nil,
+                                   :creator_id => uid,
+                                   :created_at => DateTime.now,
+                                   :version_release_id => nil,
+                                   :status => "approved",
+                                   :my_changes => EditRequest::makeChangeHash(visibility, uri, identifier),
+                                   :parent_id => er.id)
+    er_change.my_changes[rel_id] << ["+", nil, "#{to_term.id}"]
+    er.save
+    er_change.save
+  end
+
   # Remove links on redirect/deletion for a given version
   def clear_relations(vid, uid)
     self.term_relationships.where(relation_id: [Relation::Broader,
                                                Relation::Narrower,
                                                Relation::Related]).each do |tr|
       tr.linked_term.remove_connection(self, Relation.inverse(tr.relation_id), vid, uid)
+    end
+  end
+  # Add links on publishing of version
+  def add_relations(vid, uid)
+    self.term_relationships.where(relation_id: [Relation::Broader,
+                                               Relation::Narrower,
+                                               Relation::Related]).each do |tr|
+      tr.linked_term.add_connection(self, Relation.inverse(tr.relation_id), vid, uid)
     end
   end
 

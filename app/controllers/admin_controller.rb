@@ -23,8 +23,12 @@ class AdminController < ApplicationController
       end
     end
     @vr.edit_requests.each do |er|
+      er.term.add_relations(@vr.id, current_user.id)
+    end
+    @vr.edit_requests.each do |er|
       t = er.term
       tr = t.get_relationships_at_version_release(@vr.id)
+      
       TermRelationship.where(term_id: t.id).delete_all
       Relation.all.each do |r|
         tr[r.id].each do |rel|
@@ -34,10 +38,11 @@ class AdminController < ApplicationController
                                   data: rel[1])
         end
       end
+
       if tr[Relation::Redirects_to].nil?
-        self.is_replaced_by = Term.find_by(id: tr[Relation::Redirects_to][0][1].to_i).uri
-        self.visibility = "redirect"
-        self.save!
+        t.is_replaced_by = Term.find_by(id: tr[Relation::Redirects_to][0][1].to_i).uri
+        t.visibility = "redirect"
+        t.save!
       end
     end
     DSolr.reindex_all
