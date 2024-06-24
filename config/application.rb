@@ -1,4 +1,4 @@
-require File.expand_path('../boot', __FILE__)
+vrequire File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
@@ -29,8 +29,7 @@ module HomosaurusSite
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
 
-    I18n.available_locales = [:en, :es, :fr, :nl, :sv, :hi, :bn]
-    #Language.where(id: ["en", "es", "fr", "nl", "sv", "hi", "bn"]).update_all(supported: true)
+    I18n.available_locales = [:en, :es, :fr, :sv, :hi, :bn] #:nl taken out pending translations
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
