@@ -7,12 +7,12 @@
 	<%= select_tag "version_release", options_for_select(VersionRelease.where(status: "Pending").pluck(:release_identifier, :id), @release_id_num), class: "form-select", onchange: "window.location.href='#{request.original_url.split('edit')[0] + 'edit/'}' + $(this).find('option:selected').text()" %>
       </div>
       <%= render :partial => "form_id", :locals => {:f => f, :key=>:identifier} %>
-      <%= render :partial => "form", locals: {f: f} %>
+      <%= render :partial => "form", locals: {f: f, vr_exists: @vr_exists} %>
       <div>
-        <%= button_tag class: 'btn btn-primary btn-lg', id: "upload_submit", name: "update_descriptions", data: { disable_with: "Please wait..." } do %>
+        <%= button_tag class: 'btn btn-primary btn-lg', id: "upload_submit", name: "update_descriptions", data: { disable_with: "Please wait..." }, disabled: (not @vr_exists) do %>
         <i class="glyphicon glyphicon-floppy-disk"></i> Save Term
         <% end %>
       </div>
-    <% end %>
+      <% end %>
   </div>
 </div>

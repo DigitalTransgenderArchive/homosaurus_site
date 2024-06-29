@@ -193,6 +193,12 @@ class VocabularyController < ApplicationController
     term_query = Term.where(vocabulary_identifier: params[:vocab_id]).order("lower(pref_label) ASC")
     @all_terms = []
     term_query.each { |term| @all_terms << [term.identifier + " (" + term.pref_label + ")", term.id] }
+    @vr_exists = true
+    if VersionRelease.where(status: "Pending").pluck(:id).count == 0
+      flash[:error] = "No pending releases"
+      @vr_exists = false
+    end
+    
   end
 
   def create
@@ -240,89 +246,8 @@ class VocabularyController < ApplicationController
     er_change.parent_id = er.id
     er_change.save!
 
-    #ActiveRecord::Base.transaction do
-    if 1 == 0
-      @vocabulary = Vocabulary.find_by(identifier: "v3")
-      @term = Term.new
-      # Fix the below
-      numeric_identifier = Term.mint(vocab_id: "v3")
-      identifier = "homoit" + numeric_identifier.to_s.rjust(7, '0')
-
-      @term.numeric_pid = numeric_identifier
-      @term.identifier = identifier
-      @term.pid = "homosaurus/v3/#{identifier}"
-      @term.uri = "https://homosaurus.org/v3/#{identifier}"
-      @term.vocabulary_identifier = "v3"
-      @term.vocabulary = @vocabulary
-      if params[:immediate].present?
-        @term.visibility = "visible"
-      else
-        @term.visibility = "pending"
-      end
-
-      @term.manual_update_date = Time.now
-
-      set_match_relationship(params[:term], "exact_match_lcsh")
-      set_match_relationship(params[:term], "close_match_lcsh")
-
-      @term.pref_label_language = params[:term][:pref_label_language][0]
-      @term.labels_language = params[:term][:labels_language]
-      @term.alt_labels_language = params[:term][:alt_labels_language]
-      @term.update(term_params)
-
-      @term.save
-      if params[:immediate].blank?
-        set_match_relationship(params[:term], "broader")
-        set_match_relationship(params[:term], "narrower")
-        set_match_relationship(params[:term], "related")
-      elsif params[:immediate].present?
-        if params[:term][:broader].present?
-          params[:term][:broader].each do |broader|
-            if broader.present?
-              #broader = broader.split("(").last[0..-1]
-              broader_object = Term.find_by(uri: broader)
-              @term.broader = @term.broader + [broader_object.uri]
-              broader_object.narrower = broader_object.narrower + [@term.uri]
-              broader_object.save
-            end
-          end
-        end
-
-        if params[:term][:narrower].present?
-          params[:term][:narrower].each do |narrower|
-            if narrower.present?
-              #narrower = narrower.split("(").last[0..-1]
-              narrower_object = Term.find_by(uri: narrower)
-              @term.narrower = @term.narrower + [narrower_object.uri]
-              narrower_object.broader = narrower_object.broader + [@term.uri]
-              narrower_object.save
-            end
-
-          end
-        end
-
-        if params[:term][:related].present?
-          params[:term][:related].each do |related|
-            if related.present?
-              #related = related.split("(").last[0..-1]
-              related_object = Term.find_by(uri: related)
-              @term.related = @term.related + [related_object.uri]
-              related_object.related = related_object.related + [@term.uri]
-              related_object.save
-            end
-
-          end
-        end
-      end
-
-      if @term.save
-        redirect_to vocabulary_show_path(vocab_id: "v3", :id => @term.identifier)
-      else
-        redirect_to vocabulary_term_new_path(vocab_id: "v3")
-      end
-    end
   end
-
+  
   def edit
     @vocab_id = params[:vocab_id]
     @term = Term.find_by(vocabulary_identifier: @vocab_id, identifier: params[:id])

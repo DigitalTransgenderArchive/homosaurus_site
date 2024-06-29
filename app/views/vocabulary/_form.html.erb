@@ -1,7 +1,8 @@
 <%
-  rel_id = @release_id || VersionRelease.where(status: "Pending").pluck(:id)[0]
+  rel_id = @release_id || (vr_exists ? VersionRelease.where(status: "Pending").pluck(:id)[0] : VersionRelease.pluck(:id)[0])
   vr_relations = @term.get_relationships_at_version_release(rel_id)
   %>
+
 <script type="text/javascript">
   $(document).ready(function(){
       console.log("loaded");
@@ -21,21 +22,6 @@
   //$.fn.modal.Constructor.prototype.enforceFocus = function() {};
 
 </script>
-    <%
-      #ISO_639::ISO_639_2.each.map { |t| [t[3], t[0]] }
-      langugage_options = [['English', 'en'], ['English (USA)', 'en-US'], ['English (UK)', 'en-GB']]
-      ISO_639::ISO_639_2.each do |lang|
-        if lang[3] == 'English'
-
-        elsif lang[2].present?
-          langugage_options << [lang[3], lang[2]]
-        else
-          langugage_options << [lang[3], lang[0]]
-        end
-      end
-
-      language_options_expanded = AutocompleteController.form_languages
-    %>
     <%= f.input "relation_#{Relation::Pref_label}", collection: vr_relations[Relation::Pref_label], as: :language_labels_mei,
                 input_html: { include_help: t("admin_help.preferred_term"),
                               help_label: 'Preferred Term',
