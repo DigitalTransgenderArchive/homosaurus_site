@@ -20,12 +20,8 @@
 //     font-url("bootstrap-icons/font/fonts/bootstrap-icons.woff") format("woff");
 // }
 
-#logo_holder {
-      background-image: radial-gradient(ellipse at center center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 55%, white 56%, #212529 70%);
-    display: inline-block;
-}
 #logo_holder img {
-    border-radius: 50%;
+    border-radius: 15%;
     mix-blend-mode: lighten;
     scale: .8;
 }
