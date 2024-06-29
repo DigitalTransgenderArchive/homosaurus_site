@@ -20,6 +20,9 @@
 //     font-url("bootstrap-icons/font/fonts/bootstrap-icons.woff") format("woff");
 // }
 
+#logo_holder {
+    display: inline-block;
+}
 #logo_holder img {
     border-radius: 15%;
     mix-blend-mode: lighten;
