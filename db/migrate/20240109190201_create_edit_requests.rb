@@ -887,14 +887,14 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
     unless VersionRelease.count() > 3
       say_with_time "Expanding version_releases table" do
         add_column(:version_releases, :note, :text)
-        VersionRelease.find_by(id: 1).update(id: 9,  :release_type => "Minor")
-        VersionRelease.find_by(id: 2).update(id: 10, :release_type => "Minor")
-        VersionRelease.find_by(id: 3).update(id: 11, :release_type => "Minor")
+        VersionRelease.find_by(id: 1).update(id: 9,  :release_type => "Minor", :release_identifier => "3.3.0")
+        VersionRelease.find_by(id: 2).update(id: 10, :release_type => "Minor", :release_identifier => "3.4.0")
+        VersionRelease.find_by(id: 3).update(id: 11, :release_type => "Minor", :release_identifier => "3.5.0")
         VersionReleaseTerm.where(version_release_id: 1).update(version_release_id: 9)
         VersionReleaseTerm.where(version_release_id: 2).update(version_release_id: 10)
         VersionReleaseTerm.where(version_release_id: 3).update(version_release_id: 11)
         VersionRelease.create(:id => 1,
-                              :release_identifier => "1.0",
+                              :release_identifier => "1.0.0",
                               :release_type => "Major",
                               :release_date => "2015",
                               :created_at => "2015-12-30 23:59:59",
@@ -902,7 +902,7 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
                               :vocabulary_identifier => "terms",
                               :vocabulary_id => 1)
         VersionRelease.create(:id => 2,
-                              :release_identifier => "2.0",
+                              :release_identifier => "2.0.0",
                               :release_type => "Major",
                               :release_date => "May 2019",
                               :created_at => "2020-05-14 23:59:59",
@@ -910,7 +910,7 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
                               :vocabulary_identifier => "v2",
                               :vocabulary_id => 2)
         VersionRelease.create(:id => 3,
-                              :release_identifier => "2.1",
+                              :release_identifier => "2.1.0",
                               :release_type => "Minor",
                               :release_date => "June 2020",
                               :created_at => "2020-06-04 23:59:59",
@@ -918,7 +918,7 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
                               :vocabulary_identifier => "v2",
                               :vocabulary_id => 2)
         VersionRelease.create(:id => 4,
-                              :release_identifier => "2.2",
+                              :release_identifier => "2.2.0",
                               :release_type => "Minor",
                               :release_date => "June 2020",
                               :created_at => "2020-12-12 23:59:59",
@@ -926,7 +926,7 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
                               :vocabulary_identifier => "v2",
                               :vocabulary_id => 2)
         VersionRelease.create(:id => 5,
-                              :release_identifier => "2.3",
+                              :release_identifier => "2.3.0",
                               :release_type => "Minor",
                               :release_date => "July 2021",
                               :created_at => "2021-07-02 23:59:59",
@@ -934,7 +934,7 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
                               :vocabulary_identifier => "v2",
                               :vocabulary_id => 2)
         VersionRelease.create(:id => 6,
-                              :release_identifier => "3.0",
+                              :release_identifier => "3.0.0",
                               :release_type => "Major",
                               :release_date => "September 2021",
                               :created_at => "2021-09-02 23:59:59",
@@ -942,7 +942,7 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
                               :vocabulary_identifier => "v3",
                               :vocabulary_id => 3)
         VersionRelease.create(:id => 7,
-                              :release_identifier => "3.1",
+                              :release_identifier => "3.1.0",
                               :release_type => "Minor",
                               :release_date => "December 2021",
                               :created_at => "2021-12-15 23:59:59",
@@ -950,7 +950,7 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
                               :vocabulary_identifier => "v3",
                               :vocabulary_id => 3)
         VersionRelease.create(:id => 8,
-                              :release_identifier => "3.2",
+                              :release_identifier => "3.2.0",
                               :release_type => "Minor",
                               :release_date => "June 2022",
                               :created_at => "2022-06-15 23:59:59",
