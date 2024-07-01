@@ -4,6 +4,7 @@ class LcshLookupInput < MultiSelectInput
     <<-HTML
           <li class="field-wrapper">
              <div class="input-group col-sm-12">
+             <span class="input-group-addon">https://id.loc.gov/authorities/subjects/</span>
               #{yield}
               <span class="input-group-btn regular_audits_duplicate_span">
                 <button class="btn btn-success" data-js-duplicate-audits-field="true" type="button">+</button>

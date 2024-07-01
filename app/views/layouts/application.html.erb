@@ -7,6 +7,13 @@
   <!-- Google Analytics -->
   <%= render partial: '/ga', formats: [:html] %>
   <%= csrf_meta_tags %>
+  <% if request.original_url.include? '/new_term' or request.original_url.include? '/edit/' %>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+
+  <% end %>
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark navbar-fixed-top navbar-expand-lg" role="navigation">

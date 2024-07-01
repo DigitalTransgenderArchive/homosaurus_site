@@ -198,7 +198,7 @@ class VocabularyController < ApplicationController
       flash[:error] = "No pending releases"
       @vr_exists = false
     end
-    
+    @LCSH_types = LcshSubjectCache.pluck(:uri, :label).map{|i| ["#{i[0].split('/')[-1]} (#{i[1]})", i[0]]}
   end
 
   def create
@@ -265,7 +265,7 @@ class VocabularyController < ApplicationController
     term_query = Term.where(vocabulary_identifier: params[:vocab_id]).order("lower(pref_label) ASC")
     @all_terms = []
     term_query.each { |term| @all_terms << [term.identifier + " (" + term.pref_label + ")", term.id] }
-    @LCSH_types = LcshSubjectCache.pluck("concat(label,' (', uri, ')'), uri")
+    @LCSH_types = LcshSubjectCache.pluck(:uri, :label).map{|i| ["#{i[0].split('/')[-1]} (#{i[1]})", i[0]]}
   end
 
   def set_match_relationship(form_fields, key)
