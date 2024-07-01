@@ -11,11 +11,7 @@
 <% end %>
 <p><div style="clear:both;">
     <%= button_to t('discussion.back_to_term'), vocabulary_show_path(vocab_id: @homosaurus_obj.vocabulary_identifier, id: @homosaurus_obj.identifier), :method => "get", class: 'btn btn-outline-secondary', style:"float:left; margin-left:20px;" %>
-  <% if current_user.present? && current_user.contributor? && request.original_url.include?('/v3') %>
-    <% if @homosaurus_obj.visibility != "pending" %>
-      <input class="btn btn-danger" style="float:left; margin-left:20px;" type="button" value="Replace Other Term" onClick='var identifer = prompt("Enter the identifier of the term to replace with this term. This OTHER TERM will redirect to this record."); window.location="/<%=@homosaurus_obj.vocabulary_identifier%>/<%=@homosaurus_obj.identifier%>/replace/" + identifer;'>
-    <% end %>
-  <% end %>
+
 
 </div>
 <br/>
