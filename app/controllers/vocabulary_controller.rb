@@ -198,6 +198,13 @@ class VocabularyController < ApplicationController
       flash[:error] = "No pending releases"
       @vr_exists = false
     end
+    if @vr_exists and not params[:release_id]
+      redirect_to vocabulary_term_new_versioned_path(vocab_id: @vocab_id,
+                                                     release_id: VersionRelease.where(status:'Pending')[0].release_identifier)
+      return
+    end
+    @release_id_num = @vr_exists ? VersionRelease.find_by(release_identifier: params[:release_id]).id : nil;
+    
     @LCSH_types = LcshSubjectCache.pluck(:uri, :label).map{|i| ["#{i[0].split('/')[-1]} (#{i[1]})", i[0]]}
   end
 

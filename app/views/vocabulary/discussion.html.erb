@@ -106,6 +106,7 @@
 	  <input type="hidden" name="is_vote" value="true">
 	  <input type="hidden" name="parent" value="<%= @homosaurus_obj.id %>">
 	  <input type="hidden" name="parent_type" value="<%= @discussion_type %>">
+	  <input type="hidden" name="language_id" value="<%= I18n.locale %>">
           <div class="input-group mb-3">
 	    <label for="vote-select" class="input-group-text"><%= t('discussion.vote_label') %></label>
 	    <select id="vote-select" name="subject" class="form-select">

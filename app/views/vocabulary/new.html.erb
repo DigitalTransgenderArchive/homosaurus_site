@@ -4,7 +4,7 @@
     <%= simple_form_for(@term, :url => vocabulary_term_create_path(vocab_id: @vocab_id), :as => :term) do |f| %>
       <div class="input-group">
 	<label class="input-group-text" for="version_release"> Version</label>
-	<%= select_tag "version_release", options_for_select(VersionRelease.where(status: "Pending").pluck(:release_identifier, :id), @release_id_num), class: "form-select", onchange: "window.location.href='#{request.original_url.split('edit')[0] + 'edit/'}' + $(this).find('option:selected').text()" %>
+	<%= select_tag "version_release", options_for_select(VersionRelease.where(status: "Pending").pluck(:release_identifier, :id), @release_id_num), class: "form-select", onchange: "window.location.href='#{request.original_url.split('new_term')[0] + 'new_term/'}' + $(this).find('option:selected').text()" %>
       </div>
       <%= render :partial => "form_id", :locals => {:f => f, :key=>:identifier} %>
       <%= render :partial => "form", locals: {f: f, vr_exists: @vr_exists} %>

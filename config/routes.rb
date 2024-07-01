@@ -50,6 +50,7 @@ Rails.application.routes.draw do
 
   # These should be next to last
   get ':vocab_id/new_term' => 'vocabulary#new', as: :vocabulary_term_new
+  get ':vocab_id/new_term/:release_id' => 'vocabulary#new', as: :vocabulary_term_new_versioned, constraints: { release_id: /[\d\.]+/ }
   post ':vocab_id/new_term' => 'vocabulary#create', as: :vocabulary_term_create
   get ':vocab_id/:id/edit' => 'vocabulary#edit', as: :vocabulary_term_edit
   get ':vocab_id/:id/edit/:release_id' => 'vocabulary#edit', as: :vocabulary_term_edit_version, constraints: { release_id: /[\d\.]+/ }
