@@ -220,8 +220,6 @@ class Term < ActiveRecord::Base
     lang_desc = lang_relationships.where(relation_id: Relation::Description).count
     lang_labels = lang_relationships.where(relation_id: [Relation::Pref_label, Relation::Label, Relation::Alt_label]).count
     relations = self.term_relationships.where(relation_id: [Relation::Broader, Relation::Narrower, Relation::Related]).count
-    # logger.debug("========================================= lol ====================")
-    # logger.debug([lang_desc, lang_pref, lang_labels, relations])
     return (lang_desc * lang_labels * relations) > 0
     
   end
@@ -275,7 +273,7 @@ class Term < ActiveRecord::Base
   end
 
 
-  def self.csv_download(all_terms)
+  def self.csv_download(all_terms,edited_terms=[])
     #if limited_terms.present?
     #all_terms = Term.where(vocabulary_identifier: identifier, visibility: 'visible', identifier: limited_terms).order("lower(pref_label) ASC")
     #else
@@ -295,34 +293,14 @@ class Term < ActiveRecord::Base
       graph[:uri] = base_uri
       graph[:identifier] = current_term.identifier
       graph[:prefLabel] = current_term.pref_label
-      graph[:other_labels] = []
-      current_term.labels.each do |lbl|
-        graph[:other_labels] << lbl
-      end
-      graph[:other_labels] = graph[:other_labels].join("||")
+      graph[:prefLabel] = relationships[Relation::Pref_label].map{|i| "#{i[1]}@#{i[0]}"}.join("||")
+      graph[:other_labels] = relationships[Relation::Label].map{|i| "#{i[1]}@#{i[0]}"}.join("||")
+      graph[:altLabel] = relationships[Relation::Alt_label].map{|i| "#{i[1]}@#{i[0]}"}.join("||")
+      graph[:description] = relationships[Relation::Description].map{|i| "#{i[1]}@#{i[0]}"}.join("||")
 
-      graph[:altLabel] = []
-      current_term.alt_labels.each do |alt|
-        graph[:altLabel] << alt
-      end
-      graph[:altLabel] = graph[:altLabel].join("||")
-
-      # Note: This can have commas and semicolons
-      graph[:description] = current_term.description
-
-      graph[:historyNote] = current_term.history_note
-
-      graph[:broader] = current_term.broader
-      graph[:broader] = graph[:broader].join("||")
-
-      #graph[:narrower] = relationships.where()
-      graph[:narrower] = relationships[Relation::Narrower].map{|r| Term.find_by(id: r[1].to_i).uri}.join("||")
-
-      # graph[:narrower] = current_term.narrower
-      # graph[:narrower] = graph[:narrower].join("||")
-
-      graph[:related] = current_term.related
-      graph[:related] = graph[:related].join("||")
+      graph[:broader] = relationships[Relation::Broader].map{|i| Term.find_by(id: i[1].to_i).uri}.join("||")
+      graph[:narrower] = relationships[Relation::Narrower].map{|i| Term.find_by(id: i[1].to_i).uri}.join("||")
+      graph[:related] = relationships[Relation::Related].map{|i| Term.find_by(id: i[1].to_i).uri}.join("||")
 
       graph[:issued] = current_term.created_at.iso8601.split('T').first
       graph[:modified] = current_term.manual_update_date.iso8601.split('T').first
@@ -778,3 +756,4 @@ class Term < ActiveRecord::Base
 
   end
 end
+

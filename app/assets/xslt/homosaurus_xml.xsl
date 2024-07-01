@@ -46,13 +46,13 @@
           * for example; modify the below to use Ohio State would look like
           <datafield tag="040" ind1=" " ind2=" ">
              <subfield code="a">OSU</subfield>
-             <subfield code="f">homosaurus</subfield>
+             <subfield code="f">homoit</subfield>
              <subfield code="c">OSU</subfield>
           </datafield>
           *****************************************************************
       -->
       <datafield tag="040" ind1=" " ind2 = " ">
-        <subfield code="f">homosaurus</subfield>
+        <subfield code="f">homoit</subfield>
       </datafield>
 
 
