@@ -252,7 +252,7 @@ class VocabularyController < ApplicationController
     er.save!
     er_change.parent_id = er.id
     er_change.save!
-
+    redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "HomosaurusV3 pending term created!"
   end
   
   def edit
@@ -581,7 +581,8 @@ class VocabularyController < ApplicationController
   def destroy
     @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
 
-    clear_relations(@term)
+    # clear_relations(@term)
+    # @term.clear_relations(VersionRelease.pluck(:id)[-1], current_user.id)
     @term.visibility = "deleted"
     @term.save!
     #@homosaurus.broader = []

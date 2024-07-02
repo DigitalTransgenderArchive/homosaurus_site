@@ -63,6 +63,20 @@ class VersionRelease < ActiveRecord::Base
     release_term.save!
   end
 
+  def approved_edit_requests
+    return self.edit_requests.where(status: "approved")
+  end
+
+  def statistics
+    return {
+      "terms_added" => self.edit_requests.reject{|er| not er.previous().nil? }.count,
+      "terms_modified" => self.edit_requests.reject{|er| er.previous().nil? }.count,
+      "approved" => self.edit_requests.where(status: "approved").count,
+      "pending" => self.edit_requests.where(status: "pending").count,
+      "total" => self.edit_requests.count
+    }
+  end
+  
   def self.get_next_identifier(change_type)
     current_identifier = VersionRelease.all()[-1].release_identifier
     ci_parts = current_identifier.split(".").map{ |x| x.to_i }

@@ -16,16 +16,16 @@ class AdminController < ApplicationController
   def version_publish
     @vr = VersionRelease.find_by(release_identifier: params[:release_identifier])
     @vr.update(status: "Published")
-    @vr.edit_requests.each do |er|
+    @vr.approved_edit_requests.each do |er|
       if er.term.visibility == "pending"
         er.term.update(visibility: "visible")
         er.save
       end
     end
-    @vr.edit_requests.each do |er|
+    @vr.approved_edit_requests.each do |er|
       er.term.add_relations(@vr.id, current_user.id)
     end
-    @vr.edit_requests.each do |er|
+    @vr.approved_edit_requests.each do |er|
       t = er.term
       tr = t.get_relationships_at_version_release(@vr.id)
       

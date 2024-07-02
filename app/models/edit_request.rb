@@ -62,7 +62,6 @@ class EditRequest < ActiveRecord::Base
     my_changes["identifier"] = identifier
     return my_changes
   end
-
   def addChange(rel_id, change)
     inverse_change = [change[0] == "+" ? "-" : "+", change[1], change[2]]
     if self.my_changes[rel_id].include? inverse_change

@@ -7,11 +7,16 @@
   <h1>Manage Releases</h1>
   <ul class="list-group list-group-flush">
     <% VersionRelease.all().reverse.each do |v| %>
+    <% stats = v.statistics() %>
     <li class="list-group-item">
       <%= "V. #{v.release_identifier} (#{v.release_type}) [#{v.status}]" %>
       <% if v.status == "Pending" %>
         <%= button_to "Publish", version_publish_path(release_identifier: v.release_identifier), :method => :post, form_class: 'btn p-0', class: 'btn btn-primary', data: { confirm: "Are you sure you want to publish? This can not be undone." } %>
       <% end %>
+      <span>Terms added: <%= stats["terms_added"] %></span>,
+      <span>Terms modified: <%= stats["terms_modified"] %></span>,
+      <span>Changes approved: <%= stats["approved"] %>/<%= stats["total"] %></span>,
+      <span>Changes pending approval: <%= stats["pending"] %>/<%= stats["total"] %></span>
     </li>
     <% end %>
   </ul>
