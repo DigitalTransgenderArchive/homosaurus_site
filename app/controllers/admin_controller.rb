@@ -39,9 +39,13 @@ class AdminController < ApplicationController
         end
       end
 
-      if tr[Relation::Redirects_to].nil?
-        t.is_replaced_by = Term.find_by(id: tr[Relation::Redirects_to][0][1].to_i).uri
-        t.visibility = "redirect"
+      unless tr[Relation::Redirects_to].nil?
+        if tr[Relation::Redirects_to][0][1] == "0"
+          t.visibility = "deleted"
+        else
+          t.is_replaced_by = Term.find_by(id: tr[Relation::Redirects_to][0][1].to_i).uri
+          t.visibility = "redirect"
+        end
         t.save!
       end
     end

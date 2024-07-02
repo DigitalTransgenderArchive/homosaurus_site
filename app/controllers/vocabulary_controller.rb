@@ -171,6 +171,7 @@ class VocabularyController < ApplicationController
   def approve_release
     vr = VersionRelease.find_by(release_identifier: params["release_id"])
     er = Term.find_by(identifier: params["id"]).edit_requests.find_by(version_release_id: vr.id)
+    er.update(status: "approved")
     vs = er.vote_statuses.find_by(language_id: I18n.locale)
     if vs.nil?
       vs = VoteStatus.create!(
@@ -184,7 +185,6 @@ class VocabularyController < ApplicationController
       vs.update(reviewer_id: current_user.id)
     end
     redirect_to edit_request_discussion_path
-
   end
   def new
     @vocab_id = params[:vocab_id]
@@ -438,7 +438,6 @@ class VocabularyController < ApplicationController
       end
 
     end
-
   end
 
   def publish_single_obj
@@ -454,8 +453,6 @@ class VocabularyController < ApplicationController
         end
       end
     end
-
-
   end
 
   # FIX the related stuff not needing identifiers for value
@@ -580,10 +577,39 @@ class VocabularyController < ApplicationController
 
   def destroy
     @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
+    @term.clear_relations(params[:release_id], current_user.id)
+    #get the er for the version or create one
+    er = nil
+    if @term.edit_requests.pluck(:version_release_id).include?(params[:release_id])
+      er = @term.edit_requests.find_by(version_release_id: params[:release_id])
+    else
+      my_changes = EditRequest::makeChangeHash("deleted", @term.uri, @term.identifier)
+      er = EditRequest.new(:term_id => @term.id,
+                           :created_at => DateTime.now,
+                           :version_release_id => params[:release_id],
+                           :my_changes => my_changes,
+                           :parent_id => nil,
+                           :status => "pending")
+    end
+    er.my_changes[Relation::Redirects_to] = [["+", nil, "0"]]
 
+    er.save!
+
+    er_change = EditRequest.create(:term_id => nil,
+                                   :creator_id => current_user.id,
+                                   :created_at => DateTime.now,
+                                   :version_release_id => nil,
+                                   :status => "approved",
+                                   :my_changes => EditRequest::makeChangeHash("deleted", @term.uri, @term.identifier),
+                                   :parent_id => er.id)
+    er_change.my_changes[Relation::Redirects_to] = [["+", nil, "0"]]
+
+    er_change.save
+    er.save
+    
     # clear_relations(@term)
     # @term.clear_relations(VersionRelease.pluck(:id)[-1], current_user.id)
-    @term.visibility = "deleted"
+    #@term.visibility = "deleted"
     @term.save!
     #@homosaurus.broader = []
     #@homosaurus.narrower = []
@@ -596,34 +622,14 @@ class VocabularyController < ApplicationController
 
   def destroy_version
     @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
-    if @term.raw_pendings.present?
-      pending = Hist::Pending.find(@term.raw_pendings[0].id)
-      pending.destroy!
-      redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "Existing Term pending version release was removed!"
-    elsif @term.visibility == "pending"
-      Term.transaction do
-        relation_terms = Term.where("broader like ?", "%#{@term.uri}%")
-        relation_terms.each do |term|
-          term.broader.delete(@term.uri)
-          term.save
-        end
-
-        relation_terms = Term.where("related like ?", "%#{@term.uri}%")
-        relation_terms.each do |term|
-          term.related.delete(@term.uri)
-          term.save
-        end
-
-        relation_terms = Term.where("narrower like ?", "%#{@term.uri}%")
-        relation_terms.each do |term|
-          term.narrower.delete(@term.uri)
-          term.save
-        end
-
-        @term.destroy!
+    @term.edit_requests.each do |er|
+      er.children.each do |erc|
+        erc.destroy!
       end
-      redirect_to vocabulary_term_new_path(vocab_id: "v3"), notice: "New term pending version release was removed!"
+      er.destroy!
     end
+    @term.destroy!
+    redirect_to vocabulary_term_new_path(vocab_id: "v3"), notice: "New term pending version release was removed!"
   end
 
   def replace
@@ -685,3 +691,4 @@ class VocabularyController < ApplicationController
   end
 
 end
+

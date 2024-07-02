@@ -4,7 +4,8 @@
   child_edit ||= false
   is_new = edit_request.previous().nil?
   redirect = edit_request.my_changes[Relation::Redirects_to]
-  is_redirect = (redirect and redirect.length > 0)
+  is_deletion = (redirect.count > 0 and redirect[0][2].to_i == 0)
+  is_redirect = (redirect.count > 0 and not is_deletion)
   pref_label = edit_request.my_changes[2].length > 0 ? edit_request.my_changes[2][0][2] : edit_request.term.pref_label
   is_linked = ((edit_request.my_changes[Relation::Broader].length > 0) or (edit_request.my_changes[Relation::Narrower].length > 0) or (edit_request.my_changes[Relation::Related].length > 0))
   is_linked_new = is_linked
@@ -85,7 +86,7 @@ end
        prev_term = edit_request.previous() %>
     <% relations.each do |r| %>
       <% changes = edit_request.my_changes[r.id] %>
-      <% if not changes.nil? and changes.length > 0 %>
+      <% if not changes.nil? and changes.length > 0 and (r.id != Relation::Redirects_to and not is_deletion)%>
         <h4><%= t("relations.#{r.id}") %></h4>
 	<table class="table">
 	  <% changes.each do |c| %>
@@ -130,6 +131,16 @@ end
 	</table>
       <% end %>
     <% end %>
+    <% if is_deletion %>
+      <h4>Visibility</h4>
+      <table class="table">
+	<tr class="table-success">
+	  <td class="col col-1"><h3 class="text-success m-0">+</h3> </td>
+	  <td class="col col-1"><span class="well_language">All</span></td>
+	  <td class="col col-8">Deleted</td>
+	</tr>
+      </table>
+      <% end %>
     <% if not child_edit and current_user.present? and edit_request.children.count %>
       <div class="border-top my-3"></div>
       <% edit_request.children.each do |erc| %>
