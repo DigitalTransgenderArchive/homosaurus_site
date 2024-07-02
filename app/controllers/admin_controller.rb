@@ -49,7 +49,9 @@ class AdminController < ApplicationController
         t.save!
       end
     end
-    DSolr.reindex_all
+    Spawnling.new do
+      DSolr.reindex_all
+    end
     redirect_to version_manage_path
   end
   def version_manage
