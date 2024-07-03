@@ -22,9 +22,9 @@ class AdminController < ApplicationController
         er.save
       end
     end
-    @vr.approved_edit_requests.each do |er|
-      er.term.add_relations(@vr.id, current_user.id)
-    end
+    # @vr.approved_edit_requests.each do |er|
+    #   er.term.add_relations(@vr.id, current_user.id)
+    # end
     @vr.approved_edit_requests.each do |er|
       t = er.term
       tr = t.get_relationships_at_version_release(@vr.id)
@@ -39,12 +39,13 @@ class AdminController < ApplicationController
         end
       end
 
-      unless tr[Relation::Redirects_to].nil?
+      if tr[Relation::Redirects_to].count > 0
+        pp tr
         if tr[Relation::Redirects_to][0][1] == "0"
-          t.visibility = "deleted"
+          t.update(visibility: "deleted")
         else
           t.is_replaced_by = Term.find_by(id: tr[Relation::Redirects_to][0][1].to_i).uri
-          t.visibility = "redirect"
+          t.update(visibility: "redirect")
         end
         t.save!
       end

@@ -71,7 +71,6 @@ class EditRequest < ActiveRecord::Base
     end
   end
   def voteSummary()
-    pp "LOCALE IS #{I18n.locale}"
     votes = self.comments.where(language_id: I18n.locale).where(replaces_comment_id: nil).where(is_vote: true).map{ |c| c.subject }
     return votes.uniq.map{ |v| [v, votes.count(v)] }.to_h
   end
@@ -116,5 +115,18 @@ class EditRequest < ActiveRecord::Base
       return "pending"
     end
     return vs.status
+  end
+
+  # Update related terms
+  def make_linked_changes
+    [Relation::Broader, Relation::Narrower, Relation::Related].each do |r|
+      self.my_changes[r].each do |c|
+        if c[0] == "+"
+          Term.find_by(id: c[2].to_i).add_connection(self.term, Relation.inverse(r), self.version_release.id, self.creator_id)
+        else
+          Term.find_by(id: c[2].to_i).remove_connection(self.term, Relation.inverse(r), self.version_release.id, self.creator_id)
+        end
+      end
+    end
   end
 end

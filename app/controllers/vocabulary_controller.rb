@@ -91,8 +91,6 @@ class VocabularyController < ApplicationController
   end
 
   def history
-
-    pp current_user
     @homosaurus_obj = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
     @homosaurus = Term.find_solr(@homosaurus_obj.identifier)
     @edit_requests = @homosaurus_obj.get_edit_requests()
@@ -252,6 +250,8 @@ class VocabularyController < ApplicationController
     er.save!
     er_change.parent_id = er.id
     er_change.save!
+    @term.save!
+    Term.find_by(id: @term.id).add_relations(params[:version_release].to_i, current_user.id)
     redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "HomosaurusV3 pending term created!"
   end
   
@@ -259,13 +259,13 @@ class VocabularyController < ApplicationController
     @vocab_id = params[:vocab_id]
     @term = Term.find_by(vocabulary_identifier: @vocab_id, identifier: params[:id])
     unless params[:release_id]
+      valid_vids = VersionRelease.where(status:'Pending').reject{|vr| vr.edit_requests.find_by(term_id: @term.id) and vr.edit_requests.find_by(term_id: @term.id).status == "approved"}
       redirect_to vocabulary_term_edit_version_path(vocab_id: @vocab_id, id: params[:id],
-                                                    release_id: VersionRelease.where(status:'Pending')[0].release_identifier)
+                                                    release_id: valid_vids[-1].release_identifier)
       return
     end
     @release_id = params[:release_id]
     @release_id_num = VersionRelease.find_by(release_identifier: @release_id).id
-    pp "RELEASE ID IS " + @release_id
     # if @term.pendings.present?
     #   @term = @term.pendings[0]
     # end
@@ -293,7 +293,6 @@ class VocabularyController < ApplicationController
     @term = Term.find_by(vocabulary_identifier: "v3", identifier: params[:id])
     er = nil
     vr_exists = false
-    pp params
     my_changes = EditRequest::makeChangeHash(@term.visibility, @term.uri, params[:id])
     # Use existing ER for VR if it exists, else create new one
     if @term.edit_requests.where(status: "pending").pluck(:version_release_id).include? params[:version_release].to_i
@@ -373,13 +372,11 @@ class VocabularyController < ApplicationController
     end
     
     if changed
-      pp er
-      pp er_change
-
+      #@term.add_relations(params[:version_release].to_i, current_user.id)
       er.save!
       er_change.update(parent_id: er.id)
       er_change.save!
-      
+      er_change.make_linked_changes()
       redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "HomosaurusV3 pending term updated!"
     else
       redirect_to vocabulary_term_edit_path(vocab_id: "v3",  id: @term.identifier), notice: "No changes were made."
@@ -577,16 +574,16 @@ class VocabularyController < ApplicationController
 
   def destroy
     @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
-    @term.clear_relations(params[:release_id], current_user.id)
+    @term.clear_relations(params[:release_id].to_i, current_user.id)
     #get the er for the version or create one
     er = nil
-    if @term.edit_requests.pluck(:version_release_id).include?(params[:release_id])
-      er = @term.edit_requests.find_by(version_release_id: params[:release_id])
+    if @term.edit_requests.pluck(:version_release_id).include?(params[:release_id].to_i)
+      er = @term.edit_requests.find_by(version_release_id: params[:release_id].to_i)
     else
       my_changes = EditRequest::makeChangeHash("deleted", @term.uri, @term.identifier)
       er = EditRequest.new(:term_id => @term.id,
                            :created_at => DateTime.now,
-                           :version_release_id => params[:release_id],
+                           :version_release_id => params[:release_id].to_i,
                            :my_changes => my_changes,
                            :parent_id => nil,
                            :status => "pending")
@@ -622,6 +619,8 @@ class VocabularyController < ApplicationController
 
   def destroy_version
     @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
+    @term.clear_relations(@term.edit_requests[0].version_release_id, current_user.id, true)
+    
     @term.edit_requests.each do |er|
       er.children.each do |erc|
         erc.destroy!

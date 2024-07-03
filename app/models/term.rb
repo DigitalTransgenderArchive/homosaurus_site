@@ -629,10 +629,15 @@ class Term < ActiveRecord::Base
   # Remove a term relationship and create/modify an edit request.
   def remove_connection(to_term, rel_id, vid, uid)
     connection = term_relationships.where(relation_id: rel_id).find_by(data: "#{to_term.id}")
-    # Skip deleting unlinked turns
-    if connection.nil?
+    # Check if connection already exists by this VR
+    con = self.get_relationship_at_version_release(rel_id, vid)
+    unless con.map{|c| c[1].to_i}.include? to_term.id
       return
     end
+    # # Skip deleting unlinked turns
+    # if connection.nil?
+    #   return
+    # end
     my_changes = EditRequest::makeChangeHash(visibility, uri, identifier)
     #get the er for the version or create one
     er = nil
@@ -666,11 +671,25 @@ class Term < ActiveRecord::Base
     er.save
     er_change.save
   end
+  # Remove connection from the history entirely
+  def wipe_pending_connection(to_term, rel_id, vid)
+    self.edit_requests.each do |er|
+      er.children.each do |erc|
+        if erc.my_changes[rel_id].map{|c| c[2].to_i}.include? to_term.id
+          erc.destroy!
+        end
+      end
+      if er.children.count == 0
+        er.destroy!
+      end
+    end
+  end
 
   def add_connection(to_term, rel_id, vid, uid)
     connection = term_relationships.where(relation_id: rel_id).find_by(data: "#{to_term.id}")
-    # Skip adding linked turns
-    unless connection.nil?
+    # Check if connection already exists by this VR
+    con = self.get_relationship_at_version_release(rel_id, vid)
+    if con.map{|c| c[1].to_i}.include? to_term.id
       return
     end
     my_changes = EditRequest::makeChangeHash(visibility, uri, identifier)
@@ -678,6 +697,7 @@ class Term < ActiveRecord::Base
     er = nil
     if self.edit_requests.pluck(:version_release_id).include?(vid)
       er = self.edit_requests.find_by(version_release_id: vid)
+      #er.update(status: "approved")
     else
       er = EditRequest.new(:term_id => id,
                            :created_at => DateTime.now,
@@ -709,19 +729,25 @@ class Term < ActiveRecord::Base
   end
 
   # Remove links on redirect/deletion for a given version
-  def clear_relations(vid, uid)
-    self.term_relationships.where(relation_id: [Relation::Broader,
-                                               Relation::Narrower,
-                                               Relation::Related]).each do |tr|
-      tr.linked_term.remove_connection(self, Relation.inverse(tr.relation_id), vid, uid)
+  def clear_relations(vid, uid, pending=false)
+    trs = self.get_relationships_at_version_release(vid)
+    [Relation::Broader, Relation::Narrower, Relation::Related].each do |r|
+      trs[r].each do |tr|
+        if pending
+          Term.find_by(id: tr[1].to_i).wipe_pending_connection(self, Relation.inverse(r), vid)
+        else
+          Term.find_by(id: tr[1].to_i).remove_connection(self, Relation.inverse(r), vid, uid)
+        end
+      end
     end
   end
   # Add links on publishing of version
   def add_relations(vid, uid)
-    self.term_relationships.where(relation_id: [Relation::Broader,
-                                               Relation::Narrower,
-                                               Relation::Related]).each do |tr|
-      tr.linked_term.add_connection(self, Relation.inverse(tr.relation_id), vid, uid)
+    trs = self.get_relationships_at_version_release(vid)
+    [Relation::Broader, Relation::Narrower, Relation::Related].each do |r|
+      trs[r].each do |tr|
+        Term.find_by(id: tr[1].to_i).add_connection(self, Relation.inverse(r), vid, uid)
+      end
     end
   end
 
