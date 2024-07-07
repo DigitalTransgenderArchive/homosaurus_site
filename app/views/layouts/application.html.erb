@@ -98,7 +98,7 @@
 	  <ul class="dropdown-menu text-bg-dark">
 	    <% I18n.available_locales.reject{|l| l == I18n.locale}.map{|l| l.to_s }.each do |loc| %>
 	    <li class="divider"></li>
-	    <li><%= link_to t("languages." << loc), request.original_url.gsub(/\/\/.*homosaurus/, "//homosaurus").gsub("homosaurus", loc << ".homosaurus").gsub("en.homo", "homo"), :class=>"dropdown-item text-white" %>
+	    <li><%= link_to t("languages." << loc) << " | " << t("languages." << loc, locale: loc), request.original_url.gsub(/\/\/.*homosaurus/, "//homosaurus").gsub("homosaurus", loc << ".homosaurus").gsub("en.homo", "homo"), :class=>"dropdown-item text-white" %>
 	    </li>
 	    <% end %>
 	  </ul>

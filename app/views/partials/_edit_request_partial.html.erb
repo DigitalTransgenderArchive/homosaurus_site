@@ -51,16 +51,17 @@ end
       </div>
     <% end %>
     <% if release_page %>
-        <div class="col col-4">
-	  <%= pref_label %> <br>[<%= edit_request.my_changes["identifier"] %>]
+        <div class="col col-5">
+	  <span class="er_label_and_identifier d-inline-block"> <%= pref_label %> [<%= edit_request.my_changes["identifier"] %>]</span><br>
+	  <span class="er_time_created"><%= edit_request.created_at.to_s %></span>
 	</div>
     <% end %>
-    <div class="col col-2 p-0">
-      <%= edit_request.created_at.to_s %>
-    </div>
     <div class="col col-auto me-auto"></div>
-    <div class="col col-4 p-0">
-      <div class="d-inline-flex gap-1">
+    <div class="col col-5 p-0">
+      <div class="d-inline-flex gap-1 float-end">
+	<% if release_page and edit_request.version_release.status == "Pending" and  current_user.present? and current_user.admin? and edit_request.vote_status == "pending" %>
+	  <%= button_to "Approve changes", edit_request_approve_release_path(vocab_id: edit_request.version_release.vocabulary.identifier, id: edit_request.term.identifier, release_id: edit_request.version_release.release_identifier), :method => "post", class: 'btn btn-primary', data: {confirm: "Are you sure you want to approve this?" } %>
+        <% end %>
 	<% if release_page and not child_edit %>
           <%= button_to t("edit_request.view_term"),
 	      vocabulary_show_path(
@@ -75,7 +76,7 @@ end
 	        id: edit_request.my_changes["identifier"],
 	        release_id: edit_request.version_release.release_identifier),
 	      :method => "get", class: 'btn btn-link border-black', form_class: 'btn p-0' %>
-       <% end %>
+	<% end %>
       </div>
     </div>
     <div class="col col-auto collapse-icon ml-auto"></div>

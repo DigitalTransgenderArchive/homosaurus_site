@@ -1,6 +1,6 @@
 class VocabularyController < ApplicationController
   before_action :verify_permission, :only => [:new, :edit, :discussion, :post_comment, :post_reply, :edit_comment, :approve_release, :create, :update, :destroy, :replace, :restore, :destroy_version] # ,  :update_immediate
-
+  # Show the index for a vocabulary
   def index
     identifier = params[:id]
     #@vocabulary = Vocabulary.find_by(identifier: identifier)
@@ -27,19 +27,10 @@ class VocabularyController < ApplicationController
       format.ttlV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
     end
   end
-
+  # Show a term
   def show
-    logger.debug params
     @homosaurus_obj = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
     logger.debug @homosaurus_obj
-    # if params[:pending_id].present?
-    #   pending = Hist::Pending.find(params[:pending_id])
-    #   @homosaurus_obj = pending.reify
-    # else
-      
-    # end
-
-    #@homosaurus = Term.find_solr(@homosaurus_obj.identifier)
 
     # For terms  that are combined / replaced
     if @homosaurus_obj.visibility == "redirect" and @homosaurus_obj.is_replaced_by.present?
@@ -66,7 +57,7 @@ class VocabularyController < ApplicationController
       format.ttlV2 { render body: @homosaurus_obj.full_graph(include_lang: false)..dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
     end
   end
-
+  # Search for terms
   def search
     @vocabulary_identifier = params[:id]
     @vocabulary = Vocabulary.find_by(identifier: @vocabulary_identifier)
@@ -89,7 +80,7 @@ class VocabularyController < ApplicationController
       end
     end
   end
-
+  # Show the history of a term (edit requests)
   def history
     @homosaurus_obj = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
     @homosaurus = Term.find_solr(@homosaurus_obj.identifier)
@@ -102,6 +93,7 @@ class VocabularyController < ApplicationController
       format.html
     end
   end
+  # Show the discussion of either a term or an edit request
   def discussion
     @homosaurus_obj = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
     @discussion_type = "Term"
@@ -115,7 +107,7 @@ class VocabularyController < ApplicationController
       format.html
     end
   end
-
+  # Create a new comment
   def post_comment
     parent = nil
     if params["parent_type"] == "Term"
@@ -138,7 +130,7 @@ class VocabularyController < ApplicationController
       redirect_to edit_request_discussion_path(:anchor => "comment-#{@c.id}")
     end
   end
-
+  # Edit an existing comment
   def edit_comment
     comment = Comment.find_by(id: params['comment_id'])
     is_vote = (params["is_vote"] == "true")
@@ -165,8 +157,9 @@ class VocabularyController < ApplicationController
       redirect_to edit_request_discussion_path(:anchor => "comment-#{comment.id}"), notice: notice
     end
   end
-
+  # Approve the changes to a given term in a given release
   def approve_release
+    backurl = request.referer
     vr = VersionRelease.find_by(release_identifier: params["release_id"])
     er = Term.find_by(identifier: params["id"]).edit_requests.find_by(version_release_id: vr.id)
     er.update(status: "approved")
@@ -182,8 +175,9 @@ class VocabularyController < ApplicationController
       vs.update(status: "approved")
       vs.update(reviewer_id: current_user.id)
     end
-    redirect_to edit_request_discussion_path
+    redirect_to backurl
   end
+  # Initialize term creation page
   def new
     @vocab_id = params[:vocab_id]
     @term = Term.new
@@ -205,7 +199,7 @@ class VocabularyController < ApplicationController
     
     @LCSH_types = LcshSubjectCache.pluck(:uri, :label).map{|i| ["#{i[0].split('/')[-1]} (#{i[1]})", i[0]]}
   end
-
+  # Create a new term in a given release
   def create
     @vocab_id = params[:vocab_id]
     @vocabulary = Vocabulary.find_by(identifier: @vocab_id)
@@ -254,7 +248,7 @@ class VocabularyController < ApplicationController
     Term.find_by(id: @term.id).add_relations(params[:version_release].to_i, current_user.id)
     redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "HomosaurusV3 pending term created!"
   end
-  
+  # Initialize term editing page
   def edit
     @vocab_id = params[:vocab_id]
     @term = Term.find_by(vocabulary_identifier: @vocab_id, identifier: params[:id])
@@ -288,7 +282,7 @@ class VocabularyController < ApplicationController
       @term.send("#{key}=", [])
     end
   end
-  
+  # Save edits to term in a given release
   def update
     @term = Term.find_by(vocabulary_identifier: "v3", identifier: params[:id])
     er = nil
@@ -572,6 +566,7 @@ class VocabularyController < ApplicationController
     return objs.sort_by { |obj| obj.pref_label.downcase }.map { |obj| obj.uri }
   end
 
+  # Mark term as deleted in a given release
   def destroy
     @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
     @term.clear_relations(params[:release_id].to_i, current_user.id)
@@ -616,7 +611,7 @@ class VocabularyController < ApplicationController
     #redirect_to homosaurus_v3_index_path, notice: "HomosaurusV3 term was deleted!"
     redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "Term was marked as deleted! Relations were removed from related terms."
   end
-
+  # Delete pending term and associated records
   def destroy_version
     @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
     @term.clear_relations(@term.edit_requests[0].version_release_id, current_user.id, true)
@@ -630,7 +625,7 @@ class VocabularyController < ApplicationController
     @term.destroy!
     redirect_to vocabulary_term_new_path(vocab_id: "v3"), notice: "New term pending version release was removed!"
   end
-
+  # Replace one term with another and create redirect
   def replace
     @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
     @term_being_replaced = Term.find_by(id: params[:replacement_id].to_i)
