@@ -1,42 +1,42 @@
 <script type="text/javascript">
-    $(document).ready(function() {
+  $(document).ready(function() {
 
-        $(".walter_cat_walker_tribute").shorten({
-            "showChars": 986,
-            "moreText": "[Expand To Read Full Tribute]",
-            "lessText"	: "",
-        }); 
+      $(".walter_cat_walker_tribute").shorten({
+          "showChars": 986,
+          "moreText": "[Expand To Read Full Tribute]",
+          "lessText"	: "",
+      }); 
 
-    });
+  });
 </script>
 
 <%= form_tag(reveal_emails_path, :id => 'captcha_form', :class => 'form-horizontal') do %>
-  <%= recaptcha_v3(action: 'about', site_key: Settings.recaptcha_site_key_v3) %>
+<%= recaptcha_v3(action: 'about', site_key: Settings.recaptcha_site_key_v3) %>
 
 <div id="about" class="col-sm-12 col-md-12">
 
   <% unless @errors.empty? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <ul class="errors">
-        <% @errors.each do |msg| %>
-          <li style="font-size: 18px;"><%= msg %></li>
-        <% end %>
-        <% if  @show_captcha_v2 %>
-          <li>
-                <%= recaptcha_tags %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul class="errors">
+      <% @errors.each do |msg| %>
+      <li style="font-size: 18px;"><%= msg %></li>
+      <% end %>
+      <% if  @show_captcha_v2 %>
+      <li>
+        <%= recaptcha_tags %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
   <% end %>
 
   <% if @reveal_emails %>
-    <div id="error_explanation" class="alert alert-success">
-      <ul class="errors">
-          <li style="font-size: 18px;">Emails on the page are now revealed.</li>
-      </ul>
-    </div>
-    <% end %>
+  <div id="error_explanation" class="alert alert-success">
+    <ul class="errors">
+      <li style="font-size: 18px;">Emails on the page are now revealed.</li>
+    </ul>
+  </div>
+  <% end %>
 
 
   <h2><%= t('about.mission_label') %></h2>
@@ -45,270 +45,263 @@
     <p><%= t('about.mission_statement') %></p>
   </div>
 
- <h2><%= t('term.history') %></h2>
+  <h2><%= t('term.history') %></h2>
   <div class="info_section">
     <%= t('about.history_html') %>
   </div>
 
   <h2><%= t('about.resources_label') %></h2>
- <div class="info_section">
- <p> <%= link_to "Documentation and Implementation Guide", "https://docs.google.com/document/d/1PgwSKGHnr4dokazFRbkoqQuYWbw8c_0LWYw0L2rkyAw/edit?usp=sharing", target: "_blank" %> </p>
+  <div class="info_section">
+    <p> <%= link_to "Documentation and Implementation Guide", "https://docs.google.com/document/d/1PgwSKGHnr4dokazFRbkoqQuYWbw8c_0LWYw0L2rkyAw/edit?usp=sharing", target: "_blank" %> </p>
     <p> <%= link_to "Metadata Application Profile", "https://docs.google.com/document/d/1ndif61THKvrKRG8m6Y9gBVAOzwDWa95O9TbJV8tFTTA/edit?usp=sharing", target: "_blank" %> </p>
   </div>
 
-<h2><%= t('about.board_label') %></h2>
+  <h2><%= t('about.board_label') %></h2>
   <table class="table_with_image">
-    <caption class="sr-only">List of editorial board</caption>
     <tbody>
-    
-<tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_kalani_adolpho.jpg", class: 'hidden-xs') %>
+      
+      <tr>
+	<td>&nbsp;</td>
+	<td>
+          <div class="media">
+            <div class="media-left">
+              <%= image_tag("about/about_kalani_adolpho.jpg", class: 'hidden-xs') %>
+            </div>
+
+            <div class="media-body">
+              <h4 class="media-heading">
+		Keahi Kaʻiwalani Adolpho 
+              </h4>
+              <p>
+		<%= t('about.board.kalani') %>
+            </div>
           </div>
-
-          <div class="media-body">
-          <h4 class="media-heading">
-            Keahi Kaʻiwalani Adolpho 
-          </h4>
-          <p>
-	    <%= t('about.board.kalani') %>
-        </div>
-        </div>
-      </td>
-    </tr>
-
-
-
-<tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_amber_billey.png", class: 'hidden-xs') %>
+	</td>
+      </tr>
+      <tr>
+	<td>&nbsp;</td>
+	<td>
+          <div class="media">
+            <div class="media-left">
+              <%= image_tag("about/about_marika_cifor.jpg", class: 'hidden-xs') %>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+		Marika Cifor
+              </h4>
+              <p>
+		<%= t('about.board.cifor') %>
+              </p>
+            </div>
           </div>
-
-          <div class="media-body">
-          <h4 class="media-heading">
-            Billey Albina
-          </h4>
-          <p>
-            <%= t('about.board.billey') %>
-          </p>
-        </div>
-        </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_marika_cifor.jpg", class: 'hidden-xs') %>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Marika Cifor
-            </h4>
-            <p>
-              <%= t('about.board.cifor') %>
-            </p>
-          </div>
-        </div>
-      </td>
-    </tr>
+	</td>
+      </tr>
 
 
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_jay_l_colbert.jpg", class: 'hidden-xs', alt: "Photo of Jay Colbert") %>
+      <tr>
+	<td>&nbsp;</td>
+	<td>
+          <div class="media">
+            <div class="media-left">
+              <%= image_tag("about/about_jay_l_colbert.jpg", class: 'hidden-xs', alt: "Photo of Jay Colbert") %>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+		Jay L. Colbert
+              </h4>
+              <p>
+		<%= t('about.board.colbert') %>
+              </p>
+            </div>
           </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Jay L. Colbert
-            </h4>
-            <p>
-              <%= t('about.board.colbert') %>
-            </p>
-          </div>
-        </div>
-      </td>
-    </tr>
+	</td>
+      </tr>
 
 
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_janaya_kizzie.jpg", class: 'hidden-xs', alt: "Photo of Janaya Kizzie") %>
+      <tr>
+	<td>&nbsp;</td>
+	<td>
+          <div class="media">
+            <div class="media-left">
+              <%= image_tag("about/about_janaya_kizzie.jpg", class: 'hidden-xs', alt: "Photo of Janaya Kizzie") %>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+		Janaya Kizzie
+              </h4>
+              <p>
+		<%= t('about.board.kizzie') %>
+              </p>
+            </div>
           </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Janaya Kizzie
-            </h4>
-            <p>
-              <%= t('about.board.kizzie') %>
-            </p>
-          </div>
-        </div>
-      </td>
-    </tr>
+	</td>
+      </tr>
 
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_chloe_noland.jpg", class: 'hidden-xs') %>
+      <tr>
+	<td>&nbsp;</td>
+	<td>
+          <div class="media">
+            <div class="media-left">
+              <%= image_tag("about/about_chloe_noland.jpg", class: 'hidden-xs') %>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+		Chloe Noland
+              </h4>
+              <p>
+		<%= t('about.board.noland') %>
+              </p>
+            </div>
           </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Chloe Noland
-            </h4>
-            <p>
-              <%= t('about.board.noland') %>
-            </p>
-          </div>
-        </div>
-      </td>
-    </tr>
+	</td>
+      </tr>
 
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_kj_rawson.jpg", class: 'hidden-xs') %>
+      <tr>
+	<td>&nbsp;</td>
+	<td>
+          <div class="media">
+            <div class="media-left">
+              <%= image_tag("about/about_kj_rawson.jpg", class: 'hidden-xs') %>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+		K.J. Rawson (Chair of the Board)
+              </h4>
+              <p>
+		<%= t('about.board.rawson') %>
+              </p>
+            </div>
           </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              K.J. Rawson (Chair of the Board)
-            </h4>
-            <p>
-              <%= t('about.board.rawson') %>
-            </p>
-          </div>
-        </div>
-      </td>
-    </tr>
+	</td>
+      </tr>
 
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_bri_watson.jpg", class: 'hidden-xs', alt: "Bri Watson photo") %>
+      <tr>
+	<td>&nbsp;</td>
+	<td>
+          <div class="media">
+            <div class="media-left">
+              <%= image_tag("about/about_bri_watson.jpg", class: 'hidden-xs', alt: "Bri Watson photo") %>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+		Bri Watson
+              </h4>
+              <p>
+		<%= t('about.board.watson') %>
+              </p>
+            </div>
           </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Bri Watson
-            </h4>
-            <p>
-	      <%= t('about.board.watson') %>
-            </p>
-          </div>
-        </div>
-      </td>
-    </tr>
+	</td>
+      </tr>
 
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_jack_van_der_wel.jpg", class: 'hidden-xs') %>
+      <tr>
+	<td>&nbsp;</td>
+	<td>
+          <div class="media">
+            <div class="media-left">
+              <%= image_tag("about/about_jack_van_der_wel.jpg", class: 'hidden-xs') %>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+		Jack van der Wel
+              </h4>
+              <p>
+		<%= t('about.board.van_der_wel') %>
+              </p>
+            </div>
           </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Jack van der Wel
-            </h4>
-            <p>
-	      <%= t('about.board.van_der_wel') %>
-            </p>
-          </div>
-        </div>
-      </td>
-    </tr>
+	</td>
+      </tr>
 
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_adrian_williams.jpg", class: 'hidden-xs') %>
+      <tr>
+	<td>&nbsp;</td>
+	<td>
+          <div class="media">
+            <div class="media-left">
+              <%= image_tag("about/about_adrian_williams.jpg", class: 'hidden-xs') %>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+		Adrian Williams
+              </h4>
+              <p>
+		<%= t('about.board.williams') %>
+              </p>
+            </div>
           </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Adrian Williams
-            </h4>
-            <p>
-              <%= t('about.board.williams') %>
-            </p>
-          </div>
-        </div>
-      </td>
-    </tr>
+	</td>
+      </tr>
 
     </tbody>
   </table>
 
   <h2><%= t('about.former_board_label') %></h2>
   <table class="table_with_image">
-    <caption class="sr-only">List of former editorial board members</caption>
     <tbody>
+      <tr>
+	<td>&nbsp;</td>
+	<td>
+          <div class="media">
+            <div class="media-left">
+              <%= image_tag("about/about_amber_billey.png", class: 'hidden-xs') %>
+            </div>
 
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_walter_walker.jpg", class: 'hidden-xs') %>
+            <div class="media-body">
+              <h4 class="media-heading">
+		Billey Albina
+              </h4>
+              <p>
+		<%= t('about.board.billey') %>
+              </p>
+            </div>
           </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Walter "Cat" Walker
-            </h4>
-            <p class="walter_cat_walker_tribute">
-              <%= t('about.board.walker_html') %>
-            </p>
+	</td>
+      </tr>
+      <tr>
+	<td>&nbsp;</td>
+	<td>
+          <div class="media">
+            <div class="media-left">
+              <%= image_tag("about/about_walter_walker.jpg", class: 'hidden-xs') %>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+		Walter "Cat" Walker
+              </h4>
+              <p class="walter_cat_walker_tribute">
+		<%= t('about.board.walker_html') %>
+              </p>
 
+            </div>
           </div>
-        </div>
-      </td>
-    </tr>
+	</td>
+      </tr>
 
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_clair_kronk.jpg", class: 'hidden-xs') %>
+      <tr>
+	<td>&nbsp;</td>
+	<td>
+          <div class="media">
+            <div class="media-left">
+              <%= image_tag("about/about_clair_kronk.jpg", class: 'hidden-xs') %>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+		Clair Kronk
+              </h4>
+              <p>
+		<%= t('about.board.kronk') %>
+              </p>
+            </div>
           </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Clair Kronk
-            </h4>
-            <p>
-              <%= t('about.board.kronk') %>
-            </p>
-          </div>
-        </div>
-      </td>
-    </tr>
+	</td>
+      </tr>
     </tbody>
   </table>
 
-<h2><%= t('about.gratitude_label') %></h2>
-<div class="info_section">
-<p><%= t('about.gratitude_message') %></p>
-</div>
+  <h2><%= t('about.gratitude_label') %></h2>
+  <div class="info_section">
+    <p><%= t('about.gratitude_message') %></p>
+  </div>
 
 </div>
 <% end %>
