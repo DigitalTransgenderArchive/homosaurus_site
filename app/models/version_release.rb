@@ -79,7 +79,10 @@ class VersionRelease < ActiveRecord::Base
   
   def self.get_next_identifier(change_type)
     current_identifier = VersionRelease.all()[-1].release_identifier
+    last_published = VersionRelease.where(status: "Published").last
+    #current_identifier = last_published.release_identifier
     ci_parts = current_identifier.split(".").map{ |x| x.to_i }
+    #while VersionRelease.where(release_identifier: ci_parts.join(".")).count != 0
     if change_type == "Major"
       ci_parts[0] += 1
       ci_parts[1] = 0
@@ -90,7 +93,20 @@ class VersionRelease < ActiveRecord::Base
     elsif change_type == "Patch"
       ci_parts[2] += 1
     end
+    #end
     return ci_parts.join(".")
+  end
+  # Returns whether this version release can be published
+  def publishable?
+    # If another release has since been published, return false
+    if VersionRelease.where("id > #{self.id}").where(status: "Published").count > 0
+      return false
+    end
+    # If there is a pending release preceding this, return false
+    if VersionRelease.where("id < #{self.id}").where(status: "Pending").count == 0
+      return false
+    end
+    return true
   end
 
 end

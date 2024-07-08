@@ -6,7 +6,7 @@
     <ul class="list-group list-group-flush">
       <% @releases.each do |release| %>
       <li class="list-group-item">
-	<% link_name = "Homosaurus v.#{release.release_identifier} (#{release.release_date})"
+	<% link_name = "Homosaurus v.#{release.release_identifier} (#{release.release_date.to_date})"
 	   if current_user.present?
 	     link_name += " [" + t("status.#{release.status.downcase}") + "]"
 	   end
