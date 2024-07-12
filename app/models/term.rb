@@ -128,12 +128,11 @@ class Term < ActiveRecord::Base
   # Gets preferred language, preferably in current localization, returns as term_relationship
   def pref_label_localized(lang_id = I18n.locale)
     if self.visibility == "pending"
-      # tr = self.get_relationships_at_version_release(VersionRelease.pluck(:id)[-1])[Relation::Pref_label].sort_by{|i| i[0] == lang_id ? 0 : 1}
-      # pp tr
-      # pp self
-      # tr = tr[0]
-      #return TermRelationship.new(term_id: self.id, relation_id: Relation::Pref_label, language_id: tr[0], data: tr[1])
-      return TermRelationship.new(term_id: self.id, relation_id: Relation::Pref_label, language_id: "en", data: self.pref_label)
+      tr = self.get_relationships_at_version_release(VersionRelease.pluck(:id)[-1])[Relation::Pref_label].sort_by{|i| i[0] == lang_id ? 0 : 1}
+      pp tr
+      pp self
+      tr = tr[0]
+      return TermRelationship.new(term_id: self.id, relation_id: Relation::Pref_label, language_id: tr[0], data: tr[1])
       #return self.get_relationships_at_version_release(VersionRelease.pluck(:id)[-1])
     end
     return self.term_relationships.where(relation_id: Relation::Pref_label).order("language_id = '#{lang_id}' DESC")[0]
