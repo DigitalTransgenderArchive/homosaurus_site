@@ -31,8 +31,10 @@
       <li>
         <% if term.pref_label.blank? %>
           <%= link_to "(EMPTY)", vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier) %>
-        <% else %>
+        <% elsif term.visibility == "pending" %>
 	  <%= link_to term.pref_label, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier) %>
+	<% else %>  
+          <%= link_to term.pref_label_localized.data, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier) %>
         <% end %>
 	<% if current_user.present? && (not term.translation_exists?(I18n.locale)) %>
 	  <span class="badge text-bg-danger"><%= t("misc.translation_needed") %></span>
