@@ -4,6 +4,7 @@ class AddPendings < ActiveRecord::Migration[5.2]
     change_column_null :edit_requests, :version_release_id, true
     add_column :version_releases, :status, :text #Published, Pending, Unversioned
     VersionRelease.update_all(status: "Published")
+    VersionRelease.find_by(id: 12).update(status: "Pending")
     # VersionRelease.all().each do |vr|
     #   vr.update(release_identifier: vr.release_identifier + ".0")
     # end

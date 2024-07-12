@@ -32,7 +32,7 @@ class CreateComments < ActiveRecord::Migration[5.2]
         t.boolean :is_vote, default: false
         t.timestamps
       end
-      CreateComments::create_test_data()
+      #CreateComments::create_test_data()
     end
   end
   def down

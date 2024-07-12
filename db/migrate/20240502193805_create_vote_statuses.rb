@@ -9,7 +9,7 @@ class CreateVoteStatuses < ActiveRecord::Migration[5.2]
         t.string :status
         t.timestamps
       end
-      add_reference :vote_statuses, :language, foreign_key: true, type: :string, collation: "utf8mb3_unicode_ci"
+      add_reference :vote_statuses, :language, foreign_key: true, type: :string, collation: "utf8mb4_0900_ai_ci"#"utf8mb3_unicode_ci"
       #VoteStatus.update_all(language_id: 'en')
     end
     # Clean up language codes

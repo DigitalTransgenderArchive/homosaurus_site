@@ -692,15 +692,23 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
   end
 
   # Migrate a version release from the old version
-  def self.migrate_version_release(version_release_id)
+  def self.migrate_version_release(version_release_id, pendings = false)
+    er_status = pendings ? "Pending" : "Published"
     v_str = VersionRelease.find_by(id: version_release_id).release_identifier
     terms = VersionReleaseTerm.where(version_release_id: version_release_id)
     terms_new = terms.where(change_type: "new")
     terms_updates = terms.where(change_type: "update")
     terms_redirects = terms.where(change_type: "redirect")
+    if pendings
+      terms_new = Term.where(visibility: "pending")
+    end
     say_with_time "Migrating Term Edits V. #{v_str} (#{terms.count} terms)" do
       terms_new.each do |vrt|
-        EditRequest::makeFromTerm(vrt.term_id, version_release_id)
+        unless pendings
+          EditRequest::makeFromTerm(vrt.term_id, version_release_id)
+        else
+          EditRequest::makeFromTerm(vrt.id, version_release_id)
+        end
       end
       p "Completed Migration: V. #{v_str} New Terms (#{terms_new.count})"
       
@@ -716,7 +724,7 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
         unless term.edit_requests.count > 1 #already modded
           CreateEditRequests::modify_edit_request(old_er, [], [], [[Relation::Pref_label, []]])#["+", "en", prev_label[0]]]]])
         end
-        new_er = EditRequest::makeEmptyER(term.id, vrt.created_at, version_release_id, "Published", term.uri, term.identifier)
+        new_er = EditRequest::makeEmptyER(term.id, vrt.created_at, version_release_id, er_status, term.uri, term.identifier)
         
         CreateEditRequests::modify_edit_request(new_er, [], [
                                                   [Relation::Pref_label, 0, ["-", prev_label[1], prev_label[0]]],
@@ -728,7 +736,7 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
       terms_redirects.where(change_type: "redirect").each do |vrt|
         vrt.changed_uris.each do |uri|
           t = Term.find_by(uri: uri)
-          er = EditRequest::makeEmptyER(t.id, vrt.created_at, version_release_id, "Published", vrt.term_uri, vrt.term_identifier)
+          er = EditRequest::makeEmptyER(t.id, vrt.created_at, version_release_id, er_status, vrt.term_uri, vrt.term_identifier)
           er.my_changes[Relation::Redirects_to] << ["+", nil, vrt.term_id.to_s]
           er.save!
         end
@@ -957,6 +965,14 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
                               :updated_at => "2022-06-15 23:59:59",
                               :vocabulary_identifier => "v3",
                               :vocabulary_id => 3)
+        VersionRelease.create(:id => 12,
+                              :release_identifier => "3.5.1",
+                              :release_type => "Patch",
+                              :release_date => nil,
+                              :created_at => "2024-04-15 23:59:59",
+                              :updated_at => "2024-04-15 23:59:59",
+                              :vocabulary_identifier => "v3",
+                              :vocabulary_id => 3)
       end
     end
     unless ActiveRecord::Base.connection.table_exists?(:edit_requests)
@@ -993,6 +1009,9 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
       CreateEditRequests::migrate_version_release(10)
       CreateEditRequests::migrate_version_release(11)
 
+      # 3.5.1
+      CreateEditRequests::migrate_version_release(12, pendings = true)
+
       CreateEditRequests::sanitize_history()
       
       CreateEditRequests::sanity_check_all(intense = true)
@@ -1011,6 +1030,7 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
         VersionReleaseTerm.where(version_release_id: 9 ).update(version_release_id: 1)
         VersionReleaseTerm.where(version_release_id: 10).update(version_release_id: 2)
         VersionReleaseTerm.where(version_release_id: 11).update(version_release_id: 3)
+        VersionRelease.where(id: 12).destroy_all()
       end
     end
   end

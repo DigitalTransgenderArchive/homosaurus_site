@@ -4,7 +4,7 @@ class CommentUpdates < ActiveRecord::Migration[5.2]
       add_reference :comments, :replaces_comment, foreign_key: { to_table: :comments }
     end
     unless ActiveRecord::Base.connection.column_exists?(:comments, :language_id)
-      add_reference :comments, :language, foreign_key: true, type: :string, collation: "utf8mb3_unicode_ci"
+      add_reference :comments, :language, foreign_key: true, type: :string, collation: "utf8mb4_0900_ai_ci"#"utf8mb3_unicode_ci"
       Comment.update_all(language_id: 'en')
     end
   end
