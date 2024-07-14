@@ -8,7 +8,7 @@ class AddLanguageToRoles < ActiveRecord::Migration[5.2]
     end
     # Add languages to user roles
     unless ActiveRecord::Base.connection.column_exists?(:roles_users, :language_id)
-      add_reference :roles_users, :language, type: :string, foreign_key: true, collation: "utf8mb4_0900_ai_ci"#"utf8mb3_unicode_ci"
+      add_reference :roles_users, :language, type: :string, foreign_key: true, collation: "utf8mb3_unicode_ci"
       add_index :roles_users, [:user_id, :language_id]
     end
     ActiveRecord::Base.connection.execute("UPDATE roles_users SET language_id = 'en' WHERE language_id is NULL")
