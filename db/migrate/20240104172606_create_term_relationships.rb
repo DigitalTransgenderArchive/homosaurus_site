@@ -4,7 +4,7 @@ class CreateTermRelationships < ActiveRecord::Migration[5.2]
       create_table :term_relationships, :id => false do |t|
         t.references :term,      null: false, foreign_key: true, index: true
         t.references :relation,  null: false, foreign_key: true
-        t.references :language,               foreign_key: true, type: :string
+        t.references :language,               foreign_key: true, type: :string, collation: "utf8mb3_unicode_ci"
         t.text       :data
       end
     end

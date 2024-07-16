@@ -2,10 +2,10 @@ class CreateLanguages < ActiveRecord::Migration[5.2]
   def up
     unless ActiveRecord::Base.connection.table_exists?(:languages)
       create_table :languages, id: false do |t|
-        t.string     :id,              null: true, index: true, unique: true
+        t.string     :id,              null: true, index: true, unique: true, collation: "utf8mb3_unicode_ci"
         t.integer    :approval_cutoff, null: false
         t.string     :name,            null: false # csv: lang1name@lang1, lang2name@lang2, ...
-        t.references :localizes_language, foreign_key: { to_table: :languages }, index: false, type: :string
+        t.references :localizes_language, foreign_key: { to_table: :languages }, index: false, type: :string, collation: "utf8mb3_unicode_ci"
       end
       Language.create(
         [
