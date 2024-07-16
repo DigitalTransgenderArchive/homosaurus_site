@@ -54,7 +54,7 @@ class VocabularyController < ApplicationController
 
       format.ntV2 { render body: @homosaurus_obj.full_graph(include_lang: false).dump(:ntriples), :content_type => "application/n-triples" }
       format.jsonldV2 { render body: @homosaurus_obj.full_graph(include_lang: false).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-      format.ttlV2 { render body: @homosaurus_obj.full_graph(include_lang: false)..dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
+      format.ttlV2 { render body: @homosaurus_obj.full_graph(include_lang: false).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
     end
   end
   # Search for terms

@@ -10,6 +10,9 @@ class ReleaseController < ApplicationController
   def show
     @host = request.host || "https://homosaurus.org"
     @release = VersionRelease.find_by(release_identifier: params[:release_id])
+    unless @release.status == "Published" or current_user.present?
+      redirect_to release_path() and return
+    end
     @release_terms = @release.version_release_terms
     @release_terms = @release_terms.sort_by { |release_term| ActiveSupport::Inflector.transliterate(release_term.term.pref_label.downcase) }
     @terms = @release_terms.map { |rt| rt.term }
