@@ -4,9 +4,13 @@ class AddPendings < ActiveRecord::Migration[5.2]
     change_column_null :edit_requests, :version_release_id, true
     add_column :version_releases, :status, :text #Published, Pending, Unversioned
     VersionRelease.update_all(status: "Published")
+    pp VersionRelease.last
+    VersionRelease.find_by(id: 12).update(status: "Pending")
+    pp VersionRelease.last
     execute <<-SQL 
             UPDATE version_releases SET status = 'Pending' WHERE id = 12 ;
     SQL
+    pp VersionRelease.last
     EditRequest.where(parent_id: nil).each do |er|
       status = (er.version_release.status == "Published") ? "approved"  : "pending"
       EditRequest.create!(:term_id => nil,
