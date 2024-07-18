@@ -97,3 +97,5 @@ gem 'i18n-tasks', '~> 1.0.14'
 gem 'ffi', '~> 1.16.3'
 
 gem "spawnling", "~> 2.1"
+
+gem "terser", "~> 1.2"
