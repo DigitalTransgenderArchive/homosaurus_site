@@ -966,8 +966,8 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
                               :vocabulary_identifier => "v3",
                               :vocabulary_id => 3)
         VersionRelease.create(:id => 12,
-                              :release_identifier => "3.5.1",
-                              :release_type => "Patch",
+                              :release_identifier => "3.6.0",
+                              :release_type => "Minor",
                               :release_date => nil,
                               :created_at => "2024-04-15 23:59:59",
                               :updated_at => "2024-04-15 23:59:59",
