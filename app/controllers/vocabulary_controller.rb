@@ -313,7 +313,7 @@ class VocabularyController < ApplicationController
     # Get the currently pending values and the currently live ones
     all_current_values = @term.get_relationships_at_version_release(params[:version_release].to_i)
     lpr = @term.latest_published_release()
-    all_published_values = @term.get_relationships_at_version_release(lpr.nil? ? 1 : lpr.id)
+    all_published_values = @term.get_relationships_at_version_release(lpr.nil? ? @term.get_edit_requests().first.version_release_id : lpr.id)
 
     if vr_exists
       er.my_changes = my_changes
