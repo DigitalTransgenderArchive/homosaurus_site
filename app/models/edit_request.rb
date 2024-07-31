@@ -63,12 +63,14 @@ class EditRequest < ActiveRecord::Base
     return my_changes
   end
   def addChange(rel_id, change)
+    loc_changes = self.my_changes
     inverse_change = [change[0] == "+" ? "-" : "+", change[1], change[2]]
-    if self.my_changes[rel_id].include? inverse_change
-      self.my_changes.remove!(inverse_change)
+    if loc_changes[rel_id].include? inverse_change
+      loc_changes[rel_id].delete(inverse_change)
     else
-      self.my_changes[rel_id] << change
+      loc_changes[rel_id] << change
     end
+    self.update(my_changes: loc_changes)
   end
   def voteSummary()
     votes = self.comments.where(language_id: I18n.locale).where(replaces_comment_id: nil).where(is_vote: true).map{ |c| c.subject }
