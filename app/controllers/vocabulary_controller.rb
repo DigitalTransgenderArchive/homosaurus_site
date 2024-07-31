@@ -284,6 +284,7 @@ class VocabularyController < ApplicationController
   end
   # Save edits to term in a given release
   def update
+    pp params
     @term = Term.find_by(vocabulary_identifier: "v3", identifier: params[:id])
     er = nil
     vr_exists = false
@@ -315,9 +316,9 @@ class VocabularyController < ApplicationController
     lpr = @term.latest_published_release()
     all_published_values = @term.get_relationships_at_version_release(lpr.nil? ? @term.get_edit_requests().first.version_release_id : lpr.id)
 
-    if vr_exists
-      er.my_changes = my_changes
-    end
+    # if vr_exists
+    #   er.my_changes = my_changes
+    # end
     
     # Loop over the term relationship related paramaters
     params["term"].each do |k, v|
