@@ -892,15 +892,18 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
   
   def up
     # Handle expanding version_release table
-    unless VersionRelease.count() > 3
+    unless VersionRelease.count() > 4
       say_with_time "Expanding version_releases table" do
         add_column(:version_releases, :note, :text)
         VersionRelease.find_by(id: 1).update(id: 9,  :release_type => "Minor", :release_identifier => "3.3.0")
         VersionRelease.find_by(id: 2).update(id: 10, :release_type => "Minor", :release_identifier => "3.4.0")
         VersionRelease.find_by(id: 3).update(id: 11, :release_type => "Minor", :release_identifier => "3.5.0")
+        VersionRelease.find_by(id: 4).update(id: 12, :release_type => "Minor", :release_identifier => "3.6.0")
+        
         VersionReleaseTerm.where(version_release_id: 1).update(version_release_id: 9)
         VersionReleaseTerm.where(version_release_id: 2).update(version_release_id: 10)
         VersionReleaseTerm.where(version_release_id: 3).update(version_release_id: 11)
+        VersionReleaseTerm.where(version_release_id: 4).update(version_release_id: 12)
         VersionRelease.create(:id => 1,
                               :release_identifier => "1.0.0",
                               :release_type => "Major",
@@ -965,14 +968,7 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
                               :updated_at => "2022-06-15 23:59:59",
                               :vocabulary_identifier => "v3",
                               :vocabulary_id => 3)
-        VersionRelease.create(:id => 12,
-                              :release_identifier => "3.6.0",
-                              :release_type => "Minor",
-                              :release_date => nil,
-                              :created_at => "2024-04-15 23:59:59",
-                              :updated_at => "2024-04-15 23:59:59",
-                              :vocabulary_identifier => "v3",
-                              :vocabulary_id => 3)
+        
       end
     end
     unless ActiveRecord::Base.connection.table_exists?(:edit_requests)
@@ -1010,7 +1006,7 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
       CreateEditRequests::migrate_version_release(11)
 
       # 3.5.1
-      CreateEditRequests::migrate_version_release(12, pendings = true)
+      CreateEditRequests::migrate_version_release(12)#, pendings = true)
 
       CreateEditRequests::sanitize_history()
       
@@ -1027,10 +1023,12 @@ class CreateEditRequests < ActiveRecord::Migration[5.2]
         VersionRelease.find_by(id: 9 ).update(id: 1)
         VersionRelease.find_by(id: 10).update(id: 2)
         VersionRelease.find_by(id: 11).update(id: 3)
+        VersionRelease.find_by(id: 12).update(id: 4)
         VersionReleaseTerm.where(version_release_id: 9 ).update(version_release_id: 1)
         VersionReleaseTerm.where(version_release_id: 10).update(version_release_id: 2)
         VersionReleaseTerm.where(version_release_id: 11).update(version_release_id: 3)
-        VersionRelease.where(id: 12).destroy_all()
+        VersionReleaseTerm.where(version_release_id: 12).update(version_release_id: 4)
+        #VersionRelease.where(id: 12).destroy_all()
       end
     end
   end

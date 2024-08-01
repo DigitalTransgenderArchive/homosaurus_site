@@ -32,6 +32,19 @@ class CreateTermRelationships < ActiveRecord::Migration[5.2]
           tr.save
         end
       end
+      say_with_time "Migration history notes/contributors/sources" do
+        Term.all().each do |t|
+          if t.history_note != "" and t.history_note
+            tr = TermRelationship.create(:term_id => t.id, :relation_id => Relation::History_note, :language_id => "en", :data => t.history_note)
+          end
+          if t.contributors != "" and t.contributors and t.contributors[0] and t.contributors[0] != ""
+            tr = TermRelationship.create(:term_id => t.id, :relation_id => Relation::Contributors, :language_id => "en", :data => t.contributors[0])
+          end
+          if t.sources != "" and t.sources and t.sources[0] != nil and t.sources[0] != ""
+            tr = TermRelationship.create(:term_id => t.id, :relation_id => Relation::Sources, :language_id => "en", :data => t.sources[0])
+          end
+        end
+      end
       say_with_time "Migrating labels" do
         Term.where.not(labels_language: [""]).each do |t|
           t.labels_language.each do |t_label|

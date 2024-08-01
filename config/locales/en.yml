@@ -96,6 +96,9 @@ en:
     '11': Close Match
     '12': Exact Match
     '13': Redirects to
+    '14': History Note
+    '15': Contributors
+    '16': Sources
     '2': Preferred Label
     '3': Label
     '4': Alternative Label

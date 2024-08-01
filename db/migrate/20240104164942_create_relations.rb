@@ -42,7 +42,10 @@ class CreateRelations < ActiveRecord::Migration[5.2]
           {:name => "Exact Match", :links_to => 1,
            :description => "Definition of exactMatch in the SKOS Vocabulary",
            :description_url => "http://www.w3.org/2004/02/skos/core#exactMatch"},
-          {:name => "Redirects to", :links_to => 1}
+          {:name => "Redirects to", :links_to => 1},
+          {:name => "History Note"},
+          {:name => "Contributors"},
+          {:name => "Sources"}
         ] 
       )
     end

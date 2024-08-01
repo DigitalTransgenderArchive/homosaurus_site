@@ -86,9 +86,10 @@
      :values=>vr_relations[Relation::Description]}
 %>
 
-<%= render :partial => "panel_display_partial", :locals =>
-    {:title => Term.getLabel("historyNote"),
-     :values=>[@homosaurus_obj.history_note]}
+<%= render :partial => "panel_display_language_partial", :locals =>
+     {:title => Term.getLabel("historyNote"),
+     :rel_id => Relation::History_note,
+     :values=>vr_relations[Relation::History_note]}
 %>
 
 <%= render :partial => "internal_panel_display_partial", :locals =>
@@ -96,9 +97,16 @@
      :values=>[@homosaurus_obj.internal_note]}
 %>
 
-<%= render :partial => "panel_display_partial", :locals =>
-    {:title => Term.getLabel("contributors"),
-     :values=>@homosaurus_obj.contributors}
+<%= render :partial => "panel_display_language_partial", :locals =>
+     {:title => Term.getLabel("contributors"),
+     :rel_id => Relation::Contributors,
+     :values=>vr_relations[Relation::Contributors]}
+%>
+
+<%= render :partial => "panel_display_language_partial", :locals =>
+     {:title => "Sources",
+     :rel_id => Relation::Sources,
+     :values=>vr_relations[Relation::Sources]}
 %>
 
 <%= render :partial => "panel_display_partial", :locals =>
