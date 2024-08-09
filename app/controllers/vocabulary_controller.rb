@@ -197,7 +197,7 @@ class VocabularyController < ApplicationController
     end
     @release_id_num = @vr_exists ? VersionRelease.find_by(release_identifier: params[:release_id]).id : nil;
     
-    @LCSH_types = LcshSubjectCache.pluck(:uri, :label).map{|i| ["#{i[0].split('/')[-1]} (#{i[1]})", i[0]]}
+    @LCSH_types = [["Cache uncached term +", -1]] + LcshSubjectCache.pluck(:uri, :label).map{|i| ["#{i[0].split('/')[-1]} (#{i[1]})", i[0]]}
   end
   # Create a new term in a given release
   def create
@@ -266,9 +266,15 @@ class VocabularyController < ApplicationController
     term_query = Term.where(vocabulary_identifier: params[:vocab_id]).order("lower(pref_label) ASC")
     @all_terms = []
     term_query.each { |term| @all_terms << [term.identifier + " (" + term.pref_label + ")", term.id] }
-    @LCSH_types = LcshSubjectCache.pluck(:uri, :label).map{|i| ["#{i[0].split('/')[-1]} (#{i[1]})", i[0]]}
+    @LCSH_types = [["Cache uncached term +", -1]] + LcshSubjectCache.pluck(:uri, :label).map{|i| ["#{i[0].split('/')[-1]} (#{i[1]})", i[0]]}
   end
-
+  # Add new term to LCSH cache and return it
+  def add_new_LCSH
+    pp params
+    res = LcshSubjectCache::add_new(params["uri"])
+    pp res
+    return render json: {value: res[1], text: res[0]}
+  end
   def set_match_relationship(form_fields, key)
     form_fields[key.to_sym].each_with_index do |s, index|
       if s.present?

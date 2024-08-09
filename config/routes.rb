@@ -68,13 +68,15 @@ Rails.application.routes.draw do
 
   post ':vocab_id/:id/:release_id/approve_release' => 'vocabulary#approve_release', as: :edit_request_approve_release, constraints: { release_id: /[\d\.]+/ }
 
-
   
   get ':vocab_id/:id/discussion' => 'vocabulary#discussion', as: :vocabulary_term_discussion  
   get ':vocab_id/:id/discussion/post_comment' => 'vocabulary#post_comment', as: :vocabulary_discussion_post_comment
 
   get ':vocab_id/:id/discussion/edit_comment' => 'vocabulary#edit_comment', as: :vocabulary_discussion_edit_comment
 
+  #LCSH handling
+  post '/add_lcsh' => 'vocabulary#add_new_LCSH', as: :vocabulary_add_lcsh
+  
   # These have to be last
   get ':id' => 'vocabulary#index', as: :vocabulary_index
   get ':vocab_id/:id' => 'vocabulary#show', as: :vocabulary_show
