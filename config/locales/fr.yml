@@ -24,7 +24,7 @@ fr:
     resources_label: Ressources
   contact:
     email: Votre adresse courriel
-    label: Contacter Pour Nous
+    label: Pour Nous Contacter
     message: Votre message
     message_html: Si vous utilisez l'Homosaurus, nous aimerions avoir de vos nouvelles ! N'hésitez pas à nous contacter pour nous dire comment vous utilisez ce thésaurus et nous faire part de vos commentaires. Nous sommes également ouvert·es à l'arrivée de nouveaux membres au sein de notre comité éditorial, alors n'hésitez pas à nous faire savoir si cela vous intéresse.<br/>L’Homosaurus est en évolution constante et nous accueillons volontiers les suggestions d'ajout de nouveaux termes ou de modifications à apporter au thésaurus. Le comité éditorial de l’Homosaurus supervise les mises à jour et examinera tous les termes et les changements proposés sur une base trimestrielle.
     name: Votre nom
@@ -63,13 +63,13 @@ fr:
   homepage:
     welcome_html: '<p>Bienvenue sur le site de l''Homosaurus! L''Homosaurus est un thésaurus international de données liées portant sur les personnes, la culture et les enjeux LGBTQ+. Ce thésaurus est destiné à accompagner les thésaurus et vocabulaires de termes généraux, comme les vedettes-matière de la Bibliothèque du Congrès (LCSH). Les bibliothèques, archives, musées et autres institutions sont encouragé·es à utiliser l''Homosaurus pour soutenir la recherche LGBTQ+, tout en améliorant la découvrabilité et l''accès à leurs ressources portant sur cette thématique. </p><p>Si vous souhaitez acheter des articles de l''Homosaurus, veuillez visiter notre <a href="https://homosaurus.threadless.com">boutique en ligne</a>. Toutes les sommes recueillies sont utilisées pour soutenir le projet ou sont reversées à des organisations LGBTQ+.</p><p>Si vous utilisez l''Homosaurus, nous aimerions avoir de vos nouvelles! N''hésitez pas à nous <a href="%{contact_path}">contacter pour nous</a> dire comment vous utilisez ce thésaurus et nous faire part de vos commentaires. Vous pouvez également rejoindre notre communauté sur Google à l''adresse suivante: <a href="https://groups.google.com/g/homoitcommunity">https://groups.google.com/g/homoitcommunity</a></p>'
   languages:
-    bn: Bengalí
-    en: Ingles
-    es: Español
-    fr: Francés
+    bn: Bengali
+    en: Aingles
+    es: Espagnol
+    fr: Français
     hi: Hindi
-    nl: Holandés
-    sv: Sueco
+    nl: Español
+    sv: Suédois
   menu:
     about: À propos
     account: Se connecter
