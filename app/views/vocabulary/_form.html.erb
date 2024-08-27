@@ -89,15 +89,15 @@
 
     <%= f.input "relation_#{Relation::History_note}", collection: vr_relations[Relation::History_note], as: :language_labels_mei,
                 input_html: { rows: '4', type: 'textarea' },
-                required: true, readonly:false, label: t("relations.#{Relation::History_note}")
+                readonly:false, label: t("relations.#{Relation::History_note}")
 	%>
     <%= f.input "relation_#{Relation::Contributors}", collection: vr_relations[Relation::Contributors], as: :language_labels_mei,
                 input_html: { rows: '4', type: 'textarea' },
-                required: true, readonly:false, label: t("relations.#{Relation::Contributors}")
+                readonly:false, label: t("relations.#{Relation::Contributors}")
 	%>
     <%= f.input "relation_#{Relation::Sources}", collection: vr_relations[Relation::Sources], as: :language_labels_mei,
                 input_html: { rows: '4', type: 'textarea' },
-                required: true, readonly:false, label: t("relations.#{Relation::Sources}")
+                readonly:false, label: t("relations.#{Relation::Sources}")
 	%>    
 
     <br /><br />
