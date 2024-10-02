@@ -1,5 +1,6 @@
 <% available_versions = VersionRelease.where(status: "Pending") %>
-<% disabled_versions = @term.edit_requests.reject{|er| er.vote_status == "approved"}.pluck(:version_release_id) %>
+<% disabled_versions = @term.edit_requests.select{|er| er.status == "approved"}.pluck(:version_release_id).uniq %>
+<% open_vr_exists = (@term.edit_requests.select{|er| er.version_release.status == "Pending" && er.status != "approved" }.count >= 1) %>
 <div class="row-padded">
   <h1><%= t('term.edit_term') %></h1>
   <%= button_to t('discussion.back_to_term') , vocabulary_show_path(vocab_id: @vocab_id, id: params[:id]), :method => "get", class: 'btn text-bg-primary' %>
@@ -14,7 +15,7 @@
       <%= render :partial => "form", locals: {f: f} %>
       <div>
 		
-        <%= button_tag class: 'btn btn-primary btn-lg', id: "upload_submit", name: "update_descriptions", data: { disable_with: "Please wait..." } do %>
+        <%= button_tag class: 'btn btn-primary btn-lg', id: "upload_submit", name: "update_descriptions", data: { disable_with: "Please wait..." }, disabled: (not open_vr_exists) do %>
           <i class="glyphicon glyphicon-floppy-disk"></i> <%= t('misc.post') %>
         <% end %>
       </div>
