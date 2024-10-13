@@ -7,7 +7,14 @@ class EditRequest < ActiveRecord::Base
   serialize  :my_changes
   belongs_to :parent, :class_name => 'EditRequest', optional: true
   has_many :children, :class_name => 'EditRequest', :foreign_key => 'parent_id'
+  before_destroy :delete_children
   #accepts_nested_attributes_for :my_changes
+
+  def delete_children
+    self.children.each do |c|
+      c.destroy()
+    end
+  end
   
   def self.makeFromTerm(term_id, version_release_id)
     my_changes = Hash.new
