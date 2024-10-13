@@ -11,13 +11,17 @@ function duplicate_field_click(event) {
     // Get the top root element than find the correct child element within that
     original_element = $(event.target).closest(".field-wrapper").find('.duplicateable');
     is_autocomplete_select2 = $(original_element).is("[endpoint]");
+    select_picker = $(original_element).is('.selectpicker');
 
-    if(is_autocomplete_select2) {
-        cloned_element = $(event.target).parent().parent().parent().clone();
-        old_tab_index = cloned_element.find("span.select2-selection").attr("tabindex");
-        cloned_element.find("span.select2-selection").remove();
-    } else {
-        cloned_element = $(event.target).parent().parent().parent().clone(true, true);
+    if(select_picker){
+	original_element.selectpicker('destroy');
+    }
+
+    cloned_element = $(event.target).parent().parent().parent().clone(true, true);
+
+    if(select_picker){
+	original_element.addClass('selectpicker');
+	original_element.selectpicker();
     }
 
     cloned_element.find("input").val("");
@@ -29,36 +33,33 @@ function duplicate_field_click(event) {
     cloned_element.find(".language-selector").val(window.location.host.split(".")[0]);
     cloned_element.find(".language-selector").prop('disabled', false);
     cloned_element.find('input[type=hidden]').remove();
-    // Remove any initial values
-    if(is_autocomplete_select2) {
-        $(cloned_element).find('.duplicateable').removeAttr('data-initial_value');
-        $(cloned_element).find("select").first().attr("tabindex", old_tab_index);
-        //$(cloned_element).find("span.select2-selection").attr("tabindex", old_tab_index);
-    }
 
+    if(select_picker){
+	cloned_element.find("select").addClass('selectpicker');
+	cloned_element.find("select").selectpicker();
+    }
     //Insert after the root element
     $(event.target).closest(".field-wrapper").after(cloned_element);
+    $('.input-group-btn button').prop("click", null).off("click");
+    $('.input-group-btn button[data-js-duplicate-audits-field]').click(duplicate_field_click);
+    $('.input-group-btn button[data-js-delete-audits-field]').click(delete_field_click);
 
-    // Cloned elements with the select2 code need to have the duplicate buttons re-initialized
-    if(is_autocomplete_select2) {
-        $.onmount(); // Re-initialize the onclick handlers
-    }
+    //$.onmount(); // Re-initialize the onclick handlers
 }
 
 function delete_field_click(event) {
-    original_element = $(event.target).closest(".field-wrapper").find('.duplicateable');
-    is_autocomplete_select2 = $(original_element).is("[endpoint]");
-
+    original_element = $(event.target).closest(".field-wrapper").find('.repeat_field_value');
+    if(original_element.is('div')){
+	original_element = original_element.find('select');
+    }
     local_field_name = $(original_element).attr('name');
 
     if ($('input[name*="' + local_field_name + '"]').length == 1) {
+	// Labels
         $(original_element).val("");
     } else if($('select[name*="' + local_field_name + '"]').length == 1) {
-        if(is_autocomplete_select2 === true) {
-            $(original_element).val(null).trigger('change');
-        } else {
-            $(original_element).val("");
-        }
+	// Relationships
+	original_element.selectpicker('val', "");
     } else {
         // There is more than one of these so allow the removal
         $(event.target).closest(".field-wrapper").remove();
