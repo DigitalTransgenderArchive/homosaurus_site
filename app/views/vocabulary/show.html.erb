@@ -7,8 +7,8 @@
   vr_relations = @homosaurus_obj.get_relationships_at_version_release(latest_vr_id, full_lang = true)
   upcoming_redirect_status = @homosaurus_obj.get_relationship_at_version_release(Relation::Redirects_to, VersionRelease.last.id)
   awaiting_deletion = upcoming_redirect_status.count > 0 and upcoming_redirect_status[0][1] == "0"
-  open_vr_dne = (@homosaurus_obj.edit_requests.select{|er| er.version_release.status == "Pending" && er.status != "approved" }.count == 0)
-  editing_disabled = (VersionRelease.where(status: "Pending").count == 0) || awaiting_deletion || open_vr_dne
+  open_vr_dne = (VersionRelease.where(status: "Pending").pluck(:id) - @homosaurus_obj.edit_requests.where(status: "approved").pluck(:version_release_id)).count == 0
+  editing_disabled = VersionRelease.where(status: "Pending").count == 0 || open_vr_dne || awaiting_deletion
   %>
 <h2><%= @homosaurus_obj.pref_label_localized.data %> (<%= @homosaurus_obj.uri %>)</h2>
 <% if @homosaurus_obj.visibility == "deleted" %>
