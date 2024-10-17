@@ -192,6 +192,13 @@ class Term < ActiveRecord::Base
     end
     return values
   end
+  def get_relationships_at_latest_published_release()
+    values = Relation.all().pluck(:id).map{|rel_id| [rel_id, []]}.to_h
+    self.term_relationships.pluck(:relation_id, :language_id, :data).map{|rid, lid, d| values[rid] << [lid, d]}
+    values["identifier"] = self.identifier
+    values["uri"] = self.uri
+    return values
+  end
   def get_pending_changes
     updated_relationships = get_relationships_at_version_release(self.get_edit_requests.last().id)
     my_changes = Relation.all().pluck(:id).map{|rel_id| [rel_id, []]}.to_h
@@ -353,8 +360,10 @@ class Term < ActiveRecord::Base
     base_uri = ::RDF::URI.new("#{self.uri}")
     graph << [base_uri, ::RDF::Vocab::DC.identifier, "#{self.identifier}"]
     
-    latest_release = self.latest_published_release
-    relationships = self.get_relationships_at_version_release(latest_release.id)
+    # latest_release = self.latest_published_release
+    # relationships = self.get_relationships_at_version_release(latest_release.id)
+
+    relationships = self.get_relationships_at_latest_published_release()
 
     relationships[Relation::Pref_label].each do |r|
       graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, string_func.call(r)]
@@ -387,7 +396,7 @@ class Term < ActiveRecord::Base
       graph << [base_uri, ::RDF::Vocab::SKOS.closeMatch, ::RDF::URI.new("#{r[1]}")]
     end
 
-    graph << [base_uri, ::RDF::Vocab::SKOS.hasTopConcept, ::RDF::URI.new(self.get_broadest(latest_release.id).uri)]
+    graph << [base_uri, ::RDF::Vocab::SKOS.hasTopConcept, ::RDF::URI.new(self.get_broadest().uri)]
 
     graph << [base_uri, ::RDF::Vocab::DC.isReplacedBy, ::RDF::URI.new("#{self.is_replaced_by}")] if self.is_replaced_by.present?
     graph << [base_uri, ::RDF::Vocab::DC.replaces, ::RDF::URI.new("#{self.replaces}")] if self.replaces.present?
@@ -560,10 +569,16 @@ class Term < ActiveRecord::Base
     doc
   end
 
-  def get_broadest(v_id)
-    broader_id = self.get_relationship_at_version_release(Relation::Broader, v_id)[0]
+  def get_broadest(v_id = nil)
+    if v_id.nil?
+      broader_id = self.term_relationships.where(relation_id: Relation::Broader).first
+      broader_id = broader_id ? broader_id.data : nil;
+    else
+      broader_id = self.get_relationship_at_version_release(Relation::Broader, v_id)[0]
+      broader_id = broader_id ? broader_id[1] : nil
+    end
     if broader_id
-      return Term.find_by(id: broader_id[1].to_i).get_broadest(v_id)
+      return Term.find_by(id: broader_id.to_i).get_broadest(v_id)
     else
       return self
     end
