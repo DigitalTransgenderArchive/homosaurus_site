@@ -1,6 +1,6 @@
 <% available_versions = VersionRelease.where(status: "Pending") %>
 <% disabled_versions = @term.edit_requests.select{|er| er.status == "approved"}.pluck(:version_release_id).uniq %>
-<% open_vr_exists = (@term.edit_requests.select{|er| er.version_release.status == "Pending" && er.status != "approved" }.count >= 1) %>
+<% open_vr_exists = ((available_versions.pluck(:id) - disabled_versions).count >= 1) %>
 <div class="row-padded">
   <h1><%= t('term.edit_term') %></h1>
   <%= button_to t('discussion.back_to_term') , vocabulary_show_path(vocab_id: @vocab_id, id: params[:id]), :method => "get", class: 'btn text-bg-primary' %>
