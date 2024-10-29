@@ -1,0 +1,62 @@
+<% @page_title = t('menu.profile') %>
+<div id="static_holder" class="container-fluid contact-us">
+  <div class="row">
+    <div class="col-xs-12 static_holder_content_container">
+      <div id="static_holder_content" class="static_holder_content">
+        <h2><%= t('menu.profile') %></h2>
+        <div class="info_section">
+	  <h3>Username: </h3>
+	  <p><%= @user.username %></p>
+	  <h3>Name: </h3>
+	  <p><%= "#{@user.fname} #{@user.lname}" %></p>
+	  <h3>Bio: </h3>
+	  <p><%= @user.bio %></p>
+	  <h3>Permissions: </h3>
+	  <ul>
+	  <% UserLanguageRole.where(user_id: @user.id).each do |ulr| %>
+	  <li>
+	    <span class="bold"><%= t("languages.#{ulr.language_id}") %>:</span>
+	    <%= ulr.role.name %>
+	  </li>
+	  <% end %>
+	  </ul>
+          <br/>
+	  <% if current_user.present? and current_user.id == @user.id %>
+	  <h2>Edit Profile</h2>
+	  <div class="container">
+	    <%= form_with model: @user, url: update_profile_path(@user), local: true, method: :post, class: 'form-horizontal' do |form| %>
+	    <div class="form-group">
+              <label class="col-sm-3 control-label">Username:</label>
+	      <div class="col-sm-6">
+		<%= form.text_field :username, class: 'form-control' %>
+	      </div>
+	    </div>
+	    <div class="form-group">
+              <label class="col-sm-3 control-label">First Name:</label>
+	      <div class="col-sm-6">
+		<%= form.text_field :fname, class: 'form-control' %>
+	      </div>
+	    </div>
+	    <div class="form-group">
+              <label class="col-sm-3 control-label">Last Name:</label>
+	      <div class="col-sm-6">
+		<%= form.text_field :lname, class: 'form-control' %>
+	      </div>
+	    </div>
+	    <div class="form-group">
+              <label class="col-sm-3 control-label">Bio:</label>
+	      <div class="col-sm-6">
+		<%= form.text_area :bio, class: 'form-control'  %>
+	      </div>
+	    </div>
+	    <br>
+	    <%= form.submit "Update" %>
+	    <% end %>
+          </div>
+	  <% end %>
+	</div>
+
+      </div>
+
+    </div>
+  </div>

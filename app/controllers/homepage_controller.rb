@@ -40,6 +40,25 @@ class HomepageController < ApplicationController
     @errors=[]
   end
 
+  def profile
+    unless params[:user_id]
+      redirect_to profile_for_path(current_user)
+    end
+    u = User.find_by(id: params[:user_id].to_i) || current_user
+    @user = u
+  end
+
+  def update_profile
+    @user  = User.find_by(id: params[:user_id].to_i)
+    if @user.id == current_user.id and @user.update(params.require(:user).permit(:username, :fname, :lname, :bio))
+      flash[:success] = "Updated successfully"
+      redirect_to profile_for_path(@user)
+    else
+      flash[:error] = "Error updating profile"
+      redirect_to profile_for_path(@user)
+    end
+  end
+
   # validates the incoming params
   # returns either an empty array or an array with error messages
   def validate_email

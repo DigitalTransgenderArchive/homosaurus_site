@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   post 'contact' => 'homepage#contact'
   get 'feedback_complete' => 'homepage#feedback_complete', as: :feedback_complete
 
+  post 'profile/:user_id/update' => 'homepage#update_profile', as: :update_profile
+  get 'profile/:user_id' => 'homepage#profile', as: :profile_for
+  get 'profile' => 'homepage#profile', as: :profile
+
   # releases
   get 'releases' => 'release#index', as: :release
   get 'releases/show/:release_id' => 'release#show', as: :release_show, constraints: { release_id: /.*/ }

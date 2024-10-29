@@ -47,7 +47,7 @@ end
       </div>
     <% else %>
       <div class="col col-3">
-	<span class="badge text-bg-info"><%= edit_request.creator.nil? ? 'MigrationBot' : edit_request.creator.email %></span>
+	<span class="badge text-bg-info"><%= link_to edit_request.creator.nil? ? 'MigrationBot' : edit_request.creator.username, edit_request.creator.nil? ? root_path : profile_for_path(edit_request.creator) %></span>
       </div>
     <% end %>
     <% if release_page %>
