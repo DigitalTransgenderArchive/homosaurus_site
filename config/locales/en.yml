@@ -5,6 +5,7 @@ en:
       billey: Billey Albina is the Systems & Metadata Librarian at Bard College. Prior to joining Bard, she was the Metadata Librarian at Columbia University Libraries where she worked on the LD4P project contributing to ontology development, tooling, and MARC to RDF mapping. Her research focuses on ethics and social justice in library metadata and information organization.
       cifor: Marika Cifor is an Assistant Professor in the Information School at the University of Washington. She is a feminist scholar working at the intersections of archival studies and digital studies. Her research investigates how through archives, records, and data produced within digital cultures, individuals and communities marginalized by sexuality, race, class, gender, and HIV-status enact and give substance to their identities, collective memories, and social movements.
       colbert: Jay L. Colbert is the Library Director at the Longy School of Music of Bard College. He holds a MSLIS from the University of Illinois at Urbana-Champaign, where he completed a thesis on patron-driven subject access and queer controlled vocabulary via a critical framework of queer theory and semiotics. His subsequent publications build on this research. Jay haunts New England with his bearded dragon Coop and his tuxedo cat King Arthur.
+      kalani: Kalani is a Processing Archivist at Virginia Commonwealth University Libraries and is a former Diversity Resident Librarian. They received their MLIS from University of Wisconsin-Milwaukee, as well as their BA in History. Kalani co-edited Trans and Gender Diverse Voices in Libraries published by Library Juice Press and co-created the Diversity Residency Toolkit as part of the ACRL Residency Interest Group. His research interests include trans and gender diverse inclusion in libraries and archives, reparative and ethical metadata, and diversity residencies.
       kizzie: Janaya Kizzie is an archivist, artist, and public humanitarian. A graduate of Bard College (BA) and the University of Rhode Island (MLIS), Kizzie processed and developed archival infrastructures for the American Academy of Arts and Sciences in Cambridge, Massachusetts Citizens Bank, and Concord Free Public Library. Kizzie's work in historical collections has most recently included the processing of the AS220 Collection at Providence Public Library, the Rhode Island Arts and Culture Research Fellowship recording the recent history of Rhode Island Arts and Culture. In 2020, Kizzie was named Rhode Island Public Humanities Scholar by the Rhode Island Council for the Humanities. Currently Events Coordinator at Providence Public Library, Kizzie strives to redefine library standards and practices for community empowerment and engagement.
       kronk: Clair Kronk is a PhD student in biomedical informatics at the University of Cincinnati Medical School. Her current work focuses on LGBTQIA+ language use in healthcare settings and on transgender health outcomes. Clair previously graduated with a bachelor degree in bioinformatics from the University of Pittsburgh and has partnered with the Max-Planck-Institute (MPI) for Developmental Biology and the Air Force Research Laboratory (AFRL) on multiple occasions.
       noland: Chloe Noland (Secretary) is a librarian currently living and working in Los Angeles, CA. She earned her B.A. from California College of the Arts in Literature & Creative Writing, and then received her MLIS from San Jose State University, where she discovered a love for cataloging and metadata enhancement. Her passion for language, culture, and taxonomies has led her to projects such as the Homosaurus, which she is enormously excited to be a part of.
@@ -13,7 +14,6 @@ en:
       walker_html: 'Walter "Cat" Walker served as the Head Cataloging Librarian at Loyola Marymount University in Los Angeles, California from 2004 until his untimely death in 2020. He was also a Director-at-Large of the American Library Association''s Gay Lesbian Bisexual Transgender Roundtable (ALA GLBTRT) and he volunteered at the ONE National Gay & Lesbian Archives at the USC Libraries for 25 years.</br></br>Cat Walker joined the Editorial Board of the Homosaurus in 2016 after he met Jack van der Wel at the LGBTQ ALMS conference in London. At this conference, Cat presented a keynote titled "Overcoming the Barriers: Improving Access to LGBTQ+ Content in Collections." Cat’s lifelong activism and passion for LGBTQ libraries and archives motivated him to join the Editorial Board and he quickly became an active member of our team. At the next LGBTQ ALMS Conference in Berlin in 2019, Cat and Jack presented a paper together on the Abridged Homosaurus.</br></br>It is difficult to overstate Cat''s contributions to the Homosaurus over the four years that he worked on the project. As the board dramatically revised the first version of the Homosaurus, Cat played a central role in helping us to make use of many more terms and LGBTQ-related contexts, representations, and histories. Cat worked extensively on reconciling Homosaurus version one to version two, examining the vocabulary with a close eye and pulling terms that required revision, lacked consistency across the list, or had a unique value that could be extended for related searches and needs. This list, composed of new suggested terms as well as adaptations of existing ones, was one of Cat’s most recent and ambitious contributions to the board’s work. At the time of his death, his documentation of related and suggested terms encompassed over 250 changes and/or new terms––important work that we will be sure to complete on his behalf and in his honor.</br></br>Above all, Cat was a patient, kind, and gracious teacher and collaborator and he was always the first to volunteer to take on new projects. Cat’s attention to detail, as well as his commitment to making the Homosaurus a truly beautiful and inclusive set of terms, will be impossible to replace. We are endlessly grateful to him as we celebrate all that he contributed to this important project. '
       watson: Bri Watson is the Archivist-Historian of the American Psychological Association’s Division 44 (Consensual Non-Monogamy), a historian of the book and sexuality, and a graduate archivist at the Kinsey Institute. They hold a master’s degree in History & Culture from Drew University, and are working on a MLIS (soon PhD) focusing on Archives, Digital Humanities, and Metadata at Indiana University Bloomington. They have published on antisex censorship, obscenity and are currently researching queer archives and sexual nomenclature.
       williams: Adrian Williams is the Cataloging & Metadata Librarian at the University of Kentucky Libraries. They have an MLIS from Florida State University. Their research interests include inclusive and user-accessible subject headings, and the history of cataloging and of the library catalog.
-      kalani: Kalani is a Processing Archivist at Virginia Commonwealth University Libraries and is a former Diversity Resident Librarian. They received their MLIS from University of Wisconsin-Milwaukee, as well as their BA in History. Kalani co-edited Trans and Gender Diverse Voices in Libraries published by Library Juice Press and co-created the Diversity Residency Toolkit as part of the ACRL Residency Interest Group. His research interests include trans and gender diverse inclusion in libraries and archives, reparative and ethical metadata, and diversity residencies.
     board_label: Editorial Board
     former_board_label: Former Editorial Board Members
     gratitude_label: Gratitude
@@ -73,18 +73,19 @@ en:
   menu:
     about: About
     account: Account
-    profile: View Profile
     add_term: Add Term
-    suggest_term: Suggest Term
     contact: Contact
+    edit_profile: Edit Profile
     home: Home
     logout: Log Out
     manage_releases: Manage Releases
     manage_users: Manage Users
+    profile: View Profile
     releases: Releases
     reload: Reload Application
     roles: Manage Roles
     search: Search
+    suggest_term: Suggest Term
     vocab: Vocabulary
   misc:
     cancel: Cancel
@@ -137,14 +138,20 @@ en:
     other_formats_legacy: Legacy formats (without language identifiers)
     replace_term: Replace Other Term
     view_history: View History
+  user:
+    bio: Biography
+    fname: First Name
+    lname: Last Name
+    permissions: Permissions
+    username: Username
   vocab:
     admin:
       actions: Admin Actions
       new_term: Add A New Term
-      suggest_term: Suggest A New Term
       show_deleted: Show Deleted Terms
       show_next: Show Next Version Terms
       show_redirects: Show Redirected Terms
       show_visible: Show Visible Terms
+      suggest_term: Suggest A New Term
     current_terms: Current Term List
     label: Homosaurus Vocabulary Terms
