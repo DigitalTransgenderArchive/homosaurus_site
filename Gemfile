@@ -99,3 +99,5 @@ gem 'ffi', '~> 1.16.3'
 gem "spawnling", "~> 2.1"
 
 gem "terser", "~> 1.2"
+
+gem "font-awesome-sass", "~> 6.5"

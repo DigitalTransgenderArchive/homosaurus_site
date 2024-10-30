@@ -20,9 +20,11 @@ end
     release_identifier = "?"
   end
   er_status = edit_request.status
+  is_modified = !is_new && !is_redirect && !is_linked_new
+  filter_tags = "#{is_new ? 'new_term' : (is_redirect ? 'redirected' : (is_linked ? 'linked' : 'modified'))} #{edit_request.suggestion? ? 'suggested' : ''} #{er_status}"
 %>
 
-<div class="card container-lg ">
+<div class="card container-lg edit-request " data-filter-tags="<%= filter_tags %>">
   <div class="card-header collapsed row" data-bs-toggle="collapse" aria-expanded="false"
        href="#<%= edit_request.id %>" aria-controls="<%= edit_request.id %>">
 

@@ -1,3 +1,22 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('input[type="checkbox"]').on('change', function(){
+	  var allowed_tags = [];
+	  $('input[type="checkbox"]:checked').each(function(){
+	      allowed_tags.push($(this).val());
+	  });
+	  $('.edit-request').each(function(){
+	      var $er = $(this);
+	      var er_tags = $(this).data("filter-tags").split(/[ ]+/);
+	      if (er_tags.some(i => allowed_tags.includes(i))){
+		  $er.show();
+	      } else {
+		  $er.hide();
+	      }
+	  });
+      });
+  });
+</script>
 <div id="about" class="col-sm-12 col-md-12">
   <div class="release_title">
     <h2>Homosaurus v. <%= @release.release_identifier %> <%= t("release.updates") %></h2>
@@ -8,22 +27,79 @@
     <% end %>
   </div>
   <div class="info_section">
+    <div id="filter" class="form-group d-inline-flex">
+      <div class="my-auto mx-3">
+	<h3><i class="fa-solid fa-filter fa-xl"></i></h3>
+      </div>
+      <div>
+	<% if @release.status != "Published" %>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input" type="checkbox" value="suggested" checked>
+	  <label class="form-check-label">
+	    <span class="badge text-bg-danger"><%= t("status.suggested") %></span>
+	  </label>
+	</div>
+	<% end %>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input" type="checkbox" value="new_term" checked>
+	  <label class="form-check-label">
+	    <span class="badge text-bg-success"><%= t("status.new_term_label") %></span>
+	  </label>
+	</div>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input" type="checkbox" value="redirected" checked>
+	  <label class="form-check-label">
+	    <span class="badge text-bg-warning"><%= t("status.redirected") %></span>
+	  </label>
+	</div>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input" type="checkbox" value="linked" checked>
+	  <label class="form-check-label">
+	    <span class="badge text-bg-info"><%= t("status.linked_label") %></span>
+	  </label>
+	</div>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input" type="checkbox" value="modified" checked>
+	  <label class="form-check-label">
+	    <span class="badge text-bg-primary"><%= t("status.modified") %></span>
+	  </label>
+	</div>
+	<% if @release.status != "Published" %>
+	<hr class="m-1"/>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input" type="checkbox" value="approved" checked>
+	  <label class="form-check-label">
+	    <span class="badge text-bg-success"><%= t("status.approved") %></span>
+	  </label>
+	</div>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input" type="checkbox" value="pending" checked>
+	  <label class="form-check-label">
+	    <span class="badge text-bg-warning"><%= t("status.pending") %></span>
+	  </label>
+	</div>
+	<% end %>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="info_section">
     <% @release.edit_requests.each do |er| %>
-      <% if er.previous().nil? %>
-        <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, release_page: true} %>
-      <% end %>
+    <% if er.previous().nil? %>
+    <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, release_page: true} %>
+    <% end %>
     <% end %>
 
     <% @release.edit_requests.each do |er| %>
-      <% if (not er.previous().nil?) and (not er.my_changes[12] or er.my_changes[12].length == 0) %>
-        <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, release_page: true} %>
-      <% end %>
+    <% if (not er.previous().nil?) and (not er.my_changes[12] or er.my_changes[12].length == 0) %>
+    <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, release_page: true} %>
+    <% end %>
     <% end %>
 
     <% @release.edit_requests.each do |er| %>
-      <% if (not er.previous().nil?) and (er.my_changes[12] and er.my_changes[12].length > 0) %>
-        <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, release_page: true} %>
-      <% end %>
+    <% if (not er.previous().nil?) and (er.my_changes[12] and er.my_changes[12].length > 0) %>
+    <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, release_page: true} %>
+    <% end %>
     <% end %>
   </div>
 </div>
