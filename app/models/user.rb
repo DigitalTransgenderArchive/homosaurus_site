@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
   after_create :setup_permissions
 
   has_many :comments
-  has_many :user_language_roles 
+  has_many :user_language_roles
+
+  has_many :profile_comments, :class_name => 'Comment', as: :commentable
 
   alias_attribute :user_key, :email
 

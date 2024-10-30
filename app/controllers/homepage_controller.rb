@@ -59,6 +59,48 @@ class HomepageController < ApplicationController
     end
   end
 
+  def profile_discussion
+    @homosaurus_obj = User.find_by(id: params[:user_id])
+    @discussion_type = "User"
+    @comments = @homosaurus_obj.profile_comments.where(replaces_comment_id: nil)
+    render "vocabulary/discussion"
+  end
+  def profile_post_comment
+    parent = nil
+    if params["parent_type"] == "User"
+      parent = User.find_by(id: params["parent"])
+    else
+      parent = Comment.find_by(id: params["parent"])
+    end
+    @c = Comment.create(user_id: params["user"],
+                        subject: params["subject"] || nil,
+                        commentable: parent,
+                        content: params["content"],
+                        is_vote: false,
+                        language_id: params["language_id"])
+    redirect_to profile_discussion_path(:anchor => "comment-#{@c.id}")
+  end
+  def profile_edit_comment
+    comment = Comment.find_by(id: params['comment_id'])
+    subject = params['subject']
+    content = params['content']
+    notice = "Comment succesfully edited"
+    if comment.subject == subject and comment.content == content
+      notice = "No changes made."
+      @c = comment
+    else
+      @c = Comment.create(user_id: comment.user.id,
+                          subject: subject,
+                          commentable: comment.commentable,
+                          content: content,
+                          is_vote: false,
+                          replaces_comment_id: comment.id,
+                          language_id: comment.language_id)
+      comment.updated_at = Time.now
+      comment.save!
+    end
+    redirect_to profile_discussion_path(:anchor => "comment-#{@c.id}"), notice: notice
+  end
   # validates the incoming params
   # returns either an empty array or an array with error messages
   def validate_email

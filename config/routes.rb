@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   post 'contact' => 'homepage#contact'
   get 'feedback_complete' => 'homepage#feedback_complete', as: :feedback_complete
 
+  get 'profile/:user_id/discussion/post_comment' => 'homepage#profile_post_comment', as: :profile_post_comment
+  get 'profile/:user_id/discussion/edit_comment' => 'homepage#profile_edit_comment', as: :profile_edit_comment
+  get 'profile/:user_id/discussion' => 'homepage#profile_discussion', as: :profile_discussion
   post 'profile/:user_id/update' => 'homepage#update_profile', as: :update_profile
   get 'profile/:user_id' => 'homepage#profile', as: :profile_for
   get 'profile' => 'homepage#profile', as: :profile

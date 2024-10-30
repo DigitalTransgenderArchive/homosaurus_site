@@ -1,62 +1,81 @@
 <% @page_title = t('menu.profile') %>
-<div id="static_holder" class="container-fluid contact-us">
-  <div class="row">
-    <div class="col-xs-12 static_holder_content_container">
-      <div id="static_holder_content" class="static_holder_content">
-        <h2><%= t('menu.profile') %></h2>
-        <div class="info_section">
-	  <h3><%= t('user.username') %>: </h3>
-	  <p><%= @user.username %></p>
-	  <h3><%= t('user.fname') %> & <%= t('user.lname') %>: </h3>
-	  <p><%= "#{@user.fname} #{@user.lname}" %></p>
-	  <h3><%= t('user.bio') %>: </h3>
-	  <p><%= @user.bio %></p>
-	  <h3><%= t('user.permissions') %>: </h3>
-	  <ul>
-	  <% UserLanguageRole.where(user_id: @user.id).each do |ulr| %>
-	  <li>
-	    <span class="bold"><%= t("languages.#{ulr.language_id}") %>:</span>
-	    <%= ulr.role.name %>
-	  </li>
-	  <% end %>
-	  </ul>
-          <br/>
-	  <% if current_user.present? and current_user.id == @user.id %>
-	  <h2><%= t('menu.edit_profile') %></h2>
-	  <div class="container">
-	    <%= form_with model: @user, url: update_profile_path(@user), local: true, method: :post, class: 'form-horizontal' do |form| %>
-	    <div class="form-group">
-              <label class="col-sm-3 control-label"><%= t('user.username') %>:</label>
-	      <div class="col-sm-6">
-		<%= form.text_field :username, class: 'form-control' %>
-	      </div>
-	    </div>
-	    <div class="form-group">
-              <label class="col-sm-3 control-label"><%= t('user.fname') %>:</label>
-	      <div class="col-sm-6">
-		<%= form.text_field :fname, class: 'form-control' %>
-	      </div>
-	    </div>
-	    <div class="form-group">
-              <label class="col-sm-3 control-label"><%= t('user.lname') %>:</label>
-	      <div class="col-sm-6">
-		<%= form.text_field :lname, class: 'form-control' %>
-	      </div>
-	    </div>
-	    <div class="form-group">
-              <label class="col-sm-3 control-label"><%= t('user.bio') %>:</label>
-	      <div class="col-sm-6">
-		<%= form.text_area :bio, class: 'form-control'  %>
-	      </div>
-	    </div>
-	    <br>
-	    <%= form.submit "Update" %>
-	    <% end %>
-          </div>
-	  <% end %>
+<div class="col-sm-12 col-md-12">
+  <h2>
+    <%= t('menu.profile') %>
+    <% if current_user.present? %>
+      <%= button_to t("edit_request.view_discussion"), profile_discussion_path(user_id: @user.id), :method => "get", class: 'btn btn-outline-secondary' %>
+    <% end %>
+  </h2>
+  <div class="info_section">
+    <table class="table table-sm table-bordered">
+      <tbody>
+	<tr>
+	  <th scope="row"><%= t('user.username') %>: </th>
+	  <td><%= @user.username %></td>
+	</tr>
+	<tr>
+	  <th scope="row"><%= t('user.fname') %>: </th>
+	  <td><%= @user.fname %></td>
+	</tr>
+	<tr>
+	  <th scope="row"><%= t('user.lname') %>: </th>
+	  <td><%= @user.lname %></td>
+	</tr>
+	<tr>
+	  <th scope="row"><%= t('user.bio') %>: </th>
+	  <td><%= @user.bio %></td>
+	</tr>
+	<tr>
+	  <th scope="row"><%= t('user.permissions') %>: </th>
+	  <td>
+	    <ul>
+	      <% UserLanguageRole.where(user_id: @user.id).each do |ulr| %>
+	      <li>
+		<span class="bold"><%= t("languages.#{ulr.language_id}") %>:</span>
+		<%= ulr.role.name %>
+	      </li>
+	      <% end %>
+	    </ul>
+	  </td>
+	</tr>
+
+      </tbody>
+    </table>
+
+
+    <br/>
+    <% if current_user.present? and current_user.id == @user.id %>
+    <h2><%= t('menu.edit_profile') %></h2>
+    <div class="container">
+      <%= form_with model: @user, url: update_profile_path(@user), local: true, method: :post, class: 'form-horizontal' do |form| %>
+      <div class="form-group">
+        <label class="col-sm-3 control-label"><%= t('user.username') %>:</label>
+	<div class="col-sm-6">
+	  <%= form.text_field :username, class: 'form-control' %>
 	</div>
-
       </div>
-
+      <div class="form-group">
+        <label class="col-sm-3 control-label"><%= t('user.fname') %>:</label>
+	<div class="col-sm-6">
+	  <%= form.text_field :fname, class: 'form-control' %>
+	</div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label"><%= t('user.lname') %>:</label>
+	<div class="col-sm-6">
+	  <%= form.text_field :lname, class: 'form-control' %>
+	</div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label"><%= t('user.bio') %>:</label>
+	<div class="col-sm-6">
+	  <%= form.text_area :bio, class: 'form-control'  %>
+	</div>
+      </div>
+      <br>
+      <%= form.submit "Update" %>
+      <% end %>
     </div>
+    <% end %>
   </div>
+
