@@ -15,6 +15,14 @@
 	      }
 	  });
       });
+      $('input[type="radio"]').on('change', function(){
+	  var sort_by = $('input[type="radio"]:checked').attr('id')
+	  var $ers = $('.edit-request');
+	  $ers.sort(function(a, b){
+	      return $(a).data(sort_by).localeCompare($(b).data(sort_by));
+	  });
+	  $ers.detach().appendTo($('#release_holder'));
+      });
   });
 </script>
 <div id="about" class="col-sm-12 col-md-12">
@@ -27,11 +35,12 @@
     <% end %>
   </div>
   <div class="info_section">
-    <div id="filter" class="form-group d-inline-flex">
+    <div id="filter" class="form-group d-flex">
       <div class="my-auto mx-3">
 	<h3><i class="fa-solid fa-filter fa-xl"></i></h3>
       </div>
-      <div>
+      <div class="vr me-3"></div>
+      <div class="me-auto">
 	<% if @release.status != "Published" %>
 	<div class="form-check form-check-inline">
 	  <input class="form-check-input" type="checkbox" value="suggested" checked>
@@ -80,26 +89,22 @@
 	</div>
 	<% end %>
       </div>
+      <div class="my-auto mx-3">
+	<h3><i class="fa-solid fa-sort fa-xl"></i></h3>
+      </div>
+      <div class="vr me-3"></div>
+      <div class="">
+	<input type="radio" class="btn-check" name="filter-sort" id="filter-time" checked>
+	<label class="btn" for="filter-time"><i class="fa-solid fa-calendar"></i></label>
+	<input type="radio" class="btn-check" name="filter-sort" id="filter-label">
+	<label class="btn" for="filter-label"><i class="fa-solid fa-a"></i></label>
+      </div>
     </div>
   </div>
   <hr/>
-  <div class="info_section">
+  <div id="release_holder" class="info_section">
     <% @release.edit_requests.each do |er| %>
-    <% if er.previous().nil? %>
     <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, release_page: true} %>
-    <% end %>
-    <% end %>
-
-    <% @release.edit_requests.each do |er| %>
-    <% if (not er.previous().nil?) and (not er.my_changes[12] or er.my_changes[12].length == 0) %>
-    <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, release_page: true} %>
-    <% end %>
-    <% end %>
-
-    <% @release.edit_requests.each do |er| %>
-    <% if (not er.previous().nil?) and (er.my_changes[12] and er.my_changes[12].length > 0) %>
-    <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, release_page: true} %>
-    <% end %>
     <% end %>
   </div>
 </div>

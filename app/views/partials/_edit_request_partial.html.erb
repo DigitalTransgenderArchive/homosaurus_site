@@ -24,7 +24,15 @@ end
   filter_tags = "#{is_new ? 'new_term' : (is_redirect ? 'redirected' : (is_linked ? 'linked' : 'modified'))} #{edit_request.suggestion? ? 'suggested' : ''} #{er_status}"
 %>
 
-<div class="card container-lg edit-request " data-filter-tags="<%= filter_tags %>">
+<div <% unless child_edit %>
+     class="card container-lg edit-request"
+     data-filter-tags="<%= filter_tags %>"
+     data-filter-label="<%= pref_label %>"
+     data-filter-time="<%= edit_request.created_at.to_s %>"
+     <% else %>
+     class="card container-lg"
+     <% end %>
+     >
   <div class="card-header collapsed row" data-bs-toggle="collapse" aria-expanded="false"
        href="#<%= edit_request.id %>" aria-controls="<%= edit_request.id %>">
 
