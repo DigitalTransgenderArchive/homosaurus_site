@@ -2,13 +2,17 @@
   $(document).ready(function() {
       $('input[type="checkbox"]').on('change', function(){
 	  var allowed_tags = [];
-	  $('input[type="checkbox"]:checked').each(function(){
+	  var allowed_statuses = []
+	  $('.tag-filter:checked').each(function(){
 	      allowed_tags.push($(this).val());
+	  });
+	  $('.status-filter:checked').each(function(){
+	      allowed_statuses.push($(this).val());
 	  });
 	  $('.edit-request').each(function(){
 	      var $er = $(this);
 	      var er_tags = $(this).data("filter-tags").split(/[ ]+/);
-	      if (er_tags.some(i => allowed_tags.includes(i))){
+	      if (er_tags.some(i => allowed_tags.includes(i)) && er_tags.some(i => allowed_statuses.includes(i))){
 		  $er.show();
 	      } else {
 		  $er.hide();
@@ -43,34 +47,26 @@
       </div>
       <div class="vr me-3"></div>
       <div class="me-auto">
-	<% if @release.status != "Published" %>
 	<div class="form-check form-check-inline">
-	  <input class="form-check-input" type="checkbox" value="suggested" checked>
-	  <label class="form-check-label">
-	    <span class="badge text-bg-danger"><%= t("status.suggested") %></span>
-	  </label>
-	</div>
-	<% end %>
-	<div class="form-check form-check-inline">
-	  <input class="form-check-input" type="checkbox" value="new_term" checked>
+	  <input class="form-check-input tag-filter" type="checkbox" value="new_term" checked>
 	  <label class="form-check-label">
 	    <span class="badge text-bg-success"><%= t("status.new_term_label") %></span>
 	  </label>
 	</div>
 	<div class="form-check form-check-inline">
-	  <input class="form-check-input" type="checkbox" value="redirected" checked>
+	  <input class="form-check-input tag-filter" type="checkbox" value="redirected" checked>
 	  <label class="form-check-label">
 	    <span class="badge text-bg-warning"><%= t("status.redirected") %></span>
 	  </label>
 	</div>
 	<div class="form-check form-check-inline">
-	  <input class="form-check-input" type="checkbox" value="linked" checked>
+	  <input class="form-check-input tag-filter" type="checkbox" value="linked" checked>
 	  <label class="form-check-label">
 	    <span class="badge text-bg-info"><%= t("status.linked_label") %></span>
 	  </label>
 	</div>
 	<div class="form-check form-check-inline">
-	  <input class="form-check-input" type="checkbox" value="modified" checked>
+	  <input class="form-check-input tag-filter" type="checkbox" value="modified" checked>
 	  <label class="form-check-label">
 	    <span class="badge text-bg-primary"><%= t("status.modified") %></span>
 	  </label>
@@ -78,15 +74,21 @@
 	<% if @release.status != "Published" %>
 	<hr class="m-1"/>
 	<div class="form-check form-check-inline">
-	  <input class="form-check-input" type="checkbox" value="approved" checked>
+	  <input class="form-check-input status-filter" type="checkbox" value="approved" checked>
 	  <label class="form-check-label">
 	    <span class="badge text-bg-success"><%= t("status.approved") %></span>
 	  </label>
 	</div>
 	<div class="form-check form-check-inline">
-	  <input class="form-check-input" type="checkbox" value="pending" checked>
+	  <input class="form-check-input status-filter" type="checkbox" value="pending" checked>
 	  <label class="form-check-label">
 	    <span class="badge text-bg-warning"><%= t("status.pending") %></span>
+	  </label>
+	</div>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input status-filter" type="checkbox" value="suggested" checked>
+	  <label class="form-check-label">
+	    <span class="badge text-bg-danger"><%= t("status.suggested") %></span>
 	  </label>
 	</div>
 	<% end %>
