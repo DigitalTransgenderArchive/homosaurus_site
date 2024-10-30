@@ -16,10 +16,12 @@
 	  });
       });
       $('input[type="radio"]').on('change', function(){
-	  var sort_by = $('input[type="radio"]:checked').attr('id')
+	  var sort_by = $('input[type="radio"][name="filter-sort"]:checked').attr('id')
+	  var sort_order = $('input[type="radio"][name="filter-sort-order"]:checked').attr('id')
 	  var $ers = $('.edit-request');
+	  var sort_mult = (sort_order == "filter-sort-ascend") ? 1 : -1;
 	  $ers.sort(function(a, b){
-	      return $(a).data(sort_by).localeCompare($(b).data(sort_by));
+	      return sort_mult * $(a).data(sort_by).localeCompare($(b).data(sort_by));
 	  });
 	  $ers.detach().appendTo($('#release_holder'));
       });
@@ -94,6 +96,11 @@
       </div>
       <div class="vr me-3"></div>
       <div class="">
+	<input type="radio" class="btn-check" name="filter-sort-order" id="filter-sort-ascend" checked>
+	<label class="btn" for="filter-sort-ascend"><i class="fa-solid fa-caret-up"></i></label>
+	<input type="radio" class="btn-check" name="filter-sort-order" id="filter-sort-descend">
+	<label class="btn" for="filter-sort-descend"><i class="fa-solid fa-caret-down"></i></label>
+	<div class="vr mx-3"></div>
 	<input type="radio" class="btn-check" name="filter-sort" id="filter-time" checked>
 	<label class="btn" for="filter-time"><i class="fa-solid fa-calendar"></i></label>
 	<input type="radio" class="btn-check" name="filter-sort" id="filter-label">
