@@ -75,6 +75,7 @@ en:
     account: Account
     profile: View Profile
     add_term: Add Term
+    suggest_term: Suggest Term
     contact: Contact
     home: Home
     logout: Log Out
@@ -124,6 +125,7 @@ en:
     pending: Pending
     published: Published
     redirected: Redirected
+    suggested: Suggestion
   term:
     back_to_index: Back to Index
     back_to_search: Back To Search Results
@@ -139,6 +141,7 @@ en:
     admin:
       actions: Admin Actions
       new_term: Add A New Term
+      suggest_term: Suggest A New Term
       show_deleted: Show Deleted Terms
       show_next: Show Next Version Terms
       show_redirects: Show Redirected Terms

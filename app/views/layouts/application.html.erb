@@ -75,14 +75,17 @@
             <ul class="dropdown-menu text-bg-dark">
 	      <li class="divider"></li>
                 <li><%= link_to t("menu.profile"), profile_path, :class=>"dropdown-item text-white" %></li>
-              <% if current_user.superuser? || current_user.contributor? || current_user.admin? %>
+              <% if current_user.contributor? %>
                 <li class="divider"></li>
                 <li><%= link_to t("menu.add_term"), vocabulary_term_new_path(vocab_id: "v3"), :class=>"dropdown-item text-white" %></li>
+	      <% elsif current_user.suggester? %>
+                <li class="divider"></li>
+                <li><%= link_to t("menu.suggest_term"), vocabulary_term_new_path(vocab_id: "v3"), :class=>"dropdown-item text-white" %></li>
               <% end %>
               <% if current_user.superuser? %>
                 <li class="divider"></li>
-              <li><%= link_to t("menu.manage_releases"), version_manage_path, :class=>"dropdown-item text-white" %></li>
-	      <li><%= link_to t("menu.manage_users"), user_manage_path, :class=>"dropdown-item text-white" %></li>
+                <li><%= link_to t("menu.manage_releases"), version_manage_path, :class=>"dropdown-item text-white" %></li>
+                <li><%= link_to t("menu.manage_users"), user_manage_path, :class=>"dropdown-item text-white" %></li>
                 <li class="divider"></li>
                 <li><%= link_to t("menu.reload"), restart_application_path, :class=>"dropdown-item text-white" %></li>
               <% end %>

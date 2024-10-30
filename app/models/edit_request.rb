@@ -138,4 +138,9 @@ class EditRequest < ActiveRecord::Base
       end
     end
   end
+
+  def suggestion?
+    return (self.status != "approved") && self.children.first.creator.suggester?
+  end
+  
 end

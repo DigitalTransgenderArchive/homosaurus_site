@@ -14,7 +14,7 @@
       <tbody>
 	<% @users.each do |u| %>
 	<tr>
-	  <th scope="row"><%= u.username %></th>
+	  <th scope="row"><%= link_to u.username, profile_for_path(u) %></th>
 	  <% glob_l_obj = u.user_language_roles.find_by("role_id <= 2")
 	     is_admin = (not glob_l_obj.nil?)
 	     glob_l_obj = glob_l_obj.nil? ? UserLanguageRole.new(user_id: u.id, language_id: nil) : glob_l_obj %>

@@ -28,7 +28,10 @@ end
 
     <% unless child_edit %>
       <div class="col col-1">
-        <% if not release_page %>
+	<% if not discussion_page and edit_request.suggestion? %>
+	  <span class="badge text-bg-danger"><%= t("status.suggested") %></span>
+	<% end %>
+	<% if not release_page %>
 	  <span class="badge text-bg-dark">V. <%= release_identifier %></span>
 	<% elsif is_new %>
 	  <span class="badge text-bg-success"><%= t("status.new_term_label") %></span>

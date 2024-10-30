@@ -1,5 +1,10 @@
 class VocabularyController < ApplicationController
-  before_action :verify_permission, :only => [:new, :edit, :discussion, :post_comment, :post_reply, :edit_comment, :approve_release, :create, :update, :destroy, :replace, :restore, :destroy_version] # ,  :update_immediate
+  
+  before_action :verify_suggester_permissions, :only => [:new, :create, :discussion, :post_comment, :post_reply, :edit_comment]
+  before_action :verify_contrib_permissions, :only => [:edit, :update, :destroy, :destroy_version, :replace]
+  before_action :verify_admin_permissions, :only => [:approve_release]
+  before_action :verify_super_permissions, :only => [:restore]
+
   # Show the index for a vocabulary
   def index
     identifier = params[:id]
@@ -107,6 +112,7 @@ class VocabularyController < ApplicationController
       format.html
     end
   end
+  
   # Create a new comment
   def post_comment
     parent = nil
@@ -118,6 +124,9 @@ class VocabularyController < ApplicationController
       parent = Comment.find_by(id: params["parent"])
     end
     is_vote = params["is_vote"] == "true" ? true : false
+    if is_vote and !current_user.contributor?
+      redirect_to vocabulary_term_discussion_path()
+    end
     @c = Comment.create(user_id: params["user"],
                         subject: params["subject"] || nil,
                         commentable: parent,
@@ -685,8 +694,23 @@ class VocabularyController < ApplicationController
     params.require(:term).permit(:identifier, :description, :history_note, :internal_note, :exactMatch, :closeMatch)
   end
 
-  def verify_permission
+  def verify_super_permissions
+    if !current_user.present? || (!current_user.superuser?)
+      redirect_to root_path
+    end
+  end
+  def verify_admin_permissions
+    if !current_user.present? || (!current_user.admin? && !current_user.superuser?)
+      redirect_to root_path
+    end
+  end
+  def verify_contrib_permissions
     if !current_user.present? || (!current_user.admin? && !current_user.superuser? && !current_user.contributor?)
+      redirect_to root_path
+    end
+  end
+  def verify_suggester_permissions
+    if !current_user.present? || (!current_user.admin? && !current_user.superuser? && !current_user.contributor? && !current_user.suggester?)
       redirect_to root_path
     end
   end

@@ -12,11 +12,17 @@ class AddProfileToUsers < ActiveRecord::Migration[5.2]
         u.save!
       end
     end
+    unless Role.count > 4
+      Role.create(id: 5, name: "suggester")
+    end
   end
   def down
     remove_column :users, :username, :string, unique: true
     remove_column :users, :fname, :string
     remove_column :users, :lname, :string
     remove_column :users, :bio, :text
+    unless Role.count == 4
+      Role.delete(5)
+    end
   end
 end

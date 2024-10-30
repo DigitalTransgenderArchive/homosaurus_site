@@ -30,7 +30,7 @@
       <% end %>
     <button class="btn btn-primary discussion-add-topic" style="margin-left:20px;"
 	    data-bs-toggle="modal" data-bs-target="#new-topic-modal"><%= t("discussion.add_topic") %> (+)</button>
-    <% if @discussion_type == "EditRequest" and @homosaurus_obj.vote_status == "pending" and not @homosaurus_obj.hasUserVoted(current_user) %>
+    <% if @discussion_type == "EditRequest" and @homosaurus_obj.vote_status == "pending" and not @homosaurus_obj.hasUserVoted(current_user) and current_user.contributor? %>
       <button class="btn btn-primary discussion-add-vote" style="margin-left:20px;"
 	      data-bs-toggle="modal" data-bs-target="#new-vote-modal"><%= t("discussion.add_vote") %> (+)</button>
       <% end %>
