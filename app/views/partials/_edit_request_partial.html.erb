@@ -100,7 +100,7 @@ end
        prev_term = edit_request.previous() %>
     <% relations.each do |r| %>
       <% changes = edit_request.my_changes[r.id] %>
-      <% if not changes.nil? and changes.length > 0 and (r.id != Relation::Redirects_to and not is_deletion)%>
+      <% if not changes.nil? and changes.length > 0 and not is_deletion%>
         <h4><%= t("relations.#{r.id}") %></h4>
 	<table class="table">
 	  <% changes.each do |c| %>

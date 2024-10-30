@@ -687,12 +687,18 @@ class Term < ActiveRecord::Base
     er_change.save
   end
   # Remove connection from the history entirely
-  def wipe_pending_connection(to_term, rel_id, vid)
+  def wipe_pending_connection(to_term_id, rel_id, vid)
     self.edit_requests.each do |er|
       er.children.each do |erc|
-        if erc.my_changes[rel_id].map{|c| c[2].to_i}.include? to_term.id
+        if erc.my_changes[rel_id].map{|c| c[2].to_i}.include? to_term_id
           erc.destroy!
         end
+      end
+      if er.my_changes[rel_id].map{|c| c[2].to_i}.include? to_term_id
+        new_changes = er.my_changes.clone
+        new_changes[rel_id] = new_changes[rel_id].select{|c| c[2].to_i != to_term_id}
+        er.update(my_changes: new_changes)
+        er.save!
       end
       if er.children.count == 0
         er.destroy!
@@ -749,7 +755,7 @@ class Term < ActiveRecord::Base
     [Relation::Broader, Relation::Narrower, Relation::Related].each do |r|
       trs[r].each do |tr|
         if pending
-          Term.find_by(id: tr[1].to_i).wipe_pending_connection(self, Relation.inverse(r), vid)
+          Term.find_by(id: tr[1].to_i).wipe_pending_connection(self.id, Relation.inverse(r), vid)
         else
           Term.find_by(id: tr[1].to_i).remove_connection(self, Relation.inverse(r), vid, uid)
         end
