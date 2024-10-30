@@ -777,8 +777,8 @@ class Term < ActiveRecord::Base
     
     #get the er for the version or create one
     er = nil
-    if to_term.edit_requests.pluck(:version_release_id).include?(vid)
-      er = to_term.edit_requests.find_by(version_release_id: vid)
+    if self.edit_requests.pluck(:version_release_id).include?(vid)
+      er = self.edit_requests.find_by(version_release_id: vid)
     else
       my_changes = EditRequest::makeChangeHash(visibility, to_term.uri, to_term.identifier)
       er = EditRequest.new(:term_id => self.id,
