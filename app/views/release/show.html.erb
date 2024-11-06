@@ -6,13 +6,14 @@
 	  $('.tag-filter:checked').each(function(){
 	      allowed_tags.push($(this).val());
 	  });
+	  var check_status = $('.status-filter').length;
 	  $('.status-filter:checked').each(function(){
 	      allowed_statuses.push($(this).val());
 	  });
 	  $('.edit-request').each(function(){
 	      var $er = $(this);
 	      var er_tags = $(this).data("filter-tags").split(/[ ]+/);
-	      if (er_tags.some(i => allowed_tags.includes(i)) && er_tags.some(i => allowed_statuses.includes(i))){
+	      if (er_tags.some(i => allowed_tags.includes(i)) && (check_status ? er_tags.some(i => allowed_statuses.includes(i)) : true )){
 		  $er.show();
 	      } else {
 		  $er.hide();
