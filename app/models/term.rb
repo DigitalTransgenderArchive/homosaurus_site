@@ -170,6 +170,10 @@ class Term < ActiveRecord::Base
     return values
   end
   def get_relationships_at_version_release(vid, full_lang = false)
+    values = Relation.all().pluck(:id).map{|rel_id| [rel_id, []]}.to_h
+    if vid.nil?
+      return values
+    end
     if not vid.is_a? Integer
       vid = VersionRelease.find_by(release_identifier: vid).id
     end

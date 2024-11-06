@@ -279,9 +279,7 @@ class VocabularyController < ApplicationController
   end
   # Add new term to LCSH cache and return it
   def add_new_LCSH
-    pp params
     res = LcshSubjectCache::add_new(params["uri"])
-    pp res
     return render json: {value: res[1], text: res[0]}
   end
   def set_match_relationship(form_fields, key)
@@ -299,11 +297,11 @@ class VocabularyController < ApplicationController
   end
   # Save edits to term in a given release
   def update
-    pp params
     @term = Term.find_by(vocabulary_identifier: "v3", identifier: params[:id])
     er = nil
     vr_exists = false
     my_changes = EditRequest::makeChangeHash(@term.visibility, @term.uri, params[:id])
+
     # Use existing ER for VR if it exists, else create new one
     if @term.edit_requests.where(status: "pending").pluck(:version_release_id).include? params[:version_release].to_i
       er = @term.edit_requests.find_by(version_release_id: params[:version_release].to_i)
@@ -316,6 +314,7 @@ class VocabularyController < ApplicationController
                            :parent_id => nil,
                            :status => "pending")
     end
+    # Create new sub ER for user in VR ER
     er_change = EditRequest.new(:term_id => nil,
                                 :creator_id => current_user.id,
                                 :created_at => DateTime.now,
@@ -329,53 +328,49 @@ class VocabularyController < ApplicationController
     # Get the currently pending values and the currently live ones
     all_current_values = @term.get_relationships_at_version_release(params[:version_release].to_i)
     lpr = @term.latest_published_release()
-    all_published_values = @term.get_relationships_at_version_release(lpr.nil? ? @term.get_edit_requests().first.version_release_id : lpr.id)
+    all_published_values = @term.get_relationships_at_version_release(lpr)
 
-    # if vr_exists
-    #   er.my_changes = my_changes
-    # end
-    
     # Loop over the term relationship related paramaters
     params["term"].each do |k, v|
       if k.include? "relation_"
         rel_id = k.split("_")[1].to_i
-        
+
+        # Get the updated values 
         param_values = v.map { |x| Relation::ValueStruct.new(x["data"], x["language_id"] == "" ? nil : x["language_id"]) }.to_set
         param_values.reject!{|x| x.data == ""}
         param_values ||= Set.new()
-        
+
+        # Get the currently published values 
         published_values = all_published_values[rel_id].map { |x| Relation::ValueStruct.new(x[1], x[0]) }.to_set
-        
-        #current_values = all_current_values[rel_id].map { |x| Relation::ValueStruct.new(x[1], x[0]) }.to_set
-        
-        
+
+        # Calculate added/removed values
         added_values = param_values - published_values
         removed_values = published_values - param_values
         
-        # Set ER changes
-        change_type = "+"
-        [added_values, removed_values].each do |values|
-          values.each do |v|
-            er.addChange(rel_id, [change_type, v.language_id, v.data])
-            unless vr_exists
-              er_change.addChange(rel_id, [change_type, v.language_id, v.data])
-            end
+        # Set VR level ER to diff between submitted params and published values, record if changed
+        if (added_values + removed_values).count > 0
+          changes = removed_values.to_a.map{|v| ["-", v.language_id, v.data]} + added_values.to_a.map{|v| ["+", v.language_id, v.data]}
+          loc_changes = er.my_changes
+          loc_changes[rel_id] = changes
+          er.update!(my_changes: loc_changes)
+          # If this is creating a VR level ER, copy values
+          unless vr_exists
+            er_change.update!(my_changes: loc_changes)
             changed = true
           end
-          change_type = "-"
         end
-        # If the term has an er in the release, record how this modifies it
+        # If this is modifying a pending VR level ER, record how user modified it
         if vr_exists
           current_values = all_current_values[rel_id].map { |x| Relation::ValueStruct.new(x[1], x[0]) }.to_set
           added_values = param_values - current_values
           removed_values = current_values - param_values
-          change_type = "+"
-          [added_values, removed_values].each do |values|
-            values.each do |v|
-              er_change.addChange(rel_id, [change_type, v.language_id, v.data])
-              changed = true
-            end
-            change_type = "-"
+
+          if (added_values + removed_values).count > 0
+            changes = removed_values.to_a.map{|v| ["-", v.language_id, v.data]} + added_values.to_a.map{|v| ["+", v.language_id, v.data]}
+            loc_changes = er_change.my_changes
+            loc_changes[rel_id] = changes
+            er_change.update!(my_changes: loc_changes)
+            changed = true
           end
         end
       end
@@ -390,60 +385,6 @@ class VocabularyController < ApplicationController
       redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "HomosaurusV3 pending term updated!"
     else
       redirect_to vocabulary_term_edit_path(vocab_id: "v3",  id: @term.identifier), notice: "No changes were made."
-    end
-    # Legacy code
-    if 1 == 0
-      # Update to upcoming new term.
-      if @term.visibility == "pending"
-        set_match_relationship(params[:term], "exact_match_lcsh")
-        set_match_relationship(params[:term], "close_match_lcsh")
-        set_match_relationship(params[:term], "broader")
-        set_match_relationship(params[:term], "narrower")
-        set_match_relationship(params[:term], "related")
-        @term.pref_label_language = params[:term][:pref_label_language][0]
-        @term.labels_language = params[:term][:labels_language]
-        @term.labels_language = params[:term][:labels_language]
-        @term.alt_labels_language = params[:term][:alt_labels_language]
-        @term.sources = params[:term][:sources]
-        @term.contributors = params[:term][:contributors]
-
-        @term.update(term_params)
-        @term.save!
-        redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "HomosaurusV3 pending term updated!"
-        # else create version if this is a version or if the pref_label has changed.
-      elsif params[:term][:pref_label_language][0] != @term.pref_label_language || (@term.raw_pendings.present? && @term.raw_pendings.size >= 1)
-        Hist::Pending.start_pending do
-          set_match_relationship(params[:term], "exact_match_lcsh")
-          set_match_relationship(params[:term], "close_match_lcsh")
-          set_match_relationship(params[:term], "broader")
-          set_match_relationship(params[:term], "narrower")
-          set_match_relationship(params[:term], "related")
-          @term.pref_label_language = params[:term][:pref_label_language][0]
-          @term.labels_language = params[:term][:labels_language]
-          @term.labels_language = params[:term][:labels_language]
-          @term.alt_labels_language = params[:term][:alt_labels_language]
-          @term.sources = params[:term][:sources]
-          @term.contributors = params[:term][:contributors]
-          @term.visibility = "pending"
-
-          @term.update(term_params)
-        end
-        @term.record_pending
-        @term.reload
-
-        # Delete any other raw pending object
-        if @term.raw_pendings.present? && @term.raw_pendings.size >= 2
-          @term.raw_pendings.last.destroy!
-          @term.reload
-          redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier, pending_id: @term.raw_pendings.first.id), notice: "HomosaurusV3 pending term updated!"
-        else
-          redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier, pending_id: @term.raw_pendings.first.id), notice: "HomosaurusV3 term had a pending version added!"
-        end
-        # minor update only detected.
-      else
-        self.update_immediate
-      end
-
     end
   end
 

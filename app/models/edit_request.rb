@@ -69,12 +69,13 @@ class EditRequest < ActiveRecord::Base
     my_changes["identifier"] = identifier
     return my_changes
   end
+  # Add change to ER, nullify existing change, and handle duplicates
   def addChange(rel_id, change)
     loc_changes = self.my_changes
     inverse_change = [change[0] == "+" ? "-" : "+", change[1], change[2]]
     if loc_changes[rel_id].include? inverse_change
       loc_changes[rel_id].delete(inverse_change)
-    else
+    elsif not loc_changes[rel_id].include? change
       loc_changes[rel_id] << change
     end
     self.update(my_changes: loc_changes)
