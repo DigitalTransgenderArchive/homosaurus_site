@@ -328,7 +328,7 @@ class VocabularyController < ApplicationController
     # Get the currently pending values and the currently live ones
     all_current_values = @term.get_relationships_at_version_release(params[:version_release].to_i)
     lpr = @term.latest_published_release()
-    all_published_values = @term.get_relationships_at_version_release(lpr)
+    all_published_values = @term.get_relationships_at_version_release(lpr.nil? ? nil : lpr.id)
 
     # Loop over the term relationship related paramaters
     params["term"].each do |k, v|
