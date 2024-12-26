@@ -37,7 +37,6 @@ class EditRequest < ActiveRecord::Base
     my_changes["visibility"] = t.visibility
     my_changes["uri"] = t.uri
     my_changes["identifier"] = t.identifier
-    # pp my_changes
     replaces = t.replaces
     if t.replaces
       replaces = Term.find_by(uri: replaces).id

@@ -28,9 +28,7 @@ class LcshLookupInput < MultiSelectInput
     @collection.empty? ? ['', nil] : @collection
   end
   def buffer_each(collection)
-    pp "THE COLLECTION IS -> #{collection}"
     collection.each_with_object('').with_index do |(value, buffer), index|
-      pp "VA IS -> #{value}"
       if !@rendered_first_element && value.blank?
         buffer << yield(value, index)
       elsif value.present?

@@ -40,7 +40,6 @@ class AdminController < ApplicationController
       end
 
       if tr[Relation::Redirects_to].count > 0
-        pp tr
         if tr[Relation::Redirects_to][0][1] == "0"
           t.update(visibility: "deleted")
         else

@@ -114,10 +114,7 @@ class MultiBaseInput < SimpleForm::Inputs::CollectionInput
 #       raise 'Got Here ' + object.send(attribute_name).to_s
 #     end
 # =end
-#     pp "COLLECTION IS #{@collection}"
-#     pp "COLLECTION IS ALSO #{@collection}"
 #     if object.present?
-#       pp "OBJECT IS #{object}"
 #       @collection ||= Array.wrap(object.send(attribute_name)).reject { |value| value.to_s.strip.blank? } + ['']
 #     else
 #       @collection ||= ['']
