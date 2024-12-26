@@ -1,11 +1,11 @@
 <h1><%= t("vocab.label") %></h1>
-<% if current_user.present? && current_user.contributor? && request.original_url.include?('/v3') %>
+<% if current_user.present? && current_user.contributor? && (request.original_url.include?('/v3') || request.original_url.include?('/v4')) %>
   <h4><%= t("vocab.admin.actions") %></h4>
-  <%= button_to t("vocab.admin.new_term"), vocabulary_term_new_path(vocab_id: "v3"), :method => "get", class: 'btn btn-primary', style:"float:left;" %>
-  <%= button_to t("vocab.admin.show_visible"), vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "visible" } %>
-  <%= button_to t("vocab.admin.show_next"), vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "pending" } %>
-  <%= button_to t("vocab.admin.show_deleted"), vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "deleted" } %>
-  <%= button_to t("vocab.admin.show_redirects"), vocabulary_index_path(vocab_id: "v3"), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "redirect" }  %>
+  <%= button_to t("vocab.admin.new_term"), vocabulary_term_new_path(vocab_id: @vocab_identifier), :method => "get", class: 'btn btn-primary', style:"float:left;" %>
+  <%= button_to t("vocab.admin.show_visible"), vocabulary_index_path(vocab_id: @vocab_identifier), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "visible" } %>
+  <%= button_to t("vocab.admin.show_next"), vocabulary_index_path(vocab_id: @vocab_identifier), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "pending" } %>
+  <%= button_to t("vocab.admin.show_deleted"), vocabulary_index_path(vocab_id: @vocab_identifier), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "deleted" } %>
+  <%= button_to t("vocab.admin.show_redirects"), vocabulary_index_path(vocab_id: @vocab_identifier), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "redirect" }  %>
   <div style="clear:both"></div>
 <% end %>
 
@@ -18,7 +18,7 @@
 </ul>
 
 <h4><%= t("download.graphical_views") %></h4>
-<% if request.original_url.include? '/v3' %>
+<% if !request.original_url.include? '/v2' and !request.original_url.include? '/terms' %>
   <ul>
     <li><%= link_to "Tree View", tree_path %></li>
     <li><%= link_to "Indented Bars View", indented_tree_path %></li>
@@ -30,9 +30,9 @@
   <% @terms.each do |term| %>
       <li>
         <% if term.pref_label.blank? %>
-          <%= link_to "(EMPTY)", vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier) %>
+          <%= link_to "(EMPTY)", vocabulary_show_path(vocab_id: @vocab_identifier, :id => term.identifier) %>
         <% else %>
-          <%= link_to term.pref_label_localized.data, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier) %>
+          <%= link_to term.pref_label_localized.data, vocabulary_show_path(vocab_id: @vocab_identifier, :id => term.identifier) %>
         <% end %>
 	<% if current_user.present? && (not term.translation_exists?(I18n.locale)) %>
 	  <span class="badge text-bg-danger"><%= t("misc.translation_needed") %></span>

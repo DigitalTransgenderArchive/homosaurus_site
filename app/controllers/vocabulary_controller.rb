@@ -14,10 +14,10 @@ class VocabularyController < ApplicationController
 
     display_mode = params[:display_mode]
     display_mode ||= "visible"
-
-    @terms = Term.where(vocabulary_identifier: identifier, visibility: display_mode).order("lower(pref_label) ASC")
-
-
+    @vocab_identifier = identifier
+    pp @vocab_identifier
+    pp Vocabulary.find_by(identifier: identifier)
+    @terms = Vocabulary.find_by(identifier: identifier).terms.where(visibility: display_mode).order("lower(pref_label) ASC")
     respond_to do |format|
       format.html
       format.nt { render body: Term.all_terms_full_graph(@terms).dump(:ntriples), :content_type => "application/n-triples" }
@@ -34,7 +34,8 @@ class VocabularyController < ApplicationController
   end
   # Show a term
   def show
-    @homosaurus_obj = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
+    @vocab_id = params[:vocab_id]
+    @homosaurus_obj = Term.get(params[:vocab_id], params[:id])
     logger.debug @homosaurus_obj
 
     # For terms  that are combined / replaced
@@ -87,7 +88,7 @@ class VocabularyController < ApplicationController
   end
   # Show the history of a term (edit requests)
   def history
-    @homosaurus_obj = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
+    @homosaurus_obj = Term.get(params[:vocab_id], params[:id])
     @homosaurus = Term.find_solr(@homosaurus_obj.identifier)
     @edit_requests = @homosaurus_obj.get_edit_requests()
     logger.debug @edit_requests
@@ -100,7 +101,7 @@ class VocabularyController < ApplicationController
   end
   # Show the discussion of either a term or an edit request
   def discussion
-    @homosaurus_obj = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
+    @homosaurus_obj = Term.get(params[:vocab_id], params[:id])
     @discussion_type = "Term"
     if params[:release_id]
       @vid = VersionRelease.find_by(release_identifier: params[:release_id]).id
@@ -191,7 +192,7 @@ class VocabularyController < ApplicationController
     @vocab_id = params[:vocab_id]
     @term = Term.new
     @term.identifier = "homoit" + (Term.where("vocabulary_id >= 3").order(:identifier).pluck(:identifier).last.split("homoit")[1].to_i + 1).to_s.to_s.rjust(7, "0")
-    term_query = Term.where(vocabulary_identifier: params[:vocab_id]).order("lower(pref_label) ASC")
+    term_query = Vocabulary.find_by(identifier: params[:vocab_id]).terms.order("lower(pref_label) ASC")
     @all_terms = []
     term_query.each { |term| @all_terms << [term.identifier + " (" + term.pref_label + ")", term.id] }
     @vr_exists = true
@@ -201,7 +202,7 @@ class VocabularyController < ApplicationController
     end
     if @vr_exists and not params[:release_id]
       redirect_to vocabulary_term_new_versioned_path(vocab_id: @vocab_id,
-                                                     release_id: VersionRelease.where(status:'Pending')[0].release_identifier)
+                                                     release_id: VersionRelease.where(vocabulary_identifier: @vocab_id, status:'Pending')[0].release_identifier)
       return
     end
     @release_id_num = @vr_exists ? VersionRelease.find_by(release_identifier: params[:release_id]).id : nil;
@@ -217,9 +218,9 @@ class VocabularyController < ApplicationController
     identifier = tparams["identifier"]
     @term.numeric_pid = identifier.split("homoit")[1].to_i
     @term.identifier = identifier
-    @term.pid = "homosaurus/v3/#{identifier}"
-    @term.uri = "https://homosaurus.org/v3/#{identifier}"
-    @term.vocabulary_identifier = "v3"
+    @term.pid = "homosaurus/#{@vocab_id}/#{identifier}"
+    @term.uri = "https://homosaurus.org/#{vocab_id}/#{identifier}"
+    @term.vocabulary_identifier = @vocab_id
     @term.vocabulary = @vocabulary
     @term.visibility = "pending"
     @term.manual_update_date = Time.now
@@ -304,7 +305,7 @@ class VocabularyController < ApplicationController
   end
   # Save edits to term in a given release
   def update
-    @term = Term.find_by(vocabulary_identifier: "v3", identifier: params[:id])
+    @term = Term.get(params[:vocab_id], params[:id])
     er = nil
     vr_exists = false
     my_changes = EditRequest::makeChangeHash(@term.visibility, @term.uri, params[:id])
@@ -396,7 +397,7 @@ class VocabularyController < ApplicationController
   end
 
   def publish_single_obj
-    @term = Term.find_by(vocabulary_identifier: "v3", identifier: params[:id])
+    @term = Term.get(params[:vocab_id], params[:id])
     if @term.visibility != "pending"
       if @term.pendings.present?
         ActiveRecord::Base.transaction do
@@ -532,7 +533,7 @@ class VocabularyController < ApplicationController
 
   # Mark term as deleted in a given release
   def destroy
-    @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
+    @term = Term.get(params[:vocab_id], params[:id])
     @term.clear_relations(params[:release_id].to_i, current_user.id)
     #get the er for the version or create one
     er = nil
@@ -577,6 +578,7 @@ class VocabularyController < ApplicationController
   end
   # Delete pending term and associated records
   def destroy_version
+    @term = Term.get(params[:vocab_id], params[:id])
     @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
     @term.clear_relations(@term.edit_requests[0].version_release_id, current_user.id, true)
     
@@ -591,7 +593,7 @@ class VocabularyController < ApplicationController
   end
   # Replace one term with another and create redirect
   def replace
-    @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
+    @term = Term.get(params[:vocab_id], params[:id])
     @term_being_replaced = Term.find_by(id: params[:replacement_id].to_i)
     @vr = VersionRelease.find_by(id: params["vid"].to_i)
 
@@ -606,7 +608,7 @@ class VocabularyController < ApplicationController
   end
 
   def restore
-    @term = Term.find_by(vocabulary_identifier: params[:vocab_id], identifier: params[:id])
+    @term = Term.get(params[:vocab_id], params[:id])
 
     set_restore_relations(@term)
 

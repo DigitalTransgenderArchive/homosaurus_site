@@ -36,6 +36,10 @@ class Term < ActiveRecord::Base
     numeric_pid = numeric_pid + 1
     numeric_pid
   end
+  # Returns a term given vocabulary_identifier and homoit identifier
+  def self.get(vocab_id, identifier)
+    return Vocabulary.find_by(identifier: vocab_id).terms.find_by(identifier: identifier)
+  end
 
   def self.find_with_conditions(model, q:, rows:, fl:)
     opts = {}

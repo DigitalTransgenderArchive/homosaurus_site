@@ -1,3 +1,4 @@
+<% vocab = Vocabulary.getFromURL(request.original_url, (current_user && current_user.present?)) %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,23 +44,8 @@
       <button type="button" class="btn-close d-lg-none p-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       <ul class="nav navbar-nav text-end text-lg-start p-4 p-lg-0">
         <li class="nav-item"><%= link_to t("menu.home"), '/', :class => "nav-link text-white" %></li>
-
-        <% if request.original_url.include? '/terms' %>
-          <li class="nav-item"><%= link_to "V1 Vocabulary", vocabulary_index_path(id: "terms"), :class => "nav-link text-white" %></li>
-        <% elsif request.original_url.include? '/v2' %>
-          <li class="nav-item"><%= link_to "V2 Vocabulary", vocabulary_index_path(id: "v2"), :class => "nav-link text-white" %></li>
-        <% else %>
-          <li class="nav-item"><%= link_to t("menu.vocab"), vocabulary_index_path(id: "v3"), :class => "nav-link text-white" %></li>
-        <% end %>
-
-
-        <% if request.original_url.include? '/terms' %>
-          <li class="nav-item"><%= link_to "V1 Search", vocabulary_search_results_path(id: "terms"), :class => "nav-link text-white" %></li>
-        <% elsif request.original_url.include? '/v2' %>
-          <li class="nav-item"><%= link_to "V2 Search", vocabulary_search_results_path(id: "v2") , :class => "nav-link text-white" %></li>
-        <% else %>
-          <li class="nav-item"><%= link_to t("menu.search"), vocabulary_search_results_path(id: "v3") , :class => "nav-link text-white" %></li>
-        <% end %>
+	<li class="nav-item"><%= link_to "#{vocab.version.upcase} #{t('menu.vocab')}", vocabulary_index_path(id: vocab.identifier), :class => "nav-link text-white" %></li>
+	<li class="nav-item"><%= link_to "#{vocab.version.upcase} #{t('menu.search')}", vocabulary_search_results_path(id: vocab.identifier), :class => "nav-link text-white" %></li>
 
         <li class="nav-item"><%= link_to t("menu.releases"), release_path, :class => "nav-link text-white" %></li>
 
@@ -77,10 +63,10 @@
                 <li><%= link_to t("menu.profile"), profile_path, :class=>"dropdown-item text-white" %></li>
               <% if current_user.contributor? %>
                 <li class="divider"></li>
-                <li><%= link_to t("menu.add_term"), vocabulary_term_new_path(vocab_id: "v3"), :class=>"dropdown-item text-white" %></li>
+                <li><%= link_to t("menu.add_term"), vocabulary_term_new_path(vocab_id: vocab.identifier), :class=>"dropdown-item text-white" %></li>
 	      <% elsif current_user.suggester? %>
                 <li class="divider"></li>
-                <li><%= link_to t("menu.suggest_term"), vocabulary_term_new_path(vocab_id: "v3"), :class=>"dropdown-item text-white" %></li>
+                <li><%= link_to t("menu.suggest_term"), vocabulary_term_new_path(vocab_id: vocab.identifier), :class=>"dropdown-item text-white" %></li>
               <% end %>
               <% if current_user.superuser? %>
                 <li class="divider"></li>

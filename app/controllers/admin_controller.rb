@@ -2,14 +2,26 @@ class AdminController < ApplicationController
   before_action :verify_permission
   # Create a new release
   def version_new
+    vocab_identifier = Vocabulary.last.identifier
+    vocab_id = Vocabulary.last.id
+    if params[:release_type] == "Major"
+      vocab_identifier = "v#{Vocabulary.last.id + 1}"
+      vocab_id = vocab_id + 1
+      @vocabulary = Vocabulary.create(
+        identifier: vocab_identifier,
+        base_uri: "https://homosaurus.org/#{vocab_identifier}",
+        solr_model: "Homosaurus#{vocab_identifier.upcase}",
+        visibility: "pending",
+        version: vocab_identifier)
+    end
     @version_release = VersionRelease.create(
       #:id => pendings.id - 1,
       :release_identifier => VersionRelease::get_next_identifier(params[:release_type]),
       :release_type => params[:release_type],
       :created_at => DateTime.now,
       :updated_at => DateTime.now,
-      :vocabulary_identifier => "v3",
-      :vocabulary_id => 3,
+      :vocabulary_identifier => vocab_identifier,
+      :vocabulary_id => vocab_id,
       :status => "Pending")
     shuffle_pending_terms()
     redirect_to version_manage_path
@@ -19,6 +31,9 @@ class AdminController < ApplicationController
     @vr = VersionRelease.find_by(release_identifier: params[:release_identifier])
     @vr.update(status: "Published")
     @vr.update(release_date: DateTime.now)
+    if @vr.release_type == "Major"
+      Vocabulary.find_by(id: @vr.vocabulary_id).update(visibility: "visible")
+    end
     @vr.approved_edit_requests.each do |er|
       if er.term.visibility == "pending"
         er.term.update(visibility: "visible")

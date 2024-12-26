@@ -27,20 +27,20 @@
 <% end %>
 <p><div style="clear:both;">
   <% if params[:from_q].present? %>
-      <%= button_to t("term.back_to_search"), vocabulary_search_results_path(id: @homosaurus_obj.vocabulary_identifier), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary', style:"float:left;", params: { :q=>params[:from_q]} %>
+      <%= button_to t("term.back_to_search"), vocabulary_search_results_path(id: @vocab_id), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary', style:"float:left;", params: { :q=>params[:from_q]} %>
   <% else %>
-      <%= button_to t("term.back_to_index"), vocabulary_index_path(id: @homosaurus_obj.vocabulary_identifier), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary' %>
+      <%= button_to t("term.back_to_index"), vocabulary_index_path(id: @vocab_id), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary' %>
   <% end %>
-  <%= button_to t("term.view_history"), vocabulary_term_history_path(vocab_id: @homosaurus_obj.vocabulary_identifier, id: @homosaurus_obj.identifier), :method => "get", form_class: form_class, class: "btn btn-outline-secondary" %>
+  <%= button_to t("term.view_history"), vocabulary_term_history_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: form_class, class: "btn btn-outline-secondary" %>
   <% if current_user.present? %>
-    <%= button_to t("edit_request.view_discussion"), vocabulary_term_discussion_path(vocab_id: @homosaurus_obj.vocabulary_identifier, id: @homosaurus_obj.identifier), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary' %>
+    <%= button_to t("edit_request.view_discussion"), vocabulary_term_discussion_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary' %>
   <% end %>
-  <% if current_user.present? && current_user.contributor? && request.original_url.include?('/v3') %>
-      <%= button_to t("term.edit_term"), vocabulary_term_edit_path(vocab_id: "v3", id: @homosaurus_obj.identifier), :method => "get", form_class: "#{form_class} btn-tooltip", class: 'btn btn-outline-secondary', disabled: editing_disabled, form: { "title" => awaiting_deletion ? "Awaiting deletion" : (editing_disabled ? "No pending releases" : "")} %>
+  <% if current_user.present? && current_user.contributor? && (request.original_url.include?('/v3') || request.original_url.include?('/v4')) %>
+      <%= button_to t("term.edit_term"), vocabulary_term_edit_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: "#{form_class} btn-tooltip", class: 'btn btn-outline-secondary', disabled: editing_disabled, form: { "title" => awaiting_deletion ? "Awaiting deletion" : (editing_disabled ? "No pending releases" : "")} %>
     <% if @homosaurus_obj.visibility == "deleted" %>
-      <%= button_to "Restore Term", vocabulary_term_restore_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => "get", form_class: form_class, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to restore #{@homosaurus_obj.pref_label}?" } %>
+      <%= button_to "Restore Term", vocabulary_term_restore_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier),  :method => "get", form_class: form_class, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to restore #{@homosaurus_obj.pref_label}?" } %>
     <% elsif @homosaurus_obj.visibility == "pending" %>
-      <%= button_to "Delete Pending Term", vocabulary_term_delete_version_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => :delete, form_class: form_class, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to delete the unpublished #{@homosaurus_obj.pref_label}?" } %>
+      <%= button_to "Delete Pending Term", vocabulary_term_delete_version_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier),  :method => :delete, form_class: form_class, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to delete the unpublished #{@homosaurus_obj.pref_label}?" } %>
     <% elsif current_user.admin? %>
     <button class="btn btn-danger"
 	    data-bs-toggle="modal" data-bs-target="#delete-term-modal"><%= t('term.delete_term') %></button>
@@ -199,7 +199,7 @@
 	</select>
 	<p>The redirect will occur in this version.</p>
 	<select id="vote-select" name="vid" class="form-select">
-	  <%= VersionRelease.where(status: "Pending").each do |vr| %>
+	  <%= VersionRelease.where(vocabulary_identifier: @vocab_id, status: "Pending").each do |vr| %>
 	  <option value="<%= vr.id %>"><%= vr.release_identifier %></option>
 	  <% end %>
 	</select>
@@ -218,7 +218,7 @@
      tab-index="-1" aria-hidden="true" aria-labelledby="delete-term-modal-label">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <%= form_with url: vocabulary_term_delete_path(vocab_id: "v3", id: @homosaurus_obj.identifier), method: :delete, local: true do |f| %>
+      <%= form_with url: vocabulary_term_delete_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), method: :delete, local: true do |f| %>
       <div class="modal-header">
         <h1 class="modal-title fs-5"><%= t("term.delete_term") %></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
