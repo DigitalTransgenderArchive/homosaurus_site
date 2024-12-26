@@ -1,5 +1,11 @@
 <% available_versions = VersionRelease.where(status: "Pending") %>
+<% current_pending_version = available_versions.select{|vr| vr.edit_requests.find_by(term_id: @term.id)}.pluck(:id) %>
+<% current_pending_version = current_pending_version.count > 0 ? current_pending_version[0] : nil %>
 <% disabled_versions = @term.edit_requests.select{|er| er.status == "approved"}.pluck(:version_release_id).uniq %>
+<% if current_pending_version %>
+  <% disabled_versions += available_versions.pluck(:id) %>
+  <% disabled_versions -= [current_pending_version] %>
+<% end %>
 <% open_vr_exists = ((available_versions.pluck(:id) - disabled_versions).count >= 1) %>
 <div class="row-padded">
   <h1><%= t('term.edit_term') %></h1>

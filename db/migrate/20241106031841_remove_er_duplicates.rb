@@ -1,5 +1,6 @@
 class RemoveErDuplicates < ActiveRecord::Migration[5.2]
   def up
+    # Loops through edit requests, removing items where the same term was linked twice in an ER
     EditRequest.all.each do |er|
       loc_changes = er.my_changes
       Relation.pluck(:id).each do |rid|

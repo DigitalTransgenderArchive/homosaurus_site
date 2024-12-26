@@ -262,9 +262,16 @@ class VocabularyController < ApplicationController
     @vocab_id = params[:vocab_id]
     @term = Term.find_by(vocabulary_identifier: @vocab_id, identifier: params[:id])
     unless params[:release_id]
-      valid_vids = VersionRelease.where(status:'Pending').reject{|vr| vr.edit_requests.find_by(term_id: @term.id) and vr.edit_requests.find_by(term_id: @term.id).status == "approved"}
+      # See if there's a current version
+      current_pending_version = VersionRelease.where(status:'Pending').select{|vr| vr.edit_requests.find_by(term_id: @term.id)}
+      current_pending_version = current_pending_version.count > 0 ? current_pending_version[0] : nil
+      # Find pending VIDS that have not yet been approved
+      valid_vids = VersionRelease.where(status:'Pending').reject{|vr|
+        vr.edit_requests.find_by(term_id: @term.id) and
+          vr.edit_requests.find_by(term_id: @term.id).status == "approved"}
+      redirect_id = (current_pending_version ? current_pending_version : valid_vids[0]).release_identifier
       redirect_to vocabulary_term_edit_version_path(vocab_id: @vocab_id, id: params[:id],
-                                                    release_id: valid_vids[-1].release_identifier)
+                                                    release_id: redirect_id)
       return
     end
     @release_id = params[:release_id]
