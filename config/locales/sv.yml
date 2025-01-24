@@ -109,6 +109,9 @@ sv:
     '8': Relaterade
     '9': LCSH motsvarar
     identifier: Identifierare
+    issued: Utfärdad (skapad)
+    modified: Ändrad
+    replaces: Ersätter
   release:
     label: Version
     updates: Uppdateringar

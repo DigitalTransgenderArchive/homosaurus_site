@@ -10,6 +10,14 @@
   <div class="card-header text-bg-<%=panel_class%>">
     <% if rel_id == 'identifier' %>
     <a class="text-white" href="http://purl.org/dc/terms/identifier"><%= t("relations.identifier") %></a>
+    <% elsif rel_id == "issued" %>
+    <a class='text-white' href='http://purl.org/dc/terms/issued' target='blank'  title='Definition of Issued in the Dublin Core Terms Vocabulary'><%= t("relations.issued") %></a>
+    <% elsif rel_id == "modified" %>
+    <a class='text-white' href='http://purl.org/dc/terms/modified' target='blank'  title='Definition of Issued in the Dublin Core Terms Vocabulary'><%= t("relations.modified") %></a>
+    <% elsif rel_id == "replaces" %>
+    <a class='text-white' href='http://purl.org/dc/terms/modified' target='blank'  title='Definition of Issued in the Dublin Core Terms Vocabulary'><%= t("relations.replaces") %></a>
+    <% elsif rel_id == Relation::Replaced_by %>
+    <a class='text-white' href='http://purl.org/dc/terms/isReplacedBy' target='blank'  title='Definition of isReplacedBy in the Dublin Core Terms Vocabulary'><%= t("relations.5") %></a>
     <% else %>
     <%= title.html_safe %>
     <% end %>

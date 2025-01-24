@@ -108,6 +108,9 @@ fr:
     '8': Relié
     '9': Correspondance exacte avec LCSH
     identifier: Identifiant
+    issued: Publié (Créé)
+    modified: Modifié
+    replaces: Remplace
   release:
     label: Actualités
     updates: Mises à jour

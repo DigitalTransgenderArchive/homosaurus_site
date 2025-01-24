@@ -110,6 +110,9 @@ es:
     '8': Relacionado
     '9': LCSH Correspondencia exacta
     identifier: Identificador
+    issued: Emitido (creado)
+    modified: Modificado
+    replaces: Reemplaza
   release:
     label: Publicar
     updates: Actualizaciones

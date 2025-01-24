@@ -112,11 +112,13 @@
 
 <%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("issued"),
+     :rel_id => "issued",
      :values=>[@homosaurus_obj.created_at]}
 %>
 
 <%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("modified"),
+     :rel_id => "modified",
      :values=>[@homosaurus_obj.manual_update_date]}
 %>
 
@@ -140,11 +142,13 @@
 
 <%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("isReplacedBy"),
+     :rel_id => Relation::Replaced_by,
      :values=>[@homosaurus_obj.is_replaced_by]}
 %>
 
 <%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("replaces"),
+     :rel_id => "replaces",
      :values=>[@homosaurus_obj.replaces]}
 %>
 

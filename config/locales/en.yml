@@ -111,6 +111,9 @@ en:
     '8': Related
     '9': LCSH Exact Match
     identifier: Identifier
+    issued: Issued (Created)
+    modified: Modified
+    replaces: Replaces
   release:
     label: Release
     updates: Updates

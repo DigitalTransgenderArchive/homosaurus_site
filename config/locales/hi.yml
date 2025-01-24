@@ -112,6 +112,9 @@ hi:
     '8': संबन्धित शब्द
     '9': LCSH सटीक मिलान
     identifier: पहचानकर्ता
+    issued: जारी (बनाया गया)
+    modified: संशोधित
+    replaces: प्रतिस्थापित
   release:
     label: जारी किया गया संस्करण
     updates: अपडेट
