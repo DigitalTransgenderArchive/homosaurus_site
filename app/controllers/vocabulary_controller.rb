@@ -17,7 +17,8 @@ class VocabularyController < ApplicationController
     @vocab_identifier = identifier
     pp @vocab_identifier
     pp Vocabulary.find_by(identifier: identifier)
-    @terms = Vocabulary.find_by(identifier: identifier).terms.where(visibility: display_mode).order("lower(pref_label) ASC")
+    @terms = Vocabulary.find_by(identifier: identifier).terms.where(visibility: display_mode)#.order("lower(pref_label) ASC")
+    @terms = @terms.sort_by{|t| t.pref_label_localized().data}
     respond_to do |format|
       format.html
       format.nt { render body: Term.all_terms_full_graph(@terms).dump(:ntriples), :content_type => "application/n-triples" }

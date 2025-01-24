@@ -136,7 +136,7 @@ class Term < ActiveRecord::Base
       return TermRelationship.new(term_id: self.id, relation_id: Relation::Pref_label, language_id: tr[0], data: tr[1])
       #return self.get_relationships_at_version_release(VersionRelease.pluck(:id)[-1])
     end
-    return self.term_relationships.where(relation_id: Relation::Pref_label).order("language_id = '#{lang_id}' DESC")[0]
+    return self.term_relationships.where(relation_id: Relation::Pref_label).order("language_id = '#{lang_id.to_s}' DESC")[0]
   end
   def uri_localized(lang_id = I18n.locale)
     return self.uri.sub('//', "//#{lang_id}.")
