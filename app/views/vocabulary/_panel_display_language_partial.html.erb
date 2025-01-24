@@ -21,7 +21,7 @@
           <td><%= value[1]  %></td>
 
           <td width="100px;"><div class="well_language clear:both;">
-              <%= value[0] %>
+              <%= value[0].nil? ? nil : Language.find_by(id: value[0]).supported ? I18n.translate("languages.#{value[0]}") : Language.find_by(id: value[0]).name  %>
           </div></td>
         </tr>
         <% end %>

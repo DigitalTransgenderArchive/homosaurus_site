@@ -186,7 +186,8 @@ class Term < ActiveRecord::Base
     my_hist.each do |er|
       Relation.all().pluck(:id).each do |rel_id|
         er.my_changes[rel_id].each do |rc|
-          lang_id = rc[1].nil? ? nil : (full_lang ? Language.find_by(id: rc[1]).name : rc[1])
+          #lang_id = rc[1].nil? ? nil : (full_lang ? Language.find_by(id: rc[1]).name : rc[1])
+          lang_id = rc[1]
           rel_change = [lang_id, rc[2]]
           if rc[0] == "+"
             values[rel_id] << rel_change
@@ -194,6 +195,7 @@ class Term < ActiveRecord::Base
             values[rel_id].delete(rel_change)
           end
         end
+        values[rel_id].sort_by!{|i| i[0] == I18n.locale.to_s ? 0 : 1}
       end
       values["identifier"] = er.my_changes["identifier"]
       values["uri"] = er.my_changes["uri"]
