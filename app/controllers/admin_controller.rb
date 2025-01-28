@@ -66,7 +66,9 @@ class AdminController < ApplicationController
     end
     shuffle_pending_terms()
     Spawnling.new do
-      DSolr.reindex_all
+      @vr.vocabulary.terms.all.each do |t|
+        t.send_solr(@vr.vocabulary)
+      end
     end
     redirect_to version_manage_path
   end

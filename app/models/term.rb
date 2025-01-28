@@ -511,40 +511,41 @@ class Term < ActiveRecord::Base
     DSolr.delete_by_id "homosaurus/#{self.vocabulary.identifier}/#{self.identifier}"
   end
 
-  def send_solr
-    DSolr.delete_by_id("homosaurus/#{self.vocabulary_identifier}/#{self.identifier}")
-    doc = generate_solr_content
+  def send_solr(vocab=Vocabulary.last)
+    DSolr.delete_by_id("homosaurus/#{vocab.identifier}/#{self.identifier}")
+    doc = generate_solr_content(vocab, {})
     DSolr.put doc
   end
 
-  def generate_solr_content(doc={})
-    trs = self.term_relationships
+  def generate_solr_content(vocab=Vocabulary.last, doc={})
+    vr = vocab.version_releases.where(status: "Published").last
+    trs = self.get_relationships_at_version_release(vr.id)
     latest_release = self.latest_published_release
     
     # FIXME: id prefix fix? Next time.
-    doc[:id] = "homosaurus/#{self.vocabulary.identifier}/#{self.identifier}"
+    doc[:id] = "homosaurus/#{vocab.identifier}/#{self.identifier}"
     doc[:identifier_ssi] = self.identifier
     doc[:system_create_dtsi] = "#{self.created_at.iso8601}"
     doc[:system_modified_dtsi] = "#{self.updated_at.iso8601}"
-    doc[:model_ssi] = self.vocabulary.solr_model
+    doc[:model_ssi] = vocab.solr_model
     doc[:has_model_ssim] = [doc[:model_ssi]]
     doc[:date_created_tesim] = [self.created_at.iso8601.split('T')[0]]
     doc[:date_created_ssim] = doc[:date_created_tesim]
     doc[:issued_dtsi] = doc[:system_create_dtsi]
     doc[:modified_dtsi] = doc[:system_modified_dtsi]
 
-    doc[:version_ssi] = self.vocabulary.version
+    doc[:version_ssi] = vocab.version
 
-    doc[:prefLabel_ssim] = trs.where(relation_id: Relation::Pref_label).map{|tr| "#{tr.data}"}
+    doc[:prefLabel_ssim] = trs[Relation::Pref_label].map{|tr| "#{tr[1]}"}
     doc[:prefLabel_tesim] = doc[:prefLabel_ssim]
-    doc[:prefLabel_language_ssim] = trs.where(relation_id: Relation::Pref_label).map{|tr| "#{tr.data}@#{tr.language_id}"}
-    doc[:broader_uri_ssim] = trs.where(relation_id: Relation::Broader).map{|tr| Term.find_by(id: tr.data.to_i).uri}
-    doc[:related_uri_ssim] = trs.where(relation_id: Relation::Related).map{|tr| Term.find_by(id: tr.data.to_i).uri}
-    doc[:narrower_uri_ssim] = trs.where(relation_id: Relation::Narrower).map{|tr| Term.find_by(id: tr.data.to_i).uri}
+    doc[:prefLabel_language_ssim] = trs[Relation::Pref_label].map{|tr| "#{tr[1]}@#{tr[0]}"}
+    doc[:broader_uri_ssim] = trs[Relation::Broader].map{|tr| Term.find_by(id: tr[1].to_i).uri}
+    doc[:related_uri_ssim] = trs[Relation::Related].map{|tr| Term.find_by(id: tr[1].to_i).uri}
+    doc[:narrower_uri_ssim] = trs[Relation::Narrower].map{|tr| Term.find_by(id: tr[1].to_i).uri}
 
-    doc[:broader_ssim] = trs.where(relation_id: Relation::Broader).map{|tr| Term.find_by(id: tr.data.to_i).identifier}
-    doc[:related_ssim] = trs.where(relation_id: Relation::Related).map{|tr| Term.find_by(id: tr.data.to_i).identifier}
-    doc[:narrower_ssim] = trs.where(relation_id: Relation::Narrower).map{|tr| Term.find_by(id: tr.data.to_i).identifier}
+    doc[:broader_ssim] = trs[Relation::Broader].map{|tr| Term.find_by(id: tr[1].to_i).identifier}
+    doc[:related_ssim] = trs[Relation::Related].map{|tr| Term.find_by(id: tr[1].to_i).identifier}
+    doc[:narrower_ssim] = trs[Relation::Narrower].map{|tr| Term.find_by(id: tr[1].to_i).identifier}
 
     doc[:closeMatch_ssim] = self.close_match
     doc[:exactMatch_ssim] = self.exact_match
@@ -553,28 +554,28 @@ class Term < ActiveRecord::Base
 
 
     #doc[:altLabel_ssim] = doc[:altLabel_tesim]
-    doc[:altLabel_tesim] = trs.where(relation_id: Relation::Alt_label).map{|tr| "#{tr.data}"}
+    doc[:altLabel_tesim] = trs[Relation::Alt_label].map{|tr| "#{tr[1]}"}
     doc[:altLabel_ssim] = doc[:altLabel_tesim]
-    doc[:altLabel_language_ssim] = trs.where(relation_id: Relation::Alt_label).map{|tr| "#{tr.data}@#{tr.language_id}"}
+    doc[:altLabel_language_ssim] = trs[Relation::Alt_label].map{|tr| "#{tr[1]}@#{tr[0]}"}
 
     #doc[:description_ssi] = self.description
-    doc[:description_tesim] = trs.where(relation_id: Relation::Description).map{|tr| "#{tr.data}@#{tr.language_id}"}
+    doc[:description_tesim] = trs[Relation::Description].map{|tr| "#{tr[1]}@#{tr[0]}"}
     doc[:description_ssim] = doc[:description_tesim]
     
-    doc[:languageLabel_ssim] = trs.where(relation_id: Relation::Label).map{|tr| "#{tr.data}@#{tr.language_id}"}
+    doc[:languageLabel_ssim] = trs[Relation::Label].map{|tr| "#{tr[1]}@#{tr[0]}"}
 
     doc[:exactMatch_ssim] = self.exact_match.dup
     doc[:closeMatch_ssim] = self.close_match.dup
 
-    doc[:dta_homosaurus_lcase_prefLabel_ssim] = trs.where(relation_id: Relation::Pref_label).map{|tr| "#{tr.data.downcase}"}
-    doc[:dta_homosaurus_lcase_altLabel_ssim] = trs.where(relation_id: Relation::Alt_label).map{|tr| "#{tr.data.downcase}"}
+    doc[:dta_homosaurus_lcase_prefLabel_ssim] = trs[Relation::Pref_label].map{|tr| "#{tr[1].downcase}"}
+    doc[:dta_homosaurus_lcase_altLabel_ssim] = trs[Relation::Alt_label].map{|tr| "#{tr[1].downcase}"}
     
     # doc[:topConcept_ssim] = []
     # doc[:topConcept_ssim] << self.get_broadest(20).uri
     # doc[:topConcept_ssim].uniq!
     # doc[:topConcept_uri_ssim] = self.get_broadest(latest_release.id).uri
-    doc[:new_model_ssi] = self.vocabulary.solr_model + 'Subject'
-    doc[:active_fedora_model_ssi] = self.vocabulary.solr_model
+    doc[:new_model_ssi] = vocab.solr_model + 'Subject'
+    doc[:active_fedora_model_ssi] = vocab.solr_model
     doc[:visibility_ssi] = self.visibility
     doc
   end

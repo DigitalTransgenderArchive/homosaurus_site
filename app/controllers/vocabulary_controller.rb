@@ -94,7 +94,7 @@ class VocabularyController < ApplicationController
     @edit_requests = @homosaurus_obj.get_edit_requests()
     logger.debug @edit_requests
     if not current_user.present?
-      @edit_requests.reject!{|er| er.version_release.status != "Published" or er.vote_status != "approved"}
+      @edit_requests.reject!{|er| er.version_release.status != "Published" }
     end
     respond_to do |format|
       format.html
