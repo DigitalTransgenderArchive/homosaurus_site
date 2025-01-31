@@ -165,7 +165,7 @@
 %>
 
 <h3><%= t("term.hierarchy_label") %></h3>
-<% if  @homosaurus_obj.broader.blank? %>
+<% if vr_relations[Relation::Broader].count == 0 %>
   <div style="padding-left:0px;">No Broader Term</div>
 <% else %>
   <% vr_relations[Relation::Broader].each do |broader| %>
