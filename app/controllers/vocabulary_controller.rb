@@ -220,7 +220,7 @@ class VocabularyController < ApplicationController
     @term.numeric_pid = identifier.split("homoit")[1].to_i
     @term.identifier = identifier
     @term.pid = "homosaurus/#{@vocab_id}/#{identifier}"
-    @term.uri = "https://homosaurus.org/#{vocab_id}/#{identifier}"
+    @term.uri = "https://homosaurus.org/#{@vocab_id}/#{identifier}"
     @term.vocabulary_identifier = @vocab_id
     @term.vocabulary = @vocabulary
     @term.visibility = "pending"

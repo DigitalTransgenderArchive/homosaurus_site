@@ -228,7 +228,7 @@ class Term < ActiveRecord::Base
   end
   # Get latest published release term was edited in
   def latest_published_release
-    published_releases = self.get_edit_requests().reject{|er| er.vote_status != "approved" or er.version_release.status != "Published"}
+    published_releases = self.get_edit_requests().reject{|er| er.status != "approved" or er.version_release.status != "Published"}
     return published_releases.empty? ? nil : published_releases[0].version_release
   end
 
