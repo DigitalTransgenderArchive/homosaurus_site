@@ -6,13 +6,13 @@ class ReleaseController < ApplicationController
       @releases = @releases.where(status: "published")
     end
   end
-
   def show
     @host = request.host || "https://homosaurus.org"
     @release = VersionRelease.find_by(release_identifier: params[:release_id])
     unless @release.status == "Published" or current_user.present?
       redirect_to release_path() and return
     end
+    @vocab = @release.vocabulary
     @release_terms = @release.version_release_terms
     @release_terms = @release_terms.sort_by { |release_term| ActiveSupport::Inflector.transliterate(release_term.term.pref_label.downcase) }
     @terms = @release_terms.map { |rt| rt.term }
@@ -20,19 +20,15 @@ class ReleaseController < ApplicationController
     # Replaces can duplicate?
     @terms.uniq!
     identifier = @release.release_identifier.gsub('.', '_')
-
+    path = Rails.root.join("public", "static_dumps", @vocab.identifier, @release.release_identifier)
     respond_to do |format|
       format.html
-      format.nt { render body: Term.all_terms_full_graph(@terms).dump(:ntriples), :content_type => "application/n-triples" }
-      format.jsonld { render body: Term.all_terms_full_graph(@terms).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-      format.ttl { render body: Term.all_terms_full_graph(@terms).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
-      format.csv { send_data Term.csv_download(@terms), filename: "Homosaurus_#{identifier}_#{Date.today}.csv" }
-      format.xml { render body: Term.xml_basic_for_terms(@terms), :content_type => 'text/xml' }
-      format.marc { render body: Term.marc_basic_for_terms(@terms), :content_type => 'text/xml' }
-
-      format.ntV2 { render body: Term.all_terms_full_graph_v2(@terms).dump(:ntriples), :content_type => "application/n-triples" }
-      format.jsonldV2 { render body: Term.all_terms_full_graph_v2(@terms).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-      format.ttlV2 { render body: Term.all_terms_full_graph_v2(@terms).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
+      format.jsonld { render file: path.to_s + ".jsonld" }
+      format.csv    { render file: path.to_s + ".csv" }
+      format.marc   { render file: path.to_s + ".marc" }
+      format.xml    { render file: path.to_s + ".xml" }
+      format.nt     { render file: path.to_s + ".nt" }
+      format.ttl    { render file: path.to_s + ".ttl" }
     end
 
   end

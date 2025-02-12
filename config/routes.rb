@@ -26,7 +26,11 @@ Rails.application.routes.draw do
 
   # releases
   get 'releases' => 'release#index', as: :release
-  get 'releases/show/:release_id' => 'release#show', as: :release_show, constraints: { release_id: /.*/ }
+  #get 'releases/show/:release_id' => 'release#show', as: :release_show, constraints: { release_id: /.*/ }
+  get 'releases/show/:release_id' => 'release#show', as: :release_show, constraints: { release_id: /[\d\.]+/ }
+  #get '/:releases/show/:release_id' => 'release#version_release', constraints: { release_id: /[\d\.]+/, format: [:json, :csv] }
+    
+  
 
   # Archives releases
   get 'releases/archive/release_notes_2_1' => 'release#release_notes_2_1', as: :archive_release_2_1
@@ -83,6 +87,8 @@ Rails.application.routes.draw do
 
   #LCSH handling
   post '/add_lcsh' => 'vocabulary#add_new_LCSH', as: :vocabulary_add_lcsh
+  
+  get '/:vocab_id/:release_id' => 'vocabulary#version_release', constraints: { release_id: /[\d\.]+/, format: [:json, :csv] }
   
   # These have to be last
   get ':id' => 'vocabulary#index', as: :vocabulary_index

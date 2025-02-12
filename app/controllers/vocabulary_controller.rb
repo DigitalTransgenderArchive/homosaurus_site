@@ -5,6 +5,14 @@ class VocabularyController < ApplicationController
   before_action :verify_admin_permissions, :only => [:approve_release]
   before_action :verify_super_permissions, :only => [:restore]
 
+  def version_release
+    vid = params[:vocab_id]
+    vrid = params[:release_id]
+    VersionRelease.find_by(identifier: id)
+    if Vocabulary.find_by(identifier: vid) and VersionRelease.find_by(release_identifier: vrid)
+      render file: "#{Rails.root}/public/static_dumps/#{vid}/#{vrid}.#{params[:format]}"
+    end
+  end
   # Show the index for a vocabulary
   def index
     identifier = params[:id]
@@ -15,18 +23,23 @@ class VocabularyController < ApplicationController
     display_mode = params[:display_mode]
     display_mode ||= "visible"
     @vocab_identifier = identifier
-    pp @vocab_identifier
-    pp Vocabulary.find_by(identifier: identifier)
-    @terms = Vocabulary.find_by(identifier: identifier).terms.where(visibility: display_mode)#.order("lower(pref_label) ASC")
+    @vocab = Vocabulary.find_by(identifier: identifier)
+    @terms = @vocab.terms.where(visibility: display_mode)#.order("lower(pref_label) ASC")
+
     @terms = @terms.sort_by{|t| t.pref_label_localized().data}
+
+    latest_published_release = @vocab.version_releases.where(status: "published").last
+    path = Rails.root.join("public", "static_dumps", @vocab.identifier, latest_published_release.release_identifier)
+    
     respond_to do |format|
       format.html
-      format.nt { render body: Term.all_terms_full_graph(@terms).dump(:ntriples), :content_type => "application/n-triples" }
-      format.jsonld { render body: Term.all_terms_full_graph(@terms).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-      format.ttl { render body: Term.all_terms_full_graph(@terms).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
-      format.csv { send_data Term.csv_download(@terms, @edited_terms), filename: "Homosaurus_#{identifier}_#{Date.today}.csv" }
-      format.xml { render body: Term.xml_basic_for_terms(@terms), :content_type => 'text/xml' }
-      format.marc { render body: Term.marc_basic_for_terms(@terms), :content_type => 'text/xml' }
+      format.jsonld { render file: path.to_s + ".jsonld" }
+      # format.nt { render body: Term.all_terms_full_graph(@terms).dump(:ntriples), :content_type => "application/n-triples" }
+      # format.jsonld { render body: Term.all_terms_full_graph(@terms).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+      # format.ttl { render body: Term.all_terms_full_graph(@terms).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
+      # format.csv { send_data Term.csv_download(@terms, @edited_terms), filename: "Homosaurus_#{identifier}_#{Date.today}.csv" }
+      # format.xml { render body: Term.xml_basic_for_terms(@terms), :content_type => 'text/xml' }
+      # format.marc { render body: Term.marc_basic_for_terms(@terms), :content_type => 'text/xml' }
 
       format.ntV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false).dump(:ntriples), :content_type => "application/n-triples" }
       format.jsonldV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }

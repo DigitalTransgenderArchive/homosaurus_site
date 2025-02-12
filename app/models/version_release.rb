@@ -109,4 +109,40 @@ class VersionRelease < ActiveRecord::Base
     return true
   end
 
+  # Return all terms that exist in this version
+  def terms_in_version()
+    return self.vocabulary.terms.reject{|t| t.first_introduced().id > self.id}
+  end
+  
+  def generate_static_datafile(data, extension)
+
+    outpath = Rails.root.join("public", "static_dumps", self.vocabulary.identifier, self.release_identifier + ".#{extension}")
+    pp "===== WRITING #{outpath.to_s} ====="
+    
+    File.open(outpath, "w") {|file|
+      file.write(data)
+    }
+    pp "===== DONE ====="
+    
+  end
+  def generate_static_data
+    terms = self.terms_in_version()
+    graph = Term.all_terms_full_graph(terms, include_lang: true, version_release: self)
+
+    generate_static_datafile(graph.dump(:jsonld, standard_prefixes: true), "jsonld")
+    generate_static_datafile(graph.dump(:ttl, standard_prefixes: true), "ttl")
+    generate_static_datafile(graph.dump(:ntriples), "nt")
+
+    generate_static_datafile(Term.csv_download(terms), "csv")
+
+    xml_graph = Term.xml_basic_for_terms(terms, version_release: self)
+    generate_static_datafile(xml_graph, "xml")
+
+    marc_graph = Nokogiri::XSLT(File.read(Rails.root.join('app', 'assets', 'xslt', 'homosaurus_xml.xsl')))
+    marc_graph2 = marc_graph.transform(Nokogiri::XML(xml_graph))
+
+    generate_static_datafile(marc_graph2, "marc")
+    
+  end
+
 end

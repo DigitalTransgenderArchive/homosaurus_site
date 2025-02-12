@@ -232,6 +232,10 @@ class Term < ActiveRecord::Base
     return published_releases.empty? ? nil : published_releases[0].version_release
   end
 
+  # Get version release where term was first introduced
+  def first_introduced    
+    return self.get_edit_requests().last.version_release
+  end
   # Returns whether a translation exists for a given language
   # Translation = description, >1 (preferred/alt/normal) label, >1 broader/narrower/related terms
   def translation_exists?(lang_id)
@@ -355,16 +359,17 @@ class Term < ActiveRecord::Base
     csv_string
   end
 
-  def self.all_terms_full_graph(terms, include_lang: true)
+  def self.all_terms_full_graph(terms, include_lang: true, version_release: nil)
     graph = ::RDF::Graph.new
 
     terms.each do |current_term|
-      current_term.full_graph(graph: graph, include_lang: include_lang)
+      current_term.full_graph(graph: graph, include_lang: include_lang, version_release: version_release)
     end
     graph
   end
 
-  def full_graph(graph: nil, include_lang: true)
+  def full_graph(graph: nil, include_lang: true, version_release: nil)
+    
     graph = graph.nil? ? ::RDF::Graph.new : graph
     string_func = ->(r) { include_lang ? ::RDF::Literal.new(r[1], language: r[0].to_sym) : "#{r[1]}" }
     base_uri = ::RDF::URI.new("#{self.uri}")
@@ -372,8 +377,11 @@ class Term < ActiveRecord::Base
     
     # latest_release = self.latest_published_release
     # relationships = self.get_relationships_at_version_release(latest_release.id)
-
-    relationships = self.get_relationships_at_latest_published_release()
+    if version_release.nil?
+      relationships = self.get_relationships_at_latest_published_release()
+    else
+      relationships = self.get_relationships_at_version_release(version_release.id)
+    end
 
     relationships[Relation::Pref_label].each do |r|
       graph << [base_uri, ::RDF::Vocab::SKOS.prefLabel, string_func.call(r)]
@@ -437,15 +445,18 @@ class Term < ActiveRecord::Base
     json_graph.to_json
   end
 
-  def xml_basic
-    latest_release = self.latest_published_release
-    relationships = self.get_relationships_at_version_release(latest_release.id)
+  def xml_basic(version_release: nil)
+    version_release = version_release.nil? ? self.latest_published_release : version_release
+    relationships = self.get_relationships_at_version_release(version_release.id)
     
     builder = Nokogiri::XML::Builder.new do |xml|
       xml.record {
         xml.id self.uri
         xml.identifier self.identifier
-        xml.prefLabel self.pref_label
+        #xml.prefLabel self.pref_label
+        relationships[Relation::Pref_label].each do |r|
+          xml.prefLabel(r[1], :language => r[0])
+        end
 
         xml.issued {
           xml.value self.created_at.iso8601.split('T')[0]
@@ -458,28 +469,34 @@ class Term < ActiveRecord::Base
 
         relationships[Relation::Broader].each do |r|
           rel_term = Term.find_by(id: r[1])
+          pflb = rel_term.pref_label_localized()
           xml.broader {
             xml.id rel_term.uri
-            xml.prefLabel rel_term.pref_label
+            xml.prefLabel(pflb.data, :language => pflb.language_id)
           }
         end
 
         relationships[Relation::Narrower].each do |r|
           rel_term = Term.find_by(id: r[1])
+          pflb = rel_term.pref_label_localized()
           xml.narrower {
             xml.id rel_term.uri
-            xml.prefLabel rel_term.pref_label
+            xml.prefLabel(pflb.data, :language => pflb.language_id)
           }
         end
 
         relationships[Relation::Related].each do |r|
           rel_term = Term.find_by(id: r[1])
+          pflb = rel_term.pref_label_localized()
           xml.related {
             xml.id rel_term.uri
-            xml.prefLabel rel_term.pref_label
+            xml.prefLabel(pflb.data, :language => pflb.language_id)
           }
         end
-        xml.comment_ self.description
+        #xml.comment_ self.description
+        relationships[Relation::Description].each do |r|
+          xml.comment_(r[1], :language => r[0])
+        end
       }
     end
 
@@ -491,11 +508,11 @@ class Term < ActiveRecord::Base
     xslt.transform(Nokogiri::XML(self.xml_basic))
   end
 
-  def self.xml_basic_for_terms(terms)
+  def self.xml_basic_for_terms(terms, version_release: nil)
     builder = Nokogiri::XML::Builder.new do |xml|
       xml.records do |r|
         terms.each do |term|
-          r << term.xml_basic.gsub("<?xml version=\"1.0\"?>", "")
+          r << term.xml_basic(version_release: version_release).gsub("<?xml version=\"1.0\"?>", "")
         end
       end
     end
