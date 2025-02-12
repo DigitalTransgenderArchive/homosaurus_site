@@ -66,9 +66,11 @@ class AdminController < ApplicationController
     end
     shuffle_pending_terms()
     Spawnling.new do
+      docs = []
       @vr.vocabulary.terms.all.each do |t|
-        t.send_solr(@vr.vocabulary)
+        docs.append(t.generate_solr_content(@vr.vocabulary, {}))
       end
+      DSolr.put_docs docs
     end
     redirect_to version_manage_path
   end
