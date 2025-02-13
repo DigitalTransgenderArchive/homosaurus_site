@@ -119,7 +119,7 @@
 <%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("modified"),
      :rel_id => "modified",
-     :values=>[@homosaurus_obj.manual_update_date]}
+     :values=>[@homosaurus_obj.updated_at]}
 %>
 
 <%= render :partial => "panel_display_relation_partial", :locals =>

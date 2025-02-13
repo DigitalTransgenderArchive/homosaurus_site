@@ -128,7 +128,7 @@ end
       <% cur = edit_request.my_changes[field]
 	 prev_term = edit_request.previous() %>
       <% if prev_term.nil? or (prev_term.my_changes[field] != cur) %>
-        <h4><%= field == "identifier" ? t("relations.identifier") : field.capitalize %></h4>
+        <h4><%= field == "identifier" ? t("relations.identifier") : field.upcase %></h4>
 	<table class="table">
 	  <% unless prev_term.nil? %>
           <tr class="table-danger">

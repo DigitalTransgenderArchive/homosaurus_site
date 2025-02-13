@@ -53,7 +53,7 @@ class AdminController < ApplicationController
                                   data: rel[1])
         end
       end
-
+      t.update(updated_at: er.children.last.created_at)
       if tr[Relation::Redirects_to].count > 0
         if tr[Relation::Redirects_to][0][1] == "0"
           t.update(visibility: "deleted")
