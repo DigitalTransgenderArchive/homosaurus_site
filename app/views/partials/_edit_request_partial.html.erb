@@ -14,7 +14,8 @@
     if edit_request.my_changes[r].count > 0
       is_linked_new = false
     end
-end
+  end
+  release_id = edit_request.version_release.id
   release_identifier = edit_request.version_release.release_identifier
   if release_identifier == "unversioned"
     release_identifier = "?"

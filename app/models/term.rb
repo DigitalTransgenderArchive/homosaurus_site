@@ -155,25 +155,31 @@ class Term < ActiveRecord::Base
   end
 
   # Get TermRelationship(s) at the point of a specified version release
-  def get_relationship_at_version_release(rel_id, vid)
+  def get_relationship_at_version_release(rel_id, vid, lang_id = I18n.locale)
     my_hist = self.get_edit_requests().reverse()
     values = Array.new
     my_hist.each do |er|
       if er.version_release_id > vid
         break
       end
-      er.my_changes[rel_id].each do |rc|
-        rel_change = [rc[1], rc[2]]
-        if rc[0] == "+"
-          values << rel_change
-        else
-          values.delete(rel_change)
+      if rel_id == "identifier" 
+        values = er.my_changes[rel_id]
+      elsif rel_id == "uri"
+        values = er.my_changes[rel_id].sub('//', "//#{lang_id}.")
+      else
+        er.my_changes[rel_id].each do |rc|
+          rel_change = [rc[1], rc[2]]
+          if rc[0] == "+"
+            values << rel_change
+          else
+            values.delete(rel_change)
+          end
         end
       end
     end
     return values
   end
-  def get_relationships_at_version_release(vid, full_lang = false)
+  def get_relationships_at_version_release(vid, full_lang = false, lang_id = I18n.locale)
     values = Relation.all().pluck(:id).map{|rel_id| [rel_id, []]}.to_h
     if vid.nil?
       return values
@@ -198,7 +204,7 @@ class Term < ActiveRecord::Base
         values[rel_id].sort_by!{|i| i[0] == I18n.locale.to_s ? 0 : 1}
       end
       values["identifier"] = er.my_changes["identifier"]
-      values["uri"] = er.my_changes["uri"]
+      values["uri"] = er.my_changes["uri"].sub('//', "//#{lang_id}.")
     end
     return values
   end
