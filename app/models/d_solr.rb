@@ -25,6 +25,13 @@ class DSolr
     solr.update data: '<commit/>', headers: { 'Content-Type' => 'text/xml' } if commit
   end
 
+  def self.put_docs(docs, commit=true)
+    solr = RSolr.connect :url => Settings.solr_url, update_format: :json
+    solr.delete_by_id docs.map{|d| d[:id]}
+    solr.add docs
+    solr.update data: '<commit/>', headers: { 'Content-Type' => 'text/xml' } if commit
+  end
+
   def self.commit
     solr = RSolr.connect :url => Settings.solr_url, update_format: :json
     solr.update data: '<commit/>', headers: { 'Content-Type' => 'text/xml' }

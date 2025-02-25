@@ -14,7 +14,8 @@
     if edit_request.my_changes[r].count > 0
       is_linked_new = false
     end
-end
+  end
+  release_id = edit_request.version_release.id
   release_identifier = edit_request.version_release.release_identifier
   if release_identifier == "unversioned"
     release_identifier = "?"
@@ -128,7 +129,7 @@ end
       <% cur = edit_request.my_changes[field]
 	 prev_term = edit_request.previous() %>
       <% if prev_term.nil? or (prev_term.my_changes[field] != cur) %>
-        <h4><%= field == "identifier" ? t("relations.identifier") : field.capitalize %></h4>
+        <h4><%= field == "identifier" ? t("relations.identifier") : field.upcase %></h4>
 	<table class="table">
 	  <% unless prev_term.nil? %>
           <tr class="table-danger">

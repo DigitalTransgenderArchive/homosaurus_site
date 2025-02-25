@@ -6,11 +6,13 @@ class SolrUpdates < ActiveRecord::Migration[5.2]
     x = EditRequest.find_by(id: 7091).my_changes
     x[4] = x[4].last(2)
     EditRequest.find_by(id: 7091).update(my_changes: x)
-    
     Vocabulary.last(2).each do |v|
+      docs = []
       v.terms.all.each do |t|
-        t.send_solr(v)
+        pp "==== #{v.identifier}/#{t.identifier} ===="
+        docs.append(t.generate_solr_content(v, {}))
       end
+      DSolr.put_docs docs
     end
   end
   def down
