@@ -3,6 +3,9 @@ class Vocabulary < ActiveRecord::Base
   has_many :terms
   has_many :version_releases
 
+  def self.latest
+    return Vocabulary.where(visibility: "visibile").last.version
+  end
   def self.migrate_v1_from_dta
     voc = Vocabulary.find_by(identifier: "terms")
     if voc.blank?

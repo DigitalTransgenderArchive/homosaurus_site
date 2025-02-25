@@ -31,7 +31,7 @@ class Term < ActiveRecord::Base
   serialize :contributors, Array
   serialize :sources, Array
 
-  def self.mint(vocab_id: "v3")
+  def self.mint(vocab_id: Vocabulary.latest)
     numeric_pid = Term.where(vocabulary_identifier: vocab_id).maximum(:numeric_pid) || 0
     numeric_pid = numeric_pid + 1
     numeric_pid

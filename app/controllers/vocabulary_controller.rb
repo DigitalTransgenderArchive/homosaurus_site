@@ -269,7 +269,7 @@ class VocabularyController < ApplicationController
     er_change.save!
     @term.save!
     Term.find_by(id: @term.id).add_relations(params[:version_release].to_i, current_user.id)
-    redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "HomosaurusV3 pending term created!"
+    redirect_to vocabulary_show_path(vocab_id: Vocabulary.latest,  id: @term.identifier), notice: "HomosaurusV3 pending term created!"
   end
   # Initialize term editing page
   def edit
@@ -403,9 +403,9 @@ class VocabularyController < ApplicationController
       er_change.update(parent_id: er.id)
       er_change.save!
       er_change.make_linked_changes()
-      redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "HomosaurusV3 pending term updated!"
+      redirect_to vocabulary_show_path(vocab_id: Vocabulary.latest,  id: @term.identifier), notice: "HomosaurusV3 pending term updated!"
     else
-      redirect_to vocabulary_term_edit_path(vocab_id: "v3",  id: @term.identifier), notice: "No changes were made."
+      redirect_to vocabulary_term_edit_path(vocab_id: Vocabulary.latest,  id: @term.identifier), notice: "No changes were made."
     end
   end
 
@@ -427,12 +427,12 @@ class VocabularyController < ApplicationController
   # FIX the related stuff not needing identifiers for value
   def update_immediate
     if !params[:term][:identifier].match(/^[0-9a-zA-Z_\-+]+$/) || params[:term][:identifier].match(/ /)
-      redirect_to vocabulary_show_path(vocab_id: "v3", id: params[:id]), notice: "Please use camel case for identifier like 'discrimationWithAbleism'... do not use spaces. Contact K.J. if this is seen for some other valid entry."
+      redirect_to vocabulary_show_path(vocab_id: Vocabulary.latest, id: params[:id]), notice: "Please use camel case for identifier like 'discrimationWithAbleism'... do not use spaces. Contact K.J. if this is seen for some other valid entry."
     else
       ActiveRecord::Base.transaction do
-        @term = Term.find_by(vocabulary_identifier: "v3", identifier: params[:id])
+        @term = Term.find_by(vocabulary_identifier: Vocabulary.latest, identifier: params[:id])
 
-        pid = "homosaurus/v3/#{params[:term][:identifier]}"
+        pid = "homosaurus/#{Vocabulary.latest}/#{params[:term][:identifier]}"
         pid_original = @term.pid
 
         #FIXME: Only do this if changed...
@@ -465,7 +465,7 @@ class VocabularyController < ApplicationController
         @term.related = []
 
         @term.pid = pid
-        @term.uri = "https://homosaurus.org/v3/#{params[:term][:identifier]}"
+        @term.uri = "https://homosaurus.org/#{Vocabulary.latest}/#{params[:term][:identifier]}"
         @term.identifier = params[:term][:identifier]
 
         set_match_relationship(params[:term], "exact_match_lcsh")
@@ -532,9 +532,9 @@ class VocabularyController < ApplicationController
           if pid != pid_original
             DSolr.delete_by_id(pid_original)
           end
-          redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "HomosaurusV3 term was updated!"
+          redirect_to vocabulary_show_path(vocab_id: Vocabulary.latest,  id: @term.identifier), notice: "HomosaurusV3 term was updated!"
         else
-          redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "Failure! Term was not updated."
+          redirect_to vocabulary_show_path(vocab_id: Vocabulary.latest,  id: @term.identifier), notice: "Failure! Term was not updated."
         end
       end
     end
@@ -587,7 +587,7 @@ class VocabularyController < ApplicationController
 
     #@homosaurus.destroy
     #redirect_to homosaurus_v3_index_path, notice: "HomosaurusV3 term was deleted!"
-    redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "Term was marked as deleted! Relations were removed from related terms."
+    redirect_to vocabulary_show_path(vocab_id: Vocabulary.latest,  id: @term.identifier), notice: "Term was marked as deleted! Relations were removed from related terms."
   end
   # Delete pending term and associated records
   def destroy_version
@@ -602,7 +602,7 @@ class VocabularyController < ApplicationController
       er.destroy!
     end
     @term.destroy!
-    redirect_to vocabulary_term_new_path(vocab_id: "v3"), notice: "New term pending version release was removed!"
+    redirect_to vocabulary_term_new_path(vocab_id: Vocabulary.latest), notice: "New term pending version release was removed!"
   end
   # Replace one term with another and create redirect
   def replace
@@ -611,12 +611,12 @@ class VocabularyController < ApplicationController
     @vr = VersionRelease.find_by(id: params["vid"].to_i)
 
     if @term.blank? || @term_being_replaced.blank? || params[:vocab_id] == params[:replacement_id]
-      redirect_to vocabulary_index_path(id: "v3"), notice: "Replacement of term failed"
+      redirect_to vocabulary_index_path(id: Vocabulary.latest), notice: "Replacement of term failed"
     else
 
       @term_being_replaced.redirect_term(@term, @vr.id, current_user.id)
 
-      redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "The old term of #{@term_being_replaced.uri} should redirect here now."
+      redirect_to vocabulary_show_path(vocab_id: Vocabulary.latest,  id: @term.identifier), notice: "The old term of #{@term_being_replaced.uri} should redirect here now."
     end
   end
 
@@ -628,7 +628,7 @@ class VocabularyController < ApplicationController
     @term.visibility = "visible"
     @term.save!
 
-    redirect_to vocabulary_show_path(vocab_id: "v3",  id: @term.identifier), notice: "Term was restored!"
+    redirect_to vocabulary_show_path(vocab_id: Vocabulary.latest,  id: @term.identifier), notice: "Term was restored!"
   end
 
   def set_restore_relations(term)
