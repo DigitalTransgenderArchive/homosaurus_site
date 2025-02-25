@@ -34,12 +34,11 @@ class VocabularyController < ApplicationController
     respond_to do |format|
       format.html
       format.jsonld { render file: path.to_s + ".jsonld" }
-      # format.nt { render body: Term.all_terms_full_graph(@terms).dump(:ntriples), :content_type => "application/n-triples" }
-      # format.jsonld { render body: Term.all_terms_full_graph(@terms).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-      # format.ttl { render body: Term.all_terms_full_graph(@terms).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
-      # format.csv { send_data Term.csv_download(@terms, @edited_terms), filename: "Homosaurus_#{identifier}_#{Date.today}.csv" }
-      # format.xml { render body: Term.xml_basic_for_terms(@terms), :content_type => 'text/xml' }
-      # format.marc { render body: Term.marc_basic_for_terms(@terms), :content_type => 'text/xml' }
+      format.csv { render file: path.to_s + ".csv" }
+      format.nt { render file: path.to_s + ".nt" }
+      format.ttl { render file: path.to_s + ".ttl" }
+      format.xml { render file: path.to_s + ".xml" }
+      format.marc { render file: path.to_s + ".marc" }
 
       format.ntV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false).dump(:ntriples), :content_type => "application/n-triples" }
       format.jsonldV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
