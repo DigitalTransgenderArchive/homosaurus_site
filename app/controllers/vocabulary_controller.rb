@@ -274,7 +274,7 @@ class VocabularyController < ApplicationController
   # Initialize term editing page
   def edit
     @vocab_id = params[:vocab_id]
-    @term = Term.find_by(vocabulary_identifier: @vocab_id, identifier: params[:id])
+    @term = Term.find_by(identifier: params[:id])
     unless params[:release_id]
       # See if there's a current version
       current_pending_version = VersionRelease.where(status:'Pending').select{|vr| vr.edit_requests.find_by(term_id: @term.id)}
