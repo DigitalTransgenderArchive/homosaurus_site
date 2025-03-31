@@ -293,7 +293,7 @@ class VocabularyController < ApplicationController
     # if @term.pendings.present?
     #   @term = @term.pendings[0]
     # end
-    term_query = Term.where(vocabulary_identifier: params[:vocab_id]).order("lower(pref_label) ASC")
+    term_query = Vocabulary.find_by(identifier: params[:vocab_id]).terms.order("lower(pref_label) ASC")
     @all_terms = []
     term_query.each { |term| @all_terms << [term.identifier + " (" + term.pref_label + ")", term.id] }
     @LCSH_types = [["Cache uncached term +", -1]] + LcshSubjectCache.pluck(:uri, :label).map{|i| ["#{i[0].split('/')[-1]} (#{i[1]})", i[0]]}

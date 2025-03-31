@@ -14,7 +14,7 @@
         <div class="card mb-3">
           <div class="card-header text-bg-primary">
 	    <h4 class="text-white">
-              <%= link_to term.pref_label_localized.data, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier, :from_q=>params[:q]), :class => "text-white"%>
+              <%= link_to term.pref_label_localized.data, vocabulary_show_path(vocab_id: @vocabulary_identifier, :id => term.identifier, :from_q=>params[:q]), :class => "text-white"%>
 	    </h4>
           </div>
 	  <% alt_labels = term.term_relationships.where(relation_id: Relation::Alt_label) %>
