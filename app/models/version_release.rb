@@ -127,13 +127,13 @@ class VersionRelease < ActiveRecord::Base
   end
   def generate_static_data
     terms = self.terms_in_version()
-    graph = Term.all_terms_full_graph(terms, include_lang: true, version_release: self)
+    graph = Term.all_terms_full_graph(terms, include_lang: self.vocabulary.id >= 4, version_release: self)
 
     generate_static_datafile(graph.dump(:jsonld, standard_prefixes: true), "jsonld")
     generate_static_datafile(graph.dump(:ttl, standard_prefixes: true), "ttl")
     generate_static_datafile(graph.dump(:ntriples), "nt")
 
-    generate_static_datafile(Term.csv_download(terms), "csv")
+    generate_static_datafile(Term.csv_download(terms, self), "csv")
 
     xml_graph = Term.xml_basic_for_terms(terms, version_release: self)
     generate_static_datafile(xml_graph, "xml")

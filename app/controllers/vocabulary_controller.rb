@@ -48,6 +48,7 @@ class VocabularyController < ApplicationController
   # Show a term
   def show
     @vocab_id = params[:vocab_id]
+    @vocab = Vocabulary.find_by(identifier: params[:vocab_id])
     @homosaurus_obj = Term.get(params[:vocab_id], params[:id])
     logger.debug @homosaurus_obj
 
@@ -61,19 +62,48 @@ class VocabularyController < ApplicationController
     if @homosaurus_obj.visibility == "pending" and not current_user.present?
       redirect_to vocabulary_index_path(id: params[:vocab_id])
     end
+    # Only include langs V4 and above
 
+    version_release = current_user.present? ?
+                        @vocab.version_releases.last :
+                        @vocab.latest_published_release()
+    
+    include_lang = @vocab.id >= 4
     respond_to do |format|
       format.html
-      format.nt { render body: @homosaurus_obj.full_graph.dump(:ntriples), :content_type => "application/n-triples" }
-      format.jsonld { render body: @homosaurus_obj.full_graph.dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-      format.json { render body: @homosaurus_obj.full_graph_expanded_json, :content_type => 'application/json' }
-      format.ttl { render body: @homosaurus_obj.full_graph.dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
-      format.xml { render body: @homosaurus_obj.xml_basic, :content_type => 'text/xml' }
-      format.marc { render body: @homosaurus_obj.marc_basic, :content_type => 'text/xml' }
+      format.nt {
+        render body: @homosaurus_obj.full_graph(
+                 include_lang: include_lang,
+                 version_release: version_release
+               ).dump(:ntriples),
+               :content_type => "application/n-triples" }
+      format.jsonld {
+        render body: @homosaurus_obj.full_graph(
+                 include_lang: include_lang,
+                 version_release: version_release
+               ).dump(:jsonld, standard_prefixes: true),
+               :content_type => 'application/ld+json' }
+      format.json {
+        render body: @homosaurus_obj.full_graph_expanded_json(
+                 include_lang: include_lang,
+                 version_release: version_release),
+               :content_type => 'application/json' }
+      format.ttl {
+        render body: @homosaurus_obj.full_graph(
+                 include_lang: include_lang,
+                 version_release: version_release
+               ).dump(:ttl, standard_prefixes: true),
+               :content_type => 'text/turtle' }
+      format.xml {
+        render body: @homosaurus_obj.xml_basic(version_release: version_release),
+               :content_type => 'text/xml' }
+      format.marc {
+        render body: @homosaurus_obj.marc_basic(version_release: version_release),
+               :content_type => 'text/xml' }
 
-      format.ntV2 { render body: @homosaurus_obj.full_graph(include_lang: false).dump(:ntriples), :content_type => "application/n-triples" }
-      format.jsonldV2 { render body: @homosaurus_obj.full_graph(include_lang: false).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-      format.ttlV2 { render body: @homosaurus_obj.full_graph(include_lang: false).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
+      format.ntV2 { render body: @homosaurus_obj.full_graph(include_lang: include_lang, version_release: version_release).dump(:ntriples), :content_type => "application/n-triples" }
+      format.jsonldV2 { render body: @homosaurus_obj.full_graph(include_lang: include_lang, version_release: version_release).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+      format.ttlV2 { render body: @homosaurus_obj.full_graph(include_lang: include_lang, version_release: version_release).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
     end
   end
   # Search for terms

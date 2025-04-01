@@ -6,6 +6,10 @@ class Vocabulary < ActiveRecord::Base
   def self.latest
     return Vocabulary.where(visibility: "visible").last.version
   end
+
+  def latest_published_release
+    return self.version_releases.where(status: "Published").last
+  end
   def self.migrate_v1_from_dta
     voc = Vocabulary.find_by(identifier: "terms")
     if voc.blank?

@@ -136,7 +136,7 @@ class Term < ActiveRecord::Base
       return TermRelationship.new(term_id: self.id, relation_id: Relation::Pref_label, language_id: tr[0], data: tr[1])
       #return self.get_relationships_at_version_release(VersionRelease.pluck(:id)[-1])
     end
-    return self.term_relationships.where(relation_id: Relation::Pref_label).order("language_id = '#{lang_id.to_s}' DESC")[0]
+    return self.term_relationships.where(relation_id: Relation::Pref_label).order(Arel.sql("language_id = '#{lang_id.to_s}' DESC"))[0]
   end
   def uri_localized(lang_id = I18n.locale)
     return self.uri.sub('//', "//#{lang_id}.")
@@ -204,7 +204,10 @@ class Term < ActiveRecord::Base
         values[rel_id].sort_by!{|i| i[0] == I18n.locale.to_s ? 0 : 1}
       end
       values["identifier"] = er.my_changes["identifier"]
-      values["uri"] = er.my_changes["uri"].sub('//', "//#{lang_id}.")
+      values["uri"] = er.my_changes["uri"].sub("http:", "https:")
+      if lang_id
+        values["uri"] = values["uri"].sub('//', "//#{lang_id}.")
+      end
     end
     return values
   end
@@ -305,7 +308,10 @@ class Term < ActiveRecord::Base
   end
 
 
-  def self.csv_download(all_terms,edited_terms=[])
+  def self.csv_download(all_terms, version_release, edited_terms=[])
+    vocab_id = version_release.vocabulary.id
+    string_func = ->(r) { vocab_id >= 4 ? "#{r[1]}@#{r[0]}" : "#{r[1]}" }
+    uri_func = ->(r) {"https://homosaurus.org/#{version_release.vocabulary.identifier}/#{Term.find_by(id: r[1].to_i).get_relationship_at_version_release('identifier', version_release.id)}"}
     #if limited_terms.present?
     #all_terms = Term.where(vocabulary_identifier: identifier, visibility: 'visible', identifier: limited_terms).order("lower(pref_label) ASC")
     #else
@@ -317,31 +323,33 @@ class Term < ActiveRecord::Base
 
     all_terms.each do |current_term|
 
-      relationships = current_term.get_relationships_at_version_release(VersionRelease.where(status: "Published").pluck(:id)[-1])
+      relationships = current_term.get_relationships_at_version_release(version_release.id, lang_id: nil)
       
       graph = {}
 
-      base_uri = current_term.uri
+      base_uri = relationships["uri"]
       graph[:uri] = base_uri
-      graph[:identifier] = current_term.identifier
-      graph[:prefLabel] = current_term.pref_label
-      graph[:prefLabel] = relationships[Relation::Pref_label].map{|i| "#{i[1]}@#{i[0]}"}.join("||")
-      graph[:other_labels] = relationships[Relation::Label].map{|i| "#{i[1]}@#{i[0]}"}.join("||")
-      graph[:altLabel] = relationships[Relation::Alt_label].map{|i| "#{i[1]}@#{i[0]}"}.join("||")
-      graph[:description] = relationships[Relation::Description].map{|i| "#{i[1]}@#{i[0]}"}.join("||")
+      graph[:identifier] = relationships["identifier"]
+      graph[:prefLabel] = relationships[Relation::Pref_label].map{|r| string_func.call(r)}.join("||")
 
-      graph[:broader] = relationships[Relation::Broader].map{|i| Term.find_by(id: i[1].to_i).uri}.join("||")
-      graph[:narrower] = relationships[Relation::Narrower].map{|i| Term.find_by(id: i[1].to_i).uri}.join("||")
-      graph[:related] = relationships[Relation::Related].map{|i| Term.find_by(id: i[1].to_i).uri}.join("||")
+      graph[:other_labels] = relationships[Relation::Label].map{|r| string_func.call(r)}.join("||")
+      graph[:altLabel] = relationships[Relation::Alt_label].map{|r| string_func.call(r)}.join("||")
+      graph[:description] = relationships[Relation::Description].map{|r| string_func.call(r)}.join("||")
+      graph[:historyNote] = relationships[Relation::History_note].map{|r| string_func.call(r)}.join("||")
+
+      graph[:broader] = relationships[Relation::Broader].map{|r| uri_func.call(r)}.join("||")
+      graph[:narrower] = relationships[Relation::Narrower].map{|r| uri_func.call(r)}.join("||")
+      graph[:related] = relationships[Relation::Related].map{|r| uri_func.call(r)}.join("||")
 
       graph[:issued] = current_term.created_at.iso8601.split('T').first
       graph[:modified] = current_term.manual_update_date.iso8601.split('T').first
 
-      graph[:isReplacedBy] = []
-      if current_term.is_replaced_by.present?
-        graph[:isReplacedBy] <<  current_term.is_replaced_by
-      end
-      graph[:isReplacedBy] = graph[:isReplacedBy].join("||")
+      graph[:isReplacedBy] = relationships[Relation::Replaced_by].map{|r| uri_func.call(r)}.join("||")
+      # graph[:isReplacedBy] = []
+      # if current_term.is_replaced_by.present?
+      #   graph[:isReplacedBy] <<  current_term.is_replaced_by
+      # end
+      # graph[:isReplacedBy] = graph[:isReplacedBy].join("||")
 
       graph[:replaces] = []
       if current_term.replaces.present?
@@ -359,6 +367,10 @@ class Term < ActiveRecord::Base
       csv << cols
       full_graph.each do |term|
         csv << term.values
+        pp "========================="
+        term.values.each do |v|
+          pp v
+        end
       end
     end
 
@@ -375,9 +387,10 @@ class Term < ActiveRecord::Base
   end
 
   def full_graph(graph: nil, include_lang: true, version_release: nil)
-    
     graph = graph.nil? ? ::RDF::Graph.new : graph
+    # helper lambdas for backwards compatibility
     string_func = ->(r) { include_lang ? ::RDF::Literal.new(r[1], language: r[0].to_sym) : "#{r[1]}" }
+    uri_func = ->(r, rel_id) {"https://homosaurus.org/#{version_release.vocabulary.identifier}/#{Term.find_by(id: r[1].to_i).get_relationship_at_version_release('identifier', version_release.id)}"}
     base_uri = ::RDF::URI.new("#{self.uri}")
     graph << [base_uri, ::RDF::Vocab::DC.identifier, "#{self.identifier}"]
     
@@ -385,8 +398,10 @@ class Term < ActiveRecord::Base
     # relationships = self.get_relationships_at_version_release(latest_release.id)
     if version_release.nil?
       relationships = self.get_relationships_at_latest_published_release()
+      vocab_id = Vocabulary.last.id
     else
       relationships = self.get_relationships_at_version_release(version_release.id)
+      vocab_id = version_release.vocabulary.id
     end
 
     relationships[Relation::Pref_label].each do |r|
@@ -404,13 +419,13 @@ class Term < ActiveRecord::Base
     end
     
     relationships[Relation::Broader].each do |r|
-      graph << [base_uri, ::RDF::Vocab::SKOS.broader, ::RDF::URI.new(Term.find_by(id: r[1].to_i).uri)]
+      graph << [base_uri, ::RDF::Vocab::SKOS.broader, uri_func.call(r, Relation::Broader)]
     end
     relationships[Relation::Narrower].each do |r|
-      graph << [base_uri, ::RDF::Vocab::SKOS.narrower, ::RDF::URI.new(Term.find_by(id: r[1].to_i).uri)]
+      graph << [base_uri, ::RDF::Vocab::SKOS.narrower, uri_func.call(r, Relation::Narrower)]
     end
     relationships[Relation::Related].each do |r|
-      graph << [base_uri, ::RDF::Vocab::SKOS.related, ::RDF::URI.new(Term.find_by(id: r[1].to_i).uri)]
+      graph << [base_uri, ::RDF::Vocab::SKOS.related, uri_func.call(r, Relation::Related)]
     end
 
     relationships[Relation::Lcsh_exact].each do |r|
@@ -420,7 +435,7 @@ class Term < ActiveRecord::Base
       graph << [base_uri, ::RDF::Vocab::SKOS.closeMatch, ::RDF::URI.new("#{r[1]}")]
     end
 
-    graph << [base_uri, ::RDF::Vocab::SKOS.hasTopConcept, ::RDF::URI.new(self.get_broadest().uri)]
+    graph << [base_uri, ::RDF::Vocab::SKOS.hasTopConcept, ::RDF::URI.new(self.get_broadest(version_release.id).uri)]
 
     graph << [base_uri, ::RDF::Vocab::DC.isReplacedBy, ::RDF::URI.new("#{self.is_replaced_by}")] if self.is_replaced_by.present?
     graph << [base_uri, ::RDF::Vocab::DC.replaces, ::RDF::URI.new("#{self.replaces}")] if self.replaces.present?
@@ -430,13 +445,14 @@ class Term < ActiveRecord::Base
     
     graph << [base_uri, ::RDF.type, ::RDF::Vocab::SKOS.Concept]
     graph << [base_uri, ::RDF::Vocab::SKOS.inScheme, ::RDF::URI.new("#{self.vocabulary.base_uri}")]
+    graph << [base_uri, ::RDF::Vocab::SKOS.changeNote, "Version #{version_release.release_identifier}"]
 
     graph
   end
 
-  def full_graph_expanded_json
+  def full_graph_expanded_json(include_lang: true, version_release: nil)
     base_uri = ::RDF::URI.new("#{self.uri}")
-    graph = full_graph()
+    graph = full_graph(include_lang: include_lang, version_releaes: version_release)
     
     json_graph = JSON.parse(graph.dump(:jsonld, standard_prefixes: true))
     ["skos:narrower", "skos:broader", "skos:related", "dc:replaces", "dc:isReplacedBy"].each do |r|
@@ -454,6 +470,7 @@ class Term < ActiveRecord::Base
   def xml_basic(version_release: nil)
     version_release = version_release.nil? ? self.latest_published_release : version_release
     relationships = self.get_relationships_at_version_release(version_release.id)
+    include_lang = version_release.vocabulary.id >= 4
     
     builder = Nokogiri::XML::Builder.new do |xml|
       xml.record {
@@ -509,9 +526,9 @@ class Term < ActiveRecord::Base
     builder.to_xml
   end
 
-  def marc_basic
+  def marc_basic(version_release: nil)
     xslt  = Nokogiri::XSLT(File.read(Rails.root.join('app', 'assets', 'xslt', 'homosaurus_xml.xsl')))
-    xslt.transform(Nokogiri::XML(self.xml_basic))
+    xslt.transform(Nokogiri::XML(self.xml_basic(version_release: version_release)))
   end
 
   def self.xml_basic_for_terms(terms, version_release: nil)
@@ -525,9 +542,9 @@ class Term < ActiveRecord::Base
     builder.to_xml
   end
 
-  def self.marc_basic_for_terms(terms)
+  def self.marc_basic_for_terms(terms, version_release: nil)
     xslt  = Nokogiri::XSLT(File.read(Rails.root.join('app', 'assets', 'xslt', 'homosaurus_xml.xsl')))
-    xslt.transform(Nokogiri::XML(Term.xml_basic_for_terms(terms)))
+    xslt.transform(Nokogiri::XML(Term.xml_basic_for_terms(terms, version_release: version_release)))
   end
 
   def remove_from_solr
