@@ -179,7 +179,7 @@ class Term < ActiveRecord::Base
     end
     return values
   end
-  def get_relationships_at_version_release(vid, full_lang = false, lang_id = I18n.locale)
+  def get_relationships_at_version_release(vid, lang_id = I18n.locale.to_s)
     values = Relation.all().pluck(:id).map{|rel_id| [rel_id, []]}.to_h
     if vid.nil?
       return values
@@ -192,9 +192,8 @@ class Term < ActiveRecord::Base
     my_hist.each do |er|
       Relation.all().pluck(:id).each do |rel_id|
         er.my_changes[rel_id].each do |rc|
-          #lang_id = rc[1].nil? ? nil : (full_lang ? Language.find_by(id: rc[1]).name : rc[1])
-          lang_id = rc[1]
-          rel_change = [lang_id, rc[2]]
+          l_id = rc[1]
+          rel_change = [l_id, rc[2]]
           if rc[0] == "+"
             values[rel_id] << rel_change
           else
@@ -323,7 +322,7 @@ class Term < ActiveRecord::Base
 
     all_terms.each do |current_term|
 
-      relationships = current_term.get_relationships_at_version_release(version_release.id, lang_id: nil)
+      relationships = current_term.get_relationships_at_version_release(version_release.id, nil)
       
       graph = {}
 
