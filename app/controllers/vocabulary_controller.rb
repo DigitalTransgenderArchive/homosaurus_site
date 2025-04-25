@@ -397,18 +397,16 @@ class VocabularyController < ApplicationController
         # Calculate added/removed values
         added_values = param_values - published_values
         removed_values = published_values - param_values
-        
+
         # Set VR level ER to diff between submitted params and published values, record if changed
-        if (added_values + removed_values).count > 0
-          changes = removed_values.to_a.map{|v| ["-", v.language_id, v.data]} + added_values.to_a.map{|v| ["+", v.language_id, v.data]}
-          loc_changes = er.my_changes
-          loc_changes[rel_id] = changes
-          er.update!(my_changes: loc_changes)
-          # If this is creating a VR level ER, copy values
-          unless vr_exists
-            er_change.update!(my_changes: loc_changes)
-            changed = true
-          end
+        changes = removed_values.to_a.map{|v| ["-", v.language_id, v.data]} + added_values.to_a.map{|v| ["+", v.language_id, v.data]}
+        loc_changes = er.my_changes
+        loc_changes[rel_id] = changes
+        er.update!(my_changes: loc_changes)
+        # If this is creating a VR level ER, copy values
+        unless vr_exists
+          er_change.update!(my_changes: loc_changes)
+          changed = true
         end
         # If this is modifying a pending VR level ER, record how user modified it
         if vr_exists
