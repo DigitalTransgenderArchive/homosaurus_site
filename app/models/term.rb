@@ -41,6 +41,11 @@ class Term < ActiveRecord::Base
     return Vocabulary.find_by(identifier: vocab_id).terms.find_by(identifier: identifier)
   end
 
+  def self.get_from_uri(uri)
+    v, i = uri.split("/").last(2)
+    return Vocabulary.find_by(identifier: v).terms.find_by(identifier: i)
+  end
+
   def self.find_with_conditions(model, q:, rows:, fl:)
     opts = {}
     opts[:q] = q
@@ -451,7 +456,7 @@ class Term < ActiveRecord::Base
 
   def full_graph_expanded_json(include_lang: true, version_release: nil)
     base_uri = ::RDF::URI.new("#{self.uri}")
-    graph = full_graph(include_lang: include_lang, version_releaes: version_release)
+    graph = full_graph(include_lang: include_lang, version_release: version_release)
     
     json_graph = JSON.parse(graph.dump(:jsonld, standard_prefixes: true))
     ["skos:narrower", "skos:broader", "skos:related", "dc:replaces", "dc:isReplacedBy"].each do |r|
@@ -461,7 +466,10 @@ class Term < ActiveRecord::Base
       unless json_graph[r].kind_of?(Array)
         json_graph[r] = [json_graph[r]]
       end
-      json_graph[r].map!{|i| {"@id" => i["@id"], "skos:prefLabel" => Term.find_by(uri: i["@id"]).pref_label}}
+      json_graph[r].map!{|i|
+        {"@id" => i,
+         "skos:prefLabel" => Term.get_from_uri(i).get_relationship_at_version_release(Relation::Pref_label, version_release.id)[0][1]
+        }}
     end
     json_graph.to_json
   end
