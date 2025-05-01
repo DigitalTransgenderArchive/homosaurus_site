@@ -110,6 +110,11 @@ class VocabularyController < ApplicationController
   def search
     @vocabulary_identifier = params[:id]
     @vocabulary = Vocabulary.find_by(identifier: @vocabulary_identifier)
+    include_lang = @vocabulary.id >= 4
+    version_release = current_user.present? ?
+                        @vocabulary.version_releases.last :
+                        @vocabulary.latest_published_release()
+    
     if params[:q].present?
       opts = {}
       opts[:q] = params[:q]
@@ -123,9 +128,40 @@ class VocabularyController < ApplicationController
 
       respond_to do |format|
         format.html
-        format.nt { render body: Term.all_terms_full_graph(@terms).dump(:ntriples), :content_type => "application/n-triples" }
-        format.jsonld { render body: Term.all_terms_full_graph(@terms).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-        format.ttl { render body: Term.all_terms_full_graph(@terms).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
+        format.nt {
+          render body: Term.all_terms_full_graph(
+                   @terms,
+                   include_lang: include_lang,
+                   version_release: version_release
+                 ).dump(:ntriples),
+                 :content_type => "application/n-triples" }
+        format.jsonld {
+          render body: Term.all_terms_full_graph(
+                   @terms,
+                   include_lang: include_lang,
+                   version_release: version_release
+                 ).dump(:jsonld, standard_prefixes: true),
+                 :content_type => 'application/ld+json' }
+        format.ttl {
+          render body: Term.all_terms_full_graph(
+                   @terms,
+                   include_lang: include_lang,
+                   version_release: version_release
+                 ).dump(:ttl, standard_prefixes: true),
+                 :content_type => 'text/turtle' }
+        format.xml {
+          render body: Term.all_terms_full_graph(
+                   @terms,
+                   version_release: version_release),
+                 :content_type => 'text/xml' }
+        format.marc {
+          render body: Term.all_terms_full_graph(
+                   @terms,
+                   version_release: version_release),
+                 :content_type => 'text/xml' }        
+          # format.nt { render body: Term.all_terms_full_graph(@terms).dump(:ntriples), :content_type => "application/n-triples" }
+        # format.jsonld { render body: Term.all_terms_full_graph(@terms).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+        # format.ttl { render body: Term.all_terms_full_graph(@terms).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
       end
     end
   end
