@@ -394,8 +394,9 @@ class Term < ActiveRecord::Base
     graph = graph.nil? ? ::RDF::Graph.new : graph
     # helper lambdas for backwards compatibility
     string_func = ->(r) { include_lang ? ::RDF::Literal.new(r[1], language: r[0].to_sym) : "#{r[1]}" }
-    uri_func = ->(r, rel_id) {"https://homosaurus.org/#{version_release.vocabulary.identifier}/#{Term.find_by(id: r[1].to_i).get_relationship_at_version_release('identifier', version_release.id)}"}
-    base_uri = ::RDF::URI.new("#{self.uri}")
+    uri_func = ->(r) {::RDF::URI.new("https://homosaurus.org/#{version_release.vocabulary.identifier}/#{Term.find_by(id: r[1].to_i).get_relationship_at_version_release('identifier', version_release.id)}")}
+    uri_func2 = ->(t) {::RDF::URI.new("https://homosaurus.org/#{version_release.vocabulary.identifier}/#{t.get_relationship_at_version_release('identifier', version_release.id)}")}
+    base_uri = uri_func2.call(self)
     graph << [base_uri, ::RDF::Vocab::DC.identifier, "#{self.identifier}"]
     
     # latest_release = self.latest_published_release
@@ -423,13 +424,13 @@ class Term < ActiveRecord::Base
     end
     
     relationships[Relation::Broader].each do |r|
-      graph << [base_uri, ::RDF::Vocab::SKOS.broader, uri_func.call(r, Relation::Broader)]
+      graph << [base_uri, ::RDF::Vocab::SKOS.broader, uri_func.call(r)]
     end
     relationships[Relation::Narrower].each do |r|
-      graph << [base_uri, ::RDF::Vocab::SKOS.narrower, uri_func.call(r, Relation::Narrower)]
+      graph << [base_uri, ::RDF::Vocab::SKOS.narrower, uri_func.call(r)]
     end
     relationships[Relation::Related].each do |r|
-      graph << [base_uri, ::RDF::Vocab::SKOS.related, uri_func.call(r, Relation::Related)]
+      graph << [base_uri, ::RDF::Vocab::SKOS.related, uri_func.call(r)]
     end
 
     relationships[Relation::Lcsh_exact].each do |r|
@@ -439,7 +440,7 @@ class Term < ActiveRecord::Base
       graph << [base_uri, ::RDF::Vocab::SKOS.closeMatch, ::RDF::URI.new("#{r[1]}")]
     end
 
-    graph << [base_uri, ::RDF::Vocab::SKOS.hasTopConcept, ::RDF::URI.new(self.get_broadest(version_release.id).uri)]
+    graph << [base_uri, ::RDF::Vocab::SKOS.hasTopConcept, uri_func2.call(self.get_broadest(version_release.id))]
 
     graph << [base_uri, ::RDF::Vocab::DC.isReplacedBy, ::RDF::URI.new("#{self.is_replaced_by}")] if self.is_replaced_by.present?
     graph << [base_uri, ::RDF::Vocab::DC.replaces, ::RDF::URI.new("#{self.replaces}")] if self.replaces.present?
@@ -455,9 +456,9 @@ class Term < ActiveRecord::Base
   end
 
   def full_graph_expanded_json(include_lang: true, version_release: nil)
+    string_func = ->(r) { include_lang ? {"@language"=>r[0], "@value"=>r[1]} : "#{r[1]}" }
     base_uri = ::RDF::URI.new("#{self.uri}")
     graph = full_graph(include_lang: include_lang, version_release: version_release)
-    
     json_graph = JSON.parse(graph.dump(:jsonld, standard_prefixes: true))
     ["skos:narrower", "skos:broader", "skos:related", "dc:replaces", "dc:isReplacedBy"].each do |r|
       if json_graph[r].nil?
@@ -466,10 +467,12 @@ class Term < ActiveRecord::Base
       unless json_graph[r].kind_of?(Array)
         json_graph[r] = [json_graph[r]]
       end
-      json_graph[r].map!{|i|
-        {"@id" => i,
-         "skos:prefLabel" => Term.get_from_uri(i).get_relationship_at_version_release(Relation::Pref_label, version_release.id)[0][1]
-        }}
+      json_graph[r] = json_graph[r].map do |i|
+        t = Term.get_from_uri(i["@id"]).get_relationship_at_version_release(Relation::Pref_label, version_release.id)[0]
+        {"@id" => i["@id"],
+         "skos:prefLabel" => string_func.call(t)
+        }
+      end
     end
     json_graph.to_json
   end
@@ -478,10 +481,11 @@ class Term < ActiveRecord::Base
     version_release = version_release.nil? ? self.latest_published_release : version_release
     relationships = self.get_relationships_at_version_release(version_release.id)
     include_lang = version_release.vocabulary.id >= 4
+    uri_func = ->(t) {::RDF::URI.new("https://homosaurus.org/#{version_release.vocabulary.identifier}/#{t.get_relationship_at_version_release('identifier', version_release.id)}")}
     
     builder = Nokogiri::XML::Builder.new do |xml|
       xml.record {
-        xml.id self.uri
+        xml.id uri_func.call(self)
         xml.identifier self.identifier
         #xml.prefLabel self.pref_label
         relationships[Relation::Pref_label].each do |r|
@@ -501,7 +505,7 @@ class Term < ActiveRecord::Base
           rel_term = Term.find_by(id: r[1])
           pflb = rel_term.pref_label_localized()
           xml.broader {
-            xml.id rel_term.uri
+            xml.id uri_func.call(rel_term)
             xml.prefLabel(pflb.data, :language => pflb.language_id)
           }
         end
@@ -510,7 +514,7 @@ class Term < ActiveRecord::Base
           rel_term = Term.find_by(id: r[1])
           pflb = rel_term.pref_label_localized()
           xml.narrower {
-            xml.id rel_term.uri
+            xml.id uri_func.call(rel_term)
             xml.prefLabel(pflb.data, :language => pflb.language_id)
           }
         end
@@ -519,7 +523,7 @@ class Term < ActiveRecord::Base
           rel_term = Term.find_by(id: r[1])
           pflb = rel_term.pref_label_localized()
           xml.related {
-            xml.id rel_term.uri
+            xml.id uri_func.call(rel_term)
             xml.prefLabel(pflb.data, :language => pflb.language_id)
           }
         end
