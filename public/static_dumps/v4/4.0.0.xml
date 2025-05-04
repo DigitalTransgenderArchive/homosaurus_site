@@ -347,12 +347,12 @@
     <prefLabel language="en">Two-Spirit activism</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0003195</id>
-    <prefLabel language="en">LGBTQ+ solidarity</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0003695</id>
     <prefLabel language="en">LGBTQ+ philanthropy</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0003195</id>
+    <prefLabel language="en">LGBTQ+ solidarity</prefLabel>
   </related>
   <comment language="en">Direct action and organizing to achieve political or social change and acceptance for LGBTQ+ people.</comment>
   <comment language="es">Acci&#xF3;n directa y organizaci&#xF3;n para lograr cambio pol&#xED;tico o social y la aceptaci&#xF3;n de las personas LGBTQ+.</comment>
@@ -412,12 +412,12 @@
     <prefLabel language="en">LGBTQ+ activism</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001905</id>
-    <prefLabel language="en">Zaps</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002657</id>
     <prefLabel language="en">Two-Spirit political activists </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0001905</id>
+    <prefLabel language="en">Zaps</prefLabel>
   </related>
   <comment language="en">LGBTQ+ people who organize or campaign for social, cultural, political, or economic goals and change.</comment>
   <comment language="es">Personas LGBTQ+ que se organizan o hacen campa&#xF1;a por objetivos y cambios sociales, culturales, pol&#xED;ticos o econ&#xF3;micos.</comment>
@@ -1595,12 +1595,12 @@
     <prefLabel language="en">LGBTQ+ friendliness</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0003195</id>
-    <prefLabel language="en">LGBTQ+ solidarity</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0003693</id>
     <prefLabel language="en">LGBTQ+ safe spaces</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0003195</id>
+    <prefLabel language="en">LGBTQ+ solidarity</prefLabel>
   </related>
   <comment language="en">Individuals of a privileged social identity who support, stand in solidarity with, and work to advance the interests of marginalized groups they do not belong to.</comment>
   <comment language="es">Personas de una identidad social privilegiada que apoyan, se solidarizan con y trabajan para promover los intereses de grupos marginados a los que no pertenecen.</comment>
@@ -2447,16 +2447,16 @@
     <prefLabel language="en">Transmisogynoir</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0003737</id>
+    <prefLabel language="en">Anti-gender movement</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0003158</id>
     <prefLabel language="en">Trans-exclusionary radical feminism</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0003499</id>
     <prefLabel language="en">Anti-transgender legislation</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0003737</id>
-    <prefLabel language="en">Anti-gender movement</prefLabel>
   </related>
   <comment language="en">The unjust or prejudicial treatment of transgender people (or others perceived to be transgressing gender norms) due to their gender identity and/or expression; may include the denial of legal rights, employment, and housing.</comment>
   <comment language="es">El trato injusto o perjudicial hacia las personas transg&#xE9;nero (u otras personas percibidas como transgresoras de las normas de g&#xE9;nero) por su identidad y/o expresi&#xF3;n de g&#xE9;nero; puede incluir la negaci&#xF3;n de derechos legales, empleo y vivienda.</comment>
@@ -2636,18 +2636,6 @@
     <prefLabel language="en">Aromanticism</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001757</id>
-    <prefLabel language="en">Aromantic families</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0001761</id>
-    <prefLabel language="en">Aromantic parents</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0001765</id>
-    <prefLabel language="en">Children of aromantic people</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0001823</id>
     <prefLabel language="en">Alloromantic people</prefLabel>
   </related>
@@ -2666,6 +2654,18 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0001827</id>
     <prefLabel language="en">Panromantic people</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0001757</id>
+    <prefLabel language="en">Aromantic families</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0001761</id>
+    <prefLabel language="en">Aromantic parents</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0001765</id>
+    <prefLabel language="en">Children of aromantic people</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0002145</id>
@@ -2888,6 +2888,14 @@
     <prefLabel language="en">Megasexual people</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0002146</id>
+    <prefLabel language="en">Asexual people in fandom</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002912</id>
+    <prefLabel language="en">Persecution of asexual people</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0001758</id>
     <prefLabel language="en">Asexual families</prefLabel>
   </related>
@@ -2898,14 +2906,6 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0001766</id>
     <prefLabel language="en">Children of asexual people</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0002146</id>
-    <prefLabel language="en">Asexual people in fandom</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0002912</id>
-    <prefLabel language="en">Persecution of asexual people</prefLabel>
   </related>
   <comment language="en">Individuals who generally do not experience sexual attraction or desire; do not use to describe individuals practicing celibacy or abstinence for religious or cultural reasons.</comment>
   <comment language="es">Personas que generalmente no experimentan atracci&#xF3;n o deseo sexual; no debe utilizarse para describir a personas que practican el celibato o la abstinencia por razones religiosas o culturales.</comment>
@@ -4040,7 +4040,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000102</id>
+  <id>https://homosaurus.org/v4/homoit0000442</id>
   <identifier>homoit0000102</identifier>
   <prefLabel language="en">BDSM</prefLabel>
   <prefLabel language="es">BDSM</prefLabel>
@@ -4284,16 +4284,16 @@
     <prefLabel language="en">Wolves (Gay culture)</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0003718</id>
+    <prefLabel language="en">Bear bars</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0002148</id>
     <prefLabel language="ja">Bara</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0002149</id>
     <prefLabel language="en">Bara fandom</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0003718</id>
-    <prefLabel language="en">Bear bars</prefLabel>
   </related>
   <comment language="en">Slang used in the U.S. and other English speaking countries to describe hairy and large or muscular gay men.</comment>
   <comment language="es">Jerga utilizada en EE.UU. y otros pa&#xED;ses angloparlantes para describir a hombres gay peludos y grandes o musculosos.</comment>
@@ -4329,7 +4329,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000107</id>
+  <id>https://homosaurus.org/v4/homoit0000894</id>
   <identifier>homoit0000107</identifier>
   <prefLabel language="en">Being in love</prefLabel>
   <issued>
@@ -4441,6 +4441,14 @@
     <prefLabel language="en">Murders of LGBTQ+ people</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0003787</id>
+    <prefLabel language="en">Anti-sex worker violence</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0003788</id>
+    <prefLabel language="en">Murder of sex workers</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0001769</id>
     <prefLabel language="en">Anti-Two-Spirit violence</prefLabel>
   </related>
@@ -4451,14 +4459,6 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0002900</id>
     <prefLabel language="en">Anti-asexual violence</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0003787</id>
-    <prefLabel language="en">Anti-sex worker violence</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0003788</id>
-    <prefLabel language="en">Murder of sex workers</prefLabel>
   </related>
   <comment language="en">Criminal acts motivated by the victim&#x2019;s actual or perceived race, nationality, religion, sexual identity, gender identity, or ability status.</comment>
   <comment language="es">Actos delictivos motivados por la raza, nacionalidad, religi&#xF3;n, identidad sexual, identidad de g&#xE9;nero o estado de capacidad real o percibido de la v&#xED;ctima.</comment>
@@ -4638,6 +4638,10 @@
     <prefLabel language="en">Trans men</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0003815</id>
+    <prefLabel language="en">Binders (Chest)</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0001840</id>
     <prefLabel language="en">Top surgery</prefLabel>
   </related>
@@ -4648,10 +4652,6 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0003118</id>
     <prefLabel language="en">Chest</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0003815</id>
-    <prefLabel language="en">Binders (Chest)</prefLabel>
   </related>
   <comment language="en">The act of flattening or concealing the chest area with a tight fitting shirt, strap, or similar material; often practiced by transgender men and transmasculine people.</comment>
   <comment language="es">El acto de aplanar u ocultar la zona del pecho con una camisa ajustada, una correa o un material similar; suele practicarse por hombres transg&#xE9;nero o personas transmasculinas.</comment>
@@ -7138,7 +7138,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000195</id>
+  <id>https://homosaurus.org/v4/homoit0000195</id>
   <identifier>homoit0000195</identifier>
   <prefLabel language="en">Bisexual theology</prefLabel>
   <issued>
@@ -7150,7 +7150,7 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0001364</id>
+    <id>https://homosaurus.org/v4/homoit0001364</id>
     <prefLabel language="en">LGBTQ+ theology</prefLabel>
   </broader>
 </record>
@@ -7586,12 +7586,12 @@
     <prefLabel language="en">Kink accessories</prefLabel>
   </broader>
   <related>
-    <id>https://homosaurus.org/v4/homoit0003146</id>
-    <prefLabel language="en">Hoods (Erotic)</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0003850</id>
     <prefLabel language="en">Sensory deprivation (Erotic)</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0003146</id>
+    <prefLabel language="en">Hoods (Erotic)</prefLabel>
   </related>
   <comment language="en">An accessory used to cover the eyes, traditionally a piece of cloth tied around one&#x2019;s head to eliminate or limit vision.</comment>
   <comment language="es">Trozos de tela o material similar utilizados para cubrir los ojos de una persona y perjudicar su visi&#xF3;n, a menudo para estimulaci&#xF3;n sexual.</comment>
@@ -9131,7 +9131,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000251</id>
+  <id>https://homosaurus.org/v4/homoit0002226</id>
   <identifier>homoit0000251</identifier>
   <prefLabel language="en">Substance abuse</prefLabel>
   <issued>
@@ -9409,6 +9409,10 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0002699</id>
     <prefLabel language="en">Gender dysphoria in children</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002688</id>
+    <prefLabel language="en">Two-Spirit children</prefLabel>
   </related>
   <comment language="en">LGBTQ+ people who have not yet reached the age of adolescence.</comment>
   <comment language="es">Personas menores de 18 a&#xF1;os que se autoidentifican como LGBTQ+.</comment>
@@ -10401,16 +10405,16 @@
     <prefLabel language="en">Clitoral sex</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0003736</id>
+    <prefLabel language="en">Clit twisting</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0001844</id>
     <prefLabel language="en">Clitoroplasty</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0001848</id>
     <prefLabel language="en">Vaginectomy</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0003736</id>
-    <prefLabel language="en">Clit twisting</prefLabel>
   </related>
   <comment language="en">Erogenous external organ that is capable of erection under sexual stimulation.</comment>
   <comment language="es">&#xD3;rgano externo er&#xF3;geno que es capaz de erecci&#xF3;n bajo estimulaci&#xF3;n sexual.</comment>
@@ -10776,7 +10780,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000290</id>
+  <id>https://homosaurus.org/v4/homoit0001235</id>
   <identifier>homoit0000290</identifier>
   <prefLabel language="en">Party drugs</prefLabel>
   <issued>
@@ -10798,7 +10802,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000291</id>
+  <id>https://homosaurus.org/v4/homoit0000380</id>
   <identifier>homoit0000291</identifier>
   <prefLabel language="en">Cocaine</prefLabel>
   <issued>
@@ -10810,11 +10814,11 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0000290</id>
+    <id>https://homosaurus.org/v4/homoit0001235</id>
     <prefLabel language="en">Party drugs</prefLabel>
   </broader>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001533</id>
+    <id>https://homosaurus.org/v4/homoit0002226</id>
     <prefLabel language="en">Cocaine addiction</prefLabel>
   </related>
 </record>
@@ -12030,7 +12034,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000320</id>
+  <id>https://homosaurus.org/v4/homoit0000380</id>
   <identifier>homoit0000320</identifier>
   <prefLabel language="en">Crystal meth</prefLabel>
   <issued>
@@ -12042,11 +12046,11 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0000290</id>
+    <id>https://homosaurus.org/v4/homoit0001235</id>
     <prefLabel language="en">Party drugs</prefLabel>
   </broader>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001536</id>
+    <id>https://homosaurus.org/v4/homoit0002226</id>
     <prefLabel language="en">Crystal meth addiction</prefLabel>
   </related>
 </record>
@@ -12924,7 +12928,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000337</id>
+  <id>https://homosaurus.org/v4/homoit0000337</id>
   <identifier>homoit0000337</identifier>
   <prefLabel language="en">LGBTQ+ deaf people</prefLabel>
   <issued>
@@ -14156,6 +14160,14 @@
     <prefLabel language="en">Voguing</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0003359</id>
+    <prefLabel language="en">Drag shows</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0003360</id>
+    <prefLabel language="en">Drag pageants</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0001808</id>
     <prefLabel language="en">Costumes</prefLabel>
   </related>
@@ -14166,14 +14178,6 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0001906</id>
     <prefLabel language="en">Drag performers</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0003359</id>
-    <prefLabel language="en">Drag shows</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0003360</id>
-    <prefLabel language="en">Drag pageants</prefLabel>
   </related>
   <comment language="en">A performance genre involving dressing and/or using makeup to produce, emphasize, and/or exaggerate traits associated with a certain gender, which typically (but not always) is not the gender the performer primarily identifies with.</comment>
   <comment language="es">Un tipo de actuaci&#xF3;n que implica vestirse y/o usar maquillaje para producir, enfatizar y/o exagerar rasgos asociados con un determinado g&#xE9;nero, que normalmente (pero no siempre) no es el g&#xE9;nero con el que el artista se identifica principalmente.</comment>
@@ -14670,7 +14674,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000378</id>
+  <id>https://homosaurus.org/v4/homoit0002226</id>
   <identifier>homoit0000378</identifier>
   <prefLabel language="en">Drug abuse</prefLabel>
   <issued>
@@ -14682,11 +14686,11 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0000251</id>
+    <id>https://homosaurus.org/v4/homoit0002226</id>
     <prefLabel language="en">Substance abuse</prefLabel>
   </broader>
   <narrower>
-    <id>https://homosaurus.org/v3/homoit0001536</id>
+    <id>https://homosaurus.org/v4/homoit0002226</id>
     <prefLabel language="en">Crystal meth addiction</prefLabel>
   </narrower>
   <related>
@@ -15019,7 +15023,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000388</id>
+  <id>https://homosaurus.org/v4/homoit0000380</id>
   <identifier>homoit0000388</identifier>
   <prefLabel language="en">MDMA</prefLabel>
   <issued>
@@ -15031,7 +15035,7 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0000290</id>
+    <id>https://homosaurus.org/v4/homoit0001235</id>
     <prefLabel language="en">Party drugs</prefLabel>
   </broader>
   <comment language="en">A type of methamphetamine commonly referred to as ecstasy or molly</comment>
@@ -15358,7 +15362,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000397</id>
+  <id>https://homosaurus.org/v4/homoit0000442</id>
   <identifier>homoit0000397</identifier>
   <prefLabel language="en">Ephebophilia</prefLabel>
   <issued>
@@ -15378,11 +15382,11 @@
     <prefLabel language="en">Sexual preference</prefLabel>
   </broader>
   <narrower>
-    <id>https://homosaurus.org/v3/homoit0000615</id>
+    <id>https://homosaurus.org/v4/homoit0000442</id>
     <prefLabel language="en">Hebephilia</prefLabel>
   </narrower>
   <related>
-    <id>https://homosaurus.org/v3/homoit0000615</id>
+    <id>https://homosaurus.org/v4/homoit0000442</id>
     <prefLabel language="en">Hebephilia</prefLabel>
   </related>
   <related>
@@ -15768,7 +15772,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000409</id>
+  <id>https://homosaurus.org/v4/homoit0000949</id>
   <identifier>homoit0000409</identifier>
   <prefLabel language="en">Eurogames</prefLabel>
   <issued>
@@ -15787,7 +15791,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000410</id>
+  <id>https://homosaurus.org/v4/homoit0000861</id>
   <identifier>homoit0000410</identifier>
   <prefLabel language="en">Europride</prefLabel>
   <issued>
@@ -16585,7 +16589,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000434</id>
+  <id>https://homosaurus.org/v4/homoit0000434</id>
   <identifier>homoit0000434</identifier>
   <prefLabel language="en">Female prostitution</prefLabel>
   <issued>
@@ -16597,13 +16601,13 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0001136</id>
+    <id>https://homosaurus.org/v4/homoit0001136</id>
     <prefLabel language="en">Prostitution</prefLabel>
   </broader>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000435</id>
+  <id>https://homosaurus.org/v4/homoit0001509</id>
   <identifier>homoit0000435</identifier>
   <prefLabel language="en">Females</prefLabel>
   <issued>
@@ -16767,10 +16771,6 @@
     <prefLabel language="en">Womyn</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002039</id>
-    <prefLabel language="en">Feminist theory</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002290</id>
     <prefLabel language="en">Gender equality</prefLabel>
   </related>
@@ -16781,6 +16781,10 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0003158</id>
     <prefLabel language="en">Trans-exclusionary radical feminism</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002039</id>
+    <prefLabel language="en">Feminist theory</prefLabel>
   </related>
   <comment language="en">Collection of movements aimed at defining, establishing, and defending equal political, economic, and social rights and equal opportunities for women.</comment>
   <comment language="es">Conjunto de movimientos que buscan definir, establecer y defender la igualdad de derechos pol&#xED;ticos, econ&#xF3;micos y sociales y la igualdad de oportunidades para las mujeres.</comment>
@@ -17329,26 +17333,6 @@
     <prefLabel language="en">Two-Spirit fiction</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002153</id>
-    <prefLabel language="en">Bury your gays</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0002159</id>
-    <prefLabel language="en">Fanfiction</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0002179</id>
-    <prefLabel language="en">LGBTQ+ fanfiction</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0002180</id>
-    <prefLabel language="en">LGBTQ+ headcanons</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0002188</id>
-    <prefLabel language="en">Original slash fiction</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002632</id>
     <prefLabel language="en">M&#x101;h&#x16B; fiction</prefLabel>
   </related>
@@ -17391,6 +17375,26 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0002651</id>
     <prefLabel language="en">Two-Spirit romance fiction </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002153</id>
+    <prefLabel language="en">Bury your gays</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002159</id>
+    <prefLabel language="en">Fanfiction</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002179</id>
+    <prefLabel language="en">LGBTQ+ fanfiction</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002180</id>
+    <prefLabel language="en">LGBTQ+ headcanons</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002188</id>
+    <prefLabel language="en">Original slash fiction</prefLabel>
   </related>
   <comment language="en">Works of fiction featuring LGBTQ+ characters or themes.</comment>
   <comment language="es">Obras de ficci&#xF3;n con personajes o temas LGBTQ+.</comment>
@@ -18081,7 +18085,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000468</id>
+  <id>https://homosaurus.org/v4/homoit0000544</id>
   <identifier>homoit0000468</identifier>
   <prefLabel language="en">Gay and lesbian youth</prefLabel>
   <issued>
@@ -18962,7 +18966,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000495</id>
+  <id>https://homosaurus.org/v4/homoit0000949</id>
   <identifier>homoit0000495</identifier>
   <prefLabel language="en">Gay Games</prefLabel>
   <issued>
@@ -18978,7 +18982,7 @@
     <prefLabel language="en">LGBTQ+ sporting events</prefLabel>
   </broader>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001064</id>
+    <id>https://homosaurus.org/v4/homoit0000949</id>
     <prefLabel language="en">Outgames</prefLabel>
   </related>
   <comment language="en">An international sport and cultural event held by the Federation of Gay Games since 1982 that promotes acceptance of LGBTQ+ people and features LGBTQ+ athletes, artists, and other individuals</comment>
@@ -19812,6 +19816,10 @@
     <id>https://homosaurus.org/v4/homoit0003653</id>
     <prefLabel language="en">LGBTQ+ pride</prefLabel>
   </broader>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002386</id>
+    <prefLabel language="en">No Police at Pride</prefLabel>
+  </related>
   <comment language="en">The recognition and celebration of gay people and culture, thereby affirming the visibility, dignity, and diversity of gay communities. This term can be used to refer to gay men specifically, but it is often used as an umbrella term for LGBTQ+ pride as a whole, particularly in historical contexts.</comment>
   <comment language="es">La celebraci&#xF3;n y el reconocimiento de las identidades LGBTQ+, que afirma la visibilidad, dignidad y diversidad de las comunidades LGBTQ+. Si bien "orgullo gay" puede referirse espec&#xED;ficamente a hombres gay, se usa m&#xE1;s com&#xFA;nmente como un t&#xE9;rmino abarcador para el orgullo LGBTQ+ en general.</comment>
 </record>
@@ -20466,7 +20474,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000548</id>
+  <id>https://homosaurus.org/v4/homoit0000548</id>
   <identifier>homoit0000548</identifier>
   <prefLabel language="en">Gay theology</prefLabel>
   <issued>
@@ -20478,7 +20486,7 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0001364</id>
+    <id>https://homosaurus.org/v4/homoit0001364</id>
     <prefLabel language="en">LGBTQ+ theology</prefLabel>
   </broader>
 </record>
@@ -21854,12 +21862,12 @@
     <prefLabel language="en">Transgender people</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001756</id>
-    <prefLabel language="en">Gender creative</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0001922</id>
     <prefLabel language="en">Gender non-conforming identity</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0001756</id>
+    <prefLabel language="en">Gender creative</prefLabel>
   </related>
   <comment language="en">People who identify outside, transgress, or do not conform to a given culture's gender roles or expectations. Only use in reference to people who self-identity as gender non-conforming. Do not use to describe cisgender people whose dress or behaviors do not conform to gender roles or expectations.</comment>
   <comment language="es">Personas que se autoidentifican fuera de, transgreden o no se conforman con los roles o expectativas de g&#xE9;nero de una determinada cultura. Util&#xED;cese &#xFA;nicamente en referencia a personas que se autoidentifiquen como no conformes con su g&#xE9;nero. No se debe utilizar para describir a personas cisg&#xE9;nero cuya vestimenta o comportamiento no se conforma a los roles o expectativas de g&#xE9;nero.</comment>
@@ -22069,10 +22077,6 @@
     <prefLabel language="en">Masculinities</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001756</id>
-    <prefLabel language="en">Gender creative</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0001816</id>
     <prefLabel language="en">Gender transgression</prefLabel>
   </related>
@@ -22083,6 +22087,10 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0001899</id>
     <prefLabel language="en">Gender ambiguity</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0001756</id>
+    <prefLabel language="en">Gender creative</prefLabel>
   </related>
   <comment language="en">Socially-determined rules or standards for gendered behaviors. Some LGBTQ+ people identify with gender roles that exist outside of the gender binary (e.g., butches, femmes, twinks, bears). Use the term "Gender role stereotypes" to describe widely held but oversimplified or offensive ideas regarding gender roles.</comment>
   <comment language="es">Reglas o est&#xE1;ndares socialmente determinados para los comportamientos de g&#xE9;nero. Algunas personas LGBTQ+ se identifican con roles de g&#xE9;nero que existen fuera del binario de g&#xE9;nero (por ejemplo, marimachas, femmes, twinks, osos). Util&#xED;cese el t&#xE9;rmino "Estereotipos de roles de g&#xE9;nero" para describir ideas generalizadas pero demasiado simplificadas u ofensivas sobre los roles de g&#xE9;nero.</comment>
@@ -22461,7 +22469,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000586</id>
+  <id>https://homosaurus.org/v4/homoit0000442</id>
   <identifier>homoit0000586</identifier>
   <prefLabel language="en">Gerontophilia</prefLabel>
   <issued>
@@ -23559,7 +23567,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000615</id>
+  <id>https://homosaurus.org/v4/homoit0000442</id>
   <identifier>homoit0000615</identifier>
   <prefLabel language="en">Hebephilia</prefLabel>
   <issued>
@@ -23579,7 +23587,7 @@
     <prefLabel language="en">Sexual preference</prefLabel>
   </broader>
   <narrower>
-    <id>https://homosaurus.org/v3/homoit0000397</id>
+    <id>https://homosaurus.org/v4/homoit0000442</id>
     <prefLabel language="en">Ephebophilia</prefLabel>
   </narrower>
   <related>
@@ -23705,6 +23713,10 @@
     <prefLabel language="en">Intersex rights</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0002744</id>
+    <prefLabel language="en">Persecution of intersex people</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0001759</id>
     <prefLabel language="en">Intersex families</prefLabel>
   </related>
@@ -23719,10 +23731,6 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0001822</id>
     <prefLabel language="en">Hermaphrodites</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0002744</id>
-    <prefLabel language="en">Persecution of intersex people</prefLabel>
   </related>
   <comment language="en">Individuals born with variations in their genitalia, hormones, internal anatomy, and/or chromosomes that do not fully or exclusively conform to medical or social expectations for males or females. Only use to describe people who describe themselves as intersex.</comment>
   <comment language="es">Personas que nacen con variaciones en sus genitales, hormonas, anatom&#xED;a interna y/o cromosomas que no se conforman total o exclusivamente a las expectativas m&#xE9;dicas o sociales para hombres o mujeres. Util&#xED;cese &#xFA;nicamente para describir a personas que se describen como intersex.</comment>
@@ -25945,7 +25953,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000679</id>
+  <id>https://homosaurus.org/v4/homoit0001658</id>
   <identifier>homoit0000679</identifier>
   <prefLabel language="en">Jealousy</prefLabel>
   <issued>
@@ -25957,7 +25965,7 @@
     <name>xsd:date</name>
   </modified>
   <related>
-    <id>https://homosaurus.org/v3/homoit0000858</id>
+    <id>https://homosaurus.org/v4/homoit0000889</id>
     <prefLabel language="en">LGBTQ+ emotions</prefLabel>
   </related>
   <related>
@@ -27944,6 +27952,14 @@
     <prefLabel language="en">Femslash</prefLabel>
   </broader>
   <related>
+    <id>https://homosaurus.org/v4/homoit0002178</id>
+    <prefLabel language="en">Lesbians in fandom</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002220</id>
+    <prefLabel language="ja">Yuri</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0001724</id>
     <prefLabel language="en">Lesbian authors</prefLabel>
   </related>
@@ -27958,14 +27974,6 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0001754</id>
     <prefLabel language="en">Asexual fiction</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0002178</id>
-    <prefLabel language="en">Lesbians in fandom</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0002220</id>
-    <prefLabel language="ja">Yuri</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0003507</id>
@@ -28676,6 +28684,10 @@
     <id>https://homosaurus.org/v4/homoit0003653</id>
     <prefLabel language="en">LGBTQ+ pride</prefLabel>
   </broader>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002386</id>
+    <prefLabel language="en">No Police at Pride</prefLabel>
+  </related>
   <comment language="en">The recognition and celebration of lesbians and lesbian culture, thereby affirming the visibility, dignity, and diversity of lesbian communities.</comment>
   <comment language="es">La celebraci&#xF3;n y el reconocimiento de la identidad l&#xE9;sbica, afirmando la visibilidad, dignidad y diversidad de las comunidades l&#xE9;sbicas.</comment>
 </record>
@@ -28702,7 +28714,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000769</id>
+  <id>https://homosaurus.org/v4/homoit0000769</id>
   <identifier>homoit0000769</identifier>
   <prefLabel language="en">Lesbian prostitution</prefLabel>
   <prefLabel language="es">Prostituci&#xF3;n lesbiana</prefLabel>
@@ -28715,7 +28727,7 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0001136</id>
+    <id>https://homosaurus.org/v4/homoit0001136</id>
     <prefLabel language="en">Prostitution</prefLabel>
   </broader>
   <comment language="es"/>
@@ -28822,7 +28834,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000774</id>
+  <id>https://homosaurus.org/v4/homoit0000530</id>
   <identifier>homoit0000774</identifier>
   <prefLabel language="en">Lesbian religious groups</prefLabel>
   <issued>
@@ -29259,7 +29271,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000790</id>
+  <id>https://homosaurus.org/v4/homoit0000790</id>
   <identifier>homoit0000790</identifier>
   <prefLabel language="en">Lesbian theology</prefLabel>
   <issued>
@@ -29271,7 +29283,7 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0001364</id>
+    <id>https://homosaurus.org/v4/homoit0001364</id>
     <prefLabel language="en">LGBTQ+ theology</prefLabel>
   </broader>
 </record>
@@ -30099,7 +30111,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000813</id>
+  <id>https://homosaurus.org/v4/homoit0000928</id>
   <identifier>homoit0000813</identifier>
   <prefLabel language="en">LGBTQ+ African religions</prefLabel>
   <issued>
@@ -30117,7 +30129,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000814</id>
+  <id>https://homosaurus.org/v4/homoit0000928</id>
   <identifier>homoit0000814</identifier>
   <prefLabel language="en">LGBTQ+ Native American religions</prefLabel>
   <issued>
@@ -30309,7 +30321,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000817</id>
+  <id>https://homosaurus.org/v4/homoit0000928</id>
   <identifier>homoit0000817</identifier>
   <prefLabel language="en">LGBTQ+ Asian religions</prefLabel>
   <issued>
@@ -30725,6 +30737,18 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0001754</id>
     <prefLabel language="en">Asexual fiction</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002487</id>
+    <prefLabel language="en">Demisexual authors </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002505</id>
+    <prefLabel language="en">Megasexual authors</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002534</id>
+    <prefLabel language="en">Greyromantic authors</prefLabel>
   </related>
   <comment language="en">Written works featuring LGBTQ+ characters or themes, or works intended to be read by LGBTQ+ people.</comment>
   <comment language="es">Obras escritas que presenten a personajes o temas LGBTQ+, u obras destinadas a ser le&#xED;das por personas LGBTQ+.</comment>
@@ -31402,12 +31426,12 @@
     <prefLabel language="en">LGBTQ+ meeting places</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002393</id>
-    <prefLabel language="en">Digital identification of LGBTQ+ people by police</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0003821</id>
     <prefLabel language="en">LGBTQ+ dating</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002393</id>
+    <prefLabel language="en">Digital identification of LGBTQ+ people by police</prefLabel>
   </related>
   <comment language="en">Software applications designed to generate connections between LGBTQ+ people interested in romantic or sexual relationships.</comment>
   <comment language="es">Aplicaciones de software dise&#xF1;adas para generar conexiones entre personas LGBTQ+ interesadas en relaciones rom&#xE1;nticas o sexuales.</comment>
@@ -31443,12 +31467,12 @@
     <prefLabel language="en">LGBTQ+ meeting places</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002393</id>
-    <prefLabel language="en">Digital identification of LGBTQ+ people by police</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0003821</id>
     <prefLabel language="en">LGBTQ+ dating</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002393</id>
+    <prefLabel language="en">Digital identification of LGBTQ+ people by police</prefLabel>
   </related>
   <comment language="en">Websites designed to generate connections between LGBTQ+ people interested in romantic or sexual relationships.</comment>
   <comment language="es">Sitios web dise&#xF1;ados para generar conexiones entre personas LGBTQ+ interesadas en relaciones rom&#xE1;nticas o sexuales.</comment>
@@ -31861,7 +31885,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000858</id>
+  <id>https://homosaurus.org/v4/homoit0000889</id>
   <identifier>homoit0000858</identifier>
   <prefLabel language="en">LGBTQ+ emotions</prefLabel>
   <issued>
@@ -31944,6 +31968,14 @@
     <prefLabel language="en">Non-binary erotic literature</prefLabel>
   </narrower>
   <related>
+    <id>https://homosaurus.org/v4/homoit0002635</id>
+    <prefLabel language="en">M&#x101;h&#x16B; erotic literature</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002644</id>
+    <prefLabel language="en">Two-Spirit erotic literature</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0002172</id>
     <prefLabel language="ja">Hentai</prefLabel>
   </related>
@@ -31958,14 +31990,6 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0002205</id>
     <prefLabel language="en">Slash fiction</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0002635</id>
-    <prefLabel language="en">M&#x101;h&#x16B; erotic literature</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0002644</id>
-    <prefLabel language="en">Two-Spirit erotic literature</prefLabel>
   </related>
   <comment language="en">Literary works that have erotic or sexual elements; use in reference to erotic literature focusing on LGBTQ+ characters or themes.</comment>
   <comment language="es">Obras literarias que tengan elementos er&#xF3;ticos o sexuales; util&#xED;cese en referencia a literatura er&#xF3;tica centrada en personajes o temas LGBTQ+.</comment>
@@ -32242,6 +32266,14 @@
     <prefLabel language="en">LGBTQ+ meeting places</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0003601</id>
+    <prefLabel language="en">Two-Spirit events</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0003607</id>
+    <prefLabel language="en">Women's events</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0002157</id>
     <prefLabel language="en">Fandom conventions</prefLabel>
   </related>
@@ -32252,14 +32284,6 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0002202</id>
     <prefLabel language="en">Slash conventions</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0003601</id>
-    <prefLabel language="en">Two-Spirit events</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0003607</id>
-    <prefLabel language="en">Women's events</prefLabel>
   </related>
   <comment language="en">Organized public or social occasions for LGBTQ+ people and communities.</comment>
   <comment language="es">Ocasiones p&#xFA;blicas o sociales organizadas para personas y comunidades LGBTQ+.</comment>
@@ -32569,12 +32593,12 @@
     <prefLabel language="en">LGBTQ+ films</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002327</id>
-    <prefLabel language="en">LGBTQ+ cinema</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0003717</id>
     <prefLabel language="en">Two-Spirit film festivals</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002327</id>
+    <prefLabel language="en">LGBTQ+ cinema</prefLabel>
   </related>
   <comment language="en">Organized presentations of films in a single location, often with prizes awarded in various categories; use in reference to film festivals focusing on films created by LGBTQ+ people or featuring LGBTQ+ characters and themes.</comment>
   <comment language="es">Presentaciones organizadas de pel&#xED;culas en un solo lugar, a menudo con premios otorgados en varias categor&#xED;as; util&#xED;cese en referencia a festivales de cine que se centran en pel&#xED;culas creadas por personas LGBTQ+ o que presentan personajes y temas LGBTQ+.</comment>
@@ -33582,7 +33606,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000890</id>
+  <id>https://homosaurus.org/v4/homoit0000682</id>
   <identifier>homoit0000890</identifier>
   <prefLabel language="en">LGBTQ+ Judaism</prefLabel>
   <issued>
@@ -34189,7 +34213,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000907</id>
+  <id>https://homosaurus.org/v4/homoit0000907</id>
   <identifier>homoit0000907</identifier>
   <prefLabel language="en">LGBTQ+ museums</prefLabel>
   <issued>
@@ -34240,12 +34264,16 @@
     <prefLabel language="en">LGBTQ+ choruses</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0003610</id>
+    <prefLabel language="en">LGBTQ+ music</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0002147</id>
     <prefLabel language="en">Bandslash</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0003610</id>
-    <prefLabel language="en">LGBTQ+ music</prefLabel>
+    <id>https://homosaurus.org/v4/homoit0003159</id>
+    <prefLabel language="en">LGBTQ+ country music</prefLabel>
   </related>
   <comment language="en">LGBTQ+ people who create and/or perform music.</comment>
   <comment language="es">Personas LGBTQ+ que crean y/o interpretan m&#xFA;sica.</comment>
@@ -34823,7 +34851,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000916</id>
+  <id>https://homosaurus.org/v4/homoit0000916</id>
   <identifier>homoit0000916</identifier>
   <prefLabel language="en">LGBTQ+ people with physical disabilities</prefLabel>
   <issued>
@@ -34839,17 +34867,17 @@
     <prefLabel language="en">LGBTQ+ people</prefLabel>
   </broader>
   <narrower>
-    <id>https://homosaurus.org/v3/homoit0000337</id>
+    <id>https://homosaurus.org/v4/homoit0000337</id>
     <prefLabel language="en">LGBTQ+ deaf people</prefLabel>
   </narrower>
   <narrower>
-    <id>https://homosaurus.org/v3/homoit0000917</id>
+    <id>https://homosaurus.org/v4/homoit0000917</id>
     <prefLabel language="en">LGBTQ+ people with visual disabilities</prefLabel>
   </narrower>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000917</id>
+  <id>https://homosaurus.org/v4/homoit0000917</id>
   <identifier>homoit0000917</identifier>
   <prefLabel language="en">LGBTQ+ people with visual disabilities</prefLabel>
   <issued>
@@ -35500,16 +35528,16 @@
     <prefLabel language="en">LGBTQ+ fantasy fiction</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002177</id>
-    <prefLabel language="en">Kirk/Spock</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002637</id>
     <prefLabel language="en">M&#x101;h&#x16B; science fiction</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0002647</id>
     <prefLabel language="en">Two-Spirit science fiction</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002177</id>
+    <prefLabel language="en">Kirk/Spock</prefLabel>
   </related>
   <comment language="en">Written literary work about imaginative or futuristic concepts incorporating science, technology, space, time travel, and other speculative elements; use in reference to science fiction focusing on LGBTQ+ characters or themes.</comment>
   <comment language="es">Obras literarias escritas sobre conceptos imaginativos o futuristas que incorporen la ciencia, la tecnolog&#xED;a, el espacio, los viajes en el tiempo y otros elementos especulativos; util&#xED;cese en referencia a la ciencia ficci&#xF3;n centrada en personajes o temas LGBTQ+.</comment>
@@ -36292,12 +36320,12 @@
     <prefLabel language="en">Sexually abused LGBTQ+ children</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002195</id>
-    <prefLabel language="en">Rape/non-con (Content warning)</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002733</id>
     <prefLabel language="en">Two-Spirit victims of rape</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002195</id>
+    <prefLabel language="en">Rape/non-con (Content warning)</prefLabel>
   </related>
   <comment language="en">LGBTQ+ people who have experienced rape and may or may not have survived; follow the individual's preference for "victims" or "survivors" whenever possible.</comment>
   <comment language="es">Personas LGBTQ+ que han sufrido una violaci&#xF3;n y pueden o no haber sobrevivido; siga la preferencia de la persona sobre el uso de "v&#xED;ctimas" o "sobrevivientes" siempre que sea posible.</comment>
@@ -36381,12 +36409,12 @@
     <prefLabel language="en">LGBTQ+ sexual abuse</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002195</id>
-    <prefLabel language="en">Rape/non-con (Content warning)</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002734</id>
     <prefLabel language="en">Two-Spirit victims of sexual abuse</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002195</id>
+    <prefLabel language="en">Rape/non-con (Content warning)</prefLabel>
   </related>
   <comment language="en">LGBTQ+ people who have experienced sexual abuse and may or may not have survived; follow the individual's preference for "victims" or "survivors" whenever possible.</comment>
   <comment language="es">Personas LGBTQ+ que han sufrido abuso sexual y pueden o no haber sobrevivido; siga la preferencia de la persona sobre el uso de "v&#xED;ctimas" o "sobrevivientes" siempre que sea posible.</comment>
@@ -36655,12 +36683,12 @@
     <prefLabel language="en">LGBTQ+ magazines</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001830</id>
-    <prefLabel language="en">LGBTQ+ periodicals</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0003153</id>
     <prefLabel language="en">Two-Spirit zines</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0001830</id>
+    <prefLabel language="en">LGBTQ+ periodicals</prefLabel>
   </related>
   <comment language="en">Independent, small-circulation publications usually reproduced via photocopier; use for zines created by LGBTQ+ people and/or focusing on LGBTQ+ identities, issues, or cultures.</comment>
   <comment language="es">Publicaciones independientes de peque&#xF1;a tirada generalmente reproducidas mediante fotocopiadora; util&#xED;cese para revistas creadas por personas LGBTQ+ y/o centradas en identidades, asuntos o culturas LGBTQ+.</comment>
@@ -36782,10 +36810,6 @@
     <prefLabel language="en">LGBTQ+ books</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001813</id>
-    <prefLabel language="en">LGBTQ+ special collections</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002697</id>
     <prefLabel language="en">Two-Spirit libraries</prefLabel>
   </related>
@@ -36796,6 +36820,10 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0003618</id>
     <prefLabel language="en">LGBTQ+ librarians</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0001813</id>
+    <prefLabel language="en">LGBTQ+ special collections</prefLabel>
   </related>
   <comment language="en">Libraries that hold materials primarily pertaining to LGBTQ+ people or intended for use by LGBTQ+ people.</comment>
   <comment language="es">Bibliotecas que contienen materiales principalmente relacionados con personas LGBTQ+ o destinados a personas LGBTQ+.</comment>
@@ -37014,16 +37042,16 @@
     <prefLabel language="en">LGBTQ+ cultural heritage institutions</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002192</id>
-    <prefLabel language="en">Queer coding</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002710</id>
     <prefLabel language="en">Two-Spirit literature</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0003618</id>
     <prefLabel language="en">LGBTQ+ librarians</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002192</id>
+    <prefLabel language="en">Queer coding</prefLabel>
   </related>
   <comment language="en">Written literary works featuring LGBTQ+ characters and themes.</comment>
   <comment language="es">Obras literarias escritas con personajes y temas LGBTQ+.</comment>
@@ -37393,7 +37421,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000984</id>
+  <id>https://homosaurus.org/v4/homoit0000984</id>
   <identifier>homoit0000984</identifier>
   <prefLabel language="en">Male prostitution</prefLabel>
   <issued>
@@ -37405,13 +37433,13 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0001136</id>
+    <id>https://homosaurus.org/v4/homoit0001136</id>
     <prefLabel language="en">Prostitution</prefLabel>
   </broader>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0000985</id>
+  <id>https://homosaurus.org/v4/homoit0001008</id>
   <identifier>homoit0000985</identifier>
   <prefLabel language="en">Males</prefLabel>
   <issued>
@@ -38166,7 +38194,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001003</id>
+  <id>https://homosaurus.org/v4/homoit0000530</id>
   <identifier>homoit0001003</identifier>
   <prefLabel language="en">Metropolitan Community Church</prefLabel>
   <issued>
@@ -39082,16 +39110,16 @@
     <prefLabel language="en">Gay-straight alliances</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001905</id>
-    <prefLabel language="en">Zaps</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002713</id>
     <prefLabel language="en">Two-Spirit movement</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0003695</id>
     <prefLabel language="en">LGBTQ+ philanthropy</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0001905</id>
+    <prefLabel language="en">Zaps</prefLabel>
   </related>
   <comment language="en">Refers to various social and political movements aimed at securing equity and equal representation for LGBTQ+ people.</comment>
   <comment language="es">Se refiere a varios movimientos sociales y pol&#xED;ticos destinados a garantizar la equidad y la representaci&#xF3;n equitativa de las personas LGBTQ+.</comment>
@@ -39415,7 +39443,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001036</id>
+  <id>https://homosaurus.org/v4/homoit0000322</id>
   <identifier>homoit0001036</identifier>
   <prefLabel language="en">Namban</prefLabel>
   <issued>
@@ -39839,12 +39867,12 @@
     <prefLabel language="en">Breast fetish</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001984</id>
-    <prefLabel language="en">Nipple</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0003130</id>
     <prefLabel language="en">Breast torture</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0001984</id>
+    <prefLabel language="en">Nipple</prefLabel>
   </related>
   <comment language="en">Sexual acts involving stimulation of the nipples.</comment>
   <comment language="es">Actos sexuales que implican la estimulaci&#xF3;n de los pezones.</comment>
@@ -39957,12 +39985,12 @@
     <prefLabel language="en">Xenogender people</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001920</id>
-    <prefLabel language="en">Non-binary identity</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002185</id>
     <prefLabel language="en">Non-binary people in fandom</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0001920</id>
+    <prefLabel language="en">Non-binary identity</prefLabel>
   </related>
   <comment language="en">Individuals whose gender identity exists outside of the gender binary; only use to describe individuals who self-identify as non-binary.</comment>
   <comment language="es">Personas cuya identidad de g&#xE9;nero existe fuera del binario de g&#xE9;nero;  util&#xED;cese &#xFA;nicamente para describir a personas que se autoidentifiquen como no binarias.</comment>
@@ -40497,7 +40525,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001064</id>
+  <id>https://homosaurus.org/v4/homoit0000949</id>
   <identifier>homoit0001064</identifier>
   <prefLabel language="en">Outgames</prefLabel>
   <issued>
@@ -41799,10 +41827,6 @@
     <prefLabel language="en">Tucking (Phallus)</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001790</id>
-    <prefLabel language="en">Packers (Phallus)</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0001846</id>
     <prefLabel language="en">Metoidioplasty</prefLabel>
   </related>
@@ -41813,6 +41837,10 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0001850</id>
     <prefLabel language="en">Phalloplasty</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0001790</id>
+    <prefLabel language="en">Packers (Phallus)</prefLabel>
   </related>
   <comment language="en">External genital organ.</comment>
   <comment language="es">&#xD3;rgano genital externo.</comment>
@@ -43485,7 +43513,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001136</id>
+  <id>https://homosaurus.org/v4/homoit0001136</id>
   <identifier>homoit0001136</identifier>
   <prefLabel language="en">Prostitution</prefLabel>
   <issued>
@@ -43505,7 +43533,7 @@
     <prefLabel language="en">Sexual practices</prefLabel>
   </broader>
   <narrower>
-    <id>https://homosaurus.org/v3/homoit0001438</id>
+    <id>https://homosaurus.org/v4/homoit0001438</id>
     <prefLabel language="en">Transgender prostitution</prefLabel>
   </narrower>
   <related>
@@ -43861,12 +43889,12 @@
     <prefLabel language="en">Intersex publishers</prefLabel>
   </narrower>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001830</id>
-    <prefLabel language="en">LGBTQ+ periodicals</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002720</id>
     <prefLabel language="en">Two-Spirit publishers</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0001830</id>
+    <prefLabel language="en">LGBTQ+ periodicals</prefLabel>
   </related>
   <comment language="en">Publishers that publish materials for LGBTQ+ communities or materials addressing LGBTQ+ issues.</comment>
   <comment language="es">Empresas y organizaciones que publican materiales para comunidades LGBTQ+ o que abordan asuntos LGBTQ+.</comment>
@@ -43946,6 +43974,10 @@
     <id>https://homosaurus.org/v4/homoit0001101</id>
     <prefLabel language="en-US">LGBTQ+ people of color</prefLabel>
   </broader>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002273</id>
+    <prefLabel language="en">QTPOC</prefLabel>
+  </related>
   <comment language="en">Primarily used in the United States, this term refers to queer people who are not white and who identify as people of color.</comment>
   <comment language="es">Personas queer que no son blancas y que se autoidentifican como personas de color.</comment>
 </record>
@@ -45296,6 +45328,10 @@
     <prefLabel language="en">Genderqueer identity</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0003823</id>
+    <prefLabel language="en">Queer bodies</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0002193</id>
     <prefLabel language="en">Queer people in fandom</prefLabel>
   </related>
@@ -45306,10 +45342,6 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0002588</id>
     <prefLabel language="en">Culturally queer</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0003823</id>
-    <prefLabel language="en">Queer bodies</prefLabel>
   </related>
   <comment language="en">Individuals who identify with non-normative gender and/or sexual identities, typically people who are not heterosexual and/or are not cisgender. Only use for people who identify as queer.</comment>
   <comment language="es">Personas que se identifican con identidades sexuales y/o de g&#xE9;nero no normativas, generalmente personas que no son heterosexuales y/o cisg&#xE9;nero. Util&#xED;cese &#xFA;nicamente para personas que se autoidentifiquen como queer.</comment>
@@ -46428,7 +46460,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001236</id>
+  <id>https://homosaurus.org/v4/homoit0001237</id>
   <identifier>homoit0001236</identifier>
   <prefLabel language="en">Relationship satisfaction</prefLabel>
   <issued>
@@ -46551,12 +46583,12 @@
     <prefLabel language="en">Relationship orientation</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002189</id>
-    <prefLabel language="en">Pairings in fandom</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002722</id>
     <prefLabel language="en">Two-Spirit relationships</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002189</id>
+    <prefLabel language="en">Pairings in fandom</prefLabel>
   </related>
   <comment language="en">Ongoing connections (romantic, sexual, or platonic) between two or more LGBTQ+ people.</comment>
   <comment language="es">Conexiones continuas (rom&#xE1;nticas, sexuales o plat&#xF3;nicas) entre dos o m&#xE1;s personas LGBTQ+.</comment>
@@ -46800,18 +46832,6 @@
     <prefLabel language="en">Sexual roles</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002165</id>
-    <prefLabel language="en">Furries</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0002169</id>
-    <prefLabel language="en">Fursuits</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0002207</id>
-    <prefLabel language="en">Slash roleplay</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0003052</id>
     <prefLabel language="en">Power exchange</prefLabel>
   </related>
@@ -46834,6 +46854,18 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0003139</id>
     <prefLabel language="en">Consent play</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002165</id>
+    <prefLabel language="en">Furries</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002169</id>
+    <prefLabel language="en">Fursuits</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002207</id>
+    <prefLabel language="en">Slash roleplay</prefLabel>
   </related>
   <comment language="en">Practice in which one or more people take on a different identity or role to fulfill a desire or fantasy.</comment>
   <comment language="es">Pr&#xE1;ctica en la que una o m&#xE1;s personas asumen una identidad o rol diferente para cumplir un deseo o una fantas&#xED;a.</comment>
@@ -48443,16 +48475,16 @@
     <prefLabel language="en">LGBTQ+ porn stars</prefLabel>
   </narrower>
   <related>
-    <id>https://homosaurus.org/v4/homoit0003262</id>
-    <prefLabel language="en">LGBTQ+ sex tourism</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0003761</id>
     <prefLabel language="en">Two-Spirit sex workers</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0003762</id>
     <prefLabel language="en">M&#x101;h&#x16B; sex workers</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0003262</id>
+    <prefLabel language="en">LGBTQ+ sex tourism</prefLabel>
   </related>
   <comment language="en">LGBTQ+ people who receive money or goods in exchange for sexual services, performances, or companionship. Use to describe LGBTQ+ people working across the broad spectrum of sex work.</comment>
   <comment language="es">Personas LGBTQ+ que reciben dinero o bienes a cambio de servicios o actuaciones sexuales. Util&#xED;cese para describir a las personas LGBTQ+ que trabajan en el amplio espectro del trabajo sexual.</comment>
@@ -50291,12 +50323,12 @@
     <prefLabel language="en">Anti-LGBTQ+ violence</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002195</id>
-    <prefLabel language="en">Rape/non-con (Content warning)</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0003444</id>
     <prefLabel language="en">Rape culture</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002195</id>
+    <prefLabel language="en">Rape/non-con (Content warning)</prefLabel>
   </related>
   <comment language="en">Sexual acts or attempts to coerce sexual acts that involve the use of non-consensual violence. This term encompasses sexual assault, rape, and sexual abuse.</comment>
   <comment language="es">Actos sexuales o intentos de coercer a actos sexuales que impliquen el uso de violencia no consentida. Este t&#xE9;rmino abarca la agresi&#xF3;n sexual, la violaci&#xF3;n y el abuso sexual.</comment>
@@ -50436,16 +50468,16 @@
     <prefLabel language="en-US">Situational sexual behavior</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0003738</id>
+    <prefLabel language="en">Sexual fluidity</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0001806</id>
     <prefLabel language="en">Homoeroticism</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0001901</id>
     <prefLabel language="en">Passing (Sexuality)</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0003738</id>
-    <prefLabel language="en">Sexual fluidity</prefLabel>
   </related>
   <comment language="en">Term used to describe the ways in which individuals experience and express themselves sexually, including the types of people and practices they are sexually interested in.</comment>
   <comment language="es">T&#xE9;rmino utilizado para describir las formas en que las personas experimentan y se expresan sexualmente, incluidos los tipos de personas y pr&#xE1;cticas que les interesan sexualmente.</comment>
@@ -50835,14 +50867,6 @@
     <prefLabel language="en">Slurs</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002158</id>
-    <prefLabel language="en">Fandom terminology</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0002208</id>
-    <prefLabel language="en">Slash terminology</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002724</id>
     <prefLabel language="en">Two-Spirit slang</prefLabel>
   </related>
@@ -50853,6 +50877,14 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0003520</id>
     <prefLabel language="en">Queer linguistics</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002158</id>
+    <prefLabel language="en">Fandom terminology</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002208</id>
+    <prefLabel language="en">Slash terminology</prefLabel>
   </related>
   <comment language="en">Colloquial or informal language related to LGBTQ+ people or used by LGBTQ+ people.</comment>
   <comment language="es">Lenguaje coloquial o informal relacionado con personas LGBTQ+ o utilizado por personas LGBTQ+.</comment>
@@ -52028,12 +52060,12 @@
     <prefLabel language="en">Intersex survivors of rape</prefLabel>
   </narrower>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002195</id>
-    <prefLabel language="en">Rape/non-con (Content warning)</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002727</id>
     <prefLabel language="en">Two-Spirit survivors of rape</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002195</id>
+    <prefLabel language="en">Rape/non-con (Content warning)</prefLabel>
   </related>
   <comment language="en">LGBTQ+ people who have experienced and survived rape; follow the individual's preference for "victims" or "survivors" whenever possible.</comment>
   <comment language="es">Personas LGBTQ+ que han sufrido y sobrevivido la violaci&#xF3;n; siga la preferencia de la persona sobre el uso de "v&#xED;ctimas" o "sobrevivientes" siempre que sea posible.</comment>
@@ -52093,12 +52125,12 @@
     <prefLabel language="en">LGBTQ+ sexual abuse</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002195</id>
-    <prefLabel language="en">Rape/non-con (Content warning)</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002728</id>
     <prefLabel language="en">Two-Spirit survivors of sexual abuse</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002195</id>
+    <prefLabel language="en">Rape/non-con (Content warning)</prefLabel>
   </related>
   <comment language="en">LGBTQ+ people who have experienced and survived sexual abuse; follow the individual's preference for "victims" or "survivors" whenever possible.</comment>
   <comment language="es">Personas LGBTQ+ que han sufrido y sobrevivido abusos sexuales; siga la preferencia de la persona sobre el uso de "v&#xED;ctimas" o "sobrevivientes" siempre que sea posible.</comment>
@@ -52224,7 +52256,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001355</id>
+  <id>https://homosaurus.org/v4/homoit0000861</id>
   <identifier>homoit0001355</identifier>
   <prefLabel language="en">Sydney Gay and Lesbian Mardi Gras</prefLabel>
   <issued>
@@ -52595,19 +52627,19 @@
     <prefLabel language="en">LGBTQ+ cultural heritage institutions</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001813</id>
-    <prefLabel language="en">LGBTQ+ special collections</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002731</id>
     <prefLabel language="en">Two-Spirit theater</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0001813</id>
+    <prefLabel language="en">LGBTQ+ special collections</prefLabel>
   </related>
   <comment language="en">Works in the performance arts that focus on LGBTQ+ characters, communities, or issues.</comment>
   <comment language="es">Trabajos en las artes esc&#xE9;nicas que se centran en personajes, comunidades o cuestiones LGBTQ+.</comment>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001364</id>
+  <id>https://homosaurus.org/v4/homoit0001364</id>
   <identifier>homoit0001364</identifier>
   <prefLabel language="en">LGBTQ+ theology</prefLabel>
   <issued>
@@ -54140,16 +54172,16 @@
     <prefLabel language="en">Transgender people</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0003708</id>
+    <prefLabel language="en">Trans joy</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0001780</id>
     <prefLabel language="en">t4t</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0001789</id>
     <prefLabel language="en">2SLGBTQ+</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0003708</id>
-    <prefLabel language="en">Trans joy</prefLabel>
   </related>
   <comment language="en">Groups of people who share the experience of being transgender.</comment>
   <comment language="es">Grupos de personas que comparten la experiencia de ser transg&#xE9;nero.</comment>
@@ -54960,6 +54992,10 @@
     <id>https://homosaurus.org/v4/homoit0001101</id>
     <prefLabel language="en-US">LGBTQ+ people of color</prefLabel>
   </broader>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002273</id>
+    <prefLabel language="en">QTPOC</prefLabel>
+  </related>
   <comment language="en">Primarily used in the United States, this term refers to transgender people who are not white and who identify as people of color.</comment>
   <comment language="es">Personas transg&#xE9;nero que no son blancas y que se autoidentifican como personas de color.</comment>
 </record>
@@ -55106,7 +55142,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001438</id>
+  <id>https://homosaurus.org/v4/homoit0001438</id>
   <identifier>homoit0001438</identifier>
   <prefLabel language="en">Transgender prostitution</prefLabel>
   <issued>
@@ -55544,7 +55580,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001455</id>
+  <id>https://homosaurus.org/v4/homoit0001455</id>
   <identifier>homoit0001455</identifier>
   <prefLabel language="en">Transgender theology</prefLabel>
   <issued>
@@ -55556,7 +55592,7 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0001364</id>
+    <id>https://homosaurus.org/v4/homoit0001364</id>
     <prefLabel language="en">LGBTQ+ theology</prefLabel>
   </broader>
 </record>
@@ -56106,6 +56142,10 @@
     <prefLabel language="en">Transgender people</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0003737</id>
+    <prefLabel language="en">Anti-gender movement</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0001819</id>
     <prefLabel language="en">Trans exclusivity</prefLabel>
   </related>
@@ -56120,10 +56160,6 @@
   <related>
     <id>https://homosaurus.org/v4/homoit0003499</id>
     <prefLabel language="en">Anti-transgender legislation</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0003737</id>
-    <prefLabel language="en">Anti-gender movement</prefLabel>
   </related>
   <comment language="en">Antagonism or disgust directed toward trans individuals (or others perceived to be transgressing gender norms) due to their gender identity and/or expression. Transphobia can include denial of the existence of trans identities, stereotypes, verbal harassment, and physical violence.</comment>
   <comment language="es">Antagonismo o disgusto dirigido hacia personas trans (u otras personas percibidas como transgresoras de las normas de g&#xE9;nero) debido a su identidad y/o expresi&#xF3;n de g&#xE9;nero. La transfobia puede incluir la negaci&#xF3;n de la existencia de identidades trans, estereotipos, acoso verbal y violencia f&#xED;sica.</comment>
@@ -56683,16 +56719,16 @@
     <prefLabel language="en">Two-Spirit community</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002213</id>
-    <prefLabel language="en">Two-Spirit people in fandom</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002689</id>
     <prefLabel language="en">Two-Spirit community centers</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0000886</id>
     <prefLabel language="en">Indigenous LGBTQ+ people</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002213</id>
+    <prefLabel language="en">Two-Spirit people in fandom</prefLabel>
   </related>
   <comment language="en">Indigenous people in North America who self-identify as Two-Spirit to reconnect with the multiple gender and sexual roles in Native cultures.</comment>
   <comment language="es">Personas ind&#xED;genas de Norteam&#xE9;rica que se autoidentifican como dos esp&#xED;ritus para reconectar con los m&#xFA;ltiples roles sexuales y de g&#xE9;nero en las culturas nativas.</comment>
@@ -57000,7 +57036,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001490</id>
+  <id>https://homosaurus.org/v4/homoit0001490</id>
   <identifier>homoit0001490</identifier>
   <prefLabel language="en">Vaginoplasty</prefLabel>
   <issued>
@@ -57527,7 +57563,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001507</id>
+  <id>https://homosaurus.org/v4/homoit0001507</id>
   <identifier>homoit0001507</identifier>
   <prefLabel language="en">Witches (Lesbians)</prefLabel>
   <issued>
@@ -58208,12 +58244,12 @@
     <prefLabel language="en">LGBTQ+ youth</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002179</id>
-    <prefLabel language="en">LGBTQ+ fanfiction</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002712</id>
     <prefLabel language="en">Two-Spirit youth literature</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002179</id>
+    <prefLabel language="en">LGBTQ+ fanfiction</prefLabel>
   </related>
   <comment language="en">Written literary works for an audience of readers from 12-18 years of age, also known as young adult literature or YA; use in reference to youth literature focusing on LGBTQ+ characters or themes.</comment>
   <comment language="es">Obras literarias escritas para una audiencia de lectores de 12 a 18 a&#xF1;os de edad, tambi&#xE9;n conocidas como literatura para adultos j&#xF3;venes o YA (por sus siglas en ingl&#xE9;s); util&#xED;cese en referencia a la literatura juvenil centrada en personajes o temas LGBTQ+.</comment>
@@ -58241,7 +58277,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001524</id>
+  <id>https://homosaurus.org/v4/homoit0001523</id>
   <identifier>homoit0001524</identifier>
   <prefLabel language="en">Zenani</prefLabel>
   <issued>
@@ -58260,7 +58296,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001525</id>
+  <id>https://homosaurus.org/v4/homoit0001551</id>
   <identifier>homoit0001525</identifier>
   <prefLabel language="en">Recovery groups</prefLabel>
   <issued>
@@ -58276,13 +58312,13 @@
     <prefLabel language="en">LGBTQ+-affirming recovery groups</prefLabel>
   </narrower>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001562</id>
+    <id>https://homosaurus.org/v4/homoit0002228</id>
     <prefLabel language="en">Sobriety</prefLabel>
   </related>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001526</id>
+  <id>https://homosaurus.org/v4/homoit0001551</id>
   <identifier>homoit0001526</identifier>
   <prefLabel language="en">Adult Children of Alcoholics</prefLabel>
   <issued>
@@ -58294,26 +58330,26 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0001525</id>
+    <id>https://homosaurus.org/v4/homoit0001551</id>
     <prefLabel language="en">Recovery groups</prefLabel>
   </broader>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001528</id>
+    <id>https://homosaurus.org/v4/homoit0001540</id>
     <prefLabel language="en">Alcoholics </prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001541</id>
+    <id>https://homosaurus.org/v4/homoit0000256</id>
     <prefLabel language="en">LGBTQ+ children of alcoholics</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001543</id>
+    <id>https://homosaurus.org/v4/homoit0002227</id>
     <prefLabel language="en">LGBTQ+ people in Adult Children of Alcoholics</prefLabel>
   </related>
   <comment language="en">A twelve step program based in the U.S. that treats alcoholism as a disease and aims to address its impact on the adult lives of children of alcoholics; may be used in reference to LGBTQ+ members of ACA or LGBTQ+-focused chapters of ACA</comment>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001527</id>
+  <id>https://homosaurus.org/v4/homoit0001551</id>
   <identifier>homoit0001527</identifier>
   <prefLabel language="en">Al-Anon</prefLabel>
   <issued>
@@ -58325,29 +58361,29 @@
     <name>xsd:date</name>
   </modified>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001525</id>
+    <id>https://homosaurus.org/v4/homoit0001551</id>
     <prefLabel language="en">Recovery groups</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001528</id>
+    <id>https://homosaurus.org/v4/homoit0001540</id>
     <prefLabel language="en">Alcoholics </prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001529</id>
+    <id>https://homosaurus.org/v4/homoit0001551</id>
     <prefLabel language="en">Alcoholics Anonymous</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001530</id>
+    <id>https://homosaurus.org/v4/homoit0001540</id>
     <prefLabel language="en">Alcoholism</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001544</id>
+    <id>https://homosaurus.org/v4/homoit0002227</id>
     <prefLabel language="en">LGBTQ+ people in Al-Anon</prefLabel>
   </related>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001528</id>
+  <id>https://homosaurus.org/v4/homoit0001540</id>
   <identifier>homoit0001528</identifier>
   <prefLabel language="en">Alcoholics </prefLabel>
   <issued>
@@ -58363,22 +58399,22 @@
     <prefLabel language="en">LGBTQ+ people with alcohol use disorders</prefLabel>
   </narrower>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001530</id>
+    <id>https://homosaurus.org/v4/homoit0001540</id>
     <prefLabel language="en">Alcoholism</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001541</id>
+    <id>https://homosaurus.org/v4/homoit0000256</id>
     <prefLabel language="en">LGBTQ+ children of alcoholics</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001542</id>
+    <id>https://homosaurus.org/v4/homoit0001083</id>
     <prefLabel language="en">LGBTQ+ partners of alcoholics</prefLabel>
   </related>
   <comment language="en">Individuals who are addicted to alcohol or have alcohol dependencies</comment>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001529</id>
+  <id>https://homosaurus.org/v4/homoit0001551</id>
   <identifier>homoit0001529</identifier>
   <prefLabel language="en">Alcoholics Anonymous</prefLabel>
   <issued>
@@ -58390,26 +58426,26 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0001525</id>
+    <id>https://homosaurus.org/v4/homoit0001551</id>
     <prefLabel language="en">Recovery groups</prefLabel>
   </broader>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001528</id>
+    <id>https://homosaurus.org/v4/homoit0001540</id>
     <prefLabel language="en">Alcoholics </prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001530</id>
+    <id>https://homosaurus.org/v4/homoit0001540</id>
     <prefLabel language="en">Alcoholism</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001545</id>
+    <id>https://homosaurus.org/v4/homoit0002227</id>
     <prefLabel language="en">LGBTQ+ people in Alcoholics Anonymous</prefLabel>
   </related>
   <comment language="en">An international organization aimed toward supporting alcoholics in sobriety through a twelve-step program; may be used in reference to LGBTQ+ individuals in AA or LGBTQ+ chapters of AA</comment>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001530</id>
+  <id>https://homosaurus.org/v4/homoit0001540</id>
   <identifier>homoit0001530</identifier>
   <prefLabel language="en">Alcoholism</prefLabel>
   <issued>
@@ -58421,11 +58457,11 @@
     <name>xsd:date</name>
   </modified>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001543</id>
+    <id>https://homosaurus.org/v4/homoit0002227</id>
     <prefLabel language="en">LGBTQ+ people in Adult Children of Alcoholics</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001545</id>
+    <id>https://homosaurus.org/v4/homoit0002227</id>
     <prefLabel language="en">LGBTQ+ people in Alcoholics Anonymous</prefLabel>
   </related>
   <related>
@@ -58513,7 +58549,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001533</id>
+  <id>https://homosaurus.org/v4/homoit0002226</id>
   <identifier>homoit0001533</identifier>
   <prefLabel language="en">Cocaine addiction</prefLabel>
   <issued>
@@ -58525,11 +58561,11 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0000378</id>
+    <id>https://homosaurus.org/v4/homoit0002226</id>
     <prefLabel language="en">Drug abuse</prefLabel>
   </broader>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001546</id>
+    <id>https://homosaurus.org/v4/homoit0002227</id>
     <prefLabel language="en">LGBTQ+ people in Cocaine Anonymous</prefLabel>
   </related>
   <related>
@@ -58540,7 +58576,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001534</id>
+  <id>https://homosaurus.org/v4/homoit0001551</id>
   <identifier>homoit0001534</identifier>
   <prefLabel language="en">Cocaine Anonymous</prefLabel>
   <issued>
@@ -58552,15 +58588,15 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0001525</id>
+    <id>https://homosaurus.org/v4/homoit0001551</id>
     <prefLabel language="en">Recovery groups</prefLabel>
   </broader>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001533</id>
+    <id>https://homosaurus.org/v4/homoit0002226</id>
     <prefLabel language="en">Cocaine addiction</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001546</id>
+    <id>https://homosaurus.org/v4/homoit0002227</id>
     <prefLabel language="en">LGBTQ+ people in Cocaine Anonymous</prefLabel>
   </related>
 </record>
@@ -58619,7 +58655,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001536</id>
+  <id>https://homosaurus.org/v4/homoit0002226</id>
   <identifier>homoit0001536</identifier>
   <prefLabel language="en">Crystal meth addiction</prefLabel>
   <issued>
@@ -58637,7 +58673,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001537</id>
+  <id>https://homosaurus.org/v4/homoit0001551</id>
   <identifier>homoit0001537</identifier>
   <prefLabel language="en">Crystal Meth Anonymous</prefLabel>
   <issued>
@@ -58649,15 +58685,15 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0001525</id>
+    <id>https://homosaurus.org/v4/homoit0001551</id>
     <prefLabel language="en">Recovery groups</prefLabel>
   </broader>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001536</id>
+    <id>https://homosaurus.org/v4/homoit0002226</id>
     <prefLabel language="en">Crystal meth addiction</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001547</id>
+    <id>https://homosaurus.org/v4/homoit0002227</id>
     <prefLabel language="en">LGBTQ+ people in Crystal Meth Anonymous</prefLabel>
   </related>
 </record>
@@ -58738,7 +58774,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001541</id>
+  <id>https://homosaurus.org/v4/homoit0000256</id>
   <identifier>homoit0001541</identifier>
   <prefLabel language="en">LGBTQ+ children of alcoholics</prefLabel>
   <issued>
@@ -58754,17 +58790,17 @@
     <prefLabel language="en">LGBTQ+ children</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001543</id>
+    <id>https://homosaurus.org/v4/homoit0002227</id>
     <prefLabel language="en">LGBTQ+ people in Adult Children of Alcoholics</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001544</id>
+    <id>https://homosaurus.org/v4/homoit0002227</id>
     <prefLabel language="en">LGBTQ+ people in Al-Anon</prefLabel>
   </related>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001542</id>
+  <id>https://homosaurus.org/v4/homoit0001083</id>
   <identifier>homoit0001542</identifier>
   <prefLabel language="en">LGBTQ+ partners of alcoholics</prefLabel>
   <issued>
@@ -58788,13 +58824,13 @@
     <prefLabel language="en">LGBTQ+ people with alcohol use disorders</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001544</id>
+    <id>https://homosaurus.org/v4/homoit0002227</id>
     <prefLabel language="en">LGBTQ+ people in Al-Anon</prefLabel>
   </related>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001543</id>
+  <id>https://homosaurus.org/v4/homoit0002227</id>
   <identifier>homoit0001543</identifier>
   <prefLabel language="en">LGBTQ+ people in Adult Children of Alcoholics</prefLabel>
   <issued>
@@ -58812,7 +58848,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001544</id>
+  <id>https://homosaurus.org/v4/homoit0002227</id>
   <identifier>homoit0001544</identifier>
   <prefLabel language="en">LGBTQ+ people in Al-Anon</prefLabel>
   <issued>
@@ -58830,7 +58866,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001545</id>
+  <id>https://homosaurus.org/v4/homoit0002227</id>
   <identifier>homoit0001545</identifier>
   <prefLabel language="en">LGBTQ+ people in Alcoholics Anonymous</prefLabel>
   <issued>
@@ -58852,7 +58888,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001546</id>
+  <id>https://homosaurus.org/v4/homoit0002227</id>
   <identifier>homoit0001546</identifier>
   <prefLabel language="en">LGBTQ+ people in Cocaine Anonymous</prefLabel>
   <issued>
@@ -58870,7 +58906,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001547</id>
+  <id>https://homosaurus.org/v4/homoit0002227</id>
   <identifier>homoit0001547</identifier>
   <prefLabel language="en">LGBTQ+ people in Crystal Meth Anonymous</prefLabel>
   <issued>
@@ -58886,13 +58922,13 @@
     <prefLabel language="en">LGBTQ+ people</prefLabel>
   </broader>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001536</id>
+    <id>https://homosaurus.org/v4/homoit0002226</id>
     <prefLabel language="en">Crystal meth addiction</prefLabel>
   </related>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001548</id>
+  <id>https://homosaurus.org/v4/homoit0002227</id>
   <identifier>homoit0001548</identifier>
   <prefLabel language="en">LGBTQ+ people in Narcotics Anonymous</prefLabel>
   <issued>
@@ -59013,7 +59049,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001552</id>
+  <id>https://homosaurus.org/v4/homoit0002227</id>
   <identifier>homoit0001552</identifier>
   <prefLabel language="en">LGBTQ+ step work</prefLabel>
   <issued>
@@ -59191,7 +59227,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001557</id>
+  <id>https://homosaurus.org/v4/homoit0001551</id>
   <identifier>homoit0001557</identifier>
   <prefLabel language="en">Narcotics Anonymous</prefLabel>
   <issued>
@@ -59203,15 +59239,15 @@
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0001525</id>
+    <id>https://homosaurus.org/v4/homoit0001551</id>
     <prefLabel language="en">Recovery groups</prefLabel>
   </broader>
   <related>
-    <id>https://homosaurus.org/v3/homoit0000378</id>
+    <id>https://homosaurus.org/v4/homoit0002226</id>
     <prefLabel language="en">Drug abuse</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v3/homoit0001548</id>
+    <id>https://homosaurus.org/v4/homoit0002227</id>
     <prefLabel language="en">LGBTQ+ people in Narcotics Anonymous</prefLabel>
   </related>
 </record>
@@ -59437,7 +59473,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001562</id>
+  <id>https://homosaurus.org/v4/homoit0002228</id>
   <identifier>homoit0001562</identifier>
   <prefLabel language="en">Sobriety</prefLabel>
   <issued>
@@ -60940,12 +60976,12 @@
     <prefLabel language="en">LGBTQ+ autobiographies</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002260</id>
-    <prefLabel language="en">LGBTQ+ history</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002680</id>
     <prefLabel language="en">Two-Spirit biographies</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002260</id>
+    <prefLabel language="en">LGBTQ+ history</prefLabel>
   </related>
   <comment language="en">Written accounts of the lives of LGBTQ+ people. For written accounts of LGBTQ+ people's lives written by the subject, use "LGBTQ+ autobiographies."</comment>
   <comment language="es">Relatos escritos de la vida de personas conocidas por ser LGBTQ+.</comment>
@@ -60969,12 +61005,16 @@
     <prefLabel language="en">LGBTQ+ biographies</prefLabel>
   </broader>
   <related>
+    <id>https://homosaurus.org/v4/homoit0001724</id>
+    <prefLabel language="en">Lesbian authors</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0001730</id>
     <prefLabel language="en">Lesbian autobiographies</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001724</id>
-    <prefLabel language="en">Lesbian authors</prefLabel>
+    <id>https://homosaurus.org/v4/homoit0002541</id>
+    <prefLabel language="en">Greyromantic biographies</prefLabel>
   </related>
   <comment language="en">Written accounts of the lives of lesbians. For written accounts of lesbians' lives written by the subject, use "Lesbian autobiographies."</comment>
   <comment language="es">Relatos escritos de la vida de mujeres conocidas por ser lesbianas.</comment>
@@ -61001,6 +61041,10 @@
     <id>https://homosaurus.org/v4/homoit0001731</id>
     <prefLabel language="en">Gay autobiographies</prefLabel>
   </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002541</id>
+    <prefLabel language="en">Greyromantic biographies</prefLabel>
+  </related>
   <comment language="en">Written accounts of the lives of gay men. For written accounts of gay men's lives written by the subject, use "Gay autobiographies."</comment>
   <comment language="es">Relatos escritos de la vida de hombres conocidos por ser gay. </comment>
 </record>
@@ -61023,12 +61067,12 @@
     <prefLabel language="en">LGBTQ+ biographies</prefLabel>
   </broader>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001732</id>
-    <prefLabel language="en">Bisexual autobiographies</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0001726</id>
     <prefLabel language="en">Bisexual authors</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0001732</id>
+    <prefLabel language="en">Bisexual autobiographies</prefLabel>
   </related>
   <comment language="en">Written accounts of the lives of bisexual people. For written accounts of bisexual people's lives written by the subject, use "Bisexual autobiographies."</comment>
   <comment language="es">Relatos escritos de la vida de personas conocidas por ser bisexuales.</comment>
@@ -61052,12 +61096,16 @@
     <prefLabel language="en">LGBTQ+ biographies</prefLabel>
   </broader>
   <related>
+    <id>https://homosaurus.org/v4/homoit0001727</id>
+    <prefLabel language="en">Transgender authors</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0001733</id>
     <prefLabel language="en">Transgender autobiographies</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001727</id>
-    <prefLabel language="en">Transgender authors</prefLabel>
+    <id>https://homosaurus.org/v4/homoit0002541</id>
+    <prefLabel language="en">Greyromantic biographies</prefLabel>
   </related>
   <comment language="en">Written accounts of the lives of trans people. For written accounts of trans people's lives written by the subject, use "Transgender autobiographies."</comment>
   <comment language="es">Relatos escritos de la vida de personas conocidas por ser transg&#xE9;nero.</comment>
@@ -61081,12 +61129,16 @@
     <prefLabel language="en">LGBTQ+ biographies</prefLabel>
   </broader>
   <related>
+    <id>https://homosaurus.org/v4/homoit0001728</id>
+    <prefLabel language="en">Queer authors</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0001734</id>
     <prefLabel language="en">Queer autobiographies</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001728</id>
-    <prefLabel language="en">Queer authors</prefLabel>
+    <id>https://homosaurus.org/v4/homoit0002541</id>
+    <prefLabel language="en">Greyromantic biographies</prefLabel>
   </related>
   <comment language="en">Written accounts of the lives of queer people. For written accounts of queer people's lives written by the subject, use "Queer autobiographies."</comment>
   <comment language="es">Relatos escritos de la vida de personas conocidas por ser queer.</comment>
@@ -62061,7 +62113,7 @@
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0001647</id>
+  <id>https://homosaurus.org/v4/homoit0001658</id>
   <identifier>homoit0001647</identifier>
   <prefLabel language="en">Cheating</prefLabel>
   <issued>
@@ -64569,12 +64621,20 @@ another while intertwining their legs.</comment>
     <prefLabel language="en">Lesbian autobiographies</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0001615</id>
+    <prefLabel language="en">Lesbian biographies</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0002178</id>
     <prefLabel language="en">Lesbians in fandom</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001615</id>
-    <prefLabel language="en">Lesbian biographies</prefLabel>
+    <id>https://homosaurus.org/v4/homoit0002505</id>
+    <prefLabel language="en">Megasexual authors</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002534</id>
+    <prefLabel language="en">Greyromantic authors</prefLabel>
   </related>
   <comment language="en">Lesbian creators of written works.</comment>
   <comment language="es">Creadoras de obras escritas conocidas por ser lesbianas.</comment>
@@ -64625,6 +64685,14 @@ another while intertwining their legs.</comment>
     <id>https://homosaurus.org/v4/homoit0002170</id>
     <prefLabel language="en">Gay men in fandom</prefLabel>
   </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002505</id>
+    <prefLabel language="en">Megasexual authors</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002534</id>
+    <prefLabel language="en">Greyromantic authors</prefLabel>
+  </related>
   <comment language="en">Gay creators of written works.</comment>
   <comment language="es">Creadores de obras escritas conocidos por ser gay.</comment>
 </record>
@@ -64671,12 +64739,24 @@ another while intertwining their legs.</comment>
     <prefLabel language="en">Bisexual autobiographies</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0001617</id>
+    <prefLabel language="en">Bisexual biographies</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0002150</id>
     <prefLabel language="en">Bisexual people in fandom</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001617</id>
-    <prefLabel language="en">Bisexual biographies</prefLabel>
+    <id>https://homosaurus.org/v4/homoit0002505</id>
+    <prefLabel language="en">Megasexual authors</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002506</id>
+    <prefLabel language="en">Megasexual fiction</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002534</id>
+    <prefLabel language="en">Greyromantic authors</prefLabel>
   </related>
   <comment language="en">Bisexual creators of written works.</comment>
   <comment language="es">Creadores de obras escritas conocidos por ser bisexuales.</comment>
@@ -64724,12 +64804,20 @@ another while intertwining their legs.</comment>
     <prefLabel language="en">Transgender autobiographies</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0001618</id>
+    <prefLabel language="en">Transgender biographies</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0002211</id>
     <prefLabel language="en">Transgender people in fandom</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001618</id>
-    <prefLabel language="en">Transgender biographies</prefLabel>
+    <id>https://homosaurus.org/v4/homoit0002505</id>
+    <prefLabel language="en">Megasexual authors</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002534</id>
+    <prefLabel language="en">Greyromantic authors</prefLabel>
   </related>
   <comment language="en">Transgender creators of written works.</comment>
   <comment language="es">Creadores de obras escritas conocidos por ser transg&#xE9;nero.</comment>
@@ -64777,12 +64865,20 @@ another while intertwining their legs.</comment>
     <prefLabel language="en">Queer autobiographies</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0001619</id>
+    <prefLabel language="en">Queer biographies</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0002193</id>
     <prefLabel language="en">Queer people in fandom</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0001619</id>
-    <prefLabel language="en">Queer biographies</prefLabel>
+    <id>https://homosaurus.org/v4/homoit0002505</id>
+    <prefLabel language="en">Megasexual authors</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002534</id>
+    <prefLabel language="en">Greyromantic authors</prefLabel>
   </related>
   <comment language="en">Queer creators of written works.</comment>
   <comment language="es">Creadores de obras escritas conocidos por ser queer.</comment>
@@ -64854,12 +64950,12 @@ another while intertwining their legs.</comment>
     <prefLabel language="en">LGBTQ+ authors</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002260</id>
-    <prefLabel language="en">LGBTQ+ history</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002679</id>
     <prefLabel language="en">Two-Spirit autobiographies</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002260</id>
+    <prefLabel language="en">LGBTQ+ history</prefLabel>
   </related>
   <comment language="en">Accounts of LGBTQ+ peoples' lives written by those people. For written accounts of LGBTQ+ people's lives that were not written by the subject, use "LGBTQ+ biographies."</comment>
   <comment language="es">Relatos de vida de personas escritos por esas mismas personas; util&#xED;cese para autobiograf&#xED;as escritas por autores LGBTQ+.</comment>
@@ -64890,6 +64986,26 @@ another while intertwining their legs.</comment>
     <id>https://homosaurus.org/v4/homoit0001724</id>
     <prefLabel language="en">Lesbian authors</prefLabel>
   </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002463</id>
+    <prefLabel language="en">Aromantic autobiographies </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002464</id>
+    <prefLabel language="en">Aromantic biographies </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002480</id>
+    <prefLabel language="en">Asexual autobiographies </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002481</id>
+    <prefLabel language="en">Asexual biographies</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002540</id>
+    <prefLabel language="en">Greyromantic autobiographies</prefLabel>
+  </related>
   <comment language="en">Accounts of lesbians' lives written by those people. For written accounts of lesbians' lives that were not written by the subject, use "Lesbian biographies."</comment>
   <comment language="es">Relatos de vida de personas escritos por esas mismas personas; util&#xED;cese para autobiograf&#xED;as escritas por autoras lesbianas.</comment>
 </record>
@@ -64918,6 +65034,26 @@ another while intertwining their legs.</comment>
   <related>
     <id>https://homosaurus.org/v4/homoit0001725</id>
     <prefLabel language="en">Gay authors</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002463</id>
+    <prefLabel language="en">Aromantic autobiographies </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002464</id>
+    <prefLabel language="en">Aromantic biographies </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002480</id>
+    <prefLabel language="en">Asexual autobiographies </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002481</id>
+    <prefLabel language="en">Asexual biographies</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002540</id>
+    <prefLabel language="en">Greyromantic autobiographies</prefLabel>
   </related>
   <comment language="en">Accounts of gay men's lives written by those people. For written accounts of gay men's lives that were not written by the subject, use "Gay biographies."</comment>
   <comment language="es">Relatos de vida de personas escritos por esas mismas personas; util&#xED;cese para autobiograf&#xED;as escritas por autores gay.</comment>
@@ -64977,6 +65113,26 @@ another while intertwining their legs.</comment>
     <id>https://homosaurus.org/v4/homoit0001727</id>
     <prefLabel language="en">Transgender authors</prefLabel>
   </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002463</id>
+    <prefLabel language="en">Aromantic autobiographies </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002464</id>
+    <prefLabel language="en">Aromantic biographies </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002480</id>
+    <prefLabel language="en">Asexual autobiographies </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002481</id>
+    <prefLabel language="en">Asexual biographies</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002540</id>
+    <prefLabel language="en">Greyromantic autobiographies</prefLabel>
+  </related>
   <comment language="en">Accounts of trans peoples' lives written by those people. For written accounts of trans people's lives that were not written by the subject, use "Transgender biographies."</comment>
   <comment language="es">Relatos de vida de personas escritos por esas mismas personas; util&#xED;cese para autobiograf&#xED;as escritas por autores transg&#xE9;nero.</comment>
 </record>
@@ -65005,6 +65161,26 @@ another while intertwining their legs.</comment>
   <related>
     <id>https://homosaurus.org/v4/homoit0001728</id>
     <prefLabel language="en">Queer authors</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002463</id>
+    <prefLabel language="en">Aromantic autobiographies </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002464</id>
+    <prefLabel language="en">Aromantic biographies </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002480</id>
+    <prefLabel language="en">Asexual autobiographies </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002481</id>
+    <prefLabel language="en">Asexual biographies</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002540</id>
+    <prefLabel language="en">Greyromantic autobiographies</prefLabel>
   </related>
   <comment language="en">Accounts of queer peoples' lives written by those people. For written accounts of queer people's lives that were not written by the subject, use "Queer biographies."</comment>
   <comment language="es">Relatos de vida de personas escritos por esas mismas personas; util&#xED;cese para autobiograf&#xED;as escritas por autores queer.</comment>
@@ -65080,16 +65256,16 @@ another while intertwining their legs.</comment>
     <prefLabel language="en">Queer-focused businesses</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002029</id>
-    <prefLabel language="en">LGBTQ+ people in the workplace</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002381</id>
     <prefLabel language="en">Police raids on LGBTQ+-related establishments</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0002738</id>
     <prefLabel language="en">Two-Spirit-owned businesses</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002029</id>
+    <prefLabel language="en">LGBTQ+ people in the workplace</prefLabel>
   </related>
   <comment language="en">Businesses owned by LGBTQ+ people.</comment>
   <comment language="es">Empresas pertenecientes a personas LGBTQ+.</comment>
@@ -65370,16 +65546,16 @@ another while intertwining their legs.</comment>
     <prefLabel language="en">LGBTQ+-owned businesses</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002029</id>
-    <prefLabel language="en">LGBTQ+ people in the workplace</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002381</id>
     <prefLabel language="en">Police raids on LGBTQ+-related establishments</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0002737</id>
     <prefLabel language="en">Two-Spirit-focused businesses</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002029</id>
+    <prefLabel language="en">LGBTQ+ people in the workplace</prefLabel>
   </related>
   <comment language="en">Businesses focusing on LGBTQ+ clientele and products related to LGBTQ+ communities.</comment>
   <comment language="es">Empresas enfocadas en clientela LGBTQ+ y productos relacionados con comunidades LGBTQ+.</comment>
@@ -65675,6 +65851,10 @@ another while intertwining their legs.</comment>
     <id>https://homosaurus.org/v4/homoit0002483</id>
     <prefLabel language="en">Asexual literary criticism</prefLabel>
   </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002534</id>
+    <prefLabel language="en">Greyromantic authors</prefLabel>
+  </related>
   <comment language="en">Asexual creators of written works.</comment>
   <comment language="es">Creadores de obras escritas conocidos por ser asexuales.</comment>
 </record>
@@ -65745,17 +65925,29 @@ another while intertwining their legs.</comment>
     <id>https://homosaurus.org/v4/homoit0001723</id>
     <prefLabel language="en">LGBTQ+ authors</prefLabel>
   </broader>
+  <broader>
+    <id>https://homosaurus.org/v4/homoit0002175</id>
+    <prefLabel language="en">Intersex people in fandom</prefLabel>
+  </broader>
   <related>
     <id>https://homosaurus.org/v4/homoit0001752</id>
     <prefLabel language="en">Intersex fiction</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002750</id>
-    <prefLabel language="en">Intersex literature</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002779</id>
     <prefLabel language="en">Intersex biographies</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002505</id>
+    <prefLabel language="en">Megasexual authors</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002534</id>
+    <prefLabel language="en">Greyromantic authors</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002750</id>
+    <prefLabel language="en">Intersex literature</prefLabel>
   </related>
   <comment language="en">Intersex creators of written works.</comment>
   <comment language="es">Creadores de obras escritas conocidos por ser intersex.</comment>
@@ -65787,16 +65979,16 @@ another while intertwining their legs.</comment>
     <prefLabel language="en">LGBTQ+ authors</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002710</id>
-    <prefLabel language="en">Two-Spirit literature</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002679</id>
     <prefLabel language="en">Two-Spirit autobiographies</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0002680</id>
     <prefLabel language="en">Two-Spirit biographies</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002710</id>
+    <prefLabel language="en">Two-Spirit literature</prefLabel>
   </related>
   <comment language="en">Two-Spirit creators of written works.</comment>
   <comment language="es">Creadoras de obras escritas conocidas por ser dos esp&#xED;ritus.</comment>
@@ -66075,20 +66267,20 @@ another while intertwining their legs.</comment>
     <prefLabel language="en">Aromantic fiction</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002146</id>
-    <prefLabel language="en">Asexual people in fandom</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0002150</id>
-    <prefLabel language="en">Bisexual people in fandom</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002467</id>
     <prefLabel language="en">Asexual literature</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0002535</id>
     <prefLabel language="en">Greyromantic fiction</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002146</id>
+    <prefLabel language="en">Asexual people in fandom</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002150</id>
+    <prefLabel language="en">Bisexual people in fandom</prefLabel>
   </related>
   <comment language="en">Written works describing imagined events or people; use in reference to fictional works focusing on asexual characters or themes.</comment>
   <comment language="es">Obras de ficci&#xF3;n escritas donde figuran personajes asexuales o se abordan temas asexuales.</comment>
@@ -68646,12 +68838,12 @@ another while intertwining their legs.</comment>
     <prefLabel language="en">Womyn</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0003499</id>
-    <prefLabel language="en">Anti-transgender legislation</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0003737</id>
     <prefLabel language="en">Anti-gender movement</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0003499</id>
+    <prefLabel language="en">Anti-transgender legislation</prefLabel>
   </related>
   <comment language="en">The practice or policy of denying equal access and support to trans people.</comment>
   <comment language="es">La pr&#xE1;ctica o pol&#xED;tica de negar la igualdad de acceso y apoyo a las personas trans.</comment>
@@ -70183,16 +70375,16 @@ another while intertwining their legs.</comment>
     <prefLabel language="en">Crip</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002229</id>
-    <prefLabel language="en">LGBTQ+ people who use substances for medical purposes</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002577</id>
     <prefLabel language="en">Queercrip</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0002682</id>
     <prefLabel language="en">Two-Spirit disabled people </prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002229</id>
+    <prefLabel language="en">LGBTQ+ people who use substances for medical purposes</prefLabel>
   </related>
   <comment language="en">LGBTQ+ people who are disabled.</comment>
   <comment language="es">Personas LGBTQ+ con discapacidad.</comment>
@@ -71128,16 +71320,16 @@ another while intertwining their legs.</comment>
     <prefLabel language="en">Crip</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002229</id>
-    <prefLabel language="en">LGBTQ+ people who use substances for medical purposes</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0002577</id>
     <prefLabel language="en">Queercrip</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0002694</id>
     <prefLabel language="en">Two-Spirit people with chronic illnesses</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002229</id>
+    <prefLabel language="en">LGBTQ+ people who use substances for medical purposes</prefLabel>
   </related>
   <comment language="en">LGBTQ+ people who have long-term health conditions that require continued medical attention and/or significantly impact or limit daily life; some but not all people with chronic illnesses consider themselves disabled.</comment>
   <comment language="es">Personas LGBTQ+ que tienen condiciones de salud a largo plazo que requieren atenci&#xF3;n m&#xE9;dica continua y/o impactan o limitan significativamente la vida diaria; algunas, pero no todas, las personas con enfermedades cr&#xF3;nicas se consideran discapacitadas.</comment>
@@ -71319,12 +71511,12 @@ another while intertwining their legs.</comment>
     <prefLabel language="en">LGBTQ+ phobia</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0003158</id>
-    <prefLabel language="en">Trans-exclusionary radical feminism</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0003737</id>
     <prefLabel language="en">Anti-gender movement</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0003158</id>
+    <prefLabel language="en">Trans-exclusionary radical feminism</prefLabel>
   </related>
   <comment language="en">The unjust or prejudicial treatment of Two-Spirit people due to their identity; may include the denial of legal rights, employment, and housing.</comment>
   <comment language="es">El trato injusto o perjudicial hacia las personas Dos Esp&#xED;ritus por su identidad; puede incluir la negaci&#xF3;n de derechos legales, empleo y vivienda.</comment>
@@ -73133,6 +73325,10 @@ another while intertwining their legs.</comment>
     <id>https://homosaurus.org/v4/homoit0001961</id>
     <prefLabel language="en">K&#x101;naka Maoli intersex people</prefLabel>
   </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002755</id>
+    <prefLabel language="en">Intersex people of color</prefLabel>
+  </related>
   <comment language="en">Intersex people who identify as both Pacific Islanders (or of Pacific Islander ancestry) and American.</comment>
   <comment language="es">Personas intersexuales que se identifican a la vez como isle&#xF1;as del Pac&#xED;fico (o de ascendencia isle&#xF1;a del Pac&#xED;fico) y estadounidenses.</comment>
 </record>
@@ -73579,6 +73775,10 @@ another while intertwining their legs.</comment>
   <related>
     <id>https://homosaurus.org/v4/homoit0001942</id>
     <prefLabel language="en">Pacific Islander American intersex people</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002755</id>
+    <prefLabel language="en">Intersex people of color</prefLabel>
   </related>
   <comment language="en">Intersex people who are part of the Indigenous people of Mokupuni o Hawai&#x2018;i, or the Hawaiian Islands; only use to refer to people who identify as Kanaka Maoli.</comment>
   <comment language="es">Personas intersexuales que pertenecen al pueblo ind&#xED;gena mokupuni o hawai&#x2018;i, o a las islas hawaianas. Util&#xED;cese &#xFA;nicamente para describir a las personas que se identifiquen como k&#x101;naka maoli.</comment>
@@ -82002,6 +82202,10 @@ another while intertwining their legs.</comment>
     <prefLabel language="en">Gender identity</prefLabel>
   </related>
   <related>
+    <id>https://homosaurus.org/v4/homoit0003708</id>
+    <prefLabel language="en">Trans joy</prefLabel>
+  </related>
+  <related>
     <id>https://homosaurus.org/v4/homoit0002699</id>
     <prefLabel language="en">Gender dysphoria in children</prefLabel>
   </related>
@@ -82012,10 +82216,6 @@ another while intertwining their legs.</comment>
   <related>
     <id>https://homosaurus.org/v4/homoit0003193</id>
     <prefLabel language="en">Queer joy</prefLabel>
-  </related>
-  <related>
-    <id>https://homosaurus.org/v4/homoit0003708</id>
-    <prefLabel language="en">Trans joy</prefLabel>
   </related>
   <comment language="en">The powerful feeling of joy and comfort an individual experiences when their assigned gender, gender expression, and/or the way their gender is perceived by themselves and others aligns with their gender identity. Though gender euphoria is often associated with trans people, people of any identity may experience gender euphoria when they feel that their gender has been seen and affirmed, or when they feel "right" in their body and the way their gender is being expressed.</comment>
   <comment language="es">El poderoso sentimiento de alegr&#xED;a y consuelo que una persona experimenta cuando su g&#xE9;nero asignado, su expresi&#xF3;n de g&#xE9;nero y/o la forma en que la propia persona y las dem&#xE1;s personas perciben su g&#xE9;nero se alinea con su identidad de g&#xE9;nero. Aunque la euforia de g&#xE9;nero a menudo se asocia con las personas trans, las personas de cualquier identidad pueden experimentar euforia de g&#xE9;nero cuando sienten que su g&#xE9;nero ha sido visto y afirmado, o cuando se sienten "bien" con su cuerpo y la forma en que se expresa su g&#xE9;nero.</comment>
@@ -82051,16 +82251,16 @@ another while intertwining their legs.</comment>
     <prefLabel language="en">Misogynoir</prefLabel>
   </related>
   <related>
-    <id>https://homosaurus.org/v4/homoit0002376</id>
-    <prefLabel language="en">Police harassment of Black LGBTQ+ people</prefLabel>
-  </related>
-  <related>
     <id>https://homosaurus.org/v4/homoit0003691</id>
     <prefLabel language="en">Gentrification</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0003692</id>
     <prefLabel language="en">Redlining</prefLabel>
+  </related>
+  <related>
+    <id>https://homosaurus.org/v4/homoit0002376</id>
+    <prefLabel language="en">Police harassment of Black LGBTQ+ people</prefLabel>
   </related>
   <comment language="en">Term used to acknowledge the particularities of racism as directed toward Black people. Anti-Blackness includes the belief that Black people possess different inherent behavioral traits that correspond to inherited attributes and are inferior to those of other races--particularly white people. Anti-Blackness also encompasses prejudice, discrimination, and antagonism (whether personal or systematic) directed toward Black people because of their race and its perceived inferiority.</comment>
   <comment language="es">T&#xE9;rmino utilizado para reconocer las particularidades del racismo dirigido hacia las personas negras. La antinegritud incluye la creencia de que las personas negras poseen diferentes caracter&#xED;sticas conductuales inherentes que corresponden a atributos heredados, y que son inferiores a otras razas, particularmente a las personas blancas. La antinegritud tambi&#xE9;n abarca el prejuicio, la discriminaci&#xF3;n y el antagonismo (ya sea personal o sistem&#xE1;tico) dirigido hacia las personas negras debido a su raza y su percibida inferioridad.</comment>
@@ -87483,7 +87683,7 @@ Redadas policiales en clubes nocturnos LGBTQ+</prefLabel>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0002470</id>
+  <id>https://homosaurus.org/v4/homoit0002470</id>
   <identifier>homoit0002470</identifier>
   <prefLabel language="en">Asexual fiction </prefLabel>
   <issued>
@@ -87584,7 +87784,7 @@ Redadas policiales en clubes nocturnos LGBTQ+</prefLabel>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0002479</id>
+  <id>https://homosaurus.org/v4/homoit0002479</id>
   <identifier>homoit0002479</identifier>
   <prefLabel language="en">Asexual history</prefLabel>
   <issued>
@@ -95882,7 +96082,7 @@ Redadas policiales en clubes nocturnos LGBTQ+</prefLabel>
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0000907</id>
+    <id>https://homosaurus.org/v4/homoit0000907</id>
     <prefLabel language="en">LGBTQ+ museums</prefLabel>
   </broader>
   <comment language="en">Institutions dedicated to the storage, exhibition, conservation, and preservation of materials relating to asexual people and asexual history.</comment>
@@ -96878,7 +97078,7 @@ Redadas policiales en clubes nocturnos LGBTQ+</prefLabel>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0002846</id>
+  <id>https://homosaurus.org/v4/homoit0002846</id>
   <identifier>homoit0002846</identifier>
   <prefLabel language="en">Intersexual</prefLabel>
   <issued>
@@ -97350,7 +97550,7 @@ Redadas policiales en clubes nocturnos LGBTQ+</prefLabel>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0002868</id>
+  <id>https://homosaurus.org/v4/homoit0002868</id>
   <identifier>homoit0002868</identifier>
   <prefLabel language="en">M&#xFC;llerian duct variations</prefLabel>
   <issued>
@@ -98524,7 +98724,7 @@ Redadas policiales en clubes nocturnos LGBTQ+</prefLabel>
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0000907</id>
+    <id>https://homosaurus.org/v4/homoit0000907</id>
     <prefLabel language="en">LGBTQ+ museums</prefLabel>
   </broader>
   <comment language="en">Institutions dedicated to the storage, exhibition, conservation, and preservation of materials relating to intersex people and intersex history.</comment>
@@ -98853,7 +99053,7 @@ Redadas policiales en clubes nocturnos LGBTQ+</prefLabel>
     <name>xsd:date</name>
   </modified>
   <broader>
-    <id>https://homosaurus.org/v3/homoit0000337</id>
+    <id>https://homosaurus.org/v4/homoit0000337</id>
     <prefLabel language="en">LGBTQ+ deaf people</prefLabel>
   </broader>
   <comment language="en">Intersex people with significant or total hearing loss. Some but not all Deaf people prefer to capitalize Deaf in recognition of the cultural and linguistic identity they share with other Deaf people.</comment>
@@ -109398,7 +109598,7 @@ Redadas policiales en clubes nocturnos LGBTQ+</prefLabel>
 </record>
 
 <record>
-  <id>https://homosaurus.org/v3/homoit0003332</id>
+  <id>https://homosaurus.org/v4/homoit0002688</id>
   <identifier>homoit0003332</identifier>
   <prefLabel language="en">Two-Spirit children</prefLabel>
   <issued>
