@@ -117,24 +117,28 @@ class VersionRelease < ActiveRecord::Base
   def generate_static_datafile(data, extension)
 
     outpath = Rails.root.join("public", "static_dumps", self.vocabulary.identifier, self.release_identifier + ".#{extension}")
-    pp "===== WRITING #{outpath.to_s} ====="
+    pp "==== WRITING #{outpath.to_s} ===="
     
     File.open(outpath, "w") {|file|
       file.write(data)
     }
-    pp "===== DONE ====="
+    pp "==== DONE ===="
     
   end
   def generate_static_data
+    pp "=== Generating static datafiles for v#{self.release_identifier} ==="
     terms = self.terms_in_version()
+    pp "==== Building json-derived graph ==="
     graph = Term.all_terms_full_graph(terms, include_lang: self.vocabulary.id >= 4, version_release: self)
 
-    generate_static_datafile(graph.dump(:jsonld, standard_prefixes: true), "jsonld")
-    generate_static_datafile(graph.dump(:ttl, standard_prefixes: true), "ttl")
+    # generate_static_datafile(graph.dump(:jsonld, standard_prefixes: true), "jsonld")
+    # generate_static_datafile(graph.dump(:ttl, standard_prefixes: true), "ttl")
     generate_static_datafile(graph.dump(:ntriples), "nt")
 
     generate_static_datafile(Term.csv_download(terms, self), "csv")
 
+    pp "==== Building xml-derived graph ==="
+    
     xml_graph = Term.xml_basic_for_terms(terms, version_release: self)
     generate_static_datafile(xml_graph, "xml")
 

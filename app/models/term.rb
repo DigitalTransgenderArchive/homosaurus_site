@@ -364,18 +364,17 @@ class Term < ActiveRecord::Base
       full_graph << graph
     end
 
-    #csv_string = CSV.generate(col_sep: "\t") do |csv|
     csv_string = CSV.generate(col_sep: "\t") do |csv|
       cols = ["URI", "identifier", "prefLabel", "prefLabel Alternate Spellings", "altLabel", "description", "historyNote", "broader", "narrower", "related", "issued", "modified", "isReplacedBy", "replaces"]
 
       csv << cols
-      full_graph.each do |term|
-        csv << term.values
-        pp "========================="
-        term.values.each do |v|
-          pp v
-        end
-      end
+      # full_graph.each do |term|
+      #   csv << term.values
+      #   pp "========================="
+      #   term.values.each do |v|
+      #     pp v
+      #   end
+      # end
     end
 
     csv_string
