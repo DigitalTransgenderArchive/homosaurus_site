@@ -13,7 +13,7 @@ class Term < ActiveRecord::Base
   has_many :term_relationships, dependent: :destroy
   has_many :relations, :through => :term_relationships
 
-  has_many :edit_requests
+  has_many :edit_requests, -> { order 'version_release_id' }
 
   serialize :labels, Array
   serialize :labels_language, Array
@@ -146,7 +146,7 @@ class Term < ActiveRecord::Base
   def uri_localized(lang_id = I18n.locale)
     return self.uri.sub('//', "//#{lang_id}.")
   end
-  
+
   # Get all edits tied to this term (and that it replaces)
   def get_edit_requests
     unless self.edit_requests.count and not self.edit_requests[0].nil?

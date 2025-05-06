@@ -5,14 +5,14 @@ class FixEditRequestHistory < ActiveRecord::Migration[5.2]
     term = from_er.term
     unless to_er
       my_changes = EditRequest::makeChangeHash(term.visibility, from_er.my_changes["uri"], term.identifier)
-      to_er = EditRequest.new(:term_id => term.id,
+      to_er = EditRequest.create(:term_id => term.id,
                               :created_at => from_er.created_at,
                               :version_release_id => to_version.id,
                               :my_changes => my_changes,
                               :parent_id => nil,
                               :status => "approved")
     end
-    er_change = EditRequest.new(:term_id => nil,
+    er_change = EditRequest.create(:term_id => nil,
                                 :creator_id => from_er.creator_id,
                                 :created_at => from_er.created_at,
                                 :version_release_id => nil,

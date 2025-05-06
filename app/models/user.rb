@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   has_many :profile_comments, :class_name => 'Comment', as: :commentable
 
+  has_many :edit_requests, :class_name => 'EditRequest', :foreign_key => 'creator_id'
+
   alias_attribute :user_key, :email
 
 
