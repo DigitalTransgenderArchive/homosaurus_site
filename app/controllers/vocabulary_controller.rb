@@ -268,6 +268,27 @@ class VocabularyController < ApplicationController
     end
     redirect_to backurl
   end
+
+  def reject_release
+    backurl = request.referer
+    vr = VersionRelease.find_by(release_identifier: params["release_id"])
+    er = Term.find_by(identifier: params["id"]).edit_requests.find_by(version_release_id: vr.id)
+    er.update(status: "rejected")
+    vs = er.vote_statuses.find_by(language_id: I18n.locale)
+    if vs.nil?
+      vs = VoteStatus.create!(
+        :votable => er,
+        :reviewer_id => current_user.id,
+        :language_id => I18n.locale,
+        :status => "rejected"
+      )
+    else
+      vs.update(status: "rejected")
+      vs.update(reviewer_id: current_user.id)
+    end
+    redirect_to backurl
+  end
+  
   # Initialize term creation page
   def new
     @vocab_id = params[:vocab_id]
