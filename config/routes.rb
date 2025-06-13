@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'profile/:user_id/discussion/edit_comment' => 'homepage#profile_edit_comment', as: :profile_edit_comment
   get 'profile/:user_id/discussion' => 'homepage#profile_discussion', as: :profile_discussion
   post 'profile/:user_id/update' => 'homepage#update_profile', as: :update_profile
+  get 'profile/:user_id/block' => 'homepage#block_profile', as: :block_profile
   get 'profile/:user_id' => 'homepage#profile', as: :profile_for
   get 'profile' => 'homepage#profile', as: :profile
 

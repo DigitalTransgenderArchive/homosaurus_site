@@ -46,6 +46,7 @@ class HomepageController < ApplicationController
     end
     u = User.find_by(id: params[:user_id].to_i) || current_user
     @user = u
+    @edit_requests = EditRequest.where(id: u.edit_requests.map{|er| er.parent.id}.uniq)
   end
 
   def update_profile
@@ -57,6 +58,14 @@ class HomepageController < ApplicationController
       flash[:error] = "Error updating profile"
       redirect_to profile_for_path(@user)
     end
+  end
+
+  def block_profile
+    @user  = User.find_by(id: params[:user_id].to_i)
+    if current_user.admin?
+      UserLanguageRole.where(user_id: @user.id).delete_all
+    end
+    redirect_to profile_for_path(@user)
   end
 
   def profile_discussion

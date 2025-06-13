@@ -122,6 +122,7 @@ GEM
     bootstrap (5.3.3)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.8, < 3)
+    bootstrap-table-rails (1.20.2)
     bootstrap_form (5.0.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -529,6 +530,7 @@ DEPENDENCIES
   ace-rails-ap
   active-triples!
   bootstrap (~> 5.3)
+  bootstrap-table-rails (~> 1.20)
   byebug
   coffee-rails (~> 4.2)
   d3-rails (= 4.13.0)

@@ -26,7 +26,17 @@
 	  <td><%= @user.bio %></td>
 	</tr>
 	<tr>
-	  <th scope="row"><%= t('user.permissions') %>: </th>
+	  <th scope="row">
+	    <%= t('user.permissions') %>:
+	    <% if current_user.present? and current_user.admin? %>
+	      <br/>
+	      <%= button_to "Revoke Permissions",
+		  block_profile_path(user_id: @user.id),
+		  :method => "get", class: 'btn btn-outline-danger',
+	          data: { confirm: 'Are you sure?' }
+	      %>
+	    <% end %>
+	  </th>
 	  <td>
 	    <ul>
 	      <% UserLanguageRole.where(user_id: @user.id).each do |ulr| %>
@@ -77,5 +87,16 @@
       <% end %>
     </div>
     <% end %>
+    
   </div>
+
+  <div class="container-fluid">
+    <h2>Contributions:</h2>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <% @edit_requests.each do |er|  %>
+      <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, profile_page: true} %>
+    <% end %>
+  </div>
+</div>
+
 

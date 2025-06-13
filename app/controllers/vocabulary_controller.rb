@@ -1,7 +1,7 @@
 class VocabularyController < ApplicationController
   
-  before_action :verify_suggester_permissions, :only => [:new, :create, :discussion, :post_comment, :post_reply, :edit_comment]
-  before_action :verify_contrib_permissions, :only => [:edit, :update, :destroy, :destroy_version, :replace]
+  before_action :verify_suggester_permissions, :only => [:new, :create, :discussion, :post_comment, :post_reply, :edit_comment, :edit, :update, :replace]
+  before_action :verify_contrib_permissions, :only => [:destroy, :destroy_version]
   before_action :verify_admin_permissions, :only => [:approve_release]
   before_action :verify_super_permissions, :only => [:restore]
 
@@ -168,6 +168,8 @@ class VocabularyController < ApplicationController
   # Show the history of a term (edit requests)
   def history
     @homosaurus_obj = Term.get(params[:vocab_id], params[:id])
+    @vocab_id = params[:vocab_id]
+    @vocab = Vocabulary.find_by(identifier: @vocab_id)
     @homosaurus = Term.find_solr(@homosaurus_obj.identifier)
     @edit_requests = @homosaurus_obj.get_edit_requests()
     logger.debug @edit_requests

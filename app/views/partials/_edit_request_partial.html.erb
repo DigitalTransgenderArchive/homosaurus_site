@@ -1,4 +1,5 @@
 <%
+  profile_page ||= false
   release_page ||= false
   discussion_page ||= false
   child_edit ||= false
@@ -62,9 +63,12 @@
     <% else %>
       <div class="col col-3">
 	<span class="badge text-bg-info"><%= link_to edit_request.creator.nil? ? 'MigrationBot' : edit_request.creator.username, edit_request.creator.nil? ? root_path : profile_for_path(edit_request.creator) %></span>
+	<% if edit_request.suggestion? %>
+	<span class="badge text-bg-danger"><%= t("status.suggested") %></span>
+	<% end %>
       </div>
     <% end %>
-    <% if release_page %>
+    <% if release_page || profile_page %>
         <div class="col col-5">
 	  <span class="er_label_and_identifier d-inline-block"> <%= pref_label %> [<%= edit_request.my_changes["identifier"] %>]</span><br>
 	  <span class="er_time_created"><%= edit_request.created_at.to_s %></span>

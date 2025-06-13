@@ -35,7 +35,7 @@
   <% if current_user.present? %>
     <%= button_to t("edit_request.view_discussion"), vocabulary_term_discussion_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary' %>
   <% end %>
-  <% if current_user.present? && current_user.contributor? && (request.original_url.include?('/v3') || request.original_url.include?('/v4')) %>
+  <% if current_user.present? && (request.original_url.include?('/v3') || request.original_url.include?('/v4')) %>
       <%= button_to t("term.edit_term"), vocabulary_term_edit_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: "#{form_class} btn-tooltip", class: 'btn btn-outline-secondary', disabled: editing_disabled, form: { "title" => awaiting_deletion ? "Awaiting deletion" : (editing_disabled ? "No pending releases" : "")} %>
     <% if @homosaurus_obj.visibility == "deleted" %>
       <%= button_to "Restore Term", vocabulary_term_restore_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier),  :method => "get", form_class: form_class, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to restore #{@homosaurus_obj.pref_label}?" } %>

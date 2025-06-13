@@ -140,7 +140,11 @@ class EditRequest < ActiveRecord::Base
   end
 
   def suggestion?
-    return (self.status != "approved") && self.children.first.creator.suggester?
+    if self.children.count > 0
+      return (self.status != "approved") && self.children.any?{|c| c.creator.suggester?}
+    else
+      return (self.parent.status != "approved") && self.creator.suggester?
+    end
   end
   
 end

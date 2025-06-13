@@ -101,3 +101,5 @@ gem "spawnling", "~> 2.1"
 gem "terser", "~> 1.2"
 
 gem "font-awesome-sass", "~> 6.5"
+
+gem "bootstrap-table-rails", "~> 1.20"
