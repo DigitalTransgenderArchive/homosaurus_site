@@ -22,7 +22,8 @@
   end
   er_status = edit_request.status
   is_modified = !is_new && !is_redirect && !is_linked_new
-  filter_tags = "#{is_new ? 'new_term' : (is_redirect ? 'redirected' : (is_linked ? 'linked' : 'modified'))} #{edit_request.suggestion? ? 'suggested' : ''} #{er_status}"
+filter_tags = "#{is_new ? 'new_term' : (is_redirect ? 'redirected' : (is_linked ? 'linked' : 'modified'))} #{edit_request.suggestion? ? 'suggested' : ''} #{er_status}"
+ pp edit_request
 %>
 
 <div <% unless child_edit %>
@@ -115,7 +116,11 @@
 	      <td class="col col-1"><span class="well_language"><%= lang %></span></td>
 	      <td class="col col-8">
 		<% if r.links_to == 1 %>
-		  <a href="<%= Term.find_by(id: val).uri_localized %>"> <%= Term.find_by(id: val).pref_label_localized.data  %> [<%= Term.find_by(id: val).identifier %>] </a>
+		  <% if Term.find_by(id: val) %>
+		    <a href="<%= Term.find_by(id: val).uri_localized %>"> <%= Term.find_by(id: val).pref_label_localized.data  %> [<%= Term.find_by(id: val).identifier %>] </a>
+		    <% else %>
+		    <a href="<%= val %>"> Term Deleted </a>
+		    <% end %>
 		<% else %>
 		  <%= val %>
 		<% end %>
