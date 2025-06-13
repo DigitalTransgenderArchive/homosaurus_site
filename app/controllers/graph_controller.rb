@@ -1,10 +1,10 @@
 class GraphController < ApplicationController
   def tree
     @terms = Term.find_with_conditions(q: "visibility_ssi:visible", rows: '10000', fl: 'visibility_ssi, identifier_ssi, prefLabel_tesim, narrower_ssim', model: 'HomosaurusV3' )
-    @data = {name: "Homosaurus V3"}
+    @data = {name: "Homosaurus #{Vocabulary.latest.upcase}"}
     @data[:children] = []
 
-    top_level = Term.where(vocabulary_identifier: "v3", broader: []).sort_by { |t| t.pref_label.downcase }
+    top_level = Term.where(vocabulary_identifier: Vocabulary.latest, broader: []).sort_by { |t| t.pref_label.downcase }
 
     top_level.each do |top|
       top_narrower_set = Set[]
@@ -41,8 +41,8 @@ class GraphController < ApplicationController
 
 
   def tree_data
-    @terms = Term.find_with_conditions(q: "visibility_ssi:visible", rows: '10000', fl: 'identifier_ssi, prefLabel_tesim, narrower_ssim', model: "HomosaurusV3" )
-    @data = {name: "Homosaurus V3"}
+    @terms = Term.find_with_conditions(q: "visibility_ssi:visible", rows: '10000', fl: 'identifier_ssi, prefLabel_tesim, narrower_ssim', model: "Homosaurus#{Vocabulary.latest.upcase}" )
+    @data = {name: "Homosaurus #{Vocabulary.latest.upcase}"}
     @data[:children] = []
 
     top_level = Term.where(vocabulary_identifier: "v3", broader: []).sort_by { |t| t.pref_label.downcase }
