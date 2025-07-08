@@ -2,7 +2,7 @@ class VocabularyController < ApplicationController
   
   before_action :verify_suggester_permissions, :only => [:new, :create, :discussion, :post_comment, :post_reply, :edit_comment, :edit, :update, :replace]
   before_action :verify_contrib_permissions, :only => [:destroy, :destroy_version]
-  before_action :verify_admin_permissions, :only => [:approve_release]
+  before_action :verify_admin_permissions, :only => [:approve_release, :unapprove_release, :reject_release]
   before_action :verify_super_permissions, :only => [:restore]
 
   def version_release
@@ -253,7 +253,7 @@ class VocabularyController < ApplicationController
     backurl = request.referer
     vr = VersionRelease.find_by(release_identifier: params["release_id"])
     er = Term.find_by(identifier: params["id"]).edit_requests.find_by(version_release_id: vr.id)
-    er.update(status: "approved")
+    er.update!(status: "approved")
     vs = er.vote_statuses.find_by(language_id: I18n.locale)
     if vs.nil?
       vs = VoteStatus.create!(
@@ -263,17 +263,37 @@ class VocabularyController < ApplicationController
         :status => "approved"
       )
     else
-      vs.update(status: "approved")
-      vs.update(reviewer_id: current_user.id)
+      vs.update!(status: "approved")
+      vs.update!(reviewer_id: current_user.id)
     end
     redirect_to backurl
   end
+
+  def unapprove_release
+    backurl = request.referer
+    vr = VersionRelease.find_by(release_identifier: params["release_id"])
+    er = Term.find_by(identifier: params["id"]).edit_requests.find_by(version_release_id: vr.id)
+    er.update!(status: "pending")
+    vs = er.vote_statuses.find_by(language_id: I18n.locale)
+    if vs.nil?
+      vs = VoteStatus.create!(
+        :votable => er,
+        :reviewer_id => current_user.id,
+        :language_id => I18n.locale,
+        :status => "pending"
+      )
+    else
+      vs.update!(status: "pending")
+      vs.update!(reviewer_id: current_user.id)
+    end
+    redirect_to backurl
+  end  
 
   def reject_release
     backurl = request.referer
     vr = VersionRelease.find_by(release_identifier: params["release_id"])
     er = Term.find_by(identifier: params["id"]).edit_requests.find_by(version_release_id: vr.id)
-    er.update(status: "rejected")
+    er.update!(status: "rejected")
     vs = er.vote_statuses.find_by(language_id: I18n.locale)
     if vs.nil?
       vs = VoteStatus.create!(
@@ -283,8 +303,8 @@ class VocabularyController < ApplicationController
         :status => "rejected"
       )
     else
-      vs.update(status: "rejected")
-      vs.update(reviewer_id: current_user.id)
+      vs.update!(status: "rejected")
+      vs.update!(reviewer_id: current_user.id)
     end
     redirect_to backurl
   end
@@ -487,7 +507,7 @@ class VocabularyController < ApplicationController
     if changed
       #@term.add_relations(params[:version_release].to_i, current_user.id)
       er.save!
-      er_change.update(parent_id: er.id)
+      er_change.update!(parent_id: er.id)
       er_change.save!
       er_change.make_linked_changes()
       redirect_to vocabulary_show_path(vocab_id: Vocabulary.latest,  id: @term.identifier), notice: "HomosaurusV3 pending term updated!"
@@ -564,7 +584,7 @@ class VocabularyController < ApplicationController
         @term.sources = params[:term][:sources]
         @term.contributors = params[:term][:contributors]
 
-        @term.update(term_params)
+        @term.update!(term_params)
         @term.save
 
         # FIXME: DO THIS BETTER

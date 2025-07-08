@@ -80,8 +80,11 @@ filter_tags = "#{is_new ? 'new_term' : (is_redirect ? 'redirected' : (is_linked 
       <div class="d-inline-flex gap-1 float-end">
 	<% if release_page and edit_request.version_release.status == "Pending" and  current_user.present? and current_user.admin? and edit_request.vote_status == "pending" %>
 	<%= button_to "Approve changes", edit_request_approve_release_path(vocab_id: edit_request.version_release.vocabulary.identifier, id: edit_request.term.identifier, release_id: edit_request.version_release.release_identifier), :method => "post", class: 'btn btn-primary', data: {confirm: "Are you sure you want to approve this?" } %>
-	<%= button_to "Reject changes", edit_request_reject_release_path(vocab_id: edit_request.version_release.vocabulary.identifier, id: edit_request.term.identifier, release_id: edit_request.version_release.release_identifier), :method => "post", class: 'btn btn-danger', data: {confirm: "Are you sure you want to approve this?" } %>
+	<%= button_to "Reject changes", edit_request_reject_release_path(vocab_id: edit_request.version_release.vocabulary.identifier, id: edit_request.term.identifier, release_id: edit_request.version_release.release_identifier), :method => "post", class: 'btn btn-danger', data: {confirm: "Are you sure you want to reject this?" } %>
         <% end %>
+	<% if release_page and edit_request.version_release.status == "Pending" and current_user.present? and current_user.admin? and edit_request.vote_status == "approved" %>
+	<%= button_to "Unapprove changes", edit_request_unapprove_release_path(vocab_id: edit_request.version_release.vocabulary.identifier, id: edit_request.term.identifier, release_id: edit_request.version_release.release_identifier), :method => "post", class: 'btn btn-primary', data: {confirm: "Are you sure you want to unapprove this?" } %>
+	<% end %>
 	<% if release_page and not child_edit %>
           <%= button_to t("edit_request.view_term"),
 	      vocabulary_show_path(

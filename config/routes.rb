@@ -80,6 +80,8 @@ Rails.application.routes.draw do
 
   post ':vocab_id/:id/:release_id/approve_release' => 'vocabulary#approve_release', as: :edit_request_approve_release, constraints: { release_id: /[\d\.]+/ }
 
+  post ':vocab_id/:id/:release_id/unapprove_release' => 'vocabulary#unapprove_release', as: :edit_request_unapprove_release, constraints: { release_id: /[\d\.]+/ }
+
   post ':vocab_id/:id/:release_id/reject_release' => 'vocabulary#reject_release', as: :edit_request_reject_release, constraints: { release_id: /[\d\.]+/ }
 
   
