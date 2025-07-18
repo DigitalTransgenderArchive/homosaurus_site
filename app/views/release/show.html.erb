@@ -113,7 +113,12 @@
   </div>
   <hr/>
   <div id="release_holder" class="info_section">
-    <% @release.edit_requests.each do |er| %>
+    <% if current_user && current_user.present? %>
+    <% ers = @release.edit_requests  %>
+    <% else  %>
+    <% ers = @release.approved_edit_requests  %>
+    <% end  %>
+    <% ers.each do |er| %>
     <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, release_page: true} %>
     <% end %>
   </div>
