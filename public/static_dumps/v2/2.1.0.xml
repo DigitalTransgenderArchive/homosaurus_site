@@ -22,6 +22,8 @@
   <id>https://homosaurus.org/v2/LGBTQAboriginalPeople</id>
   <identifier>LGBTQAboriginalPeople</identifier>
   <prefLabel language="en">LGBTQ Aboriginal people</prefLabel>
+  <altLabel language="en">Aboriginal people (LGBTQ)</altLabel>
+  <altLabel language="en">LGBTQ Aboriginals</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -63,6 +65,7 @@
   <id>https://homosaurus.org/v2/asexuality</id>
   <identifier>asexuality</identifier>
   <prefLabel language="en">Asexuality</prefLabel>
+  <altLabel language="en">Ace</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -114,6 +117,11 @@
   <id>https://homosaurus.org/v2/HIVAIDS</id>
   <identifier>HIVAIDS</identifier>
   <prefLabel language="en">HIV/AIDS</prefLabel>
+  <altLabel language="en">Acquired immune deficiency syndrome</altLabel>
+  <altLabel language="en">AIDS</altLabel>
+  <altLabel language="en">Gay related immune-deficiency</altLabel>
+  <altLabel language="en">GRIDS</altLabel>
+  <altLabel language="en">Gay related immuno-deficiency</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -270,6 +278,7 @@
   <id>https://homosaurus.org/v2/activistsLGBTQ</id>
   <identifier>activistsLGBTQ</identifier>
   <prefLabel language="en">Activists (LGBTQ)</prefLabel>
+  <altLabel language="en">Political activists (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -316,6 +325,8 @@
   <id>https://homosaurus.org/v2/LGBTQActors</id>
   <identifier>LGBTQActors</identifier>
   <prefLabel language="en">LGBTQ actors</prefLabel>
+  <altLabel language="en">Actors (LGBTQ)</altLabel>
+  <altLabel language="en">Actresses (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -402,6 +413,7 @@
   <id>https://homosaurus.org/v2/sexIndustry</id>
   <identifier>sexIndustry</identifier>
   <prefLabel language="en">Sex industry</prefLabel>
+  <altLabel language="en">Adult entertainment industry</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -464,6 +476,7 @@
   <id>https://homosaurus.org/v2/sexShops</id>
   <identifier>sexShops</identifier>
   <prefLabel language="en">Sex shops</prefLabel>
+  <altLabel language="en">Adult entertainment stores</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -486,6 +499,9 @@
   <id>https://homosaurus.org/v2/pornFilmsLGBTQ</id>
   <identifier>pornFilmsLGBTQ</identifier>
   <prefLabel language="en">Porn films (LGBTQ)</prefLabel>
+  <altLabel language="en">Adult films (LGBTQ)</altLabel>
+  <altLabel language="en">Porn videos (LGBTQ)</altLabel>
+  <altLabel language="en">X-rated films (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -540,6 +556,7 @@
   <id>https://homosaurus.org/v2/sexCinemas</id>
   <identifier>sexCinemas</identifier>
   <prefLabel language="en">Sex cinemas</prefLabel>
+  <altLabel language="en">Adult movie theatres</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -825,6 +842,7 @@
   <id>https://homosaurus.org/v2/ageplay</id>
   <identifier>ageplay</identifier>
   <prefLabel language="en">Ageplay</prefLabel>
+  <altLabel language="en">Age play</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -926,6 +944,7 @@
   <id>https://homosaurus.org/v2/AIDSInformationCentres</id>
   <identifier>AIDSInformationCentres</identifier>
   <prefLabel language="en">AIDS information centres</prefLabel>
+  <altLabel language="en">AIDS documentation centres</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -1034,6 +1053,7 @@
   <id>https://homosaurus.org/v2/AIDSOrganisations</id>
   <identifier>AIDSOrganisations</identifier>
   <prefLabel language="en">AIDS organisations</prefLabel>
+  <altLabel language="en">AIDS organizations</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -1094,6 +1114,8 @@
   <id>https://homosaurus.org/v2/AIDSPhobia</id>
   <identifier>AIDSPhobia</identifier>
   <prefLabel language="en">AIDS phobia</prefLabel>
+  <altLabel language="en">AIDSphobia</altLabel>
+  <altLabel language="en">Fear of AIDS</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -1116,6 +1138,7 @@
   <id>https://homosaurus.org/v2/ARC</id>
   <identifier>ARC</identifier>
   <prefLabel language="en">ARC</prefLabel>
+  <altLabel language="en">AIDS related complex</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -1138,6 +1161,7 @@
   <id>https://homosaurus.org/v2/redRibbons</id>
   <identifier>redRibbons</identifier>
   <prefLabel language="en">Red ribbons</prefLabel>
+  <altLabel language="en">AIDS ribbons</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -1183,6 +1207,10 @@
   <id>https://homosaurus.org/v2/SM</id>
   <identifier>SM</identifier>
   <prefLabel language="en">SM</prefLabel>
+  <altLabel language="en">Algolagnia</altLabel>
+  <altLabel language="en">S &amp; M</altLabel>
+  <altLabel language="en">S and M</altLabel>
+  <altLabel language="en">Sadomasochism</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -1561,6 +1589,9 @@
   <id>https://homosaurus.org/v2/LGBTQAnglicans</id>
   <identifier>LGBTQAnglicans</identifier>
   <prefLabel language="en">LGBTQ Anglicans</prefLabel>
+  <altLabel language="en">Anglicans (LGBTQ)</altLabel>
+  <altLabel language="en">LGBTQ Church of England</altLabel>
+  <altLabel language="en">LGBTQ Episcopalians</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -1579,6 +1610,7 @@
   <id>https://homosaurus.org/v2/rimming</id>
   <identifier>rimming</identifier>
   <prefLabel language="en">Rimming</prefLabel>
+  <altLabel language="en">Anilingus</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -1766,6 +1798,7 @@
   <id>https://homosaurus.org/v2/anti-gayViolence</id>
   <identifier>anti-gayViolence</identifier>
   <prefLabel language="en">Anti-gay violence</prefLabel>
+  <altLabel language="en">Gay bashing</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -1818,6 +1851,7 @@
   <id>https://homosaurus.org/v2/anti-lesbianViolence</id>
   <identifier>anti-lesbianViolence</identifier>
   <prefLabel language="en">Anti-lesbian violence</prefLabel>
+  <altLabel language="en">Lesbian bashing</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -2056,6 +2090,7 @@
   <id>https://homosaurus.org/v2/aravani</id>
   <identifier>aravani</identifier>
   <prefLabel language="en">Aravani</prefLabel>
+  <altLabel language="en">Aruvani</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -2083,6 +2118,7 @@
   <id>https://homosaurus.org/v2/archivesLGBTQ</id>
   <identifier>archivesLGBTQ</identifier>
   <prefLabel language="en">Archives (LGBTQ)</prefLabel>
+  <altLabel language="en">LGBTQ archives</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -2181,6 +2217,10 @@
   <id>https://homosaurus.org/v2/insemination</id>
   <identifier>insemination</identifier>
   <prefLabel language="en">Insemination</prefLabel>
+  <altLabel language="en">Artificial insemination</altLabel>
+  <altLabel language="en">Donor insemination</altLabel>
+  <altLabel language="en">Fertilisation</altLabel>
+  <altLabel language="en">Fertilization</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -2253,6 +2293,7 @@
   <id>https://homosaurus.org/v2/asexualPeople</id>
   <identifier>asexualPeople</identifier>
   <prefLabel language="en">Asexual people</prefLabel>
+  <altLabel language="en">Aces</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -2391,6 +2432,10 @@
   <id>https://homosaurus.org/v2/autoeroticAsphyxiation</id>
   <identifier>autoeroticAsphyxiation</identifier>
   <prefLabel language="en">Autoerotic asphyxiation</prefLabel>
+  <altLabel language="en">Asphyxiophilia</altLabel>
+  <altLabel language="en">Autoerotic asphyxia</altLabel>
+  <altLabel language="en">Hypoxyphilia</altLabel>
+  <altLabel language="en">Strangulation sex</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -2417,6 +2462,7 @@
   <id>https://homosaurus.org/v2/assFucking</id>
   <identifier>assFucking</identifier>
   <prefLabel language="en">Ass fucking</prefLabel>
+  <altLabel language="en">Butt fucking</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -2443,6 +2489,13 @@
   <id>https://homosaurus.org/v2/assignedFemale</id>
   <identifier>assignedFemaleAtBirth</identifier>
   <prefLabel language="en">Assigned female</prefLabel>
+  <altLabel language="en">AFAB</altLabel>
+  <altLabel language="en">Assigned female at birth</altLabel>
+  <altLabel language="en">Assigned F at birth</altLabel>
+  <altLabel language="en">Designated female at birth</altLabel>
+  <altLabel language="en">DFAB</altLabel>
+  <altLabel language="en">Female assigned at birth</altLabel>
+  <altLabel language="en">FAAB</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -2518,6 +2571,13 @@
   <id>https://homosaurus.org/v2/assignedMale</id>
   <identifier>assignedMaleAtBirth</identifier>
   <prefLabel language="en">Assigned male</prefLabel>
+  <altLabel language="en">AMAB</altLabel>
+  <altLabel language="en">Assigned male at birth</altLabel>
+  <altLabel language="en">Assigned M at birth</altLabel>
+  <altLabel language="en">Designated male at birth</altLabel>
+  <altLabel language="en">DMAB</altLabel>
+  <altLabel language="en">Male assigned at birth</altLabel>
+  <altLabel language="en">MAAB</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -2546,6 +2606,8 @@
   <id>https://homosaurus.org/v2/normalisation</id>
   <identifier>normalisation</identifier>
   <prefLabel language="en">Normalisation</prefLabel>
+  <altLabel language="en">Assimilation</altLabel>
+  <altLabel language="en">Normalization</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -2700,6 +2762,8 @@
   <id>https://homosaurus.org/v2/bondage</id>
   <identifier>bondage</identifier>
   <prefLabel language="en">Bondage</prefLabel>
+  <altLabel language="en">B &amp; D</altLabel>
+  <altLabel language="en">Bondage and discipline</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -2746,6 +2810,7 @@
   <id>https://homosaurus.org/v2/darkRooms</id>
   <identifier>darkRooms</identifier>
   <prefLabel language="en">Dark rooms</prefLabel>
+  <altLabel language="en">Backrooms</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -2892,6 +2957,8 @@
   <id>https://homosaurus.org/v2/ballCulture</id>
   <identifier>ballCulture</identifier>
   <prefLabel language="en">Ball culture</prefLabel>
+  <altLabel language="en">Ballroom community</altLabel>
+  <altLabel language="en">Ballroom culture</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -3044,6 +3111,7 @@
   <id>https://homosaurus.org/v2/LGBTQBaptists</id>
   <identifier>LGBTQBaptists</identifier>
   <prefLabel language="en">LGBTQ Baptists</prefLabel>
+  <altLabel language="en">Baptists (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -3062,6 +3130,7 @@
   <id>https://homosaurus.org/v2/berdache</id>
   <identifier>berdache</identifier>
   <prefLabel language="en">Berdache</prefLabel>
+  <altLabel language="en">Bardache</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -3412,6 +3481,7 @@
   <id>https://homosaurus.org/v2/bears</id>
   <identifier>bears</identifier>
   <prefLabel language="en">Bears</prefLabel>
+  <altLabel language="en">Bear men</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -3545,6 +3615,7 @@
   <id>https://homosaurus.org/v2/hateCrimes</id>
   <identifier>hateCrimes</identifier>
   <prefLabel language="en">Hate crimes</prefLabel>
+  <altLabel language="en">Bias-related crimes</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -3649,6 +3720,8 @@
   <id>https://homosaurus.org/v2/intoleranceTowardsLGBTQPeople</id>
   <identifier>intoleranceTowardsLGBTQPeople</identifier>
   <prefLabel language="en">Intolerance towards LGBTQ people</prefLabel>
+  <altLabel language="en">Bigotry towards LGBTQ people</altLabel>
+  <altLabel language="en">Prejudice towards LGBTQ people</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -3732,6 +3805,7 @@
   <id>https://homosaurus.org/v2/essentialism</id>
   <identifier>essentialism</identifier>
   <prefLabel language="en">Essentialism</prefLabel>
+  <altLabel language="en">Biological essentialism</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -3935,6 +4009,14 @@
   <id>https://homosaurus.org/v2/genderAssignedAtBirth</id>
   <identifier>genderAssignedAtBirth</identifier>
   <prefLabel language="en">Gender assigned at birth</prefLabel>
+  <altLabel language="en">Birth gender</altLabel>
+  <altLabel language="en">Natal gender</altLabel>
+  <altLabel language="en">GAAB</altLabel>
+  <altLabel language="en">Assigned gender at birth</altLabel>
+  <altLabel language="en">AGAB</altLabel>
+  <altLabel language="en">Designated gender at birth</altLabel>
+  <altLabel language="en">DGAB</altLabel>
+  <altLabel language="en">Gender at birth</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -4666,6 +4748,7 @@
   <id>https://homosaurus.org/v2/bisexualInformationCentres</id>
   <identifier>bisexualInformationCentres</identifier>
   <prefLabel language="en">Bisexual information centres</prefLabel>
+  <altLabel language="en">Bisexual documentation centres</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -4944,6 +5027,7 @@
   <id>https://homosaurus.org/v2/mixed-orientationMarriage</id>
   <identifier>mixed-orientationMarriage</identifier>
   <prefLabel language="en">Mixed-orientation marriage</prefLabel>
+  <altLabel language="en">Bisexual marriage</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -4992,6 +5076,7 @@
   <id>https://homosaurus.org/v2/bisexualMen</id>
   <identifier>bisexualMen</identifier>
   <prefLabel language="en">Bisexual men</prefLabel>
+  <altLabel language="en">Male bisexuals</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -5240,6 +5325,7 @@
   <id>https://homosaurus.org/v2/bisexualPeople</id>
   <identifier>bisexualPeople</identifier>
   <prefLabel language="en">Bisexual people</prefLabel>
+  <altLabel language="en">Bisexuals</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -5402,6 +5488,7 @@
   <id>https://homosaurus.org/v2/parentsOfBisexualPeople</id>
   <identifier>parentsOfBisexualPeople</identifier>
   <prefLabel language="en">Parents of bisexual people</prefLabel>
+  <altLabel language="en">Bisexual people&#x2019;s parents</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -5840,6 +5927,7 @@
   <id>https://homosaurus.org/v2/bisexualYouth</id>
   <identifier>bisexualYouth</identifier>
   <prefLabel language="en">Bisexual youth</prefLabel>
+  <altLabel language="en">Bisexual teenagers</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -6327,6 +6415,8 @@
   <id>https://homosaurus.org/v2/vampirism</id>
   <identifier>vampirism</identifier>
   <prefLabel language="en">Vampirism</prefLabel>
+  <altLabel language="en">Blood sports</altLabel>
+  <altLabel language="en">Vampire sex</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -6353,6 +6443,9 @@
   <id>https://homosaurus.org/v2/fellatio</id>
   <identifier>fellatio</identifier>
   <prefLabel language="en">Fellatio</prefLabel>
+  <altLabel language="en">Blow jobs</altLabel>
+  <altLabel language="en">Cocksucking</altLabel>
+  <altLabel language="en">Penilingus</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -6387,6 +6480,8 @@
   <id>https://homosaurus.org/v2/sexDolls</id>
   <identifier>sexDolls</identifier>
   <prefLabel language="en">Sex dolls</prefLabel>
+  <altLabel language="en">Blow up dolls</altLabel>
+  <altLabel language="en">Inflatable dolls</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -6405,6 +6500,7 @@
   <id>https://homosaurus.org/v2/bodyAdornments</id>
   <identifier>bodyAdornments</identifier>
   <prefLabel language="en">Body adornments</prefLabel>
+  <altLabel language="en">Body decoration</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -6466,6 +6562,7 @@
   <id>https://homosaurus.org/v2/bookshopsLGBTQ</id>
   <identifier>bookshopsLGBTQ</identifier>
   <prefLabel language="en">Bookshops (LGBTQ)</prefLabel>
+  <altLabel language="en">Bookstores (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -6684,6 +6781,11 @@
   <id>https://homosaurus.org/v2/breasts</id>
   <identifier>breasts</identifier>
   <prefLabel language="en">Breasts</prefLabel>
+  <altLabel language="en">Boobs</altLabel>
+  <altLabel language="en">Bosoms</altLabel>
+  <altLabel language="en">Bosom</altLabel>
+  <altLabel language="en">Tits</altLabel>
+  <altLabel language="en">Titties</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -6732,6 +6834,7 @@
   <id>https://homosaurus.org/v2/brotherboys</id>
   <identifier>brotherboys</identifier>
   <prefLabel language="en">Brotherboys</prefLabel>
+  <altLabel language="en">Brothaboys</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -6793,6 +6896,7 @@
   <id>https://homosaurus.org/v2/buddyCareForLGBTQPeople</id>
   <identifier>buddyCareForLGBTQPeople</identifier>
   <prefLabel language="en">Buddy care for LGBTQ people</prefLabel>
+  <altLabel language="en">Buddies</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -6819,6 +6923,7 @@
   <id>https://homosaurus.org/v2/sodomites</id>
   <identifier>sodomites</identifier>
   <prefLabel language="en">Sodomites</prefLabel>
+  <altLabel language="en">Buggers</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -7086,6 +7191,11 @@
   <id>https://homosaurus.org/v2/maleProstitutes</id>
   <identifier>maleProstitutes</identifier>
   <prefLabel language="en">Male prostitutes</prefLabel>
+  <altLabel language="en">Call boys</altLabel>
+  <altLabel language="en">Gigolos</altLabel>
+  <altLabel language="en">Male hustlers</altLabel>
+  <altLabel language="en">Rent boys</altLabel>
+  <altLabel language="en">Taxi boys</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -7112,6 +7222,7 @@
   <id>https://homosaurus.org/v2/LGBTQCalvinists</id>
   <identifier>LGBTQCalvinists</identifier>
   <prefLabel language="en">LGBTQ Calvinists</prefLabel>
+  <altLabel language="en">Calvinists (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -7153,6 +7264,10 @@
   <id>https://homosaurus.org/v2/cunnilingus</id>
   <identifier>cunnilingus</identifier>
   <prefLabel language="en">Cunnilingus</prefLabel>
+  <altLabel language="en">Carpet munching</altLabel>
+  <altLabel language="en">Cunt licking</altLabel>
+  <altLabel language="en">Eating pussy</altLabel>
+  <altLabel language="en">Muff diving</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -7195,6 +7310,7 @@
   <id>https://homosaurus.org/v2/eunuchs</id>
   <identifier>eunuchs</identifier>
   <prefLabel language="en">Eunuchs</prefLabel>
+  <altLabel language="en">Castrati</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -7255,6 +7371,7 @@
   <id>https://homosaurus.org/v2/casualSex</id>
   <identifier>casualSex</identifier>
   <prefLabel language="en">Casual sex</prefLabel>
+  <altLabel language="en">Promiscuity</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -7297,6 +7414,7 @@
   <id>https://homosaurus.org/v2/whitePeopleLGBTQ</id>
   <identifier>whitePeopleLGBTQ</identifier>
   <prefLabel language="en">White people (LGBTQ)</prefLabel>
+  <altLabel language="en">Caucasians (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -7426,6 +7544,7 @@
   <id>https://homosaurus.org/v2/legalNameChange</id>
   <identifier>legalNameChange</identifier>
   <prefLabel language="en">Legal name change</prefLabel>
+  <altLabel language="en">Change of name</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -7562,6 +7681,7 @@
   <id>https://homosaurus.org/v2/substanceAbuse</id>
   <identifier>substanceAbuse</identifier>
   <prefLabel language="en">Substance abuse</prefLabel>
+  <altLabel language="en">Chemical dependency</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -7610,6 +7730,11 @@
   <id>https://homosaurus.org/v2/latinxLGBTQ</id>
   <identifier>latinxLGBTQ</identifier>
   <prefLabel language="en">Latinx (LGBTQ)</prefLabel>
+  <altLabel language="en">Chicanas (LGBTQ)</altLabel>
+  <altLabel language="en">Chicanos (LGBTQ)</altLabel>
+  <altLabel language="en">Hispanics (LGBTQ)</altLabel>
+  <altLabel language="en">Latinas (LGBTQ)</altLabel>
+  <altLabel language="en">Latinos (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -7660,6 +7785,9 @@
   <id>https://homosaurus.org/v2/childCustody</id>
   <identifier>childCustody</identifier>
   <prefLabel language="en">Child custody</prefLabel>
+  <altLabel language="en">Guardianship</altLabel>
+  <altLabel language="en">Parental custody</altLabel>
+  <altLabel language="en">Tutelage</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -8202,6 +8330,7 @@
   <id>https://homosaurus.org/v2/cutMen</id>
   <identifier>cutMen</identifier>
   <prefLabel language="en">Cut men</prefLabel>
+  <altLabel language="en">Circumcised men</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -8375,6 +8504,8 @@
   <id>https://homosaurus.org/v2/civilUnions</id>
   <identifier>civilUnions</identifier>
   <prefLabel language="en">Civil unions</prefLabel>
+  <altLabel language="en">Civil partnership</altLabel>
+  <altLabel language="en">Registered partnership</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -8447,6 +8578,7 @@
   <id>https://homosaurus.org/v2/civilRightsLGBTQ</id>
   <identifier>civilRightsLGBTQ</identifier>
   <prefLabel language="en">Civil rights (LGBTQ)</prefLabel>
+  <altLabel language="en">LGBTQ rights</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -8523,6 +8655,9 @@
   <id>https://homosaurus.org/v2/prostitutesClients</id>
   <identifier>prostitutesClients</identifier>
   <prefLabel language="en">Prostitutes' clients</prefLabel>
+  <altLabel language="en">Clients of prostitutes</altLabel>
+  <altLabel language="en">Johns</altLabel>
+  <altLabel language="en">Tricks</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -8605,6 +8740,8 @@
   <id>https://homosaurus.org/v2/clitoridectomy</id>
   <identifier>clitoridectomy</identifier>
   <prefLabel language="en">Clitoridectomy</prefLabel>
+  <altLabel language="en">Clitorectomy</altLabel>
+  <altLabel language="en">Female circumcision</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -8804,6 +8941,7 @@
   <id>https://homosaurus.org/v2/stealthTransgender</id>
   <identifier>stealthTransgender</identifier>
   <prefLabel language="en">Stealth (Transgender)</prefLabel>
+  <altLabel language="en">Closeted transgender people</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -8884,6 +9022,7 @@
   <id>https://homosaurus.org/v2/partyDrugs</id>
   <identifier>partyDrugs</identifier>
   <prefLabel language="en">Party drugs</prefLabel>
+  <altLabel language="en">Club drugs</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -8962,6 +9101,7 @@
   <id>https://homosaurus.org/v2/enemas</id>
   <identifier>enemas</identifier>
   <prefLabel language="en">Enemas</prefLabel>
+  <altLabel language="en">Colonic irrigation</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -9183,6 +9323,8 @@
   <id>https://homosaurus.org/v2/condoms</id>
   <identifier>condoms</identifier>
   <prefLabel language="en">Condoms</prefLabel>
+  <altLabel language="en">Prophylactics</altLabel>
+  <altLabel language="en">Rubbers</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -9205,6 +9347,7 @@
   <id>https://homosaurus.org/v2/LGBTQConfucianists</id>
   <identifier>LGBTQConfucianists</identifier>
   <prefLabel language="en">LGBTQ Confucianists</prefLabel>
+  <altLabel language="en">Confucianists (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -9312,6 +9455,9 @@
   <id>https://homosaurus.org/v2/sexualReorientation</id>
   <identifier>sexualReorientation</identifier>
   <prefLabel language="en">Sexual reorientation</prefLabel>
+  <altLabel language="en">Conversion therapy</altLabel>
+  <altLabel language="en">Gay cures</altLabel>
+  <altLabel language="en">Reparative therapy</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -9350,6 +9496,7 @@
   <id>https://homosaurus.org/v2/secondParentAdoption</id>
   <identifier>secondParentAdoption</identifier>
   <prefLabel language="en">Second parent adoption</prefLabel>
+  <altLabel language="en">Co-parent adoption</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -9372,6 +9519,8 @@
   <id>https://homosaurus.org/v2/scat</id>
   <identifier>scat</identifier>
   <prefLabel language="en">Scat</prefLabel>
+  <altLabel language="en">Coprophilia</altLabel>
+  <altLabel language="en">Poop sex</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -9435,6 +9584,7 @@
   <id>https://homosaurus.org/v2/cottages</id>
   <identifier>cottages</identifier>
   <prefLabel language="en">Cottages</prefLabel>
+  <altLabel language="en">Public urinals</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -9613,6 +9763,7 @@
   <id>https://homosaurus.org/v2/LGBTQVictimsOfCrime</id>
   <identifier>LGBTQVictimsOfCrime</identifier>
   <prefLabel language="en">LGBTQ victims of crime</prefLabel>
+  <altLabel language="en">Crime victims (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -9677,6 +9828,7 @@
   <id>https://homosaurus.org/v2/criminalisation</id>
   <identifier>criminalisation</identifier>
   <prefLabel language="en">Criminalisation</prefLabel>
+  <altLabel language="en">Criminalization</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -9704,6 +9856,8 @@
   <id>https://homosaurus.org/v2/cross-culturalRelationships</id>
   <identifier>cross-culturalRelationships</identifier>
   <prefLabel language="en">Cross-cultural relationships</prefLabel>
+  <altLabel language="en">Intercultural relationships</altLabel>
+  <altLabel language="en">Interracial relationships</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -9727,6 +9881,7 @@
   <id>https://homosaurus.org/v2/crossdressers</id>
   <identifier>crossdressers</identifier>
   <prefLabel language="en">Crossdressers</prefLabel>
+  <altLabel language="en">Cross-dressers</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -9785,6 +9940,9 @@
   <id>https://homosaurus.org/v2/hormoneTherapyGender</id>
   <identifier>hormoneTherapyGender</identifier>
   <prefLabel language="en">Hormone therapy (Gender)</prefLabel>
+  <altLabel language="en">Cross-gender hormone therapy</altLabel>
+  <altLabel language="en">Hormone reassignment therapy</altLabel>
+  <altLabel language="en">Hormone replacement therapy</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -9920,6 +10078,7 @@
   <id>https://homosaurus.org/v2/crystalMeth</id>
   <identifier>crystalMeth</identifier>
   <prefLabel language="en">Crystal meth</prefLabel>
+  <altLabel language="en">Tina</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -10339,6 +10498,7 @@
   <id>https://homosaurus.org/v2/cum</id>
   <identifier>cum</identifier>
   <prefLabel language="en">Cum</prefLabel>
+  <altLabel language="en">semen</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -10399,6 +10559,8 @@
   <id>https://homosaurus.org/v2/cybersex</id>
   <identifier>cybersex</identifier>
   <prefLabel language="en">Cybersex</prefLabel>
+  <altLabel language="en">Internet sex</altLabel>
+  <altLabel language="en">Online sex</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -10475,6 +10637,7 @@
   <id>https://homosaurus.org/v2/datingApplications</id>
   <identifier>datingApplications</identifier>
   <prefLabel language="en">Dating applications</prefLabel>
+  <altLabel language="en">Dating apps</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -10766,6 +10929,10 @@
   <id>https://homosaurus.org/v2/LGBTQDeafPeople</id>
   <identifier>LGBTQDeafPeople</identifier>
   <prefLabel language="en">LGBTQ deaf people</prefLabel>
+  <altLabel language="en">Deaf people (LGBTQ)</altLabel>
+  <altLabel language="en">LGBTQ auditive disabled people</altLabel>
+  <altLabel language="en">LGBTQ deaf</altLabel>
+  <altLabel language="en">LGBTQ deaf-mutes</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -10807,6 +10974,7 @@
   <id>https://homosaurus.org/v2/decriminalisation</id>
   <identifier>decriminalisation</identifier>
   <prefLabel language="en">Decriminalisation</prefLabel>
+  <altLabel language="en">Decriminalization</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -10861,6 +11029,9 @@
   <id>https://homosaurus.org/v2/hateSpeech</id>
   <identifier>hateSpeech</identifier>
   <prefLabel language="en">Hate speech</prefLabel>
+  <altLabel language="en">Defamation against groups</altLabel>
+  <altLabel language="en">Group defamation</altLabel>
+  <altLabel language="en">Group libel</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -11018,6 +11189,7 @@
   <id>https://homosaurus.org/v2/dentalDams</id>
   <identifier>dentalDams</identifier>
   <prefLabel language="en">Dental dams</prefLabel>
+  <altLabel language="en">Latex barriers</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -11153,6 +11325,7 @@
   <id>https://homosaurus.org/v2/DSM</id>
   <identifier>DSM</identifier>
   <prefLabel language="en">DSM</prefLabel>
+  <altLabel language="en">Diagnostic and statistical manual of mental disorders</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -11171,6 +11344,13 @@
   <id>https://homosaurus.org/v2/intersex</id>
   <identifier>intersex</identifier>
   <prefLabel language="en">Intersex</prefLabel>
+  <altLabel language="en">Differences in sex development</altLabel>
+  <altLabel language="en">Divergences in sex development</altLabel>
+  <altLabel language="en">DSDs</altLabel>
+  <altLabel language="en">Hermaphroditism</altLabel>
+  <altLabel language="en">Intersexuality</altLabel>
+  <altLabel language="en">Variations in sex development</altLabel>
+  <altLabel language="en">VSDs</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -11270,6 +11450,7 @@
   <id>https://homosaurus.org/v2/dildos</id>
   <identifier>dildos</identifier>
   <prefLabel language="en">Dildos</prefLabel>
+  <altLabel language="en">Strap-ons</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -11500,6 +11681,7 @@
   <id>https://homosaurus.org/v2/domesticPartnershipRetirementBenefits</id>
   <identifier>domesticPartnershipRetirementBenefits</identifier>
   <prefLabel language="en">Domestic partnership retirement benefits</prefLabel>
+  <altLabel language="en">Same-sex pension benefits</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -12233,6 +12415,8 @@
   <id>https://homosaurus.org/v2/drugAbuse</id>
   <identifier>drugAbuse</identifier>
   <prefLabel language="en">Drug abuse</prefLabel>
+  <altLabel language="en">Drug addiction</altLabel>
+  <altLabel language="en">Drug dependence</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -12297,6 +12481,7 @@
   <id>https://homosaurus.org/v2/drugs</id>
   <identifier>drugs</identifier>
   <prefLabel language="en">Drugs</prefLabel>
+  <altLabel language="en">Street drugs</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -12328,6 +12513,7 @@
   <id>https://homosaurus.org/v2/dutchBoys</id>
   <identifier>dutchBoys</identifier>
   <prefLabel language="en">Dutch boys</prefLabel>
+  <altLabel language="en">Lesbros</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -12363,6 +12549,7 @@
   <id>https://homosaurus.org/v2/lesbianCulture</id>
   <identifier>lesbianCulture</identifier>
   <prefLabel language="en">Lesbian culture</prefLabel>
+  <altLabel language="en">Dyke culture</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -12487,6 +12674,8 @@
   <id>https://homosaurus.org/v2/LGBTQEasternOrthodoxChristians</id>
   <identifier>LGBTQEasternOrthodoxChristians</identifier>
   <prefLabel language="en">LGBTQ Eastern Orthodox Christians</prefLabel>
+  <altLabel language="en">Eastern Orthodox Christians (LGBTQ)</altLabel>
+  <altLabel language="en">LGBTQ Orthodox Eastern Christians</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -12524,6 +12713,9 @@
   <id>https://homosaurus.org/v2/MDMA</id>
   <identifier>MDMA</identifier>
   <prefLabel language="en">MDMA</prefLabel>
+  <altLabel language="en">Ecstacy</altLabel>
+  <altLabel language="en">Molly</altLabel>
+  <altLabel language="en">XTC</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -12542,6 +12734,7 @@
   <id>https://homosaurus.org/v2/femininity</id>
   <identifier>femininity</identifier>
   <prefLabel language="en">Femininity</prefLabel>
+  <altLabel language="en">Effeminacy</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -12606,6 +12799,8 @@
   <id>https://homosaurus.org/v2/internalisedHomophobia</id>
   <identifier>internalisedHomophobia</identifier>
   <prefLabel language="en">Internalised homophobia</prefLabel>
+  <altLabel language="en">Ego-dystonic homophobia</altLabel>
+  <altLabel language="en">Internalized homophobia</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -12640,6 +12835,7 @@
   <id>https://homosaurus.org/v2/ego-dystonicSexualOrientation</id>
   <identifier>ego-dystonicSexualOrientation</identifier>
   <prefLabel language="en">Ego-dystonic sexual orientation</prefLabel>
+  <altLabel language="en">Ego-dystonic homosexuality</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -12666,6 +12862,9 @@
   <id>https://homosaurus.org/v2/olderPeopleLGBTQ</id>
   <identifier>olderPeopleLGBTQ</identifier>
   <prefLabel language="en">Older people (LGBTQ)</prefLabel>
+  <altLabel language="en">Elderly (LGBTQ)</altLabel>
+  <altLabel language="en">Senior citizens (LGBTQ)</altLabel>
+  <altLabel language="en">Seniors (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -12716,6 +12915,8 @@
   <id>https://homosaurus.org/v2/electroshockTherapy</id>
   <identifier>electroshockTherapy</identifier>
   <prefLabel language="en">Electroshock therapy</prefLabel>
+  <altLabel language="en">Electric shock therapy</altLabel>
+  <altLabel language="en">Electroconvulsive therapy</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -12859,6 +13060,7 @@
   <id>https://homosaurus.org/v2/erectileDysfunction</id>
   <identifier>erectileDysfunction</identifier>
   <prefLabel language="en">Erectile dysfunction</prefLabel>
+  <altLabel language="en">Impotence</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -13309,6 +13511,8 @@
   <id>https://homosaurus.org/v2/faeries</id>
   <identifier>faeries</identifier>
   <prefLabel language="en">Faeries</prefLabel>
+  <altLabel language="en">Radical Faeries</altLabel>
+  <altLabel language="en">Faes</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -13398,6 +13602,7 @@
   <id>https://homosaurus.org/v2/faggots</id>
   <identifier>faggots</identifier>
   <prefLabel language="en">Faggots</prefLabel>
+  <altLabel language="en">Fags</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -13802,6 +14007,7 @@
   <id>https://homosaurus.org/v2/womensFriendships</id>
   <identifier>womensFriendships</identifier>
   <prefLabel language="en">Women's friendships</prefLabel>
+  <altLabel language="en">Female friendships</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -13961,6 +14167,11 @@
   <id>https://homosaurus.org/v2/FtMs</id>
   <identifier>FtMs</identifier>
   <prefLabel language="en">FtMs</prefLabel>
+  <altLabel language="en">Females transitioning to males</altLabel>
+  <altLabel language="en">FtM transsexuals</altLabel>
+  <altLabel language="en">F2Ms</altLabel>
+  <altLabel language="en">Transsexual men</altLabel>
+  <altLabel language="en">Female-to-male</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -14067,6 +14278,7 @@
   <id>https://homosaurus.org/v2/womensMovement</id>
   <identifier>womensMovement</identifier>
   <prefLabel language="en">Women's movement</prefLabel>
+  <altLabel language="en">Feminist movement</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -14251,6 +14463,9 @@
   <id>https://homosaurus.org/v2/fictionLGBTQ</id>
   <identifier>fictionLGBTQ</identifier>
   <prefLabel language="en">Fiction (LGBTQ)</prefLabel>
+  <altLabel language="en">Novels (LGBTQ)</altLabel>
+  <altLabel language="en">Short stories (LGBTQ)</altLabel>
+  <altLabel language="en">Stories (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -14347,6 +14562,7 @@
   <id>https://homosaurus.org/v2/fisting</id>
   <identifier>fisting</identifier>
   <prefLabel language="en">Fisting</prefLabel>
+  <altLabel language="en">Fist fucking</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -14385,6 +14601,8 @@
   <id>https://homosaurus.org/v2/fingering</id>
   <identifier>fingering</identifier>
   <prefLabel language="en">Fingering</prefLabel>
+  <altLabel language="en">Finger banging</altLabel>
+  <altLabel language="en">Finger fucking</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -14495,6 +14713,9 @@
   <id>https://homosaurus.org/v2/socialParenthood</id>
   <identifier>socialParenthood</identifier>
   <prefLabel language="en">Social parenthood</prefLabel>
+  <altLabel language="en">Foster parenthood</altLabel>
+  <altLabel language="en">Non-genetic parenthood</altLabel>
+  <altLabel language="en">Adoptive parenthood</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -14936,6 +15157,9 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/gayAndLesbianYouth</id>
   <identifier>gayAndLesbianYouth</identifier>
   <prefLabel language="en">Gay and lesbian youth</prefLabel>
+  <altLabel language="en">Gay youth</altLabel>
+  <altLabel language="en">Lesbian and gay youth</altLabel>
+  <altLabel language="en">Lesbian youth</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -15028,6 +15252,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/gayAsians</id>
   <identifier>gayAsians</identifier>
   <prefLabel language="en">Gay Asians</prefLabel>
+  <altLabel language="en">Gaysians</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -15098,6 +15323,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/gaySaunas</id>
   <identifier>gaySaunas</identifier>
   <prefLabel language="en">Gay saunas</prefLabel>
+  <altLabel language="en">Gay bathhouses</altLabel>
+  <altLabel language="en">Gay baths</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -15276,6 +15503,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/gayChoruses</id>
   <identifier>gayChoruses</identifier>
   <prefLabel language="en">Gay choruses</prefLabel>
+  <altLabel language="en">Gay choirs</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -15316,6 +15544,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/gayClergy</id>
   <identifier>gayClergy</identifier>
   <prefLabel language="en">Gay clergy</prefLabel>
+  <altLabel language="en">Gay pastors</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -15492,6 +15721,9 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/gayDiscos</id>
   <identifier>gayDiscos</identifier>
   <prefLabel language="en">Gay discos</prefLabel>
+  <altLabel language="en">Gay discotheques</altLabel>
+  <altLabel language="en">Gay night clubs</altLabel>
+  <altLabel language="en">Gay nightclubs</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -15532,6 +15764,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/gayInformationCentres</id>
   <identifier>gayInformationCentres</identifier>
   <prefLabel language="en">Gay information centres</prefLabel>
+  <altLabel language="en">Gay documentation centres</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -15581,6 +15814,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/gayParents</id>
   <identifier>gayParents</identifier>
   <prefLabel language="en">Gay parents</prefLabel>
+  <altLabel language="en">Gay fathers</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -15748,6 +15982,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/lesbian-gayRelations</id>
   <identifier>lesbian-gayRelations</identifier>
   <prefLabel language="en">Lesbian-gay relations</prefLabel>
+  <altLabel language="en">Gay-lesbian relations</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -15774,6 +16009,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/gayLiberation</id>
   <identifier>gayLiberation</identifier>
   <prefLabel language="en">Gay liberation</prefLabel>
+  <altLabel language="en">Gay liberation movement</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -15867,6 +16103,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/same-sexMarriage</id>
   <identifier>same-sexMarriage</identifier>
   <prefLabel language="en">Same-sex marriage</prefLabel>
+  <altLabel language="en">Gay marriage</altLabel>
+  <altLabel language="en">Lesbian marriage</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -15923,6 +16161,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/gayMen</id>
   <identifier>gayMen</identifier>
   <prefLabel language="en">Gay men</prefLabel>
+  <altLabel language="en">Gays</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -16093,6 +16332,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/parentsOfGayMen</id>
   <identifier>parentsOfGayMen</identifier>
   <prefLabel language="en">Parents of gay men</prefLabel>
+  <altLabel language="en">Gay men's parents</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -16127,6 +16367,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/gayMovement</id>
   <identifier>gayMovement</identifier>
   <prefLabel language="en">Gay movement</prefLabel>
+  <altLabel language="en">Gay organisations</altLabel>
+  <altLabel language="en">Gay organizations</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -16473,6 +16715,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/gayPrideWeek</id>
   <identifier>gayPrideWeek</identifier>
   <prefLabel language="en">Gay pride week</prefLabel>
+  <altLabel language="en">Pink Saturday</altLabel>
+  <altLabel language="en">Pink week</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -16731,6 +16975,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/gaySlang</id>
   <identifier>gaySlang</identifier>
   <prefLabel language="en">Gay slang</prefLabel>
+  <altLabel language="en">Gay speak</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -16793,6 +17038,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/gay-straightAlliances</id>
   <identifier>gay-straightAlliances</identifier>
   <prefLabel language="en">Gay-straight alliances</prefLabel>
+  <altLabel language="en">GSAs</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -16946,6 +17192,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/gayYouth</id>
   <identifier>gayYouth</identifier>
   <prefLabel language="en">Gay youth</prefLabel>
+  <altLabel language="en">Gay teenagers</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -17234,6 +17481,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/lesbians</id>
   <identifier>lesbians</identifier>
   <prefLabel language="en">Lesbians</prefLabel>
+  <altLabel language="en">Gay women</altLabel>
+  <altLabel language="en">Lesbian women</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -17398,6 +17647,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQNeighbourhoods</id>
   <identifier>LGBTQNeighbourhoods</identifier>
   <prefLabel language="en">LGBTQ neighbourhoods</prefLabel>
+  <altLabel language="en">Gaybourhoods</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -17513,6 +17763,12 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/genderConfirmingSurgery</id>
   <identifier>genderConfirmingSurgery</identifier>
   <prefLabel language="en">Gender confirming surgery</prefLabel>
+  <altLabel language="en">Gender affirmation surgery</altLabel>
+  <altLabel language="en">Gender affirming surgery</altLabel>
+  <altLabel language="en">Gender confirmation surgery</altLabel>
+  <altLabel language="en">Gender realignment surgery</altLabel>
+  <altLabel language="en">Gender reassignment surgery</altLabel>
+  <altLabel language="en">Sex reassignment surgery</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -17682,6 +17938,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/genderism</id>
   <identifier>genderism</identifier>
   <prefLabel language="en">Genderism</prefLabel>
+  <altLabel language="en">Gender discrimination</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -17742,6 +17999,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/genderDysphoria</id>
   <identifier>genderDysphoria</identifier>
   <prefLabel language="en">Gender dysphoria</prefLabel>
+  <altLabel language="en">GID</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -17785,6 +18043,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/genderExpression</id>
   <identifier>genderExpression</identifier>
   <prefLabel language="en">Gender expression</prefLabel>
+  <altLabel language="en">Gender non-conformity</altLabel>
+  <altLabel language="en">Gender variance</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -17965,6 +18225,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/genderIdentity</id>
   <identifier>genderIdentity</identifier>
   <prefLabel language="en">Gender identity</prefLabel>
+  <altLabel language="en">Gender-variant identity</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -18241,6 +18502,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/genderSwapping</id>
   <identifier>genderSwapping</identifier>
   <prefLabel language="en">Gender swapping</prefLabel>
+  <altLabel language="en">Gender roleplay</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -18553,6 +18815,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/genitals</id>
   <identifier>genitals</identifier>
   <prefLabel language="en">Genitals</prefLabel>
+  <altLabel language="en">Genitalia</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -18834,6 +19097,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/oralSex</id>
   <identifier>oralSex</identifier>
   <prefLabel language="en">Oral sex</prefLabel>
+  <altLabel language="en">Giving head</altLabel>
+  <altLabel language="en">Going down</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -18876,6 +19141,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBT</id>
   <identifier>LGBT</identifier>
   <prefLabel language="en">LGBT</prefLabel>
+  <altLabel language="en">GLBT</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -18956,6 +19222,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/goddessMovementLesbian</id>
   <identifier>goddessMovementLesbian</identifier>
   <prefLabel language="en">Goddess movement (Lesbian)</prefLabel>
+  <altLabel language="en">Goddess religion (Lesbian)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -18975,6 +19242,10 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/waterSports</id>
   <identifier>waterSports</identifier>
   <prefLabel language="en">Water sports</prefLabel>
+  <altLabel language="en">Golden showers</altLabel>
+  <altLabel language="en">Pissing sex</altLabel>
+  <altLabel language="en">Undinism</altLabel>
+  <altLabel language="en">Urolagnia</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -19120,6 +19391,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/groupSex</id>
   <identifier>groupSex</identifier>
   <prefLabel language="en">Group sex</prefLabel>
+  <altLabel language="en">Orgies</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -19253,6 +19525,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/handkerchiefCodes</id>
   <identifier>handkerchiefCodes</identifier>
   <prefLabel language="en">Handkerchief codes</prefLabel>
+  <altLabel language="en">Hanky codes</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -19395,6 +19668,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/victimsOfHateCrimesLGBTQ</id>
   <identifier>victimsOfHateCrimesLGBTQ</identifier>
   <prefLabel language="en">Victims of hate crimes (LGBTQ)</prefLabel>
+  <altLabel language="en">Hate crime victims (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -19445,6 +19719,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/healthCareForLGBTQPeople</id>
   <identifier>healthCareForLGBTQPeople</identifier>
   <prefLabel language="en">Health care for LGBTQ people</prefLabel>
+  <altLabel language="en">Medical care for LGBTQ people</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -19559,6 +19834,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/intersexPeople</id>
   <identifier>intersexPeople</identifier>
   <prefLabel language="en">Intersex people</prefLabel>
+  <altLabel language="en">Hermaphrodites</altLabel>
+  <altLabel language="en">Intersexuals</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -19609,6 +19886,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/heterosexism</id>
   <identifier>heterosexism</identifier>
   <prefLabel language="en">Heterosexism</prefLabel>
+  <altLabel language="en">Heterocentrism</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -19663,6 +19941,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/heteronormativity</id>
   <identifier>heteronormativity</identifier>
   <prefLabel language="en">Heteronormativity</prefLabel>
+  <altLabel language="en">Heterosexual norms</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -19693,6 +19972,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/heterosexualBoys</id>
   <identifier>heterosexualBoys</identifier>
   <prefLabel language="en">Heterosexual boys</prefLabel>
+  <altLabel language="en">Straight boys</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -19741,6 +20021,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/heterosexualGirls</id>
   <identifier>heterosexualGirls</identifier>
   <prefLabel language="en">Heterosexual girls</prefLabel>
+  <altLabel language="en">Straight girls</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -19803,6 +20084,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/heterosexualMen</id>
   <identifier>heterosexualMen</identifier>
   <prefLabel language="en">Heterosexual men</prefLabel>
+  <altLabel language="en">Straight men</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -19833,6 +20115,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/heterosexuals</id>
   <identifier>heterosexuals</identifier>
   <prefLabel language="en">Heterosexuals</prefLabel>
+  <altLabel language="en">Heterosexual people</altLabel>
+  <altLabel language="en">Straight people</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -19875,6 +20159,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/heterosociality</id>
   <identifier>heterosociality</identifier>
   <prefLabel language="en">Heterosociality</prefLabel>
+  <altLabel language="en">Heterosexual social relationships</altLabel>
+  <altLabel language="en">Heterosocial bonds</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -19897,6 +20183,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/heterosexualWomen</id>
   <identifier>heterosexualWomen</identifier>
   <prefLabel language="en">Heterosexual women</prefLabel>
+  <altLabel language="en">Straight women</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -19927,6 +20214,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/heterosexualYouth</id>
   <identifier>heterosexualYouth</identifier>
   <prefLabel language="en">Heterosexual youth</prefLabel>
+  <altLabel language="en">Straight youth</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -19995,6 +20283,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/hijra</id>
   <identifier>hijra</identifier>
   <prefLabel language="en">Hijra</prefLabel>
+  <altLabel language="en">Jagappa</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -20046,6 +20335,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQHindus</id>
   <identifier>LGBTQHindus</identifier>
   <prefLabel language="en">LGBTQ Hindus</prefLabel>
+  <altLabel language="en">Hindus (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -20082,6 +20372,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/HIV-negativePeople</id>
   <identifier>HIV-negativePeople</identifier>
   <prefLabel language="en">HIV-negative people</prefLabel>
+  <altLabel language="en">HIV-seronegative people</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -20116,6 +20407,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/HIV-positivePeople</id>
   <identifier>HIV-positivePeople</identifier>
   <prefLabel language="en">HIV-positive people</prefLabel>
+  <altLabel language="en">HIV-seropositive people</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -20154,6 +20446,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/seroconversion</id>
   <identifier>seroconversion</identifier>
   <prefLabel language="en">Seroconversion</prefLabel>
+  <altLabel language="en">HIV-seroconversion</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -20172,6 +20465,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/serodiscordantCouples</id>
   <identifier>serodiscordantCouples</identifier>
   <prefLabel language="en">Serodiscordant couples</prefLabel>
+  <altLabel language="en">HIV-serodiscordant couples</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -20202,6 +20496,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/serostatus</id>
   <identifier>serostatus</identifier>
   <prefLabel language="en">Serostatus</prefLabel>
+  <altLabel language="en">HIV-serostatus</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -20262,6 +20557,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/murdersOfLGBTQPeople</id>
   <identifier>murdersOfLGBTQPeople</identifier>
   <prefLabel language="en">Murders of LGBTQ people</prefLabel>
+  <altLabel language="en">Homicides of LGBTQ people</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -20333,6 +20629,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/homonormativity</id>
   <identifier>homonormativity</identifier>
   <prefLabel language="en">Homonormativity</prefLabel>
+  <altLabel language="en">Homosexual norms</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -20494,6 +20791,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/homosociality</id>
   <identifier>homosociality</identifier>
   <prefLabel language="en">Homosociality</prefLabel>
+  <altLabel language="en">Homosocial bonds</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -20610,6 +20908,9 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/sexualSterilisation</id>
   <identifier>sexualSterilisation</identifier>
   <prefLabel language="en">Sexual sterilisation</prefLabel>
+  <altLabel language="en">Human sterilisation</altLabel>
+  <altLabel language="en">Human sterilization</altLabel>
+  <altLabel language="en">Sexual sterilization</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -20655,6 +20956,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/machismo</id>
   <identifier>machismo</identifier>
   <prefLabel language="en">Machismo</prefLabel>
+  <altLabel language="en">Hypermasculinity</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -20685,6 +20987,39 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/hypersexuality</id>
   <identifier>hypersexuality</identifier>
   <prefLabel language="en">Hypersexuality</prefLabel>
+  <altLabel language="en">Nymphomania</altLabel>
+  <altLabel language="en">Satyriasis</altLabel>
+  <altLabel language="en">Andromania</altLabel>
+  <altLabel language="en">Clitoromania</altLabel>
+  <altLabel language="en">Don Juan complex</altLabel>
+  <altLabel language="en">Don Juan syndrome</altLabel>
+  <altLabel language="en">Don Juanism</altLabel>
+  <altLabel language="en">Estromania</altLabel>
+  <altLabel language="en">Excessive sex drive</altLabel>
+  <altLabel language="en">Excessive sexual drive</altLabel>
+  <altLabel language="en">Furor amatorius</altLabel>
+  <altLabel language="en">Furor uterinus</altLabel>
+  <altLabel language="en">Hyper sexuality</altLabel>
+  <altLabel language="en">Hyper-sexuality</altLabel>
+  <altLabel language="en">Hyperactive sexual desire disorder</altLabel>
+  <altLabel language="en">Hyperaesthesia</altLabel>
+  <altLabel language="en">Hypereroticism</altLabel>
+  <altLabel language="en">Hyperlibido</altLabel>
+  <altLabel language="en">Hyperphilia</altLabel>
+  <altLabel language="en">Hypersensuality</altLabel>
+  <altLabel language="en">Hypersexual behavior</altLabel>
+  <altLabel language="en">Hypersexual disorder</altLabel>
+  <altLabel language="en">Hypersexual pattern</altLabel>
+  <altLabel language="en">Hypersexualism</altLabel>
+  <altLabel language="en">Hypersexuality disorder</altLabel>
+  <altLabel language="en">Messalina complex</altLabel>
+  <altLabel language="en">Messalina syndrome</altLabel>
+  <altLabel language="en">&#x152;stromania</altLabel>
+  <altLabel language="en">Oversexuality</altLabel>
+  <altLabel language="en">Satyrism</altLabel>
+  <altLabel language="en">Satyromania</altLabel>
+  <altLabel language="en">Sexual hyperesthesia</altLabel>
+  <altLabel language="en">Sexual hyperversion</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -20751,6 +21086,10 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/inVitroFertilisation</id>
   <identifier>inVitroFertilisation</identifier>
   <prefLabel language="en">In vitro fertilisation</prefLabel>
+  <altLabel language="en">In vitro fertilization</altLabel>
+  <altLabel language="en">IVF</altLabel>
+  <altLabel language="en">Test tube fertilisation</altLabel>
+  <altLabel language="en">Test tube fertilization</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -20926,6 +21265,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/onlineDating</id>
   <identifier>onlineDating</identifier>
   <prefLabel language="en">Online dating</prefLabel>
+  <altLabel language="en">Internet dating</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -20970,6 +21310,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/intersexphobia</id>
   <identifier>intersexphobia</identifier>
   <prefLabel language="en">Intersexphobia</prefLabel>
+  <altLabel language="en">Interphobia</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -21304,6 +21645,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/intimatePartnerViolence</id>
   <identifier>intimatePartnerViolence</identifier>
   <prefLabel language="en">Intimate partner violence</prefLabel>
+  <altLabel language="en">Intimate partner abuse</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -21342,6 +21684,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQInuit</id>
   <identifier>LGBTQInuit</identifier>
   <prefLabel language="en">LGBTQ Inuit</prefLabel>
+  <altLabel language="en">Inuit (LGBTQ)</altLabel>
+  <altLabel language="en">LGBTQ Eskimos</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -21360,6 +21704,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/inverts</id>
   <identifier>inverts</identifier>
   <prefLabel language="en">Inverts</prefLabel>
+  <altLabel language="en">Sexual inverts</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -21432,6 +21777,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQJehovahsWitnesses</id>
   <identifier>LGBTQJehovahsWitnesses</identifier>
   <prefLabel language="en">LGBTQ Jehovah's Witnesses</prefLabel>
+  <altLabel language="en">LGBTQ Jehova's Witnesses</altLabel>
+  <altLabel language="en">Jehova's Witnesses (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -21616,6 +21963,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/katoey</id>
   <identifier>katoey</identifier>
   <prefLabel language="en">Katoey</prefLabel>
+  <altLabel language="en">Kathoey</altLabel>
+  <altLabel language="en">Ladyboy</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -21960,6 +22309,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/law</id>
   <identifier>law</identifier>
   <prefLabel language="en">Law</prefLabel>
+  <altLabel language="en">Legislation</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -22047,6 +22397,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/leatherCommunity</id>
   <identifier>leatherCommunity</identifier>
   <prefLabel language="en">Leather community</prefLabel>
+  <altLabel language="en">Leather scene</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -22147,6 +22498,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/leatherFamilies</id>
   <identifier>leatherFamilies</identifier>
   <prefLabel language="en">Leather families</prefLabel>
+  <altLabel language="en">Leather household</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -22690,6 +23042,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/lesbianChoruses</id>
   <identifier>lesbianChoruses</identifier>
   <prefLabel language="en">Lesbian choruses</prefLabel>
+  <altLabel language="en">Lesbian choirs</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -22734,6 +23087,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/lesbianClergy</id>
   <identifier>lesbianClergy</identifier>
   <prefLabel language="en">Lesbian clergy</prefLabel>
+  <altLabel language="en">Lesbian pastors</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -22884,6 +23238,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/lesbianInformationCentres</id>
   <identifier>lesbianInformationCentres</identifier>
   <prefLabel language="en">Lesbian information centres</prefLabel>
+  <altLabel language="en">Lesbian documentation centres</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -23240,6 +23595,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/lesbianParents</id>
   <identifier>lesbianParents</identifier>
   <prefLabel language="en">Lesbian parents</prefLabel>
+  <altLabel language="en">Lesbian mothers</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -23266,6 +23622,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/lesbianMovement</id>
   <identifier>lesbianMovement</identifier>
   <prefLabel language="en">Lesbian movement</prefLabel>
+  <altLabel language="en">Lesbian organisations</altLabel>
+  <altLabel language="en">Lesbian organizations</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -23358,6 +23716,10 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/womensMusic</id>
   <identifier>womensMusic</identifier>
   <prefLabel language="en">Women's music</prefLabel>
+  <altLabel language="en">Lesbian music</altLabel>
+  <altLabel language="en">Wimmin's music</altLabel>
+  <altLabel language="en">Women-identified music</altLabel>
+  <altLabel language="en">Womyn's music</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -24063,6 +24425,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/lesbianYouth</id>
   <identifier>lesbianYouth</identifier>
   <prefLabel language="en">Lesbian youth</prefLabel>
+  <altLabel language="en">Lesbian teenagers</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -24443,6 +24806,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/parentsOfLesbians</id>
   <identifier>parentsOfLesbians</identifier>
   <prefLabel language="en">Parents of lesbians</prefLabel>
+  <altLabel language="en">Lesbians' parents</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -24986,6 +25350,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQNativeAmericanReligions</id>
   <identifier>LGBTQNativeAmericanReligions</identifier>
   <prefLabel language="en">LGBTQ Native American religions</prefLabel>
+  <altLabel language="en">LGBTQ American Indian religions</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -25447,6 +25812,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQCentres</id>
   <identifier>LGBTQCentres</identifier>
   <prefLabel language="en">LGBTQ centres</prefLabel>
+  <altLabel language="en">LGBTQ centers</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -25522,6 +25888,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQChoruses</id>
   <identifier>LGBTQChoruses</identifier>
   <prefLabel language="en">LGBTQ choruses</prefLabel>
+  <altLabel language="en">LGBTQ choirs</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -25991,6 +26358,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQDeathNotices</id>
   <identifier>LGBTQDeathNotices</identifier>
   <prefLabel language="en">LGBTQ death notices</prefLabel>
+  <altLabel language="en">LGBTQ death announcements</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -26013,6 +26381,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQDefamationCampaigns</id>
   <identifier>LGBTQDefamationCampaigns</identifier>
   <prefLabel language="en">LGBTQ defamation campaigns</prefLabel>
+  <altLabel language="en">LGBTQ smear campaigns</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -26035,6 +26404,9 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQDemonstrations</id>
   <identifier>LGBTQDemonstrations</identifier>
   <prefLabel language="en">LGBTQ demonstrations</prefLabel>
+  <altLabel language="en">LGBTQ political marches</altLabel>
+  <altLabel language="en">LGBTQ protests</altLabel>
+  <altLabel language="en">LGBTQ rallies</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -26061,6 +26433,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/mysteryAndDetectiveFictionLGBTQ</id>
   <identifier>mysteryAndDetectiveFictionLGBTQ</identifier>
   <prefLabel language="en">Mystery and detective fiction (LGBTQ)</prefLabel>
+  <altLabel language="en">LGBTQ detective and mystery fiction</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -26246,6 +26619,9 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQOlderPeoplesOrganisations</id>
   <identifier>LGBTQOlderPeoplesOrganisations</identifier>
   <prefLabel language="en">LGBTQ older people's organisations</prefLabel>
+  <altLabel language="en">LGBTQ elder organisations</altLabel>
+  <altLabel language="en">LGBTQ older people's organizations</altLabel>
+  <altLabel language="en">LGBTQ older people&#x2019;s organizations</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -26363,6 +26739,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQEthnicGroups</id>
   <identifier>LGBTQEthnicGroups</identifier>
   <prefLabel language="en">LGBTQ ethnic groups</prefLabel>
+  <altLabel language="en">LGBTQ races</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -26488,6 +26865,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQVeterans</id>
   <identifier>LGBTQVeterans</identifier>
   <prefLabel language="en">LGBTQ veterans</prefLabel>
+  <altLabel language="en">LGBTQ ex-military personnel</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -26637,6 +27015,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQFatherhood</id>
   <identifier>LGBTQFatherhood</identifier>
   <prefLabel language="en">LGBTQ fatherhood</prefLabel>
+  <altLabel language="en">Paternity</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -26900,6 +27279,12 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQRoma</id>
   <identifier>LGBTQRoma</identifier>
   <prefLabel language="en">LGBTQ Roma</prefLabel>
+  <altLabel language="en">LGBTQ Gypsies</altLabel>
+  <altLabel language="en">LGBTQ Roma and sinti</altLabel>
+  <altLabel language="en">LGBTQ Romani</altLabel>
+  <altLabel language="en">LGBTQ Sinti</altLabel>
+  <altLabel language="en">Roma (LGBTQ)</altLabel>
+  <altLabel language="en">LGBTQ Roma and Sinti</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -27069,6 +27454,9 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQHomelessPeople</id>
   <identifier>LGBTQHomelessPeople</identifier>
   <prefLabel language="en">LGBTQ homeless people</prefLabel>
+  <altLabel language="en">LGBTQ street people</altLabel>
+  <altLabel language="en">LGBTQ tramps</altLabel>
+  <altLabel language="en">LGBTQ unhoused people</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -27246,6 +27634,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQIncestVictims</id>
   <identifier>LGBTQIncestVictims</identifier>
   <prefLabel language="en">LGBTQ incest victims</prefLabel>
+  <altLabel language="en">LGBTQ victims of incest</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -27264,6 +27653,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQIndigenousPeople</id>
   <identifier>LGBTQIndigenousPeople</identifier>
   <prefLabel language="en">LGBTQ indigenous people</prefLabel>
+  <altLabel language="en">LGBTQ native people</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -27314,6 +27704,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQPrisoners</id>
   <identifier>LGBTQPrisoners</identifier>
   <prefLabel language="en">LGBTQ prisoners</prefLabel>
+  <altLabel language="en">LGBTQ inmates</altLabel>
+  <altLabel language="en">Prisoners (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -27515,6 +27907,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQLovers</id>
   <identifier>LGBTQLovers</identifier>
   <prefLabel language="en">LGBTQ lovers</prefLabel>
+  <altLabel language="en">Lovers (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -27615,6 +28008,10 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/takatapui</id>
   <identifier>takatapui</identifier>
   <prefLabel language="en">Takat&#x101;pui</prefLabel>
+  <altLabel language="en">LGBTQ M&#x101;oris</altLabel>
+  <altLabel language="en">M&#x101;oris (LGBTQ)</altLabel>
+  <altLabel language="en">LGBTQ M&#x101;ori</altLabel>
+  <altLabel language="en">M&#x101;ori LGBTQ</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -27748,6 +28145,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQMigrants</id>
   <identifier>LGBTQMigrants</identifier>
   <prefLabel language="en">LGBTQ migrants</prefLabel>
+  <altLabel language="en">Migrants (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -27778,6 +28176,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQMultiRacialPeople</id>
   <identifier>LGBTQMultiRacialPeople</identifier>
   <prefLabel language="en">LGBTQ multi-racial people</prefLabel>
+  <altLabel language="en">LGBTQ mixed-race people</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -27808,6 +28207,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQMormons</id>
   <identifier>LGBTQMormons</identifier>
   <prefLabel language="en">LGBTQ Mormons</prefLabel>
+  <altLabel language="en">Mormons (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -27826,6 +28226,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQMotherhood</id>
   <identifier>LGBTQMotherhood</identifier>
   <prefLabel language="en">LGBTQ motherhood</prefLabel>
+  <altLabel language="en">Maternity</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -27896,6 +28297,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQMusicians</id>
   <identifier>LGBTQMusicians</identifier>
   <prefLabel language="en">LGBTQ musicians</prefLabel>
+  <altLabel language="en">Musicians (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -28023,6 +28425,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQPapuans</id>
   <identifier>LGBTQPapuans</identifier>
   <prefLabel language="en">LGBTQ Papuans</prefLabel>
+  <altLabel language="en">Papuans (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -28041,6 +28444,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQParenthood</id>
   <identifier>LGBTQParenthood</identifier>
   <prefLabel language="en">LGBTQ parenthood</prefLabel>
+  <altLabel language="en">Parenting</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -28131,6 +28535,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQPeople</id>
   <identifier>LGBTQPeople</identifier>
   <prefLabel language="en">LGBTQ people</prefLabel>
+  <altLabel language="en">Gays</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -28277,6 +28682,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQPeopleWithPhysicalDisabilities</id>
   <identifier>LGBTQPeopleWithPhysicalDisabilities</identifier>
   <prefLabel language="en">LGBTQ people with physical disabilities</prefLabel>
+  <altLabel language="en">People with physical disabilities (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -28303,6 +28709,9 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQPeopleWithVisualDisabilities</id>
   <identifier>LGBTQPeopleWithVisualDisabilities</identifier>
   <prefLabel language="en">LGBTQ people with visual disabilities</prefLabel>
+  <altLabel language="en">LGBTQ people with visual impairments</altLabel>
+  <altLabel language="en">People with visual disabilities (LGBTQ)</altLabel>
+  <altLabel language="en">Visually disabled LGBTQ people</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -28490,6 +28899,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQPlays</id>
   <identifier>LGBTQPlays</identifier>
   <prefLabel language="en">LGBTQ plays</prefLabel>
+  <altLabel language="en">LGBTQ stage performances</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -28546,6 +28956,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQPrisonersOfConscience</id>
   <identifier>LGBTQPrisonersOfConscience</identifier>
   <prefLabel language="en">LGBTQ prisoners of conscience</prefLabel>
+  <altLabel language="en">Prisoners of conscience (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -28564,6 +28975,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQPubs</id>
   <identifier>LGBTQPubs</identifier>
   <prefLabel language="en">LGBTQ pubs</prefLabel>
+  <altLabel language="en">LGBTQ public houses</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -28594,6 +29006,9 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQQuakers</id>
   <identifier>LGBTQQuakers</identifier>
   <prefLabel language="en">LGBTQ Quakers</prefLabel>
+  <altLabel language="en">LGBTQ Religious Society of Friends</altLabel>
+  <altLabel language="en">LGBTQ Society of Friends</altLabel>
+  <altLabel language="en">Quakers (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -28612,6 +29027,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQRefugees</id>
   <identifier>LGBTQRefugees</identifier>
   <prefLabel language="en">LGBTQ refugees</prefLabel>
+  <altLabel language="en">Refugees (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -28784,6 +29200,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/schoolsForLGBTQYouth</id>
   <identifier>schoolsForLGBTQYouth</identifier>
   <prefLabel language="en">Schools for LGBTQ youth</prefLabel>
+  <altLabel language="en">LGBTQ schools</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -28884,6 +29301,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQSeparation</id>
   <identifier>LGBTQSeparation</identifier>
   <prefLabel language="en">LGBTQ separation</prefLabel>
+  <altLabel language="en">Marital separation (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -28952,6 +29370,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQShamans</id>
   <identifier>LGBTQShamans</identifier>
   <prefLabel language="en">LGBTQ shamans</prefLabel>
+  <altLabel language="en">Shamans (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -28970,6 +29389,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQShintoists</id>
   <identifier>LGBTQShintoists</identifier>
   <prefLabel language="en">LGBTQ Shintoists</prefLabel>
+  <altLabel language="en">LGBTQ Shinto</altLabel>
+  <altLabel language="en">Shintoists (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -29088,6 +29509,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQSocialParenthood</id>
   <identifier>LGBTQSocialParenthood</identifier>
   <prefLabel language="en">LGBTQ social parenthood</prefLabel>
+  <altLabel language="en">Non-genetic parenthood</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -29402,6 +29824,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQTaoists</id>
   <identifier>LGBTQTaoists</identifier>
   <prefLabel language="en">LGBTQ Taoists</prefLabel>
+  <altLabel language="en">Taoists (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -29468,6 +29891,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/victimsOfRapeLGBTQ</id>
   <identifier>victimsOfRapeLGBTQ</identifier>
   <prefLabel language="en">Victims of rape (LGBTQ)</prefLabel>
+  <altLabel language="en">LGBTQ victims of rape</altLabel>
+  <altLabel language="en">Rape victims (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -29534,6 +29959,10 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/victimsOfSexualAbuseLGBTQ</id>
   <identifier>victimsOfSexualAbuseLGBTQ</identifier>
   <prefLabel language="en">Victims of sexual abuse (LGBTQ)</prefLabel>
+  <altLabel language="en">LGBTQ victims of sex crimes</altLabel>
+  <altLabel language="en">Sexual abuse victims (LGBTQ)</altLabel>
+  <altLabel language="en">Sexual violence victims (LGBTQ)</altLabel>
+  <altLabel language="en">Victims of sex crimes (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -29604,6 +30033,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQVisibility</id>
   <identifier>LGBTQVisibility</identifier>
   <prefLabel language="en">LGBTQ visibility</prefLabel>
+  <altLabel language="en">Visibility of LGBTQ people</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -29623,6 +30053,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/victimsOfWarLGBTQ</id>
   <identifier>victimsOfWarLGBTQ</identifier>
   <prefLabel language="en">Victims of war (LGBTQ)</prefLabel>
+  <altLabel language="en">LGBTQ war victims</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -29777,6 +30208,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/libido</id>
   <identifier>libido</identifier>
   <prefLabel language="en">Libido</prefLabel>
+  <altLabel language="en">Sex drive</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -30061,6 +30493,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/sexLocations</id>
   <identifier>sexLocations</identifier>
   <prefLabel language="en">Sex locations</prefLabel>
+  <altLabel language="en">Locations for sex</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -30177,6 +30610,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/machoMen</id>
   <identifier>machoMen</identifier>
   <prefLabel language="en">Macho men</prefLabel>
+  <altLabel language="en">Machos</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -30267,6 +30701,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/mensFriendships</id>
   <identifier>mensFriendships</identifier>
   <prefLabel language="en">Men's friendships</prefLabel>
+  <altLabel language="en">Male friendships</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -30363,6 +30798,11 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/MtFs</id>
   <identifier>MtFs</identifier>
   <prefLabel language="en">MtFs</prefLabel>
+  <altLabel language="en">Males transitioning to females</altLabel>
+  <altLabel language="en">MtF transsexuals</altLabel>
+  <altLabel language="en">Male-to-female</altLabel>
+  <altLabel language="en">M2Fs</altLabel>
+  <altLabel language="en">Transsexual women</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -30633,6 +31073,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/marriageLaw</id>
   <identifier>marriageLaw</identifier>
   <prefLabel language="en">Marriage law</prefLabel>
+  <altLabel language="en">Matrimonial law</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -30942,6 +31383,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/masturbation</id>
   <identifier>masturbation</identifier>
   <prefLabel language="en">Masturbation</prefLabel>
+  <altLabel language="en">Wanking</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -30993,6 +31435,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/motherhood</id>
   <identifier>motherhood</identifier>
   <prefLabel language="en">Motherhood</prefLabel>
+  <altLabel language="en">Maternity</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -31058,6 +31501,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/metropolitanCommunityChurch</id>
   <identifier>metropolitanCommunityChurch</identifier>
   <prefLabel language="en">Metropolitan Community Church</prefLabel>
+  <altLabel language="en">MCC</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -31160,6 +31604,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/medicalisation</id>
   <identifier>medicalisation</identifier>
   <prefLabel language="en">Medicalisation</prefLabel>
+  <altLabel language="en">Medicalization</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -31227,6 +31672,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/medication</id>
   <identifier>medication</identifier>
   <prefLabel language="en">Medication</prefLabel>
+  <altLabel language="en">Pharmaceuticals</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -31336,6 +31782,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/menWhoHaveSexWithMen</id>
   <identifier>menWhoHaveSexWithMen</identifier>
   <prefLabel language="en">Men who have sex with men</prefLabel>
+  <altLabel language="en">MSM</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -31401,6 +31848,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/mentalDisorders</id>
   <identifier>mentalDisorders</identifier>
   <prefLabel language="en">Mental disorders</prefLabel>
+  <altLabel language="en">Mental illnesses</altLabel>
+  <altLabel language="en">Psychiatric disorders</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -32173,6 +32622,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/nativeAmericansLGBTQ</id>
   <identifier>nativeAmericansLGBTQ</identifier>
   <prefLabel language="en">Native Americans (LGBTQ)</prefLabel>
+  <altLabel language="en">American Indians (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -32219,6 +32669,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/nudism</id>
   <identifier>nudism</identifier>
   <prefLabel language="en">Nudism</prefLabel>
+  <altLabel language="en">Naturism</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -32237,6 +32688,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/tantricSex</id>
   <identifier>tantricSex</identifier>
   <prefLabel language="en">Tantric sex</prefLabel>
+  <altLabel language="en">Neotantra</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -32442,6 +32894,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/nipplePlay</id>
   <identifier>nipplePlay</identifier>
   <prefLabel language="en">Nipple play</prefLabel>
+  <altLabel language="en">Nipple sex</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -32502,6 +32955,9 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/nonBinaryPeople</id>
   <identifier>nonBinaryPeople</identifier>
   <prefLabel language="en">Non-binary people</prefLabel>
+  <altLabel language="en">Nonbinary people</altLabel>
+  <altLabel language="en">Enbies</altLabel>
+  <altLabel language="en">NB-ies</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -32824,6 +33280,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/singleParentFamilies</id>
   <identifier>singleParentFamilies</identifier>
   <prefLabel language="en">Single parent families</prefLabel>
+  <altLabel language="en">One-parent families</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -32864,6 +33321,11 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/organisationsForSexualResearchAndSex</id>
   <identifier>organisationsForSexualResearchAndSex</identifier>
   <prefLabel language="en">Organisations for sexual research and sexual reform</prefLabel>
+  <altLabel language="en">Organizations for sexual research and sexual reform</altLabel>
+  <altLabel language="en">Sexual reform organisations</altLabel>
+  <altLabel language="en">Sexual reform organizations</altLabel>
+  <altLabel language="en">Sexual research organisations</altLabel>
+  <altLabel language="en">Sexual research organizations</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -32936,6 +33398,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/otters</id>
   <identifier>otters</identifier>
   <prefLabel language="en">Otters</prefLabel>
+  <altLabel language="en">Otter men</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -33046,6 +33509,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/ovoTestes</id>
   <identifier>ovoTestes</identifier>
   <prefLabel language="en">Ovo-testes</prefLabel>
+  <altLabel language="en">True Hermaphroditism</altLabel>
+  <altLabel language="en">True hermaphroditism</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -33216,6 +33681,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/pansexualPeople</id>
   <identifier>pansexualPeople</identifier>
   <prefLabel language="en">Pansexual people</prefLabel>
+  <altLabel language="en">Omnisexual</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -33448,6 +33914,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/parentsOfQueerPeople</id>
   <identifier>parentsOfQueerPeople</identifier>
   <prefLabel language="en">Parents of queer people</prefLabel>
+  <altLabel language="en">Queer people's parents</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -33478,6 +33945,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/parentsOfTransgenderPeople</id>
   <identifier>parentsOfTransgenderPeople</identifier>
   <prefLabel language="en">Parents of transgender people</prefLabel>
+  <altLabel language="en">Transgender people's parents</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -33946,6 +34414,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/fatherhood</id>
   <identifier>fatherhood</identifier>
   <prefLabel language="en">Fatherhood</prefLabel>
+  <altLabel language="en">Paternity</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -34046,6 +34515,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/peepShows</id>
   <identifier>peepShows</identifier>
   <prefLabel language="en">Peep shows</prefLabel>
+  <altLabel language="en">Peepshows</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -34086,6 +34556,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/penilePlethysmography</id>
   <identifier>penilePlethysmography</identifier>
   <prefLabel language="en">Penile plethysmography</prefLabel>
+  <altLabel language="en">Penile response measurement</altLabel>
+  <altLabel language="en">Phallometry</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -34105,6 +34577,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/penises</id>
   <identifier>penises</identifier>
   <prefLabel language="en">Penises</prefLabel>
+  <altLabel language="en">Cocks</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -34205,6 +34678,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/peopleOfColourLGBTQ</id>
   <identifier>peopleOfColourLGBTQ</identifier>
   <prefLabel language="en">People of colour (LGBTQ)</prefLabel>
+  <altLabel language="en">Third World people (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -34519,6 +34993,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/phoneSex</id>
   <identifier>phoneSex</identifier>
   <prefLabel language="en">Phone sex</prefLabel>
+  <altLabel language="en">Telephone sex</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -34549,6 +35024,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/phoneSexWorkers</id>
   <identifier>phoneSexWorkers</identifier>
   <prefLabel language="en">Phone sex workers</prefLabel>
+  <altLabel language="en">Phone sex operators</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -34761,6 +35237,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/policeEntrapment</id>
   <identifier>policeEntrapment</identifier>
   <prefLabel language="en">Police entrapment</prefLabel>
+  <altLabel language="en">Undercover agents</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -34933,6 +35410,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/poppers</id>
   <identifier>poppers</identifier>
   <prefLabel language="en">Poppers</prefLabel>
+  <altLabel language="en">Tape head cleaner</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -34981,6 +35459,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/pornStars</id>
   <identifier>pornStars</identifier>
   <prefLabel language="en">Porn stars</prefLabel>
+  <altLabel language="en">Pornographic actors</altLabel>
+  <altLabel language="en">Pornstars</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -35088,6 +35568,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/prep</id>
   <identifier>prep</identifier>
   <prefLabel language="en">PrEP</prefLabel>
+  <altLabel language="en">Pre-exposure prophylaxis</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -35323,6 +35804,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/pronouns</id>
   <identifier>pronouns</identifier>
   <prefLabel language="en">Pronouns</prefLabel>
+  <altLabel language="en">Personal pronouns</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -35536,6 +36018,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/publicBathrooms</id>
   <identifier>publicBathrooms</identifier>
   <prefLabel language="en">Public bathrooms</prefLabel>
+  <altLabel language="en">Public restrooms</altLabel>
+  <altLabel language="en">Toilets</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -35771,6 +36255,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/queerPeopleOfColour</id>
   <identifier>queerPeopleOfColour</identifier>
   <prefLabel language="en">Queer people of colour</prefLabel>
+  <altLabel language="en">QPOC</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -37292,6 +37777,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/queerYouth</id>
   <identifier>queerYouth</identifier>
   <prefLabel language="en">Queer youth</prefLabel>
+  <altLabel language="en">Queer teenagers</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -38069,6 +38555,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/ropePlay</id>
   <identifier>ropePlay</identifier>
   <prefLabel language="en">Rope play</prefLabel>
+  <altLabel language="en">Shibari</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -38410,6 +38897,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/sameGenderLoving</id>
   <identifier>sameGenderLoving</identifier>
   <prefLabel language="en">Same-gender-loving</prefLabel>
+  <altLabel language="en">SGL</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -38477,6 +38965,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/voyeurism</id>
   <identifier>voyeurism</identifier>
   <prefLabel language="en">Voyeurism</prefLabel>
+  <altLabel language="en">Scopophilia</altLabel>
+  <altLabel language="en">Scoptophilia</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -38632,6 +39122,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/seduction</id>
   <identifier>seduction</identifier>
   <prefLabel language="en">Seduction</prefLabel>
+  <altLabel language="en">Temptation</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -39037,6 +39528,13 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/sexAssignedAtBirth</id>
   <identifier>sexAssignedAtBirth</identifier>
   <prefLabel language="en">Sex assigned at birth</prefLabel>
+  <altLabel language="en">Birth sex</altLabel>
+  <altLabel language="en">Birth-assigned sex</altLabel>
+  <altLabel language="en">Natal sex</altLabel>
+  <altLabel language="en">Sex at birth</altLabel>
+  <altLabel language="en">Sex reported at birth</altLabel>
+  <altLabel language="en">ASAB </altLabel>
+  <altLabel language="en">SAAB</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -39229,6 +39727,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/sexScandals</id>
   <identifier>sexScandals</identifier>
   <prefLabel language="en">Sex scandals</prefLabel>
+  <altLabel language="en">Sexual scandals</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -39524,6 +40023,14 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/sexualAddiction</id>
   <identifier>sexualAddiction</identifier>
   <prefLabel language="en">Sexual addiction</prefLabel>
+  <altLabel language="en">Addiction to sex</altLabel>
+  <altLabel language="en">Compulsive hypersexual behavior</altLabel>
+  <altLabel language="en">Compulsive sexual behavior</altLabel>
+  <altLabel language="en">Sexaholism</altLabel>
+  <altLabel language="en">Sex addiction</altLabel>
+  <altLabel language="en">Sexual compulsion</altLabel>
+  <altLabel language="en">Sexual dependency</altLabel>
+  <altLabel language="en">Sexual impulsivity</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -39554,6 +40061,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/sexualExcitement</id>
   <identifier>sexualExcitement</identifier>
   <prefLabel language="en">Sexual excitement</prefLabel>
+  <altLabel language="en">Sexual arousal</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -39728,6 +40236,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/sexualOffencesLaws</id>
   <identifier>sexualOffencesLaws</identifier>
   <prefLabel language="en">Sexual offences laws</prefLabel>
+  <altLabel language="en">Sexual criminal codes</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -39801,6 +40310,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/sexualDysfunction</id>
   <identifier>sexualDysfunction</identifier>
   <prefLabel language="en">Sexual dysfunction</prefLabel>
+  <altLabel language="en">Sexual malfunction</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -41161,6 +41671,9 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/STDs</id>
   <identifier>STDs</identifier>
   <prefLabel language="en">STDs</prefLabel>
+  <altLabel language="en">Sexually transmitted diseases</altLabel>
+  <altLabel language="en">VD</altLabel>
+  <altLabel language="en">Venereal diseases</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -41281,6 +41794,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/singlePeople</id>
   <identifier>singlePeople</identifier>
   <prefLabel language="en">Single people</prefLabel>
+  <altLabel language="en">Single person households</altLabel>
+  <altLabel language="en">Singles</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -41307,6 +41822,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/sissies</id>
   <identifier>sissies</identifier>
   <prefLabel language="en">Sissies</prefLabel>
+  <altLabel language="en">Sissy boys</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -41334,6 +41850,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/sistergirls</id>
   <identifier>sistergirls</identifier>
   <prefLabel language="en">Sistergirls</prefLabel>
+  <altLabel language="en">Sistagirls</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -41360,6 +41877,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/situationalSexualBehaviour</id>
   <identifier>situationalSexualBehaviour</identifier>
   <prefLabel language="en">Situational sexual behaviour</prefLabel>
+  <altLabel language="en">Situational homosexuality</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -42230,6 +42748,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/strippers</id>
   <identifier>strippers</identifier>
   <prefLabel language="en">Strippers</prefLabel>
+  <altLabel language="en">Stripteasers</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -42792,6 +43311,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/testes</id>
   <identifier>testes</identifier>
   <prefLabel language="en">Testes</prefLabel>
+  <altLabel language="en">Testicles</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -43319,6 +43839,15 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/transgenderPeople</id>
   <identifier>transgenderPeople</identifier>
   <prefLabel language="en">Transgender people</prefLabel>
+  <altLabel language="en">Trans people</altLabel>
+  <altLabel language="en">Trans</altLabel>
+  <altLabel language="en">Transgender</altLabel>
+  <altLabel language="en">Transgendered</altLabel>
+  <altLabel language="en">Transgendered people</altLabel>
+  <altLabel language="en">Transpeople</altLabel>
+  <altLabel language="en">Trans-people</altLabel>
+  <altLabel language="en">Transgender-identified people</altLabel>
+  <altLabel language="en">Trans-identified people</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -43558,6 +44087,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/transMarches</id>
   <identifier>transMarches</identifier>
   <prefLabel language="en">Trans marches</prefLabel>
+  <altLabel language="en">Transgender marches</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -43588,6 +44118,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/transsexuality</id>
   <identifier>transsexuality</identifier>
   <prefLabel language="en">Transsexuality</prefLabel>
+  <altLabel language="en">Transexuality</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -43602,6 +44133,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/transsexualPeople</id>
   <identifier>transsexualPeople</identifier>
   <prefLabel language="en">Transsexual people</prefLabel>
+  <altLabel language="en">Transexuals</altLabel>
+  <altLabel language="en">Transsexuals</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -44294,6 +44827,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/transgenderInformationCentres</id>
   <identifier>transgenderInformationCentres</identifier>
   <prefLabel language="en">Transgender information centres</prefLabel>
+  <altLabel language="en">Transgender documentation centres</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -45296,6 +45830,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/transgenderYouth</id>
   <identifier>transgenderYouth</identifier>
   <prefLabel language="en">Transgender youth</prefLabel>
+  <altLabel language="en">Transgender teenagers</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -46062,6 +46597,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/twinks</id>
   <identifier>twinks</identifier>
   <prefLabel language="en">Twinks</prefLabel>
+  <altLabel language="en">Twinkies</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -46175,6 +46711,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/uncutMen</id>
   <identifier>uncutMen</identifier>
   <prefLabel language="en">Uncut men</prefLabel>
+  <altLabel language="en">Uncircumcised men</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -46253,6 +46790,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/uranians</id>
   <identifier>uranians</identifier>
   <prefLabel language="en">Uranians</prefLabel>
+  <altLabel language="en">Urnings</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -46412,6 +46950,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/vaginismus</id>
   <identifier>vaginismus</identifier>
   <prefLabel language="en">Vaginismus</prefLabel>
+  <altLabel language="en">Vaginism</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -46550,6 +47089,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/voguing</id>
   <identifier>voguing</identifier>
   <prefLabel language="en">Voguing</prefLabel>
+  <altLabel language="en">Vogueing</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -46795,6 +47335,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/widowedPeople</id>
   <identifier>widowedPeople</identifier>
   <prefLabel language="en">Widowed people</prefLabel>
+  <altLabel language="en">Widowers</altLabel>
+  <altLabel language="en">Widows</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -47019,6 +47561,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/womenWhoHaveSexWithWomen</id>
   <identifier>womenWhoHaveSexWithWomen</identifier>
   <prefLabel language="en">Women who have sex with women</prefLabel>
+  <altLabel language="en">WSW</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -47386,6 +47929,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/youthLiteratureLGBTQ</id>
   <identifier>youthLiteratureLGBTQ</identifier>
   <prefLabel language="en">Youth literature (LGBTQ)</prefLabel>
+  <altLabel language="en">Young adult literature (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -47466,6 +48010,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/recoveryGroups</id>
   <identifier>recoveryGroups</identifier>
   <prefLabel language="en">Recovery groups</prefLabel>
+  <altLabel language="en">12-step groups</altLabel>
   <issued>
     <value>2020-06-02</value>
     <name>xsd:date</name>
@@ -47512,6 +48057,8 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/adultChildrenOfAlcoholics</id>
   <identifier>adultChildrenOfAlcoholics</identifier>
   <prefLabel language="en">Adult Children of Alcoholics</prefLabel>
+  <altLabel language="en">ACA</altLabel>
+  <altLabel language="en">ACOA</altLabel>
   <issued>
     <value>2020-06-02</value>
     <name>xsd:date</name>
@@ -47618,6 +48165,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/alcoholicsAnonymous</id>
   <identifier>alcoholicsAnonymous</identifier>
   <prefLabel language="en">Alcoholics Anonymous</prefLabel>
+  <altLabel language="en">AA</altLabel>
   <issued>
     <value>2020-06-02</value>
     <name>xsd:date</name>
@@ -47756,6 +48304,11 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/cocaineAddiction</id>
   <identifier>cocaineAddiction</identifier>
   <prefLabel language="en">Cocaine addiction</prefLabel>
+  <altLabel language="en">Cocaine abuse</altLabel>
+  <altLabel language="en">Cocaine misuse</altLabel>
+  <altLabel language="en">Cocaine use disorder</altLabel>
+  <altLabel language="en">Crack abuse</altLabel>
+  <altLabel language="en">Crack addiction</altLabel>
   <issued>
     <value>2020-06-02</value>
     <name>xsd:date</name>
@@ -47790,6 +48343,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/cocaineAnonymous</id>
   <identifier>cocaineAnonymous</identifier>
   <prefLabel language="en">Cocaine Anonymous</prefLabel>
+  <altLabel language="en">CA</altLabel>
   <issued>
     <value>2020-06-02</value>
     <name>xsd:date</name>
@@ -47859,6 +48413,10 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/crystalMethAddiction</id>
   <identifier>crystalMethAddiction</identifier>
   <prefLabel language="en">Crystal meth addiction</prefLabel>
+  <altLabel language="en">Crystal meth misuse</altLabel>
+  <altLabel language="en">Crystal meth abuse</altLabel>
+  <altLabel language="en">Methamphetamine misuse</altLabel>
+  <altLabel language="en">Methamphetamine abuse</altLabel>
   <issued>
     <value>2020-06-02</value>
     <name>xsd:date</name>
@@ -47893,6 +48451,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/crystalMethAnonymous</id>
   <identifier>crystalMethAnonymous</identifier>
   <prefLabel language="en">Crystal Meth Anonymous</prefLabel>
+  <altLabel language="en">CMA</altLabel>
   <issued>
     <value>2020-06-02</value>
     <name>xsd:date</name>
@@ -47919,6 +48478,11 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/erotomania</id>
   <identifier>erotomania</identifier>
   <prefLabel language="en">Erotomania</prefLabel>
+  <altLabel language="en">Clinical erotomania</altLabel>
+  <altLabel language="en">De Cl&#xE9;rambault syndrome</altLabel>
+  <altLabel language="en">De Cl&#xE9;rambault's syndrome</altLabel>
+  <altLabel language="en">Obsessional erotomania</altLabel>
+  <altLabel language="en">Primary erotomania</altLabel>
   <issued>
     <value>2020-06-02</value>
     <name>xsd:date</name>
@@ -47941,6 +48505,18 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/internetSexAddiction</id>
   <identifier>internetSexAddiction</identifier>
   <prefLabel language="en">Internet sex addiction</prefLabel>
+  <altLabel language="en">Computer sex addiction</altLabel>
+  <altLabel language="en">Computer-mediated sex addiction</altLabel>
+  <altLabel language="en">Cyber-sex addiction</altLabel>
+  <altLabel language="en">Cybersex addiction</altLabel>
+  <altLabel language="en">Cybersexual addiction</altLabel>
+  <altLabel language="en">Netsex addiction</altLabel>
+  <altLabel language="en">Online porn addiction</altLabel>
+  <altLabel language="en">Online pornography addiction</altLabel>
+  <altLabel language="en">Online sex addiction</altLabel>
+  <altLabel language="en">Problematic internet pornography viewing</altLabel>
+  <altLabel language="en">Sex addiction on the internet</altLabel>
+  <altLabel language="en">Virtual sex addiction</altLabel>
   <issued>
     <value>2020-06-03</value>
     <name>xsd:date</name>
@@ -48129,6 +48705,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQPeopleInAlcoholicsAnonymous</id>
   <identifier>LGBTQPeopleInAlcoholicsAnonymous</identifier>
   <prefLabel language="en">LGBTQ People in Alcoholics Anonymous</prefLabel>
+  <altLabel language="en">LGBTQ people in AA</altLabel>
   <issued>
     <value>2020-06-03</value>
     <name>xsd:date</name>
@@ -48167,6 +48744,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQPeopleInCocaineAnonymous</id>
   <identifier>LGBTQPeopleInCocaineAnonymous</identifier>
   <prefLabel language="en">LGBTQ people in Cocaine Anonymous</prefLabel>
+  <altLabel language="en">LGBTQ people in CA</altLabel>
   <issued>
     <value>2020-06-03</value>
     <name>xsd:date</name>
@@ -48201,6 +48779,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQPeopleInCrystalMethAnonymous</id>
   <identifier>LGBTQPeopleInCrystalMethAnonymous</identifier>
   <prefLabel language="en">LGBTQ people in Crystal Meth Anonymous</prefLabel>
+  <altLabel language="en">LGBTQ people in CMA</altLabel>
   <issued>
     <value>2020-06-03</value>
     <name>xsd:date</name>
@@ -48235,6 +48814,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQPeopleInNarcoticsAnonymous</id>
   <identifier>LGBTQPeopleInNarcoticsAnonymous</identifier>
   <prefLabel language="en">LGBTQ people in Narcotics Anonymous</prefLabel>
+  <altLabel language="en">LGBTQ people in NA</altLabel>
   <issued>
     <value>2020-06-03</value>
     <name>xsd:date</name>
@@ -48265,6 +48845,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQPeopleInRecovery</id>
   <identifier>LGBTQPeopleInRecovery</identifier>
   <prefLabel language="en">LGBTQ people in recovery</prefLabel>
+  <altLabel language="en">LGBTQ people in 12-step groups</altLabel>
   <issued>
     <value>2020-06-03</value>
     <name>xsd:date</name>
@@ -48365,6 +48946,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/LGBTQRecoveryGroups</id>
   <identifier>LGBTQRecoveryGroups</identifier>
   <prefLabel language="en">LGBTQ recovery groups</prefLabel>
+  <altLabel language="en">LGBTQ 12-step groups</altLabel>
   <issued>
     <value>2020-06-03</value>
     <name>xsd:date</name>
@@ -48564,6 +49146,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/narcoticsAnonymous</id>
   <identifier>narcoticsAnonymous</identifier>
   <prefLabel language="en">Narcotics Anonymous</prefLabel>
+  <altLabel language="en">NA</altLabel>
   <issued>
     <value>2020-06-03</value>
     <name>xsd:date</name>
@@ -48803,6 +49386,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/trans</id>
   <identifier>trans</identifier>
   <prefLabel language="en">Trans</prefLabel>
+  <altLabel language="en">Trans*</altLabel>
   <issued>
     <value>2020-06-03</value>
     <name>xsd:date</name>
@@ -48850,6 +49434,11 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/uranism</id>
   <identifier>uranism</identifier>
   <prefLabel language="en">Uranism</prefLabel>
+  <altLabel language="en">Uranismus</altLabel>
+  <altLabel language="en">Congenital sexual inversion</altLabel>
+  <altLabel language="en">Urningism</altLabel>
+  <altLabel language="en">Uraniadism</altLabel>
+  <altLabel language="en">Uranianism</altLabel>
   <issued>
     <value>2020-06-03</value>
     <name>xsd:date</name>
@@ -49843,6 +50432,7 @@ against one another. Not to be confused with &#x201C;frotteurism&#x201D; (noncon
   <id>https://homosaurus.org/v2/biographiesLGBTQ</id>
   <identifier>biographiesLGBTQ</identifier>
   <prefLabel language="en">Biographies (LGBTQ)</prefLabel>
+  <altLabel language="en">Biographies of authors</altLabel>
   <issued>
     <value>2020-06-03</value>
     <name>xsd:date</name>

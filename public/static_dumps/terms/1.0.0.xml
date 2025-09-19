@@ -4,6 +4,7 @@
   <id>https://homosaurus.org/terms/ableism</id>
   <identifier>ableism</identifier>
   <prefLabel language="en">ableism</prefLabel>
+  <altLabel language="en">discrimination against people with disabilities</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -290,6 +291,7 @@
   <id>https://homosaurus.org/terms/actionCommittees</id>
   <identifier>actionCommittees</identifier>
   <prefLabel language="en">action committees</prefLabel>
+  <altLabel language="en">action groups</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -312,6 +314,7 @@
   <id>https://homosaurus.org/terms/activists</id>
   <identifier>activists</identifier>
   <prefLabel language="en">activists</prefLabel>
+  <altLabel language="en">political activists</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -338,6 +341,8 @@
   <id>https://homosaurus.org/terms/actors</id>
   <identifier>actors</identifier>
   <prefLabel language="en">actors</prefLabel>
+  <altLabel language="en">players</altLabel>
+  <altLabel language="en">actresses</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -411,6 +416,7 @@
   <id>https://homosaurus.org/terms/adjustment</id>
   <identifier>adjustment</identifier>
   <prefLabel language="en">adjustment</prefLabel>
+  <altLabel language="en">adaptive behaviour</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -679,6 +685,7 @@
   <id>https://homosaurus.org/terms/adventistm</id>
   <identifier>adventistm</identifier>
   <prefLabel language="en">adventistm</prefLabel>
+  <altLabel language="en">seventh-day adventism</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -715,6 +722,9 @@
   <id>https://homosaurus.org/terms/advertisements</id>
   <identifier>advertisements</identifier>
   <prefLabel language="en">advertisements</prefLabel>
+  <altLabel language="en">adverts</altLabel>
+  <altLabel language="en">ads</altLabel>
+  <altLabel language="en">commercials</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -1168,6 +1178,7 @@
   <id>https://homosaurus.org/terms/ageplay</id>
   <identifier>ageplay</identifier>
   <prefLabel language="en">ageplay</prefLabel>
+  <altLabel language="en">age play</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -1306,6 +1317,7 @@
   <id>https://homosaurus.org/terms/AIDSInformationCentres</id>
   <identifier>AIDSInformationCentres</identifier>
   <prefLabel language="en">AIDS information centres</prefLabel>
+  <altLabel language="en">AIDS documentation centres</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -1328,6 +1340,7 @@
   <id>https://homosaurus.org/terms/AIDSOrganisations</id>
   <identifier>AIDSOrganisations</identifier>
   <prefLabel language="en">AIDS organisations</prefLabel>
+  <altLabel language="en">AIDS organizations</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -1384,6 +1397,8 @@
   <id>https://homosaurus.org/terms/AIDSPhobia</id>
   <identifier>AIDSPhobia</identifier>
   <prefLabel language="en">AIDS phobia</prefLabel>
+  <altLabel language="en">fear of AIDS</altLabel>
+  <altLabel language="en">AIDSphobia</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -1595,6 +1610,7 @@
   <id>https://homosaurus.org/terms/alternativePunishments</id>
   <identifier>alternativePunishments</identifier>
   <prefLabel language="en">alternative punishments</prefLabel>
+  <altLabel language="en">alternative sanctions</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -1688,6 +1704,7 @@
   <id>https://homosaurus.org/terms/analIntercourse</id>
   <identifier>analIntercourse</identifier>
   <prefLabel language="en">anal intercourse</prefLabel>
+  <altLabel language="en">butt fucking</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -1816,6 +1833,8 @@
   <id>https://homosaurus.org/terms/anglicanism</id>
   <identifier>anglicanism</identifier>
   <prefLabel language="en">anglicanism</prefLabel>
+  <altLabel language="en">episcopal church</altLabel>
+  <altLabel language="en">church of england</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -1834,6 +1853,7 @@
   <id>https://homosaurus.org/terms/animalSexualBehaviour</id>
   <identifier>animalSexualBehaviour</identifier>
   <prefLabel language="en">animal sexual behaviour</prefLabel>
+  <altLabel language="en">animal sexuality</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -2028,6 +2048,7 @@
   <id>https://homosaurus.org/terms/anti-discriminationLaw</id>
   <identifier>anti-discriminationLaw</identifier>
   <prefLabel language="en">anti-discrimination law</prefLabel>
+  <altLabel language="en">equal treatment act</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -2108,6 +2129,7 @@
   <id>https://homosaurus.org/terms/anti-lesbianViolence</id>
   <identifier>anti-lesbianViolence</identifier>
   <prefLabel language="en">anti-lesbian violence</prefLabel>
+  <altLabel language="en">lesbian bashing</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -2148,6 +2170,7 @@
   <id>https://homosaurus.org/terms/anti-semitism</id>
   <identifier>anti-semitism</identifier>
   <prefLabel language="en">anti-semitism</prefLabel>
+  <altLabel language="en">anti-jewish attitudes</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -2256,6 +2279,8 @@
   <id>https://homosaurus.org/terms/apps</id>
   <identifier>apps</identifier>
   <prefLabel language="en">apps</prefLabel>
+  <altLabel language="en">mobile applications</altLabel>
+  <altLabel language="en">mobile apps</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -2294,6 +2319,7 @@
   <id>https://homosaurus.org/terms/ARC</id>
   <identifier>ARC</identifier>
   <prefLabel language="en">ARC</prefLabel>
+  <altLabel language="en">AIDS related complex</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -2312,6 +2338,7 @@
   <id>https://homosaurus.org/terms/archeology</id>
   <identifier>archeology</identifier>
   <prefLabel language="en">archeology</prefLabel>
+  <altLabel language="en">archaeology</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -2428,6 +2455,7 @@
   <id>https://homosaurus.org/terms/army</id>
   <identifier>army</identifier>
   <prefLabel language="en">army</prefLabel>
+  <altLabel language="en">ground forces</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -2610,6 +2638,7 @@
   <id>https://homosaurus.org/terms/artificialInsemination</id>
   <identifier>artificialInsemination</identifier>
   <prefLabel language="en">artificial insemination</prefLabel>
+  <altLabel language="en">donor insemination</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -2728,6 +2757,7 @@
   <id>https://homosaurus.org/terms/artsAndEntertainmentOccupations</id>
   <identifier>artsAndEntertainmentOccupations</identifier>
   <prefLabel language="en">arts and entertainment occupations</prefLabel>
+  <altLabel language="en">arts- and entertainment related occupations</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -2847,6 +2877,7 @@
   <id>https://homosaurus.org/terms/asianCultures</id>
   <identifier>asianCultures</identifier>
   <prefLabel language="en">asian cultures</prefLabel>
+  <altLabel language="en">oriental cultures</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -2865,6 +2896,7 @@
   <id>https://homosaurus.org/terms/asianReligions</id>
   <identifier>asianReligions</identifier>
   <prefLabel language="en">asian religions</prefLabel>
+  <altLabel language="en">oriental religions</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -2917,6 +2949,7 @@
   <id>https://homosaurus.org/terms/assassins</id>
   <identifier>assassins</identifier>
   <prefLabel language="en">assassins</prefLabel>
+  <altLabel language="en">hit men</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -2957,6 +2990,9 @@
   <id>https://homosaurus.org/terms/assignedGender</id>
   <identifier>assignedGender</identifier>
   <prefLabel language="en">assigned gender</prefLabel>
+  <altLabel language="en">birth gender</altLabel>
+  <altLabel language="en">gender assigned at birth</altLabel>
+  <altLabel language="en">sex assignment</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -3214,6 +3250,7 @@
   <id>https://homosaurus.org/terms/autismSpectrumDisorders</id>
   <identifier>autismSpectrumDisorders</identifier>
   <prefLabel language="en">autism spectrum disorders</prefLabel>
+  <altLabel language="en">autism</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -3232,6 +3269,7 @@
   <id>https://homosaurus.org/terms/autobiographies</id>
   <identifier>autobiographies</identifier>
   <prefLabel language="en">autobiographies</prefLabel>
+  <altLabel language="en">memoirs</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -3262,6 +3300,10 @@
   <id>https://homosaurus.org/terms/autoeroticAsphyxiation</id>
   <identifier>autoeroticAsphyxiation</identifier>
   <prefLabel language="en">autoerotic asphyxiation</prefLabel>
+  <altLabel language="en">hypoxyphilia</altLabel>
+  <altLabel language="en">strangulation sex</altLabel>
+  <altLabel language="en">asphyxiophilia</altLabel>
+  <altLabel language="en">autoerotic asphyxia</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -3280,6 +3322,7 @@
   <id>https://homosaurus.org/terms/autonomy</id>
   <identifier>autonomy</identifier>
   <prefLabel language="en">autonomy</prefLabel>
+  <altLabel language="en">independence</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -3340,6 +3383,7 @@
   <id>https://homosaurus.org/terms/awards</id>
   <identifier>awards</identifier>
   <prefLabel language="en">awards</prefLabel>
+  <altLabel language="en">distinctions</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -3456,6 +3500,7 @@
   <id>https://homosaurus.org/terms/ballroomDancing</id>
   <identifier>ballroomDancing</identifier>
   <prefLabel language="en">ballroom dancing</prefLabel>
+  <altLabel language="en">ballroom dance</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -3614,6 +3659,8 @@
   <id>https://homosaurus.org/terms/baths</id>
   <identifier>baths</identifier>
   <prefLabel language="en">baths</prefLabel>
+  <altLabel language="en">saunas</altLabel>
+  <altLabel language="en">bathhouses</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -3648,6 +3695,7 @@
   <id>https://homosaurus.org/terms/battering</id>
   <identifier>battering</identifier>
   <prefLabel language="en">battering</prefLabel>
+  <altLabel language="en">battery</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -3674,6 +3722,8 @@
   <id>https://homosaurus.org/terms/batteringOfWomen</id>
   <identifier>batteringOfWomen</identifier>
   <prefLabel language="en">battering of women</prefLabel>
+  <altLabel language="en">battery of women</altLabel>
+  <altLabel language="en">wife abuse</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -3692,6 +3742,7 @@
   <id>https://homosaurus.org/terms/BBS</id>
   <identifier>BBS</identifier>
   <prefLabel language="en">BBS</prefLabel>
+  <altLabel language="en">bulletin board systems</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -3785,6 +3836,7 @@
   <id>https://homosaurus.org/terms/bears</id>
   <identifier>bears</identifier>
   <prefLabel language="en">bears </prefLabel>
+  <altLabel language="en">bear men</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -3804,6 +3856,7 @@
   <id>https://homosaurus.org/terms/beatGeneration</id>
   <identifier>beatGeneration</identifier>
   <prefLabel language="en">beat generation</prefLabel>
+  <altLabel language="en">beatniks</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -3927,6 +3980,7 @@
   <id>https://homosaurus.org/terms/bereavedPeople</id>
   <identifier>bereavedPeople</identifier>
   <prefLabel language="en">bereaved people</prefLabel>
+  <altLabel language="en">bereaved</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -3991,6 +4045,7 @@
   <id>https://homosaurus.org/terms/biMovement</id>
   <identifier>biMovement</identifier>
   <prefLabel language="en">bi movement</prefLabel>
+  <altLabel language="en">bisexual movement</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -4043,6 +4098,8 @@
   <id>https://homosaurus.org/terms/bibliographies</id>
   <identifier>bibliographies</identifier>
   <prefLabel language="en">bibliographies</prefLabel>
+  <altLabel language="en">book lists</altLabel>
+  <altLabel language="en">publication lists</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -4138,6 +4195,8 @@
   <id>https://homosaurus.org/terms/biologicalParenthood</id>
   <identifier>biologicalParenthood</identifier>
   <prefLabel language="en">biological parenthood</prefLabel>
+  <altLabel language="en">gestational parenthood</altLabel>
+  <altLabel language="en">genetic parenthood</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -4228,6 +4287,7 @@
   <id>https://homosaurus.org/terms/biotechnology</id>
   <identifier>biotechnology</identifier>
   <prefLabel language="en">biotechnology</prefLabel>
+  <altLabel language="en">biomedical science</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -4312,6 +4372,7 @@
   <id>https://homosaurus.org/terms/bipolarDisorder</id>
   <identifier>bipolarDisorder</identifier>
   <prefLabel language="en">bipolar disorder</prefLabel>
+  <altLabel language="en">manic-depressive disorder</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -4352,6 +4413,7 @@
   <id>https://homosaurus.org/terms/birthParents</id>
   <identifier>birthParents</identifier>
   <prefLabel language="en">birth parents</prefLabel>
+  <altLabel language="en">biological parents</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -4554,6 +4616,7 @@
   <id>https://homosaurus.org/terms/bisexualInformationCentres</id>
   <identifier>bisexualInformationCentres</identifier>
   <prefLabel language="en">bisexual information centres</prefLabel>
+  <altLabel language="en">bisexual documentation centres</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -4576,6 +4639,7 @@
   <id>https://homosaurus.org/terms/bisexualMen</id>
   <identifier>bisexualMen</identifier>
   <prefLabel language="en">bisexual men</prefLabel>
+  <altLabel language="en">male bisexuals</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -4818,6 +4882,7 @@
   <id>https://homosaurus.org/terms/bisexuals</id>
   <identifier>bisexuals</identifier>
   <prefLabel language="en">bisexuals</prefLabel>
+  <altLabel language="en">bisexual people</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -4997,6 +5062,7 @@
   <id>https://homosaurus.org/terms/blackmail</id>
   <identifier>blackmail</identifier>
   <prefLabel language="en">blackmail</prefLabel>
+  <altLabel language="en">extortion</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -5210,6 +5276,7 @@
   <id>https://homosaurus.org/terms/body</id>
   <identifier>body</identifier>
   <prefLabel language="en">body</prefLabel>
+  <altLabel language="en">human body</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -5252,6 +5319,7 @@
   <id>https://homosaurus.org/terms/bodyAdornments</id>
   <identifier>bodyAdornments</identifier>
   <prefLabel language="en">body adornments</prefLabel>
+  <altLabel language="en">body decoration</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -5282,6 +5350,8 @@
   <id>https://homosaurus.org/terms/bodyBuilding</id>
   <identifier>bodyBuilding</identifier>
   <prefLabel language="en">body building</prefLabel>
+  <altLabel language="en">bodybuilding</altLabel>
+  <altLabel language="en">bodysculpting</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -5424,6 +5494,8 @@
   <id>https://homosaurus.org/terms/bondage</id>
   <identifier>bondage</identifier>
   <prefLabel language="en">bondage</prefLabel>
+  <altLabel language="en">bondage and discipline</altLabel>
+  <altLabel language="en">B &amp; D</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -5536,6 +5608,8 @@
   <id>https://homosaurus.org/terms/bookshops</id>
   <identifier>bookshops</identifier>
   <prefLabel language="en">bookshops</prefLabel>
+  <altLabel language="en">bookstores</altLabel>
+  <altLabel language="en">book stores</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -5566,6 +5640,7 @@
   <id>https://homosaurus.org/terms/borderlinePersonalityDisorder</id>
   <identifier>borderlinePersonalityDisorder</identifier>
   <prefLabel language="en">borderline personality disorder</prefLabel>
+  <altLabel language="en">borderline syndrome</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -5761,6 +5836,9 @@
   <id>https://homosaurus.org/terms/breastfeedingRights</id>
   <identifier>breastfeedingRights</identifier>
   <prefLabel language="en">breastfeeding rights</prefLabel>
+  <altLabel language="en">nursing mothers' rights</altLabel>
+  <altLabel language="en">breastfeeding mothers' rights</altLabel>
+  <altLabel language="en">nursing rights</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -5904,6 +5982,7 @@
   <id>https://homosaurus.org/terms/buddyCare</id>
   <identifier>buddyCare</identifier>
   <prefLabel language="en">buddy care</prefLabel>
+  <altLabel language="en">buddies</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -5926,6 +6005,7 @@
   <id>https://homosaurus.org/terms/budgetCuts</id>
   <identifier>budgetCuts</identifier>
   <prefLabel language="en">budget cuts</prefLabel>
+  <altLabel language="en">spending cuts</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -5944,6 +6024,7 @@
   <id>https://homosaurus.org/terms/bulimiaNervosa</id>
   <identifier>bulimiaNervosa</identifier>
   <prefLabel language="en">bulimia nervosa</prefLabel>
+  <altLabel language="en">binge purge syndrome</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -6027,6 +6108,8 @@
   <id>https://homosaurus.org/terms/burialCeremonies</id>
   <identifier>burialCeremonies</identifier>
   <prefLabel language="en">burial ceremonies</prefLabel>
+  <altLabel language="en">funerals</altLabel>
+  <altLabel language="en">cremations </altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -6085,6 +6168,8 @@
   <id>https://homosaurus.org/terms/businessPeople</id>
   <identifier>businessPeople</identifier>
   <prefLabel language="en">business people</prefLabel>
+  <altLabel language="en">businesswoman</altLabel>
+  <altLabel language="en">businessman </altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -6107,6 +6192,7 @@
   <id>https://homosaurus.org/terms/businesses</id>
   <identifier>businesses</identifier>
   <prefLabel language="en">businesses</prefLabel>
+  <altLabel language="en">business</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -6354,6 +6440,8 @@
   <id>https://homosaurus.org/terms/camping</id>
   <identifier>camping</identifier>
   <prefLabel language="en">camping</prefLabel>
+  <altLabel language="en">campsites</altLabel>
+  <altLabel language="en">campings</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -6436,6 +6524,9 @@
   <id>https://homosaurus.org/terms/cannabis</id>
   <identifier>cannabis</identifier>
   <prefLabel language="en">cannabis</prefLabel>
+  <altLabel language="en">marihuana </altLabel>
+  <altLabel language="en">hashish</altLabel>
+  <altLabel language="en">marijuana </altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -6454,6 +6545,7 @@
   <id>https://homosaurus.org/terms/cannibalism</id>
   <identifier>cannibalism</identifier>
   <prefLabel language="en">cannibalism</prefLabel>
+  <altLabel language="en">anthropophagy </altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -6784,6 +6876,7 @@
   <id>https://homosaurus.org/terms/catalogues</id>
   <identifier>catalogues</identifier>
   <prefLabel language="en">catalogues</prefLabel>
+  <altLabel language="en">catalogs</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -6951,6 +7044,7 @@
   <id>https://homosaurus.org/terms/centres</id>
   <identifier>centres</identifier>
   <prefLabel language="en">centres</prefLabel>
+  <altLabel language="en">centers</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -7162,6 +7256,9 @@
   <id>https://homosaurus.org/terms/childCustody</id>
   <identifier>childCustody</identifier>
   <prefLabel language="en">child custody</prefLabel>
+  <altLabel language="en">tutelage</altLabel>
+  <altLabel language="en">guardianship</altLabel>
+  <altLabel language="en">parental custody</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -7192,6 +7289,7 @@
   <id>https://homosaurus.org/terms/childPornography</id>
   <identifier>childPornography</identifier>
   <prefLabel language="en">child pornography</prefLabel>
+  <altLabel language="en">kiddie porn</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -7263,6 +7361,7 @@
   <id>https://homosaurus.org/terms/childSupport</id>
   <identifier>childSupport</identifier>
   <prefLabel language="en">child support</prefLabel>
+  <altLabel language="en">child maintenance</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -7852,6 +7951,11 @@
   <id>https://homosaurus.org/terms/chronicFatigueSyndrome</id>
   <identifier>chronicFatigueSyndrome</identifier>
   <prefLabel language="en">chronic fatigue syndrome</prefLabel>
+  <altLabel language="en">CFS</altLabel>
+  <altLabel language="en">CFIDS</altLabel>
+  <altLabel language="en">ME</altLabel>
+  <altLabel language="en">myalgic encephalomyelitis</altLabel>
+  <altLabel language="en">chronic fatigue immune dysfunction syndrome</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -7888,6 +7992,7 @@
   <id>https://homosaurus.org/terms/cinemas</id>
   <identifier>cinemas</identifier>
   <prefLabel language="en">cinemas</prefLabel>
+  <altLabel language="en">movie theaters</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -8124,6 +8229,8 @@
   <id>https://homosaurus.org/terms/civilUnions</id>
   <identifier>civilUnions</identifier>
   <prefLabel language="en">civil unions</prefLabel>
+  <altLabel language="en">registered partnership</altLabel>
+  <altLabel language="en">civil partnership</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -8244,6 +8351,7 @@
   <id>https://homosaurus.org/terms/classificationSystems</id>
   <identifier>classificationSystems</identifier>
   <prefLabel language="en">classification systems</prefLabel>
+  <altLabel language="en">classification schemes</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -8288,6 +8396,7 @@
   <id>https://homosaurus.org/terms/clergy</id>
   <identifier>clergy</identifier>
   <prefLabel language="en">clergy</prefLabel>
+  <altLabel language="en">religious occupations</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -8752,6 +8861,7 @@
   <id>https://homosaurus.org/terms/collectionDevelopment</id>
   <identifier>collectionDevelopment</identifier>
   <prefLabel language="en">collection development</prefLabel>
+  <altLabel language="en">collection building</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -9181,6 +9291,7 @@
   <id>https://homosaurus.org/terms/compartmentalisation</id>
   <identifier>compartmentalisation</identifier>
   <prefLabel language="en">compartmentalisation</prefLabel>
+  <altLabel language="en">compartmentalization</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -9303,6 +9414,8 @@
   <id>https://homosaurus.org/terms/condoms</id>
   <identifier>condoms</identifier>
   <prefLabel language="en">condoms</prefLabel>
+  <altLabel language="en">prophylactics</altLabel>
+  <altLabel language="en">rubbers</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -9351,6 +9464,8 @@
   <id>https://homosaurus.org/terms/conferences</id>
   <identifier>conferences</identifier>
   <prefLabel language="en">conferences</prefLabel>
+  <altLabel language="en">symposia</altLabel>
+  <altLabel language="en">congresses</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -9539,6 +9654,7 @@
   <id>https://homosaurus.org/terms/consultancyAgencies</id>
   <identifier>consultancyAgencies</identifier>
   <prefLabel language="en">consultancy agencies</prefLabel>
+  <altLabel language="en">consulting firms</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -9605,6 +9721,8 @@
   <id>https://homosaurus.org/terms/cookbooks</id>
   <identifier>cookbooks</identifier>
   <prefLabel language="en">cookbooks</prefLabel>
+  <altLabel language="en">cook books</altLabel>
+  <altLabel language="en">cookery books</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -9718,6 +9836,9 @@
   <id>https://homosaurus.org/terms/cottages</id>
   <identifier>cottages</identifier>
   <prefLabel language="en">cottages</prefLabel>
+  <altLabel language="en">urinals</altLabel>
+  <altLabel language="en">public urinals</altLabel>
+  <altLabel language="en">tearooms</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -9988,6 +10109,7 @@
   <id>https://homosaurus.org/terms/crabs</id>
   <identifier>crabs</identifier>
   <prefLabel language="en">crabs</prefLabel>
+  <altLabel language="en">pubic lice</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -10065,6 +10187,9 @@
   <id>https://homosaurus.org/terms/crimes</id>
   <identifier>crimes</identifier>
   <prefLabel language="en">crimes</prefLabel>
+  <altLabel language="en">criminality</altLabel>
+  <altLabel language="en">delinquency </altLabel>
+  <altLabel language="en">felonies</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -10212,6 +10337,7 @@
   <id>https://homosaurus.org/terms/criminalisation</id>
   <identifier>criminalisation</identifier>
   <prefLabel language="en">criminalisation</prefLabel>
+  <altLabel language="en">criminalization </altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -10278,6 +10404,8 @@
   <id>https://homosaurus.org/terms/cross-culturalRelationships</id>
   <identifier>cross-culturalRelationships</identifier>
   <prefLabel language="en">cross-cultural relationships</prefLabel>
+  <altLabel language="en">intercultural relationships</altLabel>
+  <altLabel language="en">interracial relationships</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -10297,6 +10425,8 @@
   <id>https://homosaurus.org/terms/crossdressers</id>
   <identifier>crossdressers</identifier>
   <prefLabel language="en">crossdressers</prefLabel>
+  <altLabel language="en">cross-dressers</altLabel>
+  <altLabel language="en">transvestites</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -10339,6 +10469,8 @@
   <id>https://homosaurus.org/terms/crossdressing</id>
   <identifier>crossdressing</identifier>
   <prefLabel language="en">crossdressing</prefLabel>
+  <altLabel language="en">transvestism</altLabel>
+  <altLabel language="en">eonism</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -10504,6 +10636,7 @@
   <id>https://homosaurus.org/terms/culture</id>
   <identifier>culture</identifier>
   <prefLabel language="en">culture</prefLabel>
+  <altLabel language="en">use of more specific term is mandatory</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -10592,6 +10725,8 @@
   <id>https://homosaurus.org/terms/cunnilingus</id>
   <identifier>cunnilingus</identifier>
   <prefLabel language="en">cunnilingus</prefLabel>
+  <altLabel language="en">eating pussy</altLabel>
+  <altLabel language="en">cunt licking</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -10655,6 +10790,9 @@
   <id>https://homosaurus.org/terms/cybersex</id>
   <identifier>cybersex</identifier>
   <prefLabel language="en">cybersex</prefLabel>
+  <altLabel language="en">internet sex</altLabel>
+  <altLabel language="en">online sex</altLabel>
+  <altLabel language="en">computer sex</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -10856,6 +10994,7 @@
   <id>https://homosaurus.org/terms/dancingSchools</id>
   <identifier>dancingSchools</identifier>
   <prefLabel language="en">dancing schools</prefLabel>
+  <altLabel language="en">dance schools</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -10892,6 +11031,7 @@
   <id>https://homosaurus.org/terms/darkRooms</id>
   <identifier>darkRooms</identifier>
   <prefLabel language="en">dark rooms</prefLabel>
+  <altLabel language="en">backrooms</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -11158,6 +11298,7 @@
   <id>https://homosaurus.org/terms/dayCare</id>
   <identifier>dayCare</identifier>
   <prefLabel language="en">day care</prefLabel>
+  <altLabel language="en">child care</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -11177,6 +11318,7 @@
   <id>https://homosaurus.org/terms/dayReleaseCourses</id>
   <identifier>dayReleaseCourses</identifier>
   <prefLabel language="en">day release courses</prefLabel>
+  <altLabel language="en">paid educational leave</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -11199,6 +11341,10 @@
   <id>https://homosaurus.org/terms/deafPeople</id>
   <identifier>deafPeople</identifier>
   <prefLabel language="en">deaf people</prefLabel>
+  <altLabel language="en">deaf-mutes</altLabel>
+  <altLabel language="en">deaf community</altLabel>
+  <altLabel language="en">deaf</altLabel>
+  <altLabel language="en">auditive disabled people</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -11317,6 +11463,7 @@
   <id>https://homosaurus.org/terms/deathNotices</id>
   <identifier>deathNotices</identifier>
   <prefLabel language="en">death notices</prefLabel>
+  <altLabel language="en">death announcements</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -11343,6 +11490,7 @@
   <id>https://homosaurus.org/terms/deathPenalty</id>
   <identifier>deathPenalty</identifier>
   <prefLabel language="en">death penalty</prefLabel>
+  <altLabel language="en">capital punishment</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -11478,6 +11626,7 @@
   <id>https://homosaurus.org/terms/decriminalisation</id>
   <identifier>decriminalisation</identifier>
   <prefLabel language="en">decriminalisation</prefLabel>
+  <altLabel language="en">decriminalization </altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -11500,6 +11649,7 @@
   <id>https://homosaurus.org/terms/defamationCampaigns</id>
   <identifier>defamationCampaigns</identifier>
   <prefLabel language="en">defamation campaigns</prefLabel>
+  <altLabel language="en">smear campaigns</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -11526,6 +11676,7 @@
   <id>https://homosaurus.org/terms/defenceMechanisms</id>
   <identifier>defenceMechanisms</identifier>
   <prefLabel language="en">defence mechanisms</prefLabel>
+  <altLabel language="en">defense mechanisms</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -11666,6 +11817,9 @@
   <id>https://homosaurus.org/terms/demonstrations</id>
   <identifier>demonstrations</identifier>
   <prefLabel language="en">demonstrations</prefLabel>
+  <altLabel language="en">rallies</altLabel>
+  <altLabel language="en">political marches</altLabel>
+  <altLabel language="en">protests</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -11718,6 +11872,7 @@
   <id>https://homosaurus.org/terms/dentalDams</id>
   <identifier>dentalDams</identifier>
   <prefLabel language="en">dental dams</prefLabel>
+  <altLabel language="en">latex barriers</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -11780,6 +11935,7 @@
   <id>https://homosaurus.org/terms/DES</id>
   <identifier>DES</identifier>
   <prefLabel language="en">DES</prefLabel>
+  <altLabel language="en">diethylstilbestrol</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -11889,6 +12045,7 @@
   <id>https://homosaurus.org/terms/detentionUnderAHospitalOrder</id>
   <identifier>detentionUnderAHospitalOrder</identifier>
   <prefLabel language="en">detention under a hospital order</prefLabel>
+  <altLabel language="en">hospital detention orders</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -11911,6 +12068,8 @@
   <id>https://homosaurus.org/terms/developingCountries</id>
   <identifier>developingCountries</identifier>
   <prefLabel language="en">developing countries</prefLabel>
+  <altLabel language="en">emerging nations</altLabel>
+  <altLabel language="en">third world</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -11973,6 +12132,7 @@
   <id>https://homosaurus.org/terms/diaries</id>
   <identifier>diaries</identifier>
   <prefLabel language="en">diaries</prefLabel>
+  <altLabel language="en">personal journals</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -12043,6 +12203,9 @@
   <id>https://homosaurus.org/terms/digitisation</id>
   <identifier>digitisation</identifier>
   <prefLabel language="en">digitisation</prefLabel>
+  <altLabel language="en">digitization</altLabel>
+  <altLabel language="en">digitizing</altLabel>
+  <altLabel language="en">digitising</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -12082,6 +12245,7 @@
   <id>https://homosaurus.org/terms/dildos</id>
   <identifier>dildos</identifier>
   <prefLabel language="en">dildos</prefLabel>
+  <altLabel language="en">strap-ons</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -12339,6 +12503,9 @@
   <id>https://homosaurus.org/terms/discos</id>
   <identifier>discos</identifier>
   <prefLabel language="en">discos</prefLabel>
+  <altLabel language="en">nightclubs</altLabel>
+  <altLabel language="en">discotheques</altLabel>
+  <altLabel language="en">night clubs</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -12477,6 +12644,8 @@
   <id>https://homosaurus.org/terms/dismissalOfEmployees</id>
   <identifier>dismissalOfEmployees</identifier>
   <prefLabel language="en">dismissal of employees</prefLabel>
+  <altLabel language="en">firing of employees</altLabel>
+  <altLabel language="en">termination of employment</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -12499,6 +12668,8 @@
   <id>https://homosaurus.org/terms/dissertations</id>
   <identifier>dissertations</identifier>
   <prefLabel language="en">dissertations</prefLabel>
+  <altLabel language="en">Ph.D. theses</altLabel>
+  <altLabel language="en">theses</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -12717,6 +12888,7 @@
   <id>https://homosaurus.org/terms/domesticPartnershipRetirementBenefits</id>
   <identifier>domesticPartnershipRetirementBenefits</identifier>
   <prefLabel language="en">domestic partnership retirement benefits</prefLabel>
+  <altLabel language="en">same-sex pension benefits</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -12989,6 +13161,7 @@
   <id>https://homosaurus.org/terms/dragKings</id>
   <identifier>dragKings</identifier>
   <prefLabel language="en">drag kings</prefLabel>
+  <altLabel language="en">male impersonators</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -13023,6 +13196,7 @@
   <id>https://homosaurus.org/terms/dragQueens</id>
   <identifier>dragQueens</identifier>
   <prefLabel language="en">drag queens</prefLabel>
+  <altLabel language="en">female impersonators</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -13080,6 +13254,7 @@
   <id>https://homosaurus.org/terms/draughtmanship</id>
   <identifier>draughtmanship</identifier>
   <prefLabel language="en">draughtmanship</prefLabel>
+  <altLabel language="en">draftsmanship</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -13142,6 +13317,8 @@
   <id>https://homosaurus.org/terms/drugAbuse</id>
   <identifier>drugAbuse</identifier>
   <prefLabel language="en">drug abuse</prefLabel>
+  <altLabel language="en">drug dependance</altLabel>
+  <altLabel language="en">drug addiction</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -13198,6 +13375,7 @@
   <id>https://homosaurus.org/terms/drugs</id>
   <identifier>drugs</identifier>
   <prefLabel language="en">drugs</prefLabel>
+  <altLabel language="en">street drugs</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -13249,6 +13427,7 @@
   <id>https://homosaurus.org/terms/DSM</id>
   <identifier>DSM</identifier>
   <prefLabel language="en">DSM</prefLabel>
+  <altLabel language="en">diagnostic and statistical manual of mental disorders</altLabel>
   <issued>
     <value>2015-11-25</value>
     <name>xsd:date</name>
@@ -13312,6 +13491,7 @@
   <id>https://homosaurus.org/terms/easternOrthodoxChurches</id>
   <identifier>easternOrthodoxChurches</identifier>
   <prefLabel language="en">Eastern orthodox churches</prefLabel>
+  <altLabel language="en">orthodox eastern churches</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -13406,6 +13586,7 @@
   <id>https://homosaurus.org/terms/e-commerce</id>
   <identifier>e-commerce</identifier>
   <prefLabel language="en">e-commerce</prefLabel>
+  <altLabel language="en">electronic commerce</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -13437,6 +13618,7 @@
   <id>https://homosaurus.org/terms/ecofeminism</id>
   <identifier>ecofeminism</identifier>
   <prefLabel language="en">ecofeminism</prefLabel>
+  <altLabel language="en">green feminism</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -13477,6 +13659,7 @@
   <id>https://homosaurus.org/terms/economicDevelopments</id>
   <identifier>economicDevelopments</identifier>
   <prefLabel language="en">economic developments</prefLabel>
+  <altLabel language="en">economy</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -13525,6 +13708,8 @@
   <id>https://homosaurus.org/terms/economicSelf-reliance</id>
   <identifier>economicSelf-reliance</identifier>
   <prefLabel language="en">economic self-reliance</prefLabel>
+  <altLabel language="en">economic independence</altLabel>
+  <altLabel language="en">economic self-support</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -13595,6 +13780,7 @@
   <id>https://homosaurus.org/terms/ecstasy</id>
   <identifier>ecstasy</identifier>
   <prefLabel language="en">ecstasy</prefLabel>
+  <altLabel language="en">xtc</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -13723,6 +13909,7 @@
   <id>https://homosaurus.org/terms/educationStudies</id>
   <identifier>educationStudies</identifier>
   <prefLabel language="en">education studies</prefLabel>
+  <altLabel language="en">educational studies</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -13839,6 +14026,12 @@
   <id>https://homosaurus.org/terms/educators</id>
   <identifier>educators</identifier>
   <prefLabel language="en">educators</prefLabel>
+  <altLabel language="en">school mistresses</altLabel>
+  <altLabel language="en">school masters</altLabel>
+  <altLabel language="en">professors</altLabel>
+  <altLabel language="en">faculty members</altLabel>
+  <altLabel language="en">instructors</altLabel>
+  <altLabel language="en">teachers</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -13861,6 +14054,7 @@
   <id>https://homosaurus.org/terms/ego-dystonicSexualOrientation</id>
   <identifier>ego-dystonicSexualOrientation</identifier>
   <prefLabel language="en">ego-dystonic sexual orientation</prefLabel>
+  <altLabel language="en">ego-dystonic homosexuality</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -13926,6 +14120,8 @@
   <id>https://homosaurus.org/terms/electronicGames</id>
   <identifier>electronicGames</identifier>
   <prefLabel language="en">electronic games</prefLabel>
+  <altLabel language="en">video games</altLabel>
+  <altLabel language="en">computer games</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -13949,6 +14145,8 @@
   <id>https://homosaurus.org/terms/electroshockTherapy</id>
   <identifier>electroshockTherapy</identifier>
   <prefLabel language="en">electroshock therapy</prefLabel>
+  <altLabel language="en">electroconvulsive therapy</altLabel>
+  <altLabel language="en">electric shock therapy</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -14106,6 +14304,8 @@
   <id>https://homosaurus.org/terms/employees</id>
   <identifier>employees</identifier>
   <prefLabel language="en">employees</prefLabel>
+  <altLabel language="en">personnel</altLabel>
+  <altLabel language="en">workers</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -14190,6 +14390,7 @@
   <id>https://homosaurus.org/terms/employmentSuspension</id>
   <identifier>employmentSuspension</identifier>
   <prefLabel language="en">employment suspension</prefLabel>
+  <altLabel language="en">job suspension</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -14230,6 +14431,7 @@
   <id>https://homosaurus.org/terms/enemas</id>
   <identifier>enemas</identifier>
   <prefLabel language="en">enemas</prefLabel>
+  <altLabel language="en">colonic irrigation</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -14379,6 +14581,7 @@
   <id>https://homosaurus.org/terms/equestrianSports</id>
   <identifier>equestrianSports</identifier>
   <prefLabel language="en">equestrian sports</prefLabel>
+  <altLabel language="en">horse sports</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -14397,6 +14600,7 @@
   <id>https://homosaurus.org/terms/erectileDysfunction</id>
   <identifier>erectileDysfunction</identifier>
   <prefLabel language="en">erectile dysfunction</prefLabel>
+  <altLabel language="en">impotence</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -14572,6 +14776,8 @@
   <id>https://homosaurus.org/terms/esperantism</id>
   <identifier>esperantism</identifier>
   <prefLabel language="en">esperantism</prefLabel>
+  <altLabel language="en">esperanto movement</altLabel>
+  <altLabel language="en">esperanto</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -14626,6 +14832,7 @@
   <id>https://homosaurus.org/terms/essentialism</id>
   <identifier>essentialism</identifier>
   <prefLabel language="en">essentialism</prefLabel>
+  <altLabel language="en">biological essentialism</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -14653,6 +14860,8 @@
   <id>https://homosaurus.org/terms/ethics</id>
   <identifier>ethics</identifier>
   <prefLabel language="en">ethics</prefLabel>
+  <altLabel language="en">moral philosophy</altLabel>
+  <altLabel language="en">morality</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -14726,6 +14935,7 @@
   <id>https://homosaurus.org/terms/ethnicGroups</id>
   <identifier>ethnicGroups</identifier>
   <prefLabel language="en">ethnic groups</prefLabel>
+  <altLabel language="en">races</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -14789,6 +14999,7 @@
   <id>https://homosaurus.org/terms/ethnicRelations</id>
   <identifier>ethnicRelations</identifier>
   <prefLabel language="en">ethnic relations</prefLabel>
+  <altLabel language="en">race relations</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -14901,6 +15112,7 @@
   <id>https://homosaurus.org/terms/ethology</id>
   <identifier>ethology</identifier>
   <prefLabel language="en">ethology</prefLabel>
+  <altLabel language="en">study of animal social behaviour</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -14982,6 +15194,7 @@
   <id>https://homosaurus.org/terms/eunuchs</id>
   <identifier>eunuchs</identifier>
   <prefLabel language="en">eunuchs</prefLabel>
+  <altLabel language="en">castrati</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -15172,6 +15385,8 @@
   <id>https://homosaurus.org/terms/europeanUnion</id>
   <identifier>europeanUnion</identifier>
   <prefLabel language="en">european union</prefLabel>
+  <altLabel language="en">european community</altLabel>
+  <altLabel language="en">EU</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -15226,6 +15441,8 @@
   <id>https://homosaurus.org/terms/euthanasia</id>
   <identifier>euthanasia</identifier>
   <prefLabel language="en">euthanasia</prefLabel>
+  <altLabel language="en">assisted death</altLabel>
+  <altLabel language="en">mercy killing</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -15252,6 +15469,7 @@
   <id>https://homosaurus.org/terms/evangelisation</id>
   <identifier>evangelisation</identifier>
   <prefLabel language="en">evangelisation</prefLabel>
+  <altLabel language="en">evangelization</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -15490,6 +15708,7 @@
   <id>https://homosaurus.org/terms/exile</id>
   <identifier>exile</identifier>
   <prefLabel language="en">exile</prefLabel>
+  <altLabel language="en">banishment</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -15583,6 +15802,7 @@
   <id>https://homosaurus.org/terms/extramaritalChildren</id>
   <identifier>extramaritalChildren</identifier>
   <prefLabel language="en">extramarital children</prefLabel>
+  <altLabel language="en">illegitimate children</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -15774,6 +15994,7 @@
   <id>https://homosaurus.org/terms/familyPlanning</id>
   <identifier>familyPlanning</identifier>
   <prefLabel language="en">family planning</prefLabel>
+  <altLabel language="en">birth control</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -15958,6 +16179,7 @@
   <id>https://homosaurus.org/terms/fatherhood</id>
   <identifier>fatherhood</identifier>
   <prefLabel language="en">fatherhood</prefLabel>
+  <altLabel language="en">paternity</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -16058,6 +16280,8 @@
   <id>https://homosaurus.org/terms/fearOfDeath</id>
   <identifier>fearOfDeath</identifier>
   <prefLabel language="en">fear of death</prefLabel>
+  <altLabel language="en">necrophobia</altLabel>
+  <altLabel language="en">thanatophobia</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -16080,6 +16304,9 @@
   <id>https://homosaurus.org/terms/fellatio</id>
   <identifier>fellatio</identifier>
   <prefLabel language="en">fellatio</prefLabel>
+  <altLabel language="en">penilingus</altLabel>
+  <altLabel language="en">cocksucking</altLabel>
+  <altLabel language="en">blow jobs</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -16102,6 +16329,7 @@
   <id>https://homosaurus.org/terms/femaleCircumcision</id>
   <identifier>femaleCircumcision</identifier>
   <prefLabel language="en">female circumcision</prefLabel>
+  <altLabel language="en">clitoridectomy </altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -16182,6 +16410,7 @@
   <id>https://homosaurus.org/terms/femininity</id>
   <identifier>femininity</identifier>
   <prefLabel language="en">femininity</prefLabel>
+  <altLabel language="en">effeminacy</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -16345,6 +16574,7 @@
   <id>https://homosaurus.org/terms/femmesFatales</id>
   <identifier>femmesFatales</identifier>
   <prefLabel language="en">femmes fatales</prefLabel>
+  <altLabel language="en">femme fatales</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -16403,6 +16633,9 @@
   <id>https://homosaurus.org/terms/fiction</id>
   <identifier>fiction</identifier>
   <prefLabel language="en">fiction</prefLabel>
+  <altLabel language="en">novels</altLabel>
+  <altLabel language="en">stories</altLabel>
+  <altLabel language="en">short stories</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -16730,6 +16963,7 @@
   <id>https://homosaurus.org/terms/fireBrigades</id>
   <identifier>fireBrigades</identifier>
   <prefLabel language="en">fire brigades</prefLabel>
+  <altLabel language="en">fire departments</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -16796,6 +17030,7 @@
   <id>https://homosaurus.org/terms/fisting</id>
   <identifier>fisting</identifier>
   <prefLabel language="en">fisting</prefLabel>
+  <altLabel language="en">fist fucking</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -16854,6 +17089,7 @@
   <id>https://homosaurus.org/terms/folkCulture</id>
   <identifier>folkCulture</identifier>
   <prefLabel language="en">folk culture</prefLabel>
+  <altLabel language="en">folklore</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -17213,6 +17449,9 @@
   <id>https://homosaurus.org/terms/FtMs</id>
   <identifier>FtMs</identifier>
   <prefLabel language="en">FtMs</prefLabel>
+  <altLabel language="en">transmen</altLabel>
+  <altLabel language="en">females transitioning to males</altLabel>
+  <altLabel language="en">transgender men</altLabel>
   <issued>
     <value>2015-11-26</value>
     <name>xsd:date</name>
@@ -17539,6 +17778,7 @@
   <id>https://homosaurus.org/terms/gayBoys</id>
   <identifier>gayBoys</identifier>
   <prefLabel language="en">gay boys</prefLabel>
+  <altLabel language="en">gay youth</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -17599,6 +17839,7 @@
   <id>https://homosaurus.org/terms/gayClergy</id>
   <identifier>gayClergy</identifier>
   <prefLabel language="en">gay clergy</prefLabel>
+  <altLabel language="en">gay pastors</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -17801,6 +18042,7 @@
   <id>https://homosaurus.org/terms/gayInformationCentres</id>
   <identifier>gayInformationCentres</identifier>
   <prefLabel language="en">gay information centres</prefLabel>
+  <altLabel language="en">gay documentation centres</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -17823,6 +18065,7 @@
   <id>https://homosaurus.org/terms/gayLiberation</id>
   <identifier>gayLiberation</identifier>
   <prefLabel language="en">gay liberation</prefLabel>
+  <altLabel language="en">gay liberation movement</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -17898,6 +18141,7 @@
   <id>https://homosaurus.org/terms/gayMen</id>
   <identifier>gayMen</identifier>
   <prefLabel language="en">gay men</prefLabel>
+  <altLabel language="en">gays</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -17974,6 +18218,8 @@
   <id>https://homosaurus.org/terms/gayMovement</id>
   <identifier>gayMovement</identifier>
   <prefLabel language="en">gay movement</prefLabel>
+  <altLabel language="en">gay organizations </altLabel>
+  <altLabel language="en">gay organizing</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -18046,6 +18292,7 @@
   <id>https://homosaurus.org/terms/gayParents</id>
   <identifier>gayParents</identifier>
   <prefLabel language="en">gay parents</prefLabel>
+  <altLabel language="en">gay fathers</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -18146,6 +18393,8 @@
   <id>https://homosaurus.org/terms/gayPrideWeek</id>
   <identifier>gayPrideWeek</identifier>
   <prefLabel language="en">gay pride week</prefLabel>
+  <altLabel language="en">pink week</altLabel>
+  <altLabel language="en">pink saturday</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -18279,6 +18528,7 @@
   <id>https://homosaurus.org/terms/gaySlang</id>
   <identifier>gaySlang</identifier>
   <prefLabel language="en">gay slang</prefLabel>
+  <altLabel language="en">gay speak</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -18612,6 +18862,10 @@
   <id>https://homosaurus.org/terms/genderDiversity</id>
   <identifier>genderDiversity</identifier>
   <prefLabel language="en">gender diversity</prefLabel>
+  <altLabel language="en">pangender</altLabel>
+  <altLabel language="en">gender non-conformity</altLabel>
+  <altLabel language="en">gender variance</altLabel>
+  <altLabel language="en">genderqueerness</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -18663,6 +18917,8 @@
   <id>https://homosaurus.org/terms/genderDysphoria</id>
   <identifier>genderDysphoria</identifier>
   <prefLabel language="en">gender dysphoria</prefLabel>
+  <altLabel language="en">gender identity disorders</altLabel>
+  <altLabel language="en">GID</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -18709,6 +18965,8 @@
   <id>https://homosaurus.org/terms/genderIdentity</id>
   <identifier>genderIdentity</identifier>
   <prefLabel language="en">gender identity</prefLabel>
+  <altLabel language="en">genderqueer identity</altLabel>
+  <altLabel language="en">gender-variant identity</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -18779,6 +19037,10 @@
   <id>https://homosaurus.org/terms/genderMinorities</id>
   <identifier>genderMinorities</identifier>
   <prefLabel language="en">gender minorities</prefLabel>
+  <altLabel language="en">genderqueer orientation</altLabel>
+  <altLabel language="en">genderqueer people</altLabel>
+  <altLabel language="en">gender minority people</altLabel>
+  <altLabel language="en">gender variant people</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -18865,6 +19127,8 @@
   <id>https://homosaurus.org/terms/genderRealignmentSurgery</id>
   <identifier>genderRealignmentSurgery</identifier>
   <prefLabel language="en">gender realignment surgery</prefLabel>
+  <altLabel language="en">gender reassignment surgery</altLabel>
+  <altLabel language="en">sex reassignment surgery</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -18995,6 +19259,10 @@
   <id>https://homosaurus.org/terms/genderSegregationInLabour</id>
   <identifier>genderSegregationInLabour</identifier>
   <prefLabel language="en">gender segregation in labour</prefLabel>
+  <altLabel language="en">division of labour by gender</altLabel>
+  <altLabel language="en">male occupations</altLabel>
+  <altLabel language="en">female occupations</altLabel>
+  <altLabel language="en">sexual division of labour</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -19071,6 +19339,7 @@
   <id>https://homosaurus.org/terms/genderSwapping</id>
   <identifier>genderSwapping</identifier>
   <prefLabel language="en">gender swapping</prefLabel>
+  <altLabel language="en">gender roleplay</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -19094,6 +19363,7 @@
   <id>https://homosaurus.org/terms/genderism</id>
   <identifier>genderism</identifier>
   <prefLabel language="en">genderism</prefLabel>
+  <altLabel language="en">gender discrimination</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -19237,6 +19507,7 @@
   <id>https://homosaurus.org/terms/genitalWarts</id>
   <identifier>genitalWarts</identifier>
   <prefLabel language="en">genital warts</prefLabel>
+  <altLabel language="en">condylomata acuminata</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -19267,6 +19538,7 @@
   <id>https://homosaurus.org/terms/genitals</id>
   <identifier>genitals</identifier>
   <prefLabel language="en">genitals</prefLabel>
+  <altLabel language="en">genitalia </altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -19473,6 +19745,7 @@
   <id>https://homosaurus.org/terms/globalisation</id>
   <identifier>globalisation</identifier>
   <prefLabel language="en">globalisation</prefLabel>
+  <altLabel language="en">globalization</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -19491,6 +19764,7 @@
   <id>https://homosaurus.org/terms/goddessMovement</id>
   <identifier>goddessMovement</identifier>
   <prefLabel language="en">goddess movement</prefLabel>
+  <altLabel language="en">goddess religion</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -19705,6 +19979,7 @@
   <id>https://homosaurus.org/terms/grants</id>
   <identifier>grants</identifier>
   <prefLabel language="en">grants</prefLabel>
+  <altLabel language="en">subsidies</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -19775,6 +20050,7 @@
   <id>https://homosaurus.org/terms/groupHomes</id>
   <identifier>groupHomes</identifier>
   <prefLabel language="en">group homes</prefLabel>
+  <altLabel language="en">community-based residences</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -19812,6 +20088,7 @@
   <id>https://homosaurus.org/terms/groupSex</id>
   <identifier>groupSex</identifier>
   <prefLabel language="en">group sex</prefLabel>
+  <altLabel language="en">orgies</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -19870,6 +20147,7 @@
   <id>https://homosaurus.org/terms/gynaecologicDisorders</id>
   <identifier>gynaecologicDisorders</identifier>
   <prefLabel language="en">gynaecologic disorders</prefLabel>
+  <altLabel language="en">gynecologic disorders</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -19892,6 +20170,7 @@
   <id>https://homosaurus.org/terms/gynaecologists</id>
   <identifier>gynaecologists</identifier>
   <prefLabel language="en">gynaecologists</prefLabel>
+  <altLabel language="en">gynecologists</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -19910,6 +20189,7 @@
   <id>https://homosaurus.org/terms/gynaecology</id>
   <identifier>gynaecology</identifier>
   <prefLabel language="en">gynaecology</prefLabel>
+  <altLabel language="en">gynecology</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -19928,6 +20208,7 @@
   <id>https://homosaurus.org/terms/haemophilia</id>
   <identifier>haemophilia</identifier>
   <prefLabel language="en">haemophilia</prefLabel>
+  <altLabel language="en">hemophilia</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -20158,6 +20439,7 @@
   <id>https://homosaurus.org/terms/hate</id>
   <identifier>hate</identifier>
   <prefLabel language="en">hate</prefLabel>
+  <altLabel language="en">hatred</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -20212,6 +20494,7 @@
   <id>https://homosaurus.org/terms/hateCrimes</id>
   <identifier>hateCrimes</identifier>
   <prefLabel language="en">hate crimes</prefLabel>
+  <altLabel language="en">bias-related crimes</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -20284,6 +20567,9 @@
   <id>https://homosaurus.org/terms/hateSpeech</id>
   <identifier>hateSpeech</identifier>
   <prefLabel language="en">hate speech</prefLabel>
+  <altLabel language="en">group libel</altLabel>
+  <altLabel language="en">group defamation</altLabel>
+  <altLabel language="en">defamation against groups</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -20416,6 +20702,7 @@
   <id>https://homosaurus.org/terms/healthAdviceCentres</id>
   <identifier>healthAdviceCentres</identifier>
   <prefLabel language="en">health advice centres</prefLabel>
+  <altLabel language="en">health counseling centres</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -20434,6 +20721,7 @@
   <id>https://homosaurus.org/terms/healthCare</id>
   <identifier>healthCare</identifier>
   <prefLabel language="en">health care</prefLabel>
+  <altLabel language="en">medical care</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -20548,6 +20836,8 @@
   <id>https://homosaurus.org/terms/healthInsurance</id>
   <identifier>healthInsurance</identifier>
   <prefLabel language="en">health insurance</prefLabel>
+  <altLabel language="en">national health services</altLabel>
+  <altLabel language="en">medical insurance</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -20600,6 +20890,7 @@
   <id>https://homosaurus.org/terms/hearingImpairments</id>
   <identifier>hearingImpairments</identifier>
   <prefLabel language="en">hearing impairments</prefLabel>
+  <altLabel language="en">hearing disorders</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -20653,6 +20944,8 @@
   <id>https://homosaurus.org/terms/helpLines</id>
   <identifier>helpLines</identifier>
   <prefLabel language="en">help lines</prefLabel>
+  <altLabel language="en">hotlines</altLabel>
+  <altLabel language="en">switchboards</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -20701,6 +20994,7 @@
   <id>https://homosaurus.org/terms/heredity</id>
   <identifier>heredity</identifier>
   <prefLabel language="en">heredity</prefLabel>
+  <altLabel language="en">ancestry</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -20816,6 +21110,7 @@
   <id>https://homosaurus.org/terms/heteronormativity</id>
   <identifier>heteronormativity</identifier>
   <prefLabel language="en">heteronormativity</prefLabel>
+  <altLabel language="en">heterosexual norms</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -20846,6 +21141,7 @@
   <id>https://homosaurus.org/terms/heterosexism</id>
   <identifier>heterosexism</identifier>
   <prefLabel language="en">heterosexism</prefLabel>
+  <altLabel language="en">heterocentrism</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -20892,6 +21188,7 @@
   <id>https://homosaurus.org/terms/heterosexualBoys</id>
   <identifier>heterosexualBoys</identifier>
   <prefLabel language="en">heterosexual boys</prefLabel>
+  <altLabel language="en">straight boys</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -20936,6 +21233,7 @@
   <id>https://homosaurus.org/terms/heterosexualGirls</id>
   <identifier>heterosexualGirls</identifier>
   <prefLabel language="en">heterosexual girls</prefLabel>
+  <altLabel language="en">straight girls</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21002,6 +21300,7 @@
   <id>https://homosaurus.org/terms/heterosexualMen</id>
   <identifier>heterosexualMen</identifier>
   <prefLabel language="en">heterosexual men</prefLabel>
+  <altLabel language="en">straight men</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21024,6 +21323,7 @@
   <id>https://homosaurus.org/terms/heterosexualWomen</id>
   <identifier>heterosexualWomen</identifier>
   <prefLabel language="en">heterosexual women</prefLabel>
+  <altLabel language="en">straight women</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21046,6 +21346,7 @@
   <id>https://homosaurus.org/terms/heterosexualYouth</id>
   <identifier>heterosexualYouth</identifier>
   <prefLabel language="en">heterosexual youth</prefLabel>
+  <altLabel language="en">straight youth</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21106,6 +21407,8 @@
   <id>https://homosaurus.org/terms/heterosexuals</id>
   <identifier>heterosexuals</identifier>
   <prefLabel language="en">heterosexuals</prefLabel>
+  <altLabel language="en">heterosexual people</altLabel>
+  <altLabel language="en">straight people</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21140,6 +21443,8 @@
   <id>https://homosaurus.org/terms/heterosociality</id>
   <identifier>heterosociality</identifier>
   <prefLabel language="en">heterosociality</prefLabel>
+  <altLabel language="en">heterosocial bonds</altLabel>
+  <altLabel language="en">heterosexual social relationships</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21181,6 +21486,9 @@
   <id>https://homosaurus.org/terms/hijras</id>
   <identifier>hijras</identifier>
   <prefLabel language="en">hijras</prefLabel>
+  <altLabel language="en">khwaja saraa</altLabel>
+  <altLabel language="en">khasuaa</altLabel>
+  <altLabel language="en">kinnar</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21302,6 +21610,7 @@
   <id>https://homosaurus.org/terms/history</id>
   <identifier>history</identifier>
   <prefLabel language="en">history</prefLabel>
+  <altLabel language="en">historical studies</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21366,6 +21675,10 @@
   <id>https://homosaurus.org/terms/HIVAIDS</id>
   <identifier>HIVAIDS</identifier>
   <prefLabel language="en">HIV/AIDS</prefLabel>
+  <altLabel language="en">gay-related immuno-deficiency</altLabel>
+  <altLabel language="en">AIDS</altLabel>
+  <altLabel language="en">acquired immune deficiency syndrome</altLabel>
+  <altLabel language="en">GRIDS</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21452,6 +21765,7 @@
   <id>https://homosaurus.org/terms/HIV-negativePeople</id>
   <identifier>HIV-negativePeople</identifier>
   <prefLabel language="en">HIV-negative people</prefLabel>
+  <altLabel language="en">HIV-seronegative people</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21482,6 +21796,7 @@
   <id>https://homosaurus.org/terms/HIV-positivePeople</id>
   <identifier>HIV-positivePeople</identifier>
   <prefLabel language="en">HIV-positive people</prefLabel>
+  <altLabel language="en">HIV-seropositive people</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21512,6 +21827,7 @@
   <id>https://homosaurus.org/terms/hobbies</id>
   <identifier>hobbies</identifier>
   <prefLabel language="en">hobbies</prefLabel>
+  <altLabel language="en">avocations</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21570,6 +21886,7 @@
   <id>https://homosaurus.org/terms/homelands</id>
   <identifier>homelands</identifier>
   <prefLabel language="en">homelands</prefLabel>
+  <altLabel language="en">bantustans</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21588,6 +21905,10 @@
   <id>https://homosaurus.org/terms/homelessPeople</id>
   <identifier>homelessPeople</identifier>
   <prefLabel language="en">homeless people</prefLabel>
+  <altLabel language="en">tramps</altLabel>
+  <altLabel language="en">homeless</altLabel>
+  <altLabel language="en">bag ladies</altLabel>
+  <altLabel language="en">street people</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21668,6 +21989,7 @@
   <id>https://homosaurus.org/terms/homonormativity</id>
   <identifier>homonormativity</identifier>
   <prefLabel language="en">homonormativity</prefLabel>
+  <altLabel language="en">homosexual norms</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21779,6 +22101,7 @@
   <id>https://homosaurus.org/terms/homosociality</id>
   <identifier>homosociality</identifier>
   <prefLabel language="en">homosociality</prefLabel>
+  <altLabel language="en">homosocial bonds</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21818,6 +22141,7 @@
   <id>https://homosaurus.org/terms/honourKillings</id>
   <identifier>honourKillings</identifier>
   <prefLabel language="en">honour killings</prefLabel>
+  <altLabel language="en">honor killings</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21836,6 +22160,9 @@
   <id>https://homosaurus.org/terms/hormoneTherapy</id>
   <identifier>hormoneTherapy</identifier>
   <prefLabel language="en">hormone therapy</prefLabel>
+  <altLabel language="en">cross-gender hormone therapy</altLabel>
+  <altLabel language="en">hormone reassignment therapy</altLabel>
+  <altLabel language="en">hormone replacement therapy </altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21889,6 +22216,7 @@
   <id>https://homosaurus.org/terms/hospitalityIndustry</id>
   <identifier>hospitalityIndustry</identifier>
   <prefLabel language="en">hospitality industry</prefLabel>
+  <altLabel language="en">hotel and catering industry </altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -21965,6 +22293,7 @@
   <id>https://homosaurus.org/terms/hosts</id>
   <identifier>hosts</identifier>
   <prefLabel language="en">hosts</prefLabel>
+  <altLabel language="en">emcees</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22035,6 +22364,8 @@
   <id>https://homosaurus.org/terms/householdWork</id>
   <identifier>householdWork</identifier>
   <prefLabel language="en">household work</prefLabel>
+  <altLabel language="en">housekeeping</altLabel>
+  <altLabel language="en">housework</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22057,6 +22388,7 @@
   <id>https://homosaurus.org/terms/housing</id>
   <identifier>housing</identifier>
   <prefLabel language="en">housing</prefLabel>
+  <altLabel language="en">residences</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22121,6 +22453,9 @@
   <id>https://homosaurus.org/terms/housingForOlderPeople</id>
   <identifier>housingForOlderPeople</identifier>
   <prefLabel language="en">housing for older people</prefLabel>
+  <altLabel language="en">homes for the elderly</altLabel>
+  <altLabel language="en">senior housing</altLabel>
+  <altLabel language="en">elder housing</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22151,6 +22486,7 @@
   <id>https://homosaurus.org/terms/humanGeography</id>
   <identifier>humanGeography</identifier>
   <prefLabel language="en">human geography</prefLabel>
+  <altLabel language="en">social geography</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22169,6 +22505,8 @@
   <id>https://homosaurus.org/terms/humanPapillomaVirus</id>
   <identifier>humanPapillomaVirus</identifier>
   <prefLabel language="en">human papilloma virus</prefLabel>
+  <altLabel language="en">HPV</altLabel>
+  <altLabel language="en">human papillomavirus</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22271,6 +22609,9 @@
   <id>https://homosaurus.org/terms/humanRightsOrganisations</id>
   <identifier>humanRightsOrganisations</identifier>
   <prefLabel language="en">human rights organisations</prefLabel>
+  <altLabel language="en">civil rights organizations</altLabel>
+  <altLabel language="en">civil rights organisations</altLabel>
+  <altLabel language="en">human rights organizations</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22425,6 +22766,8 @@
   <id>https://homosaurus.org/terms/hypersexuality</id>
   <identifier>hypersexuality</identifier>
   <prefLabel language="en">hypersexuality</prefLabel>
+  <altLabel language="en">nymphomania</altLabel>
+  <altLabel language="en">satyriasis</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22552,6 +22895,8 @@
   <id>https://homosaurus.org/terms/illegalResidents</id>
   <identifier>illegalResidents</identifier>
   <prefLabel language="en">illegal residents</prefLabel>
+  <altLabel language="en">illegal immigrants</altLabel>
+  <altLabel language="en">illegal aliens</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22704,6 +23049,7 @@
   <id>https://homosaurus.org/terms/immigrationPolicy</id>
   <identifier>immigrationPolicy</identifier>
   <prefLabel language="en">immigration policy</prefLabel>
+  <altLabel language="en">asylum policy</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22790,6 +23136,7 @@
   <id>https://homosaurus.org/terms/imprisonment</id>
   <identifier>imprisonment</identifier>
   <prefLabel language="en">imprisonment</prefLabel>
+  <altLabel language="en">incarceration</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22812,6 +23159,10 @@
   <id>https://homosaurus.org/terms/inVitroFertilisation</id>
   <identifier>inVitroFertilisation</identifier>
   <prefLabel language="en">in vitro fertilisation</prefLabel>
+  <altLabel language="en">IVF</altLabel>
+  <altLabel language="en">test tube fertilization</altLabel>
+  <altLabel language="en">in vitro fertilization</altLabel>
+  <altLabel language="en">test tube fertilisation</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22865,6 +23216,7 @@
   <id>https://homosaurus.org/terms/incestVictims</id>
   <identifier>incestVictims</identifier>
   <prefLabel language="en">incest victims</prefLabel>
+  <altLabel language="en">victims of incest</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22887,6 +23239,7 @@
   <id>https://homosaurus.org/terms/incidence</id>
   <identifier>incidence</identifier>
   <prefLabel language="en">incidence</prefLabel>
+  <altLabel language="en">dispersion</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22906,6 +23259,7 @@
   <id>https://homosaurus.org/terms/indigenousPeoples</id>
   <identifier>indigenousPeoples</identifier>
   <prefLabel language="en">indigenous peoples</prefLabel>
+  <altLabel language="en">native peoples</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22948,6 +23302,7 @@
   <id>https://homosaurus.org/terms/individualisation</id>
   <identifier>individualisation</identifier>
   <prefLabel language="en">individualisation</prefLabel>
+  <altLabel language="en">individualization</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -22971,6 +23326,7 @@
   <id>https://homosaurus.org/terms/industries</id>
   <identifier>industries</identifier>
   <prefLabel language="en">industries</prefLabel>
+  <altLabel language="en">industry</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -23047,6 +23403,7 @@
   <id>https://homosaurus.org/terms/informationCentres</id>
   <identifier>informationCentres</identifier>
   <prefLabel language="en">information centres</prefLabel>
+  <altLabel language="en">documentation centres</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -23243,6 +23600,8 @@
   <id>https://homosaurus.org/terms/insemination</id>
   <identifier>insemination</identifier>
   <prefLabel language="en">insemination</prefLabel>
+  <altLabel language="en">fertilization</altLabel>
+  <altLabel language="en">fertilisation</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -23273,6 +23632,7 @@
   <id>https://homosaurus.org/terms/institutionalCareFacilities</id>
   <identifier>institutionalCareFacilities</identifier>
   <prefLabel language="en">institutional care facilities</prefLabel>
+  <altLabel language="en">asylums</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -23395,6 +23755,7 @@
   <id>https://homosaurus.org/terms/intellectualFreedom</id>
   <identifier>intellectualFreedom</identifier>
   <prefLabel language="en">intellectual freedom</prefLabel>
+  <altLabel language="en">access to ideas</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -23477,6 +23838,8 @@
   <id>https://homosaurus.org/terms/interiorDesign</id>
   <identifier>interiorDesign</identifier>
   <prefLabel language="en">interior design</prefLabel>
+  <altLabel language="en">interior decoration</altLabel>
+  <altLabel language="en">interior decorating</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -23495,6 +23858,8 @@
   <id>https://homosaurus.org/terms/internalisedHomophobia</id>
   <identifier>internalisedHomophobia</identifier>
   <prefLabel language="en">internalised homophobia</prefLabel>
+  <altLabel language="en">internalized homophobia</altLabel>
+  <altLabel language="en">ego-dystonic homophobia</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -23768,6 +24133,14 @@
   <id>https://homosaurus.org/terms/intersex</id>
   <identifier>intersex</identifier>
   <prefLabel language="en">intersex</prefLabel>
+  <altLabel language="en">differences in sex development</altLabel>
+  <altLabel language="en">hermaphroditism</altLabel>
+  <altLabel language="en">VSDs</altLabel>
+  <altLabel language="en">DSDs</altLabel>
+  <altLabel language="en">divergences in sex development</altLabel>
+  <altLabel language="en">intersexuality</altLabel>
+  <altLabel language="en">variations in sex development</altLabel>
+  <altLabel language="en">disorders of sex development</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -23829,6 +24202,8 @@
   <id>https://homosaurus.org/terms/intersexPeople</id>
   <identifier>intersexPeople</identifier>
   <prefLabel language="en">intersex people</prefLabel>
+  <altLabel language="en">intersexuals</altLabel>
+  <altLabel language="en">hermaphrodites</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -23909,6 +24284,7 @@
   <id>https://homosaurus.org/terms/intimatePartnerViolence</id>
   <identifier>intimatePartnerViolence</identifier>
   <prefLabel language="en">intimate partner violence</prefLabel>
+  <altLabel language="en">intimate partner abuse</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -23931,6 +24307,7 @@
   <id>https://homosaurus.org/terms/intolerance</id>
   <identifier>intolerance</identifier>
   <prefLabel language="en">intolerance</prefLabel>
+  <altLabel language="en">bigotry</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -23953,6 +24330,7 @@
   <id>https://homosaurus.org/terms/inuit</id>
   <identifier>inuit</identifier>
   <prefLabel language="en">inuit</prefLabel>
+  <altLabel language="en">eskimos</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -24108,6 +24486,7 @@
   <id>https://homosaurus.org/terms/jehovahsWitnesses</id>
   <identifier>jehovahsWitnesses</identifier>
   <prefLabel language="en">jehovah's witnesses</prefLabel>
+  <altLabel language="en">jehova's witnesses</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -24200,6 +24579,7 @@
   <id>https://homosaurus.org/terms/jobPlacement</id>
   <identifier>jobPlacement</identifier>
   <prefLabel language="en">job placement</prefLabel>
+  <altLabel language="en">employment agencies</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -24297,6 +24677,7 @@
   <id>https://homosaurus.org/terms/justiceDepartment</id>
   <identifier>justiceDepartment</identifier>
   <prefLabel language="en">justice department</prefLabel>
+  <altLabel language="en">ministry of justice</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -24419,6 +24800,8 @@
   <id>https://homosaurus.org/terms/katoeys</id>
   <identifier>katoeys</identifier>
   <prefLabel language="en">katoeys</prefLabel>
+  <altLabel language="en">ladyboys</altLabel>
+  <altLabel language="en">kathoeys</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -24545,6 +24928,8 @@
   <id>https://homosaurus.org/terms/labour</id>
   <identifier>labour</identifier>
   <prefLabel language="en">labour</prefLabel>
+  <altLabel language="en">employment</altLabel>
+  <altLabel language="en">labor</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -24579,6 +24964,9 @@
   <id>https://homosaurus.org/terms/labourLaw</id>
   <identifier>labourLaw</identifier>
   <prefLabel language="en">labour law</prefLabel>
+  <altLabel language="en">employment law</altLabel>
+  <altLabel language="en">labour legislation</altLabel>
+  <altLabel language="en">labor law</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -24605,6 +24993,7 @@
   <id>https://homosaurus.org/terms/labourMovement</id>
   <identifier>labourMovement</identifier>
   <prefLabel language="en">labour movement</prefLabel>
+  <altLabel language="en">labor movement</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -24811,6 +25200,10 @@
   <id>https://homosaurus.org/terms/latinos</id>
   <identifier>latinos</identifier>
   <prefLabel language="en">latinos</prefLabel>
+  <altLabel language="en">latinas</altLabel>
+  <altLabel language="en">chicanas</altLabel>
+  <altLabel language="en">hispanics</altLabel>
+  <altLabel language="en">chicanos</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -24837,6 +25230,8 @@
   <id>https://homosaurus.org/terms/law</id>
   <identifier>law</identifier>
   <prefLabel language="en">law</prefLabel>
+  <altLabel language="en">legislation</altLabel>
+  <altLabel language="en">legislative enactments</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -24911,6 +25306,7 @@
   <id>https://homosaurus.org/terms/lawyers</id>
   <identifier>lawyers</identifier>
   <prefLabel language="en">lawyers</prefLabel>
+  <altLabel language="en">attorneys</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -25002,6 +25398,7 @@
   <id>https://homosaurus.org/terms/leaflets</id>
   <identifier>leaflets</identifier>
   <prefLabel language="en">leaflets</prefLabel>
+  <altLabel language="en">pampllets</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -25020,6 +25417,7 @@
   <id>https://homosaurus.org/terms/learningDifficulties</id>
   <identifier>learningDifficulties</identifier>
   <prefLabel language="en">learning difficulties</prefLabel>
+  <altLabel language="en">learning disabilities</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -25038,6 +25436,7 @@
   <id>https://homosaurus.org/terms/leatherCommunity</id>
   <identifier>leatherCommunity</identifier>
   <prefLabel language="en">leather community</prefLabel>
+  <altLabel language="en">leather scene</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -25064,6 +25463,7 @@
   <id>https://homosaurus.org/terms/lectures</id>
   <identifier>lectures</identifier>
   <prefLabel language="en">lectures</prefLabel>
+  <altLabel language="en">speeches</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -25082,6 +25482,7 @@
   <id>https://homosaurus.org/terms/legalAdviceCentres</id>
   <identifier>legalAdviceCentres</identifier>
   <prefLabel language="en">legal advice centres</prefLabel>
+  <altLabel language="en">legal assistance centres</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -25268,6 +25669,7 @@
   <id>https://homosaurus.org/terms/legalStudies</id>
   <identifier>legalStudies</identifier>
   <prefLabel language="en">legal studies</prefLabel>
+  <altLabel language="en">law studies</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -25451,6 +25853,7 @@
   <id>https://homosaurus.org/terms/lesbianClergy</id>
   <identifier>lesbianClergy</identifier>
   <prefLabel language="en">lesbian clergy</prefLabel>
+  <altLabel language="en">lesbian pastors</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -25535,6 +25938,7 @@
   <id>https://homosaurus.org/terms/lesbianCulture</id>
   <identifier>lesbianCulture</identifier>
   <prefLabel language="en">lesbian culture</prefLabel>
+  <altLabel language="en">dyke culture</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -25620,6 +26024,7 @@
   <id>https://homosaurus.org/terms/lesbianGirls</id>
   <identifier>lesbianGirls</identifier>
   <prefLabel language="en">lesbian girls</prefLabel>
+  <altLabel language="en">lesbian youth</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -25680,6 +26085,7 @@
   <id>https://homosaurus.org/terms/lesbianInformationCentres</id>
   <identifier>lesbianInformationCentres</identifier>
   <prefLabel language="en">lesbian information centres</prefLabel>
+  <altLabel language="en">lesbian documentation centres</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -25747,6 +26153,8 @@
   <id>https://homosaurus.org/terms/lesbianMovement</id>
   <identifier>lesbianMovement</identifier>
   <prefLabel language="en">lesbian movement</prefLabel>
+  <altLabel language="en">lesbian organisations</altLabel>
+  <altLabel language="en">lesbian organizations</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -25858,6 +26266,7 @@
   <id>https://homosaurus.org/terms/lesbianParents</id>
   <identifier>lesbianParents</identifier>
   <prefLabel language="en">lesbian parents</prefLabel>
+  <altLabel language="en">lesbian mothers</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -26282,6 +26691,7 @@
   <id>https://homosaurus.org/terms/lesbian-gayRelations</id>
   <identifier>lesbian-gayRelations</identifier>
   <prefLabel language="en">lesbian-gay relations</prefLabel>
+  <altLabel language="en">gay-lesbian relations</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -26334,6 +26744,10 @@
   <id>https://homosaurus.org/terms/lesbians</id>
   <identifier>lesbians</identifier>
   <prefLabel language="en">lesbians</prefLabel>
+  <altLabel language="en">dykes</altLabel>
+  <altLabel language="en">gay women</altLabel>
+  <altLabel language="en">lesbian women</altLabel>
+  <altLabel language="en">women-identified-women</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -26446,6 +26860,7 @@
   <id>https://homosaurus.org/terms/letters</id>
   <identifier>letters</identifier>
   <prefLabel language="en">letters</prefLabel>
+  <altLabel language="en">correspondence</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -26685,6 +27100,7 @@
   <id>https://homosaurus.org/terms/LGBTIRightsPolicy</id>
   <identifier>LGBTIRightsPolicy</identifier>
   <prefLabel language="en">LGBTI rights policy</prefLabel>
+  <altLabel language="en">diversity policy</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -26711,6 +27127,8 @@
   <id>https://homosaurus.org/terms/LGV</id>
   <identifier>LGV</identifier>
   <prefLabel language="en">LGV</prefLabel>
+  <altLabel language="en">lymphogranuloma venereum</altLabel>
+  <altLabel language="en">climatic bubo</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -26747,6 +27165,7 @@
   <id>https://homosaurus.org/terms/liberationMovements</id>
   <identifier>liberationMovements</identifier>
   <prefLabel language="en">liberation movements</prefLabel>
+  <altLabel language="en">civil rights movements</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -26795,6 +27214,8 @@
   <id>https://homosaurus.org/terms/liberty</id>
   <identifier>liberty</identifier>
   <prefLabel language="en">liberty</prefLabel>
+  <altLabel language="en">emancipation</altLabel>
+  <altLabel language="en">freedom</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -26951,6 +27372,7 @@
   <id>https://homosaurus.org/terms/lifeStories</id>
   <identifier>lifeStories</identifier>
   <prefLabel language="en">life stories</prefLabel>
+  <altLabel language="en">life story books</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -27117,6 +27539,7 @@
   <id>https://homosaurus.org/terms/literature</id>
   <identifier>literature</identifier>
   <prefLabel language="en">literature</prefLabel>
+  <altLabel language="en">belles letters</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -27304,6 +27727,7 @@
   <id>https://homosaurus.org/terms/localGovernment</id>
   <identifier>localGovernment</identifier>
   <prefLabel language="en">local government</prefLabel>
+  <altLabel language="en">local councils</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -27389,6 +27813,7 @@
   <id>https://homosaurus.org/terms/longitudinalStudies</id>
   <identifier>longitudinalStudies</identifier>
   <prefLabel language="en">longitudinal studies</prefLabel>
+  <altLabel language="en">follow-up studies</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -27407,6 +27832,7 @@
   <id>https://homosaurus.org/terms/lorryDrivers</id>
   <identifier>lorryDrivers</identifier>
   <prefLabel language="en">lorry drivers</prefLabel>
+  <altLabel language="en">truck drivers</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -27485,6 +27911,7 @@
   <id>https://homosaurus.org/terms/lovers</id>
   <identifier>lovers</identifier>
   <prefLabel language="en">lovers</prefLabel>
+  <altLabel language="en">mistresses</altLabel>
   <issued>
     <value>2015-11-27</value>
     <name>xsd:date</name>
@@ -27544,6 +27971,7 @@
   <id>https://homosaurus.org/terms/machismo</id>
   <identifier>machismo</identifier>
   <prefLabel language="en">machismo</prefLabel>
+  <altLabel language="en">hypermasculinity</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -27669,6 +28097,11 @@
   <id>https://homosaurus.org/terms/maleProstitutes</id>
   <identifier>maleProstitutes</identifier>
   <prefLabel language="en">male prostitutes</prefLabel>
+  <altLabel language="en">rent boys</altLabel>
+  <altLabel language="en">call boys</altLabel>
+  <altLabel language="en">gigolos</altLabel>
+  <altLabel language="en">male hustlers</altLabel>
+  <altLabel language="en">taxi boys</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -27788,6 +28221,7 @@
   <id>https://homosaurus.org/terms/mardiGras</id>
   <identifier>mardiGras</identifier>
   <prefLabel language="en">mardi gras</prefLabel>
+  <altLabel language="en">sydney gay and lesbian mardi gras</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -27902,6 +28336,7 @@
   <id>https://homosaurus.org/terms/maritimeOccupations</id>
   <identifier>maritimeOccupations</identifier>
   <prefLabel language="en">maritime occupations</prefLabel>
+  <altLabel language="en">seafaring occupations</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -27928,6 +28363,7 @@
   <id>https://homosaurus.org/terms/marketingAndSalesOccupations</id>
   <identifier>marketingAndSalesOccupations</identifier>
   <prefLabel language="en">marketing and sales occupations</prefLabel>
+  <altLabel language="en">commercial occupations</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -28016,6 +28452,7 @@
   <id>https://homosaurus.org/terms/marriageLaw</id>
   <identifier>marriageLaw</identifier>
   <prefLabel language="en">marriage law</prefLabel>
+  <altLabel language="en">matrimonial law</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -28308,6 +28745,9 @@
   <id>https://homosaurus.org/terms/masturbation</id>
   <identifier>masturbation</identifier>
   <prefLabel language="en">masturbation</prefLabel>
+  <altLabel language="en">autoeroticism</altLabel>
+  <altLabel language="en">solosex</altLabel>
+  <altLabel language="en">solo sex</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -28605,6 +29045,7 @@
   <id>https://homosaurus.org/terms/medicalisation</id>
   <identifier>medicalisation</identifier>
   <prefLabel language="en">medicalisation</prefLabel>
+  <altLabel language="en">medicalization</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -28623,6 +29064,7 @@
   <id>https://homosaurus.org/terms/medication</id>
   <identifier>medication</identifier>
   <prefLabel language="en">medication</prefLabel>
+  <altLabel language="en">pharmaceuticals</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -28883,6 +29325,8 @@
   <id>https://homosaurus.org/terms/menInTraditionallyFemale-dominatedOccupations</id>
   <identifier>menInTraditionallyFemale-dominatedOccupations</identifier>
   <prefLabel language="en">men in traditionally female-dominated  occupations</prefLabel>
+  <altLabel language="en">men in women's jobs</altLabel>
+  <altLabel language="en">men in female professions</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -28905,6 +29349,7 @@
   <id>https://homosaurus.org/terms/menWhoHaveSexWithMen</id>
   <identifier>menWhoHaveSexWithMen</identifier>
   <prefLabel language="en">men who have sex with men</prefLabel>
+  <altLabel language="en">msm</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -28936,6 +29381,7 @@
   <id>https://homosaurus.org/terms/mensFriendships</id>
   <identifier>mensFriendships</identifier>
   <prefLabel language="en">men's friendships</prefLabel>
+  <altLabel language="en">male friendships</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -28958,6 +29404,7 @@
   <id>https://homosaurus.org/terms/mensInformationCentres</id>
   <identifier>mensInformationCentres</identifier>
   <prefLabel language="en">men&#x2019;s information centres</prefLabel>
+  <altLabel language="en">men&#x2019;s documentation centres</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -29032,6 +29479,7 @@
   <id>https://homosaurus.org/terms/mensOrganisations</id>
   <identifier>mensOrganisations</identifier>
   <prefLabel language="en">men's organisations</prefLabel>
+  <altLabel language="en">men's organizations</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -29146,6 +29594,8 @@
   <id>https://homosaurus.org/terms/mentalDisorders</id>
   <identifier>mentalDisorders</identifier>
   <prefLabel language="en">mental disorders</prefLabel>
+  <altLabel language="en">mental illnesses</altLabel>
+  <altLabel language="en">psychiatric disorders</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -29192,6 +29642,8 @@
   <id>https://homosaurus.org/terms/mentalExercise</id>
   <identifier>mentalExercise</identifier>
   <prefLabel language="en">mental exercise</prefLabel>
+  <altLabel language="en">cognitive training</altLabel>
+  <altLabel language="en">brain exercise</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -29295,6 +29747,7 @@
   <id>https://homosaurus.org/terms/methamphetamines</id>
   <identifier>methamphetamines</identifier>
   <prefLabel language="en">methamphetamines</prefLabel>
+  <altLabel language="en">crystal meth</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -29343,6 +29796,7 @@
   <id>https://homosaurus.org/terms/metropolitanCommunityChurch</id>
   <identifier>metropolitanCommunityChurch</identifier>
   <prefLabel language="en">metropolitan community church</prefLabel>
+  <altLabel language="en">MCC</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -29411,6 +29865,7 @@
   <id>https://homosaurus.org/terms/migrants</id>
   <identifier>migrants</identifier>
   <prefLabel language="en">migrants</prefLabel>
+  <altLabel language="en">foreigners</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -29528,6 +29983,8 @@
   <id>https://homosaurus.org/terms/military</id>
   <identifier>military</identifier>
   <prefLabel language="en">military</prefLabel>
+  <altLabel language="en">armed forces</altLabel>
+  <altLabel language="en">armed services</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -29842,6 +30299,7 @@
   <id>https://homosaurus.org/terms/mixed-orientationMarriage</id>
   <identifier>mixed-orientationMarriage</identifier>
   <prefLabel language="en">mixed-orientation marriage</prefLabel>
+  <altLabel language="en">bisexual marriage</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -29906,6 +30364,8 @@
   <id>https://homosaurus.org/terms/monasteries</id>
   <identifier>monasteries</identifier>
   <prefLabel language="en">monasteries</prefLabel>
+  <altLabel language="en">cloisters</altLabel>
+  <altLabel language="en">convents</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -30058,6 +30518,8 @@
   <id>https://homosaurus.org/terms/moralRearmament</id>
   <identifier>moralRearmament</identifier>
   <prefLabel language="en">moral rearmament</prefLabel>
+  <altLabel language="en">moral re-armament</altLabel>
+  <altLabel language="en">buchmanism</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -30139,6 +30601,7 @@
   <id>https://homosaurus.org/terms/motherhood</id>
   <identifier>motherhood</identifier>
   <prefLabel language="en">motherhood</prefLabel>
+  <altLabel language="en">maternity</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -30273,6 +30736,7 @@
   <id>https://homosaurus.org/terms/MS</id>
   <identifier>MS</identifier>
   <prefLabel language="en">MS</prefLabel>
+  <altLabel language="en">multiple sclerosis</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -30291,6 +30755,9 @@
   <id>https://homosaurus.org/terms/MtFs</id>
   <identifier>MtFs</identifier>
   <prefLabel language="en">MtFs</prefLabel>
+  <altLabel language="en">transgender women</altLabel>
+  <altLabel language="en">males transitioning to females</altLabel>
+  <altLabel language="en">transwomen</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -30367,6 +30834,7 @@
   <id>https://homosaurus.org/terms/multinationals</id>
   <identifier>multinationals</identifier>
   <prefLabel language="en">multinationals</prefLabel>
+  <altLabel language="en">multinational corporations</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -30385,6 +30853,9 @@
   <id>https://homosaurus.org/terms/multiplePersonalityDisorder</id>
   <identifier>multiplePersonalityDisorder</identifier>
   <prefLabel language="en">multiple personality disorder</prefLabel>
+  <altLabel language="en">MPD</altLabel>
+  <altLabel language="en">dissociative identity disorder</altLabel>
+  <altLabel language="en">split personality disorder</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -30403,6 +30874,10 @@
   <id>https://homosaurus.org/terms/municipalBy-laws</id>
   <identifier>municipalBy-laws</identifier>
   <prefLabel language="en">municipal by-laws</prefLabel>
+  <altLabel language="en">municipal codes</altLabel>
+  <altLabel language="en">municipal regulations</altLabel>
+  <altLabel language="en">municipal bylaws</altLabel>
+  <altLabel language="en">municipal ordinances</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -30425,6 +30900,7 @@
   <id>https://homosaurus.org/terms/murderers</id>
   <identifier>murderers</identifier>
   <prefLabel language="en">murderers</prefLabel>
+  <altLabel language="en">killers</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -30455,6 +30931,7 @@
   <id>https://homosaurus.org/terms/murders</id>
   <identifier>murders</identifier>
   <prefLabel language="en">murders</prefLabel>
+  <altLabel language="en">homicides</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -30605,6 +31082,7 @@
   <id>https://homosaurus.org/terms/musicGroups</id>
   <identifier>musicGroups</identifier>
   <prefLabel language="en">music groups</prefLabel>
+  <altLabel language="en">musical groups</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -30635,6 +31113,7 @@
   <id>https://homosaurus.org/terms/musicIndustry</id>
   <identifier>musicIndustry</identifier>
   <prefLabel language="en">music industry</prefLabel>
+  <altLabel language="en">record companies</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -30894,6 +31373,7 @@
   <id>https://homosaurus.org/terms/narcissism</id>
   <identifier>narcissism</identifier>
   <prefLabel language="en">narcissism</prefLabel>
+  <altLabel language="en">narcism</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -30978,6 +31458,7 @@
   <id>https://homosaurus.org/terms/nativeAmericanReligions</id>
   <identifier>nativeAmericanReligions</identifier>
   <prefLabel language="en">native american religions</prefLabel>
+  <altLabel language="en">american indian religions</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -31022,6 +31503,7 @@
   <id>https://homosaurus.org/terms/nativeAmericans</id>
   <identifier>nativeAmericans</identifier>
   <prefLabel language="en">native americans</prefLabel>
+  <altLabel language="en">american indians</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -31092,6 +31574,7 @@
   <id>https://homosaurus.org/terms/naturalisation</id>
   <identifier>naturalisation</identifier>
   <prefLabel language="en">naturalisation</prefLabel>
+  <altLabel language="en">naturalization</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -31140,6 +31623,7 @@
   <id>https://homosaurus.org/terms/nazism</id>
   <identifier>nazism</identifier>
   <prefLabel language="en">nazism</prefLabel>
+  <altLabel language="en">national socialism</altLabel>
   <issued>
     <value>2015-11-28</value>
     <name>xsd:date</name>
@@ -31321,6 +31805,7 @@
   <id>https://homosaurus.org/terms/neuroticDisorders</id>
   <identifier>neuroticDisorders</identifier>
   <prefLabel language="en">neurotic disorders</prefLabel>
+  <altLabel language="en">neuroses</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -31433,6 +31918,8 @@
   <id>https://homosaurus.org/terms/NGOs</id>
   <identifier>NGOs</identifier>
   <prefLabel language="en">NGOs</prefLabel>
+  <altLabel language="en">non-governmental organizations</altLabel>
+  <altLabel language="en">non-governmental organisations</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -31509,6 +31996,7 @@
   <id>https://homosaurus.org/terms/nipplePlay</id>
   <identifier>nipplePlay</identifier>
   <prefLabel language="en">nipple play</prefLabel>
+  <altLabel language="en">nipple sex</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -31527,6 +32015,7 @@
   <id>https://homosaurus.org/terms/nobility</id>
   <identifier>nobility</identifier>
   <prefLabel language="en">nobility</prefLabel>
+  <altLabel language="en">aristocracy </altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -31579,6 +32068,7 @@
   <id>https://homosaurus.org/terms/nonviolentResistance</id>
   <identifier>nonviolentResistance</identifier>
   <prefLabel language="en">nonviolent resistance</prefLabel>
+  <altLabel language="en">passive resistance</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -31597,6 +32087,8 @@
   <id>https://homosaurus.org/terms/normalisation</id>
   <identifier>normalisation</identifier>
   <prefLabel language="en">normalisation</prefLabel>
+  <altLabel language="en">assimilation</altLabel>
+  <altLabel language="en">normalization</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -31734,6 +32226,7 @@
   <id>https://homosaurus.org/terms/nudism</id>
   <identifier>nudism</identifier>
   <prefLabel language="en">nudism</prefLabel>
+  <altLabel language="en">naturalism</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -31924,6 +32417,7 @@
   <id>https://homosaurus.org/terms/occultism</id>
   <identifier>occultism</identifier>
   <prefLabel language="en">occultism</prefLabel>
+  <altLabel language="en">magic</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -31980,6 +32474,7 @@
   <id>https://homosaurus.org/terms/occupations</id>
   <identifier>occupations</identifier>
   <prefLabel language="en">occupations</prefLabel>
+  <altLabel language="en">professions</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -32120,6 +32615,11 @@
   <id>https://homosaurus.org/terms/occupationsInHealthCareAndSocialCare</id>
   <identifier>occupationsInHealthCareAndSocialCare</identifier>
   <prefLabel language="en">occupations in health care and social care</prefLabel>
+  <altLabel language="en">medical personnel</altLabel>
+  <altLabel language="en">health professions</altLabel>
+  <altLabel language="en">social care occupations</altLabel>
+  <altLabel language="en">health care occupations</altLabel>
+  <altLabel language="en">health care professionals</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -32180,6 +32680,7 @@
   <id>https://homosaurus.org/terms/offenders</id>
   <identifier>offenders</identifier>
   <prefLabel language="en">offenders</prefLabel>
+  <altLabel language="en">criminals</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -32349,6 +32850,9 @@
   <id>https://homosaurus.org/terms/olderPeople</id>
   <identifier>olderPeople</identifier>
   <prefLabel language="en">older people</prefLabel>
+  <altLabel language="en">elderly</altLabel>
+  <altLabel language="en">senior citizens</altLabel>
+  <altLabel language="en">seniors</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -32403,6 +32907,9 @@
   <id>https://homosaurus.org/terms/olderPeoplesOrganisations</id>
   <identifier>olderPeoplesOrganisations</identifier>
   <prefLabel language="en">older people's organisations</prefLabel>
+  <altLabel language="en">elder organisations</altLabel>
+  <altLabel language="en">elder organizations</altLabel>
+  <altLabel language="en">older people's organizations</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -32447,6 +32954,7 @@
   <id>https://homosaurus.org/terms/olympicGames</id>
   <identifier>olympicGames</identifier>
   <prefLabel language="en">olympic games</prefLabel>
+  <altLabel language="en">olympics</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -32510,6 +33018,7 @@
   <id>https://homosaurus.org/terms/onlineDating</id>
   <identifier>onlineDating</identifier>
   <prefLabel language="en">online dating</prefLabel>
+  <altLabel language="en">internet dating</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -32533,6 +33042,7 @@
   <id>https://homosaurus.org/terms/onlineGames</id>
   <identifier>onlineGames</identifier>
   <prefLabel language="en">online games</prefLabel>
+  <altLabel language="en">internet games</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -32744,6 +33254,7 @@
   <id>https://homosaurus.org/terms/organisations</id>
   <identifier>organisations</identifier>
   <prefLabel language="en">organisations</prefLabel>
+  <altLabel language="en">organizations</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -32830,6 +33341,11 @@
   <id>https://homosaurus.org/terms/organisationsForSexualResearchAndSexualReform</id>
   <identifier>organisationsForSexualResearchAndSexualReform</identifier>
   <prefLabel language="en">organisations for sexual research and  sexual reform</prefLabel>
+  <altLabel language="en">sexual reform organizations</altLabel>
+  <altLabel language="en">sexual research organizations</altLabel>
+  <altLabel language="en">sexual research organisations</altLabel>
+  <altLabel language="en">organizations for sexual research and sexual reform</altLabel>
+  <altLabel language="en">sexual reform organisations</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -32852,6 +33368,7 @@
   <id>https://homosaurus.org/terms/organizationOfAmericanStates</id>
   <identifier>organizationOfAmericanStates</identifier>
   <prefLabel language="en">organization of american states</prefLabel>
+  <altLabel language="en">OAS</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -32906,6 +33423,7 @@
   <id>https://homosaurus.org/terms/OSCE</id>
   <identifier>OSCE</identifier>
   <prefLabel language="en">OSCE</prefLabel>
+  <altLabel language="en">organization for security and co-operation in europe</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -32972,6 +33490,7 @@
   <id>https://homosaurus.org/terms/overweightPeople</id>
   <identifier>overweightPeople</identifier>
   <prefLabel language="en">overweight people</prefLabel>
+  <altLabel language="en">fat people</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -33078,6 +33597,8 @@
   <id>https://homosaurus.org/terms/paramilitaries</id>
   <identifier>paramilitaries</identifier>
   <prefLabel language="en">paramilitaries</prefLabel>
+  <altLabel language="en">paramilitary groups</altLabel>
+  <altLabel language="en">militias</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -33110,6 +33631,7 @@
   <id>https://homosaurus.org/terms/parentalAuthority</id>
   <identifier>parentalAuthority</identifier>
   <prefLabel language="en">parental authority</prefLabel>
+  <altLabel language="en">parental responsibility</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -33136,6 +33658,8 @@
   <id>https://homosaurus.org/terms/parentalLeave</id>
   <identifier>parentalLeave</identifier>
   <prefLabel language="en">parental leave</prefLabel>
+  <altLabel language="en">pregnancy leave</altLabel>
+  <altLabel language="en">maternity leave</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -33184,6 +33708,7 @@
   <id>https://homosaurus.org/terms/parenthood</id>
   <identifier>parenthood</identifier>
   <prefLabel language="en">parenthood</prefLabel>
+  <altLabel language="en">parenting</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -33344,6 +33869,7 @@
   <id>https://homosaurus.org/terms/parentsOfBisexuals</id>
   <identifier>parentsOfBisexuals</identifier>
   <prefLabel language="en">parents of bisexuals</prefLabel>
+  <altLabel language="en">bisexuals' parents</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -33388,6 +33914,7 @@
   <id>https://homosaurus.org/terms/parentsOfGayMen</id>
   <identifier>parentsOfGayMen</identifier>
   <prefLabel language="en">parents of gay men</prefLabel>
+  <altLabel language="en">gay men's parents</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -33418,6 +33945,7 @@
   <id>https://homosaurus.org/terms/parentsOfLesbians</id>
   <identifier>parentsOfLesbians</identifier>
   <prefLabel language="en">parents of lesbians</prefLabel>
+  <altLabel language="en">lesbians' parents</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -33448,6 +33976,7 @@
   <id>https://homosaurus.org/terms/parentsOfPedophiles</id>
   <identifier>parentsOfPedophiles</identifier>
   <prefLabel language="en">parents of pedophiles</prefLabel>
+  <altLabel language="en">pedophiles' parents</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -33470,6 +33999,8 @@
   <id>https://homosaurus.org/terms/parentsOfTransgenderPeople</id>
   <identifier>parentsOfTransgenderPeople</identifier>
   <prefLabel language="en">parents of transgender people</prefLabel>
+  <altLabel language="en">transgender people's parents</altLabel>
+  <altLabel language="en">parents of transgenders</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -33492,6 +34023,7 @@
   <id>https://homosaurus.org/terms/parentsOrganisations</id>
   <identifier>parentsOrganisations</identifier>
   <prefLabel language="en">parents&#x2019; organisations</prefLabel>
+  <altLabel language="en">parents&#x2019; organizations</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -33514,6 +34046,7 @@
   <id>https://homosaurus.org/terms/parents-in-law</id>
   <identifier>parents-in-law</identifier>
   <prefLabel language="en">parents-in-law</prefLabel>
+  <altLabel language="en">in-laws</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -33815,6 +34348,7 @@
   <id>https://homosaurus.org/terms/partnersOfTransgenderPeople</id>
   <identifier>partnersOfTransgenderPeople</identifier>
   <prefLabel language="en">partners of transgender people</prefLabel>
+  <altLabel language="en">partners of transgenders</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -34070,6 +34604,7 @@
   <id>https://homosaurus.org/terms/peaceMovement</id>
   <identifier>peaceMovement</identifier>
   <prefLabel language="en">peace movement</prefLabel>
+  <altLabel language="en">anti-war movements</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -34183,6 +34718,8 @@
   <id>https://homosaurus.org/terms/pedophileMovement</id>
   <identifier>pedophileMovement</identifier>
   <prefLabel language="en">pedophile movement</prefLabel>
+  <altLabel language="en">pedophile organisations</altLabel>
+  <altLabel language="en">pedophile organizations</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -34231,6 +34768,7 @@
   <id>https://homosaurus.org/terms/pedophiles</id>
   <identifier>pedophiles</identifier>
   <prefLabel language="en">pedophiles</prefLabel>
+  <altLabel language="en">pedosexuals</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -34249,6 +34787,7 @@
   <id>https://homosaurus.org/terms/pedophilia</id>
   <identifier>pedophilia</identifier>
   <prefLabel language="en">pedophilia</prefLabel>
+  <altLabel language="en">paedophilia</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -34291,6 +34830,7 @@
   <id>https://homosaurus.org/terms/peepShows</id>
   <identifier>peepShows</identifier>
   <prefLabel language="en">peep shows</prefLabel>
+  <altLabel language="en">peepshows</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -34309,6 +34849,8 @@
   <id>https://homosaurus.org/terms/penilePlethysmography</id>
   <identifier>penilePlethysmography</identifier>
   <prefLabel language="en">penile plethysmography</prefLabel>
+  <altLabel language="en">penile response measurement</altLabel>
+  <altLabel language="en">phallometry</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -34376,6 +34918,7 @@
   <id>https://homosaurus.org/terms/pensionSurvivorsBenefits</id>
   <identifier>pensionSurvivorsBenefits</identifier>
   <prefLabel language="en">pension survivors benefits</prefLabel>
+  <altLabel language="en">survivors benefits insurance</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -34398,6 +34941,7 @@
   <id>https://homosaurus.org/terms/pentecostalism</id>
   <identifier>pentecostalism</identifier>
   <prefLabel language="en">pentecostalism</prefLabel>
+  <altLabel language="en">pentecostal church</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -34416,6 +34960,12 @@
   <id>https://homosaurus.org/terms/peopleWithDevelopmentalDisabilities</id>
   <identifier>peopleWithDevelopmentalDisabilities</identifier>
   <prefLabel language="en">people with developmental disabilities</prefLabel>
+  <altLabel language="en">developmentally disabled people</altLabel>
+  <altLabel language="en">people with intellectual disabilities</altLabel>
+  <altLabel language="en">mentally retarded</altLabel>
+  <altLabel language="en">people with cognitive impairments </altLabel>
+  <altLabel language="en">mentally handicapped</altLabel>
+  <altLabel language="en">mentally disabled people</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -34434,6 +34984,8 @@
   <id>https://homosaurus.org/terms/peopleWithDisabilities</id>
   <identifier>peopleWithDisabilities</identifier>
   <prefLabel language="en">people with disabilities</prefLabel>
+  <altLabel language="en">handicapped people</altLabel>
+  <altLabel language="en">disabled people</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -34464,6 +35016,8 @@
   <id>https://homosaurus.org/terms/peopleWithHearingImpairments</id>
   <identifier>peopleWithHearingImpairments</identifier>
   <prefLabel language="en">people with hearing impairments</prefLabel>
+  <altLabel language="en">auditive disabled people</altLabel>
+  <altLabel language="en">people with hearing disabilities</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -34490,6 +35044,9 @@
   <id>https://homosaurus.org/terms/peopleWithPhysicalDisabilities</id>
   <identifier>peopleWithPhysicalDisabilities</identifier>
   <prefLabel language="en">people with physical disabilities</prefLabel>
+  <altLabel language="en">physically disabled people</altLabel>
+  <altLabel language="en">people with motor disabilities</altLabel>
+  <altLabel language="en">physically challenged people</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -34520,6 +35077,8 @@
   <id>https://homosaurus.org/terms/peopleWithVisualDisabilities</id>
   <identifier>peopleWithVisualDisabilities</identifier>
   <prefLabel language="en">people with visual disabilities</prefLabel>
+  <altLabel language="en">people with visual impairments</altLabel>
+  <altLabel language="en">visually disabled people</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -34927,6 +35486,7 @@
   <id>https://homosaurus.org/terms/petitions</id>
   <identifier>petitions</identifier>
   <prefLabel language="en">petitions</prefLabel>
+  <altLabel language="en">appeals</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -35233,6 +35793,8 @@
   <id>https://homosaurus.org/terms/philosophyOfScience</id>
   <identifier>philosophyOfScience</identifier>
   <prefLabel language="en">philosophy of science</prefLabel>
+  <altLabel language="en">theory of knowledge</altLabel>
+  <altLabel language="en">epistemology</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -35305,6 +35867,7 @@
   <id>https://homosaurus.org/terms/phoneSex</id>
   <identifier>phoneSex</identifier>
   <prefLabel language="en">phone sex</prefLabel>
+  <altLabel language="en">telephone sex</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -35331,6 +35894,7 @@
   <id>https://homosaurus.org/terms/phoneSexWorkers</id>
   <identifier>phoneSexWorkers</identifier>
   <prefLabel language="en">phone sex workers</prefLabel>
+  <altLabel language="en">phone sex operators</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -35628,6 +36192,8 @@
   <id>https://homosaurus.org/terms/physicalDisorders</id>
   <identifier>physicalDisorders</identifier>
   <prefLabel language="en">physical disorders</prefLabel>
+  <altLabel language="en">somatic disorders</altLabel>
+  <altLabel language="en">bodily disorders</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -35716,6 +36282,7 @@
   <id>https://homosaurus.org/terms/physicalFitness</id>
   <identifier>physicalFitness</identifier>
   <prefLabel language="en">physical fitness</prefLabel>
+  <altLabel language="en">fitness</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -35794,6 +36361,7 @@
   <id>https://homosaurus.org/terms/physicalTherapy</id>
   <identifier>physicalTherapy</identifier>
   <prefLabel language="en">physical therapy</prefLabel>
+  <altLabel language="en">physiotherapy</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -35846,6 +36414,7 @@
   <id>https://homosaurus.org/terms/physicians</id>
   <identifier>physicians</identifier>
   <prefLabel language="en">physicians</prefLabel>
+  <altLabel language="en">doctors</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -36040,6 +36609,7 @@
   <id>https://homosaurus.org/terms/plays</id>
   <identifier>plays</identifier>
   <prefLabel language="en">plays</prefLabel>
+  <altLabel language="en">stage performances</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -36078,6 +36648,7 @@
   <id>https://homosaurus.org/terms/PMS</id>
   <identifier>PMS</identifier>
   <prefLabel language="en">PMS</prefLabel>
+  <altLabel language="en">premenstrual syndrome</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -36204,6 +36775,7 @@
   <id>https://homosaurus.org/terms/policeEntrapment</id>
   <identifier>policeEntrapment</identifier>
   <prefLabel language="en">police entrapment</prefLabel>
+  <altLabel language="en">under cover agents</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -36297,6 +36869,7 @@
   <id>https://homosaurus.org/terms/politicalMovements</id>
   <identifier>politicalMovements</identifier>
   <prefLabel language="en">political movements</prefLabel>
+  <altLabel language="en">political philosophies</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -36465,6 +37038,7 @@
   <id>https://homosaurus.org/terms/politicalSystems</id>
   <identifier>politicalSystems</identifier>
   <prefLabel language="en">political systems</prefLabel>
+  <altLabel language="en">forms of government</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -36632,6 +37206,8 @@
   <id>https://homosaurus.org/terms/poopSex</id>
   <identifier>poopSex</identifier>
   <prefLabel language="en">poop sex</prefLabel>
+  <altLabel language="en">scat</altLabel>
+  <altLabel language="en">coprophilia</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -36690,6 +37266,7 @@
   <id>https://homosaurus.org/terms/popMusic</id>
   <identifier>popMusic</identifier>
   <prefLabel language="en">pop music</prefLabel>
+  <altLabel language="en">popular music</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -36815,6 +37392,7 @@
   <id>https://homosaurus.org/terms/popularFiction</id>
   <identifier>popularFiction</identifier>
   <prefLabel language="en">popular fiction</prefLabel>
+  <altLabel language="en">pulp novels</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -36833,6 +37411,8 @@
   <id>https://homosaurus.org/terms/pornFilms</id>
   <identifier>pornFilms</identifier>
   <prefLabel language="en">porn films</prefLabel>
+  <altLabel language="en">x-rated films</altLabel>
+  <altLabel language="en">adult films</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -36915,6 +37495,8 @@
   <id>https://homosaurus.org/terms/pornStars</id>
   <identifier>pornStars</identifier>
   <prefLabel language="en">porn stars</prefLabel>
+  <altLabel language="en">pornstars </altLabel>
+  <altLabel language="en">pornographic actors</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -36984,6 +37566,7 @@
   <id>https://homosaurus.org/terms/postageStamps</id>
   <identifier>postageStamps</identifier>
   <prefLabel language="en">postage stamps</prefLabel>
+  <altLabel language="en">stamps</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -37016,6 +37599,7 @@
   <id>https://homosaurus.org/terms/postcards</id>
   <identifier>postcards</identifier>
   <prefLabel language="en">postcards</prefLabel>
+  <altLabel language="en">picture postcards</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -37298,6 +37882,7 @@
   <id>https://homosaurus.org/terms/priests</id>
   <identifier>priests</identifier>
   <prefLabel language="en">priests</prefLabel>
+  <altLabel language="en">parish priests</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -37334,6 +37919,7 @@
   <id>https://homosaurus.org/terms/prisonGuards</id>
   <identifier>prisonGuards</identifier>
   <prefLabel language="en">prison guards</prefLabel>
+  <altLabel language="en">prison staff</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -37356,6 +37942,7 @@
   <id>https://homosaurus.org/terms/prisoners</id>
   <identifier>prisoners</identifier>
   <prefLabel language="en">prisoners</prefLabel>
+  <altLabel language="en">inmates</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -37378,6 +37965,7 @@
   <id>https://homosaurus.org/terms/prisonersOfConscience</id>
   <identifier>prisonersOfConscience</identifier>
   <prefLabel language="en">prisoners of conscience</prefLabel>
+  <altLabel language="en">political prisoners</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -37582,6 +38170,9 @@
   <id>https://homosaurus.org/terms/prostitutesClients</id>
   <identifier>prostitutesClients</identifier>
   <prefLabel language="en">prostitutes' clients</prefLabel>
+  <altLabel language="en">tricks</altLabel>
+  <altLabel language="en">clients of prostitutes</altLabel>
+  <altLabel language="en">johns</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -37850,6 +38441,9 @@
   <id>https://homosaurus.org/terms/psychiatricInstitutions</id>
   <identifier>psychiatricInstitutions</identifier>
   <prefLabel language="en">psychiatric institutions</prefLabel>
+  <altLabel language="en">insane asylums</altLabel>
+  <altLabel language="en">madhouses</altLabel>
+  <altLabel language="en">mental hospitals</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -38332,6 +38926,8 @@
   <id>https://homosaurus.org/terms/psychoticDisorders</id>
   <identifier>psychoticDisorders</identifier>
   <prefLabel language="en">psychotic disorders</prefLabel>
+  <altLabel language="en">psychosis</altLabel>
+  <altLabel language="en">psychoses</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -38433,6 +39029,7 @@
   <id>https://homosaurus.org/terms/publicRelations</id>
   <identifier>publicRelations</identifier>
   <prefLabel language="en">public relations</prefLabel>
+  <altLabel language="en">PR</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -38624,6 +39221,7 @@
   <id>https://homosaurus.org/terms/publicTransport</id>
   <identifier>publicTransport</identifier>
   <prefLabel language="en">public transport</prefLabel>
+  <altLabel language="en">public transportation</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -38698,6 +39296,7 @@
   <id>https://homosaurus.org/terms/pubs</id>
   <identifier>pubs</identifier>
   <prefLabel language="en">pubs</prefLabel>
+  <altLabel language="en">public houses</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -38872,6 +39471,7 @@
   <id>https://homosaurus.org/terms/racism</id>
   <identifier>racism</identifier>
   <prefLabel language="en">racism</prefLabel>
+  <altLabel language="en">racial discrimination</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -39001,6 +39601,9 @@
   <id>https://homosaurus.org/terms/radioProgrammes</id>
   <identifier>radioProgrammes</identifier>
   <prefLabel language="en">radio programmes</prefLabel>
+  <altLabel language="en">radio programs</altLabel>
+  <altLabel language="en">radio shows</altLabel>
+  <altLabel language="en">radio plays</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -39121,6 +39724,7 @@
   <id>https://homosaurus.org/terms/rapeVictims</id>
   <identifier>rapeVictims</identifier>
   <prefLabel language="en">rape victims</prefLabel>
+  <altLabel language="en">victims of rape</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -39253,6 +39857,7 @@
   <id>https://homosaurus.org/terms/redRibbons</id>
   <identifier>redRibbons</identifier>
   <prefLabel language="en">red ribbons</prefLabel>
+  <altLabel language="en">AIDS ribbons</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -39297,6 +39902,7 @@
   <id>https://homosaurus.org/terms/referenceSources</id>
   <identifier>referenceSources</identifier>
   <prefLabel language="en">reference sources</prefLabel>
+  <altLabel language="en">reference resources</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -39335,6 +39941,7 @@
   <id>https://homosaurus.org/terms/referenda</id>
   <identifier>referenda</identifier>
   <prefLabel language="en">referenda</prefLabel>
+  <altLabel language="en">plebiscites</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -39372,6 +39979,8 @@
   <id>https://homosaurus.org/terms/reformatorySchools</id>
   <identifier>reformatorySchools</identifier>
   <prefLabel language="en">reformatory schools</prefLabel>
+  <altLabel language="en">reform schools</altLabel>
+  <altLabel language="en">borstals</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -39433,6 +40042,7 @@
   <id>https://homosaurus.org/terms/refugeeCentres</id>
   <identifier>refugeeCentres</identifier>
   <prefLabel language="en">refugee centres</prefLabel>
+  <altLabel language="en">asylum seekers centres</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -39527,6 +40137,8 @@
   <id>https://homosaurus.org/terms/regionalGovernment</id>
   <identifier>regionalGovernment</identifier>
   <prefLabel language="en">regional government</prefLabel>
+  <altLabel language="en">county councils</altLabel>
+  <altLabel language="en">provincial government</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -39797,6 +40409,7 @@
   <id>https://homosaurus.org/terms/religiousMusic</id>
   <identifier>religiousMusic</identifier>
   <prefLabel language="en">religious music</prefLabel>
+  <altLabel language="en">sacred music</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -39833,6 +40446,8 @@
   <id>https://homosaurus.org/terms/religiousOrganisations</id>
   <identifier>religiousOrganisations</identifier>
   <prefLabel language="en">religious organisations</prefLabel>
+  <altLabel language="en">religious institutions</altLabel>
+  <altLabel language="en">religious organizations</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -39867,6 +40482,7 @@
   <id>https://homosaurus.org/terms/religiousRight</id>
   <identifier>religiousRight</identifier>
   <prefLabel language="en">religious right</prefLabel>
+  <altLabel language="en">moral majority</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -39898,6 +40514,8 @@
   <id>https://homosaurus.org/terms/religiousSocietyOfFriends</id>
   <identifier>religiousSocietyOfFriends</identifier>
   <prefLabel language="en">religious society of friends</prefLabel>
+  <altLabel language="en">quakers</altLabel>
+  <altLabel language="en">society of friends</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -39916,6 +40534,7 @@
   <id>https://homosaurus.org/terms/religiousStudies</id>
   <identifier>religiousStudies</identifier>
   <prefLabel language="en">religious studies</prefLabel>
+  <altLabel language="en">comparative religion</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -39938,6 +40557,8 @@
   <id>https://homosaurus.org/terms/religiousTexts</id>
   <identifier>religiousTexts</identifier>
   <prefLabel language="en">religious texts</prefLabel>
+  <altLabel language="en">scriptures</altLabel>
+  <altLabel language="en">sacred texts</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -40109,6 +40730,7 @@
   <id>https://homosaurus.org/terms/researchMethods</id>
   <identifier>researchMethods</identifier>
   <prefLabel language="en">research methods</prefLabel>
+  <altLabel language="en">methodology</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -40251,6 +40873,7 @@
   <id>https://homosaurus.org/terms/retirementBenefits</id>
   <identifier>retirementBenefits</identifier>
   <prefLabel language="en">retirement benefits</prefLabel>
+  <altLabel language="en">pension insurance</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -40281,6 +40904,7 @@
   <id>https://homosaurus.org/terms/retirementHomes</id>
   <identifier>retirementHomes</identifier>
   <prefLabel language="en">retirement homes</prefLabel>
+  <altLabel language="en">rest homes</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -40303,6 +40927,7 @@
   <id>https://homosaurus.org/terms/retrievalSystems</id>
   <identifier>retrievalSystems</identifier>
   <prefLabel language="en">retrieval systems</prefLabel>
+  <altLabel language="en">information retrieval systems</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -40329,6 +40954,7 @@
   <id>https://homosaurus.org/terms/returnMigration</id>
   <identifier>returnMigration</identifier>
   <prefLabel language="en">return migration</prefLabel>
+  <altLabel language="en">repatriation</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -40399,6 +41025,8 @@
   <id>https://homosaurus.org/terms/rightToDie</id>
   <identifier>rightToDie</identifier>
   <prefLabel language="en">right to die</prefLabel>
+  <altLabel language="en">death with dignity</altLabel>
+  <altLabel language="en">living wills</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -40485,6 +41113,7 @@
   <id>https://homosaurus.org/terms/rimming</id>
   <identifier>rimming</identifier>
   <prefLabel language="en">rimming</prefLabel>
+  <altLabel language="en">anilingus</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -40507,6 +41136,7 @@
   <id>https://homosaurus.org/terms/riots</id>
   <identifier>riots</identifier>
   <prefLabel language="en">riots</prefLabel>
+  <altLabel language="en">mob violence</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -40632,6 +41262,7 @@
   <id>https://homosaurus.org/terms/robbery</id>
   <identifier>robbery</identifier>
   <prefLabel language="en">robbery</prefLabel>
+  <altLabel language="en">mugging</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -40743,6 +41374,7 @@
   <id>https://homosaurus.org/terms/roleBehaviour</id>
   <identifier>roleBehaviour</identifier>
   <prefLabel language="en">role behaviour</prefLabel>
+  <altLabel language="en">role patterns</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -40816,6 +41448,10 @@
   <id>https://homosaurus.org/terms/roma</id>
   <identifier>roma</identifier>
   <prefLabel language="en">roma</prefLabel>
+  <altLabel language="en">roma and sinti</altLabel>
+  <altLabel language="en">gypsies</altLabel>
+  <altLabel language="en">sinti</altLabel>
+  <altLabel language="en">romani</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -40972,6 +41608,8 @@
   <id>https://homosaurus.org/terms/ruralAreas</id>
   <identifier>ruralAreas</identifier>
   <prefLabel language="en">rural areas</prefLabel>
+  <altLabel language="en">countryside</altLabel>
+  <altLabel language="en">non-urban areas</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -41234,6 +41872,8 @@
   <id>https://homosaurus.org/terms/same-sexMarriage</id>
   <identifier>same-sexMarriage</identifier>
   <prefLabel language="en">same-sex marriage</prefLabel>
+  <altLabel language="en">gay marriage</altLabel>
+  <altLabel language="en">lesbian marriage</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -41355,6 +41995,7 @@
   <id>https://homosaurus.org/terms/schoolTelevision</id>
   <identifier>schoolTelevision</identifier>
   <prefLabel language="en">school television</prefLabel>
+  <altLabel language="en">educational television</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -41408,6 +42049,7 @@
   <id>https://homosaurus.org/terms/schoolsForLGBTYouth</id>
   <identifier>schoolsForLGBTYouth</identifier>
   <prefLabel language="en">schools for LGBT youth</prefLabel>
+  <altLabel language="en">LGBT schools</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -41470,6 +42112,7 @@
   <id>https://homosaurus.org/terms/scouting</id>
   <identifier>scouting</identifier>
   <prefLabel language="en">scouting</prefLabel>
+  <altLabel language="en">scout movement</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -41492,6 +42135,7 @@
   <id>https://homosaurus.org/terms/screenplays</id>
   <identifier>screenplays</identifier>
   <prefLabel language="en">screenplays</prefLabel>
+  <altLabel language="en">film scripts</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -41665,6 +42309,7 @@
   <id>https://homosaurus.org/terms/seduction</id>
   <identifier>seduction</identifier>
   <prefLabel language="en">seduction</prefLabel>
+  <altLabel language="en">temptation</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -41701,6 +42346,7 @@
   <id>https://homosaurus.org/terms/self-defence</id>
   <identifier>self-defence</identifier>
   <prefLabel language="en">self-defence</prefLabel>
+  <altLabel language="en">self-defense</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -41727,6 +42373,8 @@
   <id>https://homosaurus.org/terms/self-help</id>
   <identifier>self-help</identifier>
   <prefLabel language="en">self-help</prefLabel>
+  <altLabel language="en">self-improvement</altLabel>
+  <altLabel language="en">self-development</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -41758,6 +42406,7 @@
   <id>https://homosaurus.org/terms/self-image</id>
   <identifier>self-image</identifier>
   <prefLabel language="en">self-image</prefLabel>
+  <altLabel language="en">self-perception</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -41810,6 +42459,7 @@
   <id>https://homosaurus.org/terms/self-repression</id>
   <identifier>self-repression</identifier>
   <prefLabel language="en">self-repression</prefLabel>
+  <altLabel language="en">self-suppression</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -41840,6 +42490,7 @@
   <id>https://homosaurus.org/terms/self-respect</id>
   <identifier>self-respect</identifier>
   <prefLabel language="en">self-respect</prefLabel>
+  <altLabel language="en">self-esteem</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -41876,6 +42527,8 @@
   <id>https://homosaurus.org/terms/semiotics</id>
   <identifier>semiotics</identifier>
   <prefLabel language="en">semiotics</prefLabel>
+  <altLabel language="en">semiology</altLabel>
+  <altLabel language="en">semantics</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -41928,6 +42581,7 @@
   <id>https://homosaurus.org/terms/separation</id>
   <identifier>separation</identifier>
   <prefLabel language="en">separation</prefLabel>
+  <altLabel language="en">marital separation</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -42002,6 +42656,7 @@
   <id>https://homosaurus.org/terms/seroconversion</id>
   <identifier>seroconversion</identifier>
   <prefLabel language="en">seroconversion</prefLabel>
+  <altLabel language="en">HIV-seroconversion</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -42021,6 +42676,7 @@
   <id>https://homosaurus.org/terms/serodiscordantCouples</id>
   <identifier>serodiscordantCouples</identifier>
   <prefLabel language="en">serodiscordant couples</prefLabel>
+  <altLabel language="en">HIV-serodiscordant couples</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -42052,6 +42708,7 @@
   <id>https://homosaurus.org/terms/serostatus</id>
   <identifier>serostatus</identifier>
   <prefLabel language="en">serostatus</prefLabel>
+  <altLabel language="en">HIV-serostatus</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -42178,6 +42835,7 @@
   <id>https://homosaurus.org/terms/sexCinemas</id>
   <identifier>sexCinemas</identifier>
   <prefLabel language="en">sex cinemas</prefLabel>
+  <altLabel language="en">adult movie theatres</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -42248,6 +42906,7 @@
   <id>https://homosaurus.org/terms/sexIndustry</id>
   <identifier>sexIndustry</identifier>
   <prefLabel language="en">sex industry</prefLabel>
+  <altLabel language="en">adult entertainment industry</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -42318,6 +42977,7 @@
   <id>https://homosaurus.org/terms/sexLocations</id>
   <identifier>sexLocations</identifier>
   <prefLabel language="en">sex locations</prefLabel>
+  <altLabel language="en">locations for sex</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -42398,6 +43058,7 @@
   <id>https://homosaurus.org/terms/sexScandals</id>
   <identifier>sexScandals</identifier>
   <prefLabel language="en">sex scandals</prefLabel>
+  <altLabel language="en">sexual scandals</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -42417,6 +43078,7 @@
   <id>https://homosaurus.org/terms/sexShops</id>
   <identifier>sexShops</identifier>
   <prefLabel language="en">sex shops</prefLabel>
+  <altLabel language="en">adult entertainment stores</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -42776,6 +43438,8 @@
   <id>https://homosaurus.org/terms/sexualChildAbuse</id>
   <identifier>sexualChildAbuse</identifier>
   <prefLabel language="en">sexual child abuse</prefLabel>
+  <altLabel language="en">child molesting</altLabel>
+  <altLabel language="en">child sexual abuse</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -42833,6 +43497,7 @@
   <id>https://homosaurus.org/terms/sexualDysfunction</id>
   <identifier>sexualDysfunction</identifier>
   <prefLabel language="en">sexual dysfunction</prefLabel>
+  <altLabel language="en">sexual malfunction</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -42871,6 +43536,7 @@
   <id>https://homosaurus.org/terms/sexualExcitement</id>
   <identifier>sexualExcitement</identifier>
   <prefLabel language="en">sexual excitement</prefLabel>
+  <altLabel language="en">sexual arousal</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -43037,6 +43703,7 @@
   <id>https://homosaurus.org/terms/sexualOffencesLaws</id>
   <identifier>sexualOffencesLaws</identifier>
   <prefLabel language="en">sexual offences laws</prefLabel>
+  <altLabel language="en">sexual criminal codes</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -43063,6 +43730,8 @@
   <id>https://homosaurus.org/terms/sexualOrientation</id>
   <identifier>sexualOrientation</identifier>
   <prefLabel language="en">sexual orientation</prefLabel>
+  <altLabel language="en">sexual object choice</altLabel>
+  <altLabel language="en">sexual preference</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -43333,6 +44002,9 @@
   <id>https://homosaurus.org/terms/sexualReorientation</id>
   <identifier>sexualReorientation</identifier>
   <prefLabel language="en">sexual reorientation</prefLabel>
+  <altLabel language="en">reparative therapy</altLabel>
+  <altLabel language="en">conversion therapy</altLabel>
+  <altLabel language="en">gay cures</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -43408,6 +44080,9 @@
   <id>https://homosaurus.org/terms/sexualSterilisation</id>
   <identifier>sexualSterilisation</identifier>
   <prefLabel language="en">sexual sterilisation</prefLabel>
+  <altLabel language="en">human sterilization</altLabel>
+  <altLabel language="en">sexual sterilization</altLabel>
+  <altLabel language="en">human sterilisation</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -43664,6 +44339,7 @@
   <id>https://homosaurus.org/terms/shintoism</id>
   <identifier>shintoism</identifier>
   <prefLabel language="en">shintoism</prefLabel>
+  <altLabel language="en">shinto</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -43682,6 +44358,7 @@
   <id>https://homosaurus.org/terms/shoah</id>
   <identifier>shoah</identifier>
   <prefLabel language="en">shoah</prefLabel>
+  <altLabel language="en">holocaust</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -43875,6 +44552,7 @@
   <id>https://homosaurus.org/terms/singleParentFamilies</id>
   <identifier>singleParentFamilies</identifier>
   <prefLabel language="en">single parent families</prefLabel>
+  <altLabel language="en">one-parent families</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -43931,6 +44609,8 @@
   <id>https://homosaurus.org/terms/singlePeople</id>
   <identifier>singlePeople</identifier>
   <prefLabel language="en">single people</prefLabel>
+  <altLabel language="en">single person households</altLabel>
+  <altLabel language="en">singles</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -43953,6 +44633,7 @@
   <id>https://homosaurus.org/terms/sissies</id>
   <identifier>sissies</identifier>
   <prefLabel language="en">sissies</prefLabel>
+  <altLabel language="en">sissy boys</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -43976,6 +44657,7 @@
   <id>https://homosaurus.org/terms/sistergirls</id>
   <identifier>sistergirls</identifier>
   <prefLabel language="en">sistergirls</prefLabel>
+  <altLabel language="en">sista girls</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -44017,6 +44699,7 @@
   <id>https://homosaurus.org/terms/situationalSexualBehavior</id>
   <identifier>situationalSexualBehavior</identifier>
   <prefLabel language="en">situational sexual behavior</prefLabel>
+  <altLabel language="en">situational homosexuality</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -44114,6 +44797,10 @@
   <id>https://homosaurus.org/terms/SM</id>
   <identifier>SM</identifier>
   <prefLabel language="en">SM</prefLabel>
+  <altLabel language="en">S &amp; M</altLabel>
+  <altLabel language="en">S and M</altLabel>
+  <altLabel language="en">sadomasochism</altLabel>
+  <altLabel language="en">algolagnia</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -44244,6 +44931,8 @@
   <id>https://homosaurus.org/terms/socialAndBehaviouralSciences</id>
   <identifier>socialAndBehaviouralSciences</identifier>
   <prefLabel language="en">social and behavioural sciences</prefLabel>
+  <altLabel language="en">behavioural sciences</altLabel>
+  <altLabel language="en">social sciences</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -44340,6 +45029,7 @@
   <id>https://homosaurus.org/terms/socialCare</id>
   <identifier>socialCare</identifier>
   <prefLabel language="en">social care</prefLabel>
+  <altLabel language="en">social services</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -44540,6 +45230,8 @@
   <id>https://homosaurus.org/terms/socialExclusion</id>
   <identifier>socialExclusion</identifier>
   <prefLabel language="en">social exclusion</prefLabel>
+  <altLabel language="en">marginalisation</altLabel>
+  <altLabel language="en">marginalization</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -44563,6 +45255,7 @@
   <id>https://homosaurus.org/terms/socialIntegration</id>
   <identifier>socialIntegration</identifier>
   <prefLabel language="en">social integration</prefLabel>
+  <altLabel language="en">integration</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -44594,6 +45287,7 @@
   <id>https://homosaurus.org/terms/socialLaw</id>
   <identifier>socialLaw</identifier>
   <prefLabel language="en">social law</prefLabel>
+  <altLabel language="en">social legislation</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -44803,6 +45497,7 @@
   <id>https://homosaurus.org/terms/socialNetworks</id>
   <identifier>socialNetworks</identifier>
   <prefLabel language="en">social networks</prefLabel>
+  <altLabel language="en">circle of friends</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -44833,6 +45528,8 @@
   <id>https://homosaurus.org/terms/socialNorms</id>
   <identifier>socialNorms</identifier>
   <prefLabel language="en">social norms</prefLabel>
+  <altLabel language="en">norms and values</altLabel>
+  <altLabel language="en">norms</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -44892,6 +45589,9 @@
   <id>https://homosaurus.org/terms/socialParenthood</id>
   <identifier>socialParenthood</identifier>
   <prefLabel language="en">social parenthood</prefLabel>
+  <altLabel language="en">non-genetic parenthood</altLabel>
+  <altLabel language="en">foster parenthood</altLabel>
+  <altLabel language="en">adoptive parenthood</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -45063,6 +45763,7 @@
   <id>https://homosaurus.org/terms/socialServiceOrganisations</id>
   <identifier>socialServiceOrganisations</identifier>
   <prefLabel language="en">social service organisations</prefLabel>
+  <altLabel language="en">social service agencies</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -45149,6 +45850,7 @@
   <id>https://homosaurus.org/terms/socialisation</id>
   <identifier>socialisation</identifier>
   <prefLabel language="en">socialisation</prefLabel>
+  <altLabel language="en">socialization</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -45329,6 +46031,8 @@
   <id>https://homosaurus.org/terms/socioculturalEvolution</id>
   <identifier>socioculturalEvolution</identifier>
   <prefLabel language="en">sociocultural evolution</prefLabel>
+  <altLabel language="en">social evolution</altLabel>
+  <altLabel language="en">cultural evolution</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -45356,6 +46060,8 @@
   <id>https://homosaurus.org/terms/socioeconomicCharacteristics</id>
   <identifier>socioeconomicCharacteristics</identifier>
   <prefLabel language="en">socioeconomic characteristics</prefLabel>
+  <altLabel language="en">social economic characteristics</altLabel>
+  <altLabel language="en">socialeconomic characteristics</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -45858,6 +46564,7 @@
   <id>https://homosaurus.org/terms/sponsorship</id>
   <identifier>sponsorship</identifier>
   <prefLabel language="en">sponsorship</prefLabel>
+  <altLabel language="en">sponsoring</altLabel>
   <issued>
     <value>2015-11-29</value>
     <name>xsd:date</name>
@@ -46046,6 +46753,7 @@
   <id>https://homosaurus.org/terms/sportsOrganisations</id>
   <identifier>sportsOrganisations</identifier>
   <prefLabel language="en">sports organisations</prefLabel>
+  <altLabel language="en">sports organizations</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -46068,6 +46776,9 @@
   <id>https://homosaurus.org/terms/sportspersons</id>
   <identifier>sportspersons</identifier>
   <prefLabel language="en">sportspersons</prefLabel>
+  <altLabel language="en">sports occupations</altLabel>
+  <altLabel language="en">athletes</altLabel>
+  <altLabel language="en">sports-related occupations</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -46160,6 +46871,9 @@
   <id>https://homosaurus.org/terms/STDs</id>
   <identifier>STDs</identifier>
   <prefLabel language="en">STDs</prefLabel>
+  <altLabel language="en">venereal diseases</altLabel>
+  <altLabel language="en">sexually transmitted diseases</altLabel>
+  <altLabel language="en">VD</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -46269,6 +46983,7 @@
   <id>https://homosaurus.org/terms/stepFamilies</id>
   <identifier>stepFamilies</identifier>
   <prefLabel language="en">step families</prefLabel>
+  <altLabel language="en">blended families</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -46343,6 +47058,7 @@
   <id>https://homosaurus.org/terms/stigmatisation</id>
   <identifier>stigmatisation</identifier>
   <prefLabel language="en">stigmatisation</prefLabel>
+  <altLabel language="en">stigmatization</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -46484,6 +47200,7 @@
   <id>https://homosaurus.org/terms/strippers</id>
   <identifier>strippers</identifier>
   <prefLabel language="en">strippers</prefLabel>
+  <altLabel language="en">stripteasers</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -46607,6 +47324,7 @@
   <id>https://homosaurus.org/terms/subcultures</id>
   <identifier>subcultures</identifier>
   <prefLabel language="en">subcultures</prefLabel>
+  <altLabel language="en">lifestyles</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -46669,6 +47387,7 @@
   <id>https://homosaurus.org/terms/substanceAbuse</id>
   <identifier>substanceAbuse</identifier>
   <prefLabel language="en">substance abuse</prefLabel>
+  <altLabel language="en">chemical dependency</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -46713,6 +47432,7 @@
   <id>https://homosaurus.org/terms/suffragettes</id>
   <identifier>suffragettes</identifier>
   <prefLabel language="en">suffragettes</prefLabel>
+  <altLabel language="en">suffragists</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -46805,6 +47525,8 @@
   <id>https://homosaurus.org/terms/supportLiability</id>
   <identifier>supportLiability</identifier>
   <prefLabel language="en">support liability</prefLabel>
+  <altLabel language="en">liability for support</altLabel>
+  <altLabel language="en">maintenance obligation</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -46914,6 +47636,7 @@
   <id>https://homosaurus.org/terms/surrogateMothers</id>
   <identifier>surrogateMothers</identifier>
   <prefLabel language="en">surrogate mothers</prefLabel>
+  <altLabel language="en">gestational surrogate mothers</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47082,6 +47805,7 @@
   <id>https://homosaurus.org/terms/syphilis</id>
   <identifier>syphilis</identifier>
   <prefLabel language="en">syphilis</prefLabel>
+  <altLabel language="en">lues</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47104,6 +47828,7 @@
   <id>https://homosaurus.org/terms/tabloids</id>
   <identifier>tabloids</identifier>
   <prefLabel language="en">tabloids</prefLabel>
+  <altLabel language="en">tabloid press</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47140,6 +47865,8 @@
   <id>https://homosaurus.org/terms/talkShows</id>
   <identifier>talkShows</identifier>
   <prefLabel language="en">talk shows</prefLabel>
+  <altLabel language="en">television talk shows</altLabel>
+  <altLabel language="en">radio talk shows</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47162,6 +47889,7 @@
   <id>https://homosaurus.org/terms/tanakh</id>
   <identifier>tanakh</identifier>
   <prefLabel language="en">tanakh</prefLabel>
+  <altLabel language="en">tenach</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47184,6 +47912,8 @@
   <id>https://homosaurus.org/terms/tantra</id>
   <identifier>tantra</identifier>
   <prefLabel language="en">tantra</prefLabel>
+  <altLabel language="en">tantrism</altLabel>
+  <altLabel language="en">tantricism</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47256,6 +47986,7 @@
   <id>https://homosaurus.org/terms/taxation</id>
   <identifier>taxation</identifier>
   <prefLabel language="en">taxation</prefLabel>
+  <altLabel language="en">taxes</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47274,6 +48005,7 @@
   <id>https://homosaurus.org/terms/taxiDrivers</id>
   <identifier>taxiDrivers</identifier>
   <prefLabel language="en">taxi drivers</prefLabel>
+  <altLabel language="en">cab drivers</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47362,6 +48094,7 @@
   <id>https://homosaurus.org/terms/technology</id>
   <identifier>technology</identifier>
   <prefLabel language="en">technology</prefLabel>
+  <altLabel language="en">applied science</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47459,6 +48192,8 @@
   <id>https://homosaurus.org/terms/telecommuting</id>
   <identifier>telecommuting</identifier>
   <prefLabel language="en">telecommuting</prefLabel>
+  <altLabel language="en">telework</altLabel>
+  <altLabel language="en">electronic outwork</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47482,6 +48217,7 @@
   <id>https://homosaurus.org/terms/television</id>
   <identifier>television</identifier>
   <prefLabel language="en">television</prefLabel>
+  <altLabel language="en">tv</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47552,6 +48288,8 @@
   <id>https://homosaurus.org/terms/televisionProgrammes</id>
   <identifier>televisionProgrammes</identifier>
   <prefLabel language="en">television programmes</prefLabel>
+  <altLabel language="en">television programs</altLabel>
+  <altLabel language="en">television shows</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47670,6 +48408,7 @@
   <id>https://homosaurus.org/terms/testes</id>
   <identifier>testes</identifier>
   <prefLabel language="en">testes</prefLabel>
+  <altLabel language="en">testicles</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47732,6 +48471,8 @@
   <id>https://homosaurus.org/terms/thaiBoxing</id>
   <identifier>thaiBoxing</identifier>
   <prefLabel language="en">thai boxing</prefLabel>
+  <altLabel language="en">muay thai</altLabel>
+  <altLabel language="en">thai kickboxing</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47750,6 +48491,7 @@
   <id>https://homosaurus.org/terms/theatre</id>
   <identifier>theatre</identifier>
   <prefLabel language="en">theatre</prefLabel>
+  <altLabel language="en">theater</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47866,6 +48608,7 @@
   <id>https://homosaurus.org/terms/theatreShows</id>
   <identifier>theatreShows</identifier>
   <prefLabel language="en">theatre shows</prefLabel>
+  <altLabel language="en">revues</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47906,6 +48649,7 @@
   <id>https://homosaurus.org/terms/theft</id>
   <identifier>theft</identifier>
   <prefLabel language="en">theft</prefLabel>
+  <altLabel language="en">stealing</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -47928,6 +48672,7 @@
   <id>https://homosaurus.org/terms/theologians</id>
   <identifier>theologians</identifier>
   <prefLabel language="en">theologians</prefLabel>
+  <altLabel language="en">theologists</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -48310,6 +49055,8 @@
   <id>https://homosaurus.org/terms/tourOperators</id>
   <identifier>tourOperators</identifier>
   <prefLabel language="en">tour operators</prefLabel>
+  <altLabel language="en">tour managers</altLabel>
+  <altLabel language="en">tour leaders</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -48336,6 +49083,7 @@
   <id>https://homosaurus.org/terms/tourism</id>
   <identifier>tourism</identifier>
   <prefLabel language="en">tourism</prefLabel>
+  <altLabel language="en">tourism industry</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -48438,6 +49186,7 @@
   <id>https://homosaurus.org/terms/trade</id>
   <identifier>trade</identifier>
   <prefLabel language="en">trade</prefLabel>
+  <altLabel language="en">commerce</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -48508,6 +49257,9 @@
   <id>https://homosaurus.org/terms/tradeUnions</id>
   <identifier>tradeUnions</identifier>
   <prefLabel language="en">trade unions</prefLabel>
+  <altLabel language="en">trade union movement</altLabel>
+  <altLabel language="en">labour unions</altLabel>
+  <altLabel language="en">unions</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -48572,6 +49324,8 @@
   <id>https://homosaurus.org/terms/traditionalMedicine</id>
   <identifier>traditionalMedicine</identifier>
   <prefLabel language="en">traditional medicine</prefLabel>
+  <altLabel language="en">home remedies</altLabel>
+  <altLabel language="en">folk medicine</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -48591,6 +49345,7 @@
   <id>https://homosaurus.org/terms/trainingPrograms</id>
   <identifier>trainingPrograms</identifier>
   <prefLabel language="en">training programs</prefLabel>
+  <altLabel language="en">training courses</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -48807,6 +49562,7 @@
   <id>https://homosaurus.org/terms/transgenderInformationCentres</id>
   <identifier>transgenderInformationCentres</identifier>
   <prefLabel language="en">transgender information centres</prefLabel>
+  <altLabel language="en">transgender documentation centres</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -48896,6 +49652,8 @@
   <id>https://homosaurus.org/terms/transgenderPeople</id>
   <identifier>transgenderPeople</identifier>
   <prefLabel language="en">transgender people</prefLabel>
+  <altLabel language="en">transgendered people</altLabel>
+  <altLabel language="en">transgenders</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -49311,6 +50069,7 @@
   <id>https://homosaurus.org/terms/transport</id>
   <identifier>transport</identifier>
   <prefLabel language="en">transport</prefLabel>
+  <altLabel language="en">transportation</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -49341,6 +50100,8 @@
   <id>https://homosaurus.org/terms/transportCompanies</id>
   <identifier>transportCompanies</identifier>
   <prefLabel language="en">transport companies</prefLabel>
+  <altLabel language="en">transportation companies</altLabel>
+  <altLabel language="en">transportation industry</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -49363,6 +50124,7 @@
   <id>https://homosaurus.org/terms/transportationOccupations</id>
   <identifier>transportationOccupations</identifier>
   <prefLabel language="en">transportation occupations</prefLabel>
+  <altLabel language="en">transportation-related occupations</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -49401,6 +50163,8 @@
   <id>https://homosaurus.org/terms/transsexualPeople</id>
   <identifier>transsexualPeople</identifier>
   <prefLabel language="en">transsexual people</prefLabel>
+  <altLabel language="en">transexuals</altLabel>
+  <altLabel language="en">transsexuals</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -49423,6 +50187,8 @@
   <id>https://homosaurus.org/terms/transsexualism</id>
   <identifier>transsexualism</identifier>
   <prefLabel language="en">transsexualism</prefLabel>
+  <altLabel language="en">transsexuality</altLabel>
+  <altLabel language="en">transexuality</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -49541,6 +50307,7 @@
   <id>https://homosaurus.org/terms/travelGuides</id>
   <identifier>travelGuides</identifier>
   <prefLabel language="en">travel guides</prefLabel>
+  <altLabel language="en">tour books</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -49582,6 +50349,8 @@
   <id>https://homosaurus.org/terms/tribadism</id>
   <identifier>tribadism</identifier>
   <prefLabel language="en">tribadism</prefLabel>
+  <altLabel language="en">scissoring</altLabel>
+  <altLabel language="en">humping</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -49609,6 +50378,7 @@
   <id>https://homosaurus.org/terms/trichomonas</id>
   <identifier>trichomonas</identifier>
   <prefLabel language="en">trichomonas</prefLabel>
+  <altLabel language="en">trichomonas vaginitis</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -49646,6 +50416,8 @@
   <id>https://homosaurus.org/terms/tuberculosis</id>
   <identifier>tuberculosis</identifier>
   <prefLabel language="en">tuberculosis</prefLabel>
+  <altLabel language="en">tbc</altLabel>
+  <altLabel language="en">tb</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -49700,6 +50472,9 @@
   <id>https://homosaurus.org/terms/two-spiritPeople</id>
   <identifier>two-spiritPeople</identifier>
   <prefLabel language="en">two-spirit people</prefLabel>
+  <altLabel language="en">bardaches</altLabel>
+  <altLabel language="en">niizh manidoowag</altLabel>
+  <altLabel language="en">berdaches</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -49800,6 +50575,7 @@
   <id>https://homosaurus.org/terms/unemploymentInsurance</id>
   <identifier>unemploymentInsurance</identifier>
   <prefLabel language="en">unemployment insurance</prefLabel>
+  <altLabel language="en">unemployment benefits</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -49844,6 +50620,7 @@
   <id>https://homosaurus.org/terms/unitedNations</id>
   <identifier>unitedNations</identifier>
   <prefLabel language="en">united nations</prefLabel>
+  <altLabel language="en">UN</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -49942,6 +50719,7 @@
   <id>https://homosaurus.org/terms/upbringing</id>
   <identifier>upbringing</identifier>
   <prefLabel language="en">upbringing</prefLabel>
+  <altLabel language="en">child rearing</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -50019,6 +50797,8 @@
   <id>https://homosaurus.org/terms/uteri</id>
   <identifier>uteri</identifier>
   <prefLabel language="en">uteri</prefLabel>
+  <altLabel language="en">wombs</altLabel>
+  <altLabel language="en">uteruses</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -50063,6 +50843,7 @@
   <id>https://homosaurus.org/terms/vaccination</id>
   <identifier>vaccination</identifier>
   <prefLabel language="en">vaccination</prefLabel>
+  <altLabel language="en">inoculation</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -50085,6 +50866,7 @@
   <id>https://homosaurus.org/terms/vaginalPhotoplethysmograph</id>
   <identifier>vaginalPhotoplethysmograph</identifier>
   <prefLabel language="en">vaginal photoplethysmograph</prefLabel>
+  <altLabel language="en">vaginal response measurement</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -50164,6 +50946,7 @@
   <id>https://homosaurus.org/terms/vaginismus</id>
   <identifier>vaginismus</identifier>
   <prefLabel language="en">vaginismus</prefLabel>
+  <altLabel language="en">vaginism</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -50187,6 +50970,8 @@
   <id>https://homosaurus.org/terms/vampirism</id>
   <identifier>vampirism</identifier>
   <prefLabel language="en">vampirism</prefLabel>
+  <altLabel language="en">vampire sex</altLabel>
+  <altLabel language="en">blood sports</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -50205,6 +50990,8 @@
   <id>https://homosaurus.org/terms/vandalism</id>
   <identifier>vandalism</identifier>
   <prefLabel language="en">vandalism</prefLabel>
+  <altLabel language="en">destruction of property</altLabel>
+  <altLabel language="en">property destruction</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -50235,6 +51022,7 @@
   <id>https://homosaurus.org/terms/vatican</id>
   <identifier>vatican</identifier>
   <prefLabel language="en">vatican</prefLabel>
+  <altLabel language="en">pope and curia</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -50279,6 +51067,7 @@
   <id>https://homosaurus.org/terms/verbalAbuse</id>
   <identifier>verbalAbuse</identifier>
   <prefLabel language="en">verbal abuse</prefLabel>
+  <altLabel language="en">verbal harassment</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -50309,6 +51098,7 @@
   <id>https://homosaurus.org/terms/veterans</id>
   <identifier>veterans</identifier>
   <prefLabel language="en">veterans</prefLabel>
+  <altLabel language="en">ex-military personnel</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -50393,6 +51183,7 @@
   <id>https://homosaurus.org/terms/victimAdviceCounselors</id>
   <identifier>victimAdviceCounselors</identifier>
   <prefLabel language="en">victim advice counselors</prefLabel>
+  <altLabel language="en">victim advocates</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -50446,6 +51237,7 @@
   <id>https://homosaurus.org/terms/victimsOfCrime</id>
   <identifier>victimsOfCrime</identifier>
   <prefLabel language="en">victims of crime</prefLabel>
+  <altLabel language="en">crime victims</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -50484,6 +51276,7 @@
   <id>https://homosaurus.org/terms/victimsOfHateCrimes</id>
   <identifier>victimsOfHateCrimes</identifier>
   <prefLabel language="en">victims of hate crimes</prefLabel>
+  <altLabel language="en">hate crime victims</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -50510,6 +51303,9 @@
   <id>https://homosaurus.org/terms/victimsOfSexualAbuse</id>
   <identifier>victimsOfSexualAbuse</identifier>
   <prefLabel language="en">victims of sexual abuse</prefLabel>
+  <altLabel language="en">sexual abuse victims</altLabel>
+  <altLabel language="en">victims of sex crimes</altLabel>
+  <altLabel language="en">sexual violence victims</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -50544,6 +51340,7 @@
   <id>https://homosaurus.org/terms/victimsOfWar</id>
   <identifier>victimsOfWar</identifier>
   <prefLabel language="en">victims of war</prefLabel>
+  <altLabel language="en">war victims</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -50924,6 +51721,7 @@
   <id>https://homosaurus.org/terms/visualDisabilities</id>
   <identifier>visualDisabilities</identifier>
   <prefLabel language="en">visual disabilities</prefLabel>
+  <altLabel language="en">visual impairments</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51057,6 +51855,8 @@
   <id>https://homosaurus.org/terms/volunteering</id>
   <identifier>volunteering</identifier>
   <prefLabel language="en">volunteering</prefLabel>
+  <altLabel language="en">volunteer work</altLabel>
+  <altLabel language="en">volunteerism</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51079,6 +51879,7 @@
   <id>https://homosaurus.org/terms/volunteers</id>
   <identifier>volunteers</identifier>
   <prefLabel language="en">volunteers</prefLabel>
+  <altLabel language="en">volunteer workers</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51115,6 +51916,8 @@
   <id>https://homosaurus.org/terms/voyeurism</id>
   <identifier>voyeurism</identifier>
   <prefLabel language="en">voyeurism</prefLabel>
+  <altLabel language="en">scoptophilia</altLabel>
+  <altLabel language="en">scopophilia</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51151,6 +51954,7 @@
   <id>https://homosaurus.org/terms/wages</id>
   <identifier>wages</identifier>
   <prefLabel language="en">wages</prefLabel>
+  <altLabel language="en">salaries</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51187,6 +51991,8 @@
   <id>https://homosaurus.org/terms/wanking</id>
   <identifier>wanking</identifier>
   <prefLabel language="en">wanking</prefLabel>
+  <altLabel language="en">jerking off</altLabel>
+  <altLabel language="en">wacking off</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51274,6 +52080,10 @@
   <id>https://homosaurus.org/terms/waterSports</id>
   <identifier>waterSports</identifier>
   <prefLabel language="en">water sports</prefLabel>
+  <altLabel language="en">urolagnia</altLabel>
+  <altLabel language="en">pissing sex</altLabel>
+  <altLabel language="en">golden showers</altLabel>
+  <altLabel language="en">undinism</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51316,6 +52126,7 @@
   <id>https://homosaurus.org/terms/webcams</id>
   <identifier>webcams</identifier>
   <prefLabel language="en">webcams</prefLabel>
+  <altLabel language="en">webcameras</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51437,6 +52248,7 @@
   <id>https://homosaurus.org/terms/welfareBenefits</id>
   <identifier>welfareBenefits</identifier>
   <prefLabel language="en">welfare benefits</prefLabel>
+  <altLabel language="en">social benefits</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51459,6 +52271,8 @@
   <id>https://homosaurus.org/terms/westernCultures</id>
   <identifier>westernCultures</identifier>
   <prefLabel language="en">western cultures</prefLabel>
+  <altLabel language="en">western civilisation</altLabel>
+  <altLabel language="en">western civilization</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51497,6 +52311,7 @@
   <id>https://homosaurus.org/terms/whitePeople</id>
   <identifier>whitePeople</identifier>
   <prefLabel language="en">white people</prefLabel>
+  <altLabel language="en">caucasians</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51515,6 +52330,8 @@
   <id>https://homosaurus.org/terms/widowedPeople</id>
   <identifier>widowedPeople</identifier>
   <prefLabel language="en">widowed people</prefLabel>
+  <altLabel language="en">widowers</altLabel>
+  <altLabel language="en">widows</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51560,6 +52377,7 @@
   <id>https://homosaurus.org/terms/wills</id>
   <identifier>wills</identifier>
   <prefLabel language="en">wills</prefLabel>
+  <altLabel language="en">testaments</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51668,6 +52486,8 @@
   <id>https://homosaurus.org/terms/women</id>
   <identifier>women</identifier>
   <prefLabel language="en">women</prefLabel>
+  <altLabel language="en">womyn</altLabel>
+  <altLabel language="en">wimmin</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51710,6 +52530,8 @@
   <id>https://homosaurus.org/terms/womenInTraditionallyMale-dominatedOccupations</id>
   <identifier>womenInTraditionallyMale-dominatedOccupations</identifier>
   <prefLabel language="en">women in traditionally male-dominated occupations</prefLabel>
+  <altLabel language="en">women in male professions</altLabel>
+  <altLabel language="en">women in men's jobs</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51732,6 +52554,7 @@
   <id>https://homosaurus.org/terms/womenWhoHaveSexWithWomen</id>
   <identifier>womenWhoHaveSexWithWomen</identifier>
   <prefLabel language="en">women who have sex with women</prefLabel>
+  <altLabel language="en">wsw</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51839,6 +52662,7 @@
   <id>https://homosaurus.org/terms/womensFriendships</id>
   <identifier>womensFriendships</identifier>
   <prefLabel language="en">women's friendships</prefLabel>
+  <altLabel language="en">female friendships</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51861,6 +52685,7 @@
   <id>https://homosaurus.org/terms/womensInformationCentres</id>
   <identifier>womensInformationCentres</identifier>
   <prefLabel language="en">women's information centres</prefLabel>
+  <altLabel language="en">women's documentation centres</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51920,6 +52745,7 @@
   <id>https://homosaurus.org/terms/womensMovement</id>
   <identifier>womensMovement</identifier>
   <prefLabel language="en">women's movement</prefLabel>
+  <altLabel language="en">feminist movement</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -51962,6 +52788,10 @@
   <id>https://homosaurus.org/terms/womensMusic</id>
   <identifier>womensMusic</identifier>
   <prefLabel language="en">women's music</prefLabel>
+  <altLabel language="en">wimmin's music</altLabel>
+  <altLabel language="en">womyn's music</altLabel>
+  <altLabel language="en">lesbian music</altLabel>
+  <altLabel language="en">women-identified music</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -52007,6 +52837,7 @@
   <id>https://homosaurus.org/terms/womensOrganisations</id>
   <identifier>womensOrganisations</identifier>
   <prefLabel language="en">women's organisations</prefLabel>
+  <altLabel language="en">women's organizations</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -52205,6 +53036,7 @@
   <id>https://homosaurus.org/terms/worldWarI</id>
   <identifier>worldWarI</identifier>
   <prefLabel language="en">world war I</prefLabel>
+  <altLabel language="en">first world war</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -52224,6 +53056,7 @@
   <id>https://homosaurus.org/terms/worldWarII</id>
   <identifier>worldWarII</identifier>
   <prefLabel language="en">world war II</prefLabel>
+  <altLabel language="en">second world war</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -52265,6 +53098,7 @@
   <id>https://homosaurus.org/terms/writers</id>
   <identifier>writers</identifier>
   <prefLabel language="en">writers</prefLabel>
+  <altLabel language="en">authors</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -52287,6 +53121,7 @@
   <id>https://homosaurus.org/terms/xenophobia</id>
   <identifier>xenophobia</identifier>
   <prefLabel language="en">xenophobia</prefLabel>
+  <altLabel language="en">zenophobia</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -52339,6 +53174,10 @@
   <id>https://homosaurus.org/terms/youth</id>
   <identifier>youth</identifier>
   <prefLabel language="en">youth</prefLabel>
+  <altLabel language="en">teenagers</altLabel>
+  <altLabel language="en">adolescents</altLabel>
+  <altLabel language="en">pubescents</altLabel>
+  <altLabel language="en">young people</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -52524,6 +53363,8 @@
   <id>https://homosaurus.org/terms/youthLiterature</id>
   <identifier>youthLiterature</identifier>
   <prefLabel language="en">youth literature</prefLabel>
+  <altLabel language="en">young adult literature</altLabel>
+  <altLabel language="en">children's books</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -52560,6 +53401,7 @@
   <id>https://homosaurus.org/terms/youthOrganisations</id>
   <identifier>youthOrganisations</identifier>
   <prefLabel language="en">youth organisations</prefLabel>
+  <altLabel language="en">youth organizations</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -52616,6 +53458,7 @@
   <id>https://homosaurus.org/terms/youthTheatre</id>
   <identifier>youthTheatre</identifier>
   <prefLabel language="en">youth theatre</prefLabel>
+  <altLabel language="en">young people's theatre</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -52679,6 +53522,7 @@
   <id>https://homosaurus.org/terms/zoningPlans</id>
   <identifier>zoningPlans</identifier>
   <prefLabel language="en">zoning plans</prefLabel>
+  <altLabel language="en">districting plans</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -52701,6 +53545,7 @@
   <id>https://homosaurus.org/terms/zoophilia</id>
   <identifier>zoophilia</identifier>
   <prefLabel language="en">zoophilia</prefLabel>
+  <altLabel language="en">bestiality</altLabel>
   <issued>
     <value>2015-11-30</value>
     <name>xsd:date</name>
@@ -52723,6 +53568,7 @@
   <id>https://homosaurus.org/terms/dictatorships</id>
   <identifier>dictatorships</identifier>
   <prefLabel language="en">dictatorships</prefLabel>
+  <altLabel language="en">absolutism</altLabel>
   <issued>
     <value>2015-12-03</value>
     <name>xsd:date</name>

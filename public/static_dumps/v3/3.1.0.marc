@@ -12,6 +12,4395 @@
   <datafield tag="150" ind1=" " ind2=" ">
     <subfield code="a">5-alpha reductase deficiency</subfield>
   </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">5-ARD</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Aboriginal people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Aboriginal Australian people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Aboriginal Australian people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Aboriginal Australians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Aboriginal people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Aboriginals</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ace</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Acquired immune deficiency syndrome</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">AIDS</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Acquired immunodeficiency syndrome</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">HIV</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Human immunodeficiency virus</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Activism (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Political activists (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Activists (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Actors (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Actresses (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ actors</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Adult entertainment industry</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Commercial sex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sex trade</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Adult entertainment stores</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Adult films (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Porn videos (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">X-rated films (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Porn films (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Adult movie theatres</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Adult cinemas</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Adult movie theaters</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Erotic cinemas</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Erotic theaters</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Erotic theatres</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sex theaters</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sex theatres</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">African Americans (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ African American people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ African Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Afro-Canadian people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Afro-Canadians (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Afro-Canadian people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Afro-Canadians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Afro-Caribbean people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Afro-Caribbeans (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Afro-Caribbean people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Afro-Caribbeans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Afro-European people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Afro-Europeans (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Afro-European people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Afro-Europeans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Afro-Latin American people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Afro-Latin Americans (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Afro-Latin American people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Afro-Latin Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">ABDL</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ageplay</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Infantilism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Agi</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">AIDSphobia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fear of AIDS</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">AIDS Related Complex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">ARC</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">AIDS ribbons</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Red ribbons</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Algolagnia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">S&amp;M</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">SM</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexual Torture</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">AIS</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Goldberg-Maxwell syndrome</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Male androgen insensitivity syndrome</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Anglicans (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Church of England</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Episcopalians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Anglicans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Analingus</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay bashing</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian bashing</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Anti-LGBTQ violence</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Penile agenesis</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Aruvani</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ archives</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Archives (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Arrests of LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fertilisation</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fertilization</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Artists (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Aces</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Asian American people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Asian Americans (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Asian American people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Asian Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Asian people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Asians (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Asian people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Asians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Asphyxiophilia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Autoerotic asphyxia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hypoxyphilia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Strangulation sex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Butt fucking</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">AFAB</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Assigned F at birth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Designated female at birth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">DFAB</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Female assigned at birth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">FAAB</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">AMAB</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Assigned M at birth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Designated male at birth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">DMAB</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Male assigned at birth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">MAAB</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Assimilation</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Assplay</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Atheists (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Erotic bondage</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexual bondage </subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Backrooms</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ballroom community</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ballroom culture</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ballroom scene</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Drag ball culture</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">House-ballroom culture</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ballroom houses</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Baptists (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Baptists</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bardache</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bars (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Beaches (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bear men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bears</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bias-related crimes</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bigotry towards LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Prejudice towards LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Intolerance towards LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Biological essentialism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Birth gender</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Natal gender</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">GAAB</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Assigned gender at birth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">AGAB</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Designated gender at birth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">DGAB</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gender at birth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual African American people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual African Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Afro-Canadian people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Afro-Canadians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Afro-Caribbean people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Afro-Caribbeans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Afro-European people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Afro-Europeans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Afro-Latin Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Asian American people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Asian Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Asian people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Asians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Black people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Jews</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Jewish bisexuals</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Latinas</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Latine people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Latinos</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Latinx people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latina bisexual people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latine bisexual people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latino bisexual people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latinx bisexual people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual marriage</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual masters</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Male bisexuals</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">American Indian bisexual people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual American Indians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Native Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexuals</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual people&#x2019;s parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual teenagers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual adolescents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual teens</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual Caucasian people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual white people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Black people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Black people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Blood sports</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Vampire sex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Blow jobs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cocksucking</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Penilingus</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Blow up dolls</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Inflatable dolls</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Body decoration</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Body alteration</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Body modification</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bookstores (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bookshops (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bottoms</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Catchers (Sex)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Catchers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Boobs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bosoms</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bosom</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Tits</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Titties</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Boob</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Breasts</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Tit</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Titty</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bordellos</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Brothaboys</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Buddhists (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Buddies</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Buddy care for LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Buggers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Arse</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ass</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bum</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Buttock</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Buttocks</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Anal dilators</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Anal inserts</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Anal plugs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Buttplugs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Call boys</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gigolos</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Male hustlers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Rent boys</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Taxi boys</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Calvinists (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Calvinists</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Camp</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Carpet munching</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cunt licking</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Eating pussy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Muff diving</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Castrati</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Promiscuity</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Caucasians (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">White people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Caucasian LGBTQ+ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Caucasian people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ white people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Change of name</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Characters (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Chemical dependency</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latinas (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latinos (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latine people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latinx people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Latinas</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Latine people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Latinos</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Latinx people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Guardianship</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Parental custody</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Tutelage</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Kids</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Children (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Children of LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Christians (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Chubs (Gay men)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Chubs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Circumcised men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cis people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Civil partnership</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Registered partnership</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ rights</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Civil rights (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Clients of prostitutes</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Johns</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Tricks</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Clitorectomy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Female circumcision</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Enlarged clitoris</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Clones (Gay men)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Clones</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Stealth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Club drugs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Colonic irrigation</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Communities (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Prophylactics</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Rubbers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Confucianists (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Confucianists</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">CAH</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Reparative therapy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Reorientation therapy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexual reorientation therapy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Co-parent adoption</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Coprophilia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Coprolagnia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Extrementophilia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fecalphilia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fecophilia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Poop fetish</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Poop fetishism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Poop kink</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Scat fetish</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Scat fetishism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Scat kink</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Scat</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Scatophilia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bondage corsets</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Tightlacing</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Public urinals</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cottages</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cottaging</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Couples (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Crime victims (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ victims of crime</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Intercultural relationships</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Interracial relationships</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cross-dressers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cross-gender hormone therapy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hormone reassignment therapy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hormone replacement therapy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Tina</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cubs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Culturally-specific gender identities</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Semen</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Internet sex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Online sex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Dating apps</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Daughters (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Deaf people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ auditive disabled people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ deaf</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ deaf-mutes</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ deaf people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Defamation against groups</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Group defamation</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Group libel</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latex barriers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Detention of LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Detention of LGBTQ people under a hospital order</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">DSM</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Diagnostic and Statistical Manual of Mental Disorders</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Differences in sex development</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Divergences in sex development</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">DSDs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hermaphroditism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Intersexuality</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Variations in sex development</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">VSDs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Intersexual</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Strap-ons</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Discrimination (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a"> Disorders of sex development</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Same-sex pension benefits</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Dominatrices (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ D-types</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Dommes</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Mistresses</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Drama (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Drug addiction</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Drug dependence</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Drug users (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ people who drink</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ people who use drugs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Substance users (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Alcohol use (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Alcohol use in LGBTQ+ communities</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Drug use (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Drug use in LGBTQ+ communities</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ substance use</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Substance use (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbros</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Dyke culture</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Eastern Orthodox Christians (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Orthodox Eastern Christians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Eastern Orthodox Christians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ecstacy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Molly</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">XTC</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Effeminacy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Femininity</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ego-dystonic homophobia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ego-dystonic homosexuality</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Elderly (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Senior citizens (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Seniors (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Older people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Electric shock therapy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Electroconvulsive therapy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Impotence</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Call boys</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Call girls</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Radical Faeries</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Faes</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fags</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fakaleiti</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Families (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Female friendships</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Females transitioning to males</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">FtM transsexuals</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">F2Ms</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transsexual men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Female-to-male</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Feminist movement</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">BDSM</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fetish</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fetishism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Kink</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fiction (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">First wave feminism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fist fucking</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Handballing</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Manual penetration</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Finger banging</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Finger fucking</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Uncircumcision</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Foster parenthood</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay African American people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay African Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Afro-Canadian people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Afro-Canadians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Afro-Caribbean men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Afro-Caribbeans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Afro-European men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Afro-Europeans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Afro-Latin American men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Afro-Latin Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian and gay youth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Asian American people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Asian Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gaysians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Asians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay bathhouses</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay baths</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Black men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay choirs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay pastors</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay discotheques</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay night clubs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay nightclubs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay fathers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Jews</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Jewish gay people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Jewish gays</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Latine</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Latinos</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Latinx</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latine gay men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latino gay men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latinx gay men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay-lesbian relations</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay liberation movement</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay marriage</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian marriage</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gays</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay men's parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay organisations</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay organizations</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">American Indian gay men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay American Indians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Native Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Pink Saturday</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Pink week</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay religious groups</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian religious groups</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ affirming religious groups</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ inclusive religious groups</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+-inclusive religious groups</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay speak</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">GSAs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay teenagers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay adolescents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay teens</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Caucasian gay men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Caucasian men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay white men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay women</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian women</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gender affirmation surgery</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gender confirmation surgery</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gender realignment surgery</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gender reassignment surgery</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sex reassignment surgery</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">SRS</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gender discrimination</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Genderfluidity</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gender-variant identity</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gender roleplay</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Genital reconstruction surgery</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Genitalia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Birth names</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">First names</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Giving head</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Going down</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">GLBT</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Goddess movement (Lesbians)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Goddess religion</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Golden showers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Pissing sex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Undinism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Urolagnia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Clothes wetting</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Omorashi</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Piss play</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Urophilia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Water sports</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Watersports</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Goldilocks</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Orgies</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Guevedoche</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Shaving</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Waxing</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Christmas</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay Halloween</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Handcuff restraints</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hanky codes</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hate crime victims (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Victims of hate crimes (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Medical care for LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Health care for LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hermaphrodites</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Intersexuals</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hermaphroditic people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Intersex-identified people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Intersexual people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Heterocentrism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Heterosexual norms</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Straight boys</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Straight girls</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Straight men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Heterosexual people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Straight people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Heterosexual social relationships</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Heterosocial bonds</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Straight women</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Straight youth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Heterosexual adolescents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Heterosexual teenagers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Heterosexual teens</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Straight adolescents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Straight teenagers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Straight teens</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Jagappa</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hindus (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Hindus</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">HIV-seronegative people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">HIV-seropositive people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">HIV-seroconversion</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">HIV-serodiscordant couples</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">HIV-serostatus</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Homicides of LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Murders of LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Homomonuments</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Monuments (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Homosexual norms</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Homosocial bonds</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Nymphomania</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Satyriasis</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Andromania</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Clitoromania</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Don Juan syndrome</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Don Juanism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Estromania</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Excessive sex drive</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Furor amatorius</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Furor uterinus</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hyper-sexuality</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hyperactive sexual desire disorder</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hyperaesthesia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hypereroticism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hyperlibido</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hyperphilia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hypersensuality</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hypersexual disorder</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Messalina syndrome</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">&#x152;stromania</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Oversexuality</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Satyrism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Satyromania</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexual hyperesthesia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexual hyperversion</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">IVF</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Internet dating</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Interphobia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Intersex conditions</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">IGM</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Intersex adolescents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Intersex teenagers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Intersex teens</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Intimate partner abuse</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Inuit (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Inuit people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Inuit</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Inuit people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexual inverts</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Jehova's Witnesses</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Jehova's Witnesses (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Jehovah's Witnesses</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Jacking off</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Jerking it</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Jews (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Jews</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ladyboy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Kathoey</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">47XXY</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Kteuy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Legislation</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Leather scene</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Leather lifestyle</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Leather</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Leather household</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Leatherdykes</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian African Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian Afro-Canadians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian Afro-Caribbeans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian Afro-Europeans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian Afro-Latin Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian Asian Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian Asians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian choirs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian pastors</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian Jews</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latina lesbians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latine lesbians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latino lesbians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latinx lesbians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian Latinas</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian Latine</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian Latinos</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian organisations</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian organizations</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian music</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Wimmin's music</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Women-identified music</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Womyn's music</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">American Indian lesbians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian Native Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian teenagers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian adolescents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian teens</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Caucasian lesbians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbians' parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ action campaigns</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ adoption</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ adoptive families</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ adoptive parenthood</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ adoptive parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ African religions</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ American Indian religions</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Native American religions</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ art censorship</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ arts</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Asian religions</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ awards</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ biological parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bi-racial people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Biracial people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bi-racial LGBTQ+ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ bi-racial people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ biracial people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ birth parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Blind people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Blind LGBTQ+ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ blogs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ blood donors</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ book censorship</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ book clubs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ books</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ cartoons</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ censorship</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ challenged books</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ chatrooms</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ choirs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ choruses</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ chosen families</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ civil disobedience</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ clubs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ co-fathers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ co-mothers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ co-parenthood</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ co-parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Comics (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ communes</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Conception by LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ conscientious objection</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ cruises</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ dating applications</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ dating websites</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ death and dying</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ death announcements</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ death notices</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ smear campaigns</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ defamation campaigns</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ political marches</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ protests</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ rallies</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ demonstrations</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Mystery and detective fiction (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ direct action</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ divorce</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ domestic violence</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ emancipation</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ emotions</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Erotic literature (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ethnic groups (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">People in ethnic groups (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ ethnic groups</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ events</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ ex-military personnel</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ veterans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ ex-partners</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ family planning</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fantasy fiction (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fatherhood (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ fatherhood</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Paternity (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ paternity</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ film censorship</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ film festivals</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ films</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ foster families</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ foster parenthood</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ foster parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ friendliness</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ graphic novels</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Roma (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Romani people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Roma</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Romani people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ health education</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ historical terms</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Unhoused people (LGBT)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ homeless people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ houseless people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ unsheltered people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ homeless youth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ unhoused adolescents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ unhoused teenagers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ unsheltered youth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ hotels</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ immigration rights</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ imprisonment</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ victims of incest</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ incest victims</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Indigenous people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Indigenous people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ inmates</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Prisoners (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ prisoners</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Internet forums</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ intimacy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Judaism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ literary awards</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ literary salons</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ lobbying</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ love</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Love (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lovers (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ lovers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ magazines</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ manga</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ M&#x101;ori people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">M&#x101;ori (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">M&#x101;ori LGBTQ+ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ marketing</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ meeting places</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ memorials</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Migrants (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ migrants</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Multi-racial people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Multiracial people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ mixed-race people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ multi-racial people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ multiracial people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Mixed-race LGBTQ+ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Multi-racial LGBTQ+ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Mormons (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Mormons</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ motherhood</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Maternity (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Motherhood (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ maternity</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ motorcycle clubs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ museums</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Musicians (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ musicians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ night life</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ nonviolent resistance</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ obituaries</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Old Catholic Church</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Papuans (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Papuan people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Papuan people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Papuans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Parenting</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ parenthood</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">People (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">People with physical disabilities (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people with physical disabilities</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people with visual impairments</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">People with visual disabilities (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Visually disabled LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people with visual disabilities</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ personal and family law</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ petitions</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ phobia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ platonic love</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queerplatonic</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ stage performances</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ plays</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ porn magazines</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Prisoners of conscience (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ prisoners of conscience</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ public houses</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ pubs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Religious Society of Friends</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Society of Friends</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Quakers (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Quakers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Refugees (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ refugees</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ religions</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ resorts</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ restaurants</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ retirement homes</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ riots</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ schools</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Schools for LGBTQ youth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Science fiction (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ self-repression</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Marital separation (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ separation</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ sexual abuse</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Shamans (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ shamans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Shinto</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Shintoists (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Shintoists</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ single fathers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ single mothers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ single parent families</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ single parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Social parenthood (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ social media</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ social processes</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ spirituality</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ sporting events</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ sports clubs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ students' clubs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ suicide</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ support groups</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ symbols</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Taoists (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ Taoists</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ tourism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ unrequited love</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ victims of rape</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Rape victims (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Victims of rape (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexual abuse victims (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexual violence victims (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Victims of sex crimes (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Victims of sexual abuse (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Visibility of LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ visibility</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ war victims</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Victims of war (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ websites</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ weddings</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Weddings (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ zines</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sex drive</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Libraries (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Literature (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Locations for sex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Machos</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Mahu</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Male friendships</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Males transitioning to females</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">MtF transsexuals</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Male-to-female</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">M2Fs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transsexual women</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Matrimonial law</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Masculinity</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Masters (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ D-types</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Doms</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ masters</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Maternity</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">MCC</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Pharmaceuticals</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">MSM</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Mental illnesses</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Psychiatric disorders</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Mental health care for LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Microphallus</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Mistresses (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ mistresses</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Movement (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Mukhannaths</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Museums (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Musicals (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Muslims (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">American Indians (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Native Americans (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">American Indian LGBTQ+ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ American Indians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Native Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Naturism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Neotantra</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Newsletters (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Newspapers (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Nipple sex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Nonbinary people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Enbies</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">NB-ies</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Nudes</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">One-parent families</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexual reform organizations</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexual research organizations</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Otter men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Otters</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">True hermaphroditism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">"Ovotesticular DSD "</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Pagans (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Omnisexual</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Parents (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer people's parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender people's parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">PAIS</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Partners (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Paternity</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Peepshows</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Penile response measurement</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Phallometry</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cock</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Dick</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Dong</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Penises</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Phallus</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Prick</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Wang</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">People in the military (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Persecutions (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Telephone sex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Phone sex operators</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Physical health care for LGBTQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Poetry (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cops</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Harrassment by police</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Misconduct by police</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Mistreatment by police</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Police misconduct</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Police mistreatment</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Dawn raids</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">No-knock raids</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Tape head cleaner</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Porno industry</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Pornography industry</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Pornographic actors</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Pornstars</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Pre-exposure prophylaxis</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Press (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Personal pronouns</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Protestants (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Changing room bans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Locker room bans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Restroom bans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Public restrooms</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Toilets</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Publishers (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Puppers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Puppies</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">QPOC</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queens</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer African American people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer African Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Afro-Canadian people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Afro-Canadians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Afro-Caribbean people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Afro-Caribbeans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Afro-European people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Afro-Europeans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Afro-Latin American people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Afro-Latin Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Asian American people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Asian Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Asian people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Asians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Black people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Jewish queers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Jews</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latina queer people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latine queer people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latino queer people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latinx queer people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Latinas</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Latine people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Latinos</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Latinx people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer masters</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">American Indian queer people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer American Indians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Native Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer teenagers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer adolescents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer teens</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay theology</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ theology</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian theology</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Caucasian queer people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer Caucasian people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer white people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Radio (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Baker flags</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Reading (Transgender)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Shared motherhood</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Relationships (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Shibari</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Roman Catholics (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Rubber and latex sex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Rubber sex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Rubbersex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Rubber subculture</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">SGL</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Scopophilia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Scoptophilia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Second wave feminism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Temptation</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sht</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Birth sex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Birth-assigned sex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Natal sex</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sex at birth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sex reported at birth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">ASAB </subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">SAAB</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexual scandals</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sex workers (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ people with sex addictions</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexual arousal</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexual criminal codes</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexual malfunction</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexually abused LGBTQ children</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexually transmitted diseases</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">VD</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Venereal diseases</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">STIs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sexually transmitted infections</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Singles</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sissy boys</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sistagirls</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Situational homosexuality</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Slang (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ S-type</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Slaves</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ Subs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sons (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Stonewall uprising</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Stripteasers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Survivors of anti-LGBTQ violence</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Survivors of hate crimes (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Survivors of rape (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Survivors of sexual abuse (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Survivors of war (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Switches</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">XY Gonadal dysgenesis</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Tearooms</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Television (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Testicles</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Balls</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Nuts</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Testes</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Testis</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Theology (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Tongzhis</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Pitchers (Sex)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Pitchers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Tops</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Trans people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgendered people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transpeople</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Trans-people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender-identified people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Trans-identified people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Trans* people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender marches</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transexuality</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transexuals</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transsexuals</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender African American people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender African Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Afro-Canadian people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Afro-Canadians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Afro-Caribbean people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Afro-Caribbeans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Afro-European people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Afro-Europeans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Afro-Latin American people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Afro-Latin Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Asian American people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Asian Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Asian people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Asians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Black people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">TDOR</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">TDoR</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Trans Day of Remembrance</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender documentation centers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Jews</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latina transgender people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latine transgender people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latino transgender people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Latinx transgender people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Latinas</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Latine people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Latinos</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Latinx people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender masters</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">American Indian transgender people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender American Indians</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Native Americans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender teenagers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender adolescents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender teens</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Caucasian transgender people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender Caucasian people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender white people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transitioning (Transgender)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Travesti</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Tucking</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Twinkies</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Twinks</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">2S people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two Spirit people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two Spirited people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two-Spirited people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Uncircumcised men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Undocumented LGBTQ residents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Urnings</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cunt</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Pussy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Snatch</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Twat</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Vag</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Vaginas</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Vaginism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Victims' rights (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Vogueing</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Voice therapy (Transgender)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Voice therapy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Wakatane</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Whakawahine</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Widowers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Widows</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Winkte</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Wolves</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">WSW</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Khanith</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Xanith</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Xaniths</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ji&#x101;nx&#xEC;ngr&#xE9;n</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Yin-yang ren</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Yinyang ren</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Yinyangren</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Adolescents (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Teenagers (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Teens (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Youth (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ adolescents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ teenagers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ teens</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Young adult literature (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Youth literature (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">12-step groups</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">ACA</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">ACOA</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">AA</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cocaine abuse</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cocaine misuse</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cocaine use disorder</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Crack abuse</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Crack addiction</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">CA</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Crystal meth misuse</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Crystal meth abuse</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Methamphetamine misuse</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Methamphetamine abuse</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">CMA</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Clinical erotomania</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">De Cl&#xE9;rambault syndrome</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">De Cl&#xE9;rambault's syndrome</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Obsessional erotomania</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Primary erotomania</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ people with cybersex addictions</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ people with internet sexual addictions</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ people with porn addictions</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ people with pornography addictions</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Alcoholics (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ alcoholics</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ children of alcoholics</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ partners of alcoholics</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people in Adult Children of Alcoholics</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people in Al-Anon</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people in AA</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people in Alcoholics Anonymous</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people in CA</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people in Cocaine Anonymous</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people in CMA</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people in Crystal Meth Anonymous</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people in NA</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people in Narcotics Anonymous</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people in recovery</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ people with addictions</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">12 step programs (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Recovery groups (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Step work (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+-affirming 12 step programs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+-affirming step work</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ step work</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">NA</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Trans*</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Uranismus</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Congenital sexual inversion</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Urningism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Uraniadism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Uranianism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Horror fiction (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Romance fiction (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Literary criticism (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Short stories (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Biographies of authors</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Biographies (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Augmentation mammaplasty</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Augmentation mammoplasty</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Boob job</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Mazophilia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Breast partialism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Mastofact</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Breast fetishism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Breast kink</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Reduction mammaplasty</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Reduction mammoplasty</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Clergy (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Graysexuality</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Grey-sexuality</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gray-sexuality</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Graysexual people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Grey-sexual people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gray-sexual people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hierarchical polyamory</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hierarchical nonmonogamy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gigantomastia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Macromastia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Breast hypertrophy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Breast amputation</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Body part fetish</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Body part fetishism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Partialism</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Partialisms</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Breast hypoplasia</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Underdeveloped breasts</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Wife swapping</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Husband swapping</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Partner swapping</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender women</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transwomen</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Trans-women</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transmen</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Trans-men</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Aromantic</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">AXAB</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Designated X at birth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">DXAB</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">X assigned at birth</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">XAAB</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Straying</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Adultery</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Infidelity</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Affairs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Stepping out</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ethical Non-monogamy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Demiwomen</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Demiwoman</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Demigirl</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Demilady</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Demiladies</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Demifemale people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Demiguy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Demiguys</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Demimen</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Demimales</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Demimale people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Demiboy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Nonmono</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Nonmonogamy</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Tribbing</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ae (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ae/Aer/Aerself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Co (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cy (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cy/Cyb/Cyberself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">E (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">E/Em/Emself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ey (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ey/Em/Eirself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fe (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fe/Fem/Femself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fae (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fae/Faer/Faerself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fey (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Fey/Fem/Femself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">He (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">He/Him (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hu (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Hu/Hum/Humself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">It (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Jee (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Kit (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ne/Nir (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ne/Nir/Nemself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ne/Nem (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ne/Nem/Nis</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Peh (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Peh/Pehm/Pehself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Per (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Per/Pers/Perself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Sie (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Se (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Se/Ser/Serself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">She (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">She/Her (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Shi (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Shi/Hir/Hirself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Si (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Si/Hyr/Hyrself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">They/Them/Themselves</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">They/Them/Themself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Thon (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Thon/Thons/Thonself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ve/Ver (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ve/Ver/Verself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ve/Vem (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ve/Vem/Verself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Voi (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Voi/Void/Voidself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Vi/Ver (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Vi/Ver/Virself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Vi/Vim (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Vi/Vim/Virself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Xie (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Xie/Xer/Xerself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Xe (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Xe/Xyr/Xemself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Xey/Xem/Xyr</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Xey/Xem/Xeir</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Yo (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Yo/Yos/Yosself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ze (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ze/Zir/Zirself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ze/Hir (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ze/Hir/Hirself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ze/Zem (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ze/Zem/Zirself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ze/Mer (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ze/Mer/Zemself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Zee/Zed (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Zee/Zed/Zedself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Zee/Zir (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Zie/Zir/Zirself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Zie/Zem (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Zie/Zem/Zirself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Zie/Hir (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Zie/Hir/Hirself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Zme (Pronouns)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Zme/Zmyr/Zmyrself</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Employment (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Authors (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Autobiographies (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ autobios</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ memoirs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian autobios</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Lesbian memoirs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay autobios</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Gay memoirs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual autobios</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Bisexual memoirs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender autobios</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Transgender memoirs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer autobios</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Queer memoirs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ-owned businesses</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ace authors</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ace writers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Asexual writers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Aro authors</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Aro writers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Aromantic writers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Intersex writers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">2S authors</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">2S writers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two Spirit authors</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two Spirit writers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two Spirited authors</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two Spirited writers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two-Spirit writers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two-Spirited authors</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two-Spirited writers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">2S fiction</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two Spirit fiction</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two Spirited fiction</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two-Spirited fiction</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Aro fiction</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ace fiction</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Cultural heritage institutions (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">GLAM (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">GLAMS (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ GLAM</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ+ GLAMS</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Aro families</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ace families</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">2S families</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two Spirit families</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two Spirited families</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two-Spirited families</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Aro parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Ace parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">2S parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two Spirit parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two Spirited parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two-Spirited parents</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Children of aro people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Children of ace people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Children of 2S people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Children of Two Spirit people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Children of Two Spirited people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Children of Two-Spirited people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Anti-2S violence</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Anti-Two Spirit violence</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Anti-Two Spirited violence</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Anti-Two-Spirited violence</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Chefs (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">2S chefs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two Spirit chefs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two Spirited chefs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Two-Spirited chefs</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Vers</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Versatile</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">T4T (Trans for Trans)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">TFT</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Trans4Trans</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">tft</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Clocking (Transgender)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Clocking</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">BlaQ people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Closeted people (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Closeted trans people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Closeted 2S people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Closeted Two Spirit people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Closeted Two Spirited people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Closeted Two-Spirited people</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Beards</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">LGBTQ2S+</subfield>
+  </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
     <subfield code="a">Intersex variations</subfield>
     <subfield code="0">https://homosaurus.org/v3/homoit0000669</subfield>
@@ -97,7 +4486,7 @@
     <subfield code="0">https://homosaurus.org/v3/homoit0001560</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
-    <subfield code="a">LGBTQ+ activists</subfield>
+    <subfield code="a">LGBTQ+ political activists</subfield>
     <subfield code="0">https://homosaurus.org/v3/homoit0000007</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
@@ -845,7 +5234,7 @@
     <subfield code="0">https://homosaurus.org/v3/homoit0001118</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
-    <subfield code="a">LGBTQ+ activists</subfield>
+    <subfield code="a">LGBTQ+ political activists</subfield>
     <subfield code="0">https://homosaurus.org/v3/homoit0000007</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
@@ -2317,7 +6706,7 @@
     <subfield code="0">https://homosaurus.org/v3/homoit0001118</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
-    <subfield code="a">LGBTQ+ activists</subfield>
+    <subfield code="a">LGBTQ+ political activists</subfield>
     <subfield code="0">https://homosaurus.org/v3/homoit0000007</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
@@ -2953,7 +7342,7 @@
     <subfield code="0">https://homosaurus.org/v3/homoit0001000</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
-    <subfield code="a">LGBTQ+ people in ethnic groups</subfield>
+    <subfield code="a">LGBTQ+ people of shared ethnic or national identities</subfield>
     <subfield code="0">https://homosaurus.org/v3/homoit0000860</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
@@ -3309,7 +7698,7 @@
     <subfield code="0">https://homosaurus.org/v3/homoit0001118</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
-    <subfield code="a">LGBTQ+ activists</subfield>
+    <subfield code="a">LGBTQ+ political activists</subfield>
     <subfield code="0">https://homosaurus.org/v3/homoit0000007</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
@@ -3801,7 +8190,7 @@
     <subfield code="0">https://homosaurus.org/v3/homoit0000841</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
-    <subfield code="a">LGBTQ+ people in ethnic groups</subfield>
+    <subfield code="a">LGBTQ+ people of shared ethnic or national identities</subfield>
     <subfield code="0">https://homosaurus.org/v3/homoit0000860</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
@@ -3957,7 +8346,7 @@
     <subfield code="0">https://homosaurus.org/v3/homoit0001132</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
-    <subfield code="a">LGBTQ+ prisoners</subfield>
+    <subfield code="a">LGBTQ+ incarcerated people</subfield>
     <subfield code="0">https://homosaurus.org/v3/homoit0000887</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
@@ -5057,7 +9446,7 @@
     <subfield code="0">https://homosaurus.org/v3/homoit0001118</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
-    <subfield code="a">LGBTQ+ activists</subfield>
+    <subfield code="a">LGBTQ+ political activists</subfield>
     <subfield code="0">https://homosaurus.org/v3/homoit0000007</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
@@ -5985,7 +10374,7 @@
     <subfield code="0">https://homosaurus.org/v3/homoit0001118</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
-    <subfield code="a">LGBTQ+ activists</subfield>
+    <subfield code="a">LGBTQ+ political activists</subfield>
     <subfield code="0">https://homosaurus.org/v3/homoit0000007</subfield>
   </datafield>
   <datafield tag="550" ind1=" " ind2=" ">
