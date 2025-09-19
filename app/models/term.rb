@@ -368,13 +368,13 @@ class Term < ActiveRecord::Base
       cols = ["URI", "identifier", "prefLabel", "prefLabel Alternate Spellings", "altLabel", "description", "historyNote", "broader", "narrower", "related", "issued", "modified", "isReplacedBy", "replaces"]
 
       csv << cols
-      # full_graph.each do |term|
-      #   csv << term.values
-      #   pp "========================="
-      #   term.values.each do |v|
-      #     pp v
-      #   end
-      # end
+      full_graph.each do |term|
+        csv << term.values
+        pp "========================="
+        term.values.each do |v|
+          pp v
+        end
+      end
     end
 
     csv_string

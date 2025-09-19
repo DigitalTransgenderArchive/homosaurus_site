@@ -131,8 +131,8 @@ class VersionRelease < ActiveRecord::Base
     pp "==== Building json-derived graph ==="
     graph = Term.all_terms_full_graph(terms, include_lang: self.vocabulary.id >= 4, version_release: self)
 
-    # generate_static_datafile(graph.dump(:jsonld, standard_prefixes: true), "jsonld")
-    # generate_static_datafile(graph.dump(:ttl, standard_prefixes: true), "ttl")
+    generate_static_datafile(graph.dump(:jsonld, standard_prefixes: true), "jsonld")
+    generate_static_datafile(graph.dump(:ttl, standard_prefixes: true), "ttl")
     generate_static_datafile(graph.dump(:ntriples), "nt")
 
     generate_static_datafile(Term.csv_download(terms, self), "csv")
