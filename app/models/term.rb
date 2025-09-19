@@ -491,6 +491,10 @@ class Term < ActiveRecord::Base
           xml.prefLabel(r[1], :language => r[0])
         end
 
+        relationships[Relation::Alt_label].each do |r|
+          xml.altLabel(r[1], :language => r[0])
+        end
+
         xml.issued {
           xml.value self.created_at.iso8601.split('T')[0]
           xml.name "xsd:date"
