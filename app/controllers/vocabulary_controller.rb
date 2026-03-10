@@ -122,6 +122,7 @@ class VocabularyController < ApplicationController
       opts[:qf] = 'prefLabel_tesim altLabel_tesim description_tesim identifier_tesim'
       # opts[:fl] = 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim, isReplacedBy_ssim, replaces_ssim'
       opts[:fq] = "active_fedora_model_ssi:#{@vocabulary.solr_model} AND visibility_ssi:visible"
+      opts[:rows] = 50 # max number of results
       response = DSolr.find(opts)
       docs = response
       @terms = Term.where(identifier: docs.pluck("identifier_ssi"), visibility: 'visible')
