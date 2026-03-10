@@ -66,7 +66,7 @@ class DSolr
           Rails.application.executor.wrap do
             solr = RSolr.connect :url => Settings.solr_url, update_format: :json
             model_batch.each do |obj|
-              doc = obj.generate_solr_content({})
+              doc = obj.generate_solr_content()
               solr.add [doc]
             end
           end
