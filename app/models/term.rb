@@ -170,7 +170,7 @@ class Term < ActiveRecord::Base
       if rel_id == "identifier" 
         values = er.my_changes[rel_id]
       elsif rel_id == "uri"
-        values = er.my_changes[rel_id].sub('//', "//#{lang_id}.")
+        values = er.my_changes[rel_id]
       else
         er.my_changes[rel_id].each do |rc|
           rel_change = [rc[1], rc[2]]
