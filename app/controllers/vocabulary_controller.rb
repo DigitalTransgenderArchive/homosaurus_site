@@ -19,14 +19,43 @@ class VocabularyController < ApplicationController
     #@vocabulary = Vocabulary.find_by(identifier: identifier)
     #@terms = Term.find_with_conditions(@vocabulary.solr_model, q: "*:*", rows: '10000', fl: 'id,prefLabel_tesim' )
     #@terms = @terms.sort_by { |term| term["prefLabel_tesim"].first.downcase }
+    #@terms = @terms.sort_by{|t| t.pref_label_localized().data}
 
     display_mode = params[:display_mode]
     display_mode ||= "visible"
     @vocab_identifier = identifier
     @vocab = Vocabulary.find_by(identifier: identifier)
-    @terms = @vocab.terms.where(visibility: display_mode)#.order("lower(pref_label) ASC")
 
-    @terms = @terms.sort_by{|t| t.pref_label_localized().data}
+    # Load term identifiers
+    @terms = @vocab.terms.where(visibility: display_mode).select(:id, :identifier)
+    term_ids = @terms.map(&:id)
+
+    # Load language ids
+    lang_id = I18n.locale
+    lang_ids = Language.where(localizes_language_id: lang_id).pluck(:id) << lang_id
+
+    # Preload preferred labels
+    pref_label_rels = TermRelationship.where(term_id: term_ids, relation_id: Relation::Pref_label).order(Arel.sql("language_id = '#{lang_id.to_s}' DESC")).to_a
+
+    # Store preferred labels
+    @pref_label_for = pref_label_rels.group_by(&:term_id).transform_values { |rels| rels.first.data }
+
+    # Sort terms by preferred label
+    @terms = @terms.sort_by { |t| (@pref_label_for[t.id]) }
+
+    # If user is logged in
+    if current_user.present?
+      # Initialize zero counts for each term
+      zeroes = term_ids.map { |term| [term, 0] }.to_h
+
+      # Preload counts for each term
+      lang_label_counts = zeroes.merge(TermRelationship.where(term_id: term_ids, language_id: lang_ids, relation_id: [Relation::Pref_label, Relation::Label, Relation::Alt_label]).group_by(&:term_id).transform_values { |v| v.count })
+      lang_desc_counts = zeroes.merge(TermRelationship.where(term_id: term_ids, language_id: lang_ids, relation_id: Relation::Description).group_by(&:term_id).transform_values { |v| v.count })
+      relation_counts = zeroes.merge(TermRelationship.where(term_id: term_ids, relation_id: [Relation::Broader, Relation::Narrower, Relation::Related]).group_by(&:term_id).transform_values { |v| v.count })
+
+      # Store missing translation status
+      @translation_exists_for = lang_label_counts.merge(lang_desc_counts, relation_counts) { |k, o, n| o * n }
+    end
 
     latest_published_release = @vocab.version_releases.where(status: "published").last
     path = Rails.root.join("public", "static_dumps", @vocab.identifier, latest_published_release.release_identifier)
