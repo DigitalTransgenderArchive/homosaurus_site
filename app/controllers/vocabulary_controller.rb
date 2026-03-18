@@ -35,7 +35,7 @@ class VocabularyController < ApplicationController
     lang_ids = Language.where(localizes_language_id: lang_id).pluck(:id) << lang_id
 
     # Preload preferred labels
-    pref_label_rels = TermRelationship.where(term_id: term_ids, relation_id: Relation::Pref_label).order(Arel.sql("language_id = '#{lang_id.to_s}' DESC")).to_a
+    pref_label_rels = TermRelationship.where(relation_id: Relation::Pref_label).order(Arel.sql("language_id = '#{lang_id.to_s}' DESC")).to_a
 
     # Store preferred labels
     @pref_label_for = pref_label_rels.group_by(&:term_id).transform_values { |rels| rels.first.data }
@@ -49,9 +49,9 @@ class VocabularyController < ApplicationController
       zeroes = term_ids.map { |term| [term, 0] }.to_h
 
       # Preload counts for each term
-      lang_label_counts = zeroes.merge(TermRelationship.where(term_id: term_ids, language_id: lang_ids, relation_id: [Relation::Pref_label, Relation::Label, Relation::Alt_label]).group_by(&:term_id).transform_values { |v| v.count })
-      lang_desc_counts = zeroes.merge(TermRelationship.where(term_id: term_ids, language_id: lang_ids, relation_id: Relation::Description).group_by(&:term_id).transform_values { |v| v.count })
-      relation_counts = zeroes.merge(TermRelationship.where(term_id: term_ids, relation_id: [Relation::Broader, Relation::Narrower, Relation::Related]).group_by(&:term_id).transform_values { |v| v.count })
+      lang_label_counts = zeroes.merge(TermRelationship.where(language_id: lang_ids, relation_id: [Relation::Pref_label, Relation::Label, Relation::Alt_label]).group_by(&:term_id).transform_values { |v| v.count })
+      lang_desc_counts = zeroes.merge(TermRelationship.where(language_id: lang_ids, relation_id: Relation::Description).group_by(&:term_id).transform_values { |v| v.count })
+      relation_counts = zeroes.merge(TermRelationship.where(relation_id: [Relation::Broader, Relation::Narrower, Relation::Related]).group_by(&:term_id).transform_values { |v| v.count })
 
       # Store missing translation status
       @translation_exists_for = lang_label_counts.merge(lang_desc_counts, relation_counts) { |k, o, n| o * n }
