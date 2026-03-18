@@ -59,6 +59,10 @@ class VocabularyController < ApplicationController
 
     latest_published_release = @vocab.version_releases.where(status: "published").last
     path = Rails.root.join("public", "static_dumps", @vocab.identifier, latest_published_release.release_identifier)
+
+    version_release = current_user.present? ?
+                        @vocab.version_releases.last :
+                        @vocab.latest_published_release()
     
     respond_to do |format|
       format.html
@@ -69,9 +73,9 @@ class VocabularyController < ApplicationController
       format.xml { render file: path.to_s + ".xml" }
       format.marc { render file: path.to_s + ".marc" }
 
-      format.ntV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false).dump(:ntriples), :content_type => "application/n-triples" }
-      format.jsonldV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-      format.ttlV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
+      format.ntV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:ntriples), :content_type => "application/n-triples" }
+      format.jsonldV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+      format.ttlV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
     end
   end
   # Show a term
