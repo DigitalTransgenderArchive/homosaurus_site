@@ -1,12 +1,13 @@
 # coding: utf-8
-require 'csv'
+require "csv"
 class FixSpanishTerms < ActiveRecord::Migration[5.2]
   def up
     lang_id = "es"
     spanish_terms = Hash.new()
 
     # Parse CSV file
-    csv = CSV.parse('spanish_terms_fix_2026.csv', headers: true, :col_sep => ' | ', :quote_char => "§")
+    csv_text = File.read("/data/railsApps/homosaurus_site/db/migrate/spanish_terms.csv")
+    csv = CSV.parse(csv_text, headers: true, :col_sep => " | ", :quote_char => "§")
 
     # For each row in the CSV
     csv.each do |row|
