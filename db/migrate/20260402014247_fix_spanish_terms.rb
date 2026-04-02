@@ -6,8 +6,10 @@ class FixSpanishTerms < ActiveRecord::Migration[5.2]
     spanish_terms = Hash.new()
 
     # Parse CSV file
-    csv_text = File.read("/data/railsApps/homosaurus_site/db/migrate/spanish_terms.csv")
-    csv = CSV.parse(csv_text, headers: true, :col_sep => " | ", :quote_char => "§")
+    csv_text = File.read("/data/railsApps/homosaurus_site/db/migrate/spanish_terms_fix_2026.csv")
+    csv_text = csv_text.gsub /^$\n/, ''
+    csv_text = csv_text.gsub /\r/, ''
+    csv = CSV.parse(csv_text, headers: true, :row_sep => :auto, :col_sep => " | ", :quote_char => "§", skip_blanks: true)
 
     # For each row in the CSV
     csv.each do |row|
