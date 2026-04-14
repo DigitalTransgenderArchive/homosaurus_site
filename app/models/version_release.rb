@@ -149,4 +149,15 @@ class VersionRelease < ActiveRecord::Base
     
   end
 
+  def generate_static_legacy_data
+    pp "=== Generating legacy static datafiles for v#{self.release_identifier} ==="
+    terms = self.terms_in_version()
+    pp "==== Building json-derived graph ==="
+    graph = Term.all_terms_full_graph(terms, include_lang: false, version_release: self)
+
+    generate_static_datafile(graph.dump(:jsonld, standard_prefixes: true), "legacy.jsonld")
+    generate_static_datafile(graph.dump(:ttl, standard_prefixes: true), "legacy.ttl")
+    generate_static_datafile(graph.dump(:ntriples), "legacy.nt")
+  end
+
 end

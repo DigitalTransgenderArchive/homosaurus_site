@@ -23,12 +23,17 @@ class ReleaseController < ApplicationController
     path = Rails.root.join("public", "static_dumps", @vocab.identifier, @release.release_identifier)
     respond_to do |format|
       format.html
-      format.jsonld { render file: path.to_s + ".jsonld" }
-      format.csv    { render file: path.to_s + ".csv" }
-      format.marc   { render file: path.to_s + ".marc" }
-      format.xml    { render file: path.to_s + ".xml" }
-      format.nt     { render file: path.to_s + ".nt" }
-      format.ttl    { render file: path.to_s + ".ttl" }
+      format.jsonld   { render file: path.to_s + ".jsonld" }
+      format.csv      { render file: path.to_s + ".csv" }
+      format.marc     { render file: path.to_s + ".marc" }
+      format.xml      { render file: path.to_s + ".xml" }
+      format.nt       { render file: path.to_s + ".nt" }
+      format.ttl      { render file: path.to_s + ".ttl" }
+
+      # Legacy formats
+      format.jsonldV2 { render file: path.to_s + ".legacy.jsonld" }
+      format.ntV2     { render file: path.to_s + ".legacy.nt" }
+      format.ttlV2    { render file: path.to_s + ".legacy.ttl" }
     end
 
   end

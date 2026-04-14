@@ -73,9 +73,14 @@ class VocabularyController < ApplicationController
       format.xml { render file: path.to_s + ".xml" }
       format.marc { render file: path.to_s + ".marc" }
 
-      format.ntV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:ntriples), :content_type => "application/n-triples" }
-      format.jsonldV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-      format.ttlV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
+      # Legacy formats
+      format.jsonldV2 { render file: path.to_s + ".legacy.jsonld" }
+      format.ntV2 { render file: path.to_s + ".legacy.nt" }
+      format.ttlV2 { render file: path.to_s + ".legacy.ttl" }
+
+      #format.ntV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:ntriples), :content_type => "application/n-triples" }
+      #format.jsonldV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+      #format.ttlV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
     end
   end
   # Show a term
