@@ -139,9 +139,9 @@ class VocabularyController < ApplicationController
         render body: @homosaurus_obj.marc_basic(version_release: version_release),
                :content_type => 'text/xml' }
 
-      format.ntV2 { render body: @homosaurus_obj.full_graph(include_lang: include_lang, version_release: version_release).dump(:ntriples), :content_type => "application/n-triples" }
-      format.jsonldV2 { render body: @homosaurus_obj.full_graph(include_lang: include_lang, version_release: version_release).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-      format.ttlV2 { render body: @homosaurus_obj.full_graph(include_lang: include_lang, version_release: version_release).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
+      format.ntV2 { render body: @homosaurus_obj.full_graph(include_lang: false, version_release: version_release).dump(:ntriples), :content_type => "application/n-triples" }
+      format.jsonldV2 { render body: @homosaurus_obj.full_graph(include_lang: false, version_release: version_release).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+      format.ttlV2 { render body: @homosaurus_obj.full_graph(include_lang: false, version_release: version_release).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
     end
   end
   # Search for terms
