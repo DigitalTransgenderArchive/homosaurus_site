@@ -31,9 +31,10 @@ class ReleaseController < ApplicationController
       format.ttl      { render file: path.to_s + ".ttl" }
 
       # Legacy formats
-      format.jsonldV2 { render file: path.to_s + ".legacy.jsonld" }
-      format.ntV2     { render file: path.to_s + ".legacy.nt" }
-      format.ttlV2    { render file: path.to_s + ".legacy.ttl" }
+      has_legacy = @vocab.id >= 4 ? ".legacy", ""
+      format.jsonldV2 { render file: path.to_s + has_legacy + ".jsonld" }
+      format.ntV2     { render file: path.to_s + has_legacy + ".nt" }
+      format.ttlV2    { render file: path.to_s + has_legacy + ".ttl" }
     end
 
   end

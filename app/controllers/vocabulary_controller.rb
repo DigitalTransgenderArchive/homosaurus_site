@@ -66,17 +66,18 @@ class VocabularyController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.jsonld { render file: path.to_s + ".jsonld" }
-      format.csv { render file: path.to_s + ".csv" }
-      format.nt { render file: path.to_s + ".nt" }
-      format.ttl { render file: path.to_s + ".ttl" }
-      format.xml { render file: path.to_s + ".xml" }
-      format.marc { render file: path.to_s + ".marc" }
+      format.jsonld   { render file: path.to_s + ".jsonld" }
+      format.csv      { render file: path.to_s + ".csv" }
+      format.nt       { render file: path.to_s + ".nt" }
+      format.ttl      { render file: path.to_s + ".ttl" }
+      format.xml      { render file: path.to_s + ".xml" }
+      format.marc     { render file: path.to_s + ".marc" }
 
       # Legacy formats
-      format.jsonldV2 { render file: path.to_s + ".legacy.jsonld" }
-      format.ntV2 { render file: path.to_s + ".legacy.nt" }
-      format.ttlV2 { render file: path.to_s + ".legacy.ttl" }
+      has_legacy = @vocab.id >= 4 ? ".legacy", ""
+      format.jsonldV2 { render file: path.to_s + has_legacy + ".jsonld" }
+      format.ntV2     { render file: path.to_s + has_legacy + ".nt" }
+      format.ttlV2    { render file: path.to_s + has_legacy + ".ttl" }
 
       #format.ntV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:ntriples), :content_type => "application/n-triples" }
       #format.jsonldV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
