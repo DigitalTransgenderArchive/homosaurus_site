@@ -66,16 +66,22 @@ class VocabularyController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.jsonld { render file: path.to_s + ".jsonld" }
-      format.csv { render file: path.to_s + ".csv" }
-      format.nt { render file: path.to_s + ".nt" }
-      format.ttl { render file: path.to_s + ".ttl" }
-      format.xml { render file: path.to_s + ".xml" }
-      format.marc { render file: path.to_s + ".marc" }
+      format.jsonld   { render file: path.to_s + ".jsonld" }
+      format.csv      { render file: path.to_s + ".csv" }
+      format.nt       { render file: path.to_s + ".nt" }
+      format.ttl      { render file: path.to_s + ".ttl" }
+      format.xml      { render file: path.to_s + ".xml" }
+      format.marc     { render file: path.to_s + ".marc" }
 
-      format.ntV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:ntriples), :content_type => "application/n-triples" }
-      format.jsonldV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-      format.ttlV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
+      # Legacy formats
+      has_legacy = @vocab.id >= 4 ? ".legacy" : ""
+      format.jsonldV2 { render file: path.to_s + has_legacy + ".jsonld" }
+      format.ntV2     { render file: path.to_s + has_legacy + ".nt" }
+      format.ttlV2    { render file: path.to_s + has_legacy + ".ttl" }
+
+      #format.ntV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:ntriples), :content_type => "application/n-triples" }
+      #format.jsonldV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+      #format.ttlV2 { render body: Term.all_terms_full_graph(@terms, include_lang: false, version_release: version_release).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
     end
   end
   # Show a term
@@ -134,9 +140,9 @@ class VocabularyController < ApplicationController
         render body: @homosaurus_obj.marc_basic(version_release: version_release),
                :content_type => 'text/xml' }
 
-      format.ntV2 { render body: @homosaurus_obj.full_graph(include_lang: include_lang, version_release: version_release).dump(:ntriples), :content_type => "application/n-triples" }
-      format.jsonldV2 { render body: @homosaurus_obj.full_graph(include_lang: include_lang, version_release: version_release).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
-      format.ttlV2 { render body: @homosaurus_obj.full_graph(include_lang: include_lang, version_release: version_release).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
+      format.ntV2 { render body: @homosaurus_obj.full_graph(include_lang: false, version_release: version_release).dump(:ntriples), :content_type => "application/n-triples" }
+      format.jsonldV2 { render body: @homosaurus_obj.full_graph(include_lang: false, version_release: version_release).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
+      format.ttlV2 { render body: @homosaurus_obj.full_graph(include_lang: false, version_release: version_release).dump(:ttl, standard_prefixes: true), :content_type => 'text/turtle' }
     end
   end
   # Search for terms
