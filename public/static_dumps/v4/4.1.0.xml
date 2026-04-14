@@ -6533,15 +6533,15 @@
   </broader>
   <related>
     <id>https://homosaurus.org/v4/homoit0000751</id>
-    <prefLabel language="en">Lesbian mistresses</prefLabel>
+    <prefLabel language="en">Lesbian mistresses (BDSM culture)</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0001186</id>
-    <prefLabel language="en">Queer mistresses</prefLabel>
+    <prefLabel language="en">Queer mistresses (BDSM culture)</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0001421</id>
-    <prefLabel language="en">Transgender mistresses</prefLabel>
+    <prefLabel language="en">Transgender mistresses (BDSM culture)</prefLabel>
   </related>
   <comment language="en">Bisexual women who are part of the BDSM scene and assume the mistress role in sexual relationships with a mistress/submissive dynamic.</comment>
   <comment language="es">Hombres que se autoidentifican como bisexuales.</comment>
@@ -29425,15 +29425,15 @@
   </broader>
   <related>
     <id>https://homosaurus.org/v4/homoit0000161</id>
-    <prefLabel language="en">Bisexual mistresses</prefLabel>
+    <prefLabel language="en">Bisexual mistresses (BDSM culture)</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0001186</id>
-    <prefLabel language="en">Queer mistresses</prefLabel>
+    <prefLabel language="en">Queer mistresses (BDSM culture)</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0001421</id>
-    <prefLabel language="en">Transgender mistresses</prefLabel>
+    <prefLabel language="en">Transgender mistresses (BDSM culture)</prefLabel>
   </related>
   <comment language="en">Lesbians who are part of the BDSM scene and assume the mistress role in sexual relationships with a mistress/submissive dynamic.</comment>
   <comment language="es">Lesbianas que forman parte de la escena BDSM y asumen el rol de ama en las relaciones sexuales con una din&#xE1;mica ama/esclava.</comment>
@@ -32943,11 +32943,11 @@
   <altLabel language="en">Rallies (LGBTQ)</altLabel>
   <altLabel language="en">Demonstrations (LGBTQ)</altLabel>
   <altLabel language="en">LGBTQ+ protests</altLabel>
+  <altLabel language="en">Protests (LGBTQ)</altLabel>
   <altLabel language="es">Marchas pol&#xED;ticas LGBTQ</altLabel>
   <altLabel language="es">Protestas LGBTQ</altLabel>
   <altLabel language="es">Concentraciones LGBTQ</altLabel>
   <altLabel language="es">Demostraciones LGBTQ+</altLabel>
-  <altLabel language="">Protests (LGBTQ)</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -40600,23 +40600,23 @@
   </broader>
   <narrower>
     <id>https://homosaurus.org/v4/homoit0000161</id>
-    <prefLabel language="en">Bisexual mistresses</prefLabel>
+    <prefLabel language="en">Bisexual mistresses (BDSM culture)</prefLabel>
   </narrower>
   <narrower>
     <id>https://homosaurus.org/v4/homoit0000751</id>
-    <prefLabel language="en">Lesbian mistresses</prefLabel>
+    <prefLabel language="en">Lesbian mistresses (BDSM culture)</prefLabel>
   </narrower>
   <narrower>
     <id>https://homosaurus.org/v4/homoit0001186</id>
-    <prefLabel language="en">Queer mistresses</prefLabel>
+    <prefLabel language="en">Queer mistresses (BDSM culture)</prefLabel>
   </narrower>
   <narrower>
     <id>https://homosaurus.org/v4/homoit0001421</id>
-    <prefLabel language="en">Transgender mistresses</prefLabel>
+    <prefLabel language="en">Transgender mistresses (BDSM culture)</prefLabel>
   </narrower>
   <narrower>
     <id>https://homosaurus.org/v4/homoit0002992</id>
-    <prefLabel language="en">Asexual mistresses</prefLabel>
+    <prefLabel language="en">Asexual mistresses (BDSM culture)</prefLabel>
   </narrower>
   <related>
     <id>https://homosaurus.org/v4/homoit0000363</id>
@@ -47002,15 +47002,15 @@
   </broader>
   <related>
     <id>https://homosaurus.org/v4/homoit0000161</id>
-    <prefLabel language="en">Bisexual mistresses</prefLabel>
+    <prefLabel language="en">Bisexual mistresses (BDSM culture)</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0000751</id>
-    <prefLabel language="en">Lesbian mistresses</prefLabel>
+    <prefLabel language="en">Lesbian mistresses (BDSM culture)</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0001421</id>
-    <prefLabel language="en">Transgender mistresses</prefLabel>
+    <prefLabel language="en">Transgender mistresses (BDSM culture)</prefLabel>
   </related>
   <comment language="en">Queer women who are part of the BDSM scene and assume the mistress role in sexual relationships with a mistress/submissive dynamic.</comment>
   <comment language="es">Mujeres queer que forman parte de la escena BDSM y asumen el rol de ama en las relaciones sexuales con una din&#xE1;mica ama/esclava.</comment>
@@ -55533,8 +55533,8 @@
   <altLabel language="en">Trans rallies</altLabel>
   <altLabel language="en">Transgender protests</altLabel>
   <altLabel language="en">Trans protests</altLabel>
+  <altLabel language="en">Trans demonstrations</altLabel>
   <altLabel language="es">Marchas transg&#xE9;nero</altLabel>
-  <altLabel language="">Trans demonstrations</altLabel>
   <issued>
     <value>2019-05-14</value>
     <name>xsd:date</name>
@@ -56855,15 +56855,15 @@
   </broader>
   <related>
     <id>https://homosaurus.org/v4/homoit0000161</id>
-    <prefLabel language="en">Bisexual mistresses</prefLabel>
+    <prefLabel language="en">Bisexual mistresses (BDSM culture)</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0000751</id>
-    <prefLabel language="en">Lesbian mistresses</prefLabel>
+    <prefLabel language="en">Lesbian mistresses (BDSM culture)</prefLabel>
   </related>
   <related>
     <id>https://homosaurus.org/v4/homoit0001186</id>
-    <prefLabel language="en">Queer mistresses</prefLabel>
+    <prefLabel language="en">Queer mistresses (BDSM culture)</prefLabel>
   </related>
   <comment language="en">Transgender women who are part of the BDSM scene and assume the mistress role in sexual relationships with a mistress/submissive dynamic.</comment>
   <comment language="es">Mujeres transg&#xE9;nero que forman parte de la escena BDSM y asumen el rol de amas en relaciones sexuales con una din&#xE1;mica ama/esclava.</comment>
@@ -133598,10 +133598,10 @@ Redadas policiales en clubes nocturnos LGBTQ+</prefLabel>
   <identifier>homoit0004228</identifier>
   <prefLabel language="en">Two-Spirit people with addictions</prefLabel>
   <altLabel language="en">Two-Spirit addicts</altLabel>
-  <altLabel language="">Two Spirit people with addictions</altLabel>
-  <altLabel language="">Two-Spirited people with addictions</altLabel>
-  <altLabel language="">Two Spirited people with addictions</altLabel>
-  <altLabel language="">2S people with addictions</altLabel>
+  <altLabel language="en">Two Spirit people with addictions</altLabel>
+  <altLabel language="en">Two-Spirited people with addictions</altLabel>
+  <altLabel language="en">Two Spirited people with addictions</altLabel>
+  <altLabel language="en">2S people with addictions</altLabel>
   <issued>
     <value>2025-04-24</value>
     <name>xsd:date</name>

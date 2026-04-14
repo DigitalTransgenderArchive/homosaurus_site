@@ -4432,6 +4432,9 @@
     <subfield code="a">LGBTQ+ protests</subfield>
   </datafield>
   <datafield tag="450" ind1=" " ind2=" ">
+    <subfield code="a">Protests (LGBTQ)</subfield>
+  </datafield>
+  <datafield tag="450" ind1=" " ind2=" ">
     <subfield code="a">Marchas pol&#xED;ticas LGBTQ</subfield>
   </datafield>
   <datafield tag="450" ind1=" " ind2=" ">
@@ -4442,9 +4445,6 @@
   </datafield>
   <datafield tag="450" ind1=" " ind2=" ">
     <subfield code="a">Demostraciones LGBTQ+</subfield>
-  </datafield>
-  <datafield tag="450" ind1=" " ind2=" ">
-    <subfield code="a">Protests (LGBTQ)</subfield>
   </datafield>
   <datafield tag="450" ind1=" " ind2=" ">
     <subfield code="a">Mystery and detective fiction (LGBTQ)</subfield>
@@ -6943,10 +6943,10 @@
     <subfield code="a">Trans protests</subfield>
   </datafield>
   <datafield tag="450" ind1=" " ind2=" ">
-    <subfield code="a">Marchas transg&#xE9;nero</subfield>
+    <subfield code="a">Trans demonstrations</subfield>
   </datafield>
   <datafield tag="450" ind1=" " ind2=" ">
-    <subfield code="a">Trans demonstrations</subfield>
+    <subfield code="a">Marchas transg&#xE9;nero</subfield>
   </datafield>
   <datafield tag="450" ind1=" " ind2=" ">
     <subfield code="a">Transexuality</subfield>
