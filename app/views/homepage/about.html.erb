@@ -1,15 +1,3 @@
-<script type="text/javascript">
-    $(document).ready(function() {
-
-        $(".walter_cat_walker_tribute").shorten({
-            "showChars": 986,
-            "moreText": "[Expand To Read Full Tribute]",
-            "lessText"	: "",
-        }); 
-
-    });
-</script>
-
 <%= form_tag(reveal_emails_path, :id => 'captcha_form', :class => 'form-horizontal') do %>
   <%= recaptcha_v3(action: 'about', site_key: Settings.recaptcha_site_key_v3) %>
 
@@ -38,74 +26,82 @@
     </div>
     <% end %>
 
+  <h1>Homosaurus Collective</h1>
+  <p>
+    The Homosaurus Collective is made up of more than 40+ members based in 9 countries, subdivided into three interdependent boards: Organizing, Implementation, and Term Development Boards.
+  </p>
 
-  <h2>Mission</h2>
-
+  <h2>Resources</h2>
+  <p>
+  These guides (in English) were published by the former Editorial Board and will eventually be translated and updated to read Homosaurus Collective.
+  </p>
   <div class="info_section">
-    <p>The Homosaurus is an international linked data vocabulary of LGBTQ+ terms. Designed to enhance broad subject term vocabularies, the Homosaurus is a robust and cutting-edge thesaurus that advances the discoverability of LGBTQ+ resources and information.</p>
-  </div>
-
- <h2>History</h2>
-  <div class="info_section">
-    <p>The Homosaurus was originally created in 1997 by <%= link_to "IHLIA LGBTI Heritage", "https://ihlia.nl/en/", target: "_blank" %> as a Dutch and English gay and lesbian thesaurus that was used as a standalone vocabulary to describe their collections. Over time, terms relating to bisexuality, trans, gender, and intersex concepts were added, but not methodically. This original version of the vocabulary (which we refer to as version 0) had an overly flat structure and, due to the lack of connections, terms were too isolated from one another and therefore easily missed. But, it became apparent that a vocabulary developed by an LGBTQ archives to describe LGBTQ resources could be a powerful tool.</p>
-
-    <p>In 2013, Jack van der Wel, with the help of Ellen Greenblatt, transformed the original Homosaurus into a more inclusive and hierarchical thesaurus (<%= link_to "version 1", vocabulary_index_path(id: "terms"), target: "_blank" %>). Hundreds of terms were added and each term was put in relation to others in a hierarchical structure. At this point, the vocabulary only existed as an offline document that was circulated as a Word document or PDF. The results of this major editing project were presented at numerous LGBTQ ALMS Conferences and the vocabulary began to be used by other LGBTQ archives, libraries, and documentation centres throughout the world. </p>
-
-    <p>In 2015, the <%= link_to "Digital Transgender Archive", "https://www.digitaltransgenderarchive.net", target: "_blank" %> (DTA) became one of the handful of LGBTQ archives using version 1 of the Homosaurus to describe resources in their collections. When it became apparent to the DTA’s Director, K.J. Rawson, how useful the vocabulary was and how many institutions could benefit from using it, he collaborated with Jack van der Wel to transform version 1 into an online linked data vocabulary. This dramatically increased the accessibility of the vocabulary and allowed cultural institutions from around the world to link to a common vocabulary.</p>
-
-    <p>In 2016, Rawson and van der Wel then established an Editorial Board to oversee a second major revision of the Homosaurus. The board ultimately decided to transform the Homosaurus from a broader, standalone vocabulary (which included hundreds of non-LGBTQ terms, e.g., “advertising” and “literature”) to a narrower, LGBTQ-specific vocabulary that was intended to supplement existing thesauri (primarily the Library of Congress Subject Headings). This was a major conceptual shift and this revision resulted in version 2.</p>
-
-    <p>In May, 2019, version 2 of the Homosaurus was released as a linked data vocabulary and is still accessible at <%= link_to "https://homosaurus.org/v2", vocabulary_index_path(id: "v2") %>.</p>
-
-    <p>In September 2021, version 3 of the Homosaurus changed identifiers to be more consistent along with adding some initial language support. This is the current version of the vocabulary available today at: <%= link_to "https://homosaurus.org/v3", vocabulary_index_path(id: "v3") %>. The Editorial Board is now focused on publicizing the project and making ongoing edits to the vocabulary.</p>
-  </div>
-
- <h2>Resources</h2>
- <div class="info_section">
- <p> <%= link_to "Documentation and Implementation Guide", "https://docs.google.com/document/d/1PgwSKGHnr4dokazFRbkoqQuYWbw8c_0LWYw0L2rkyAw/edit?usp=sharing", target: "_blank" %> </p>
+    <p> <%= link_to "Documentation and Implementation Guide", "https://docs.google.com/document/d/1PgwSKGHnr4dokazFRbkoqQuYWbw8c_0LWYw0L2rkyAw/edit?usp=sharing", target: "_blank" %> </p>
     <p> <%= link_to "Metadata Application Profile", "https://docs.google.com/document/d/1ndif61THKvrKRG8m6Y9gBVAOzwDWa95O9TbJV8tFTTA/edit?usp=sharing", target: "_blank" %> </p>
   </div>
 
-<h2>Editorial Board</h2>
+  <h2>Organizing Board</h2>
+
+  <p><strong>Co-convenors: Marika Cifor & Bri Watson</strong></p>
+
+  <p>
+  The Organizing Board provides coordination, visioning, and guidance across the project, and helps to develop and grow the Collective, seeking funding, hosting summits, and identifying partnerships. This board contains the Systems Subcommittee, which focuses on software functionality and coordinates with developers.
+  </p>
+
+  <h3>Members</h3>
+
   <table class="table_with_image">
-    <caption class="sr-only">List of editorial board</caption>
+    <caption class="sr-only">Members</caption>
     <tbody>
-    
-<tr>
+    <tr>
       <td>&nbsp;</td>
       <td>
         <div class="media">
           <div class="media-left">
-            <%= image_tag("about/about_kalani_adolpho.jpg", class: 'hidden-xs') %>
+            <%= image_tag("about/adolpho.jpg", class: 'hidden-xs') %>
           </div>
-
           <div class="media-body">
           <h4 class="media-heading">
-            Keahi Kaʻiwalani Adolpho 
+            Keahi Adolpho
           </h4>
-          <p>
-Kalani is a Processing Archivist at Virginia Commonwealth University Libraries and is a former Diversity Resident Librarian. They received their MLIS from University of Wisconsin-Milwaukee, as well as their BA in History. Kalani co-edited Trans and Gender Diverse Voices in Libraries published by Library Juice Press and co-created the Diversity Residency Toolkit as part of the ACRL Residency Interest Group. His research interests include trans and gender diverse inclusion in libraries and archives, reparative and ethical metadata, and diversity residencies.          </p>
+          <p>Virginia Commonwealth University Libraries</p>
         </div>
         </div>
       </td>
     </tr>
 
-
-
-<tr>
+       <tr>
       <td>&nbsp;</td>
       <td>
         <div class="media">
           <div class="media-left">
-            <%= image_tag("about/about_amber_billey.png", class: 'hidden-xs') %>
+            <%= image_tag("about/cifor.jpg", class: 'hidden-xs') %>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">
+              Marika Cifor
+            </h4>
+            <p>
+             University of Washington - Seattle
+            </p>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>&nbsp;</td>
+      <td>
+        <div class="media">
+          <div class="media-left">
+            <%= image_tag("about/cornell.jpg", class: 'hidden-xs') %>
           </div>
 
           <div class="media-body">
           <h4 class="media-heading">
-            Billey Albina
+            Mary Cornell
           </h4>
           <p>
-            Billey Albina is the Systems & Metadata Librarian at Bard College. Prior to joining Bard, she was the Metadata Librarian at Columbia University Libraries where she worked on the LD4P project contributing to ontology development, tooling, and MARC to RDF mapping. Her research focuses on ethics and social justice in library metadata and information organization.
           </p>
         </div>
         </div>
@@ -117,16 +113,34 @@ Kalani is a Processing Archivist at Virginia Commonwealth University Libraries a
       <td>
         <div class="media">
           <div class="media-left">
-            <%= image_tag("about/about_marika_cifor.jpg", class: 'hidden-xs') %>
+            <%= image_tag("about/damegriffe.jpg", class: 'hidden-xs') %>
           </div>
+
           <div class="media-body">
-            <h4 class="media-heading">
-              Marika Cifor
-            </h4>
-            <p>
-              Marika Cifor is an Assistant Professor in the Information School at the University of Washington. She is a feminist scholar working at the intersections of archival studies and digital studies. Her research investigates how through archives, records, and data produced within digital cultures, individuals and communities marginalized by sexuality, race, class, gender, and HIV-status enact and give substance to their identities, collective memories, and social movements.
-            </p>
+          <h4 class="media-heading">
+            Avery Dame-Griff
+          </h4>
+          <p>
+          </p>
+        </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>&nbsp;</td>
+      <td>
+        <div class="media">
+          <div class="media-left">
           </div>
+
+          <div class="media-body">
+          <h4 class="media-heading">
+            Jackson Huang
+          </h4>
+          <p>
+          </p>
+        </div>
         </div>
       </td>
     </tr>
@@ -137,36 +151,15 @@ Kalani is a Processing Archivist at Virginia Commonwealth University Libraries a
       <td>
         <div class="media">
           <div class="media-left">
-            <%= image_tag("about/about_jay_l_colbert.jpg", class: 'hidden-xs', alt: "Photo of Jay Colbert") %>
+            <%= image_tag("about/keilty.jpg", class: 'hidden-xs') %>
           </div>
           <div class="media-body">
-            <h4 class="media-heading">
-              Jay L. Colbert
-            </h4>
-            <p>
-              Jay L. Colbert is the Library Director at the Longy School of Music of Bard College. He holds a MSLIS from the University of Illinois at Urbana-Champaign, where he completed a thesis on patron-driven subject access and queer controlled vocabulary via a critical framework of queer theory and semiotics. His subsequent publications build on this research. Jay haunts New England with his bearded dragon Coop and his tuxedo cat King Arthur.
-            </p>
-          </div>
+          <h4 class="media-heading">
+            Patrick Keilty
+          </h4>
+          <p>
+          </p>
         </div>
-      </td>
-    </tr>
-
-
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_janaya_kizzie.jpg", class: 'hidden-xs', alt: "Photo of Janaya Kizzie") %>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Janaya Kizzie
-            </h4>
-            <p>
-              Janaya Kizzie is an archivist, artist, and public humanitarian.  A graduate of Bard College (BA) and the University of Rhode Island (MLIS), Kizzie processed and developed archival infrastructures for the American Academy of Arts and Sciences in Cambridge, Massachusetts Citizens Bank, and Concord Free Public Library. Kizzie's work in historical collections has most recently included the processing of the AS220 Collection at Providence Public Library, the Rhode Island Arts and Culture Research Fellowship recording the recent history of Rhode Island Arts and Culture. In 2020, Kizzie was named Rhode Island Public Humanities Scholar by the Rhode Island Council for the Humanities. Currently Events Coordinator at Providence Public Library, Kizzie strives to redefine library standards and practices for community empowerment and engagement.
-            </p>
-          </div>
         </div>
       </td>
     </tr>
@@ -176,16 +169,14 @@ Kalani is a Processing Archivist at Virginia Commonwealth University Libraries a
       <td>
         <div class="media">
           <div class="media-left">
-            <%= image_tag("about/about_chloe_noland.jpg", class: 'hidden-xs') %>
           </div>
           <div class="media-body">
-            <h4 class="media-heading">
-              Chloe Noland
-            </h4>
-            <p>
-              Chloe Noland (Secretary) is a librarian currently living and working in Los Angeles, CA. She earned her B.A. from California College of the Arts in Literature & Creative Writing, and then received her MLIS from San Jose State University, where she discovered a love for cataloging and metadata enhancement. Her passion for language, culture, and taxonomies has led her to projects such as the Homosaurus, which she is enormously excited to be a part of.
-            </p>
-          </div>
+          <h4 class="media-heading">
+            Janaya Kizzie
+          </h4>
+          <p>
+          </p>
+        </div>
         </div>
       </td>
     </tr>
@@ -195,14 +186,13 @@ Kalani is a Processing Archivist at Virginia Commonwealth University Libraries a
       <td>
         <div class="media">
           <div class="media-left">
-            <%= image_tag("about/about_kj_rawson.jpg", class: 'hidden-xs') %>
+            <%= image_tag("about/radmacher.jpg", class: 'hidden-xs') %>
           </div>
           <div class="media-body">
             <h4 class="media-heading">
-              K.J. Rawson (Chair of the Board)
+              Michael Radmacher
             </h4>
             <p>
-              K.J. Rawson is an Associate Professor of English and Women's, Gender, and Sexuality Studies at Northeastern University. He is also the founder and director of the <%= link_to "Digital Transgender Archive", "https://www.digitaltransgenderarchive.net", target: "_blank" %>, an award-winning online repository of trans-related historical materials, and he is the co-chair of the editorial board of the Homosaurus, an international LGBTQ linked data vocabulary. His work is at the intersections of the Digital Humanities and Rhetoric, LGBTQ+, and Feminist Studies. Focusing on archives as key sites of cultural power, Rawson studies the rhetorical work of queer and transgender archival collections in both brick-and-mortar and digital spaces. He has co-edited special issues of <em>Peitho</em> and <em>TSQ</em>> and he co-edited <em>Rhetorica in Motion: Feminist Rhetorical Methods and Methodologies</em> (University of Pittsburgh Press, 2010). Rawson’s scholarship has appeared in <em>Archivaria</em>, <em>Enculturation</em>, <em>Peitho</em>, <em>Present Tense</em>, <em>QED</em>, <em>RSQ</em>, <em>TSQ</em>, and several edited collections.
             </p>
           </div>
         </div>
@@ -214,16 +204,15 @@ Kalani is a Processing Archivist at Virginia Commonwealth University Libraries a
       <td>
         <div class="media">
           <div class="media-left">
-            <%= image_tag("about/about_bri_watson.jpg", class: 'hidden-xs', alt: "Bri Watson photo") %>
+            <%= image_tag("about/rawson.jpg", class: 'hidden-xs') %>
           </div>
           <div class="media-body">
-            <h4 class="media-heading">
-              Bri Watson
-            </h4>
-            <p>
-              Bri Watson is the Archivist-Historian of the American Psychological Association’s Division 44 (Consensual Non-Monogamy), a historian of the book and sexuality, and a graduate archivist at the Kinsey Institute. They hold a master’s degree in History & Culture from Drew University, and are working on a MLIS (soon PhD) focusing on Archives, Digital Humanities, and Metadata at Indiana University Bloomington. They have published on antisex censorship, obscenity and are currently researching queer archives and sexual nomenclature.
-            </p>
-          </div>
+          <h4 class="media-heading">
+            K.J. Rawson
+          </h4>
+          <p>
+          </p>
+        </div>
         </div>
       </td>
     </tr>
@@ -233,97 +222,124 @@ Kalani is a Processing Archivist at Virginia Commonwealth University Libraries a
       <td>
         <div class="media">
           <div class="media-left">
-            <%= image_tag("about/about_jack_van_der_wel.jpg", class: 'hidden-xs') %>
+            <%= image_tag("about/watson.jpg", class: 'hidden-xs') %>
           </div>
           <div class="media-body">
-            <h4 class="media-heading">
-              Jack van der Wel
-            </h4>
-            <p>
-              Jack van der Wel (Co-Chair) is Head Collections and Cataloging at IHLIA LGBT Heritage in Amsterdam. He was one of the founders of Homodok in 1978, a predecessor of IHLIA. He presented the ongoing work on the Homosaurus on several LGBTQ ALMS Conferences since 2011.
-            </p>
-          </div>
+          <h4 class="media-heading">
+            Bri Watson
+          </h4>
+          <p>
+          </p>
         </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_adrian_williams.jpg", class: 'hidden-xs') %>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Adrian Williams
-            </h4>
-            <p>
-              Adrian Williams is the Cataloging &amp; Metadata Librarian at the University of Kentucky Libraries. They have an MLIS from Florida State University. Their research interests include inclusive and user-accessible subject headings, and the history of cataloging and of the library catalog.
-            </p>
-          </div>
-        </div>
-      </td>
-    </tr>
-
-    </tbody>
-  </table>
-
-  <h2>Former Editorial Board Members</h2>
-  <table class="table_with_image">
-    <caption class="sr-only">List of former editorial board members</caption>
-    <tbody>
-
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_walter_walker.jpg", class: 'hidden-xs') %>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Walter "Cat" Walker
-            </h4>
-            <p class="walter_cat_walker_tribute">
-              Walter "Cat" Walker served as the Head Cataloging Librarian at Loyola Marymount University in Los Angeles, California from 2004 until his untimely death in 2020. He was also a Director-at-Large of the American Library Association's Gay Lesbian Bisexual Transgender Roundtable (ALA GLBTRT) and he volunteered at the ONE National Gay & Lesbian Archives at the USC Libraries for 25 years.
-            <br /><br />
-              Cat Walker joined the Editorial Board of the Homosaurus in 2016 after he met Jack van der Wel at the LGBTQ ALMS conference in London. At this conference, Cat presented a keynote titled "Overcoming the Barriers: Improving Access to LGBTQ+ Content in Collections." Cat’s lifelong activism and passion for LGBTQ libraries and archives motivated him to join the Editorial Board and he quickly became an active member of our team. At the next LGBTQ ALMS Conference in Berlin in 2019, Cat and Jack presented a paper together on the Abridged Homosaurus.
-              <br /><br />
-              It is difficult to overstate Cat's contributions to the Homosaurus over the four years that he worked on the project. As the board dramatically revised the first version of the Homosaurus, Cat played a central role in helping us to make use of many more terms and LGBTQ-related contexts, representations, and histories. Cat worked extensively on reconciling Homosaurus version one to version two, examining the vocabulary with a close eye and pulling terms that required revision, lacked consistency across the list, or had a unique value that could be extended for related searches and needs. This list, composed of new suggested terms as well as adaptations of existing ones, was one of Cat’s most recent and ambitious contributions to the board’s work. At the time of his death, his documentation of related and suggested terms encompassed over 250 changes and/or new terms––important work that we will be sure to complete on his behalf and in his honor.
-              <br /><br />
-              Above all, Cat was a patient, kind, and gracious teacher and collaborator and he was always the first to volunteer to take on new projects. Cat’s attention to detail, as well as his commitment to making the Homosaurus a truly beautiful and inclusive set of terms, will be impossible to replace. We are endlessly grateful to him as we celebrate all that he contributed to this important project.
-            </p>
-
-          </div>
-        </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag("about/about_clair_kronk.jpg", class: 'hidden-xs') %>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              Clair Kronk
-            </h4>
-            <p>
-              Clair Kronk is a PhD student in biomedical informatics at the University of Cincinnati Medical School. Her current work focuses on LGBTQIA+ language use in healthcare settings and on transgender health outcomes. Clair previously graduated with a bachelor degree in bioinformatics from the University of Pittsburgh and has partnered with the Max-Planck-Institute (MPI) for Developmental Biology and the Air Force Research Laboratory (AFRL) on multiple occasions.
-            </p>
-          </div>
         </div>
       </td>
     </tr>
     </tbody>
   </table>
 
-<h2>Gratitude</h2>
-<div class="info_section">
-<p>The Editorial Board would like to thank our fabulous collaborators: AVEN, the Black Lesbian Archives, COLAGE, InterACT, the Leather Archives & Museum, and the Sex Worker Project. We would also like to thank the many users of the Homosaurus who have suggested terms and provided feedback over the years. In particular, we are grateful to Orla Egan, Alice Galvinhill, Ellen Greenblatt, Juniper Johnson, Dee Michel, Cailin Roles, and Lydia Willoughby for their contributions.</p>
+<h2>Organizing Board</h2>
+
+<p>The Organizing Board provides coordination, visioning, and guidance across the project, and helps to develop and grow the Collective, seeking funding, hosting summits, and identifying partnerships. This board contains the Systems Subcommittee, which focuses on software functionality and coordinates with developers.</p>
+
+<h2>Implementation Board</h2>
+
+<p>The Implementation Board works with outside organizations on the implementation of the Homosaurus, developing both internal and external training practices, creating implementation resources, and tracking use and scholarly application of and writing on the Homosaurus.</p>
+
+<h3>Board Co-Convenors</h3>
+<ul>
+  <li>Isaac Fellman, Digital Transgender Archive</li>
+  <li>Rachel Newlin, Schaumburg Township District Library</li>
+  <li>Crystal Yragui, University of Washington</li>
+</ul>
+
+<h3>Members</h3>
+<ul>
+  <li>Isaac Fellman, Digital Transgender Archive</li>
+  <li>Rachel Newlin, Schaumburg Township District Library</li>
+  <li>Crystal Yragui, University of Washington</li>
+  <li>Melissa Adler, Western University</li>
+  <li>Julia Bullard, University of British Columbia</li>
+  <li>Gabrielle Garcia, Lambda Archives</li>
+  <li>Emory LaPrade, Johnson City Public Library</li>
+  <li>Travis Wagner, University of Illinois</li>
+</ul>
+
+<h2>Term Development Board</h2>
+<p>The Term Development Board supports cross-language work and provides coordination among Term Development Committees. This board oversees the Dutch, English, French, German, Hindi and Bengali, Japanese, Spanish, and Swedish Language-Specific Committees, which are sustained long-term, as well as Ad-Hoc Thematic Committees, such as the Pasifika/Oceania committee, which are temporary in nature.</p>
+
+<h3>Board Co-Convenors</h3>
+<ul>
+  <li>Keahi Adolpho, Virgina Commonwealth University (English subcommittee)</li>
+  <li>Siska Humlesjö, University of Gothenburg (Swedish subcommittee)</li>
+  <li>Chloe Noland, University of California, Santa Cruz (English subcommittee)</li>
+</ul>
+
+<h3>Committee Co-Convenors</h3>
+<ul>
+  <li>Mylène Larivière-Langlois, University of Montreal (QC French subcommittee)</li>
+  <li>Partha Mukhepadhyay, University of Kalyani (Hindi/Bengali subcommittee)</li>
+  <li>Kazuyuki Sunaga, Kokugakuin University (Japanese subcommittee)</li>
+  <li>Gerrit Wessel (Dutch subcommittee), <a href="https://ihlia.nl/">IHLIA LGBTI Heritage</a> & <a href="https://queersearch.org/en/home-2/">QueerSearch</a></li>
+  <li>Sofia Zamora Morales, Northeastern (student) (Spanish subcommittee)</li>
+</ul>
+
+<h3>Members</h3>
+<ul>
+  <li>Marie-Ève Berthiaume, Bibliothèque de l’Université Laval (QC French subcommittee)</li>
+  <li>Iris Bouman (French subcommittee)</li>
+  <li>Thomas Bürgisser (German subcommittee)</li>
+  <li>Hortense Chopart, Université de Montréal (QC French subcommittee)</li>
+  <li>Ernesto Cuba, (Spanish subcommittee)</li>
+  <li>Thami Jothilingam, South Asian Canadian Digital Archive; University of the Fraser Valley (English subcommittee)</li>
+  <li>Nicolas Longtin-Martel, Archives gaies du Québec (QC French subcommittee)</li>
+  <li>Indica Mattson, Beinecke Rare Book & Manuscript Library, Yale University (German subcommittee)</li>
+  <li>Anita Mazur Polytechnique Montreal (QC French subcommittee)</li>
+  <li>Amber Redegeld, IHLIA LGBTI Heritage (Dutch subcommittee)</li>
+  <li>Irina Rogova, Virgina Commonwealth University (English subcommittee)</li>
+  <li>Lia Ryland San Francisco Public Library (English subcommittee)</li>
+  <li>Linda Streh (German subcommittee)</li>
+  <li>Críspulo Travieso Rodríguez (Spanish subcommittee), Universidad de Salamanca (Spain)</li>
+  <li>Annie Wolfe, Bibliothèque et Archives / Library and Archives Canada (QC French subcommittee)</li>
+</ul>
+
+<h2>Acknowledgements & Gratitude</h2>
+
+<h3>Former Members</h3>
+  <p>
+  The Homosaurus Collective would like to thank the former members of the Collective and the Editorial Board for their labour and love:
+  </p>
+
+    <ul>
+        <li>Billey Albina, formerly Systems & Metadata Librarian at Bard College</li>
+        <li>Clair Kronk, creator of GSSO Ontology and PhD in biomedical informatics at the University of Cincinnati Medical School</li>
+        <li>Jay Colbert, Boston Public Library</li>
+        <li>Adrian Williams, formerly of University of Kentucky Library</li>
+        <li>Cailin Roles, Bentley University</li>
+        <li>Claudia Schelling, Archivist Leibniz Institute for Contemporary History</li>
+        <li>Kai Brust</li>
+        <li>Thea Sibbel, IHLIA LGBTI Heritage</li>
+    </ul>
+
+  <p>And most notably and loudly:</p>
+
+    <ul>
+          <li>Jack van der Wel, IHLIA LGBTI Heritage, and Creator of the Homosaurus Vocabulary</li>
+    </ul>
+
+<h3>Gratitude</h3>
+<div>
+<p>The Homosaurus Collective would like to thank our fabulous collaborators: AVEN, the Black Lesbian Archives, COLAGE, InterACT, the Leather Archives & Museum, and the Sex Worker Oral History Project. We would also like to thank the many users of the Homosaurus who have suggested terms and provided feedback over the years. In particular, we are grateful to Orla Egan, Alice Galvinhill, Ellen Greenblatt, Juniper Johnson, Dee Michel, Cailin Roles, and Lydia Willoughby for their contributions.</p>
+</div>
+
+<h2>In Memoriam</h2>
+<div>
+<p>Walter "Cat" Walker: Walter "Cat" Walker served as the Head Cataloging Librarian at Loyola Marymount University in Los Angeles, California from 2004 until his untimely death in 2020. He was also a Director-at-Large of the American Library Association’s Gay Lesbian Bisexual Transgender Roundtable (ALA GLBTRT) and he volunteered at the ONE National Gay & Lesbian Archives at the USC Libraries for 25 years.</p>
+
+<p>Cat Walker joined the Editorial Board of the Homosaurus in 2016 after he met Jack van der Wel at the LGBTQ ALMS conference in London. At this conference, Cat presented a keynote titled "Overcoming the Barriers: Improving Access to LGBTQ+ Content in Collections." Cat’s lifelong activism and passion for LGBTQ libraries and archives motivated him to join the Editorial Board and he quickly became an active member of our team. At the next LGBTQ ALMS Conference in Berlin in 2019, Cat and Jack presented a paper together on the Abridged Homosaurus.</p>
+
+<p>It is difficult to overstate Cat’s contributions to the Homosaurus over the four years that he worked on the project. As the board dramatically revised the first version of the Homosaurus, Cat played a central role in helping us to make use of many more terms and LGBTQ-related contexts, representations, and histories. Cat worked extensively on reconciling Homosaurus version one to version two, examining the vocabulary with a close eye and pulling terms that required revision, lacked consistency across the list, or had a unique value that could be extended for related searches and needs. This list, composed of new suggested terms as well as adaptations of existing ones, was one of Cat’s most recent and ambitious contributions to the board’s work. At the time of his death, his documentation of related and suggested terms encompassed over 250 changes and/or new terms––important work that we will be sure to complete on his behalf and in his honor.</p>
+
+<p>Above all, Cat was a patient, kind, and gracious teacher and collaborator and he was always the first to volunteer to take on new projects. Cat’s attention to detail, as well as his commitment to making the Homosaurus a truly beautiful and inclusive set of terms, will be impossible to replace. We are endlessly grateful to him as we celebrate all that he contributed to this important project.</p>
 </div>
 
 </div>
