@@ -64,10 +64,12 @@ es:
     welcome_html: '<p>¡Bienvenidos al Homosaurus! El Homosaurus es un vocabulario internacional de datos vinculados de términos lesbianas, gays, bisexuales, transgénero y queer (LGBTQ). Este vocabulario pretende funcionar como un complemento de los vocabularios de términos temáticos amplios, como los encabezamientos de materias de la Biblioteca del Congreso de Estados Unidos. Invitamos a las bibliotecas, archivos, museos y otras instituciones a utilizar el Homosaurus para apoyar la investigación LGBTQ+ mejorando la capacidad de descubrimiento de sus recursos LGBTQ+.</p><p>Si estás interesado en comprar algún merchandising del Homosaurus, visita nuestra <a href="https://homosaurus.threadless.com">tienda en línea</a>. Todos los ingresos se utilizan para apoyar el proyecto o se donan a organizaciones LGBTQ+.</p><p>Si estás utilizando el Homosaurus, ¡queremos saber de ti! <a href="%{contact_path}">Comunícate con nosotros</a> para informarnos cómo estás utilizando este vocabulario y comparte cualquier comentario que tengas. También puedes unirste a nuestra comunidad y  Google Group en: <a href="https://groups.google.com/g/homoitcommunity">https://groups.google.com/g/homoitcommunity</a></p>'
   languages:
     bn: Bengalí
+    de: Alemán
     en: Ingles
     es: Español
     fr: Francés
     hi: Hindi
+    ja: Japonés
     nl: Holandés
     sv: Sueco
   menu:
