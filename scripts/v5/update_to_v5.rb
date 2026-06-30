@@ -7,7 +7,7 @@ require 'csv'
 
 changes = []
 errors = []
-langs = ["de","es","es_rev","fr","ja","nl"]
+langs = ["de","es","es_rev","fr","ja","nl","sv"]
 
 langs.each do |lang_id|
     terms = Hash.new()
