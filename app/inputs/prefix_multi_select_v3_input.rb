@@ -4,7 +4,7 @@ class PrefixMultiSelectV3Input < MultiSelectInput
     <<-HTML
           <li class="field-wrapper">
              <div class="input-group col-sm-12">
-             <span class="input-group-addon">https://homosaurus.org/v3/</span>
+             <span class="input-group-addon">https://homosaurus.org/v4/</span>
               #{yield}
 
               <span class="input-group-btn regular_audits_duplicate_span">
@@ -17,16 +17,29 @@ class PrefixMultiSelectV3Input < MultiSelectInput
           </li>
     HTML
   end
-
+  # def collection
+  #   @collection = attribute_name.split("_")[1]
+  # end
+  def input(wrapper_options)
+    @collection = options[:collection]
+    @collection2 = options[:collection2]
+    super
+  end
+  def collection
+    @collection.empty? ? ['', nil] : @collection
+  end
   def buffer_each(collection)
     collection.each_with_object('').with_index do |(value, buffer), index|
       if !@rendered_first_element && value.blank?
         buffer << yield(value, index)
       elsif value.present?
-        term = Term.find_by(uri: value)
-        buffer << yield(["#{term.identifier} (#{term.pref_label})", term.uri], index) unless @rendered_first_element && value.blank?
+        term = Term.find_by(id: value[1])
+        if term
+          buffer << yield(["#{term.identifier} (#{term.pref_label})", term.id], index) unless @rendered_first_element && value.blank?
+        else
+          buffer << yield(['', nil], index) unless @rendered_first_element && value.blank?
+        end
       end
     end
   end
-
 end

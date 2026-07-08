@@ -1,0 +1,227 @@
+<%
+  is_term = @discussion_type == "Term"
+  is_er = @discussion_type == "EditRequest"
+  is_user = @discussion_type == "User"
+
+  unless is_user
+    pref_label = is_term ? @homosaurus_obj.pref_label : @homosaurus_obj.term.get_relationship_at_version_release(Relation::Pref_label, @vid)[0][1]
+    identifier = is_term ? @homosaurus_obj.identifier : @homosaurus_obj.my_changes["identifier"]
+  vocabulary_identifier = is_term ? @homosaurus_obj.vocabulary_identifier : @homosaurus_obj.version_release.vocabulary.identifier
+  end
+
+  %>
+<h2><%= t("discussion.label") %>:
+  <% if is_er %>
+    <span class="badge text-bg-dark">V. <%= @homosaurus_obj.version_release.release_identifier %> Changes [<%= @homosaurus_obj.vote_status %>]</span>
+    <% end %>
+    <% if is_er || is_term %>
+      &nbsp; <%= pref_label %> [<%= identifier %>]
+    <% else %>
+      &nbsp; <%= @homosaurus_obj.username %>
+    <% end %>
+</h2>
+<% if is_term %>
+  <% if @homosaurus_obj.visibility == "deleted" %>
+    <div class="alert alert-danger" role="alert">
+      This term has been removed from the vocabulary and is no longer in use.<br />
+    Apologies for the inconvenience.
+    </div>
+  <% elsif @homosaurus_obj.visibility == "pending" %>
+    <div class="alert alert-danger" role="alert">
+      This term is a pending object set to be in the next release.
+    </div>
+  <% end %>
+<% end %>
+  
+<p><div style="clear:both;">
+    <% unless is_user %>
+      <%= button_to t("discussion.back_to_term"), vocabulary_show_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", class: 'btn btn-outline-secondary', style:"margin-left:20px;" %>
+      <%= button_to t("term.view_history"), vocabulary_term_history_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", class: 'btn btn-outline-secondary', style:"margin-left:20px;" %>
+    <% else %>
+      <%= button_to t("menu.profile"), profile_for_path(user_id: @homosaurus_obj.id), :method => "get", class: 'btn btn-outline-secondary', style:"margin-left:20px;" %>
+    <% end %>
+    <% if is_er %>
+      <%= button_to t("edit_request.view_release"), release_show_path(release_id: @homosaurus_obj.version_release.release_identifier), :method => "get", class: 'btn btn-outline-secondary', style:"margin-left:20px;" %>
+    <% end %>
+    <button class="btn btn-primary discussion-add-topic" style="margin-left:20px;"
+	    data-bs-toggle="modal" data-bs-target="#new-topic-modal"><%= t("discussion.add_topic") %> (+)</button>
+    <% if is_er and @homosaurus_obj.vote_status == "pending" and not @homosaurus_obj.hasUserVoted(current_user) and current_user.contributor? %>
+      <button class="btn btn-primary discussion-add-vote" style="margin-left:20px;"
+	      data-bs-toggle="modal" data-bs-target="#new-vote-modal"><%= t("discussion.add_vote") %> (+)</button>
+    <% end %>
+
+    <% if is_er and current_user.admin? and @homosaurus_obj.vote_status == "pending" %>
+      <%= button_to "Approve changes", edit_request_approve_release_path(vocab_id: vocabulary_identifier, id: identifier, release_id: @homosaurus_obj.version_release.release_identifier), :method => "post", class: 'btn btn-primary', data: {confirm: "Are you sure you want to approve this?" } %>
+    <% end %>
+</div>
+<br/>
+
+<div class="container-fluid">
+  <% if is_er %>
+    <h2><%= t("discussion.changes_label") %></h2>
+    <%= render partial: "partials/edit_request_partial", locals: {edit_request: @homosaurus_obj, relations: Relation.all, discussion_page: true} %>
+    <h2><%= t("discussion.comment_vote_label") %></h2>
+    <h3><%= t("discussion.vote_tally") %>: &nbsp; <% @homosaurus_obj.voteSummary().each do |k, v| %>
+      	<span class='<%= Comment::vote_badge_class(k) %>'><%= k %><span class='badge text-bg-light'><%= v %></span></span>
+
+    <% end %></h3>
+  <% else %>
+    <h2><%= t("discussion.comment_label") %></h2>
+  <% end %>
+  <% @comments.each do |c|  %>
+  <%= render partial:"partials/comment_partial", locals: {comment: c} %>
+  <% end %>
+</div>
+<div id="new-topic-modal" class="modal modal-lg modal-fullscreen-sm-down"
+     tab-index="-1" aria-hidden="true" aria-labelledby="new-topic-modal-label">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <%= form_with url: request.fullpath + "/post_comment", method: :get, local: true do |f| %>
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="new-topic-modal-label"><%= t("discussion.add_topic") %></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	  <input type="hidden" name="user" value="<%= current_user.id %>">
+	  <input type="hidden" name="is_vote" value="false">
+	  <input type="hidden" name="parent" value="<%= @homosaurus_obj.id %>">
+	  <input type="hidden" name="parent_type" value="<%= @discussion_type %>">
+	  <input type="hidden" name="language_id" value="<%= I18n.locale %>">
+          <div class="mb-3">
+	    <label for="new-topic-subject" class="form-label"><%= t('discussion.comment_subject') %></label>
+	    <input name="subject" type="text" class="form-control" id="new-topic-subject" placeholder="<%= t('discussion.comment_subject_message') %>">
+	  </div>
+	  <div class="mb-3">
+	    <label for="new-topic-content" class="form-label"><%= t('discussion.comment_content') %></label>
+	    <textarea name="content" type="textarea" class="form-control" id="new-topic-content" placeholder="<%= t('discussion.comment_content_message') %>"></textarea>
+	  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><%= t('misc.cancel') %></button>
+        <button type="submit" class="btn btn-primary"><%= t('misc.post') %></button>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<div id="new-vote-modal" class="modal modal-lg modal-fullscreen-sm-down"
+     tab-index="-1" aria-hidden="true" aria-labelledby="new-topic-modal-label">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <%= form_with url: request.fullpath + "/post_comment", method: :get, local: true do |f| %>
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="new-topic-modal-label">Add new vote</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	  <input type="hidden" name="user" value="<%= current_user.id %>">
+	  <input type="hidden" name="is_vote" value="true">
+	  <input type="hidden" name="parent" value="<%= @homosaurus_obj.id %>">
+	  <input type="hidden" name="parent_type" value="<%= @discussion_type %>">
+	  <input type="hidden" name="language_id" value="<%= I18n.locale %>">
+          <div class="input-group mb-3">
+	    <label for="vote-select" class="input-group-text"><%= t('discussion.vote_label') %></label>
+	    <select id="vote-select" name="subject" class="form-select">
+	      <option value="Accept"><%= t('discussion.vote_accept') %></option>
+	      <option value="Reject"><%= t('discussion.vote_reject') %></option>
+	      <option value="Table"><%= t('discussion.vote_table') %></option>
+	    </select>
+	  </div>
+	  <div class="mb-3">
+	    <label for="new-topic-content" class="form-label">Comment</label>
+	    <textarea name="content" type="textarea" class="form-control" id="new-topic-content" placeholder="Enter Comment"></textarea>
+	  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><%= t('misc.cancel') %></button>
+        <button type="submit" class="btn btn-primary"><%= t('misc.post') %></button>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="edit-comment-modal" tabindex="-1" aria-labelledby="edit-comment-modal-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= form_with url: request.fullpath + "/edit_comment", method: :get, local: true do |f| %>
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="edit-comment-modal-label">Edit Comment/Vote</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	<input type="hidden" name="comment_id" id="edit-comment-modal-comment-id" value="">
+	<input type="hidden" name="is_vote" id="edit-comment-modal-isvote" value="">
+        <div id="edit-comment-subject" class="mb-3">
+          <label for="edit-comment-modal-subject" class="col-form-label"><%= t('discussion.comment_subject') %>:</label>
+          <input name="subject" type="text" class="form-control" id="edit-comment-modal-subject">
+        </div>
+	<div id="edit-vote-selection" class="input-group mb-3">
+	    <label for="vote-select" class="input-group-text"><%= t('discussion.vote_label') %></label>
+	    <select id="edit-comment-modal-vote" name="vote-subject" class="form-select">
+	      <option value="Accept"><%= t('discussion.vote_accept') %></option>
+	      <option value="Reject"><%= t('discussion.vote_reject') %></option>
+	      <option value="Table"><%= t('discussion.vote_table') %></option>
+	    </select>
+	  </div>
+        <div class="mb-3">
+          <label for="message-text" class="col-form-label"><%= t('discussion.comment_content') %>:</label>
+          <input type="textarea" name="content" class="form-control" id="edit-comment-modal-content">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><%= t('misc.cancel') %></button>
+        <button type="submit" class="btn btn-primary"><%= t('misc.post') %></button>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script type='text/javascript'>
+  // Scroll to highlighted comment if exists
+    $(document).ready(function() {
+	var scrolled_id = $(location).attr('hash');
+	if(scrolled_id != ""){
+	    $n = $(scrolled_id);
+	    $n.parents().each(function(i, e){
+		$(e).collapse("show");
+	    })
+	    setTimeout(function(){}, 2000);
+	    $n[0].scrollIntoView();
+	};
+	$editModal = $('#edit-comment-modal');
+	$editModal.on('show.bs.modal', function(event){
+	    console.log("editing comment");
+	    // Button that triggered the modal
+	    $button = event.relatedTarget
+	    // Extract info from data-bs-* attributes
+	    var commentId = $button.getAttribute('data-bs-comment-id')
+	    var isVote = $button.getAttribute('data-bs-isvote')
+	    var subject = $button.getAttribute('data-bs-subject')
+	    var content = $button.getAttribute('data-bs-content')
+
+	    $('#edit-comment-modal-comment-id').val(commentId);
+	    $('#edit-comment-modal-isvote').val(isVote);
+
+	    if(isVote == "true"){
+		$('#edit-comment-modal-label').text('Edit Vote');
+		$('#edit-comment-subject').hide();
+		$('#edit-vote-selection').show();
+		var $modalSubject = $('#edit-comment-modal-vote');
+	    }else{
+		$('#edit-comment-modal-label').text('Edit Comment');
+		$('#edit-comment-subject').show();
+		$('#edit-vote-selection').hide();
+		var $modalSubject = $('#edit-comment-modal-subject');
+	    }
+	    $modalSubject.val(subject);
+	    var $modalContent = $('#edit-comment-modal-content');
+	    $modalContent.val(content);
+	});
+    });
+</script>
+

@@ -1,34 +1,162 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
+---
 en:
-  hello: "Hello world"
-  admin_help:
-    preferred_term: "A term authorized to represent a specific concept. The Homosaurus Editorial Board advises users to adopt the preferred term for a concept within their own records. A preferred term is typically the most popularly used version of a term, though the Homosaurus Editorial Board may adopt a less commonly used version of a term if it better represents the project's values and/or users' needs.<ul><li>All terms must have language labels. To apply a language label, click \"Lookup,\" select the language, type in the preferred term, and click \"Add Label.\" Language labels can also be applied by typing the preferred term into the text field, followed by the \"at\" symbol and the <a href='https://www.andiamo.co.uk/resources/iso-language-codes/' target='_blank>ISO 639-1 standard language code</a> or the <a href='https://iso639-3.sil.org/code_tables/639/data' target='_blank'>ISO 639-3 standard language code</a>, provided in the lookup.</li>For English (USA) terms with English (UK) counterparts, add the US version (@en-US) as the preferred term and the UK (@en-GB) version as an additional preferred term.</li><li>Use diacritics in the preferred term (e.g., <a href='https://homosaurus.org/v3/homoit0000979' target='_blank'>Māhū</a>) and include any anglicized version as an alternative term (e.g., Mahu). Avoid using other special characters. In the case of many or nonstandardized anglicizations, the choice for the preferred term to be used will be on a case-by-case basis.</li><li>Capitalize the first letter of the first word, unless it is commonly written in lowercase letters, and then follow sentence case.</li><li>Follow <a href='https://iso.org/standard/53657.html' target='_blank'>ISO 25964-1:2011</a> when determining whether a preferred term should be expressed as a plural or singular. In general, all preferred terms must be expressed as plurals (e.g., <a href='https://homosaurus.org/v3/homoit0000506' target='blank'>Gay men</a>, not Gay man) if they represent countable entities. The only exception is names of parts of the body, which are expressed as singulars (e.g., <a href='https://homosaurus.org/v3/homoit0000222' target='_blank'>Breast</a>, not Breasts). If the preferred term represents an entity that cannot be counted, it should be expressed as a singular (e.g., <a href='https://homosaurus.org/v3/homoit0000245' target='_blank>Censorship</a>, not Censorships).</li><li>For terms that are action verbs, use the present participle -ing (e.g., <a href='https://homosaurus.org/v3/homoit0000206' target='_blank'>Biting</a>, not Bites).</li><li>For terms that could be mistaken for other, unrelated concepts, use parenthetical qualifiers to add context (e.g., <a href='https://homosaurus.org/v3/homoit0000105' target='_blank>Bears (Gay culture)</a>).</li><li>For terms that are most commonly known as acronyms, provide the acronym in capital letters followed by the full, unabbreviated term in parentheses. The only exception is terms that are abbreviated to obscure their meaning from outsiders (e.g., <a href='https://homosaurus.org/v3/homoit0001780' target='_blank'>t4t</a>).</li><li>All Preferred Terms must be assigned at least one RT, NT, or BT to avoid orphan terms.</li></ul>Example: <a href='https://homosaurus.org/v3/homoit0000033' target='blank'>ARC (AIDS-Related Complex)</a><br/>Example: <a href='https://homosaurus.org/v3/homoit0000726' target='_blank'>Black lesbians</a><br/>Example: <a href='https://homosaurus.org/v3/homoit0001063' target='_blank'>Otters (Gay culture)</a>"
-    other_preferred_terms: "Terms authorized to represent a specific concept in a language other than English or in an English language variation.<ul><li>All terms must have language labels. To apply a language label, click \"Lookup,\" select the language, type in the preferred term, and click \"Add Label.\" Language labels can also be applied by typing the preferred term into the text field, followed by the \"at\" symbol and the <a href='https://www.andiamo.co.uk/resources/iso-language-codes/' target='_blank>ISO 639-1 standard language code</a> or the <a href='https://iso639-3.sil.org/code_tables/639/data' target='_blank'>ISO 639-3 standard language code</a>, provided in the lookup.</li><li>Use diacritics in the preferred term (e.g., <a href='https://homosaurus.org/v3/homoit0000979' target='_blank'>Māhū</a>) and include any anglicized version as an alternative term (e.g., Mahu). Avoid using other special characters. In the case of many or nonstandardized anglicizations, the choice for the preferred term to be used will be on a case-by-case basis.</li><li>Capitalize the first letter of the first word, unless it is commonly written in lowercase letters, and then follow sentence case.</li><li>Follow <a href='https://iso.org/standard/53657.html' target='_blank'>ISO 25964-1:2011</a> guidelines for the specific language when determining whether other preferred terms should be expressed as plurals or singulars.</li><li>For terms that are action verbs, use the present participle -ing (e.g., <a href='https://homosaurus.org/v3/homoit0000206' target='_blank'>Biting</a>, not Bites).</li><li>For terms that could be mistaken for other, unrelated concepts, use parenthetical qualifiers to add context (e.g., <a href='https://homosaurus.org/v3/homoit0000105' target='_blank>Bears (Gay culture)</a>).</li><li>For terms that are most commonly known as acronyms, provide the acronym in capital letters followed by the full, unabbreviated term in parentheses. The only exception is terms that are abbreviated to obscure their meaning from outsiders (e.g., <a href='https://homosaurus.org/v3/homoit0001780' target='_blank'>t4t</a>).</li></ul>Example: Behavioural therapy (for <a href='https://homosaurus.org/v3/homoit0000106' target='_blank'>Behavioral therapy</a>)<br/>Example: Medicalisation (for <a href='https://homosaurus.org/v3/homoit0001006' target='_blank'>Medicalization</a><br/>Women's community centres (for <a href='https://homosaurus.org/v3/homoit0001512' target='_blank'>Women's community centers</a>)"
-    alternative_terms: "Words commonly used to represent the concept a term describes. An alternative term is an unauthorized variant of a term provided to improve searchability. The Homosaurus Editorial Board advises users to adopt the preferred term within their own records. This field is often abbreviated as UF.<ul><li>All terms must have language labels. To apply a language label, click \"Lookup,\" select the language, type in the preferred term, and click \"Add Label.\" Language labels can also be applied by typing the preferred term into the text field, followed by the \"at\" symbol and the <a href='https://www.andiamo.co.uk/resources/iso-language-codes/' target='_blank>ISO 639-1 standard language code</a> or the <a href='https://iso639-3.sil.org/code_tables/639/data' target='_blank'>ISO 639-3 standard language code</a>, provided in the lookup.</li><li>Capitalize the first letter of the first word, unless it is commonly written in lowercase letters, and then follow sentence case.</li><li>For preferred terms that have diacritics (e.g., <a href='https://homosaurus.org/v3/homoit0000979' target='_blank'>Māhū</a>), add the anglicized form as an alternative term (e.g., Mahu).</li><li>To improve searchability, alternative terms are not required to follow the same input guidelines as preferred terms. Instead, they should comprise all other commonly used forms of a given term.</li></ul>Example: Arse; Ass; Bum; Buttock; Buttocks (for <a href='https://homosaurus.org/v3/homoit0000232' target='_blank'>Butt</a>)<br/>Example: Genitalia (for <a href='https://homosaurus.org/v3/homoit0000585' target='_blank'>Genitals</a>)<br/>Example: 2S people; Two Spirit people; Two Spirited people; Two-Spirited people (for <a href='https://homosaurus.org/v3/homoit0001480' target='_blank'>Two-Spirit people</a>)"
-    scope_note: "A brief summary of how the Homosaurus Editorial Board understands the concept and, often, recommendations for usage. The scope note does not attempt to dictate a single, authoritative definition of a concept, though it does seek to specify the specific concept referenced by a term in order to avoid confusion. Additionally, the scope note outlines the contexts in which a term should be applied or not applied. This field is often abbreviated as SN.<ul><li>Follow sentence case for capitalization.</li><li>When describing terms for identities and peoples, note that such terms should only be applied to individuals who self-identify with them.</li><li>To the extent possible, specify the time and place that historical terms were most popularly used.</li><li>Clearly note when terms are considered offensive, outdated, and/or are regarded as slurs. For reclaimed slurs, advise users to follow the preferences of the individuals or organizations being described.</li><li>Clearly note when terms are considered colloquial or slang. If possible, specify the communities or places in which the slang originates and/or primarily circulates.</li></ul>Example: <a href='https://homosaurus.org/v3/homoit0001674' target='_blank'>Co/Co/Coself (Pronouns)</a>: A set of pronouns. Used in this manner: Co went to the Homosaurus website. I watched co browse the Homosaurus. Co uses the Homosaurus coself.<br/>Example: <a href='https://homosaurus.org/v3/homoit0000618' target='_blank'>Intersex people</a>: Individuals whose genitalia, hormones, internal anatomy, and/or chromosomes do not fully or exclusively conform to medical or social expectations for males or females; only use to describe people who self-identify as intersex.<br/>Example: <a href='https://homosaurus.org/v3/homoit0001484' target='_blank'>Uranians:</a> 19th century term used to refer to gender and sexual minorities; use only in historical contexts."
-    source: "A related resource from which the preferred term and/or scope note is derived.<ul><li>Follow sentence case for capitalization.</li><li>Add access date when possible.</li><li>When providing a source citation for a scope note, use clear attribution that includes the name of the author or organization and, if applicable, the title or stable URI/URL of the relevant resource.</li><li>Resources may include entries in other vocabularies, language guides created by LGBTQ+ organizations, community Wikis, published literature, etc. When possible, include sources which are open-access and not behind paywalls. When considering slurs or reclaimed terms, avoid (where possible) citing cases of direct derogation.</li><li>Note that individuals and organizations who suggest terms should not be included in this field, but rather in the Contributor field.</li></ul>"
-    contributor: "An individual, organization, or other entity who has suggested a preferred term or or any of its components.<ul><li>Follow sentence case for capitalization.</li><li>Add contributor dates when possible.</li></ul>"
-    history_note: "Account of the changes made to a term within the vocabulary since its first publication. May include citations for scope notes and other information that does not clearly fall within other fields. This field is often abbreviated as HN.<ul><li>Follow sentence case for capitalization.</li></ul>Example: Term changed from \"Latinx\" to \"Latino/a/x\" to acknowledge the variation in use among the affected community.<br/>Example: As part of the v3.3 update, the following terms were redirected to this term to better reflect the scope of the Homosaurus: \"Ephebophilia,\" \"Gerontophilia,\" and \"Hebephilia.\" We recommend that users replace those terms with the term \"Fetishism\" in their records.<br/>Example: To acknowledge their multiple marginalization, terms for people of color who are LGBTQ+ use the following format: Racial or ethnic identity followed by gender or sexual identity (e.g., <a href='https://homosaurus.org/v3/homoit0000726' target='_blank'>Black lesbians</a>)."
-    internal_note: "A space in which to flag issues with a term, document backend conversations surrounding a term, and/or record details as to a term’s provenance. This field is only visible when logged into the administrative interface.<ul><li>Follow sentence case for capitalization.</li><li>Be as clear as possible, remembering that the internal note will eventually be read by individuals who were not part of the project when the internal note was first written.</li><li>Provide your name or initials to indicate the author of the internal note and/or distinguish between different individuals’ contributions.</li></ul>Example: KJR: A user suggested adding a qualifier to this term and its siblings. Suggestions? CFR: How about (Gay community)? (Gay culture)?<br/>Example: JW: Should <a href='https://homosaurus.org/v3/homoit0001878' target='_blank'>LGBTQ+ Deaf culture</a> should get BT \"Subcultures\" or is \"LGBTQ+ communities\" a better BT?<br />Example: KJR: Note that terms for body parts should be in the singular form, per ISO."
-    sources: "A related resource from which the preferred term and/or scope note is derived.<ul><li>Follow sentence case for capitalization.</li></li>Add access date when possible.</li><li>When providing a source citation for a scope note, use clear attribution that includes the name of the author or organization and, if applicable, the title or stable URI/URL of the relevant resource.</li><li>Resources may include entries in other vocabularies, language guides created by LGBTQ+ organizations, community Wikis, published literature, etc. When possible, include sources which are open-access and not behind paywalls. When considering slurs or reclaimed terms, avoid (where possible) citing cases of direct derogation.<li>Note that individuals and organizations who suggest terms should not be included in this field, but rather in the Contributor field.</li></ul>Example: Adapted from Wikipedia entry on \"Androgen Insensitivity Syndrome,\" <a href='https://en.wikipedia.org/wiki/Androgen_insensitivity_syndrome' target='_blank'>https://en.wikipedia.org/wiki/Androgen_insensitivity_syndrome</a>, accessed 12 June 2022.<br />Example: Developed from the Oxford English Dictionary entry for \"mothers,\" accessed 18 Jan 2023."
-    contributors: "An individual, organization, or other entity who has suggested a preferred term or or any of its components.<ul><li>Follow sentence case for capitalization.</li><li>Add contributor dates when possible.</li></ul>Example: Suggested by Kru Maekdo in 2022.<br />Example: Developed during an extended collaboration with the Leather Archives & Museum, 2021–2023."
+  about:
+    board:
+      billey: Billey Albina is the Systems & Metadata Librarian at Bard College. Prior to joining Bard, she was the Metadata Librarian at Columbia University Libraries where she worked on the LD4P project contributing to ontology development, tooling, and MARC to RDF mapping. Her research focuses on ethics and social justice in library metadata and information organization.
+      cifor: Marika Cifor is an Assistant Professor in the Information School at the University of Washington. She is a feminist scholar working at the intersections of archival studies and digital studies. Her research investigates how through archives, records, and data produced within digital cultures, individuals and communities marginalized by sexuality, race, class, gender, and HIV-status enact and give substance to their identities, collective memories, and social movements.
+      colbert: Jay L. Colbert is the Library Director at the Longy School of Music of Bard College. He holds a MSLIS from the University of Illinois at Urbana-Champaign, where he completed a thesis on patron-driven subject access and queer controlled vocabulary via a critical framework of queer theory and semiotics. His subsequent publications build on this research. Jay haunts New England with his bearded dragon Coop and his tuxedo cat King Arthur.
+      kalani: Kalani is a Processing Archivist at Virginia Commonwealth University Libraries and is a former Diversity Resident Librarian. They received their MLIS from University of Wisconsin-Milwaukee, as well as their BA in History. Kalani co-edited Trans and Gender Diverse Voices in Libraries published by Library Juice Press and co-created the Diversity Residency Toolkit as part of the ACRL Residency Interest Group. His research interests include trans and gender diverse inclusion in libraries and archives, reparative and ethical metadata, and diversity residencies.
+      kizzie: Janaya Kizzie is an archivist, artist, and public humanitarian. A graduate of Bard College (BA) and the University of Rhode Island (MLIS), Kizzie processed and developed archival infrastructures for the American Academy of Arts and Sciences in Cambridge, Massachusetts Citizens Bank, and Concord Free Public Library. Kizzie's work in historical collections has most recently included the processing of the AS220 Collection at Providence Public Library, the Rhode Island Arts and Culture Research Fellowship recording the recent history of Rhode Island Arts and Culture. In 2020, Kizzie was named Rhode Island Public Humanities Scholar by the Rhode Island Council for the Humanities. Currently Events Coordinator at Providence Public Library, Kizzie strives to redefine library standards and practices for community empowerment and engagement.
+      kronk: Clair Kronk is a PhD student in biomedical informatics at the University of Cincinnati Medical School. Her current work focuses on LGBTQIA+ language use in healthcare settings and on transgender health outcomes. Clair previously graduated with a bachelor degree in bioinformatics from the University of Pittsburgh and has partnered with the Max-Planck-Institute (MPI) for Developmental Biology and the Air Force Research Laboratory (AFRL) on multiple occasions.
+      noland: Chloe Noland (Secretary) is a librarian currently living and working in Los Angeles, CA. She earned her B.A. from California College of the Arts in Literature & Creative Writing, and then received her MLIS from San Jose State University, where she discovered a love for cataloging and metadata enhancement. Her passion for language, culture, and taxonomies has led her to projects such as the Homosaurus, which she is enormously excited to be a part of.
+      rawson: 'K.J. Rawson is an Associate Professor of English and Women''s, Gender, and Sexuality Studies at Northeastern University. He is also the founder and director of the Digital Transgender Archive, an award-winning online repository of trans-related historical materials, and he is the co-chair of the editorial board of the Homosaurus, an international LGBTQ linked data vocabulary. His work is at the intersections of the Digital Humanities and Rhetoric, LGBTQ+, and Feminist Studies. Focusing on archives as key sites of cultural power, Rawson studies the rhetorical work of queer and transgender archival collections in both brick-and-mortar and digital spaces. He has co-edited special issues of Peitho and TSQ and he co-edited Rhetorica in Motion: Feminist Rhetorical Methods and Methodologies (University of Pittsburgh Press, 2010). Rawson’s scholarship has appeared in Archivaria, Enculturation, Peitho, Present Tense, QED, RSQ, TSQ, and several edited collections.'
+      van_der_wel: Jack van der Wel (Co-Chair) is Head Collections and Cataloging at IHLIA LGBT Heritage in Amsterdam. He was one of the founders of Homodok in 1978, a predecessor of IHLIA. He presented the ongoing work on the Homosaurus on several LGBTQ ALMS Conferences since 2011.
+      walker_html: 'Walter "Cat" Walker served as the Head Cataloging Librarian at Loyola Marymount University in Los Angeles, California from 2004 until his untimely death in 2020. He was also a Director-at-Large of the American Library Association''s Gay Lesbian Bisexual Transgender Roundtable (ALA GLBTRT) and he volunteered at the ONE National Gay & Lesbian Archives at the USC Libraries for 25 years.</br></br>Cat Walker joined the Editorial Board of the Homosaurus in 2016 after he met Jack van der Wel at the LGBTQ ALMS conference in London. At this conference, Cat presented a keynote titled "Overcoming the Barriers: Improving Access to LGBTQ+ Content in Collections." Cat’s lifelong activism and passion for LGBTQ libraries and archives motivated him to join the Editorial Board and he quickly became an active member of our team. At the next LGBTQ ALMS Conference in Berlin in 2019, Cat and Jack presented a paper together on the Abridged Homosaurus.</br></br>It is difficult to overstate Cat''s contributions to the Homosaurus over the four years that he worked on the project. As the board dramatically revised the first version of the Homosaurus, Cat played a central role in helping us to make use of many more terms and LGBTQ-related contexts, representations, and histories. Cat worked extensively on reconciling Homosaurus version one to version two, examining the vocabulary with a close eye and pulling terms that required revision, lacked consistency across the list, or had a unique value that could be extended for related searches and needs. This list, composed of new suggested terms as well as adaptations of existing ones, was one of Cat’s most recent and ambitious contributions to the board’s work. At the time of his death, his documentation of related and suggested terms encompassed over 250 changes and/or new terms––important work that we will be sure to complete on his behalf and in his honor.</br></br>Above all, Cat was a patient, kind, and gracious teacher and collaborator and he was always the first to volunteer to take on new projects. Cat’s attention to detail, as well as his commitment to making the Homosaurus a truly beautiful and inclusive set of terms, will be impossible to replace. We are endlessly grateful to him as we celebrate all that he contributed to this important project. '
+      watson: Bri Watson is the Archivist-Historian of the American Psychological Association’s Division 44 (Consensual Non-Monogamy), a historian of the book and sexuality, and a graduate archivist at the Kinsey Institute. They hold a master’s degree in History & Culture from Drew University, and are working on a MLIS (soon PhD) focusing on Archives, Digital Humanities, and Metadata at Indiana University Bloomington. They have published on antisex censorship, obscenity and are currently researching queer archives and sexual nomenclature.
+      williams: Adrian Williams is the Cataloging & Metadata Librarian at the University of Kentucky Libraries. They have an MLIS from Florida State University. Their research interests include inclusive and user-accessible subject headings, and the history of cataloging and of the library catalog.
+    board_label: Editorial Board
+    former_board_label: Former Editorial Board Members
+    gratitude_label: Gratitude
+    gratitude_message: 'The Editorial Board would like to thank our fabulous collaborators: AVEN, the Black Lesbian Archives, COLAGE, InterACT, the Leather Archives & Museum, and the Sex Worker Project. We would also like to thank the many users of the Homosaurus who have suggested terms and provided feedback over the years. In particular, we are grateful to Orla Egan, Alice Galvinhill, Ellen Greenblatt, Juniper Johnson, Dee Michel, Cailin Roles, and Lydia Willoughby for their contributions.'
+    history_html: '<p>The Homosaurus was originally created in 1997 by <a href="https://www.ihlia.nl/?lang=en">IHLIA LGBT Heritage</a> as a Dutch and English gay and lesbian thesaurus that was used as a standalone vocabulary to describe their collections. Over time, terms relating to bisexuality, trans, gender, and intersex concepts were added, but not methodically. This original version of the vocabulary (which we refer to as version 0) had an overly flat structure and, due to the lack of connections, terms were too isolated from one another and therefore easily missed. But, it became apparent that a vocabulary developed by an LGBTQ archives to describe LGBTQ resources could be a powerful tool.</p><p>In 2013, Jack van der Wel, with the help of Ellen Greenblatt, transformed the original Homosaurus into a more inclusive and hierarchical thesaurus (<a href="https://homosaurus.org/terms">https://homosaurus.org/terms</a>). Hundreds of terms were added and each term was put in relation to others in a hierarchical structure. At this point, the vocabulary only existed as an offline document that was circulated as a Word document or PDF. The results of this major editing project were presented at numerous LGBTQ ALMS Conferences and the vocabulary began to be used by other LGBTQ archives, libraries, and documentation centres throughout the world. </p><p>In 2015, the <a href="https://www.digitaltransgenderarchive.net">Digital Transgender Archive</a> (DTA) became one of the handful of LGBTQ archives using version 1 of the Homosaurus to describe resources in their collections. When it became apparent to the DTA’s Director, K.J. Rawson, how useful the vocabulary was and how many institutions could benefit from using it, he collaborated with Jack van der Wel to transform version 1 into an online linked data vocabulary. This dramatically increased the accessibility of the vocabulary and allowed cultural institutions from around the world to link to a common vocabulary.</p><p>In 2016, Rawson and van der Wel then established an Editorial Board to oversee a second major revision of the Homosaurus. The board ultimately decided to transform the Homosaurus from a broader, standalone vocabulary (which included hundreds of non-LGBTQ terms, e.g., “advertising” and “literature”) to a narrower, LGBTQ-specific vocabulary that was intended to supplement existing thesauri (primarily the Library of Congress Subject Headings). This was a major conceptual shift and this revision resulted in version 2.</p><p>In May, 2019, version 2 of the Homosaurus was released as a linked data vocabulary and is still accessible at <a href="https://homosaurus.org/v2">https://homosaurus.org/v2</a>.</p><p>In September 2021, version 3 of the Homosaurus changed identifiers to be more consistent along with adding some initial language support. This is the current version of the vocabulary available today at: <a href="https://homosaurus.org/v3">https://homosaurus.org/v3</a>. The Editorial Board is now focused on publicizing the project and making ongoing edits to the vocabulary.</p>'
+    mission_label: Mission
+    mission_statement: The Homosaurus is an international linked data vocabulary of LGBTQ+ terms. Designed to enhance broad subject term vocabularies, the Homosaurus is a robust and cutting-edge thesaurus that advances the discoverability of LGBTQ+ resources and information.
+    resources_label: Resources
+  contact:
+    email: Your Email
+    label: Contact Us
+    message: Your Message
+    message_html: If you are using the Homosaurus, we want to hear from you! Please reach out to let us know how you are using this vocabulary and share any feedback you might have. We are also open to having new members join our Editorial Board so please let us know if that is something you are interested in.</br>The Homosaurus is a work in progress and we welcome suggestions for new terms to be added or changes to be made within the vocabulary. The Homosaurus Editorial Board oversees the upkeep of the vocabulary and will consider all proposed terms and changes on a quarterly basis.
+    name: Your Name
+    send: Send
+    topic: Topic
+  discussion:
+    add_topic: Add New Topic
+    add_vote: Add Vote
+    back_to_term: Back to Term
+    changes_label: Changes
+    comment_content: Comment
+    comment_content_message: Enter comment
+    comment_label: Comments
+    comment_reply: Reply
+    comment_reply_message: Enter reply
+    comment_showhide: Show/hide comments
+    comment_subject: Subject
+    comment_subject_message: Enter subject
+    comment_vote_label: Comments & Votes
+    label: Discussion
+    vote_accept: Accept
+    vote_label: Vote
+    vote_reject: Reject
+    vote_table: Table
+    vote_tally: Vote Tally
+  download:
+    formats: Download Formats
+    graphical_views: Graphical Views
+  edit_request:
+    view_discussion: View Discussion
+    view_release: View Release
+    view_term: View Term
+  footnote:
+    msg_1_html: Homosaurus.org is a linked data service maintained by the <a href="https://www.digitaltransgenderarchive.net/">Digital Transgender Archive </a>
+    msg_2_html: This vocabulary is made available under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International license (CC BY NC-ND 4.0)</a>
+  homepage:
+    welcome_html: '<p>Welcome to the Homosaurus! The Homosaurus is an international linked data vocabulary of Lesbian, Gay, Bisexual, Transgender, and Queer (LGBTQ) terms. This vocabulary is intended to function as a companion to broad subject term vocabularies, such as the Library of Congress Subject Headings. Libraries, archives, museums, and other institutions are encouraged to use the Homosaurus to support LGBTQ research by enhancing the discoverability of their LGBTQ resources.</p><p>If you are interested in purchasing some Homosaurus swag, please visit our <a href="https://homosaurus.threadless.com">online shop</a>. All proceeds are used to support the project or are donated to LGBTQ+ organizations.</p><p>If you are using the Homosaurus, we want to hear from you! Please <a href="%{contact_path}">contact us</a> to let us know how you are using this vocabulary and share any feedback you might have. One can also join our Google Group community at: <a href="https://groups.google.com/g/homoitcommunity">https://groups.google.com/g/homoitcommunity</a></p>'
+  languages:
+    bn: Bengali
+    de: German
+    en: English
+    es: Spanish
+    fr: French
+    hi: Hindi
+    ja: Japanese
+    nl: Dutch
+    sv: Swedish
+  menu:
+    about: About
+    account: Account
+    add_term: Add Term
+    contact: Contact
+    edit_profile: Edit Profile
+    home: Home
+    logout: Log Out
+    manage_releases: Manage Releases
+    manage_users: Manage Users
+    profile: View Profile
+    releases: Releases
+    reload: Reload Application
+    roles: Manage Roles
+    search: Search
+    suggest_term: Suggest Term
+    vocab: Vocabulary
+  misc:
+    cancel: Cancel
+    close: Close
+    post: Post
+    tagline: An International LGBTQ+ Linked Data Vocabulary
+    translation_needed: Translation needed
+  relations:
+    '1': Description
+    '10': LCSH Close Match
+    '11': Close Match
+    '12': Exact Match
+    '13': Redirects to
+    '14': History Note
+    '15': Contributors
+    '16': Sources
+    '2': Preferred Label
+    '3': Label
+    '4': Alternative Label
+    '5': Replaced By
+    '6': Narrower
+    '7': Broader
+    '8': Related
+    '9': LCSH Exact Match
+    identifier: Identifier
+    issued: Issued (Created)
+    modified: Modified
+    replaces: Replaces
+  release:
+    label: Release
+    updates: Updates
+  search:
+    placeholder: Enter Search Term
+    results_label: Search Results For
+  status:
+    approved: Approved
+    deleted: Deleted
+    linked_label: Linked
+    modified: Modified
+    new_term_label: New Term
+    pending: Pending
+    published: Published
+    redirected: Redirected
+    suggested: Suggestion
+  term:
+    back_to_index: Back to Index
+    back_to_search: Back To Search Results
+    delete_term: Delete Term
+    edit_term: Edit Term
+    hierarchy_label: Hierarchy Display
+    history: History
+    other_formats: Other formats (including language identifiers)
+    other_formats_legacy: Legacy formats (without language identifiers)
+    replace_term: Replace Other Term
+    view_history: View History
+  user:
+    bio: Biography
+    fname: First Name
+    lname: Last Name
+    permissions: Permissions
+    username: Username
+  vocab:
+    admin:
+      actions: Admin Actions
+      new_term: Add A New Term
+      show_deleted: Show Deleted Terms
+      show_next: Show Next Version Terms
+      show_redirects: Show Redirected Terms
+      show_visible: Show Visible Terms
+      suggest_term: Suggest A New Term
+    current_terms: Current Term List
+    label: Homosaurus Vocabulary Terms

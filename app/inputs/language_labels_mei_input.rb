@@ -7,7 +7,7 @@ class LanguageLabelsMeiInput < MeiMultiLookupInput
       if  value.blank? and !@rendered_first_element
         buffer << yield(value, index)
       elsif value.present?
-          buffer << yield("#{value}", index)
+          buffer << yield(value, index)
       end
     end
   end

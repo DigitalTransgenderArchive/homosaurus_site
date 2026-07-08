@@ -4,20 +4,33 @@
   values ||= []
 %>
 <% if values[0].present? %>
-  <div class="panel panel-<%=panel_class%>">
+  <div class="card card-<%=panel_class%> mb-3 col-lg-6 col-md-8 col-sm-12">
 
-  <div class="panel-heading">
-    <%= title.html_safe %>
+  <div class="card-header text-bg-<%=panel_class%>">
+  <% if rel_id != "identifier" %>    
+    <a class="text-white" href="<%= Relation.find_by(id: rel_id).description_url %>"><%= t("relations.#{rel_id}") %></a>
+  <% else %>
+    <a class="text-white" href="http://purl.org/dc/terms/identifier">Identifier</a>
+  <% end %>
   </div>
-  <div class="panel-body">
+  <div class="card-body">
     <dl style="margin-bottom:0px">
       <% if values.present? && values[0].present? %>
-        <% objs_sorted = Term.where(uri: values).sort_by { |obj| obj.pref_label.downcase } %>
-        <% objs_sorted.each do |relation_obj| %>
-          <dd>
-            <%= link_to "#{relation_obj.pref_label}", vocabulary_show_path(vocab_id: relation_obj.vocabulary_identifier, id: relation_obj.identifier)%>
-          </dd>
-        <% end %>
+        <% unless [Relation::Lcsh_exact, Relation::Lcsh_close].include? rel_id %>
+          <% objs_sorted = Term.where(id: values.map{|v| v[1]}).sort_by { |obj| obj.pref_label_localized.data.downcase } %>
+          <% objs_sorted.each do |relation_obj| %>
+            <dd>
+              <%= link_to "#{relation_obj.pref_label_localized.data} [#{relation_obj.identifier}]", vocabulary_show_path(vocab_id: vocab_id, id: relation_obj.identifier)%>
+            </dd>
+          <% end %>
+	<% else %>
+          <% objs_sorted = LcshSubjectCache.where(uri: values.map{|v| v[1]}).sort_by { |obj| obj.label.downcase } %>
+          <% objs_sorted.each do |relation_obj| %>
+            <dd>
+              <%= link_to "#{relation_obj.label} [#{relation_obj.uri}]", relation_obj.uri%>
+            </dd>
+          <% end %>	
+	<% end %>
       <% end %>
     </dl>
   </div>

@@ -40,6 +40,76 @@ class HomepageController < ApplicationController
     @errors=[]
   end
 
+  def profile
+    unless params[:user_id]
+      redirect_to profile_for_path(current_user)
+    end
+    u = User.find_by(id: params[:user_id].to_i) || current_user
+    @user = u
+    @edit_requests = EditRequest.where(id: u.edit_requests.map{|er| er.parent.id}.uniq)
+  end
+
+  def update_profile
+    @user  = User.find_by(id: params[:user_id].to_i)
+    if @user.id == current_user.id and @user.update(params.require(:user).permit(:username, :fname, :lname, :bio))
+      flash[:success] = "Updated successfully"
+      redirect_to profile_for_path(@user)
+    else
+      flash[:error] = "Error updating profile"
+      redirect_to profile_for_path(@user)
+    end
+  end
+
+  def block_profile
+    @user  = User.find_by(id: params[:user_id].to_i)
+    if current_user.admin?
+      UserLanguageRole.where(user_id: @user.id).delete_all
+    end
+    redirect_to profile_for_path(@user)
+  end
+
+  def profile_discussion
+    @homosaurus_obj = User.find_by(id: params[:user_id])
+    @discussion_type = "User"
+    @comments = @homosaurus_obj.profile_comments.where(replaces_comment_id: nil)
+    render "vocabulary/discussion"
+  end
+  def profile_post_comment
+    parent = nil
+    if params["parent_type"] == "User"
+      parent = User.find_by(id: params["parent"])
+    else
+      parent = Comment.find_by(id: params["parent"])
+    end
+    @c = Comment.create(user_id: params["user"],
+                        subject: params["subject"] || nil,
+                        commentable: parent,
+                        content: params["content"],
+                        is_vote: false,
+                        language_id: params["language_id"])
+    redirect_to profile_discussion_path(:anchor => "comment-#{@c.id}")
+  end
+  def profile_edit_comment
+    comment = Comment.find_by(id: params['comment_id'])
+    subject = params['subject']
+    content = params['content']
+    notice = "Comment succesfully edited"
+    if comment.subject == subject and comment.content == content
+      notice = "No changes made."
+      @c = comment
+    else
+      @c = Comment.create(user_id: comment.user.id,
+                          subject: subject,
+                          commentable: comment.commentable,
+                          content: content,
+                          is_vote: false,
+                          replaces_comment_id: comment.id,
+                          language_id: comment.language_id)
+      comment.updated_at = Time.now
+      comment.save!
+    end
+    redirect_to profile_discussion_path(:anchor => "comment-#{@c.id}"), notice: notice
+  end
   # validates the incoming params
   # returns either an empty array or an array with error messages
   def validate_email

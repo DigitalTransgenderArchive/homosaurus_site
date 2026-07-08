@@ -17,9 +17,21 @@ Rails.application.routes.draw do
   post 'contact' => 'homepage#contact'
   get 'feedback_complete' => 'homepage#feedback_complete', as: :feedback_complete
 
+  get 'profile/:user_id/discussion/post_comment' => 'homepage#profile_post_comment', as: :profile_post_comment
+  get 'profile/:user_id/discussion/edit_comment' => 'homepage#profile_edit_comment', as: :profile_edit_comment
+  get 'profile/:user_id/discussion' => 'homepage#profile_discussion', as: :profile_discussion
+  post 'profile/:user_id/update' => 'homepage#update_profile', as: :update_profile
+  get 'profile/:user_id/block' => 'homepage#block_profile', as: :block_profile
+  get 'profile/:user_id' => 'homepage#profile', as: :profile_for
+  get 'profile' => 'homepage#profile', as: :profile
+
   # releases
   get 'releases' => 'release#index', as: :release
-  get 'releases/show/:release_id' => 'release#show', as: :release_show
+  #get 'releases/show/:release_id' => 'release#show', as: :release_show, constraints: { release_id: /.*/ }
+  get 'releases/show/:release_id' => 'release#show', as: :release_show, constraints: { release_id: /[\d\.]+/ }
+  #get '/:releases/show/:release_id' => 'release#version_release', constraints: { release_id: /[\d\.]+/, format: [:json, :csv] }
+    
+  
 
   # Archives releases
   get 'releases/archive/release_notes_2_1' => 'release#release_notes_2_1', as: :archive_release_2_1
@@ -35,9 +47,14 @@ Rails.application.routes.draw do
   get '/autocomplete/languages', to: "autocomplete#languages", as: :languages_autocomplete
 
   # Admin Routes
-  get '/admin/version/new' => 'admin#version_new', as: :version_publish_new
+  post '/admin/version/new/:release_type' => 'admin#version_new', as: :version_publish_new
+  post '/admin/version/publish/:release_identifier' => 'admin#version_publish', as: :version_publish, constraints: { release_identifier: /.*/ }
+  get '/admin/version/manage' => 'admin#version_manage', as: :version_manage
+  get '/admin/users/manage' => 'admin#user_manage', as: :user_manage
+  post '/admin/users/update_role' => 'admin#user_update', as: :user_update
   post '/admin/version/publish' => 'admin#version_create', as: :version_publish_create
   get '/admin/site/reload' => 'admin#restart_application', as: :restart_application
+
 
   # Reconcile Routes
   get '/reconcile' => 'reconcile#index', as: :reconcile_index
@@ -45,15 +62,39 @@ Rails.application.routes.draw do
 
   # These should be next to last
   get ':vocab_id/new_term' => 'vocabulary#new', as: :vocabulary_term_new
+  get ':vocab_id/new_term/:release_id' => 'vocabulary#new', as: :vocabulary_term_new_versioned, constraints: { release_id: /[\d\.]+/ }
   post ':vocab_id/new_term' => 'vocabulary#create', as: :vocabulary_term_create
   get ':vocab_id/:id/edit' => 'vocabulary#edit', as: :vocabulary_term_edit
+  get ':vocab_id/:id/edit/:release_id' => 'vocabulary#edit', as: :vocabulary_term_edit_version, constraints: { release_id: /[\d\.]+/ }
   patch ':vocab_id/:id/update' => 'vocabulary#update', as: :vocabulary_term_update
   #patch ':vocab_id/:id/update_immediate' => 'vocabulary#update_immediate', as: :vocabulary_term_update_immediate
   delete ':vocab_id/:id/delete' => 'vocabulary#destroy', as: :vocabulary_term_delete
   delete ':vocab_id/:id/delete_version' => 'vocabulary#destroy_version', as: :vocabulary_term_delete_version
   get ':vocab_id/:id/restore' => 'vocabulary#restore', as: :vocabulary_term_restore
-  get ':vocab_id/:id/replace/:replacement_id' => 'vocabulary#replace', as: :replace
+  get ':vocab_id/:id/replace' => 'vocabulary#replace', as: :replace
 
+  get ':vocab_id/:id/history' => 'vocabulary#history', as: :vocabulary_term_history
+  get ':vocab_id/:id/:release_id' => 'vocabulary#discussion', as: :edit_request_discussion, constraints: { release_id: /[\d\.]+/ }
+  get ':vocab_id/:id/:release_id/post_comment' => 'vocabulary#post_comment', as: :edit_request_discussion_post_comment, constraints: { release_id: /[\d\.]+/ }
+  get ':vocab_id/:id/:release_id/edit_comment' => 'vocabulary#edit_comment', as: :edit_request_discussion_edit_comment, constraints: { release_id: /[\d\.]+/ }
+
+  post ':vocab_id/:id/:release_id/approve_release' => 'vocabulary#approve_release', as: :edit_request_approve_release, constraints: { release_id: /[\d\.]+/ }
+
+  post ':vocab_id/:id/:release_id/unapprove_release' => 'vocabulary#unapprove_release', as: :edit_request_unapprove_release, constraints: { release_id: /[\d\.]+/ }
+
+  post ':vocab_id/:id/:release_id/reject_release' => 'vocabulary#reject_release', as: :edit_request_reject_release, constraints: { release_id: /[\d\.]+/ }
+
+  
+  get ':vocab_id/:id/discussion' => 'vocabulary#discussion', as: :vocabulary_term_discussion  
+  get ':vocab_id/:id/discussion/post_comment' => 'vocabulary#post_comment', as: :vocabulary_discussion_post_comment
+
+  get ':vocab_id/:id/discussion/edit_comment' => 'vocabulary#edit_comment', as: :vocabulary_discussion_edit_comment
+
+  #LCSH handling
+  post '/add_lcsh' => 'vocabulary#add_new_LCSH', as: :vocabulary_add_lcsh
+   
+ #get '/:vocab_id/:release_id' => 'vocabulary#version_release', constraints: { release_id: /[\d\.]+/, format: [:json, :csv] }
+  
   # These have to be last
   get ':id' => 'vocabulary#index', as: :vocabulary_index
   get ':vocab_id/:id' => 'vocabulary#show', as: :vocabulary_show
@@ -68,64 +109,4 @@ Rails.application.routes.draw do
 
   root to: 'homepage#index'
 
-
-  #get 'search/terms' => 'search#index', as: :search_results
-  #get 'search/v2' => 'search_v2#index', as: :search_results_v2
-  #get 'search/v3' => 'search_v3#index', as: :search_results_v3
-
-  #get 'search' => 'search_v2#index', as: :search_results_v2, :path => '/v2/search'
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end

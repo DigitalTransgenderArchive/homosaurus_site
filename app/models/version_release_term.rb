@@ -8,7 +8,7 @@ class VersionReleaseTerm < ActiveRecord::Base
   def self.append_redirect(new_ident)
     version = VersionRelease.last
     term = Term.find_by(identifier: new_ident)
-    replaced_terms = Term.where(is_replaced_by: "https://homosaurus.org/v3/#{new_ident}").order("lower(pref_label) ASC")
+    replaced_terms = Term.where("is_replaced_by LIKE '%#{new_ident}'").order("lower(pref_label) ASC")
     version_release_term = VersionReleaseTerm.new
     version_release_term.change_type = "redirect"
     version_release_term.term_uri = term.uri

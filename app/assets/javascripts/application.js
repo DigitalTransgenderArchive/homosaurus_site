@@ -10,12 +10,25 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery3
+//= require onmount
+//= require popper
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require d3
-//= require onmount
+//= require bootstrap-table/bootstrap-table
 //= require_tree .
 
-$(document).on('ready turbolinks:load', function () { $.onmount() });
-$(document).on('turbolinks:before-cache', function () { $.onmount.teardown() });
+(function($) {
+    $(document).ready(function() {
+	$.onmount();
+	$('.btn-tooltip').tooltip()
+    });
+})(jQuery);
+$(document).on('ready turbolinks:load', function() {
+    $.onmount()
+});
+$(document).on('turbolinks:before-cache', function() {
+    $.onmount.teardown()
+});
+

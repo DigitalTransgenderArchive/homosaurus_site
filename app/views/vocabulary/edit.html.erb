@@ -1,12 +1,28 @@
+<% available_versions = VersionRelease.where(status: "Pending", vocabulary_identifier: @vocab_id) %>
+<% current_pending_version = available_versions.select{|vr| vr.edit_requests.find_by(term_id: @term.id)}.pluck(:id) %>
+<% current_pending_version = current_pending_version.count > 0 ? current_pending_version[0] : nil %>
+<% disabled_versions = @term.edit_requests.select{|er| er.status == "approved"}.pluck(:version_release_id).uniq %>
+<% if current_pending_version %>
+  <% disabled_versions += available_versions.pluck(:id) %>
+  <% disabled_versions -= [current_pending_version] %>
+<% end %>
+<% open_vr_exists = ((available_versions.pluck(:id) - disabled_versions).count >= 1) %>
 <div class="row-padded">
-  <h1>Edit</h1>
+  <h1><%= t('term.edit_term') %></h1>
+  <%= button_to t('discussion.back_to_term') , vocabulary_show_path(vocab_id: @vocab_id, id: params[:id]), :method => "get", class: 'btn text-bg-primary' %>
+  <br/>
   <div style="width:50em;">
-    <%= simple_form_for(@term, :url => vocabulary_term_update_path(vocab_id: @vocab_id, id: @term.identifier), :as => :term) do |f| %>
+    <%= simple_form_for(@term, :url => vocabulary_term_update_path(vocab_id: @vocab_id, id: @term.identifier), :as => :term, method: :patch) do |f| %>
+    <div class="input-group">
+      <label class="input-group-text" for="version_release"> <%= t('release.label') %></label>
+      <%= select_tag "version_release", options_for_select(available_versions.pluck(:release_identifier, :id), selected: @release_id_num, disabled: disabled_versions), class: "form-select", onchange: "window.location.href='#{request.original_url.split('edit')[0] + 'edit/'}' + $(this).find('option:selected').text()" %>
+    </div>
       <%= render :partial => "form_id", :locals => {:f => f, :key=>:identifier} %>
       <%= render :partial => "form", locals: {f: f} %>
       <div>
-        <%= button_tag class: 'btn btn-primary btn-lg', id: "upload_submit", name: "update_descriptions", data: { disable_with: "Please wait..." } do %>
-          <i class="glyphicon glyphicon-floppy-disk"></i> Edit Term
+		
+        <%= button_tag class: 'btn btn-primary btn-lg', id: "upload_submit", name: "update_descriptions", data: { disable_with: "Please wait..." }, disabled: (not open_vr_exists) do %>
+          <i class="glyphicon glyphicon-floppy-disk"></i> <%= t('misc.post') %>
         <% end %>
       </div>
     <% end %>

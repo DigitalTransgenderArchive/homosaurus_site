@@ -1,73 +1,128 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('input[type="checkbox"]').on('change', function(){
+	  var allowed_tags = [];
+	  var allowed_statuses = []
+	  $('.tag-filter:checked').each(function(){
+	      allowed_tags.push($(this).val());
+	  });
+	  var check_status = $('.status-filter').length;
+	  $('.status-filter:checked').each(function(){
+	      allowed_statuses.push($(this).val());
+	  });
+	  $('.edit-request').each(function(){
+	      var $er = $(this);
+	      var er_tags = $(this).data("filter-tags").split(/[ ]+/);
+	      if (er_tags.some(i => allowed_tags.includes(i)) && (check_status ? er_tags.some(i => allowed_statuses.includes(i)) : true )){
+		  $er.show();
+	      } else {
+		  $er.hide();
+	      }
+	  });
+      });
+      $('input[type="radio"]').on('change', function(){
+	  var sort_by = $('input[type="radio"][name="filter-sort"]:checked').attr('id')
+	  var sort_order = $('input[type="radio"][name="filter-sort-order"]:checked').attr('id')
+	  var $ers = $('.edit-request');
+	  var sort_mult = (sort_order == "filter-sort-ascend") ? 1 : -1;
+	  $ers.sort(function(a, b){
+	      return sort_mult * $(a).data(sort_by).localeCompare($(b).data(sort_by));
+	  });
+	  $ers.detach().appendTo($('#release_holder'));
+      });
+  });
+</script>
 <div id="about" class="col-sm-12 col-md-12">
   <div class="release_title">
-    <h2>Homosaurus v. <%= @release.release_identifier %> Updates</h2>
+    <h2>Homosaurus v. <%= @release.release_identifier %> <%= t("release.updates") %></h2>
+    <% if @release.status != "Published" %>
+    <h3> <%= t("status.pending") %> </h3>
+    <% else %>
     <h3>Released <%= @release.release_date %></h3>
+    <% end %>
   </div>
   <div class="info_section">
-    <p>
-      <strong>List of new terms added:</strong>
-    <ol>
-      <% @release_terms.each do |release_term| %>
-        <% if release_term.change_type == "new" %>
-          <li>
-            <%  if @host.include?("-dev.org") || @host.include?("localhost")
-                  uri = "/v3/#{release_term.term.identifier}"
-                else
-                  uri = release_term.term.uri
-                end
-            %>
-            <a href="<%=uri%>"><%=release_term.term.pref_label%></a>
-          </li>
-        <% end %>
-      <% end %>
-    </ol>
+    <div id="filter" class="form-group d-flex">
+      <div class="my-auto mx-3">
+	<h3><i class="fa-solid fa-filter fa-xl"></i></h3>
+      </div>
+      <div class="vr me-3"></div>
+      <div class="me-auto">
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input tag-filter" type="checkbox" value="new_term" checked>
+	  <label class="form-check-label">
+	    <span class="badge text-bg-success"><%= t("status.new_term_label") %></span>
+	  </label>
+	</div>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input tag-filter" type="checkbox" value="redirected" checked>
+	  <label class="form-check-label">
+	    <span class="badge text-bg-warning"><%= t("status.redirected") %></span>
+	  </label>
+	</div>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input tag-filter" type="checkbox" value="linked" checked>
+	  <label class="form-check-label">
+	    <span class="badge text-bg-info"><%= t("status.linked_label") %></span>
+	  </label>
+	</div>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input tag-filter" type="checkbox" value="modified" checked>
+	  <label class="form-check-label">
+	    <span class="badge text-bg-primary"><%= t("status.modified") %></span>
+	  </label>
+	</div>
+	<% if @release.status != "Published" %>
+	<hr class="m-1"/>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input status-filter" type="checkbox" value="approved" checked>
+	  <label class="form-check-label">
+	    <span class="badge text-bg-success"><%= t("status.approved") %></span>
+	  </label>
+	</div>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input status-filter" type="checkbox" value="pending" checked>
+	  <label class="form-check-label">
+	    <span class="badge text-bg-warning"><%= t("status.pending") %></span>
+	  </label>
+	</div>
+	<div class="form-check form-check-inline">
+	  <input class="form-check-input status-filter" type="checkbox" value="suggested" checked>
+	  <label class="form-check-label">
+	    <span class="badge text-bg-danger"><%= t("status.suggested") %></span>
+	  </label>
+	</div>
+	<% end %>
+      </div>
+      <div class="my-auto mx-3">
+	<h3><i class="fa-solid fa-sort fa-xl"></i></h3>
+      </div>
+      <div class="vr me-3"></div>
+      <div class="my-auto">
+	<input type="radio" class="btn-check" name="filter-sort-order" id="filter-sort-ascend" checked>
+	<label class="btn" for="filter-sort-ascend"><i class="fa-solid fa-caret-up"></i></label>
+	<input type="radio" class="btn-check" name="filter-sort-order" id="filter-sort-descend">
+	<label class="btn" for="filter-sort-descend"><i class="fa-solid fa-caret-down"></i></label>
+	<div class="vr mx-3"></div>
+	<input type="radio" class="btn-check" name="filter-sort" id="filter-time" checked>
+	<label class="btn" for="filter-time"><i class="fa-solid fa-calendar"></i></label>
+	<input type="radio" class="btn-check" name="filter-sort" id="filter-label">
+	<label class="btn" for="filter-label"><i class="fa-solid fa-a"></i></label>
+      </div>
+    </div>
   </div>
-
-  <div class="info_section">
-    <p>
-      <strong>List of terms with preferred term changes:</strong>
-    <ol>
-      <% @release_terms.each do |release_term| %>
-        <% if release_term.change_type == "update" %>
-          <li>
-            <%  if @host.include?("-dev.org") || @host.include?("localhost")
-                  uri = "/v3/#{release_term.term.identifier}"
-                else
-                  uri = release_term.term.uri
-                end
-            %>
-            <a href="<%=uri%>"><%=release_term.term.pref_label%></a> (was <%=release_term.previous_label %>)
-          </li>
-        <% end %>
-      <% end %>
-    </ol>
-  </div>
-
-  <div class="info_section">
-    <p>
-      <strong>List of terms that have replaced existing terms:</strong>
-    <ol>
-      <% @release_terms.each do |release_term| %>
-        <% if release_term.change_type == "redirect" %>
-          <li>
-            <%  if @host.include?("-dev.org") || @host.include?("localhost")
-                  uri = "/v3/#{release_term.term.identifier}"
-                else
-                  uri = release_term.term.uri
-                end
-            %>
-            <a href="<%=uri%>"><%=release_term.term.pref_label%></a><br/>Replaces:
-            <ul>
-              <% release_term.changed_uris.each_with_index do |changed_uri, index| %>
-                <li><%=release_term.changed_uri_labels[index] %> (<%= changed_uri %>)</li>
-              <% end %>
-            </ul>
-          </li>
-        <% end %>
-      <% end %>
-    </ol>
+  <hr/>
+  <div id="release_holder" class="info_section">
+    <% if current_user && current_user.present? %>
+    <% ers = @release.edit_requests  %>
+    <% else  %>
+    <% ers = @release.approved_edit_requests  %>
+    <% end  %>
+    <% ers.each do |er| %>
+    <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, release_page: true} %>
+    <% end %>
   </div>
 </div>
 
-<p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url + '.nt'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonld' %>, <%= link_to "TTL", request.original_url + '.ttl' %>, <%= link_to "CSV (Split by Tabs only)", request.original_url + '.csv' %>, <%= link_to "XML", request.original_url + '.xml' %>
-<p><br/><strong>Experimental Upcoming Formats With Language Labels:</strong> <%= link_to "N-Triples", request.original_url + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonldV2' %>, <%= link_to "TTL", request.original_url + '.ttlV2' %>
+<p><br/><strong><%= t('term.other_formats') %>:</strong> <%= link_to "N-Triples", request.original_url + '.nt'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonld' %>, <%= link_to "TTL", request.original_url + '.ttl' %>, <%= link_to "CSV (Split by Tabs only)", request.original_url + '.csv' %>, <%= link_to "XML", request.original_url + '.xml' %>
+<p><br/><strong><%= t('term.other_formats_legacy') %>:</strong> <%= link_to "N-Triples", request.original_url + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonldV2' %>, <%= link_to "TTL", request.original_url + '.ttlV2' %>

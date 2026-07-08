@@ -1,4 +1,16 @@
-<h2><%= @homosaurus_obj.pref_label %> (<%= @homosaurus_obj.uri %>)</h2>
+<%
+  form_class = "btn p-0"
+  latest_vr_id = Vocabulary.find_by(identifier: @vocab_id).version_releases.where(status: "Published")[-1].id
+  if @homosaurus_obj.visibility == "pending"
+    latest_vr_id = VersionRelease.last.id
+  end
+  vr_relations = @homosaurus_obj.get_relationships_at_version_release(latest_vr_id)
+  upcoming_redirect_status = @homosaurus_obj.get_relationship_at_version_release(Relation::Redirects_to, VersionRelease.last.id)
+  awaiting_deletion = upcoming_redirect_status.count > 0 and upcoming_redirect_status[0][1] == "0"
+  open_vr_dne = (VersionRelease.where(status: "Pending").pluck(:id) - @homosaurus_obj.edit_requests.where(status: "approved").pluck(:version_release_id)).count == 0
+  editing_disabled = VersionRelease.where(status: "Pending").count == 0 || open_vr_dne || awaiting_deletion
+  %>
+<h2><%= @homosaurus_obj.pref_label_localized.data %> &ndash; <%= @homosaurus_obj.get_relationship_at_version_release("uri", latest_vr_id) %></h2>
 <% if @homosaurus_obj.visibility == "deleted" %>
   <div class="alert alert-danger" role="alert">
     This term has been removed from the vocabulary and is no longer in use.<br />
@@ -8,25 +20,34 @@
   <div class="alert alert-danger" role="alert">
     This term is a pending object set to be in the next release.
   </div>
+<% elsif awaiting_deletion %>
+  <div class="alert alert-danger" role="alert">
+    This term is set to be removed from an upcoming release.
+  </div>
 <% end %>
 <p><div style="clear:both;">
   <% if params[:from_q].present? %>
-      <%= button_to "Back To Search Results", vocabulary_search_results_path(id: @homosaurus_obj.vocabulary_identifier), :method => "get", class: 'btn btn-default', style:"float:left;", params: { :q=>params[:from_q]} %>
+      <%= button_to t("term.back_to_search"), vocabulary_search_results_path(id: @vocab_id), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary', style:"float:left;", params: { :q=>params[:from_q]} %>
   <% else %>
-      <%= button_to "Back To Index", vocabulary_index_path(id: @homosaurus_obj.vocabulary_identifier), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;" %>
+      <%= button_to t("term.back_to_index"), vocabulary_index_path(id: @vocab_id), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary' %>
   <% end %>
-
-  <% if current_user.present? && current_user.contributor? && request.original_url.include?('/v3') %>
-    <%= button_to "Edit Term", vocabulary_term_edit_path(vocab_id: "v3", id: @homosaurus_obj.identifier), :method => "get", class: 'btn btn-default', style:"float:left; margin-left:20px;" %>
+  <%= button_to t("term.view_history"), vocabulary_term_history_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: form_class, class: "btn btn-outline-secondary" %>
+  <% if current_user.present? %>
+    <%= button_to t("edit_request.view_discussion"), vocabulary_term_discussion_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary' %>
+  <% end %>
+  <% if current_user.present? && (request.original_url.include?('/v3') || request.original_url.include?('/v4')) %>
+      <%= button_to t("term.edit_term"), vocabulary_term_edit_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: "#{form_class} btn-tooltip", class: 'btn btn-outline-secondary', disabled: editing_disabled, form: { "title" => awaiting_deletion ? "Awaiting deletion" : (editing_disabled ? "No pending releases" : "")} %>
     <% if @homosaurus_obj.visibility == "deleted" %>
-      <%= button_to "Restore Term", vocabulary_term_restore_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => "get", class: 'btn btn-danger',  data: { confirm: "Are you sure you want to restore #{@homosaurus_obj.pref_label}?" }, style:"float:left; margin-left:20px;" %>
+      <%= button_to "Restore Term", vocabulary_term_restore_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier),  :method => "get", form_class: form_class, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to restore #{@homosaurus_obj.pref_label}?" } %>
     <% elsif @homosaurus_obj.visibility == "pending" %>
-      <%= button_to "Delete Pending Term", vocabulary_term_delete_version_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => :delete, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to delete the unpublished #{@homosaurus_obj.pref_label}?" }, style:"float:left; margin-left:20px;" %>
-    <% else %>
-      <%= button_to "Delete Term", vocabulary_term_delete_path(vocab_id: "v3", id: @homosaurus_obj.identifier),  :method => :delete, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to delete #{@homosaurus_obj.pref_label}?" }, style:"float:left; margin-left:20px;" %>
+      <%= button_to "Delete Pending Term", vocabulary_term_delete_version_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier),  :method => :delete, form_class: form_class, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to delete the unpublished #{@homosaurus_obj.pref_label}?" } %>
+    <% elsif current_user.admin? %>
+    <button class="btn btn-danger"
+	    data-bs-toggle="modal" data-bs-target="#delete-term-modal"><%= t('term.delete_term') %></button>
     <% end %>
     <% if @homosaurus_obj.visibility != "pending" %>
-      <input class="btn btn-danger" style="float:left; margin-left:20px;" type="button" value="Replace Other Term" onClick='var identifer = prompt("Enter the identifier of the term to replace with this term. This OTHER TERM will redirect to this record."); window.location="/<%=@homosaurus_obj.vocabulary_identifier%>/<%=@homosaurus_obj.identifier%>/replace/" + identifer;'>
+    <button class="btn btn-danger"
+	    data-bs-toggle="modal" data-bs-target="#replace-term-modal"><%= t('term.replace_term') %></button>
     <% end %>
   <% end %>
 
@@ -38,108 +59,194 @@
 
 <%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("identifier"),
+     :rel_id => 'identifier',
      :values=>[@homosaurus_obj.identifier]}
 %>
 
 <%= render :partial => "panel_display_language_partial", :locals =>
-    {:title => Term.getLabel("prefLabel"),
-     :values=>[@homosaurus_obj.pref_label_language]}
+     {:title => Term.getLabel("prefLabel"),
+     :rel_id => Relation::Pref_label,
+     :values=>vr_relations[Relation::Pref_label]}
 %>
 
 <%= render :partial => "panel_display_language_partial", :locals =>
-    {:title => Term.getLabel("label"),
-     :values=>@homosaurus_obj.labels_language}
+     {:title => Term.getLabel("label"),
+     :rel_id => Relation::Label,
+     :values=>vr_relations[Relation::Label]}
 %>
 
 <%= render :partial => "panel_display_language_partial", :locals =>
-    {:title => Term.getLabel("altLabel"),
-     :values=>@homosaurus_obj.alt_labels_language}
+     {:title => Term.getLabel("altLabel"),
+     :rel_id => Relation::Alt_label,
+     :values=>vr_relations[Relation::Alt_label]}
 %>
 
-<%= render :partial => "panel_display_partial", :locals =>
-    {:title => Term.getLabel("description"),
-     :values=>[@homosaurus_obj.description]}
+<%= render :partial => "panel_display_language_partial", :locals =>
+     {:title => Term.getLabel("description"),
+     :rel_id => Relation::Description,
+     :values=>vr_relations[Relation::Description]}
 %>
 
-<%= render :partial => "panel_display_partial", :locals =>
-    {:title => Term.getLabel("historyNote"),
-     :values=>[@homosaurus_obj.history_note]}
+<%= render :partial => "panel_display_language_partial", :locals =>
+     {:title => Term.getLabel("historyNote"),
+     :rel_id => Relation::History_note,
+     :values=>vr_relations[Relation::History_note]}
 %>
-
 
 <%= render :partial => "internal_panel_display_partial", :locals =>
     {:title => Term.getLabel("internalNote"),
      :values=>[@homosaurus_obj.internal_note]}
 %>
 
-<%= render :partial => "panel_display_partial", :locals =>
-    {:title => Term.getLabel("contributors"),
-     :values=>@homosaurus_obj.contributors}
+<%= render :partial => "panel_display_language_partial", :locals =>
+     {:title => Term.getLabel("contributors"),
+     :rel_id => Relation::Contributors,
+     :values=>vr_relations[Relation::Contributors]}
+%>
+
+<%= render :partial => "panel_display_language_partial", :locals =>
+     {:title => "Sources",
+     :rel_id => Relation::Sources,
+     :values=>vr_relations[Relation::Sources]}
 %>
 
 <%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("issued"),
+     :rel_id => "issued",
      :values=>[@homosaurus_obj.created_at]}
 %>
 
 <%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("modified"),
-     :values=>[@homosaurus_obj.manual_update_date]}
+     :rel_id => "modified",
+     :values=>[@homosaurus_obj.updated_at]}
 %>
 
 <%= render :partial => "panel_display_relation_partial", :locals =>
-    {:title => Term.getLabel("broader"),
-     :values=>@homosaurus_obj.broader}
+     {:title => Term.getLabel("broader"),
+     :rel_id => Relation::Broader,
+     :values=>vr_relations[Relation::Broader],
+     :vocab_id=>@vocab_id}
 %>
 
 <%= render :partial => "panel_display_relation_partial", :locals =>
-    {:title => Term.getLabel("related"),
-     :values=>@homosaurus_obj.related}
+     {:title => Term.getLabel("related"),
+     :rel_id => Relation::Related,
+     :values=>vr_relations[Relation::Related],
+     :vocab_id=>@vocab_id}
 %>
 
 <%= render :partial => "panel_display_relation_partial", :locals =>
-    {:title => Term.getLabel("narrower"),
-     :values=>@homosaurus_obj.narrower}
+     {:title => Term.getLabel("narrower"),
+     :rel_id => Relation::Narrower,
+     :values=>vr_relations[Relation::Narrower],
+     :vocab_id=>@vocab_id}
 %>
 
 <%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("isReplacedBy"),
+     :rel_id => Relation::Replaced_by,
      :values=>[@homosaurus_obj.is_replaced_by]}
 %>
 
 <%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("replaces"),
+     :rel_id => "replaces",
      :values=>[@homosaurus_obj.replaces]}
 %>
 
-<%= render :partial => "panel_display_partial", :locals =>
+<%= render :partial => "panel_display_relation_partial", :locals =>
     {:title => Term.getLabel("exactMatch"),
-     :values=>@homosaurus_obj.exact_match_lcsh}
+     :rel_id => Relation::Lcsh_exact,
+     :values=>vr_relations[Relation::Lcsh_exact],
+     :vocab_id=>@vocab_id}
 %>
 
-<%= render :partial => "panel_display_partial", :locals =>
+<%= render :partial => "panel_display_relation_partial", :locals =>
     {:title => Term.getLabel("closeMatch"),
-     :values=>@homosaurus_obj.close_match_lcsh}
+     :rel_id => Relation::Lcsh_close,
+     :values=>vr_relations[Relation::Lcsh_close],
+     :vocab_id=>@vocab_id}
 %>
 
-<h3>Hierarchy Display:</h3>
-<% if  @homosaurus_obj.broader.blank? %>
+<h3><%= t("term.hierarchy_label") %></h3>
+<% if vr_relations[Relation::Broader].count == 0 %>
   <div style="padding-left:0px;">No Broader Term</div>
 <% else %>
-  <%  @homosaurus_obj.broader.each do |broader| %>
-    <% relation_obj = Term.find_by(uri: broader) %>
-    <div style="padding-left:0px;"><%= link_to "#{relation_obj.pref_label}", vocabulary_show_path(vocab_id: relation_obj.vocabulary_identifier, id: relation_obj.identifier)%></div>
+  <% vr_relations[Relation::Broader].each do |broader| %>
+    <% relation_obj = Term.find_by(id: broader[1].to_i) %>
+    <div style="padding-left:0px;"><%= link_to "#{relation_obj.pref_label_localized.data}", vocabulary_show_path(vocab_id: @vocab_id, id: relation_obj.identifier)%></div>
   <% end %>
 <% end %>
 
+<div style="padding-left:40px;"><strong><%=  @homosaurus_obj.pref_label_localized.data %></strong></div>
 
-<div style="padding-left:40px;"><strong><%=  @homosaurus_obj.pref_label %></strong></div>
-
-<%  @homosaurus_obj.narrower.each do |narrower| %>
-  <% relation_obj = Term.find_by(uri: narrower) %>
-  <div style="padding-left:80px;"><%= link_to "#{relation_obj.pref_label}", vocabulary_show_path(vocab_id: relation_obj.vocabulary_identifier, id: relation_obj.identifier)%></div>
+<%  vr_relations[Relation::Narrower].each do |narrower| %>
+  <% relation_obj = Term.find_by(id: narrower[1].to_i) %>
+  <div style="padding-left:80px;"><%= link_to "#{relation_obj.pref_label_localized.data}", vocabulary_show_path(vocab_id: @vocab_id, id: relation_obj.identifier)%></div>
 <% end %>
 
 <br />
-<p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.nt'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonld' %>, <%= link_to "Extended JSON", request.original_url.split('?').first + '.json' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttl' %>, <%= link_to "XML", request.original_url.split('?').first + '.xml' %>, <%= link_to "MARC XML", request.original_url.split('?').first + '.marc' %></p>
-<p><br/><strong>Temporary Experimental Formats (includes language identifiers):</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonldV2' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttlV2' %></p>
+<p><br/><strong><%= t('term.other_formats') %>:</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.nt'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonld' %>, <%= link_to "Extended JSON", request.original_url.split('?').first + '.json' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttl' %>, <%= link_to "XML", request.original_url.split('?').first + '.xml' %>, <%= link_to "MARC XML", request.original_url.split('?').first + '.marc' %></p>
+<p><br/><strong><%= t('term.other_formats_legacy') %></strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonldV2' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttlV2' %></p>
+
+<div id="replace-term-modal" class="modal modal-lg modal-fullscreen-sm-down"
+     tab-index="-1" aria-hidden="true" aria-labelledby="replace-term-modal-label">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <%= form_with url: request.fullpath + "/replace", method: :get, local: true do |f| %>
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Select term to redirect here</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	<p>The term you select here will redirect to this record. </p>
+	<select id="vote-select" name="replacement_id" class="form-select">
+	  <%= Term.all.where(vocabulary_id: @homosaurus_obj.vocabulary_id).each do |t| %>
+	  <option value="<%= t.id %>"><%= t.pref_label %></option>
+	  <% end %>
+	</select>
+	<p>The redirect will occur in this version.</p>
+	<select id="vote-select" name="vid" class="form-select">
+	  <%= VersionRelease.where(vocabulary_identifier: @vocab_id, status: "Pending").each do |vr| %>
+	  <option value="<%= vr.id %>"><%= vr.release_identifier %></option>
+	  <% end %>
+	</select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Post</button>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<div id="delete-term-modal" class="modal modal-lg modal-fullscreen-sm-down"
+     tab-index="-1" aria-hidden="true" aria-labelledby="delete-term-modal-label">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <%= form_with url: vocabulary_term_delete_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), method: :delete, local: true do |f| %>
+      <div class="modal-header">
+        <h1 class="modal-title fs-5"><%= t("term.delete_term") %></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	<p>Select Version.</p>
+	<select name="release_id" class="form-select">
+	  <%= VersionRelease.where(status: "Pending").each do |vr| %>
+	  <option value="<%= vr.id %>"><%= vr.release_identifier %></option>
+	  <% end %>
+	</select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Post</button>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+  

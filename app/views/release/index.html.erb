@@ -1,44 +1,20 @@
 <div id="about" class="col-sm-12 col-md-12">
   <div class="release_title">
-    <h2>Homosaurus Releases</h2>
-    <% if @releases.first.present? %>
-    <h3>Last Updated: <%= @releases.first.release_date %></h3>
-    <% end %>
+    <h2><%= t("menu.releases") %></h2>
   </div>
   <div class="info_section">
-    <p>
-      <strong>Recent Releases:</strong>
-      <ol>
-        <% @releases.each do |release| %>
-          <li>
-            <%= link_to "Homosaurus v.#{release.release_identifier} (#{release.release_date})", release_show_path(:release_id => release.id) %>
-          </li>
-        <% end %>
-      </ol>
-    </p>
-    <p>
-      <strong>Older Release:</strong>
-    <ol>
-      <li>
-        <a href="/releases/archive/release_notes_3_2">Homosaurus v. 3.2 (June 2022)</a>
+    <ul class="list-group list-group-flush">
+      <% @releases.each do |release| %>
+      <li class="list-group-item">
+	<% link_name = "Homosaurus v.#{release.release_identifier} (#{release.release_date.nil? ? '' : release.release_date.to_date})"
+	   if current_user.present?
+	     link_name += " [" + t("status.#{release.status.downcase}") + "]"
+	   end
+	   %>
+        <%= link_to link_name, release_show_path(:release_id => release.release_identifier) %>
       </li>
-      <li>
-        <a href="/releases/archive/release_notes_3_1">Homosaurus v. 3.1 (December 2021)</a>
-      </li>
-      <li>
-        <a href="/releases/archive/release_notes_3_0">Homosaurus v. 3.0 (September 2021)</a>
-      </li>
-      <li>
-        <a href="/releases/archive/release_notes_2_3">Homosaurus v. 2.3 (July 2021)</a>
-      </li>
-      <li>
-        <a href="/releases/archive/release_notes_2_2">Homosaurus v. 2.2 (December 2020)</a>
-      </li>
-      <li>
-        <a href="/releases/archive/release_notes_2_1">Homosaurus v. 2.1 (June 2020)</a>
-      </li>
-    </ol>
-  </p>
+      <% end %>
+    </ul>
   </div>
 
 </div>

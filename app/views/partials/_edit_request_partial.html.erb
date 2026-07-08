@@ -1,0 +1,179 @@
+<%
+  profile_page ||= false
+  release_page ||= false
+  discussion_page ||= false
+  child_edit ||= false
+  is_new = edit_request.previous().nil?
+  redirect = edit_request.my_changes[Relation::Redirects_to]
+  is_deletion = (redirect.count > 0 and redirect[0][2].to_i == 0)
+  is_redirect = (redirect.count > 0 and not is_deletion)
+  pref_label = edit_request.my_changes[2].length > 0 ? edit_request.my_changes[2][0][2] : edit_request.term.pref_label
+  is_linked = ((edit_request.my_changes[Relation::Broader].length > 0) or (edit_request.my_changes[Relation::Narrower].length > 0) or (edit_request.my_changes[Relation::Related].length > 0))
+  is_linked_new = is_linked
+  Relation.pluck(:id).each do |r|
+    next if r == Relation::Broader or r == Relation::Narrower or r == Relation::Related
+    if edit_request.my_changes[r].count > 0
+      is_linked_new = false
+    end
+  end
+  release_id = edit_request.version_release.id
+  release_identifier = edit_request.version_release.release_identifier
+  if release_identifier == "unversioned"
+    release_identifier = "?"
+  end
+  er_status = edit_request.status
+  is_modified = !is_new && !is_redirect && !is_linked_new
+filter_tags = "#{is_new ? 'new_term' : (is_redirect ? 'redirected' : (is_linked ? 'linked' : 'modified'))} #{edit_request.suggestion? ? 'suggested' : ''} #{er_status}"
+ pp edit_request
+%>
+
+<div <% unless child_edit %>
+     class="card container-lg edit-request"
+     data-filter-tags="<%= filter_tags %>"
+     data-filter-label="<%= pref_label %>"
+     data-filter-time="<%= edit_request.created_at.to_s %>"
+     <% else %>
+     class="card container-lg"
+     <% end %>
+     >
+  <div class="card-header collapsed row" data-bs-toggle="collapse" aria-expanded="false"
+       href="#<%= edit_request.id %>" aria-controls="<%= edit_request.id %>">
+
+    <% unless child_edit %>
+      <div class="col col-1">
+	<% if not discussion_page and edit_request.suggestion? %>
+	  <span class="badge text-bg-danger"><%= t("status.suggested") %></span>
+	<% end %>
+	<% if not release_page %>
+	  <span class="badge text-bg-dark">V. <%= release_identifier %></span>
+	<% elsif is_new %>
+	  <span class="badge text-bg-success"><%= t("status.new_term_label") %></span>
+	<% elsif is_redirect %>
+	  <span class="badge text-bg-warning"><%= t("status.redirected") %></span>
+	<% elsif is_linked_new %>
+	  <span class="badge text-bg-info"><%= t("status.linked_label") %></span>
+	<% else %>
+	  <span class="badge text-bg-primary"><%= t("status.modified") %></span>
+	<% end %>
+	<% if current_user and not discussion_page %>
+	  <span class="badge text-bg-<%= er_status == 'approved' ? 'success' : 'warning' %>">
+	  <%= t("status.#{er_status}") %>
+	  </span>
+	<% end %>
+      </div>
+    <% else %>
+      <div class="col col-3">
+	<span class="badge text-bg-info"><%= link_to edit_request.creator.nil? ? 'MigrationBot' : edit_request.creator.username, edit_request.creator.nil? ? root_path : profile_for_path(edit_request.creator) %></span>
+	<% if edit_request.suggestion? %>
+	<span class="badge text-bg-danger"><%= t("status.suggested") %></span>
+	<% end %>
+      </div>
+    <% end %>
+    <% if release_page || profile_page %>
+        <div class="col col-5">
+	  <span class="er_label_and_identifier d-inline-block"> <%= pref_label %> [<%= edit_request.my_changes["identifier"] %>]</span><br>
+	  <span class="er_time_created"><%= edit_request.created_at.to_s %></span>
+	</div>
+    <% end %>
+    <div class="col col-auto me-auto"></div>
+    <div class="col col-5 p-0">
+      <div class="d-inline-flex gap-1 float-end">
+	<% if release_page and edit_request.version_release.status == "Pending" and  current_user.present? and current_user.admin? and edit_request.vote_status == "pending" %>
+	<%= button_to "Approve changes", edit_request_approve_release_path(vocab_id: edit_request.version_release.vocabulary.identifier, id: edit_request.term.identifier, release_id: edit_request.version_release.release_identifier), :method => "post", class: 'btn btn-primary', data: {confirm: "Are you sure you want to approve this?" } %>
+	<%= button_to "Reject changes", edit_request_reject_release_path(vocab_id: edit_request.version_release.vocabulary.identifier, id: edit_request.term.identifier, release_id: edit_request.version_release.release_identifier), :method => "post", class: 'btn btn-danger', data: {confirm: "Are you sure you want to reject this?" } %>
+        <% end %>
+	<% if release_page and edit_request.version_release.status == "Pending" and current_user.present? and current_user.admin? and edit_request.vote_status == "approved" %>
+	<%= button_to "Unapprove changes", edit_request_unapprove_release_path(vocab_id: edit_request.version_release.vocabulary.identifier, id: edit_request.term.identifier, release_id: edit_request.version_release.release_identifier), :method => "post", class: 'btn btn-primary', data: {confirm: "Are you sure you want to unapprove this?" } %>
+	<% end %>
+	<% if release_page and not child_edit %>
+          <%= button_to t("edit_request.view_term"),
+	      vocabulary_show_path(
+	      vocab_id: edit_request.version_release.vocabulary.identifier,
+	      id: edit_request.my_changes["identifier"]),
+	      :method => "get", class: 'btn btn-link border-black', form_class: 'btn p-0' %>
+	<% end %>
+	<% if current_user.present? and not discussion_page and not child_edit %>
+          <%= button_to t("edit_request.view_discussion"),
+	      edit_request_discussion_path(
+	        vocab_id: edit_request.version_release.vocabulary.identifier,
+	        id: edit_request.my_changes["identifier"],
+	        release_id: edit_request.version_release.release_identifier),
+	      :method => "get", class: 'btn btn-link border-black', form_class: 'btn p-0' %>
+	<% end %>
+      </div>
+    </div>
+    <div class="col col-auto collapse-icon ml-auto"></div>
+  </div>
+
+  <div class="card-body collapse" id="<%= edit_request.id %>">
+    <% identifier = edit_request.my_changes["identifier"]
+       prev_term = edit_request.previous() %>
+    <% relations.each do |r| %>
+      <% changes = edit_request.my_changes[r.id] %>
+      <% if not changes.nil? and changes.length > 0 and not is_deletion%>
+        <h4><%= t("relations.#{r.id}") %></h4>
+	<table class="table">
+	  <% changes.each do |c| %>
+	    <% change_class = c[0] == "+" ? "success" : "danger"
+	       change_icon = c[0] == "+" ? "plus" : "minus"
+	       lang = (c[1].nil? ? "All" : Language.find_by(id: c[1]).name)
+	       val = c[2]
+	       %>
+	    <tr class="table-<%= change_class %>">
+	      <td class="col col-1"><h3 class="text-<%= change_class %> m-0"><%= c[0] %></h3> </td>
+	      <td class="col col-1"><span class="well_language"><%= lang %></span></td>
+	      <td class="col col-8">
+		<% if r.links_to == 1 %>
+		  <% if Term.find_by(id: val) %>
+		    <a href="<%= Term.find_by(id: val).uri_localized %>"> <%= Term.find_by(id: val).pref_label_localized.data  %> [<%= Term.find_by(id: val).identifier %>] </a>
+		    <% else %>
+		    <a href="<%= val %>"> Term Deleted </a>
+		    <% end %>
+		<% else %>
+		  <%= val %>
+		<% end %>
+	      </td>
+	    </tr>
+	  <% end %>
+	</table>
+      <% end %>
+    <% end %>
+    <% ['identifier', 'uri'].each do |field| %>
+      <% cur = edit_request.my_changes[field]
+	 prev_term = edit_request.previous() %>
+      <% if prev_term.nil? or (prev_term.my_changes[field] != cur) %>
+        <h4><%= field == "identifier" ? t("relations.identifier") : field.upcase %></h4>
+	<table class="table">
+	  <% unless prev_term.nil? %>
+          <tr class="table-danger">
+	    <td class="col col-1"><h3 class="text-danger m-0">-</h3> </td>
+	    <td class="col col-1"><span class="well_language">All</span></td>
+	    <td class="col col-8"><%= prev_term.my_changes[field] %></td>
+	  </tr>
+	  <% end %>
+	  <tr class="table-success">
+	    <td class="col col-1"><h3 class="text-success m-0">+</h3> </td>
+	    <td class="col col-1"><span class="well_language">All</span></td>
+	    <td class="col col-8"><%= cur %></td>
+	  </tr>
+	</table>
+      <% end %>
+    <% end %>
+    <% if is_deletion %>
+      <h4>Visibility</h4>
+      <table class="table">
+	<tr class="table-success">
+	  <td class="col col-1"><h3 class="text-success m-0">+</h3> </td>
+	  <td class="col col-1"><span class="well_language">All</span></td>
+	  <td class="col col-8">Deleted</td>
+	</tr>
+      </table>
+      <% end %>
+    <% if not child_edit and current_user.present? and edit_request.children.count %>
+      <div class="border-top my-3"></div>
+      <% edit_request.children.each do |erc| %>
+        <%= render partial:"partials/edit_request_partial", locals: {edit_request: erc, relations: Relation.all, child_edit: true} %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

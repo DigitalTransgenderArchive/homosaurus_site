@@ -10,12 +10,28 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
-
-@import "bootstrap-sprockets";
+@import "*";
 @import "bootstrap";
+// @import "bootstrap-icons/font/bootstrap-icons";
+// @font-face {
+//   font-family: "bootstrap-icons";
+//   src: font-url("bootstrap-icons/font/fonts/bootstrap-icons.woff2") format("woff2"),
+//     font-url("bootstrap-icons/font/fonts/bootstrap-icons.woff") format("woff");
+// }
+@import "font-awesome";
+
+@import "bootstrap-table/bootstrap-table";
+
+
+#logo_holder {
+    display: inline-block;
+}
+#logo_holder img {
+    border-radius: 15%;
+    mix-blend-mode: lighten;
+    scale: .8;
+}
 
 #new_term .popover {
   max-width: 900px;
@@ -23,4 +39,42 @@
 
 #edit_term .popover {
   max-width: 900px;
+}
+
+.collapse-icon:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: grey;         /* adjust as needed */
+}
+.card-header.collapsed .collapse-icon:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+}
+
+.reply-comment .card-body::before {
+    height: 100%;
+    width: 40px;
+    position: absolute;
+    content: "";
+    transform: translate(-100%, -50%);
+    border-radius: 0px 15px;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    z-index:-1;
+}
+
+.reply-container .comment-and-replies:not(:last-child)::before {
+    height: 100%;
+    width: 23px;
+    position: absolute;
+    content: "";
+    transform: translate(-100%, 0);
+    border-left: 1px solid black;
+    z-index:-1;
+}
+
+.button_to {
+    display: inline-block;
 }

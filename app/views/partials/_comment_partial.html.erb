@@ -1,0 +1,80 @@
+<%
+  child ||= false
+  type  ||= comment.get_root_type()
+  %>
+<div class="container comment-and-replies position-relative p-0">
+  <div class="card comment <%= child ? 'reply-comment' : '' %> mb-2" id="comment-<%= comment.id %>">
+    <% unless comment.subject.nil? %>
+    <div class="card-header position-relative">
+      <% if comment.is_vote %>
+      <span class="fw-bold text-decoration-underline"><%= t('discussion.vote_label') %>:</span>&nbsp;
+      <% end %>
+      <span class="comment-subject fw-bold <%= comment.is_vote ? comment.vote_badge_class() : 'text-decoration-underline' %>">
+	<% if comment.is_vote %>
+	<%= t("discussion.vote_#{comment.subject.downcase}") %>
+	<% else %>
+	<%= comment.subject %>
+	<% end %>
+      </span>
+      <span class="badge bg-secondary thread-last-active float-end">Thread last active: <%= comment.thread_last_active() %> </span>
+    </div>
+    <% end %>
+    <div class="card-body position-relative">
+      <%= comment.content %>
+      <br>
+      <span class="badge bg-secondary">
+	@<%= comment.user.email %>
+      </span> - <span class=""> <%= comment.created_at %> </span> - <span class="badge text-bg-secondary"><%= t("languages.#{comment.language_id}") %></span>
+      <% if comment.created_at != comment.updated_at %>
+      <br>
+      <span>* Updated at: <%= comment.updated_at %> </span>
+      <% end %>
+    </div>
+    <div class="card-footer">
+      <button type="button" class="btn btn-primary leave-reply" data-bs-toggle="collapse"
+	      data-bs-target="#comment-<%= comment.id %>-reply-box" aria-expanded="false"
+	      aria-controls="#comment-<%= comment.id %>-reply-box">
+	<%= t('discussion.comment_reply') %>
+      </button>
+      <% if comment.comments.count > 0 %>
+      <button type="button" class="btn btn-link comment-show-replies" data-bs-toggle="collapse"
+	      data-bs-target="#comment-<%= comment.id %>-replies" aria-expanded="false"
+	      aria-controls="#comment-<%= comment.id %>-replies">
+	<%= t('discussion.comment_showhide') %> &nbsp;
+      </button>
+      <% end %>
+      <% if current_user.id == comment.user.id %>
+      <button type="button" class="btn btn-danger edit-comment" data-bs-toggle="modal"
+	      data-bs-target="#edit-comment-modal" data-bs-subject="<%= comment.subject %>"
+	      data-bs-content="<%= comment.content %>" data-bs-isvote="<%= comment.is_vote %>"
+	      data-bs-comment-id="<%= comment.id %>">Edit <%= comment.is_vote ? 'Vote' : 'Comment' %></button>
+      <% end  %>
+
+      <%= form_with url: request.fullpath + "/post_comment", class: "reply-box-form", method: :get, local: true do |f| %>
+        <div class="input-group mt-2 reply-box collapse" id="comment-<%= comment.id %>-reply-box">
+	  <input type="hidden" name="user" value="<%= current_user.id %>">
+	  <input type="hidden" name="parent" value="<%= comment.id %>">
+	  <input type="hidden" name="parent_type" value="Comment">
+	  <input type="hidden" name="language_id" value="<%= I18n.locale %>">
+	  <input type="textarea" class="form-control" placeholder="<%= t('discussion.comment_reply_message') %>" name="content">
+	  <button type="button" class="btn btn-danger" data-bs-toggle="collapse"
+	      data-bs-target="#comment-<%= comment.id %>-reply-box" aria-expanded="false"
+	      aria-controls="#comment-<%= comment.id %>-reply-box"><%= t('misc.cancel') %></button>
+	  <button class="btn btn-primary" type="submit"><%= t('misc.post') %></button>
+	</div>
+      <% end %>
+    </div>      
+  </div>
+  
+  <% if comment.comments.count > 0 %>
+  <div class="reply-container container collapse p-0 ps-5 position-relative"
+       id="comment-<%= comment.id %>-replies">
+  <% end %>
+  <% comment.comments.each do |c| %>
+    <%= render partial:"partials/comment_partial", locals: {comment: c, child: true} %>
+  <% end %>
+  <% if comment.comments.count > 0 %>
+    </div>
+  <% end %>
+</div>
+

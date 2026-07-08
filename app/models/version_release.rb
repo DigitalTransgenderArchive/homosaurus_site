@@ -1,6 +1,7 @@
 class VersionRelease < ActiveRecord::Base
   belongs_to :vocabulary
   has_many :version_release_terms
+  has_many :edit_requests
 
   # Remove terms from a release
   def delete_term_from_release(term_identifiers)
@@ -61,4 +62,102 @@ class VersionRelease < ActiveRecord::Base
     release_term.visibility = "redirect"
     release_term.save!
   end
+
+  def approved_edit_requests
+    return self.edit_requests.where(status: "approved")
+  end
+
+  def statistics
+    return {
+      "terms_added" => self.edit_requests.reject{|er| not er.previous().nil? }.count,
+      "terms_modified" => self.edit_requests.reject{|er| er.previous().nil? }.count,
+      "approved" => self.edit_requests.where(status: "approved").count,
+      "pending" => self.edit_requests.where(status: "pending").count,
+      "total" => self.edit_requests.count
+    }
+  end
+  
+  def self.get_next_identifier(change_type)
+    current_identifier = VersionRelease.all()[-1].release_identifier
+    last_published = VersionRelease.where(status: "Published").last
+    #current_identifier = last_published.release_identifier
+    ci_parts = current_identifier.split(".").map{ |x| x.to_i }
+    #while VersionRelease.where(release_identifier: ci_parts.join(".")).count != 0
+    if change_type == "Major"
+      ci_parts[0] += 1
+      ci_parts[1] = 0
+      ci_parts[2] = 0
+    elsif change_type == "Minor"
+      ci_parts[1] += 1
+      ci_parts[2] = 0
+    elsif change_type == "Patch"
+      ci_parts[2] += 1
+    end
+    #end
+    return ci_parts.join(".")
+  end
+  # Returns whether this version release can be published
+  def publishable?
+    # If another release has since been published, return false
+    if VersionRelease.where("id > #{self.id}").where(status: "Published").count > 0
+      return false
+    end
+    # If there is a pending release preceding this, return false
+    if VersionRelease.where("id < #{self.id}").where(status: "Pending").count == 0
+      return false
+    end
+    return true
+  end
+
+  # Return all terms that exist in this version
+  def terms_in_version()
+    return self.vocabulary.terms.reject{|t| t.first_introduced().id > self.id}
+  end
+  
+  def generate_static_datafile(data, extension)
+
+    outpath = Rails.root.join("public", "static_dumps", self.vocabulary.identifier, self.release_identifier + ".#{extension}")
+    pp "==== WRITING #{outpath.to_s} ===="
+    
+    File.open(outpath, "w") {|file|
+      file.write(data)
+    }
+    pp "==== DONE ===="
+    
+  end
+  def generate_static_data
+    pp "=== Generating static datafiles for v#{self.release_identifier} ==="
+    terms = self.terms_in_version()
+    pp "==== Building json-derived graph ==="
+    graph = Term.all_terms_full_graph(terms, include_lang: self.vocabulary.id >= 4, version_release: self)
+
+    generate_static_datafile(graph.dump(:jsonld, standard_prefixes: true), "jsonld")
+    generate_static_datafile(graph.dump(:ttl, standard_prefixes: true), "ttl")
+    generate_static_datafile(graph.dump(:ntriples), "nt")
+
+    generate_static_datafile(Term.csv_download(terms, self), "csv")
+
+    pp "==== Building xml-derived graph ==="
+    
+    xml_graph = Term.xml_basic_for_terms(terms, version_release: self)
+    generate_static_datafile(xml_graph, "xml")
+
+    marc_graph = Nokogiri::XSLT(File.read(Rails.root.join('app', 'assets', 'xslt', 'homosaurus_xml.xsl')))
+    marc_graph2 = marc_graph.transform(Nokogiri::XML(xml_graph))
+
+    generate_static_datafile(marc_graph2, "marc")
+    
+  end
+
+  def generate_static_legacy_data
+    pp "=== Generating legacy static datafiles for v#{self.release_identifier} ==="
+    terms = self.terms_in_version()
+    pp "==== Building json-derived graph ==="
+    graph = Term.all_terms_full_graph(terms, include_lang: false, version_release: self)
+
+    generate_static_datafile(graph.dump(:jsonld, standard_prefixes: true), "legacy.jsonld")
+    generate_static_datafile(graph.dump(:ttl, standard_prefixes: true), "legacy.ttl")
+    generate_static_datafile(graph.dump(:ntriples), "legacy.nt")
+  end
+
 end
