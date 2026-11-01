@@ -25,6 +25,7 @@ class VocabularyController < ApplicationController
     display_mode ||= "visible"
     @vocab_identifier = identifier
     @vocab = Vocabulary.find_by(identifier: identifier)
+    return render_not_found if @vocab.nil?
 
     # Load term identifiers
     @terms = @vocab.terms.where(visibility: display_mode).select(:id, :identifier)
@@ -89,7 +90,8 @@ class VocabularyController < ApplicationController
   def show
     @vocab_id = params[:vocab_id]
     @vocab = Vocabulary.find_by(identifier: params[:vocab_id])
-    @homosaurus_obj = Term.get(params[:vocab_id], params[:id])
+    @homosaurus_obj = @vocab && @vocab.terms.find_by(identifier: params[:id])
+    return render_not_found if @homosaurus_obj.nil?
     logger.debug @homosaurus_obj
 
     # For terms  that are combined / replaced
@@ -836,5 +838,14 @@ class VocabularyController < ApplicationController
     end
   end
 
+  private
+
+  def render_not_found
+    if params[:format].blank? || request.format&.html?
+      render file: Rails.public_path.join("404.html"), status: :not_found, layout: false
+    else
+      head :not_found
+    end
+  end
 end
 
