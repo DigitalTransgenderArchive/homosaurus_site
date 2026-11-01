@@ -1,16 +1,22 @@
 <%
   form_class = "btn p-0"
-  latest_vr_id = Vocabulary.find_by(identifier: @vocab_id).version_releases.where(status: "Published")[-1].id
+  vocabulary = Vocabulary.find_by(identifier: @vocab_id)
+  latest_vr_id = (vocabulary.latest_published_release || vocabulary.version_releases.last).id
   if @homosaurus_obj.visibility == "pending"
     latest_vr_id = VersionRelease.last.id
   end
   vr_relations = @homosaurus_obj.get_relationships_at_version_release(latest_vr_id)
   upcoming_redirect_status = @homosaurus_obj.get_relationship_at_version_release(Relation::Redirects_to, VersionRelease.last.id)
   awaiting_deletion = upcoming_redirect_status.count > 0 and upcoming_redirect_status[0][1] == "0"
-  open_vr_dne = (VersionRelease.where(status: "Pending").pluck(:id) - @homosaurus_obj.edit_requests.where(status: "approved").pluck(:version_release_id)).count == 0
-  editing_disabled = VersionRelease.where(status: "Pending").count == 0 || open_vr_dne || awaiting_deletion
+  pending_releases = VersionRelease.where(vocabulary_identifier: @vocab_id, status: "Pending")
+  open_vr_dne = (pending_releases.pluck(:id) - @homosaurus_obj.edit_requests.where(status: "approved").pluck(:version_release_id)).count == 0
+  editing_disabled = pending_releases.empty? || open_vr_dne || awaiting_deletion
   %>
+<% if @vocab_id.include?('5') %>
+<h2><%= @homosaurus_obj.pref_label_localized.data %> &ndash; <%= @homosaurus_obj.get_relationship_at_version_release("uri", latest_vr_id).sub('v4', "v5") %></h2>
+<% else %>
 <h2><%= @homosaurus_obj.pref_label_localized.data %> &ndash; <%= @homosaurus_obj.get_relationship_at_version_release("uri", latest_vr_id) %></h2>
+<% end %>
 <% if @homosaurus_obj.visibility == "deleted" %>
   <div class="alert alert-danger" role="alert">
     This term has been removed from the vocabulary and is no longer in use.<br />
@@ -35,7 +41,7 @@
   <% if current_user.present? %>
     <%= button_to t("edit_request.view_discussion"), vocabulary_term_discussion_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary' %>
   <% end %>
-  <% if current_user.present? && (request.original_url.include?('/v3') || request.original_url.include?('/v4')) %>
+  <% if current_user.present? && !%w[terms v2].include?(@vocab_id) %>
       <%= button_to t("term.edit_term"), vocabulary_term_edit_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: "#{form_class} btn-tooltip", class: 'btn btn-outline-secondary', disabled: editing_disabled, form: { "title" => awaiting_deletion ? "Awaiting deletion" : (editing_disabled ? "No pending releases" : "")} %>
     <% if @homosaurus_obj.visibility == "deleted" %>
       <%= button_to "Restore Term", vocabulary_term_restore_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier),  :method => "get", form_class: form_class, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to restore #{@homosaurus_obj.pref_label}?" } %>
@@ -43,11 +49,11 @@
       <%= button_to "Delete Pending Term", vocabulary_term_delete_version_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier),  :method => :delete, form_class: form_class, class: 'btn btn-danger',  data: { confirm: "Are you sure you want to delete the unpublished #{@homosaurus_obj.pref_label}?" } %>
     <% elsif current_user.admin? %>
     <button class="btn btn-danger"
-	    data-bs-toggle="modal" data-bs-target="#delete-term-modal"><%= t('term.delete_term') %></button>
+	    data-bs-toggle="modal" data-bs-target="#delete-term-modal"<%= " disabled" if pending_releases.empty? %>><%= t('term.delete_term') %></button>
     <% end %>
     <% if @homosaurus_obj.visibility != "pending" %>
     <button class="btn btn-danger"
-	    data-bs-toggle="modal" data-bs-target="#replace-term-modal"><%= t('term.replace_term') %></button>
+	    data-bs-toggle="modal" data-bs-target="#replace-term-modal"<%= " disabled" if pending_releases.empty? %>><%= t('term.replace_term') %></button>
     <% end %>
   <% end %>
 
@@ -190,11 +196,12 @@
 <p><br/><strong><%= t('term.other_formats') %>:</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.nt'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonld' %>, <%= link_to "Extended JSON", request.original_url.split('?').first + '.json' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttl' %>, <%= link_to "XML", request.original_url.split('?').first + '.xml' %>, <%= link_to "MARC XML", request.original_url.split('?').first + '.marc' %></p>
 <p><br/><strong><%= t('term.other_formats_legacy') %></strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonldV2' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttlV2' %></p>
 
+<% if current_user.present? %>
 <div id="replace-term-modal" class="modal modal-lg modal-fullscreen-sm-down"
      tab-index="-1" aria-hidden="true" aria-labelledby="replace-term-modal-label">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <%= form_with url: request.fullpath + "/replace", method: :get, local: true do |f| %>
+      <%= form_with url: replace_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), method: :get, local: true do |f| %>
       <div class="modal-header">
         <h1 class="modal-title fs-5">Select term to redirect here</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -202,13 +209,13 @@
       <div class="modal-body">
 	<p>The term you select here will redirect to this record. </p>
 	<select id="vote-select" name="replacement_id" class="form-select">
-	  <%= Term.all.where(vocabulary_id: @homosaurus_obj.vocabulary_id).each do |t| %>
+	  <% vocabulary.terms.where.not(id: @homosaurus_obj.id).each do |t| %>
 	  <option value="<%= t.id %>"><%= t.pref_label %></option>
 	  <% end %>
 	</select>
 	<p>The redirect will occur in this version.</p>
 	<select id="vote-select" name="vid" class="form-select">
-	  <%= VersionRelease.where(vocabulary_identifier: @vocab_id, status: "Pending").each do |vr| %>
+	  <% pending_releases.each do |vr| %>
 	  <option value="<%= vr.id %>"><%= vr.release_identifier %></option>
 	  <% end %>
 	</select>
@@ -235,7 +242,7 @@
       <div class="modal-body">
 	<p>Select Version.</p>
 	<select name="release_id" class="form-select">
-	  <%= VersionRelease.where(status: "Pending").each do |vr| %>
+	  <% pending_releases.each do |vr| %>
 	  <option value="<%= vr.id %>"><%= vr.release_identifier %></option>
 	  <% end %>
 	</select>
@@ -249,4 +256,5 @@
     </div>
   </div>
 </div>
+<% end %>
   

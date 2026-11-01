@@ -25,6 +25,7 @@ class VocabularyController < ApplicationController
     display_mode ||= "visible"
     @vocab_identifier = identifier
     @vocab = Vocabulary.find_by(identifier: identifier)
+    return render_not_found if @vocab.nil?
 
     # Load term identifiers
     @terms = @vocab.terms.where(visibility: display_mode).select(:id, :identifier)
@@ -57,8 +58,9 @@ class VocabularyController < ApplicationController
       @translation_exists_for = lang_label_counts.merge(lang_desc_counts, relation_counts) { |k, o, n| o * n }
     end
 
-    latest_published_release = @vocab.version_releases.where(status: "published").last
-    path = Rails.root.join("public", "static_dumps", @vocab.identifier, latest_published_release.release_identifier)
+    latest_published_release = @vocab.latest_published_release
+    return head :not_found if latest_published_release.nil? && !request.format.html?
+    path = Rails.root.join("public", "static_dumps", @vocab.identifier, latest_published_release.release_identifier) if latest_published_release
 
     version_release = current_user.present? ?
                         @vocab.version_releases.last :
@@ -88,7 +90,8 @@ class VocabularyController < ApplicationController
   def show
     @vocab_id = params[:vocab_id]
     @vocab = Vocabulary.find_by(identifier: params[:vocab_id])
-    @homosaurus_obj = Term.get(params[:vocab_id], params[:id])
+    @homosaurus_obj = @vocab && @vocab.terms.find_by(identifier: params[:id])
+    return render_not_found if @homosaurus_obj.nil?
     logger.debug @homosaurus_obj
 
     # For terms  that are combined / replaced
@@ -425,14 +428,20 @@ class VocabularyController < ApplicationController
     @vocab_id = params[:vocab_id]
     @term = Term.find_by(identifier: params[:id])
     unless params[:release_id]
+      pending_releases = VersionRelease.where(status: 'Pending', vocabulary_identifier: @vocab_id)
       # See if there's a current version
-      current_pending_version = VersionRelease.where(status:'Pending').select{|vr| vr.edit_requests.find_by(term_id: @term.id)}
+      current_pending_version = pending_releases.select{|vr| vr.edit_requests.find_by(term_id: @term.id)}
       current_pending_version = current_pending_version.count > 0 ? current_pending_version[0] : nil
       # Find pending VIDS that have not yet been approved
-      valid_vids = VersionRelease.where(status:'Pending').reject{|vr|
+      valid_vids = pending_releases.reject{|vr|
         vr.edit_requests.find_by(term_id: @term.id) and
           vr.edit_requests.find_by(term_id: @term.id).status == "approved"}
-      redirect_id = (current_pending_version ? current_pending_version : valid_vids[0]).release_identifier
+      target_release = current_pending_version || valid_vids[0]
+      if target_release.nil?
+        redirect_to vocabulary_show_path(vocab_id: @vocab_id, id: params[:id]), notice: "No pending release to edit this term in"
+        return
+      end
+      redirect_id = target_release.release_identifier
       redirect_to vocabulary_term_edit_version_path(vocab_id: @vocab_id, id: params[:id],
                                                     release_id: redirect_id)
       return
@@ -694,6 +703,10 @@ class VocabularyController < ApplicationController
   # Mark term as deleted in a given release
   def destroy
     @term = Term.get(params[:vocab_id], params[:id])
+    if @term.blank? || !VersionRelease.exists?(id: params[:release_id].to_i, vocabulary_identifier: params[:vocab_id], status: "Pending")
+      redirect_to vocabulary_show_path(vocab_id: params[:vocab_id], id: params[:id]), notice: "Deletion of term failed"
+      return
+    end
     @term.clear_relations(params[:release_id].to_i, current_user.id)
     #get the er for the version or create one
     er = nil
@@ -757,7 +770,7 @@ class VocabularyController < ApplicationController
     @term_being_replaced = Term.find_by(id: params[:replacement_id].to_i)
     @vr = VersionRelease.find_by(id: params["vid"].to_i)
 
-    if @term.blank? || @term_being_replaced.blank? || params[:vocab_id] == params[:replacement_id]
+    if @term.blank? || @term_being_replaced.blank? || @vr.blank? || @vr.status != "Pending" || @vr.vocabulary_identifier != params[:vocab_id] || @term.id == @term_being_replaced.id
       redirect_to vocabulary_index_path(id: Vocabulary.latest), notice: "Replacement of term failed"
     else
 
@@ -825,5 +838,14 @@ class VocabularyController < ApplicationController
     end
   end
 
+  private
+
+  def render_not_found
+    if params[:format].blank? || request.format&.html?
+      render file: Rails.public_path.join("404.html"), status: :not_found, layout: false
+    else
+      head :not_found
+    end
+  end
 end
 

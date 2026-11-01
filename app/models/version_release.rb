@@ -111,7 +111,7 @@ class VersionRelease < ActiveRecord::Base
 
   # Return all terms that exist in this version
   def terms_in_version()
-    return self.vocabulary.terms.reject{|t| t.first_introduced().id > self.id}
+    return self.vocabulary.terms.reject{|t| t.visibility == "pending" or t.first_introduced().id > self.id or t.is_replaced_by.present?}
   end
   
   def generate_static_datafile(data, extension)
