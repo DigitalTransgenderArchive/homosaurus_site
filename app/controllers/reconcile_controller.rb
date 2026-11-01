@@ -9,22 +9,22 @@ class ReconcileController < ApplicationController
 
       # View
       json_graph["view"] = {}
-      json_graph["view"]["url"] = "https://api.homosaurus.org/v3/{{id}}"
+      json_graph["view"]["url"] = "#{request.base_url}/v3/{{id}}"
       json_graph["view"]["width"] = 500
       json_graph["view"]["height"] = 350
 
       # PreView
       json_graph["preview"] = {}
-      json_graph["preview"]["url"] = "https://api.homosaurus.org/v3/{{id}}"
+      json_graph["preview"]["url"] = "#{request.base_url}/v3/{{id}}"
       json_graph["preview"]["width"] = 500
       json_graph["preview"]["height"] = 350
 
       # Suggest
       json_graph["suggest"] = {}
       json_graph["suggest"]["entity"] = {}
-      json_graph["suggest"]["entity"]["service_url"] = "https://api.homosaurus.org/reconcile"
+      json_graph["suggest"]["entity"]["service_url"] = "#{request.base_url}/reconcile"
       json_graph["suggest"]["entity"]["service_path"] = "/suggest"
-      json_graph["suggest"]["entity"]["flyout_service_url"] = "https://api.homosaurus.org/reconcile"
+      json_graph["suggest"]["entity"]["flyout_service_url"] = "#{request.base_url}/reconcile"
       json_graph["suggest"]["entity"]["flyout_service_path"] = "/notimplemented"
     else
       queries_to_process = JSON.parse(params[:queries])
