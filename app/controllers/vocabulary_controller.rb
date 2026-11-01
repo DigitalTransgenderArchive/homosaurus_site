@@ -57,8 +57,9 @@ class VocabularyController < ApplicationController
       @translation_exists_for = lang_label_counts.merge(lang_desc_counts, relation_counts) { |k, o, n| o * n }
     end
 
-    latest_published_release = @vocab.version_releases.where(status: "published").last
-    path = Rails.root.join("public", "static_dumps", @vocab.identifier, latest_published_release.release_identifier)
+    latest_published_release = @vocab.latest_published_release
+    return head :not_found if latest_published_release.nil? && !request.format.html?
+    path = Rails.root.join("public", "static_dumps", @vocab.identifier, latest_published_release.release_identifier) if latest_published_release
 
     version_release = current_user.present? ?
                         @vocab.version_releases.last :

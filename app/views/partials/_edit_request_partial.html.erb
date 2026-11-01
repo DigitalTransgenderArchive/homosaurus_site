@@ -24,7 +24,6 @@
   er_status = edit_request.status
   is_modified = !is_new && !is_redirect && !is_linked_new
 filter_tags = "#{is_new ? 'new_term' : (is_redirect ? 'redirected' : (is_linked ? 'linked' : 'modified'))} #{edit_request.suggestion? ? 'suggested' : ''} #{er_status}"
- #pp edit_request
 %>
 
 <div <% unless child_edit %>

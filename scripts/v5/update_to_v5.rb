@@ -7,8 +7,7 @@ require 'csv'
 
 changes = []
 errors = []
-#langs = ["de","es","es_rev","fr","ja","nl","sv"]
-langs = ["sv"]
+langs = ARGV.empty? ? ["de","es","es_rev","fr","ja","nl","sv"] : ARGV
 
 langs.each do |lang_id|
     terms = Hash.new()
@@ -43,7 +42,6 @@ langs.each do |lang_id|
     vc = 1
     terms.reject!{|id, vals| Term.find_by(identifier: id).nil?}
 
-    #terms.take(1).each do |id, vals|
     terms.each do |id, vals|
       term = Term.find_by(identifier: id)
 

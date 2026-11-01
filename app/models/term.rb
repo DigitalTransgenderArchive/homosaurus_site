@@ -247,8 +247,6 @@ class Term < ActiveRecord::Base
 
   # Get version release where term was first introduced
   def first_introduced    
-    #return self.get_edit_requests().last.version_release
-    pp self.id
     return self.get_edit_requests().reject{|er| er.vote_status == "pending"}.last.version_release
   end
   # Returns whether a translation exists for a given language
@@ -334,7 +332,7 @@ class Term < ActiveRecord::Base
       graph = {}
 
       base_uri = relationships["uri"]
-      if version_release.id == 19
+      if version_release.vocabulary_identifier == "v5"
         base_uri = base_uri.sub("/v4/", "/v5/")
       end
       graph[:uri] = base_uri
@@ -446,7 +444,7 @@ class Term < ActiveRecord::Base
 
     graph << [base_uri, ::RDF::Vocab::SKOS.hasTopConcept, uri_func2.call(self.get_broadest(version_release.id))]
 
-    if self.is_replaced_by.present? and version_release.id == 19
+    if self.is_replaced_by.present? and version_release.vocabulary_identifier == "v5"
       is_replaced_by = self.is_replaced_by.sub("/v4/", "/v5/")
     elsif self.is_replaced_by.present?
       is_replaced_by = self.is_replaced_by
@@ -459,7 +457,6 @@ class Term < ActiveRecord::Base
     graph << [base_uri, ::RDF::Vocab::DC.modified, ::RDF::Literal.new("#{self.updated_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)] if self.updated_at.present?
     
     graph << [base_uri, ::RDF.type, ::RDF::Vocab::SKOS.Concept]
-    #graph << [base_uri, ::RDF::Vocab::SKOS.inScheme, ::RDF::URI.new("#{self.vocabulary.base_uri}")] if self.vocabulary.present?
     graph << [base_uri, ::RDF::Vocab::SKOS.inScheme, ::RDF::URI.new("#{version_release.vocabulary.base_uri}")]
     graph << [base_uri, ::RDF::Vocab::SKOS.changeNote, "Version #{version_release.release_identifier}"]
 

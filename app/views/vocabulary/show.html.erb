@@ -1,6 +1,7 @@
 <%
   form_class = "btn p-0"
-  latest_vr_id = Vocabulary.find_by(identifier: @vocab_id).version_releases.where(status: "Published")[-1].id
+  vocabulary = Vocabulary.find_by(identifier: @vocab_id)
+  latest_vr_id = (vocabulary.latest_published_release || vocabulary.version_releases.last).id
   if @homosaurus_obj.visibility == "pending"
     latest_vr_id = VersionRelease.last.id
   end
@@ -11,7 +12,7 @@
   editing_disabled = VersionRelease.where(status: "Pending").count == 0 || open_vr_dne || awaiting_deletion
   %>
 <% if @vocab_id.include?('5') %>
-<h2><%= @homosaurus_obj.pref_label_localized.data %> &ndash; <%= @homosaurus_obj.get_relationship_at_version_release("uri", latest_vr_id).sub!('v4', "v5") %></h2>
+<h2><%= @homosaurus_obj.pref_label_localized.data %> &ndash; <%= @homosaurus_obj.get_relationship_at_version_release("uri", latest_vr_id).sub('v4', "v5") %></h2>
 <% else %>
 <h2><%= @homosaurus_obj.pref_label_localized.data %> &ndash; <%= @homosaurus_obj.get_relationship_at_version_release("uri", latest_vr_id) %></h2>
 <% end %>
