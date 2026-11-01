@@ -1,0 +1,173 @@
+---
+de:
+  about:
+    board_label: Homosaurus-Kollektiv
+    former_board_label: "Ehemalige Mitglieder"
+    gratitude_label: Würdigung und Dank
+    mission_label: Auftrag
+    resources_label: Dokumentationen
+  contact:
+    email: E-Mail-Adresse
+    label: Kontakt
+    message: Deine Nachricht
+    message_html: 'Wenn du den Homosaurus nutzt, freuen wir uns über deine Rückmeldung.</br>Hast du Vorschläge für Neueinträge oder begründete Hinweise zu bestehenden Einträgen? Der Homosaurus ist ein fortlaufendes Projekt: Melde dich doch direkt beim deutschsprachigen Homosaurus-Team unter <a href="mailto:homosaurus@queersearch.org">homosaurus@queersearch.org</a>.</br>Hast du eine Rückmeldung an das internationale Homosaurus-Kollektiv? Dann kontaktiere uns gerne über das Kontaktformular unten und erzähle uns, wie du dieses Vokabular verwendest und welches Feedback oder welche Anregungen du dazu hast. Gelegentlich suchen wir zudem neue Mitglieder für das Kollektiv. Lass uns also gerne wissen, wenn du daran interessiert bist.'
+    name: Name
+    send: Senden
+    topic: Betreff
+    topic_broken: Website-Fehler / Defekter Link
+    topic_feedback: Feedback
+    topic_other: Sonstiges
+  discussion:
+    add_topic: Neues Thema
+    add_vote: Abstimmen
+    back_to_term: Zurück zum Begriff
+    changes_label: Änderungen
+    comment_content: Kommentar
+    comment_content_message: Kommentar eingeben
+    comment_label: Kommentare
+    comment_reply: Antworten
+    comment_reply_message: Antwort eingeben
+    comment_showhide: Kommentare ein- oder ausblenden
+    comment_subject: Betreff
+    comment_subject_message: Betreff eingeben
+    comment_vote_label: Kommentare und Abstimmungen
+    label: Diskussion
+    vote_accept: Annehmen
+    vote_label: Abstimmung
+    vote_reject: Ablehnen
+    vote_table: Tabelle
+    vote_tally: Abstimmungsergebnis
+  download:
+    csv_tabs: "CSV (nur tabulatorgetrennt)"
+    formats: Downloadformate
+    graphical_views: Grafische Ansichten
+    indented_view: Hierarchische Balkenansicht
+    tree_view: Baumansicht
+  edit_request:
+    approve: "Änderungen genehmigen"
+    reject: "Änderungen ablehnen"
+    unapprove: "Genehmigung zurückziehen"
+    confirm_approve: "Möchtest du das wirklich genehmigen?"
+    confirm_reject: "Möchtest du das wirklich ablehnen?"
+    confirm_unapprove: "Möchtest du die Genehmigung wirklich zurückziehen?"
+    all_languages: "Alle"
+    visibility: "Sichtbarkeit"
+    term_deleted: "Begriff gelöscht"
+    view_discussion: Diskussion anzeigen
+    view_release: Version anzeigen
+    view_term: Begriff anzeigen
+  footnote:
+    msg_1_html: Homosaurus ist ein Linked-Data-Dienst des <a href="https://www.digitaltransgenderarchive.net/">Digital Transgender Archive</a>
+    msg_2_html: Dieses Vokabular wird unter der <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0)</a> bereitgestellt.
+  homepage:
+    welcome_html: '<p>Willkommen beim Homosaurus! Der Homosaurus ist ein internationales Linked-Data-Vokabular mit lesbischen, schwulen, bisexuellen, trans, inter* und queeren Begriffen (LGBTIQ+-Begriffen). Das Vokabular versteht sich als Ergänzung zu allgemeinen bibliothekarischen Schlagwortsystemen. Archive, Bibliotheken, Museen und andere Institutionen sind eingeladen, den Homosaurus zur Unterstützung der LGBTIQ+-Forschung einzusetzen und so die Auffindbarkeit ihrer LGBTIQ+-Bestände zu verbessern.</p><p>Wenn du Interesse an Homosaurus-Merchandise hast, besuche gerne unseren <a href="https://homosaurus.threadless.com">Online-Shop</a>. Sämtliche Einnahmen kommen dem Projekt zugute oder werden an LGBTIQ+-Organisationen gespendet.</p><p>Hinweis: Die Erarbeitung einer deutschen Version des Homosaurus startete 2025 als Teilprojekt von QueerSearch, dem Dachverband deutschsprachiger queerer Archive, Bibliotheken und Sammlungen. Noch ist die Übersetzung nicht abgeschlossen, rund die Hälfte der englischen Begriffe sind inzwischen jedoch auf Deutsch verfügbar. Wir arbeiten mit Hochdruck an den weiteren Übersetzungen und freuen uns bis dahin über Inputs, Änderungs- oder Ergänzungsvorschläge auf: <a href="mailto:homosaurus@queersearch.org">homosaurus@queersearch.org</a></p><p>Auch das internationale Homosaurus-Kollektiv freut sich über deine Rückmeldungen, am einfachsten direkt über das <a href="%{contact_path}">Kontaktformular</a>. Kontaktiere uns gerne, erzähle uns, wie du das Vokabular einsetzt und teile dein Feedback mit uns. Außerdem kannst du der Homosaurus-Google-Group beitreten: <a href="https://groups.google.com/g/homoitcommunity">https://groups.google.com/g/homoitcommunity</a></p>'
+  languages:
+    bn: Bengalisch
+    de: Deutsch
+    en: Englisch
+    es: Spanisch
+    fr: Französisch
+    hi: Hindi
+    it: Italienisch
+    ja: Japanisch
+    nl: Niederländisch
+    sv: Schwedisch
+  menu:
+    about: Über uns
+    account: Konto
+    add_term: Begriff hinzufügen
+    contact: Kontakt
+    edit_profile: Profil bearbeiten
+    home: Startseite
+    logout: Abmelden
+    manage_releases: Versionen verwalten
+    manage_users: Konten verwalten
+    profile: Profil anzeigen
+    releases: Versionen
+    reload: Anwendung neu laden
+    roles: Rollen verwalten
+    search: Suche
+    suggest_term: Begriff vorschlagen
+    vocab: Vokabular
+  misc:
+    site_title: "Homosaurus-Vokabular"
+    loading: "Wird geladen..."
+    cancel: Abbrechen
+    close: Schließen
+    post: Absenden
+    tagline: "Ein internationales LGBTIQ+-Linked\u2011Data-Vokabular"
+    translation_needed: Übersetzung ausstehend
+  relations:
+    '1': Beschreibung
+    '10': Ähnlicher Begriff im LCSH
+    '11': Ähnlicher Begriff
+    '12': Exakte Entsprechung
+    '13': Weiterleitung zu
+    '14': Historische Anmerkung
+    '15': Mitwirkende
+    '16': Quellen
+    '2': Bevorzugte Bezeichnung
+    '3': Bezeichnung
+    '4': Alternative Bezeichnung
+    '5': Ersetzt durch
+    '6': Unterbegriff
+    '7': Oberbegriff
+    '8': Verwandter Begriff
+    '9': Begriff im LCSH
+    identifier: Identifikator
+    issued: Erstellt am
+    modified: Geändert am
+    replaces: Ersetzt
+  release:
+    label: Version
+    updates: Änderungen
+  search:
+    button: "Suchen"
+    placeholder: Suchbegriff eingeben
+    results_label: Suchergebnisse für
+  status:
+    approved: Angenommen
+    deleted: Gelöscht
+    linked_label: Verknüpft
+    modified: Geändert
+    new_term_label: Neuer Begriff
+    pending: Ausstehend
+    published: Veröffentlicht
+    redirected: Umgeleitet
+    suggested: Vorschlag
+  term:
+    restore_term: "Begriff wiederherstellen"
+    delete_pending_term: "Ausstehenden Begriff löschen"
+    confirm_restore: "Möchtest du %{label} wirklich wiederherstellen?"
+    confirm_delete_pending: "Möchtest du den unveröffentlichten Begriff %{label} wirklich löschen?"
+    replace_title: "Begriff auswählen, der hierher weiterleitet"
+    replace_intro: "Der Begriff, den du hier auswählst, wird auf diesen Eintrag weitergeleitet."
+    replace_release: "Die Weiterleitung gilt ab dieser Version."
+    delete_release: "Version auswählen."
+    back_to_index: Zurück zur Übersicht
+    back_to_search: Zurück zu den Suchergebnissen
+    delete_term: Begriff löschen
+    edit_term: Begriff bearbeiten
+    hierarchy_label: Hierarchieansicht
+    history: Versionsverlauf
+    other_formats: Weitere Formate (mit Sprachcodes)
+    other_formats_legacy: Ältere Formate (ohne Sprachcodes)
+    replace_term: Anderen Begriff ersetzen
+    view_history: Versionsverlauf
+  user:
+    bio: Biografie
+    fname: Vorname
+    lname: Nachname
+    permissions: Berechtigungen
+    username: Anmeldename
+  vocab:
+    admin:
+      actions: Verwaltung
+      new_term: Neuen Begriff hinzufügen
+      show_deleted: Gelöschte Begriffe anzeigen
+      show_next: Begriffe der nächsten Version anzeigen
+      show_redirects: Umgeleitete Begriffe anzeigen
+      show_visible: Sichtbare Begriffe anzeigen
+      suggest_term: Neuen Begriff vorschlagen
+    current_terms: Aktuelle Begriffsliste
+    label: Homosaurus-Vokabular

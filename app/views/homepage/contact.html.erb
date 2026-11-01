@@ -37,7 +37,7 @@
             <label class="col-sm-3 control-label"><%= t('contact.topic') %>:</label>
             <div class="col-sm-7 col-md-6">
               <%= select_tag(:topic,
-                             options_for_select(['Feedback', 'Broken link / site error', 'Other']),
+                             options_for_select([[t('contact.topic_feedback'), 'Feedback'], [t('contact.topic_broken'), 'Broken link / site error'], [t('contact.topic_other'), 'Other']]),
                              :class => 'form-control', :label => 'Topic:')
               %>
             </div>

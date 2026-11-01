@@ -3,7 +3,7 @@
   <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: t("search.placeholder") %>
 </div>
 <div class="col-auto">
-  <%= submit_tag t("menu.search"), name: nil, class: 'form-control  btn btn-primary'%>
+  <%= submit_tag t("search.button"), name: nil, class: 'form-control  btn btn-primary'%>
 </div>
 <% end %>
 
@@ -22,11 +22,11 @@
           <% if alt_labels or descriptions %>
           <div class="card-body">
             <% if alt_labels %>
-                <strong>Alternative Labels:</strong> <%= alt_labels.map{|l| "#{l.data}@#{l.language_id}"}.join(", ") %><br />
+                <strong><%= t("relations.4") %>:</strong> <%= alt_labels.map{|l| "#{l.data}@#{l.language_id}"}.join(", ") %><br />
             <% end %>
             <% if descriptions %>
 	      <% descriptions.each do |d| %>
-	        <strong>Description:</strong> <%= "#{d.data}@#{d.language_id}" %><br/>
+	        <strong><%= t("relations.1") %>:</strong> <%= "#{d.data}@#{d.language_id}" %><br/>
 	      <% end %>
             <% end %>
 

@@ -78,11 +78,11 @@ filter_tags = "#{is_new ? 'new_term' : (is_redirect ? 'redirected' : (is_linked 
     <div class="col col-5 p-0">
       <div class="d-inline-flex gap-1 float-end">
 	<% if release_page and edit_request.version_release.status == "Pending" and  current_user.present? and current_user.admin? and edit_request.vote_status == "pending" %>
-	<%= button_to "Approve changes", edit_request_approve_release_path(vocab_id: edit_request.version_release.vocabulary.identifier, id: edit_request.term.identifier, release_id: edit_request.version_release.release_identifier), :method => "post", class: 'btn btn-primary', data: {confirm: "Are you sure you want to approve this?" } %>
-	<%= button_to "Reject changes", edit_request_reject_release_path(vocab_id: edit_request.version_release.vocabulary.identifier, id: edit_request.term.identifier, release_id: edit_request.version_release.release_identifier), :method => "post", class: 'btn btn-danger', data: {confirm: "Are you sure you want to reject this?" } %>
+	<%= button_to t("edit_request.approve"), edit_request_approve_release_path(vocab_id: edit_request.version_release.vocabulary.identifier, id: edit_request.term.identifier, release_id: edit_request.version_release.release_identifier), :method => "post", class: 'btn btn-primary', data: {confirm: t("edit_request.confirm_approve") } %>
+	<%= button_to t("edit_request.reject"), edit_request_reject_release_path(vocab_id: edit_request.version_release.vocabulary.identifier, id: edit_request.term.identifier, release_id: edit_request.version_release.release_identifier), :method => "post", class: 'btn btn-danger', data: {confirm: t("edit_request.confirm_reject") } %>
         <% end %>
 	<% if release_page and edit_request.version_release.status == "Pending" and current_user.present? and current_user.admin? and edit_request.vote_status == "approved" %>
-	<%= button_to "Unapprove changes", edit_request_unapprove_release_path(vocab_id: edit_request.version_release.vocabulary.identifier, id: edit_request.term.identifier, release_id: edit_request.version_release.release_identifier), :method => "post", class: 'btn btn-primary', data: {confirm: "Are you sure you want to unapprove this?" } %>
+	<%= button_to t("edit_request.unapprove"), edit_request_unapprove_release_path(vocab_id: edit_request.version_release.vocabulary.identifier, id: edit_request.term.identifier, release_id: edit_request.version_release.release_identifier), :method => "post", class: 'btn btn-primary', data: {confirm: t("edit_request.confirm_unapprove") } %>
 	<% end %>
 	<% if release_page and not child_edit %>
           <%= button_to t("edit_request.view_term"),
@@ -115,7 +115,7 @@ filter_tags = "#{is_new ? 'new_term' : (is_redirect ? 'redirected' : (is_linked 
 	  <% changes.each do |c| %>
 	    <% change_class = c[0] == "+" ? "success" : "danger"
 	       change_icon = c[0] == "+" ? "plus" : "minus"
-	       lang = (c[1].nil? ? "All" : Language.find_by(id: c[1]).name)
+	       lang = (c[1].nil? ? t("edit_request.all_languages") : Language.find_by(id: c[1]).name)
 	       val = c[2]
 	       %>
 	    <tr class="table-<%= change_class %>">
@@ -126,7 +126,7 @@ filter_tags = "#{is_new ? 'new_term' : (is_redirect ? 'redirected' : (is_linked 
 		  <% if Term.find_by(id: val) %>
 		    <a href="<%= Term.find_by(id: val).uri_localized %>"> <%= Term.find_by(id: val).pref_label_localized.data  %> [<%= Term.find_by(id: val).identifier %>] </a>
 		    <% else %>
-		    <a href="<%= val %>"> Term Deleted </a>
+		    <a href="<%= val %>"> <%= t("edit_request.term_deleted") %> </a>
 		    <% end %>
 		<% else %>
 		  <%= val %>
@@ -146,25 +146,25 @@ filter_tags = "#{is_new ? 'new_term' : (is_redirect ? 'redirected' : (is_linked 
 	  <% unless prev_term.nil? %>
           <tr class="table-danger">
 	    <td class="col col-1"><h3 class="text-danger m-0">-</h3> </td>
-	    <td class="col col-1"><span class="well_language">All</span></td>
+	    <td class="col col-1"><span class="well_language"><%= t("edit_request.all_languages") %></span></td>
 	    <td class="col col-8"><%= prev_term.my_changes[field] %></td>
 	  </tr>
 	  <% end %>
 	  <tr class="table-success">
 	    <td class="col col-1"><h3 class="text-success m-0">+</h3> </td>
-	    <td class="col col-1"><span class="well_language">All</span></td>
+	    <td class="col col-1"><span class="well_language"><%= t("edit_request.all_languages") %></span></td>
 	    <td class="col col-8"><%= cur %></td>
 	  </tr>
 	</table>
       <% end %>
     <% end %>
     <% if is_deletion %>
-      <h4>Visibility</h4>
+      <h4><%= t("edit_request.visibility") %></h4>
       <table class="table">
 	<tr class="table-success">
 	  <td class="col col-1"><h3 class="text-success m-0">+</h3> </td>
-	  <td class="col col-1"><span class="well_language">All</span></td>
-	  <td class="col col-8">Deleted</td>
+	  <td class="col col-1"><span class="well_language"><%= t("edit_request.all_languages") %></span></td>
+	  <td class="col col-8"><%= t("status.deleted") %></td>
 	</tr>
       </table>
       <% end %>
