@@ -426,14 +426,20 @@ class VocabularyController < ApplicationController
     @vocab_id = params[:vocab_id]
     @term = Term.find_by(identifier: params[:id])
     unless params[:release_id]
+      pending_releases = VersionRelease.where(status: 'Pending', vocabulary_identifier: @vocab_id)
       # See if there's a current version
-      current_pending_version = VersionRelease.where(status:'Pending').select{|vr| vr.edit_requests.find_by(term_id: @term.id)}
+      current_pending_version = pending_releases.select{|vr| vr.edit_requests.find_by(term_id: @term.id)}
       current_pending_version = current_pending_version.count > 0 ? current_pending_version[0] : nil
       # Find pending VIDS that have not yet been approved
-      valid_vids = VersionRelease.where(status:'Pending').reject{|vr|
+      valid_vids = pending_releases.reject{|vr|
         vr.edit_requests.find_by(term_id: @term.id) and
           vr.edit_requests.find_by(term_id: @term.id).status == "approved"}
-      redirect_id = (current_pending_version ? current_pending_version : valid_vids[0]).release_identifier
+      target_release = current_pending_version || valid_vids[0]
+      if target_release.nil?
+        redirect_to vocabulary_show_path(vocab_id: @vocab_id, id: params[:id]), notice: "No pending release to edit this term in"
+        return
+      end
+      redirect_id = target_release.release_identifier
       redirect_to vocabulary_term_edit_version_path(vocab_id: @vocab_id, id: params[:id],
                                                     release_id: redirect_id)
       return
@@ -695,6 +701,10 @@ class VocabularyController < ApplicationController
   # Mark term as deleted in a given release
   def destroy
     @term = Term.get(params[:vocab_id], params[:id])
+    if @term.blank? || !VersionRelease.exists?(id: params[:release_id].to_i, vocabulary_identifier: params[:vocab_id], status: "Pending")
+      redirect_to vocabulary_show_path(vocab_id: params[:vocab_id], id: params[:id]), notice: "Deletion of term failed"
+      return
+    end
     @term.clear_relations(params[:release_id].to_i, current_user.id)
     #get the er for the version or create one
     er = nil
@@ -758,7 +768,7 @@ class VocabularyController < ApplicationController
     @term_being_replaced = Term.find_by(id: params[:replacement_id].to_i)
     @vr = VersionRelease.find_by(id: params["vid"].to_i)
 
-    if @term.blank? || @term_being_replaced.blank? || params[:vocab_id] == params[:replacement_id]
+    if @term.blank? || @term_being_replaced.blank? || @vr.blank? || @vr.status != "Pending" || @vr.vocabulary_identifier != params[:vocab_id] || @term.id == @term_being_replaced.id
       redirect_to vocabulary_index_path(id: Vocabulary.latest), notice: "Replacement of term failed"
     else
 
