@@ -51,7 +51,7 @@
     <% end %>
 
     <% if is_er and current_user.admin? and @homosaurus_obj.vote_status == "pending" %>
-      <%= button_to "Approve changes", edit_request_approve_release_path(vocab_id: vocabulary_identifier, id: identifier, release_id: @homosaurus_obj.version_release.release_identifier), :method => "post", class: 'btn btn-primary', data: {confirm: "Are you sure you want to approve this?" } %>
+      <%= button_to t("edit_request.approve"), edit_request_approve_release_path(vocab_id: vocabulary_identifier, id: identifier, release_id: @homosaurus_obj.version_release.release_identifier), :method => "post", class: 'btn btn-primary', data: {confirm: t("edit_request.confirm_approve") } %>
     <% end %>
 </div>
 <br/>
@@ -79,7 +79,7 @@
       <%= form_with url: request.fullpath + "/post_comment", method: :get, local: true do |f| %>
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="new-topic-modal-label"><%= t("discussion.add_topic") %></h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="<%= t('misc.close') %>"></button>
       </div>
       <div class="modal-body">
 	  <input type="hidden" name="user" value="<%= current_user.id %>">
@@ -113,7 +113,7 @@
       <%= form_with url: request.fullpath + "/post_comment", method: :get, local: true do |f| %>
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="new-topic-modal-label">Add new vote</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="<%= t('misc.close') %>"></button>
       </div>
       <div class="modal-body">
 	  <input type="hidden" name="user" value="<%= current_user.id %>">
@@ -150,7 +150,7 @@
       <%= form_with url: request.fullpath + "/edit_comment", method: :get, local: true do |f| %>
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="edit-comment-modal-label">Edit Comment/Vote</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="<%= t('misc.close') %>"></button>
       </div>
       <div class="modal-body">
 	<input type="hidden" name="comment_id" id="edit-comment-modal-comment-id" value="">

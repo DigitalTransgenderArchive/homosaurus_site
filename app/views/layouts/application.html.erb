@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Homosaurus Vocabulary Site</title>
+  <title><%= t("misc.site_title") %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <!-- Google Analytics -->
@@ -41,7 +41,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navbarSupportedContent" class="offcanvas offcanvas-end bg-dark" style="flex-grow: inherit;" data-bs-theme="dark">
-      <button type="button" class="btn-close d-lg-none p-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button type="button" class="btn-close d-lg-none p-4" data-bs-dismiss="offcanvas" aria-label="<%= t('misc.close') %>"></button>
       <ul class="nav navbar-nav text-end text-lg-start p-4 p-lg-0">
         <li class="nav-item"><%= link_to t("menu.home"), '/', :class => "nav-link text-white" %></li>
 	<li class="nav-item"><%= link_to "#{vocab.version.upcase} #{t('menu.vocab')}", vocabulary_index_path(id: vocab.identifier), :class => "nav-link text-white" %></li>
@@ -136,4 +136,4 @@
 </body>
 </html>
 
-<div class="modal fade" id="homosaurus-main-modal" tabindex="-1" role="dialog" data-backdrop="static" aria-hidden="true" data-keyboard="false">Loading...</div>
+<div class="modal fade" id="homosaurus-main-modal" tabindex="-1" role="dialog" data-backdrop="static" aria-hidden="true" data-keyboard="false"><%= t("misc.loading") %></div>
