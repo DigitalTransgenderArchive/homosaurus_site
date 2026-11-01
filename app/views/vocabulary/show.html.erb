@@ -194,6 +194,7 @@
 <p><br/><strong><%= t('term.other_formats') %>:</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.nt'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonld' %>, <%= link_to "Extended JSON", request.original_url.split('?').first + '.json' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttl' %>, <%= link_to "XML", request.original_url.split('?').first + '.xml' %>, <%= link_to "MARC XML", request.original_url.split('?').first + '.marc' %></p>
 <p><br/><strong><%= t('term.other_formats_legacy') %></strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonldV2' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttlV2' %></p>
 
+<% if current_user.present? %>
 <div id="replace-term-modal" class="modal modal-lg modal-fullscreen-sm-down"
      tab-index="-1" aria-hidden="true" aria-labelledby="replace-term-modal-label">
   <div class="modal-dialog modal-dialog-centered">
@@ -206,13 +207,13 @@
       <div class="modal-body">
 	<p>The term you select here will redirect to this record. </p>
 	<select id="vote-select" name="replacement_id" class="form-select">
-	  <%= Term.all.where(vocabulary_id: @homosaurus_obj.vocabulary_id).each do |t| %>
+	  <% Term.all.where(vocabulary_id: @homosaurus_obj.vocabulary_id).each do |t| %>
 	  <option value="<%= t.id %>"><%= t.pref_label %></option>
 	  <% end %>
 	</select>
 	<p>The redirect will occur in this version.</p>
 	<select id="vote-select" name="vid" class="form-select">
-	  <%= VersionRelease.where(vocabulary_identifier: @vocab_id, status: "Pending").each do |vr| %>
+	  <% VersionRelease.where(vocabulary_identifier: @vocab_id, status: "Pending").each do |vr| %>
 	  <option value="<%= vr.id %>"><%= vr.release_identifier %></option>
 	  <% end %>
 	</select>
@@ -239,7 +240,7 @@
       <div class="modal-body">
 	<p>Select Version.</p>
 	<select name="release_id" class="form-select">
-	  <%= VersionRelease.where(status: "Pending").each do |vr| %>
+	  <% VersionRelease.where(status: "Pending").each do |vr| %>
 	  <option value="<%= vr.id %>"><%= vr.release_identifier %></option>
 	  <% end %>
 	</select>
@@ -253,4 +254,5 @@
     </div>
   </div>
 </div>
+<% end %>
   
