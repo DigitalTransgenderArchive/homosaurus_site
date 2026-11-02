@@ -74,9 +74,9 @@ es:
     view_term: Ver término
   footnote:
     msg_1_html: Homosaurus.org es un servicio de datos vinculado mantenido por el <a href="https://www.digitaltransgenderarchive.net/">Digital Transgender Archive</a>
-    msg_2_html: Este vocabulario está disponible bajo una <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es">licencia Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 internacional  (CC BY NC-ND 4.0)</a>
+    msg_2_html: Publicado bajo licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 internacional  (CC BY-NC-ND 4.0)</a>
   homepage:
-    welcome_html: '<p>¡Bienvenidos al Homosaurus! El Homosaurus es un vocabulario internacional de datos vinculados de términos lesbianas, gays, bisexuales, transgénero y queer (LGBTQ). Este vocabulario pretende funcionar como un complemento de los vocabularios de términos temáticos amplios, como los encabezamientos de materias de la Biblioteca del Congreso de Estados Unidos. Invitamos a las bibliotecas, archivos, museos y otras instituciones a utilizar el Homosaurus para apoyar la investigación LGBTQ+ mejorando la capacidad de descubrimiento de sus recursos LGBTQ+.</p><p>Si estás interesado en comprar algún merchandising del Homosaurus, visita nuestra <a href="https://homosaurus.threadless.com">tienda en línea</a>. Todos los ingresos se utilizan para apoyar el proyecto o se donan a organizaciones LGBTQ+.</p><p>Si estás utilizando el Homosaurus, ¡queremos saber de ti! <a href="%{contact_path}">Comunícate con nosotros</a> para informarnos cómo estás utilizando este vocabulario y comparte cualquier comentario que tengas. También puedes unirste a nuestra comunidad y  Google Group en: <a href="https://groups.google.com/g/homoitcommunity">https://groups.google.com/g/homoitcommunity</a></p>'
+    welcome_html: '<p>¡Te damos la bienvenida al Homosaurus! El Homosaurus es un vocabulario internacional de datos vinculados de términos lesbianas, gays, bisexuales, transgénero y queer (LGBTQ+). Este vocabulario pretende funcionar como un complemento de los vocabularios de términos temáticos amplios, como los encabezamientos de materias de la Biblioteca del Congreso de Estados Unidos. Invitamos a las bibliotecas, archivos, museos y otras instituciones a utilizar el Homosaurus para apoyar la investigación LGBTQ+ mejorando la capacidad de descubrimiento de sus recursos LGBTQ+.</p><p>Si te interesa comprar algún merchandising del Homosaurus, visita nuestra <a href="https://homosaurus.threadless.com">tienda en línea</a>. Todos los ingresos se utilizan para apoyar el proyecto o se donan a organizaciones LGBTQ+.</p><p>Si estás utilizando el Homosaurus, ¡queremos saber de ti! <a href="%{contact_path}">Comunícate con nosotros</a> para informarnos cómo estás utilizando este vocabulario y comparte cualquier comentario que tengas. También puedes unirte a nuestra comunidad en <a href="https://groups.google.com/g/homoitcommunity">Google Groups</a>.</p>'
   languages:
     it: Italiano
     bn: Bengalí
@@ -135,7 +135,7 @@ es:
     modified: Modificado
     replaces: Reemplaza
   release:
-    label: Publicar
+    label: "Lanzamiento"
     updates: Actualizaciones
   search:
     button: "Buscar"

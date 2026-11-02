@@ -17,8 +17,8 @@ it:
     topic_feedback: "Feedback"
     topic_other: "Altro"
   discussion:
-    add_topic: "Aggiungi un nuovo argomento"
-    add_vote: "Aggiungi un voto"
+    add_topic: "Aggiungi nuovo argomento"
+    add_vote: "Aggiungi voto"
     back_to_term: "Torna al termine"
     changes_label: "Modifiche"
     comment_content: "Commento"
@@ -43,23 +43,23 @@ it:
     indented_view: "Elenco gerarchico"
     tree_view: "Diagramma ad albero"
   edit_request:
-    approve: "Approva le modifiche"
-    reject: "Rifiuta le modifiche"
-    unapprove: "Annulla l'approvazione"
+    approve: "Approva modifiche"
+    reject: "Rifiuta modifiche"
+    unapprove: "Annulla approvazione"
     confirm_approve: "Vuoi davvero approvare queste modifiche?"
     confirm_reject: "Vuoi davvero rifiutare queste modifiche?"
     confirm_unapprove: "Vuoi davvero annullare l'approvazione?"
     all_languages: "Tutte"
     visibility: "Visibilità"
     term_deleted: "Termine eliminato"
-    view_discussion: "Vedi la discussione"
-    view_release: "Vedi la versione"
-    view_term: "Vedi il termine"
+    view_discussion: "Vedi discussione"
+    view_release: "Vedi versione"
+    view_term: "Vedi termine"
   footnote:
     msg_1_html: "Homosaurus.org è un servizio linked data gestito dal <a href=\"https://www.digitaltransgenderarchive.net/\">Digital Transgender Archive</a>"
-    msg_2_html: "Questo vocabolario è distribuito con licenza <a href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/deed.it\">Creative Commons Attribuzione - Non commerciale - Non opere derivate 4.0 Internazionale (CC BY-NC-ND 4.0)</a>"
+    msg_2_html: Pubblicato con licenza <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.it">Creative Commons Attribuzione - Non commerciale - Non opere derivate 4.0 Internazionale (CC BY-NC-ND 4.0)</a>
   homepage:
-    welcome_html: "<p>Ti diamo il benvenuto in Homosaurus! Homosaurus è un vocabolario linked data internazionale di termini lesbici, gay, bisessuali, transgender e queer (LGBTQ). È pensato come complemento ai soggettari generali, come i Library of Congress Subject Headings. Invitiamo biblioteche, archivi, musei e altre istituzioni a usare Homosaurus per sostenere la ricerca LGBTQ e rendere più facili da trovare le loro risorse LGBTQ.</p><p>Se ti interessa acquistare qualche gadget di Homosaurus, visita il nostro <a href=\"https://homosaurus.threadless.com\">negozio online</a>. Tutti i ricavi servono a sostenere il progetto o vengono donati a organizzazioni LGBTQ+.</p><p>Se utilizzi Homosaurus, ci farebbe piacere sentirti! <a href=\"%{contact_path}\">Contattaci</a> per raccontarci come utilizzi questo vocabolario e per condividere le tue osservazioni. Puoi anche unirti alla nostra comunità su <a href=\"https://groups.google.com/g/homoitcommunity\">Google Groups</a>.</p>"
+    welcome_html: '<p>Ti diamo il benvenuto in Homosaurus! Homosaurus è un vocabolario linked data internazionale di termini lesbici, gay, bisessuali, transgender e queer (LGBTQ+). È pensato come complemento ai soggettari generali, come i Library of Congress Subject Headings. Invitiamo biblioteche, archivi, musei e altre istituzioni a usare Homosaurus per sostenere la ricerca LGBTQ+ e rendere più facili da trovare le loro risorse LGBTQ+.</p><p>Se ti interessa acquistare qualche gadget di Homosaurus, visita il nostro <a href="https://homosaurus.threadless.com">negozio online</a>. Tutti i ricavi servono a sostenere il progetto o vengono donati a organizzazioni LGBTQ+.</p><p>Se utilizzi Homosaurus, ci farebbe piacere sentirti! <a href="%{contact_path}">Contattaci</a> per raccontarci come utilizzi questo vocabolario e per condividere le tue osservazioni. Puoi anche unirti alla nostra comunità su <a href="https://groups.google.com/g/homoitcommunity">Google Groups</a>.</p>'
   languages:
     it: "Italiano"
     bn: "Bengali"
@@ -72,7 +72,7 @@ it:
     nl: "Olandese"
     sv: "Svedese"
   menu:
-    about: "Chi siamo"
+    about: Informazioni
     account: "Account"
     add_term: "Aggiungi termine"
     contact: "Contatti"
@@ -83,10 +83,10 @@ it:
     manage_users: "Gestisci utenti"
     profile: "Visualizza profilo"
     releases: "Versioni"
-    reload: "Ricarica l'applicazione"
+    reload: "Ricarica applicazione"
     roles: "Gestisci ruoli"
     search: "Ricerca"
-    suggest_term: "Proponi un termine"
+    suggest_term: "Proponi nuovo termine"
     vocab: "Vocabolario"
   misc:
     site_title: "Vocabolario Homosaurus"
@@ -130,7 +130,7 @@ it:
     linked_label: "Collegato"
     modified: "Modificato"
     new_term_label: "Nuovo termine"
-    pending: "In attesa"
+    pending: Da approvare
     published: "Pubblicato"
     redirected: "Reindirizzato"
     suggested: "Proposta"
@@ -151,8 +151,8 @@ it:
     history: "Cronologia"
     other_formats: "Altri formati (con identificatori di lingua)"
     other_formats_legacy: "Formati precedenti (senza identificatori di lingua)"
-    replace_term: "Sostituisci un altro termine"
-    view_history: "Vedi la cronologia"
+    replace_term: "Sostituisci altro termine"
+    view_history: "Vedi cronologia"
   user:
     bio: "Biografia"
     fname: "Nome"
@@ -162,11 +162,11 @@ it:
   vocab:
     admin:
       actions: "Azioni di amministrazione"
-      new_term: "Aggiungi un nuovo termine"
-      show_deleted: "Mostra i termini eliminati"
-      show_next: "Mostra i termini della prossima versione"
-      show_redirects: "Mostra i termini reindirizzati"
-      show_visible: "Mostra i termini visibili"
-      suggest_term: "Proponi un nuovo termine"
+      new_term: "Aggiungi nuovo termine"
+      show_deleted: "Mostra termini eliminati"
+      show_next: "Mostra termini della prossima versione"
+      show_redirects: "Mostra termini reindirizzati"
+      show_visible: "Mostra termini visibili"
+      suggest_term: "Proponi nuovo termine"
     current_terms: "Elenco dei termini attuali"
     label: "Termini del vocabolario Homosaurus"
