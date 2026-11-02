@@ -1,0 +1,71 @@
+---
+sv:
+  about_page:
+    mission_heading: "Uppdrag"
+    mission_statement: "Homosaurus är en internationell tesaurus med länkade data-termer rörande hbtq+-ämnen. Homosaurus är en stabil och banbrytande tesaurus, framtagen för att komplettera generella ämnesordssystem och göra det lättare att hitta hbtq+-resurser och -information."
+    page_title: "Om Homosaurus"
+    history_heading: "Historik"
+    history_html: "Homosaurus skapades ursprungligen 1997 av <a href=\"https://www.ihlia.nl/?lang=en\">IHLIA LGBTI Heritage</a> som en holländsk och engelsk tesaurus för gay och lesbiska, som användes som en fristående vokabulär för att beskriva deras samlingar. År 2013 omvandlade Jack van der Wel, med hjälp av Ellen Greenblatt, den ursprungliga Homosaurus till en mer inkluderande och hierarkisk tesaurus. År 2015 blev <a href=\"https://www.digitaltransgenderarchive.net\">Digital Transgender Archive</a> (DTA) ett av de få hbtq+-arkiv som använde den <a href=\"/terms\">första versionen</a> av Homosaurus, och DTA:s chef K.J. Rawson samarbetade med Jack van der Wel för att omvandla den till en onlinevokabulär med länkade data. År 2016 inrättade Rawson och van der Wel en redaktion som skulle övervaka en <a href=\"/v2\">andra större revidering</a>, publicerad i maj 2019, vilken förvandlade Homosaurus till en hbtq+-specifik vokabulär avsedd att komplettera befintliga tesaurusar, följd av <a href=\"/v3\">version 3</a> i september 2021. <a href=\"/v4\">Version 4</a>, som publicerades i februari 2025, lade till spanska översättningar, och med de senare uppdateringarna växte vokabulären till över 4 000 termer. <a href=\"/v5\">Version 5</a>, som publicerades i juni 2026, lade till översättningar till franska, japanska, nederländska, svenska och tyska. Den tidigare redaktionen är i dag Homosaurus-kollektivet."
+    emails_revealed: E-postadresserna på sidan visas nu.
+    collective_heading: Homosaurus-kollektivet
+    collective_intro: 'Homosaurus-kollektivet består av fler än 40 medlemmar i 9 länder, indelade i tre ömsesidigt beroende grupper: organisationsgruppen, implementeringsgruppen och termutvecklingsgruppen.'
+    board_co_convenors: 'Gruppens sammankallande:'
+    board_co_convenors_heading: Gruppens sammankallande
+    members_heading: Medlemmar
+    organizing_heading: Organisationsgruppen
+    organizing_description: Organisationsgruppen svarar för samordning, vision och vägledning i hela projektet och bidrar till att utveckla och utöka kollektivet genom att söka finansiering, anordna möten och hitta samarbetspartners. Gruppen omfattar systemundergruppen, som arbetar med programvarans funktioner och samordnar arbetet med utvecklarna.
+    systems_subcommittee_member: "(+Systemundergruppen)"
+    systems_subcommittee: "Systemundergruppen"
+    library_profile: Bibliotekets profil
+    faculty_profile: Akademisk profil
+    implementation_heading: Implementeringsgruppen
+    implementation_description: Implementeringsgruppen arbetar tillsammans med externa organisationer för att införa Homosaurus. Den utvecklar utbildningsmetoder både internt och externt, tar fram stödmaterial för implementeringen och följer hur Homosaurus används, hur den tillämpas i forskning och vad som skrivs om den.
+    term_development_heading: Termutvecklingsgruppen
+    term_development_description: Termutvecklingsgruppen stöder arbetet över språkgränserna och samordnar termutvecklingskommittéerna. Gruppen ansvarar för de språkspecifika kommittéerna för holländska, engelska, franska, tyska, hindi och bengali, japanska, spanska och svenska, som är långsiktiga, samt för tillfälliga tematiska kommittéer, till exempel kommittén för Stillahavsområdet och Oceanien (Pasifika/Oceania).
+    committee_co_convenors_heading: Kommittéernas sammankallande
+    committees:
+      dutch: holländska kommittén
+      english: engelska kommittén
+      english_co_convenor: sammankallande i engelska kommittén
+      swedish_co_convenor: sammankallande i svenska kommittén
+      french: franska kommittén
+      qc_french: Québec-kommittén
+      german: tyska kommittén
+      hindi_bengali: hindi-/bengalikommittén
+      japanese: japanska kommittén
+      spanish: spanska kommittén
+      swedish: svenska kommittén
+    spain: Spanien
+    independent: Oberoende
+    institutions:
+      lac: Library and Archives Canada
+      laval_library: Université Lavals bibliotek
+      schwulenarchiv: Swiss Gay Archives
+      jck: Jewish Cultural Quarter
+    roles:
+      former_systems_metadata_librarian: tidigare vid Bard College
+      gsso_creator: University of Cincinnati Medical School
+      former_kentucky_library: tidigare vid University of Kentucky
+      archivist_leibniz: Leibniz Institute for Contemporary History
+      homosaurus_creator: skapare av vokabulären Homosaurus
+    acknowledgements_heading: Tack och uppskattning
+    former_members_heading: Tidigare medlemmar
+    former_members_intro: 'Homosaurus-kollektivet vill tacka de tidigare medlemmarna i kollektivet för deras arbete och engagemang:'
+    most_notably: 'Och särskilt, med hög röst:'
+    gratitude_heading: Tack
+    gratitude_html: 'Homosaurus-kollektivet vill tacka våra fantastiska samarbetspartner: <a href="https://www.asexuality.org/">AVEN</a>, <a href="https://blacklesbianarchives.substack.com/">Black Lesbian Archives</a>, <a href="https://www.colage.org/">COLAGE</a>, <a href="https://interactadvocates.org/">InterACT</a>, <a href="https://leatherarchives.org/">Leather Archives &amp; Museum</a> och <a href="https://swahpca.wordpress.com/">Sex Work Activist Histories Project</a>. Vi vill också tacka de många användarna av Homosaurus som har föreslagit termer och gett feedback genom åren. Särskilt tacksamma är vi mot Orla Egan, Alice Galvinhill, Ellen Greenblatt, Juniper Johnson, Dee Michel, Cailin Roles och Lydia Willoughby för deras bidrag.'
+    memoriam_heading: Till minne av
+    memoriam_html: |-
+      <p><strong>Walter <q>Cat</q> Walker</strong> var ansvarig katalogisatör vid Loyola Marymount University i Los Angeles, Kalifornien från 2004 fram till sin för tidiga död 2020. Han var också en director-at-large för American Library Associations Gay Lesbian Bisexual Transgender Roundtable (<a href="https://www.ala.org/rrt">ALA GLBTRT</a>) och han volontärarbetade vid <a href="https://one.usc.edu/">ONE National Gay &amp; Lesbian Archives</a> vid USC Libraries i 25 år.</p>
+
+      <p>Cat Walker gick med i Homosaurus-kollektivet 2016 efter att ha träffat Jack van der Wel på <a href="https://web.archive.org/web/20160709112621/http://lgbtqalms.co.uk/conference-programme/">LGBTQ ALMS</a>-konferensen i London. Vid denna konferens presenterade Cat ett huvudanförande med titeln <q>Overcoming the Barriers: Improving Access to LGBTQ+ Content in Collections.</q> Cats livslånga aktivism och passion för hbtq+-bibliotek och arkiv fick honom att gå med i kollektivet och han blev snabbt en aktiv medlem i vårt team. Vid nästa LGBTQ ALMS-konferens i Berlin 2019 presenterade Cat och Jack tillsammans en uppsats om den förkortade versionen av Homosaurus.</p>
+
+      <p>Det är svårt att överdriva Cats bidrag till Homosaurus under de fyra år han arbetade med projektet. När kollektivet dramatiskt reviderade den första versionen av Homosaurus spelade Cat en central roll i att hjälpa oss att använda många fler termer och hbtq+-relaterade sammanhang, representationer och historier. Cat arbetade omfattande med att sammanfoga Homosaurus version ett med version två, granskade vokabulären noggrant och identifierade termer som behövde revideras, saknade konsistens över listan, eller hade ett unikt värde som kunde utvidgas för relaterade sökningar och behov. Denna lista, bestående av nya föreslagna termer samt anpassningar av befintliga, var ett av Cats senaste och mest ambitiösa bidrag till kollektivets arbete. Vid tiden för hans död omfattade hans dokumentation av relaterade och föreslagna termer över 250 förändringar och/eller nya termer, viktigt arbete som vi kommer att slutföra för hans räkning och till hans ära.</p>
+
+      <p>Framför allt var Cat en tålmodig, vänlig och välvillig lärare och samarbetspartner, och han var alltid den första att anmäla sig för att ta på sig nya projekt. Cats öga för detaljer, samt hans engagemang för att göra Homosaurus till en verkligt vacker och inkluderande uppsättning termer, kommer att vara omöjliga att ersätta. Vi är oändligt tacksamma för honom och hedrar alla hans bidrag till detta viktiga projekt.</p>
+    resources_heading: Resurser
+    since_year: "Sedan %{year}"
+    software_development_heading: "Mjukvaruutveckling"
+    resources_intro: Dessa guider (på engelska) publicerades av Homosaurus-kollektivet och kommer så småningom att översättas och uppdateras.
+    guide_documentation: Guide för dokumentation och implementering
+    guide_profile: Applikationsprofil för metadata

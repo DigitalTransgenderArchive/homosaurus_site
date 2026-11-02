@@ -1,0 +1,19 @@
+.starter-template {
+  font-size: 1.05rem;
+}
+
+.page-title {
+  margin: 0 0 1.25rem;
+  text-wrap: balance;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 7.5rem;
+    height: 5px;
+    margin-top: 0.5rem;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #E22726 0 16.67%, #F5831F 0 33.33%, #FEC52E 0 50%, #00A950 0 66.67%, #00A0DE 0 83.33%, #7E3E99 0);
+  }
+}
+
