@@ -23,8 +23,11 @@ sv:
     mission_statement: Homosaurus är en internationell tesaurus med länkade data-termer rörande hbtq+-ämnen. Homosaurus är en stabil och banbrytande tesaurus, framtagen för att komplettera generella ämnesordssystem och göra det lättare att hitta hbtq+-resurser och -information.
     resources_label: Resurser
   contact:
+    topic_broken: "Trasig länk / fel på webbplatsen"
+    topic_feedback: "Återkoppling"
+    topic_other: "Övrigt"
     email: Epost
-    label: Kontakta Oss
+    label: "Kontakta oss"
     message: Meddelande
     message_html: Om du använder Homosaurus vill vi gärna höra från dig! Hör gärna av dig för att berätta hur du använder den här vokabulären och dela med dig av all feedback du kan ha. Vi är också öppna för att ta in nya medlemmar i vårt kollektiv, så låt oss veta om det är något du är intresserad av. </br>Homosaurus är ett pågående arbete och vi välkomnar förslag på nya termer som kan läggas till eller ändringar som kan göras i vokabulären. Homosaurus-kollektivet övervakar underhållet av vokabulären och kommer att överväga alla föreslagna termer och ändringar kvartalsvis.
     name: Namn
@@ -51,17 +54,29 @@ sv:
     vote_table: Bordläggs
     vote_tally: Röstningsresultat
   download:
+    csv_tabs: "CSV (endast tabbavgränsad)"
     formats: Nedladdningsformat
     graphical_views: Grafiska vyer
+    indented_view: "Hierarkisk lista"
+    tree_view: "Träddiagram"
   edit_request:
+    approve: "Godkänn ändringar"
+    reject: "Avslå ändringar"
+    unapprove: "Återkalla godkännande av ändringar"
+    confirm_approve: "Är du säker på att du vill godkänna detta?"
+    confirm_reject: "Är du säker på att du vill avslå detta?"
+    confirm_unapprove: "Är du säker på att du vill återkalla godkännandet?"
+    all_languages: "Alla"
+    visibility: "Synlighet"
+    term_deleted: "Term raderad"
     view_discussion: Se diskussion
     view_release: Se version
     view_term: Se term
   footnote:
     msg_1_html: Homosaurus.org är en länkad datatjänst som drivs av <a href="https://www.digitaltransgenderarchive.net/">Digital Transgender Archive</a>
-    msg_2_html: Denna vokabulär publiceras under en <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.sv">Creative Commons Erkännande-Ickekommersiell-IngaBearbetningar 4.0 Internationell licens (CC BY NC-ND 4.0)</a>
+    msg_2_html: Publicerad under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.sv">Creative Commons Erkännande-Ickekommersiell-IngaBearbetningar 4.0 Internationell licens (CC BY-NC-ND 4.0)</a>
   homepage:
-    welcome_html: '<p>Välkommen till Homosaurus! Homosaurus är en internationell tesaurus med länkade data-termer rörande homosexuella, bisexuella, transpersoner och queera (hbtq). Tesaurusen är avsedd att fungera som ett komplement till generella ämnesordssystem, som Library of Congress Subject Headings eller Svenska ämnesord. Bibliotek, arkiv, museer och andra institutioner uppmuntras att använda Homosaurus för att stödja hbtq-forskning genom att förbättra upptäckbarheten av deras hbtq-resurser.</p><p>Om du är intresserad av att köpa Homosaurus-prylar, besök vår <a href="https://homosaurus.threadless.com">onlinebutik</a>. Alla intäkter används för att stödja projektet eller doneras till hbtq+-organisationer.</p><p>Om du använder Homosaurus vill vi höra från dig! <a href="%{contact_path}">Kontakta oss</a> gärna för att berätta hur du använder den här tesaurusen och om du har några synpunkter. Du kan också gå med i vår Google-grupp på: <a href="https://groups.google.com/g/homoitcommunity">https://groups.google.com/g/homoitcommunity</a></p>'
+    welcome_html: '<p>Välkommen till Homosaurus! Homosaurus är en internationell tesaurus med länkade data-termer rörande homosexuella, bisexuella, transpersoner och queera (hbtq+). Tesaurusen är avsedd att fungera som ett komplement till generella ämnesordssystem, som Library of Congress Subject Headings eller Svenska ämnesord. Bibliotek, arkiv, museer och andra institutioner uppmuntras att använda Homosaurus för att stödja hbtq+-forskning genom att förbättra upptäckbarheten av deras hbtq+-resurser.</p><p>Om du är intresserad av att köpa Homosaurus-prylar, besök vår <a href="https://homosaurus.threadless.com">onlinebutik</a>. Alla intäkter används för att stödja projektet eller doneras till hbtq+-organisationer.</p><p>Om du använder Homosaurus vill vi höra från dig! <a href="%{contact_path}">Kontakta oss</a> gärna för att berätta hur du använder den här tesaurusen och om du har några synpunkter. Du kan också gå med i vår gemenskap på <a href="https://groups.google.com/g/homoitcommunity">Google Groups</a>.</p>'
   languages:
     it: Italienska
     bn: Bengali
@@ -81,14 +96,18 @@ sv:
     edit_profile: Redigera profil
     home: Hem
     logout: Logga ut
+    manage_users: "Administrera användare"
+    manage_releases: "Administrera versioner"
     profile: Visa profil
-    releases: Administrera versioner
+    releases: Versioner
     reload: Ladda om applikationen
     roles: Administrera roller
     search: Sök
     suggest_term: Föreslå termin
     vocab: Tesaurus
   misc:
+    site_title: "Webbplats för tesaurusen Homosaurus"
+    loading: "Laddar..."
     cancel: Annullera
     close: Stänga
     post: Inlägg
@@ -133,6 +152,14 @@ sv:
     redirected: Omdirigerad
     suggested: Förslag
   term:
+    restore_term: "Återställ term"
+    delete_pending_term: "Radera väntande term"
+    confirm_restore: "Är du säker på att du vill återställa %{label}?"
+    confirm_delete_pending: "Är du säker på att du vill radera den opublicerade termen %{label}?"
+    replace_title: "Välj term som ska omdirigeras hit"
+    replace_intro: "Termen som du väljer här omdirigeras till den här posten."
+    replace_release: "Omdirigeringen sker i den här versionen."
+    delete_release: "Välj version."
     back_to_index: Tillbaka till index
     back_to_search: Tillbaka för att söka
     delete_term: Stryk term

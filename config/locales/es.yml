@@ -23,8 +23,11 @@ es:
     mission_statement: El Homosaurus es un vocabulario internacional de datos vinculados de términos LGBTQ+. Diseñado para mejorar vocabulario de términos temáticos amplios, Homosaurus es un tesauro robusto e innovador que promueve la capacidad de descubrimiento de recursos e información LGBTQ+.
     resources_label: Recursos
   contact:
+    topic_broken: "Enlace roto / error del sitio"
+    topic_feedback: "Comentarios"
+    topic_other: "Otro"
     email: Email
-    label: Comunícate Con Nosotros
+    label: Contáctanos
     message: Mensaje
     message_html: Si estás utilizando el Homosaurus, ¡queremos saber de ti! Comunícate con nosotros para informarnos cómo estás utilizando este vocabulario y comparte cualquier comentario que tengas. También estamos abiertos a que nuevos miembros se unan a nuestro Colectivo, así que haznos saber si es algo que te interesa. </br>El Homosaurus es un trabajo en progreso y agradecemos sugerencias sobre nuevos términos para agregar o cambios en el vocabulario. El Colectivo Homosaurus supervisa el mantenimiento del vocabulario, considerará todos los términos y cambios propuestos trimestralmente.
     name: Nombre
@@ -51,17 +54,29 @@ es:
     vote_table: Tabla
     vote_tally: Cuenta de las votas
   download:
+    csv_tabs: "CSV (separado solo por tabulaciones)"
     formats: Formatos de descarga
     graphical_views: Vistas gráficas
+    indented_view: "Lista jerárquica"
+    tree_view: "Diagrama de árbol"
   edit_request:
+    approve: "Aprobar cambios"
+    reject: "Rechazar cambios"
+    unapprove: "Retirar aprobación de los cambios"
+    confirm_approve: "¿Seguro que quieres aprobar esto?"
+    confirm_reject: "¿Seguro que quieres rechazar esto?"
+    confirm_unapprove: "¿Seguro que quieres retirar la aprobación?"
+    all_languages: "Todos"
+    visibility: "Visibilidad"
+    term_deleted: "Término eliminado"
     view_discussion: Ver discusión
     view_release: Ver lanzamiento
     view_term: Ver término
   footnote:
     msg_1_html: Homosaurus.org es un servicio de datos vinculado mantenido por el <a href="https://www.digitaltransgenderarchive.net/">Digital Transgender Archive</a>
-    msg_2_html: Este vocabulario está disponible bajo una <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es">licencia Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 internacional  (CC BY NC-ND 4.0)</a>
+    msg_2_html: Publicado bajo licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 internacional  (CC BY-NC-ND 4.0)</a>
   homepage:
-    welcome_html: '<p>¡Bienvenidos al Homosaurus! El Homosaurus es un vocabulario internacional de datos vinculados de términos lesbianas, gays, bisexuales, transgénero y queer (LGBTQ). Este vocabulario pretende funcionar como un complemento de los vocabularios de términos temáticos amplios, como los encabezamientos de materias de la Biblioteca del Congreso de Estados Unidos. Invitamos a las bibliotecas, archivos, museos y otras instituciones a utilizar el Homosaurus para apoyar la investigación LGBTQ+ mejorando la capacidad de descubrimiento de sus recursos LGBTQ+.</p><p>Si estás interesado en comprar algún merchandising del Homosaurus, visita nuestra <a href="https://homosaurus.threadless.com">tienda en línea</a>. Todos los ingresos se utilizan para apoyar el proyecto o se donan a organizaciones LGBTQ+.</p><p>Si estás utilizando el Homosaurus, ¡queremos saber de ti! <a href="%{contact_path}">Comunícate con nosotros</a> para informarnos cómo estás utilizando este vocabulario y comparte cualquier comentario que tengas. También puedes unirste a nuestra comunidad y  Google Group en: <a href="https://groups.google.com/g/homoitcommunity">https://groups.google.com/g/homoitcommunity</a></p>'
+    welcome_html: '<p>¡Te damos la bienvenida al Homosaurus! El Homosaurus es un vocabulario internacional de datos vinculados de términos lesbianas, gays, bisexuales, transgénero y queer (LGBTQ+). Este vocabulario pretende funcionar como un complemento de los vocabularios de términos temáticos amplios, como los encabezamientos de materias de la Biblioteca del Congreso de Estados Unidos. Invitamos a las bibliotecas, archivos, museos y otras instituciones a utilizar el Homosaurus para apoyar la investigación LGBTQ+ mejorando la capacidad de descubrimiento de sus recursos LGBTQ+.</p><p>Si te interesa comprar algún merchandising del Homosaurus, visita nuestra <a href="https://homosaurus.threadless.com">tienda en línea</a>. Todos los ingresos se utilizan para apoyar el proyecto o se donan a organizaciones LGBTQ+.</p><p>Si estás utilizando el Homosaurus, ¡queremos saber de ti! <a href="%{contact_path}">Comunícate con nosotros</a> para informarnos cómo estás utilizando este vocabulario y comparte cualquier comentario que tengas. También puedes unirte a nuestra comunidad en <a href="https://groups.google.com/g/homoitcommunity">Google Groups</a>.</p>'
   languages:
     it: Italiano
     bn: Bengalí
@@ -74,7 +89,7 @@ es:
     nl: Holandés
     sv: Sueco
   menu:
-    about: Sobre nosotros
+    about: Acerca de
     account: Cuenta
     add_term: Agregar término
     contact: Contacto
@@ -82,6 +97,7 @@ es:
     home: Inicio
     logout: Cerrar sesión
     manage_releases: Administrar lanzamientos
+    manage_users: "Administrar usuarios"
     profile: Ver perfil
     releases: Lanzamientos
     reload: Recargar aplicación
@@ -90,6 +106,8 @@ es:
     suggest_term: Sugerir término
     vocab: Vocabulario
   misc:
+    site_title: "Sitio del vocabulario Homosaurus"
+    loading: "Cargando..."
     cancel: Cancelar
     close: Cerca
     post: Publicar
@@ -102,7 +120,7 @@ es:
     '12': Correspondencia exacta
     '13': Redirecciona a
     '14': Nota histórica
-    '15': Colaboradores
+    '15': Personas colaboradoras
     '16': Fuentes
     '2': Etiqueta preferida
     '3': Etiqueta
@@ -117,7 +135,7 @@ es:
     modified: Modificado
     replaces: Reemplaza
   release:
-    label: Publicar
+    label: "Lanzamiento"
     updates: Actualizaciones
   search:
     button: "Buscar"
@@ -134,6 +152,14 @@ es:
     redirected: Redirigido
     suggested: Sugerencia
   term:
+    restore_term: "Restaurar término"
+    delete_pending_term: "Eliminar término pendiente"
+    confirm_restore: "¿Seguro que quieres restaurar %{label}?"
+    confirm_delete_pending: "¿Seguro que quieres eliminar el término no publicado %{label}?"
+    replace_title: "Selecciona el término que se redirigirá aquí"
+    replace_intro: "El término que selecciones aquí se redirigirá a este registro."
+    replace_release: "La redirección se producirá en esta versión."
+    delete_release: "Selecciona la versión."
     back_to_index: Volver al índice
     back_to_search: Volver a buscar
     delete_term: Eliminar término
