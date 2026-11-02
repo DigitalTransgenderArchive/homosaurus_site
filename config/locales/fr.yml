@@ -27,7 +27,7 @@ fr:
     topic_feedback: "Commentaires"
     topic_other: "Autre"
     email: Votre adresse courriel
-    label: Pour Nous Contacter
+    label: "Pour nous contacter"
     message: Votre message
     message_html: Si vous utilisez l'Homosaurus, nous aimerions avoir de vos nouvelles ! N'hésitez pas à nous contacter pour nous dire comment vous utilisez ce thésaurus et nous faire part de vos commentaires. Nous sommes également ouvert·es à l'arrivée de nouveaux membres au sein de notre comité éditorial, alors n'hésitez pas à nous faire savoir si cela vous intéresse.<br/>L’Homosaurus est en évolution constante et nous accueillons volontiers les suggestions d'ajout de nouveaux termes ou de modifications à apporter au thésaurus. Le comité éditorial de l’Homosaurus supervise les mises à jour et examinera tous les termes et les changements proposés sur une base trimestrielle.
     name: Votre nom
@@ -86,7 +86,7 @@ fr:
     fr: Français
     hi: Hindi
     ja: Japonais
-    nl: Español
+    nl: Néerlandais
     sv: Suédois
   menu:
     about: À propos
@@ -120,7 +120,7 @@ fr:
     '12': Correspondance exacte
     '13': Redirection vers
     '14': Note historique
-    '15': Contributeurs
+    '15': Personnes contributrices
     '16': Sources
     '2': Étiquette privilégiée
     '3': Étiquette

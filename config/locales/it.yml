@@ -86,7 +86,7 @@ it:
     reload: "Ricarica applicazione"
     roles: "Gestisci ruoli"
     search: "Ricerca"
-    suggest_term: "Proponi nuovo termine"
+    suggest_term: "Proponi termine"
     vocab: "Vocabolario"
   misc:
     site_title: "Vocabolario Homosaurus"

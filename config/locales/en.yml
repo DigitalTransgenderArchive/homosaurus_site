@@ -161,7 +161,7 @@ en:
     replace_release: "The redirect will occur in this version."
     delete_release: "Select Version."
     back_to_index: Back to Index
-    back_to_search: Back To Search Results
+    back_to_search: "Back to Search Results"
     delete_term: Delete Term
     edit_term: Edit Term
     hierarchy_label: Hierarchy Display
