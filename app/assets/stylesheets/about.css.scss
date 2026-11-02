@@ -135,7 +135,7 @@ div#about {
     padding-left: 0;
     margin: 0 0 1.5rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(unquote("min(17rem, 100%)"), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
     gap: 2rem;
 
     li {
@@ -337,7 +337,8 @@ div#about {
 
   .history-logo {
     float: right;
-    width: unquote("min(11rem, 40%)");
+    width: 40%;
+    max-width: 11rem;
     height: auto;
     margin: 0.25rem 0 0 1.25rem;
   }
