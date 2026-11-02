@@ -1,0 +1,96 @@
+.profile-page {
+  max-width: 60rem;
+  margin-inline: auto;
+
+  dl.profile-fields {
+    display: grid;
+    grid-template-columns: fit-content(12rem) minmax(0, 1fr);
+    margin: 0 0 2.5rem;
+    border-bottom: 2px dotted #BACBE7;
+
+    > div {
+      display: contents;
+    }
+
+    dt {
+      padding: 0.75rem 1.5rem 0.75rem 0;
+      border-top: 2px dotted #BACBE7;
+      color: #1d2b4f;
+      font-weight: bold;
+    }
+
+    dd {
+      min-width: 0;
+      margin: 0;
+      padding: 0.75rem 0;
+      border-top: 2px dotted #BACBE7;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 575.98px) {
+      display: block;
+
+      dt {
+        padding: 0.75rem 0 0.25rem;
+      }
+
+      dd {
+        padding-top: 0;
+        border-top: 0;
+      }
+    }
+  }
+
+  .empty-count {
+    color: #6c757d;
+  }
+
+  .profile-roles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .profile-lang {
+    margin-right: 0.25rem;
+    padding: 0.1rem 0.6rem;
+    border-radius: 0.7rem;
+    background: color-mix(in srgb, #BACBE7 45%, white);
+    color: #1d2b4f;
+    font-size: 0.85em;
+  }
+
+  dd.profile-permissions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem 1rem;
+  }
+
+  .profile-revoke {
+    margin: calc((1.5em - (0.875rem * 1.5 + 0.5rem + 2px)) / 2) 0 0 auto;
+  }
+
+  .profile-form {
+    margin-bottom: 2.5rem;
+
+    .form-label {
+      margin-bottom: 0.35rem;
+      color: #002D59;
+      font-weight: 600;
+    }
+  }
+
+  .profile-submit {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .profile-contributions {
+    margin-bottom: 1rem;
+  }
+}

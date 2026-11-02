@@ -1,48 +1,80 @@
-<h1><%= t("vocab.label") %></h1>
+<% formats_base = request.original_url.split('?').first %>
+<div class="vocab-page">
+<h1 class="page-title"><%= [t("vocab.label"), older_version(@vocab)].compact.join(" ") %></h1>
 <% if current_user.present? && current_user.contributor? && (request.original_url.include?('/v3') || request.original_url.include?('/v4') || request.original_url.include?('/v5')) %>
-  <h4><%= t("vocab.admin.actions") %></h4>
-  <%= button_to t("vocab.admin.new_term"), vocabulary_term_new_path(vocab_id: @vocab_identifier), :method => "get", class: 'btn btn-primary', style:"float:left;" %>
-  <%= button_to t("vocab.admin.show_visible"), vocabulary_index_path(vocab_id: @vocab_identifier), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "visible" } %>
-  <%= button_to t("vocab.admin.show_next"), vocabulary_index_path(vocab_id: @vocab_identifier), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "pending" } %>
-  <%= button_to t("vocab.admin.show_deleted"), vocabulary_index_path(vocab_id: @vocab_identifier), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "deleted" } %>
-  <%= button_to t("vocab.admin.show_redirects"), vocabulary_index_path(vocab_id: @vocab_identifier), :method => "get", class: 'btn btn-primary', style:"float:left; margin-left:20px;", params: { display_mode: "redirect" }  %>
-  <div style="clear:both"></div>
+  <div class="vocab-actions">
+    <%= button_to t("vocab.admin.new_term"), vocabulary_term_new_path(vocab_id: @vocab_identifier), :method => "get", class: 'btn btn-primary btn-add-term' %>
+    <% [["visible", "vocab.filter.current"], ["pending", "vocab.filter.next"], ["deleted", "vocab.filter.deleted"], ["redirect", "vocab.filter.redirected"]].each do |mode, key| %>
+      <% on = @display_mode == mode %>
+      <%= link_to t(key), vocabulary_index_path(mode == "visible" ? { id: @vocab_identifier } : { id: @vocab_identifier, display_mode: mode }), class: "btn #{on ? 'btn-primary' : 'btn-outline-primary'}", "aria-current": (on ? "page" : nil) %>
+    <% end %>
+  </div>
 <% end %>
 
-<h4><%= t("download.formats") %></h4>
-<ul>
-  <li><%= link_to "N-Triples", request.original_url.split('?').first + '.nt'  %></li>
-  <li><%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonld' %></li>
-  <li><%= link_to "TTL", request.original_url.split('?').first + '.ttl' %></li>
-  <li><%= link_to "XML", request.original_url.split('?').first + '.xml' %></li>
-</ul>
+<dl class="format-groups">
+  <div>
+    <dt><%= t("download.formats") %></dt>
+    <dd>
+      <ul>
+        <% [["N-Triples", ".nt"], ["JSON-LD", ".jsonld"], ["TTL", ".ttl"], ["CSV", ".csv"], ["XML", ".xml"]].each do |format_name, extension| %>
+          <li><%= link_to format_name, formats_base + extension, data: { format: extension.delete('.') } %></li>
+        <% end %>
+      </ul>
+    </dd>
+  </div>
+  <div class="format-legacy">
+    <dt><%= t('term.other_formats_legacy') %></dt>
+    <dd>
+      <ul>
+        <% [["N-Triples", ".ntV2"], ["JSON-LD", ".jsonldV2"], ["TTL", ".ttlV2"]].each do |format_name, extension| %>
+          <li><%= link_to format_name, formats_base + extension, data: { format: extension.delete('.').sub('V2', '') } %></li>
+        <% end %>
+      </ul>
+      <p class="format-note"><%= t('term.legacy_formats_note') %></p>
+    </dd>
+  </div>
+  <% if !request.original_url.include? '/v2' and !request.original_url.include? '/terms' %>
+    <div>
+      <dt><%= t("download.graphical_views") %></dt>
+      <dd>
+        <ul>
+          <li><%= link_to t("download.tree_view"), tree_path %></li>
+          <li><%= link_to t("download.indented_view"), indented_tree_path %></li>
+        </ul>
+      </dd>
+    </div>
+  <% end %>
+</dl>
 
-<h4><%= t("download.graphical_views") %></h4>
-<% if !request.original_url.include? '/v2' and !request.original_url.include? '/terms' %>
+<h2 class="section-title"><%= t({ "pending" => "vocab.next_version_terms", "deleted" => "vocab.deleted_terms", "redirect" => "vocab.redirected_terms" }.fetch(@display_mode, "vocab.current_terms")) %></h2>
+<% cache @list_cache_key do %>
+<% data = vocabulary_list_data %>
+<nav class="letter-nav" aria-label="<%= t("vocab.letter_nav") %>">
   <ul>
-    <li><%= link_to t("download.tree_view"), tree_path %></li>
-    <li><%= link_to t("download.indented_view"), indented_tree_path %></li>
+    <% data[:by_letter].each_key do |letter| %>
+      <li><a href="#<%= letter_anchor(letter) %>"><%= letter %></a></li>
+    <% end %>
   </ul>
-<% end %>
-
-<h4><%= t("vocab.current_terms") %></h4>
-<ul>
-  <% @terms.each do |term| %>
+</nav>
+<% data[:by_letter].each do |letter, terms| %>
+<details class="letter-section" id="<%= letter_anchor(letter) %>" open>
+<summary><h3 class="letter-heading"><%= letter %></h3><a class="back-to-top" href="#top" aria-label="<%= t("vocab.back_to_top") %>"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a></summary>
+<ul class="vocab-terms">
+  <% terms.each do |term| %>
       <li>
-        <% label = @pref_label_for[term.id].presence %>
+        <% label = data[:labels][term.id].presence %>
         <% if label.blank? %>
           <%= link_to "(EMPTY)", vocabulary_show_path(vocab_id: @vocab_identifier, :id => term.identifier) %>
         <% else %>
           <%= link_to label, vocabulary_show_path(vocab_id: @vocab_identifier, :id => term.identifier) %>
         <% end %>
-	<% if current_user.present? && (@translation_exists_for[term.id] == 0) %>
+	<% if current_user.present? && (data[:translation][term.id] == 0) %>
 	  <span class="badge text-bg-danger"><%= t("misc.translation_needed") %></span>
 	<% end %>
       </li>
   <% end %>
 </ul>
-
-<p><br/><strong><%= t('term.other_formats') %>:</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.nt'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonld' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttl' %>, <%= link_to t("download.csv_tabs"), request.original_url.split('?').first + '.csv' %>, <%= link_to "XML", request.original_url.split('?').first + '.xml' %>
-<p><br/><strong><%= t('term.other_formats_legacy') %>:</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonldV2' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttlV2' %>
-
-
+</details>
+<% end %>
+<% end %>
+</div>

@@ -1,10 +1,13 @@
-<div class="row-padded">
-  <h1>Manage Users</h1>
+<%= stylesheet_link_tag "bootstrap-table/bootstrap-table" %>
+<%= javascript_include_tag "bootstrap-table/bootstrap-table" %>
+<div class="admin-page admin-users">
+  <h1 class="page-title">Manage Users</h1>
   <div class="table-responsive">
-    <table class="table"
+    <table class="table admin-users-table"
 	   data-toggle="table"
 	   data-search="true"
-	   data-show-columns="true">
+	   data-show-columns="true"
+	   data-buttons-class="outline-secondary">
       <thead>
 	<tr>
 	  <th scope="col">User</th>
@@ -21,25 +24,25 @@
 	  <% glob_l_obj = u.user_language_roles.find_by("role_id <= 2")
 	     is_admin = (not glob_l_obj.nil?)
 	     glob_l_obj = glob_l_obj.nil? ? UserLanguageRole.new(user_id: u.id, language_id: nil) : glob_l_obj %>
-	  <td>
+	  <td data-label="All">
 	    <%= form_with model: glob_l_obj, url: user_update_path, method: :post do |form| %>
 	    <%= form.hidden_field :user_id, value: u.id %>
 	    <%= form.hidden_field :language_id, value: nil %>
-	    <%= select_tag :role_id, options_for_select([["unassigned", nil]] + Role.where("id <= 2").pluck(:name, :id), glob_l_obj.role_id), onchange: "this.form.submit();" %>
+	    <%= select_tag :role_id, options_for_select([["unassigned", nil]] + Role.where("id <= 2").pluck(:name, :id), glob_l_obj.role_id), onchange: "this.form.submit();", class: "form-select form-select-sm" %>
 	    <% end %>
 	  </td>
 	  <% Language.supported.each do |l|
 	     l_obj = l.user_language_roles.where("role_id > 2").find_by(user_id: u.id)
 	     l_obj = l_obj.nil? ? UserLanguageRole.new(user_id: u.id, language_id: l.id) : l_obj
 	     %>
-	  <td scope="col">
+	  <td data-label="<%= t("languages.#{l.id}") %>">
 	    <% if is_admin %>
-            ...
+            <span class="empty-count" aria-hidden="true">—</span>
 	    <% else %>
             <%= form_with model: l_obj, url: user_update_path, method: :post do |form| %>
 	    <%= form.hidden_field :user_id, value: u.id %>
 	    <%= form.hidden_field :language_id, value: l.id %>
-	    <%= select_tag :role_id, options_for_select([["unassigned", nil]] + Role.where("id > 2").pluck(:name, :id), l_obj.role_id), onchange: "this.form.submit();" %>
+	    <%= select_tag :role_id, options_for_select([["unassigned", nil]] + Role.where("id > 2").pluck(:name, :id), l_obj.role_id), onchange: "this.form.submit();", class: "form-select form-select-sm" %>
 	    <% end %>
 	    <% end %>
 	  </td>

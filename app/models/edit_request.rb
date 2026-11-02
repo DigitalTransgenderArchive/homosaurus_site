@@ -6,7 +6,7 @@ class EditRequest < ActiveRecord::Base
   belongs_to :creator, :class_name => 'User', :foreign_key => 'creator_id', optional: true
   serialize  :my_changes
   belongs_to :parent, :class_name => 'EditRequest', optional: true
-  has_many :children, :class_name => 'EditRequest', :foreign_key => 'parent_id'
+  has_many :children, :class_name => 'EditRequest', :foreign_key => 'parent_id', inverse_of: :parent
   before_destroy :delete_children
   #accepts_nested_attributes_for :my_changes
 
@@ -140,7 +140,7 @@ class EditRequest < ActiveRecord::Base
   end
 
   def suggestion?
-    if self.children.count > 0
+    if self.children.size > 0
       return (self.status != "approved") && self.children.any?{|c| c.creator.suggester?}
     else
       return (self.parent.status != "approved") && self.creator.suggester?

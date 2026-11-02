@@ -15,8 +15,6 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require d3
-//= require bootstrap-table/bootstrap-table
 //= require_tree .
 
 (function($) {

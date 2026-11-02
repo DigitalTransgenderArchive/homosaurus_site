@@ -1,22 +1,51 @@
 <%
   form_class = "btn p-0"
-  vocabulary = Vocabulary.find_by(identifier: @vocab_id)
-  latest_vr_id = (vocabulary.latest_published_release || vocabulary.version_releases.last).id
+  latest_vr_id = Vocabulary.find_by(identifier: @vocab_id).version_releases.where(status: "Published")[-1].id
   if @homosaurus_obj.visibility == "pending"
     latest_vr_id = VersionRelease.last.id
   end
   vr_relations = @homosaurus_obj.get_relationships_at_version_release(latest_vr_id)
   upcoming_redirect_status = @homosaurus_obj.get_relationship_at_version_release(Relation::Redirects_to, VersionRelease.last.id)
   awaiting_deletion = upcoming_redirect_status.count > 0 and upcoming_redirect_status[0][1] == "0"
-  pending_releases = VersionRelease.where(vocabulary_identifier: @vocab_id, status: "Pending")
-  open_vr_dne = (pending_releases.pluck(:id) - @homosaurus_obj.edit_requests.where(status: "approved").pluck(:version_release_id)).count == 0
-  editing_disabled = pending_releases.empty? || open_vr_dne || awaiting_deletion
+  open_vr_dne = (VersionRelease.where(status: "Pending").pluck(:id) - @homosaurus_obj.edit_requests.where(status: "approved").pluck(:version_release_id)).count == 0
+  editing_disabled = VersionRelease.where(status: "Pending").count == 0 || open_vr_dne || awaiting_deletion
   %>
-<% if @vocab_id.include?('5') %>
-<h2><%= @homosaurus_obj.pref_label_localized.data %> &ndash; <%= @homosaurus_obj.get_relationship_at_version_release("uri", latest_vr_id).sub('v4', "v5") %></h2>
-<% else %>
-<h2><%= @homosaurus_obj.pref_label_localized.data %> &ndash; <%= @homosaurus_obj.get_relationship_at_version_release("uri", latest_vr_id) %></h2>
-<% end %>
+<%
+  term_label = @homosaurus_obj.pref_label_localized.data
+  term_uri = @homosaurus_obj.get_relationship_at_version_release("uri", latest_vr_id).to_s
+  term_uri = term_uri.sub('v4', 'v5') if @vocab_id.include?('5')
+  formats_base = request.original_url.split('?').first
+%>
+<div class="term-page">
+<div class="term-header">
+<h1 class="page-title term-title"><%= term_label %></h1>
+<div class="term-actions">
+  <% if params[:from_q].present? %>
+      <%= button_to t("term.back_to_search"), vocabulary_search_results_path(id: @vocab_id), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary', params: { :q=>params[:from_q]} %>
+  <% else %>
+      <%= button_to t("term.back_to_index"), vocabulary_index_path(id: @vocab_id), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary' %>
+  <% end %>
+  <%= button_to t("term.view_history"), vocabulary_term_history_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: form_class, class: "btn btn-outline-secondary" %>
+  <% if current_user.present? %>
+    <%= button_to t("edit_request.view_discussion"), vocabulary_term_discussion_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary' %>
+  <% end %>
+  <% if current_user.present? && %w[v3 v4 v5].include?(@vocab_id) %>
+      <%= button_to t("term.edit_term"), vocabulary_term_edit_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: "#{form_class} btn-tooltip", class: 'btn btn-primary', disabled: editing_disabled, form: { "title" => awaiting_deletion ? "Awaiting deletion" : (editing_disabled ? "No pending releases" : "")} %>
+    <% if @homosaurus_obj.visibility == "deleted" %>
+      <%= button_to t("term.restore_term"), vocabulary_term_restore_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier),  :method => "get", form_class: form_class, class: 'btn btn-danger',  data: { confirm: t("term.confirm_restore", label: @homosaurus_obj.pref_label) } %>
+    <% elsif @homosaurus_obj.visibility == "pending" %>
+      <%= button_to t("term.delete_pending_term"), vocabulary_term_delete_version_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier),  :method => :delete, form_class: form_class, class: 'btn btn-danger',  data: { confirm: t("term.confirm_delete_pending", label: @homosaurus_obj.pref_label) } %>
+    <% elsif current_user.admin? %>
+    <button class="btn btn-danger"
+	    data-bs-toggle="modal" data-bs-target="#delete-term-modal"><%= t('term.delete_term') %></button>
+    <% end %>
+    <% if @homosaurus_obj.visibility != "pending" %>
+    <button class="btn btn-danger"
+	    data-bs-toggle="modal" data-bs-target="#replace-term-modal"><%= t('term.replace_term') %></button>
+    <% end %>
+  <% end %>
+</div>
+</div>
 <% if @homosaurus_obj.visibility == "deleted" %>
   <div class="alert alert-danger" role="alert">
     This term has been removed from the vocabulary and is no longer in use.<br />
@@ -31,37 +60,11 @@
     This term is set to be removed from an upcoming release.
   </div>
 <% end %>
-<p><div style="clear:both;">
-  <% if params[:from_q].present? %>
-      <%= button_to t("term.back_to_search"), vocabulary_search_results_path(id: @vocab_id), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary', style:"float:left;", params: { :q=>params[:from_q]} %>
-  <% else %>
-      <%= button_to t("term.back_to_index"), vocabulary_index_path(id: @vocab_id), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary' %>
-  <% end %>
-  <%= button_to t("term.view_history"), vocabulary_term_history_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: form_class, class: "btn btn-outline-secondary" %>
-  <% if current_user.present? %>
-    <%= button_to t("edit_request.view_discussion"), vocabulary_term_discussion_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: form_class, class: 'btn btn-outline-secondary' %>
-  <% end %>
-  <% if current_user.present? && !%w[terms v2].include?(@vocab_id) %>
-      <%= button_to t("term.edit_term"), vocabulary_term_edit_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), :method => "get", form_class: "#{form_class} btn-tooltip", class: 'btn btn-outline-secondary', disabled: editing_disabled, form: { "title" => awaiting_deletion ? "Awaiting deletion" : (editing_disabled ? "No pending releases" : "")} %>
-    <% if @homosaurus_obj.visibility == "deleted" %>
-      <%= button_to t("term.restore_term"), vocabulary_term_restore_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier),  :method => "get", form_class: form_class, class: 'btn btn-danger',  data: { confirm: t("term.confirm_restore", label: @homosaurus_obj.pref_label) } %>
-    <% elsif @homosaurus_obj.visibility == "pending" %>
-      <%= button_to t("term.delete_pending_term"), vocabulary_term_delete_version_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier),  :method => :delete, form_class: form_class, class: 'btn btn-danger',  data: { confirm: t("term.confirm_delete_pending", label: @homosaurus_obj.pref_label) } %>
-    <% elsif current_user.admin? %>
-    <button class="btn btn-danger"
-	    data-bs-toggle="modal" data-bs-target="#delete-term-modal"<%= " disabled" if pending_releases.empty? %>><%= t('term.delete_term') %></button>
-    <% end %>
-    <% if @homosaurus_obj.visibility != "pending" %>
-    <button class="btn btn-danger"
-	    data-bs-toggle="modal" data-bs-target="#replace-term-modal"<%= " disabled" if pending_releases.empty? %>><%= t('term.replace_term') %></button>
-    <% end %>
-  <% end %>
-
-</div>
-<br/>
-<br/>
-<br/>
-</p>
+<dl class="term-fields">
+  <div class="term-field">
+    <dt>URI</dt>
+    <dd><a href="<%= term_uri %>"><%= term_uri %></a></dd>
+  </div>
 
 <%= render :partial => "panel_display_partial", :locals =>
     {:title => Term.getLabel("identifier"),
@@ -72,19 +75,22 @@
 <%= render :partial => "panel_display_language_partial", :locals =>
      {:title => Term.getLabel("prefLabel"),
      :rel_id => Relation::Pref_label,
-     :values=>vr_relations[Relation::Pref_label]}
+     :values=>vr_relations[Relation::Pref_label],
+     :inline => true}
 %>
 
 <%= render :partial => "panel_display_language_partial", :locals =>
      {:title => Term.getLabel("label"),
      :rel_id => Relation::Label,
-     :values=>vr_relations[Relation::Label]}
+     :values=>vr_relations[Relation::Label],
+     :inline => true}
 %>
 
 <%= render :partial => "panel_display_language_partial", :locals =>
      {:title => Term.getLabel("altLabel"),
      :rel_id => Relation::Alt_label,
-     :values=>vr_relations[Relation::Alt_label]}
+     :values=>vr_relations[Relation::Alt_label],
+     :inline => true}
 %>
 
 <%= render :partial => "panel_display_language_partial", :locals =>
@@ -174,27 +180,59 @@
      :values=>vr_relations[Relation::Lcsh_close],
      :vocab_id=>@vocab_id}
 %>
+</dl>
 
-<h3><%= t("term.hierarchy_label") %></h3>
-<% if vr_relations[Relation::Broader].count == 0 %>
-  <div style="padding-left:0px;">No Broader Term</div>
-<% else %>
-  <% vr_relations[Relation::Broader].each do |broader| %>
-    <% relation_obj = Term.find_by(id: broader[1].to_i) %>
-    <div style="padding-left:0px;"><%= link_to "#{relation_obj.pref_label_localized.data}", vocabulary_show_path(vocab_id: @vocab_id, id: relation_obj.identifier)%></div>
-  <% end %>
-<% end %>
+<h2 class="section-title"><%= t("term.hierarchy_label") %></h2>
+<ul class="term-tree">
+  <li>
+    <% if vr_relations[Relation::Broader].count == 0 %>
+      <span class="term-tree-none">No Broader Term</span>
+    <% else %>
+      <% vr_relations[Relation::Broader].each do |broader| %>
+        <% relation_obj = Term.find_by(id: broader[1].to_i) %>
+        <div><%= link_to relation_obj.pref_label_localized.data, vocabulary_show_path(vocab_id: @vocab_id, id: relation_obj.identifier) %></div>
+      <% end %>
+    <% end %>
+    <ul>
+      <li>
+        <strong aria-current="page"><%= term_label %></strong>
+        <% if vr_relations[Relation::Narrower].count > 0 %>
+          <ul>
+            <% vr_relations[Relation::Narrower].each do |narrower| %>
+              <% relation_obj = Term.find_by(id: narrower[1].to_i) %>
+              <li><%= link_to relation_obj.pref_label_localized.data, vocabulary_show_path(vocab_id: @vocab_id, id: relation_obj.identifier) %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </li>
+    </ul>
+  </li>
+</ul>
 
-<div style="padding-left:40px;"><strong><%=  @homosaurus_obj.pref_label_localized.data %></strong></div>
-
-<%  vr_relations[Relation::Narrower].each do |narrower| %>
-  <% relation_obj = Term.find_by(id: narrower[1].to_i) %>
-  <div style="padding-left:80px;"><%= link_to "#{relation_obj.pref_label_localized.data}", vocabulary_show_path(vocab_id: @vocab_id, id: relation_obj.identifier)%></div>
-<% end %>
-
-<br />
-<p><br/><strong><%= t('term.other_formats') %>:</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.nt'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonld' %>, <%= link_to "Extended JSON", request.original_url.split('?').first + '.json' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttl' %>, <%= link_to "XML", request.original_url.split('?').first + '.xml' %>, <%= link_to "MARC XML", request.original_url.split('?').first + '.marc' %></p>
-<p><br/><strong><%= t('term.other_formats_legacy') %></strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonldV2' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttlV2' %></p>
+<dl class="format-groups">
+  <div>
+    <dt><%= t('download.formats') %></dt>
+    <dd>
+      <ul>
+        <% [["N-Triples", ".nt"], ["JSON-LD", ".jsonld"], ["Extended JSON", ".json"], ["TTL", ".ttl"], ["XML", ".xml"], ["MARC XML", ".marc"]].each do |format_name, extension| %>
+          <li><%= link_to format_name, formats_base + extension, data: { format: extension.delete('.').sub('V2', '') } %></li>
+        <% end %>
+      </ul>
+    </dd>
+  </div>
+  <div class="format-legacy">
+    <dt><%= t('term.other_formats_legacy') %></dt>
+    <dd>
+      <ul>
+        <% [["N-Triples", ".ntV2"], ["JSON-LD", ".jsonldV2"], ["TTL", ".ttlV2"]].each do |format_name, extension| %>
+          <li><%= link_to format_name, formats_base + extension, data: { format: extension.delete('.').sub('V2', '') } %></li>
+        <% end %>
+      </ul>
+      <p class="format-note"><%= t('term.legacy_formats_note') %></p>
+    </dd>
+  </div>
+</dl>
+</div>
 
 <% if current_user.present? %>
 <div id="replace-term-modal" class="modal modal-lg modal-fullscreen-sm-down"
@@ -210,13 +248,13 @@
       <div class="modal-body">
 	<p><%= t("term.replace_intro") %></p>
 	<select id="vote-select" name="replacement_id" class="form-select">
-	  <% vocabulary.terms.where.not(id: @homosaurus_obj.id).each do |t| %>
+	  <% Term.all.where(vocabulary_id: @homosaurus_obj.vocabulary_id).each do |t| %>
 	  <option value="<%= t.id %>"><%= t.pref_label %></option>
 	  <% end %>
 	</select>
 	<p><%= t("term.replace_release") %></p>
 	<select id="vote-select" name="vid" class="form-select">
-	  <% pending_releases.each do |vr| %>
+	  <% VersionRelease.where(vocabulary_identifier: @vocab_id, status: "Pending").each do |vr| %>
 	  <option value="<%= vr.id %>"><%= vr.release_identifier %></option>
 	  <% end %>
 	</select>
@@ -243,7 +281,7 @@
       <div class="modal-body">
 	<p><%= t("term.delete_release") %></p>
 	<select name="release_id" class="form-select">
-	  <% pending_releases.each do |vr| %>
+	  <% VersionRelease.where(status: "Pending").each do |vr| %>
 	  <option value="<%= vr.id %>"><%= vr.release_identifier %></option>
 	  <% end %>
 	</select>
@@ -258,4 +296,4 @@
   </div>
 </div>
 <% end %>
-  
+

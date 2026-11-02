@@ -1,0 +1,19 @@
+.navbar .navbar-menu {
+  padding: 1.5rem;
+  text-align: end;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-menu {
+    padding: 0;
+    text-align: start;
+  }
+
+  .navbar-expand-lg .navbar-close {
+    display: none;
+  }
+
+  .navbar-expand-lg:lang(bn) {
+    --bs-navbar-nav-link-padding-x: 0.3rem;
+  }
+}

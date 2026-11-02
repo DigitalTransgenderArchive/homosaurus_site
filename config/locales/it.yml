@@ -9,7 +9,7 @@ it:
     email: "La tua email"
     label: "Contattaci"
     message: "Il tuo messaggio"
-    message_html: "Se utilizzi Homosaurus, ci farebbe piacere sentirti! Scrivici per raccontarci come utilizzi questo vocabolario e per condividere le tue osservazioni. Siamo anche apertə all'ingresso di nuove persone nel nostro Collettivo: facci sapere se ti interessa.</br>Homosaurus è un progetto in continua evoluzione e accogliamo volentieri proposte di nuovi termini da aggiungere o di modifiche al vocabolario. Il Collettivo Homosaurus cura la manutenzione del vocabolario ed esamina ogni trimestre tutti i termini e le modifiche proposti."
+    message_html: "<p>Se utilizzi Homosaurus, ci farebbe piacere sentirti! Scrivici per raccontarci come utilizzi questo vocabolario e per condividere le tue osservazioni. Siamo anche apertə all'ingresso di nuove persone nel nostro Collettivo: facci sapere se ti interessa.</p><p>Homosaurus è un progetto in continua evoluzione e accogliamo volentieri proposte di nuovi termini da aggiungere o di modifiche al vocabolario. Il Collettivo Homosaurus cura la manutenzione del vocabolario ed esamina ogni trimestre tutti i termini e le modifiche proposti.</p>"
     name: "Il tuo nome"
     send: "Invia"
     topic: "Argomento"
@@ -120,10 +120,33 @@ it:
   release:
     label: "Versione"
     updates: "Aggiornamenti"
+    changes:
+      one: "%{number} modifica"
+      other: "%{number} modifiche"
+    status_pending: "In preparazione"
+    date_heading: "Data"
+    new_terms_heading: "Nuovi termini"
+    page_title: "Versioni di Homosaurus"
+    show_title: "Aggiornamenti di Homosaurus v. %{version}"
+    sort:
+      ascending: "Crescente"
+      by_date: "Ordina per data"
+      by_name: "Ordina per nome"
+      descending: "Decrescente"
+    status_heading: "Stato"
+    total_terms_heading: "Termini totali"
+    translations_heading: "Nuove traduzioni"
+    updated_terms_heading: "Termini aggiornati"
   search:
     button: "Cerca"
     placeholder: "Inserisci un termine di ricerca"
     results_label: "Risultati della ricerca per"
+    alt_labels:
+      one: "Etichetta alternativa"
+      other: "Etichette alternative"
+    intro: "Cerca i termini di Homosaurus per etichetta, descrizione o identificatore. Vengono mostrati fino a 50 termini corrispondenti."
+    page_title: "Cerca in Homosaurus"
+    page_title_version: "Cerca in Homosaurus %{version}"
   status:
     approved: "Approvato"
     deleted: "Eliminato"
@@ -150,15 +173,24 @@ it:
     hierarchy_label: "Gerarchia"
     history: "Cronologia"
     other_formats: "Altri formati (con identificatori di lingua)"
-    other_formats_legacy: "Formati precedenti (senza identificatori di lingua)"
+    other_formats_legacy: "Formati precedenti"
     replace_term: "Sostituisci altro termine"
     view_history: "Vedi cronologia"
+    save_term: "Salva termine"
+    legacy_formats_note: "senza identificatori di lingua"
   user:
     bio: "Biografia"
     fname: "Nome"
     lname: "Cognome"
     permissions: "Permessi"
     username: "Nome utente"
+    all_languages: "Tutte le lingue"
+    email: "Email"
+    log_in: "Accedi"
+    no_account: "Non hai un account?"
+    password: "Password"
+    remember_me: "Ricordami su questo computer"
+    sign_up: "Registrati"
   vocab:
     admin:
       actions: "Azioni di amministrazione"
@@ -168,5 +200,27 @@ it:
       show_redirects: "Mostra termini reindirizzati"
       show_visible: "Mostra termini visibili"
       suggest_term: "Proponi nuovo termine"
-    current_terms: "Elenco dei termini attuali"
-    label: "Termini del vocabolario Homosaurus"
+    current_terms: Termini attuali
+    label: Vocabolario Homosaurus
+    back_to_top: "Torna su"
+    filter:
+      current: "Attuali"
+      next: "Prossima versione"
+      deleted: "Eliminati"
+      redirected: "Reindirizzati"
+    deleted_terms: "Termini eliminati"
+    letter_nav: "Termini per lettera iniziale"
+    next_version_terms: "Termini della prossima versione"
+    redirected_terms: "Termini reindirizzati"
+  number:
+    format:
+      delimiter: "."
+      separator: ","
+  views:
+    pagination:
+      label: "Pagine"
+      previous: "Precedente"
+      next: "Successiva"
+  tree:
+    expand_all: "Espandi tutto"
+    collapse_all: "Comprimi tutto"

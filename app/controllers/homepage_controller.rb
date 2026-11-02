@@ -42,11 +42,13 @@ class HomepageController < ApplicationController
 
   def profile
     unless params[:user_id]
-      redirect_to profile_for_path(current_user)
+      redirect_to profile_for_path(current_user) and return
     end
     u = User.find_by(id: params[:user_id].to_i) || current_user
     @user = u
-    @edit_requests = EditRequest.where(id: u.edit_requests.map{|er| er.parent.id}.uniq)
+    @edit_requests = EditRequest.where(id: u.edit_requests.where.not(parent_id: nil).distinct.pluck(:parent_id))
+                                .order(:id).page(params[:page]).per(100)
+                                .preload({ version_release: :vocabulary }, { term: :edit_requests }, { children: [:creator, :children] })
   end
 
   def update_profile

@@ -1,32 +1,25 @@
 <%
-  panel_class ||= 'primary'
-  title ||= ''
   values ||= []
+  inline ||= false
 %>
 <% if values[0].present? %>
-  <div class="card card-<%=panel_class%> mb-3 col-lg-6 col-md-8 col-sm-12">
-
-  <div class="card-header text-bg-<%=panel_class%>">
-  <% if rel_id != "identifier" %>    
-    <a class="text-white" href="<%= Relation.find_by(id: rel_id).description_url %>"><%= t("relations.#{rel_id}") %></a>
-  <% else %>
-    <a class="text-white" href="http://purl.org/dc/terms/identifier">Identifier</a>
-  <% end %>    
-  </div>
-  <div class="card-body">
-    <dl style="margin-bottom:0px">
-      <table width="100%">
-        <% values.each do |value| %>
-        <tr>
-          <td><%= value[1]  %></td>
-
-          <td width="100px;"><div class="well_language clear:both;">
-              <%= value[0].nil? ? nil : Language.find_by(id: value[0]).supported ? I18n.translate("languages.#{value[0]}") : Language.find_by(id: value[0]).name  %>
-          </div></td>
-        </tr>
-        <% end %>
-      </table>
-    </dl>
-  </div>
+  <%
+    groups = values.group_by { |value| value[0] }.each_with_index
+                   .sort_by { |(code, _), index| [code.to_s == I18n.locale.to_s ? 0 : 1, index] }
+                   .map(&:first)
+  %>
+  <div class="term-field">
+    <dt><a href="<%= Relation.find_by(id: rel_id).description_url %>"><%= t("relations.#{rel_id}") %></a></dt>
+    <% groups.each do |code, group| %>
+      <% language = code.nil? ? nil : Language.find_by(id: code) %>
+      <dd<% if language %> class="term-lang-group"<% end %>>
+        <% if language %><span class="term-lang"><%= language.supported ? I18n.translate("languages.#{code}") : language.name %></span><% end %>
+        <ul class="term-values<%= ' term-values-inline' if inline %>"<% if code.present? %> lang="<%= code %>"<% end %>>
+          <% group.each do |value| %>
+            <li><%= value[1] %></li>
+          <% end %>
+        </ul>
+      </dd>
+    <% end %>
   </div>
 <% end %>

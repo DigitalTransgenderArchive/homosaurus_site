@@ -1,0 +1,81 @@
+<%
+  child_edit ||= false
+  prev_term = edit_request.previous() unless local_assigns.key?(:prev_term)
+  unless local_assigns.key?(:is_deletion)
+    redirect = edit_request.my_changes[Relation::Redirects_to]
+    is_deletion = (redirect.count > 0 and redirect[0][2].to_i == 0)
+  end
+%>
+    <% identifier = edit_request.my_changes["identifier"] %>
+    <% relations.each do |r| %>
+      <% changes = edit_request.my_changes[r.id] %>
+      <% if not changes.nil? and changes.length > 0 and not is_deletion%>
+        <h4><%= t("relations.#{r.id}") %></h4>
+	<table class="table">
+	  <% changes.each do |c| %>
+	    <% change_class = c[0] == "+" ? "success" : "danger"
+	       change_icon = c[0] == "+" ? "plus" : "minus"
+	       lang = (c[1].nil? ? t("edit_request.all_languages") : ((@er_language_names ||= {})[c[1]] ||= Language.find_by(id: c[1]).name))
+	       val = c[2]
+	       %>
+	    <tr class="table-<%= change_class %>">
+	      <td class="col col-1"><h3 class="text-<%= change_class %> m-0"><%= c[0] %></h3> </td>
+	      <td class="col col-1"><span class="well_language"><%= lang %></span></td>
+	      <td class="col col-8">
+		<% if r.links_to == 1 %>
+		  <% @er_linked_terms ||= {}
+		     unless @er_linked_terms.key?(val)
+		       linked_term = Term.find_by(id: val)
+		       @er_linked_terms[val] = linked_term && [linked_term.uri_localized, linked_term.pref_label_localized.data, linked_term.identifier]
+		     end
+		     linked = @er_linked_terms[val] %>
+		  <% if linked %>
+		    <a href="<%= linked[0] %>"> <%= linked[1]  %> [<%= linked[2] %>] </a>
+		    <% else %>
+		    <a href="<%= val %>"> <%= t("edit_request.term_deleted") %> </a>
+		    <% end %>
+		<% else %>
+		  <%= val %>
+		<% end %>
+	      </td>
+	    </tr>
+	  <% end %>
+	</table>
+      <% end %>
+    <% end %>
+    <% ['identifier', 'uri'].each do |field| %>
+      <% cur = edit_request.my_changes[field] %>
+      <% if prev_term.nil? or (prev_term.my_changes[field] != cur) %>
+        <h4><%= field == "identifier" ? t("relations.identifier") : field.upcase %></h4>
+	<table class="table">
+	  <% unless prev_term.nil? %>
+          <tr class="table-danger">
+	    <td class="col col-1"><h3 class="text-danger m-0">-</h3> </td>
+	    <td class="col col-1"><span class="well_language"><%= t("edit_request.all_languages") %></span></td>
+	    <td class="col col-8"><%= prev_term.my_changes[field] %></td>
+	  </tr>
+	  <% end %>
+	  <tr class="table-success">
+	    <td class="col col-1"><h3 class="text-success m-0">+</h3> </td>
+	    <td class="col col-1"><span class="well_language"><%= t("edit_request.all_languages") %></span></td>
+	    <td class="col col-8"><%= cur %></td>
+	  </tr>
+	</table>
+      <% end %>
+    <% end %>
+    <% if is_deletion %>
+      <h4><%= t("edit_request.visibility") %></h4>
+      <table class="table">
+	<tr class="table-success">
+	  <td class="col col-1"><h3 class="text-success m-0">+</h3> </td>
+	  <td class="col col-1"><span class="well_language"><%= t("edit_request.all_languages") %></span></td>
+	  <td class="col col-8"><%= t("status.deleted") %></td>
+	</tr>
+      </table>
+      <% end %>
+    <% if not child_edit and current_user.present? and edit_request.children.size %>
+      <div class="border-top my-3"></div>
+      <% edit_request.children.each do |erc| %>
+        <%= render partial:"partials/edit_request_partial", locals: {edit_request: erc, relations: relations, child_edit: true} %>
+      <% end %>
+    <% end %>

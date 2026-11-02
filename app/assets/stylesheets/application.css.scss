@@ -21,16 +21,29 @@
 // }
 @import "font-awesome";
 
-@import "bootstrap-table/bootstrap-table";
 
 
+h1, h2, h3,
+.h1, .h2, .h3 {
+    font-weight: bold;
+}
+
+.navbar-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
 #logo_holder {
-    display: inline-block;
+    display: flex;
+}
+#logo_holder .navbar-brand {
+    padding: 0;
 }
 #logo_holder img {
-    border-radius: 15%;
+    width: auto;
+    height: 32px;
+    border-radius: 3px;
     mix-blend-mode: lighten;
-    scale: .8;
 }
 
 #new_term .popover {
@@ -42,15 +55,27 @@
 }
 
 .collapse-icon:after {
-    /* symbol for "opening" panels */
-    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
-    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
-    float: right;        /* adjust as needed */
-    color: grey;         /* adjust as needed */
+    content: "";
+    display: inline-block;
+    float: right;
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-top: 0.35rem;
+    border-right: 2px solid #6c757d;
+    border-bottom: 2px solid #6c757d;
+    transform: rotate(45deg);
 }
-.card-header.collapsed .collapse-icon:after {
-    /* symbol for "collapsed" panels */
-    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+details:not([open]) > .card-header .collapse-icon:after {
+    transform: rotate(-45deg);
+}
+
+summary.card-header {
+    cursor: pointer;
+    list-style: none;
+}
+
+summary.card-header::-webkit-details-marker {
+    display: none;
 }
 
 .reply-comment .card-body::before {
@@ -77,4 +102,8 @@
 
 .button_to {
     display: inline-block;
+}
+
+html {
+  scrollbar-gutter: stable;
 }

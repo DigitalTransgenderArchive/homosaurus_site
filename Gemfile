@@ -58,8 +58,8 @@ gem 'active-triples', github: "scande3/ActiveTriples", branch: 'develop'
 
 gem 'simple_form'
 gem "rails-assets-onmount"
-gem 'select2-rails'
 gem 'qa'
+gem 'kaminari'
 gem 'rest-client'
 
 gem 'hist'
