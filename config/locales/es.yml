@@ -141,6 +141,7 @@ es:
       one: "%{number} cambio"
       other: "%{number} cambios"
     status_pending: "Pendiente"
+    released_on: "Publicado el %{date}"
     date_heading: "Fecha"
     new_terms_heading: "Términos nuevos"
     page_title: "Versiones del Homosaurus"

@@ -141,6 +141,7 @@ sv:
       one: "%{number} ändring"
       other: "%{number} ändringar"
     status_pending: "Väntar"
+    released_on: "Publicerad %{date}"
     date_heading: "Datum"
     new_terms_heading: "Nya termer"
     page_title: "Homosaurus-versioner"

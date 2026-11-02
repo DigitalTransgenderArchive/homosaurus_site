@@ -141,6 +141,7 @@ fr:
       one: "%{number} modification"
       other: "%{number} modifications"
     status_pending: "En cours"
+    released_on: "Publié le %{date}"
     date_heading: "Date"
     new_terms_heading: "Nouveaux termes"
     page_title: "Versions de l’Homosaurus"

@@ -141,6 +141,7 @@ bn:
       one: "%{number}টি পরিবর্তন"
       other: "%{number}টি পরিবর্তন"
     status_pending: "মুলতবি"
+    released_on: "প্রকাশিত: %{date}"
     date_heading: "তারিখ"
     new_terms_heading: "নতুন পরিভাষা"
     page_title: "হোমোসরাসের সংস্করণ"

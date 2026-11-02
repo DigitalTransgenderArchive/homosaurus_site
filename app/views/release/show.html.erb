@@ -3,7 +3,7 @@
   <% if @release.status != "Published" %>
   <p class="release-date"><%= t("release.status_pending") %> · <%= t("release.changes", count: @card_total, number: number_with_delimiter(@card_total)) %></p>
   <% else %>
-  <p class="release-date">Released <%= @release.release_date.to_s[0, 10] %> · <%= t("release.changes", count: @card_total, number: number_with_delimiter(@card_total)) %></p>
+  <p class="release-date"><%= t("release.released_on", date: @release.release_date.to_s[0, 10]) %> · <%= t("release.changes", count: @card_total, number: number_with_delimiter(@card_total)) %></p>
   <% end %>
   <div id="filter" class="release-filter">
     <div class="release-filter-group">

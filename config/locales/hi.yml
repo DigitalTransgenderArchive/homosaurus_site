@@ -144,6 +144,7 @@ hi:
       one: "%{number} बदलाव"
       other: "%{number} बदलाव"
     status_pending: "लंबित"
+    released_on: "जारी: %{date}"
     date_heading: "तारीख"
     new_terms_heading: "नए शब्द"
     page_title: "होमोसॉरस के संस्करण"

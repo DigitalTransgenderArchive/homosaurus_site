@@ -125,6 +125,7 @@ de:
       one: "%{number} Änderung"
       other: "%{number} Änderungen"
     status_pending: "Ausstehend"
+    released_on: "Veröffentlicht am %{date}"
     date_heading: "Datum"
     new_terms_heading: "Neue Begriffe"
     page_title: "Homosaurus-Versionen"

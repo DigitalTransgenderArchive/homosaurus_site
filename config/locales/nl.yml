@@ -124,6 +124,7 @@ nl:
       one: "%{number} wijziging"
       other: "%{number} wijzigingen"
     status_pending: "In behandeling"
+    released_on: "Gepubliceerd op %{date}"
     date_heading: "Datum"
     new_terms_heading: "Nieuwe termen"
     page_title: "Homosaurus-versies"

@@ -92,10 +92,10 @@ class EditRequest < ActiveRecord::Base
   end
 
   def term
-    super || self.parent.term
+    super || parent&.term
   end
   def version_release
-    super || self.parent.version_release
+    super || parent&.version_release
   end
   
   def previous()

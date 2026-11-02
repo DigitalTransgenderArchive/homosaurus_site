@@ -187,7 +187,7 @@ class VocabularyController < ApplicationController
     @vocab_id = params[:vocab_id]
     @vocab = Vocabulary.find_by(identifier: @vocab_id)
     @homosaurus = Term.find_solr(@homosaurus_obj.identifier)
-    @edit_requests = @homosaurus_obj.get_edit_requests()
+    @edit_requests = @homosaurus_obj.get_edit_requests().reject { |er| er.version_release.nil? }
     logger.debug @edit_requests
     if not current_user.present?
       @edit_requests.reject!{|er| er.version_release.status != "Published" }

@@ -141,6 +141,7 @@ en:
       one: "%{number} change"
       other: "%{number} changes"
     status_pending: "Pending"
+    released_on: "Released %{date}"
     date_heading: "Date"
     new_terms_heading: "New Terms"
     page_title: "Homosaurus Releases"
