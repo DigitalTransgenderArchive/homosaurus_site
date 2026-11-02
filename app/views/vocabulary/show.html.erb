@@ -202,6 +202,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <%= form_with url: replace_path(vocab_id: @vocab_id, id: @homosaurus_obj.identifier), method: :get, local: true do |f| %>
+        <%= lang_hidden_field %>
       <div class="modal-header">
         <h1 class="modal-title fs-5"><%= t("term.replace_title") %></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="<%= t('misc.close') %>"></button>

@@ -50,7 +50,8 @@
 	      data-bs-comment-id="<%= comment.id %>">Edit <%= comment.is_vote ? 'Vote' : 'Comment' %></button>
       <% end  %>
 
-      <%= form_with url: request.fullpath + "/post_comment", class: "reply-box-form", method: :get, local: true do |f| %>
+      <%= form_with url: request.path + "/post_comment", class: "reply-box-form", method: :get, local: true do |f| %>
+        <%= lang_hidden_field %>
         <div class="input-group mt-2 reply-box collapse" id="comment-<%= comment.id %>-reply-box">
 	  <input type="hidden" name="user" value="<%= current_user.id %>">
 	  <input type="hidden" name="parent" value="<%= comment.id %>">

@@ -76,7 +76,8 @@
      tab-index="-1" aria-hidden="true" aria-labelledby="new-topic-modal-label">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <%= form_with url: request.fullpath + "/post_comment", method: :get, local: true do |f| %>
+      <%= form_with url: request.path + "/post_comment", method: :get, local: true do |f| %>
+        <%= lang_hidden_field %>
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="new-topic-modal-label"><%= t("discussion.add_topic") %></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="<%= t('misc.close') %>"></button>
@@ -110,7 +111,8 @@
      tab-index="-1" aria-hidden="true" aria-labelledby="new-topic-modal-label">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <%= form_with url: request.fullpath + "/post_comment", method: :get, local: true do |f| %>
+      <%= form_with url: request.path + "/post_comment", method: :get, local: true do |f| %>
+        <%= lang_hidden_field %>
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="new-topic-modal-label">Add new vote</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="<%= t('misc.close') %>"></button>
@@ -147,7 +149,8 @@
 <div class="modal fade" id="edit-comment-modal" tabindex="-1" aria-labelledby="edit-comment-modal-label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <%= form_with url: request.fullpath + "/edit_comment", method: :get, local: true do |f| %>
+      <%= form_with url: request.path + "/edit_comment", method: :get, local: true do |f| %>
+        <%= lang_hidden_field %>
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="edit-comment-modal-label">Edit Comment/Vote</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="<%= t('misc.close') %>"></button>
