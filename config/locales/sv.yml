@@ -23,6 +23,9 @@ sv:
     mission_statement: Homosaurus är en internationell tesaurus med länkade data-termer rörande hbtq+-ämnen. Homosaurus är en stabil och banbrytande tesaurus, framtagen för att komplettera generella ämnesordssystem och göra det lättare att hitta hbtq+-resurser och -information.
     resources_label: Resurser
   contact:
+    topic_broken: "Trasig länk / fel på webbplatsen"
+    topic_feedback: "Återkoppling"
+    topic_other: "Övrigt"
     email: Epost
     label: Kontakta Oss
     message: Meddelande
@@ -51,9 +54,21 @@ sv:
     vote_table: Bordläggs
     vote_tally: Röstningsresultat
   download:
+    csv_tabs: "CSV (endast tabbavgränsad)"
     formats: Nedladdningsformat
     graphical_views: Grafiska vyer
+    indented_view: "Hierarkisk lista"
+    tree_view: "Träddiagram"
   edit_request:
+    approve: "Godkänn ändringar"
+    reject: "Avslå ändringar"
+    unapprove: "Återkalla godkännande av ändringar"
+    confirm_approve: "Är du säker på att du vill godkänna detta?"
+    confirm_reject: "Är du säker på att du vill avslå detta?"
+    confirm_unapprove: "Är du säker på att du vill återkalla godkännandet?"
+    all_languages: "Alla"
+    visibility: "Synlighet"
+    term_deleted: "Term raderad"
     view_discussion: Se diskussion
     view_release: Se version
     view_term: Se term
@@ -81,6 +96,7 @@ sv:
     edit_profile: Redigera profil
     home: Hem
     logout: Logga ut
+    manage_users: "Administrera användare"
     profile: Visa profil
     releases: Administrera versioner
     reload: Ladda om applikationen
@@ -89,6 +105,8 @@ sv:
     suggest_term: Föreslå termin
     vocab: Tesaurus
   misc:
+    site_title: "Webbplats för tesaurusen Homosaurus"
+    loading: "Laddar..."
     cancel: Annullera
     close: Stänga
     post: Inlägg
@@ -133,6 +151,14 @@ sv:
     redirected: Omdirigerad
     suggested: Förslag
   term:
+    restore_term: "Återställ term"
+    delete_pending_term: "Radera väntande term"
+    confirm_restore: "Är du säker på att du vill återställa %{label}?"
+    confirm_delete_pending: "Är du säker på att du vill radera den opublicerade termen %{label}?"
+    replace_title: "Välj term som ska omdirigeras hit"
+    replace_intro: "Termen som du väljer här omdirigeras till den här posten."
+    replace_release: "Omdirigeringen sker i den här versionen."
+    delete_release: "Välj version."
     back_to_index: Tillbaka till index
     back_to_search: Tillbaka för att söka
     delete_term: Stryk term

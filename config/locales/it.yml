@@ -40,8 +40,8 @@ it:
     csv_tabs: "CSV (separato solo da tabulazioni)"
     formats: "Formati scaricabili"
     graphical_views: "Visualizzazioni grafiche"
-    indented_view: "Vista a barre rientrate"
-    tree_view: "Vista ad albero"
+    indented_view: "Elenco gerarchico"
+    tree_view: "Diagramma ad albero"
   edit_request:
     approve: "Approva le modifiche"
     reject: "Rifiuta le modifiche"

@@ -23,6 +23,9 @@ hi:
     mission_statement: होमोसौरस LGBTQ+ शब्दों की एक अंतरराष्ट्रीय लिंक्ड डेटा शब्दावली है। व्यापक विषय शब्द शब्दावली को बढ़ाने के लिए डिज़ाइन किया गया, होमोसॉरस एक मजबूत और अत्याधुनिक थीसॉरस है जो LGBTQ+ संसाधनों और जानकारी की खोज को आगे बढ़ाता है।
     resources_label: मानव संसाधन
   contact:
+    topic_broken: "टूटा लिंक / साइट त्रुटि"
+    topic_feedback: "प्रतिक्रिया"
+    topic_other: "अन्य"
     email: आपका ईमेल
     label: हमसे संपर्क
     message: आपका संदेश
@@ -51,12 +54,24 @@ hi:
     vote_table: मेज़
     vote_tally: वोट टैली
   download:
+    csv_tabs: "CSV (केवल टैब से विभाजित)"
     formats: फ़ॉर्मेट डाउनलोड करें
     graphical_views: ग्राफ़िकल व्यू
+    indented_view: "पदानुक्रमित सूची"
+    tree_view: "वृक्ष आरेख"
   edit:
     edit_label: बदलाव करें
     version: संस्करण
   edit_request:
+    approve: "बदलाव मंज़ूर करें"
+    reject: "बदलाव नामंज़ूर करें"
+    unapprove: "बदलाव की मंज़ूरी वापस लें"
+    confirm_approve: "क्या आप वाकई इसे मंज़ूर करना चाहते हैं?"
+    confirm_reject: "क्या आप वाकई इसे नामंज़ूर करना चाहते हैं?"
+    confirm_unapprove: "क्या आप वाकई मंज़ूरी वापस लेना चाहते हैं?"
+    all_languages: "सभी"
+    visibility: "दृश्यता"
+    term_deleted: "शब्द हटाया गया"
     view_discussion: चर्चा देखें
     view_release: रिलीज़ देखें
     view_term: शब्द देखें
@@ -84,6 +99,7 @@ hi:
     edit_profile: प्रोफ़ाइल संपादित करें
     home: होम
     logout: लॉग आउट
+    manage_users: "उपयोगकर्ता मैनेज करें"
     profile: प्रोफ़ाइल देखें
     releases: रिलीज़ मैनेज करें
     reload: एप्लिकेशन फिर से लोड करें
@@ -92,6 +108,8 @@ hi:
     suggest_term: शब्द सुझाएँ
     vocab: पारिभाषिक शब्दावली
   misc:
+    site_title: "होमोसॉरस शब्दावली साइट"
+    loading: "लोड हो रहा है..."
     cancel: रद्द करें
     close: बंद करें
     post: पोस्ट करें
@@ -136,6 +154,14 @@ hi:
     redirected: पुनः निर्देशित
     suggested: सुझाव
   term:
+    restore_term: "शब्द पुनर्स्थापित करें"
+    delete_pending_term: "लंबित शब्द हटाएँ"
+    confirm_restore: "क्या आप वाकई %{label} को पुनर्स्थापित करना चाहते हैं?"
+    confirm_delete_pending: "क्या आप वाकई अप्रकाशित शब्द %{label} को हटाना चाहते हैं?"
+    replace_title: "यहाँ रीडायरेक्ट होने वाला शब्द चुनें"
+    replace_intro: "आप यहाँ जो शब्द चुनेंगे, वह इस रिकॉर्ड पर रीडायरेक्ट हो जाएगा।"
+    replace_release: "रीडायरेक्ट इसी संस्करण में लागू होगा।"
+    delete_release: "संस्करण चुनें।"
     back_to_index: इंडेक्स पर वापस जाएँ
     back_to_search: जाँच परिणाम में वापस
     delete_term: शब्द हटाएँ

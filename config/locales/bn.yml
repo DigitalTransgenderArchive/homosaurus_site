@@ -23,6 +23,9 @@ bn:
     mission_statement: হোমোসরাস হল LGBTQ+ শব্দাবলির একটি আন্তর্জাতিক লিঙ্কযুক্ত ডেটা শব্দভাণ্ডার । বিস্তৃত বিষয় শব্দভাণ্ডার উন্নত করার জন্য ডিজাইন করা হয়েছে, হোমোসরাস একটি শক্তিশালী এবং অত্যাধুনিক শব্দভাণ্ডার যা LGBTQ+ সংস্থান এবং তথ্যের আবিষ্কারকে এগিয়ে নিয়ে যায় ।
     resources_label: মানব সম্পদ
   contact:
+    topic_broken: "ভাঙা লিংক / সাইটের ত্রুটি"
+    topic_feedback: "মতামত"
+    topic_other: "অন্যান্য"
     email: আপনার ইমেইল
     label: যোগাযোগ করুন
     message: আপনার বার্তা যোগ করুন
@@ -51,9 +54,21 @@ bn:
     vote_table: টেবিল
     vote_tally: ভোট গণনা
   download:
+    csv_tabs: "CSV (শুধু ট্যাব দিয়ে বিভক্ত)"
     formats: ফরম্যাট ডাউনলোড করুন
     graphical_views: গ্রাফিকাল ভিউ
+    indented_view: "স্তরবিন্যস্ত তালিকা"
+    tree_view: "বৃক্ষচিত্র"
   edit_request:
+    approve: "পরিবর্তন অনুমোদন করুন"
+    reject: "পরিবর্তন প্রত্যাখ্যান করুন"
+    unapprove: "পরিবর্তনের অনুমোদন প্রত্যাহার করুন"
+    confirm_approve: "আপনি কি নিশ্চিত যে এটি অনুমোদন করতে চান?"
+    confirm_reject: "আপনি কি নিশ্চিত যে এটি প্রত্যাখ্যান করতে চান?"
+    confirm_unapprove: "আপনি কি নিশ্চিত যে অনুমোদন প্রত্যাহার করতে চান?"
+    all_languages: "সব"
+    visibility: "দৃশ্যমানতা"
+    term_deleted: "শব্দ মুছে ফেলা হয়েছে"
     view_discussion: আলোচনা দেখুন
     view_release: রিলিজ দেখুন
     view_term: টার্ম দেখুন
@@ -81,6 +96,7 @@ bn:
     edit_profile: প্রোফাইল সম্পাদনা করুন
     home: হোম
     logout: লগ আউট
+    manage_users: "ব্যবহারকারী পরিচালনা করুন"
     profile: প্রোফাইল দেখুন
     releases: রিলিজ পরিচালনা করুন
     reload: অ্যাপ্লিকেশনটি পুনরায় লোড করুন
@@ -89,6 +105,8 @@ bn:
     suggest_term: মেয়াদ প্রস্তাব করুন
     vocab: পারিভাষিক শব্দভাণ্ডার
   misc:
+    site_title: "হোমোসরাস শব্দভাণ্ডার সাইট"
+    loading: "লোড হচ্ছে..."
     cancel: বাতিল করুন
     close: रद्द करें
     post: পোস্ট করুন
@@ -133,6 +151,14 @@ bn:
     redirected: পুনঃনির্দেশিত
     suggested: সাজেশন
   term:
+    restore_term: "শব্দ পুনরুদ্ধার করুন"
+    delete_pending_term: "মুলতবি শব্দ মুছুন"
+    confirm_restore: "আপনি কি নিশ্চিত যে %{label} পুনরুদ্ধার করতে চান?"
+    confirm_delete_pending: "আপনি কি নিশ্চিত যে অপ্রকাশিত শব্দ %{label} মুছে ফেলতে চান?"
+    replace_title: "এখানে রিডাইরেক্ট হবে এমন শব্দ নির্বাচন করুন"
+    replace_intro: "আপনি এখানে যে শব্দটি নির্বাচন করবেন সেটি এই রেকর্ডে রিডাইরেক্ট হবে।"
+    replace_release: "রিডাইরেক্ট এই সংস্করণে কার্যকর হবে।"
+    delete_release: "সংস্করণ নির্বাচন করুন।"
     back_to_index: ইনডেক্সে ফিরে যান
     back_to_search: অনুসন্ধান ফলাফলে ফিরে যান
     delete_term: শব্দটি মুছুন
