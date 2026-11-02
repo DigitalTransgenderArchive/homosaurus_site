@@ -42,7 +42,8 @@
 
 img.logo {
   display: block;
-  width: unquote("min(90%, 864px)");
+  width: 90%;
+  max-width: 864px;
   height: auto;
   margin: 0 auto;
 }
