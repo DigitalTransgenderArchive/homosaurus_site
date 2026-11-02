@@ -144,7 +144,7 @@ class Term < ActiveRecord::Base
     return self.term_relationships.where(relation_id: Relation::Pref_label).order(Arel.sql("language_id = '#{lang_id.to_s}' DESC"))[0]
   end
   def uri_localized(lang_id = I18n.locale)
-    return self.uri.sub('//', "//#{lang_id}.")
+    return "#{self.uri}?lang=#{lang_id}"
   end
 
   # Get all edits tied to this term (and that it replaces)
