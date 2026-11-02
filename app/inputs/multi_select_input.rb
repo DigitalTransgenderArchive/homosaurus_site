@@ -21,9 +21,8 @@ class MultiSelectInput < MultiBaseInput
       html_options[:id] ||= input_dom_id
     end
     html_options[:class] ||= []
-    html_options[:class] += ["#{input_dom_id} form-control multi-text-field duplicateable form-select selectpicker"]
+    html_options[:class] += ["#{input_dom_id} form-control multi-text-field duplicateable form-select"]
     html_options[:'aria-labelledby'] = label_id
-    html_options[:'data-live-search'] = 'true'
     html_options[:name] += "[data]"
     @rendered_first_element = true
     

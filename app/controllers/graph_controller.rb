@@ -1,64 +1,44 @@
 class GraphController < ApplicationController
   def tree
-    @terms = Term.find_with_conditions(q: "visibility_ssi:visible", rows: '10000', fl: 'visibility_ssi, identifier_ssi, prefLabel_tesim, narrower_ssim', model: 'HomosaurusV3' )
-    @data = {name: "Homosaurus #{Vocabulary.latest.upcase}"}
-    @data[:children] = []
-
-    top_level = Term.where(vocabulary_identifier: Vocabulary.latest, broader: []).sort_by { |t| t.pref_label.downcase }
-
-    top_level.each do |top|
-      top_narrower_set = Set[]
-      top_row = { name: top.pref_label, ident: top.identifier }
-      if top.narrower.present?
-        top_row[:children] = get_narrower(top.narrower.map { |n| n.split('/').last }, top_narrower_set)
-      end
-      @data[:children] << top_row
-    end
+    @data = hierarchy
   end
-
-  # FIXME: This will only work because v3 identifiers are unique
-  def get_narrower(ident_list, top_narrower_set, current_row=[])
-    ident_list.sort_by{|t|t.downcase}.each do |ident|
-      if top_narrower_set.include? ident
-        next
-      end
-
-      top_narrower_set << ident
-      item_row = @terms.select { |row| row["identifier_ssi"] == ident }.first
-      if item_row.blank? # ie. redirect
-        next
-      end
-      this_row = {name: item_row["prefLabel_tesim"].first, ident: item_row["identifier_ssi"]}
-      if item_row["narrower_ssim"].present?
-        this_row[:children] = []
-        get_narrower(item_row["narrower_ssim"], top_narrower_set, this_row[:children])
-      end
-      current_row << this_row
-    end
-
-    current_row
-  end
-
 
   def tree_data
-    @terms = Term.find_with_conditions(q: "visibility_ssi:visible", rows: '10000', fl: 'identifier_ssi, prefLabel_tesim, narrower_ssim', model: "Homosaurus#{Vocabulary.latest.upcase}" )
-    @data = {name: "Homosaurus #{Vocabulary.latest.upcase}"}
-    @data[:children] = []
-
-    top_level = Term.where(vocabulary_identifier: "v3", broader: []).sort_by { |t| t.pref_label.downcase }
-
-    top_level.each do |top|
-      top_narrower_set = Set[]
-      top_row = { name: top.pref_label, ident: top.identifier }
-      if top.narrower.present?
-        top_row[:children] = get_narrower(top.narrower.map { |n| n.split('/').last }, top_narrower_set)
-      end
-      @data[:children] << top_row
-    end
-
+    @data = hierarchy
     respond_to do |format|
       format.html
       format.json { render json: @data }
     end
+  end
+
+  private
+
+  def hierarchy
+    vocab = Vocabulary.find_by(identifier: Vocabulary.latest)
+    identifiers = vocab.terms.where(visibility: "visible").pluck(:id, :identifier).to_h
+    ids = identifiers.keys
+
+    labels = {}
+    TermRelationship.where(term_id: ids, relation_id: Relation::Pref_label).pluck(:term_id, :language_id, :data).group_by(&:first).each do |id, rows|
+      row = rows.find { |r| r[1].to_s == I18n.locale.to_s } || rows.find { |r| r[1].to_s == "en" } || rows.first
+      labels[id] = row[2]
+    end
+
+    children = Hash.new { |hash, key| hash[key] = [] }
+    TermRelationship.where(term_id: ids, relation_id: Relation::Narrower).pluck(:term_id, :data).each do |parent, child|
+      children[parent] << child.to_i if identifiers.key?(child.to_i)
+    end
+    with_broader = TermRelationship.where(term_id: ids, relation_id: Relation::Broader).distinct.pluck(:term_id)
+
+    by_label = ->(list) { list.uniq.sort_by { |id| labels[id].to_s.downcase } }
+    node = lambda do |id, seen|
+      row = { name: labels[id], ident: identifiers[id] }
+      kids = by_label.(children[id]).reject { |kid| seen.include?(kid) }
+      seen.merge(kids)
+      row[:children] = kids.map { |kid| node.(kid, seen) } if kids.any?
+      row
+    end
+
+    { name: "Homosaurus #{vocab.version.upcase}", children: by_label.(ids - with_broader).map { |id| node.(id, Set[id]) } }
   end
 end

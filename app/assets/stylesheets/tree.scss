@@ -1,0 +1,19 @@
+.tree-page {
+  max-width: 60rem;
+  margin-inline: auto;
+
+  .tree-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tree-view {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+
+    svg {
+      display: block;
+    }
+  }
+}

@@ -4,6 +4,8 @@ class VocabularyController < ApplicationController
   before_action :verify_contrib_permissions, :only => [:destroy, :destroy_version]
   before_action :verify_admin_permissions, :only => [:approve_release, :unapprove_release, :reject_release]
   before_action :verify_super_permissions, :only => [:restore]
+  before_action :term_links_from_identifiers, :only => [:create, :update]
+  helper_method :vocabulary_list_data
 
   def version_release
     vid = params[:vocab_id]
@@ -21,46 +23,20 @@ class VocabularyController < ApplicationController
     #@terms = @terms.sort_by { |term| term["prefLabel_tesim"].first.downcase }
     #@terms = @terms.sort_by{|t| t.pref_label_localized().data}
 
-    display_mode = params[:display_mode]
-    display_mode ||= "visible"
+    @display_mode = %w[visible pending deleted redirect].include?(params[:display_mode]) ? params[:display_mode] : "visible"
+    @display_modes = [@display_mode]
     @vocab_identifier = identifier
     @vocab = Vocabulary.find_by(identifier: identifier)
-    return render_not_found if @vocab.nil?
-
-    # Load term identifiers
-    @terms = @vocab.terms.where(visibility: display_mode).select(:id, :identifier)
-    term_ids = @terms.map(&:id)
-
-    # Load language ids
-    lang_id = I18n.locale
-    lang_ids = Language.where(localizes_language_id: lang_id).pluck(:id) << lang_id
-
-    # Preload preferred labels
-    pref_label_rels = TermRelationship.where(relation_id: Relation::Pref_label).order(Arel.sql("language_id = '#{lang_id.to_s}' DESC")).to_a
-
-    # Store preferred labels
-    @pref_label_for = pref_label_rels.group_by(&:term_id).transform_values { |rels| rels.first.data }
-
-    # Sort terms by preferred label
-    @terms = @terms.sort_by { |t| (@pref_label_for[t.id]) }
-
-    # If user is logged in
-    if current_user.present?
-      # Initialize zero counts for each term
-      zeroes = term_ids.map { |term| [term, 0] }.to_h
-
-      # Preload counts for each term
-      lang_label_counts = zeroes.merge(TermRelationship.where(language_id: lang_ids, relation_id: [Relation::Pref_label, Relation::Label, Relation::Alt_label]).group_by(&:term_id).transform_values { |v| v.count })
-      lang_desc_counts = zeroes.merge(TermRelationship.where(language_id: lang_ids, relation_id: Relation::Description).group_by(&:term_id).transform_values { |v| v.count })
-      relation_counts = zeroes.merge(TermRelationship.where(relation_id: [Relation::Broader, Relation::Narrower, Relation::Related]).group_by(&:term_id).transform_values { |v| v.count })
-
-      # Store missing translation status
-      @translation_exists_for = lang_label_counts.merge(lang_desc_counts, relation_counts) { |k, o, n| o * n }
+    if @vocab.nil?
+      latest = Vocabulary.latest
+      raise ActiveRecord::RecordNotFound unless Term.get(latest, identifier)
+      return redirect_to vocabulary_show_path(request.query_parameters.symbolize_keys.except(:vocab_id, :id, :format, :lang).merge(vocab_id: latest, id: identifier, format: params[:format].presence))
     end
 
-    latest_published_release = @vocab.latest_published_release
-    return head :not_found if latest_published_release.nil? && !request.format.html?
-    path = Rails.root.join("public", "static_dumps", @vocab.identifier, latest_published_release.release_identifier) if latest_published_release
+    @list_cache_key = ["vocabulary-list", @vocab.id, @display_modes.join(","), I18n.locale, link_lang, current_user.present?, *VersionRelease.edit_request_checksum, Term.maximum(:updated_at).to_i, TermRelationship.count]
+
+    latest_published_release = @vocab.version_releases.where(status: "published").last
+    path = Rails.root.join("public", "static_dumps", @vocab.identifier, latest_published_release.release_identifier)
 
     version_release = current_user.present? ?
                         @vocab.version_releases.last :
@@ -90,8 +66,8 @@ class VocabularyController < ApplicationController
   def show
     @vocab_id = params[:vocab_id]
     @vocab = Vocabulary.find_by(identifier: params[:vocab_id])
-    @homosaurus_obj = @vocab && @vocab.terms.find_by(identifier: params[:id])
-    return render_not_found if @homosaurus_obj.nil?
+    @homosaurus_obj = Term.get(params[:vocab_id], params[:id])
+    raise ActiveRecord::RecordNotFound if @homosaurus_obj.nil?
     logger.debug @homosaurus_obj
 
     # For terms  that are combined / replaced
@@ -159,15 +135,16 @@ class VocabularyController < ApplicationController
     
     if params[:q].present?
       opts = {}
-      opts[:q] = params[:q]
+      opts[:q] = params[:q].strip.match?(/\Ahomoit\d+\z/i) ? params[:q].strip.downcase : params[:q]
       opts[:pf] = 'prefLabel_tesim'
-      opts[:qf] = 'prefLabel_tesim altLabel_tesim description_tesim identifier_tesim'
+      opts[:qf] = 'prefLabel_tesim altLabel_tesim description_tesim identifier_ssi'
       # opts[:fl] = 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim, isReplacedBy_ssim, replaces_ssim'
       opts[:fq] = "active_fedora_model_ssi:#{@vocabulary.solr_model} AND visibility_ssi:visible"
       opts[:rows] = 50 # max number of results
       response = DSolr.find(opts)
       docs = response
-      @terms = Term.where(identifier: docs.pluck("identifier_ssi"), visibility: 'visible')
+      ranked = docs.pluck("identifier_ssi").uniq
+      @terms = @vocabulary.terms.where(identifier: ranked, visibility: 'visible').to_a.uniq(&:identifier).sort_by { |t| ranked.index(t.identifier) }
 
       respond_to do |format|
         format.html
@@ -193,14 +170,10 @@ class VocabularyController < ApplicationController
                  ).dump(:ttl, standard_prefixes: true),
                  :content_type => 'text/turtle' }
         format.xml {
-          render body: Term.all_terms_full_graph(
-                   @terms,
-                   version_release: version_release),
+          render body: Term.xml_basic_for_terms(@terms, version_release: version_release),
                  :content_type => 'text/xml' }
         format.marc {
-          render body: Term.all_terms_full_graph(
-                   @terms,
-                   version_release: version_release),
+          render body: Term.marc_basic_for_terms(@terms, version_release: version_release),
                  :content_type => 'text/xml' }        
           # format.nt { render body: Term.all_terms_full_graph(@terms).dump(:ntriples), :content_type => "application/n-triples" }
         # format.jsonld { render body: Term.all_terms_full_graph(@terms).dump(:jsonld, standard_prefixes: true), :content_type => 'application/ld+json' }
@@ -214,7 +187,7 @@ class VocabularyController < ApplicationController
     @vocab_id = params[:vocab_id]
     @vocab = Vocabulary.find_by(identifier: @vocab_id)
     @homosaurus = Term.find_solr(@homosaurus_obj.identifier)
-    @edit_requests = @homosaurus_obj.get_edit_requests()
+    @edit_requests = @homosaurus_obj.get_edit_requests().reject { |er| er.version_release.nil? }
     logger.debug @edit_requests
     if not current_user.present?
       @edit_requests.reject!{|er| er.version_release.status != "Published" }
@@ -428,20 +401,14 @@ class VocabularyController < ApplicationController
     @vocab_id = params[:vocab_id]
     @term = Term.find_by(identifier: params[:id])
     unless params[:release_id]
-      pending_releases = VersionRelease.where(status: 'Pending', vocabulary_identifier: @vocab_id)
       # See if there's a current version
-      current_pending_version = pending_releases.select{|vr| vr.edit_requests.find_by(term_id: @term.id)}
+      current_pending_version = VersionRelease.where(status:'Pending').select{|vr| vr.edit_requests.find_by(term_id: @term.id)}
       current_pending_version = current_pending_version.count > 0 ? current_pending_version[0] : nil
       # Find pending VIDS that have not yet been approved
-      valid_vids = pending_releases.reject{|vr|
+      valid_vids = VersionRelease.where(status:'Pending').reject{|vr|
         vr.edit_requests.find_by(term_id: @term.id) and
           vr.edit_requests.find_by(term_id: @term.id).status == "approved"}
-      target_release = current_pending_version || valid_vids[0]
-      if target_release.nil?
-        redirect_to vocabulary_show_path(vocab_id: @vocab_id, id: params[:id]), notice: "No pending release to edit this term in"
-        return
-      end
-      redirect_id = target_release.release_identifier
+      redirect_id = (current_pending_version ? current_pending_version : valid_vids[0]).release_identifier
       redirect_to vocabulary_term_edit_version_path(vocab_id: @vocab_id, id: params[:id],
                                                     release_id: redirect_id)
       return
@@ -703,10 +670,6 @@ class VocabularyController < ApplicationController
   # Mark term as deleted in a given release
   def destroy
     @term = Term.get(params[:vocab_id], params[:id])
-    if @term.blank? || !VersionRelease.exists?(id: params[:release_id].to_i, vocabulary_identifier: params[:vocab_id], status: "Pending")
-      redirect_to vocabulary_show_path(vocab_id: params[:vocab_id], id: params[:id]), notice: "Deletion of term failed"
-      return
-    end
     @term.clear_relations(params[:release_id].to_i, current_user.id)
     #get the er for the version or create one
     er = nil
@@ -770,7 +733,7 @@ class VocabularyController < ApplicationController
     @term_being_replaced = Term.find_by(id: params[:replacement_id].to_i)
     @vr = VersionRelease.find_by(id: params["vid"].to_i)
 
-    if @term.blank? || @term_being_replaced.blank? || @vr.blank? || @vr.status != "Pending" || @vr.vocabulary_identifier != params[:vocab_id] || @term.id == @term_being_replaced.id
+    if @term.blank? || @term_being_replaced.blank? || params[:vocab_id] == params[:replacement_id]
       redirect_to vocabulary_index_path(id: Vocabulary.latest), notice: "Replacement of term failed"
     else
 
@@ -817,6 +780,13 @@ class VocabularyController < ApplicationController
     params.require(:term).permit(:identifier, :description, :history_note, :internal_note, :exactMatch, :closeMatch)
   end
 
+  def term_initial(label)
+    first = label.to_s.strip[0].to_s
+    latin = I18n.transliterate(first).upcase
+    return latin if latin.match?(/\A[A-Z]\z/)
+    first.match?(/\A[[:alpha:]]\z/) ? first.upcase : "#"
+  end
+
   def verify_super_permissions
     if !current_user.present? || (!current_user.superuser?)
       redirect_to root_path
@@ -838,14 +808,45 @@ class VocabularyController < ApplicationController
     end
   end
 
-  private
-
-  def render_not_found
-    if params[:format].blank? || request.format&.html?
-      render file: Rails.public_path.join("404.html"), status: :not_found, layout: false
-    else
-      head :not_found
+  def term_links_from_identifiers
+    return unless params[:term].respond_to?(:each)
+    [Relation::Broader, Relation::Narrower, Relation::Related].each do |rel_id|
+      rows = params[:term]["relation_#{rel_id}"]
+      next unless rows.is_a?(Array)
+      rows.each do |row|
+        value = row["data"].to_s.strip
+        next if value.empty? || value.match?(/\A\d+\z/)
+        identifier = value[/\A\S+/]
+        term = Term.get(params[:vocab_id], identifier) || Term.find_by(identifier: identifier)
+        row["data"] = term ? term.id.to_s : ""
+      end
     end
+  end
+  def vocabulary_list_data
+    @vocabulary_list_data ||= begin
+      terms = @vocab.terms.where(visibility: @display_modes).select(:id, :identifier).to_a
+      term_ids = terms.map(&:id)
+      lang_id = I18n.locale
+      lang_ids = Language.where(localizes_language_id: lang_id).pluck(:id) << lang_id
+      labels = {}
+      TermRelationship.where(term_id: term_ids, relation_id: Relation::Pref_label).order(Arel.sql("language_id = '#{lang_id}' DESC, language_id = 'en' DESC")).pluck(:term_id, :data).each { |term_id, data| labels[term_id] ||= data }
+      Term.where(id: term_ids - labels.keys).each { |term| labels[term.id] = term.pref_label if term.pref_label.present? }
+      sorted = terms.sort_by { |t| label = labels[t.id].to_s; [I18n.transliterate(label).downcase, label] }
+      by_letter = sorted.group_by { |t| term_initial(labels[t.id]) }.sort_by { |letter, _| [letter == "#" ? 2 : (letter.match?(/\A[A-Z]\z/) ? 0 : 1), letter] }.to_h
+      { by_letter: by_letter, labels: labels, translation: current_user.present? ? translation_flags(term_ids, lang_ids) : {} }
+    end
+  end
+
+  def translation_flags(term_ids, lang_ids)
+    langs = lang_ids.map { |l| ActiveRecord::Base.connection.quote(l.to_s) }.join(",")
+    label_relations = [Relation::Pref_label, Relation::Label, Relation::Alt_label].join(",")
+    link_relations = [Relation::Broader, Relation::Narrower, Relation::Related].join(",")
+    flags = term_ids.map { |id| [id, 0] }.to_h
+    TermRelationship.where(term_id: term_ids).group(:term_id).pluck(:term_id,
+      Arel.sql("SUM(relation_id IN (#{label_relations}) AND language_id IN (#{langs}))"),
+      Arel.sql("SUM(relation_id = #{Relation::Description.to_i} AND language_id IN (#{langs}))"),
+      Arel.sql("SUM(relation_id IN (#{link_relations}))")).each { |id, labels, descriptions, links| flags[id] = labels.to_i * descriptions.to_i * links.to_i }
+    flags
   end
 end
 

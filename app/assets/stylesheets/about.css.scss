@@ -303,6 +303,28 @@ div#about {
     margin: 2.25rem 0 0.75rem;
   }
 
+  h3.board-heading {
+    font-size: calc(1.2rem + 0.45vw);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px #BACBE7 dotted;
+    scroll-margin-top: 70px;
+
+    @media (min-width: 1200px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  h4 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin: 1.75rem 0 0.75rem;
+  }
+
+  h3.board-heading + h4 {
+    margin-top: 0;
+  }
+
   p {
     text-wrap: pretty;
   }

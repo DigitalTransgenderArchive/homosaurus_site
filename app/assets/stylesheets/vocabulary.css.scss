@@ -1,0 +1,165 @@
+.vocab-page {
+  max-width: 60rem;
+  margin-inline: auto;
+
+  .vocab-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+
+    > form,
+    > a {
+      flex: 1 1 auto;
+    }
+
+    > form .btn {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (min-width: 992px) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  ul.vocab-terms {
+    columns: 3 15rem;
+    column-gap: 1.5rem;
+    margin: 0;
+    padding: 1rem 0 0;
+    border-top: 2px dotted #BACBE7;
+    list-style: none;
+
+    li {
+      break-inside: avoid;
+      margin-bottom: 0.35rem;
+      text-wrap: pretty;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus-visible {
+      text-decoration: underline;
+    }
+
+    .badge {
+      margin-left: 0.25rem;
+      vertical-align: 0.18em;
+    }
+  }
+
+  h2.section-title {
+    font-size: calc(1.325rem + 0.9vw);
+
+    @media (min-width: 1200px) {
+      font-size: 2rem;
+    }
+  }
+
+  nav.letter-nav ul {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    gap: 0.35rem;
+    margin: 0 0 1.75rem;
+    padding: 0;
+    list-style: none;
+
+    @media (min-width: 768px) {
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(0, 1fr);
+    }
+
+    a {
+      display: block;
+      padding: 0.15rem 0;
+      border: 2px solid #BACBE7;
+      border-radius: 0.5rem;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    a:hover {
+      background: color-mix(in srgb, #BACBE7 30%, transparent);
+    }
+
+    a:focus-visible {
+      outline: 3px solid #1d2b4f;
+      outline-offset: 2px;
+    }
+  }
+
+  .letter-section {
+    scroll-margin-top: 1rem;
+
+    > summary {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+      list-style: none;
+      cursor: pointer;
+    }
+
+    > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    > summary::after {
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      margin-top: 0.05rem;
+      border-right: 2px solid #6c757d;
+      border-bottom: 2px solid #6c757d;
+      transform: rotate(-45deg);
+      transition: transform 0.15s;
+    }
+
+    &[open] > summary::after {
+      margin-top: -0.3rem;
+      transform: rotate(45deg);
+    }
+
+    .back-to-top {
+      order: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      margin-left: auto;
+      border: 2px solid #BACBE7;
+      border-radius: 0.5rem;
+      text-decoration: none;
+    }
+
+    .back-to-top:hover {
+      background: color-mix(in srgb, #BACBE7 30%, transparent);
+    }
+
+    .back-to-top:focus-visible {
+      outline: 3px solid #1d2b4f;
+      outline-offset: 2px;
+    }
+
+    > summary:focus-visible {
+      outline: 3px solid #1d2b4f;
+      outline-offset: 2px;
+    }
+  }
+
+  .letter-section + .letter-section {
+    margin-top: 1.75rem;
+  }
+
+  h3.letter-heading {
+    margin: 0;
+    font-size: unquote("min(1.5rem, calc(1rem + 1vw))");
+    font-weight: bold;
+  }
+}

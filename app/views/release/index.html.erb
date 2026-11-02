@@ -1,20 +1,34 @@
-<div id="about" class="col-sm-12 col-md-12">
-  <div class="release_title">
-    <h2><%= t("menu.releases") %></h2>
-  </div>
-  <div class="info_section">
-    <ul class="list-group list-group-flush">
-      <% @releases.each do |release| %>
-      <li class="list-group-item">
-	<% link_name = "Homosaurus v.#{release.release_identifier} (#{release.release_date.nil? ? '' : release.release_date.to_date})"
-	   if current_user.present?
-	     link_name += " [" + t("status.#{release.status.downcase}") + "]"
-	   end
-	   %>
-        <%= link_to link_name, release_show_path(:release_id => release.release_identifier) %>
-      </li>
+<div class="release-list">
+<h1 class="page-title"><%= t("release.page_title") %></h1>
+<% empty = { "new" => 0, "updated" => 0, "translations" => 0 } %>
+<% @releases.group_by { |release| release.release_identifier.split(".").first }.each do |major, releases| %>
+  <h2 class="section-title">Homosaurus v<%= major %></h2>
+  <table class="release-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader"><%= t("release.label") %></th>
+        <th scope="col" role="columnheader" class="date"><%= t("release.date_heading") %></th>
+        <th scope="col" role="columnheader" class="number"><%= t("release.total_terms_heading") %></th>
+        <th scope="col" role="columnheader" class="number"><%= t("release.new_terms_heading") %></th>
+        <th scope="col" role="columnheader" class="number"><%= t("release.updated_terms_heading") %></th>
+        <th scope="col" role="columnheader" class="number"><%= t("release.translations_heading") %></th>
+        <% if current_user.present? %><th scope="col" role="columnheader"><%= t("release.status_heading") %></th><% end %>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <% releases.each do |release| %>
+        <% stats = @stats.fetch(release.id, empty) %>
+        <tr role="row">
+          <th scope="row" role="rowheader"><%= link_to release.release_identifier, release_show_path(release_id: release.release_identifier) %></th>
+          <td role="cell" class="date"><% if release.release_date.present? %><time datetime="<%= release.release_date.to_date %>"><%= release.release_date.to_date %></time><% end %></td>
+          <td role="cell" class="number" data-label="<%= t("release.total_terms_heading") %>"><%= count_or_dash(@term_totals[release.id]) %></td>
+          <td role="cell" class="number" data-label="<%= t("release.new_terms_heading") %>"><%= count_or_dash(stats["new"]) %></td>
+          <td role="cell" class="number" data-label="<%= t("release.updated_terms_heading") %>"><%= count_or_dash(stats["updated"]) %></td>
+          <td role="cell" class="number" data-label="<%= t("release.translations_heading") %>"><%= count_or_dash(stats["translations"]) %></td>
+          <% if current_user.present? %><td role="cell"><span class="release-status release-status-<%= release.status.downcase %>"><%= t("release.status_#{release.status.downcase}", default: t("status.#{release.status.downcase}")) %></span></td><% end %>
+        </tr>
       <% end %>
-    </ul>
-  </div>
-
+    </tbody>
+  </table>
+<% end %>
 </div>

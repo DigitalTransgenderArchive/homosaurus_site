@@ -9,22 +9,22 @@ class ReconcileController < ApplicationController
 
       # View
       json_graph["view"] = {}
-      json_graph["view"]["url"] = "#{request.base_url}/v3/{{id}}"
+      json_graph["view"]["url"] = "https://api.homosaurus.org/v3/{{id}}"
       json_graph["view"]["width"] = 500
       json_graph["view"]["height"] = 350
 
       # PreView
       json_graph["preview"] = {}
-      json_graph["preview"]["url"] = "#{request.base_url}/v3/{{id}}"
+      json_graph["preview"]["url"] = "https://api.homosaurus.org/v3/{{id}}"
       json_graph["preview"]["width"] = 500
       json_graph["preview"]["height"] = 350
 
       # Suggest
       json_graph["suggest"] = {}
       json_graph["suggest"]["entity"] = {}
-      json_graph["suggest"]["entity"]["service_url"] = "#{request.base_url}/reconcile"
+      json_graph["suggest"]["entity"]["service_url"] = "https://api.homosaurus.org/reconcile"
       json_graph["suggest"]["entity"]["service_path"] = "/suggest"
-      json_graph["suggest"]["entity"]["flyout_service_url"] = "#{request.base_url}/reconcile"
+      json_graph["suggest"]["entity"]["flyout_service_url"] = "https://api.homosaurus.org/reconcile"
       json_graph["suggest"]["entity"]["flyout_service_path"] = "/notimplemented"
     else
       queries_to_process = JSON.parse(params[:queries])
@@ -32,7 +32,7 @@ class ReconcileController < ApplicationController
       vocabulary = Vocabulary.find_by(identifier: "v3")
       opts = {}
       opts[:pf] = 'prefLabel_tesim'
-      opts[:qf] = 'prefLabel_tesim altLabel_tesim identifier_tesim otherPrefLabel_tesim'
+      opts[:qf] = 'prefLabel_tesim altLabel_tesim identifier_ssi otherPrefLabel_tesim'
       opts[:fl] = 'id,identifier_ssi, prefLabel_tesim, altLabel_tesim, description_tesim, otherPrefLabel_tesim, score'
       opts[:fq] = "active_fedora_model_ssi:#{vocabulary.solr_model} AND visibility_ssi:visible"
       queries_to_process.each do |query_key, query_data|
@@ -100,7 +100,7 @@ class ReconcileController < ApplicationController
     opts = {}
     opts[:q] = params[:prefix]
     opts[:pf] = 'prefLabel_tesim'
-    opts[:qf] = 'prefLabel_tesim altLabel_tesim identifier_tesim'
+    opts[:qf] = 'prefLabel_tesim altLabel_tesim identifier_ssi'
     opts[:fl] = 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, score'
     opts[:fq] = "active_fedora_model_ssi:#{@vocabulary.solr_model} AND visibility_ssi:visible"
     response = DSolr.find(opts)

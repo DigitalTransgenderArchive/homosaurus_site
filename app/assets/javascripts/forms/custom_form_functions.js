@@ -10,19 +10,7 @@ $.onmount("a[data-toggle=popover]", function () {
 function duplicate_field_click(event) {
     // Get the top root element than find the correct child element within that
     original_element = $(event.target).closest(".field-wrapper").find('.duplicateable');
-    is_autocomplete_select2 = $(original_element).is("[endpoint]");
-    select_picker = $(original_element).is('.selectpicker');
-
-    if(select_picker){
-	original_element.selectpicker('destroy');
-    }
-
     cloned_element = $(event.target).parent().parent().parent().clone(true, true);
-
-    if(select_picker){
-	original_element.addClass('selectpicker');
-	original_element.selectpicker();
-    }
 
     cloned_element.find("input").val("");
     cloned_element.find("textarea").val("");
@@ -30,14 +18,10 @@ function duplicate_field_click(event) {
     cloned_element.find("input").prop('readonly', false);
     cloned_element.find("textarea").prop('readonly', false);
     cloned_element.find('.input-group-btn button').prop('disabled', false)
-    cloned_element.find(".language-selector").val(window.location.host.split(".")[0]);
+    cloned_element.find(".language-selector").val(document.body.lang);
     cloned_element.find(".language-selector").prop('disabled', false);
     cloned_element.find('input[type=hidden]').remove();
 
-    if(select_picker){
-	cloned_element.find("select").addClass('selectpicker');
-	cloned_element.find("select").selectpicker();
-    }
     //Insert after the root element
     $(event.target).closest(".field-wrapper").after(cloned_element);
     $('.input-group-btn button').prop("click", null).off("click");
@@ -59,7 +43,7 @@ function delete_field_click(event) {
         $(original_element).val("");
     } else if($('select[name*="' + local_field_name + '"]').length == 1) {
 	// Relationships
-	original_element.selectpicker('val', "");
+	original_element.val("");
     } else {
         // There is more than one of these so allow the removal
         $(event.target).closest(".field-wrapper").remove();

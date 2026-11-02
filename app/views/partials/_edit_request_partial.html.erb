@@ -3,14 +3,15 @@
   release_page ||= false
   discussion_page ||= false
   child_edit ||= false
-  is_new = edit_request.previous().nil?
+  prev_term = edit_request.previous()
+  is_new = prev_term.nil?
   redirect = edit_request.my_changes[Relation::Redirects_to]
   is_deletion = (redirect.count > 0 and redirect[0][2].to_i == 0)
   is_redirect = (redirect.count > 0 and not is_deletion)
   pref_label = edit_request.my_changes[2].length > 0 ? edit_request.my_changes[2][0][2] : edit_request.term.pref_label
   is_linked = ((edit_request.my_changes[Relation::Broader].length > 0) or (edit_request.my_changes[Relation::Narrower].length > 0) or (edit_request.my_changes[Relation::Related].length > 0))
   is_linked_new = is_linked
-  Relation.pluck(:id).each do |r|
+  (@er_relation_ids ||= Relation.pluck(:id)).each do |r|
     next if r == Relation::Broader or r == Relation::Narrower or r == Relation::Related
     if edit_request.my_changes[r].count > 0
       is_linked_new = false
@@ -24,9 +25,10 @@
   er_status = edit_request.status
   is_modified = !is_new && !is_redirect && !is_linked_new
 filter_tags = "#{is_new ? 'new_term' : (is_redirect ? 'redirected' : (is_linked ? 'linked' : 'modified'))} #{edit_request.suggestion? ? 'suggested' : ''} #{er_status}"
+ #pp edit_request
 %>
 
-<div <% unless child_edit %>
+<details <% unless child_edit %>
      class="card container-lg edit-request"
      data-filter-tags="<%= filter_tags %>"
      data-filter-label="<%= pref_label %>"
@@ -35,8 +37,7 @@ filter_tags = "#{is_new ? 'new_term' : (is_redirect ? 'redirected' : (is_linked 
      class="card container-lg"
      <% end %>
      >
-  <div class="card-header collapsed row" data-bs-toggle="collapse" aria-expanded="false"
-       href="#<%= edit_request.id %>" aria-controls="<%= edit_request.id %>">
+  <summary class="card-header row">
 
     <% unless child_edit %>
       <div class="col col-1">
@@ -44,7 +45,7 @@ filter_tags = "#{is_new ? 'new_term' : (is_redirect ? 'redirected' : (is_linked 
 	  <span class="badge text-bg-danger"><%= t("status.suggested") %></span>
 	<% end %>
 	<% if not release_page %>
-	  <span class="badge text-bg-dark">V. <%= release_identifier %></span>
+	  <span class="badge badge-version">V. <%= release_identifier %></span>
 	<% elsif is_new %>
 	  <span class="badge text-bg-success"><%= t("status.new_term_label") %></span>
 	<% elsif is_redirect %>
@@ -102,77 +103,9 @@ filter_tags = "#{is_new ? 'new_term' : (is_redirect ? 'redirected' : (is_linked 
       </div>
     </div>
     <div class="col col-auto collapse-icon ml-auto"></div>
-  </div>
+  </summary>
 
-  <div class="card-body collapse" id="<%= edit_request.id %>">
-    <% identifier = edit_request.my_changes["identifier"]
-       prev_term = edit_request.previous() %>
-    <% relations.each do |r| %>
-      <% changes = edit_request.my_changes[r.id] %>
-      <% if not changes.nil? and changes.length > 0 and not is_deletion%>
-        <h4><%= t("relations.#{r.id}") %></h4>
-	<table class="table">
-	  <% changes.each do |c| %>
-	    <% change_class = c[0] == "+" ? "success" : "danger"
-	       change_icon = c[0] == "+" ? "plus" : "minus"
-	       lang = (c[1].nil? ? t("edit_request.all_languages") : Language.find_by(id: c[1]).name)
-	       val = c[2]
-	       %>
-	    <tr class="table-<%= change_class %>">
-	      <td class="col col-1"><h3 class="text-<%= change_class %> m-0"><%= c[0] %></h3> </td>
-	      <td class="col col-1"><span class="well_language"><%= lang %></span></td>
-	      <td class="col col-8">
-		<% if r.links_to == 1 %>
-		  <% if Term.find_by(id: val) %>
-		    <a href="<%= Term.find_by(id: val).uri_localized %>"> <%= Term.find_by(id: val).pref_label_localized.data  %> [<%= Term.find_by(id: val).identifier %>] </a>
-		    <% else %>
-		    <a href="<%= val %>"> <%= t("edit_request.term_deleted") %> </a>
-		    <% end %>
-		<% else %>
-		  <%= val %>
-		<% end %>
-	      </td>
-	    </tr>
-	  <% end %>
-	</table>
-      <% end %>
-    <% end %>
-    <% ['identifier', 'uri'].each do |field| %>
-      <% cur = edit_request.my_changes[field]
-	 prev_term = edit_request.previous() %>
-      <% if prev_term.nil? or (prev_term.my_changes[field] != cur) %>
-        <h4><%= field == "identifier" ? t("relations.identifier") : field.upcase %></h4>
-	<table class="table">
-	  <% unless prev_term.nil? %>
-          <tr class="table-danger">
-	    <td class="col col-1"><h3 class="text-danger m-0">-</h3> </td>
-	    <td class="col col-1"><span class="well_language"><%= t("edit_request.all_languages") %></span></td>
-	    <td class="col col-8"><%= prev_term.my_changes[field] %></td>
-	  </tr>
-	  <% end %>
-	  <tr class="table-success">
-	    <td class="col col-1"><h3 class="text-success m-0">+</h3> </td>
-	    <td class="col col-1"><span class="well_language"><%= t("edit_request.all_languages") %></span></td>
-	    <td class="col col-8"><%= cur %></td>
-	  </tr>
-	</table>
-      <% end %>
-    <% end %>
-    <% if is_deletion %>
-      <h4><%= t("edit_request.visibility") %></h4>
-      <table class="table">
-	<tr class="table-success">
-	  <td class="col col-1"><h3 class="text-success m-0">+</h3> </td>
-	  <td class="col col-1"><span class="well_language"><%= t("edit_request.all_languages") %></span></td>
-	  <td class="col col-8"><%= t("status.deleted") %></td>
-	</tr>
-      </table>
-      <% end %>
-    <% if not child_edit and current_user.present? and edit_request.children.count %>
-      <div class="border-top my-3"></div>
-      <% edit_request.children.each do |erc| %>
-        <%= render partial:"partials/edit_request_partial", locals: {edit_request: erc, relations: Relation.all, child_edit: true} %>
-      <% end %>
-    <% end %>
+  <div class="card-body">
+    <%= render partial: "partials/edit_request_body", locals: {edit_request: edit_request, relations: relations, prev_term: prev_term, is_deletion: is_deletion, child_edit: child_edit} %>
   </div>
-</div>
+</details>

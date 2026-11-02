@@ -450,7 +450,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    select2-rails (4.0.13)
     shex (0.5.2)
       ebnf (~> 1.1)
       json-ld (>= 2.2, < 4.0)
@@ -549,6 +548,7 @@ DEPENDENCIES
   iso-639
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   linkeddata
   listen (>= 3.0.5, < 3.2)
   mime-types
@@ -564,7 +564,6 @@ DEPENDENCIES
   rsolr (>= 1.0, < 3)
   sass-rails (~> 5.0)
   sassc-rails (~> 2.1)
-  select2-rails
   simple_form
   spawnling (~> 2.1)
   spring

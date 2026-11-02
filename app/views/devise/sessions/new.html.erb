@@ -1,47 +1,30 @@
-<% @page_title = "Login -  Homosaurus" %>
+<% @page_title = t("user.log_in") %>
 <div id="static_holder" class="container-fluid contact-us">
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 static_holder_content_container">
+    <div class="col-12 static_holder_content_container">
       <div id="static_holder_content" class="static_holder_content">
-        <h2>Log in</h2>
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
-
-          <div class="form-group">
-            <label class="col-sm-3 control-label">Email:</label>
-            <div class="col-sm-6">
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => 'form-control' %>
-            </div>
+        <h1 class="page-title"><%= t("user.log_in") %></h1>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { id: "login_form" }) do |f| %>
+          <div class="mb-3">
+            <%= f.label :email, t("user.email"), class: "form-label" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
           </div>
-
-          <div class="form-group">
-            <label class="col-sm-3 control-label">Password:</label>
-            <div class="col-sm-6">
-              <%= f.password_field :password, autocomplete: "current-password", :class => 'form-control' %>
-            </div>
+          <div class="mb-3">
+            <%= f.label :password, t("user.password"), class: "form-label" %>
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
           </div>
-
           <% if devise_mapping.rememberable? %>
-            <div class="form-group">
-              <div class="col-sm-offset-3 col-sm-6 col-md-6">
-                <div class="newsletter_checkbox pull-right">
-                  Remember me on this computer? <%= check_box_tag(:remember_me, 'yes', false) %>
-                </div>
-              </div>
+            <div class="form-check mb-3">
+              <%= check_box_tag :remember_me, "yes", false, class: "form-check-input" %>
+              <%= label_tag :remember_me, t("user.remember_me"), class: "form-check-label" %>
             </div>
           <% end %>
-
-          <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-6 col-md-6">
-              <%= f.submit "Log in", :class => 'btn btn-default pull-right', id: 'contact_submit' %>
-            </div>
+          <div class="login-actions">
+            <p><%= t("user.no_account") %> <%= link_to t("user.sign_up"), new_registration_path(resource_name), class: "signup-link" %></p>
+            <%= f.submit t("user.log_in"), class: "btn", id: "contact_submit" %>
           </div>
         <% end %>
-
-        Don't have an account? <strong><%= link_to "Sign up.", new_registration_path(resource_name) %></strong>
       </div>
     </div>
   </div>
 </div>
-
-
-

@@ -3,11 +3,10 @@
   <div class="row">
     <div class="col-xs-12 static_holder_content_container">
       <div id="static_holder_content" class="static_holder_content">
-        <h2><%= t('contact.label') %></h2>
+        <h1 class="page-title"><%= t('contact.label') %></h1>
         <div class="info_section">
 
-        <p><%= t('contact.message_html') %></p>
-        <br/>
+        <%= t('contact.message_html') %>
         <% unless @errors.empty? %>
           <div id="error_explanation" class="alert alert-danger">
             <ul class="errors">
@@ -17,42 +16,32 @@
             </ul>
           </div>
         <% end %>
-        <br/>
-	<div class="container">
-        <%= form_tag(contact_path, :id => 'feedback_form', :class => 'w-75 mx-auto') do %>
+        <%= form_tag(contact_path, :id => 'feedback_form') do %>
             <%= recaptcha_v3(action: 'contact', site_key: Settings.recaptcha_site_key_v3) %>
-          <div class="row mb-3">
-            <label class="col-sm-3 control-label"><%= t('contact.name') %>:</label>
-            <div class="col-sm-7 col-md-6">
-              <%= text_field_tag :name, params[:name], :class => 'form-control' %>
-            </div>
+          <div class="mb-3">
+            <label for="name" class="form-label"><%= t('contact.name') %></label>
+            <%= text_field_tag :name, params[:name], :class => 'form-control' %>
           </div>
-          <div class="row mb-3">
-            <label class="col-sm-3 control-label"><%= t('contact.email') %></label>
-            <div class="col-sm-7 col-md-6">
-              <%= text_field_tag :email, params[:email], :class => 'form-control' %>
-            </div>
+          <div class="mb-3">
+            <label for="email" class="form-label"><%= t('contact.email') %></label>
+            <%= text_field_tag :email, params[:email], :class => 'form-control' %>
           </div>
-          <div class="row mb-3">
-            <label class="col-sm-3 control-label"><%= t('contact.topic') %>:</label>
-            <div class="col-sm-7 col-md-6">
-              <%= select_tag(:topic,
-                             options_for_select([[t('contact.topic_feedback'), 'Feedback'], [t('contact.topic_broken'), 'Broken link / site error'], [t('contact.topic_other'), 'Other']]),
-                             :class => 'form-control', :label => 'Topic:')
-              %>
+          <fieldset class="mb-3">
+            <legend class="form-label"><%= t('contact.topic') %></legend>
+            <div class="topic-options">
+              <% [[t('contact.topic_feedback'), 'Feedback'], [t('contact.topic_broken'), 'Broken link / site error'], [t('contact.topic_other'), 'Other']].each_with_index do |(label, value), index| %>
+                <label class="topic-option"><%= radio_button_tag :topic, value, index.zero?, class: 'form-check-input' %><%= label %></label>
+              <% end %>
             </div>
-          </div>
-          <div class="row mb-3">
-            <label class="col-sm-3 control-label"><%= t('contact.message') %>:</label>
-            <div class="col-sm-7 col-md-6">
-              <%= text_area_tag :message, params[:message], :size => '24x8', :class =>  'form-control' %>
-            </div>
+          </fieldset>
+          <div class="mb-3">
+            <label for="message" class="form-label"><%= t('contact.message') %></label>
+            <%= text_area_tag :message, params[:message], :size => '24x8', :class =>  'form-control' %>
           </div>
 
           <% if  1==1 || @show_captcha_v2 %>
             <div class="row mb-3">
-	      <label class="col-sm-3 control-label">&nbsp;</label>
-              <div class="col-sm-offset-3 col-sm-7 col-md-6">
+              <div class="col-12">
                 <div class="newsletter_checkbox float-end">
                   <%= recaptcha_tags %>
                 </div>
@@ -60,13 +49,11 @@
             </div>
           <% end %>
           <div class="row mb-3">
-	    <label class="col-sm-3 control-label">&nbsp;</label>
-            <div class="col-sm-offset-3 col-sm-7 col-md-6">
+            <div class="col-12">
 	      <%= submit_tag(t('contact.send'), :class => 'btn btn-default float-end', id: 'contact_submit') %>
             </div>
           </div>
           <% end %>
-	  </div>
 
 
         </div>

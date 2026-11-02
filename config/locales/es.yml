@@ -29,7 +29,7 @@ es:
     email: Email
     label: Contáctanos
     message: Mensaje
-    message_html: Si estás utilizando el Homosaurus, ¡queremos saber de ti! Comunícate con nosotros para informarnos cómo estás utilizando este vocabulario y comparte cualquier comentario que tengas. También estamos abiertos a que nuevos miembros se unan a nuestro Colectivo, así que haznos saber si es algo que te interesa. </br>El Homosaurus es un trabajo en progreso y agradecemos sugerencias sobre nuevos términos para agregar o cambios en el vocabulario. El Colectivo Homosaurus supervisa el mantenimiento del vocabulario, considerará todos los términos y cambios propuestos trimestralmente.
+    message_html: "<p>Si estás utilizando el Homosaurus, ¡queremos saber de ti! Comunícate con nosotros para informarnos cómo estás utilizando este vocabulario y comparte cualquier comentario que tengas. También estamos abiertos a que nuevos miembros se unan a nuestro Colectivo, así que haznos saber si es algo que te interesa.</p><p>El Homosaurus es un trabajo en progreso y agradecemos sugerencias sobre nuevos términos para agregar o cambios en el vocabulario. El Colectivo Homosaurus supervisa el mantenimiento del vocabulario, considerará todos los términos y cambios propuestos trimestralmente.</p>"
     name: Nombre
     send: Enviar
     topic: Tema
@@ -111,7 +111,7 @@ es:
     cancel: Cancelar
     close: Cerca
     post: Publicar
-    tagline: Un vocabulario internacional de datos enlazados LGBTQ+
+    tagline: "Un vocabulario internacional de\u00A0datos\u00A0enlazados LGBTQ+"
     translation_needed: Se necesita traducción
   relations:
     '1': Descripción
@@ -137,10 +137,34 @@ es:
   release:
     label: "Lanzamiento"
     updates: Actualizaciones
+    changes:
+      one: "%{number} cambio"
+      other: "%{number} cambios"
+    status_pending: "Pendiente"
+    released_on: "Publicado el %{date}"
+    date_heading: "Fecha"
+    new_terms_heading: "Términos nuevos"
+    page_title: "Versiones del Homosaurus"
+    show_title: "Actualizaciones de Homosaurus v. %{version}"
+    sort:
+      ascending: "Ascendente"
+      by_date: "Ordenar por fecha"
+      by_name: "Ordenar por nombre"
+      descending: "Descendente"
+    status_heading: "Estado"
+    total_terms_heading: "Términos en total"
+    translations_heading: "Traducciones nuevas"
+    updated_terms_heading: "Términos actualizados"
   search:
     button: "Buscar"
     placeholder: Introduzca el término de búsqueda
     results_label: Resultados de búsqueda para
+    alt_labels:
+      one: "Etiqueta alternativa"
+      other: "Etiquetas alternativas"
+    intro: "Busque términos del Homosaurus por etiqueta, descripción o identificador. Se muestran hasta 50 términos coincidentes."
+    page_title: "Buscar en el Homosaurus"
+    page_title_version: "Buscar en el Homosaurus %{version}"
   status:
     approved: Aprobado
     deleted: Eliminado
@@ -167,15 +191,24 @@ es:
     hierarchy_label: Visualización de jerarquía
     history: Historial
     other_formats: Otros formatos (incluidos identificadores de idioma)
-    other_formats_legacy: Formatos heredados (sin identificadores de idioma)
+    other_formats_legacy: "Formatos heredados"
     replace_term: Remplazar otro término
     view_history: Ver historial
+    save_term: "Guardar término"
+    legacy_formats_note: "sin identificadores de idioma"
   user:
     bio: Biografía
     fname: Nombre
     lname: Apellido
     permissions: Permisos
     username: Nombre de usuario
+    all_languages: "Todos los idiomas"
+    email: "Correo electrónico"
+    log_in: "Iniciar sesión"
+    no_account: "¿No tienes una cuenta?"
+    password: "Contraseña"
+    remember_me: "Recordarme en este equipo"
+    sign_up: "Regístrate"
   vocab:
     admin:
       actions: Acciones de administrador
@@ -185,5 +218,27 @@ es:
       show_redirects: Mostrar términos redirigidos
       show_visible: Mostrar terminos visibles
       suggest_term: Sugerir un término nuevo
-    current_terms: Lista de términos actuales
-    label: Términos del vocabulario Homosaurus
+    current_terms: Términos actuales
+    label: Vocabulario Homosaurus
+    back_to_top: "Volver arriba"
+    filter:
+      current: "Actuales"
+      next: "Próxima versión"
+      deleted: "Eliminados"
+      redirected: "Redirigidos"
+    deleted_terms: "Términos eliminados"
+    letter_nav: "Términos por letra inicial"
+    next_version_terms: "Términos de la próxima versión"
+    redirected_terms: "Términos redirigidos"
+  number:
+    format:
+      delimiter: "."
+      separator: ","
+  views:
+    pagination:
+      label: "Páginas"
+      previous: "Anterior"
+      next: "Siguiente"
+  tree:
+    expand_all: "Expandir todo"
+    collapse_all: "Contraer todo"

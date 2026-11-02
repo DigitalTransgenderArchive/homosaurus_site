@@ -9,7 +9,7 @@ nl:
     email: "Je e-mailadres"
     label: "Neem contact met ons op"
     message: "Je bericht"
-    message_html: "Als je de Homosaurus gebruikt, horen we graag van je! Laat ons weten hoe je deze woordenlijst gebruikt en deel je eventuele feedback met ons. We werven ook af en toe nieuwe leden voor het Collectief, dus laat het ons weten als je daarin geïnteresseerd bent.</br>De Homosaurus is een werk in uitvoering en we staan open voor suggesties voor nieuwe termen die kunnen worden toegevoegd of wijzigingen die in de woordenlijst kunnen worden aangebracht. Het Homosaurus-collectief houdt toezicht op het onderhoud van de woordenlijst en zal alle voorgestelde termen en wijzigingen elk kwartaal in overweging nemen."
+    message_html: "<p>Als je de Homosaurus gebruikt, horen we graag van je! Laat ons weten hoe je deze woordenlijst gebruikt en deel je eventuele feedback met ons. We werven ook af en toe nieuwe leden voor het Collectief, dus laat het ons weten als je daarin geïnteresseerd bent.</p><p>De Homosaurus is een werk in uitvoering en we staan open voor suggesties voor nieuwe termen die kunnen worden toegevoegd of wijzigingen die in de woordenlijst kunnen worden aangebracht. Het Homosaurus-collectief houdt toezicht op het onderhoud van de woordenlijst en zal alle voorgestelde termen en wijzigingen elk kwartaal in overweging nemen.</p>"
     name: "Je naam"
     send: "Verzenden"
     topic: "Onderwerp"
@@ -120,10 +120,34 @@ nl:
   release:
     label: "Versie"
     updates: "Updates"
+    changes:
+      one: "%{number} wijziging"
+      other: "%{number} wijzigingen"
+    status_pending: "In behandeling"
+    released_on: "Gepubliceerd op %{date}"
+    date_heading: "Datum"
+    new_terms_heading: "Nieuwe termen"
+    page_title: "Homosaurus-versies"
+    show_title: "Updates in Homosaurus v. %{version}"
+    sort:
+      ascending: "Oplopend"
+      by_date: "Sorteren op datum"
+      by_name: "Sorteren op naam"
+      descending: "Aflopend"
+    status_heading: "Status"
+    total_terms_heading: "Termen in totaal"
+    translations_heading: "Nieuwe vertalingen"
+    updated_terms_heading: "Bijgewerkte termen"
   search:
     button: "Zoeken"
     placeholder: "Zoekterm invoeren"
     results_label: "Zoekresultaten voor"
+    alt_labels:
+      one: "Alternatief label"
+      other: "Alternatieve labels"
+    intro: "Zoek Homosaurus-termen op label, beschrijving of identifier. Er worden maximaal 50 overeenkomende termen getoond."
+    page_title: "Doorzoek de Homosaurus"
+    page_title_version: "Doorzoek de Homosaurus %{version}"
   status:
     approved: "Goedgekeurd"
     deleted: "Verwijderd"
@@ -150,15 +174,24 @@ nl:
     hierarchy_label: "Hierarchy Display"
     history: "Geschiedenis"
     other_formats: "Andere formaten (inclusief taalcodes)"
-    other_formats_legacy: "Oudere formaten (zonder taalcodes)"
+    other_formats_legacy: "Oudere formaten"
     replace_term: "Een andere term vervangen"
     view_history: "View History"
+    save_term: "Term opslaan"
+    legacy_formats_note: "zonder taalcodes"
   user:
     bio: "Biografie"
     fname: "Voornaam"
     lname: "Achternaam"
     permissions: "Rechten"
     username: "Gebruikersnaam"
+    all_languages: "Alle talen"
+    email: "E-mail"
+    log_in: "Inloggen"
+    no_account: "Nog geen account?"
+    password: "Wachtwoord"
+    remember_me: "Onthoud mij op deze computer"
+    sign_up: "Registreren"
   vocab:
     admin:
       actions: "Beheeracties"
@@ -170,3 +203,25 @@ nl:
       suggest_term: "Nieuwe term voorstellen"
     current_terms: "Lijst met huidige termen"
     label: "Homosaurus-Thesaurus"
+    back_to_top: "Naar boven"
+    filter:
+      current: "Huidig"
+      next: "Volgende versie"
+      deleted: "Verwijderd"
+      redirected: "Doorverwezen"
+    deleted_terms: "Verwijderde termen"
+    letter_nav: "Termen op beginletter"
+    next_version_terms: "Termen voor de volgende versie"
+    redirected_terms: "Doorverwezen termen"
+  number:
+    format:
+      delimiter: "."
+      separator: ","
+  views:
+    pagination:
+      label: "Pagina’s"
+      previous: "Vorige"
+      next: "Volgende"
+  tree:
+    expand_all: "Alles uitklappen"
+    collapse_all: "Alles inklappen"

@@ -134,7 +134,7 @@ class AdminController < ApplicationController
   end
   # Only superusers can access most functionality
   def verify_permission
-    if !current_user.superuser?
+    if !current_user.present? || !current_user.superuser?
       redirect_to root_path
     end
   end

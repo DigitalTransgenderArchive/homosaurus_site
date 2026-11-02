@@ -29,7 +29,7 @@ fr:
     email: Votre adresse courriel
     label: "Pour nous contacter"
     message: Votre message
-    message_html: Si vous utilisez l'Homosaurus, nous aimerions avoir de vos nouvelles! N'hésitez pas à nous contacter pour nous dire comment vous utilisez ce thésaurus et nous faire part de vos commentaires. Nous sommes également ouvert·es à l'arrivée de nouveaux membres au sein de notre Collectif, alors n'hésitez pas à nous faire savoir si cela vous intéresse.<br/>L’Homosaurus est en évolution constante et nous accueillons volontiers les suggestions d'ajout de nouveaux termes ou de modifications à apporter au thésaurus. Le Collectif Homosaurus supervise les mises à jour et examinera tous les termes et les changements proposés sur une base trimestrielle.
+    message_html: "<p>Si vous utilisez l'Homosaurus, nous aimerions avoir de vos nouvelles! N'hésitez pas à nous contacter pour nous dire comment vous utilisez ce thésaurus et nous faire part de vos commentaires. Nous sommes également ouvert·es à l'arrivée de nouveaux membres au sein de notre Collectif, alors n'hésitez pas à nous faire savoir si cela vous intéresse.</p><p>L’Homosaurus est en évolution constante et nous accueillons volontiers les suggestions d'ajout de nouveaux termes ou de modifications à apporter au thésaurus. Le Collectif Homosaurus supervise les mises à jour et examinera tous les termes et les changements proposés sur une base trimestrielle.</p>"
     name: Votre nom
     send: Envoyer
     topic: Sujet
@@ -111,7 +111,7 @@ fr:
     cancel: Annuler
     close: Fermer
     post: Publier
-    tagline: Un thésaurus LGBTQ+ international de données liées
+    tagline: "Un thésaurus LGBTQ+ international de\u00A0données\u00A0liées"
     translation_needed: Traduction nécessaire
   relations:
     '1': Description
@@ -137,10 +137,34 @@ fr:
   release:
     label: "Mise à jour"
     updates: Mises à jour
+    changes:
+      one: "%{number} modification"
+      other: "%{number} modifications"
+    status_pending: "En cours"
+    released_on: "Publié le %{date}"
+    date_heading: "Date"
+    new_terms_heading: "Nouveaux termes"
+    page_title: "Versions de l’Homosaurus"
+    show_title: "Mises à jour de l’Homosaurus v. %{version}"
+    sort:
+      ascending: "Croissant"
+      by_date: "Trier par date"
+      by_name: "Trier par nom"
+      descending: "Décroissant"
+    status_heading: "Statut"
+    total_terms_heading: "Total des termes"
+    translations_heading: "Nouvelles traductions"
+    updated_terms_heading: "Termes mis à jour"
   search:
     button: "Recherche"
     placeholder: Saisir un terme de recherche
     results_label: Résultats de la recherche pour
+    alt_labels:
+      one: "Étiquette alternative"
+      other: "Étiquettes alternatives"
+    intro: "Recherchez des termes de l’Homosaurus par étiquette, description ou identifiant. Jusqu’à 50 termes correspondants sont affichés."
+    page_title: "Rechercher dans l’Homosaurus"
+    page_title_version: "Rechercher dans l’Homosaurus %{version}"
   status:
     approved: Approuvé
     deleted: Effacé
@@ -167,15 +191,24 @@ fr:
     hierarchy_label: Affichage de la hiérarchie
     history: Historique
     other_formats: Autres formats (y compris les identifiants de langue)
-    other_formats_legacy: Formats hérités (sans identifiants de langue)
+    other_formats_legacy: "Formats hérités"
     replace_term: Remplacer l'autre terme
     view_history: Voir l'historique
+    save_term: "Enregistrer le terme"
+    legacy_formats_note: "sans identifiants de langue"
   user:
     bio: Biographie
     fname: Prénom
     lname: Nom de famille
     permissions: Autorisations
     username: Nom d'utilisateur
+    all_languages: "Toutes les langues"
+    email: "Adresse e-mail"
+    log_in: "Se connecter"
+    no_account: "Vous n’avez pas de compte?"
+    password: "Mot de passe"
+    remember_me: "Se souvenir de moi sur cet ordinateur"
+    sign_up: "S’inscrire"
   vocab:
     admin:
       actions: Actions de l'administration
@@ -185,5 +218,27 @@ fr:
       show_redirects: Afficher les termes redirigés
       show_visible: Afficher les termes visibles
       suggest_term: Suggérer un nouveau terme
-    current_terms: Liste des termes courants
-    label: Termes de l'Homosaurus
+    current_terms: Termes actuels
+    label: Vocabulaire Homosaurus
+    back_to_top: "Retour en haut"
+    filter:
+      current: "Actuels"
+      next: "Prochaine version"
+      deleted: "Supprimés"
+      redirected: "Redirigés"
+    deleted_terms: "Termes supprimés"
+    letter_nav: "Termes par lettre initiale"
+    next_version_terms: "Termes de la prochaine version"
+    redirected_terms: "Termes redirigés"
+  number:
+    format:
+      delimiter: " "
+      separator: ","
+  views:
+    pagination:
+      label: "Pages"
+      previous: "Précédente"
+      next: "Suivante"
+  tree:
+    expand_all: "Tout développer"
+    collapse_all: "Tout réduire"

@@ -10,7 +10,7 @@ de:
     email: E-Mail-Adresse
     label: Kontakt
     message: Deine Nachricht
-    message_html: 'Wenn du den Homosaurus nutzt, freuen wir uns über deine Rückmeldung.</br>Hast du Vorschläge für Neueinträge oder begründete Hinweise zu bestehenden Einträgen? Der Homosaurus ist ein fortlaufendes Projekt: Melde dich doch direkt beim deutschsprachigen Homosaurus-Team unter <a href="mailto:homosaurus@queersearch.org">homosaurus@queersearch.org</a>.</br>Hast du eine Rückmeldung an das internationale Homosaurus-Kollektiv? Dann kontaktiere uns gerne über das Kontaktformular unten und erzähle uns, wie du dieses Vokabular verwendest und welches Feedback oder welche Anregungen du dazu hast. Gelegentlich suchen wir zudem neue Mitglieder für das Kollektiv. Lass uns also gerne wissen, wenn du daran interessiert bist.'
+    message_html: "<p>Wenn du den Homosaurus nutzt, freuen wir uns über deine Rückmeldung.</p><p>Hast du Vorschläge für Neueinträge oder begründete Hinweise zu bestehenden Einträgen? Der Homosaurus ist ein fortlaufendes Projekt: Melde dich doch direkt beim deutschsprachigen Homosaurus-Team unter <a href=\"mailto:homosaurus@queersearch.org\">homosaurus@queersearch.org</a>.</p><p>Hast du eine Rückmeldung an das internationale Homosaurus-Kollektiv? Dann kontaktiere uns gerne über das Kontaktformular unten und erzähle uns, wie du dieses Vokabular verwendest und welches Feedback oder welche Anregungen du dazu hast. Gelegentlich suchen wir zudem neue Mitglieder für das Kollektiv. Lass uns also gerne wissen, wenn du daran interessiert bist.</p>"
     name: Name
     send: Senden
     topic: Betreff
@@ -121,10 +121,34 @@ de:
   release:
     label: Version
     updates: Änderungen
+    changes:
+      one: "%{number} Änderung"
+      other: "%{number} Änderungen"
+    status_pending: "Ausstehend"
+    released_on: "Veröffentlicht am %{date}"
+    date_heading: "Datum"
+    new_terms_heading: "Neue Begriffe"
+    page_title: "Homosaurus-Versionen"
+    show_title: "Änderungen in Homosaurus v. %{version}"
+    sort:
+      ascending: "Aufsteigend"
+      by_date: "Nach Datum sortieren"
+      by_name: "Nach Name sortieren"
+      descending: "Absteigend"
+    status_heading: "Status"
+    total_terms_heading: "Begriffe insgesamt"
+    translations_heading: "Neue Übersetzungen"
+    updated_terms_heading: "Geänderte Begriffe"
   search:
     button: "Suchen"
     placeholder: Suchbegriff eingeben
     results_label: Suchergebnisse für
+    alt_labels:
+      one: "Alternative Bezeichnung"
+      other: "Alternative Bezeichnungen"
+    intro: "Homosaurus-Begriffe nach Bezeichnung, Beschreibung oder Identifikator durchsuchen. Angezeigt werden bis zu 50 passende Begriffe."
+    page_title: "Den Homosaurus durchsuchen"
+    page_title_version: "Den Homosaurus %{version} durchsuchen"
   status:
     approved: Angenommen
     deleted: Gelöscht
@@ -151,15 +175,24 @@ de:
     hierarchy_label: Hierarchieansicht
     history: Versionsverlauf
     other_formats: Weitere Formate (mit Sprachcodes)
-    other_formats_legacy: Ältere Formate (ohne Sprachcodes)
+    other_formats_legacy: "Ältere Formate"
     replace_term: Anderen Begriff ersetzen
     view_history: Versionsverlauf
+    save_term: "Begriff speichern"
+    legacy_formats_note: "ohne Sprachcodes"
   user:
     bio: Biografie
     fname: Vorname
     lname: Nachname
     permissions: Berechtigungen
     username: Anmeldename
+    all_languages: "Alle Sprachen"
+    email: "E-Mail"
+    log_in: "Anmelden"
+    no_account: "Noch kein Konto?"
+    password: "Passwort"
+    remember_me: "Auf diesem Computer angemeldet bleiben"
+    sign_up: "Registrieren"
   vocab:
     admin:
       actions: Verwaltung
@@ -169,5 +202,27 @@ de:
       show_redirects: Umgeleitete Begriffe anzeigen
       show_visible: Sichtbare Begriffe anzeigen
       suggest_term: Neuen Begriff vorschlagen
-    current_terms: Aktuelle Begriffsliste
+    current_terms: Aktuelle Begriffe
     label: Homosaurus-Vokabular
+    back_to_top: "Nach oben"
+    filter:
+      current: "Aktuell"
+      next: "Nächste Version"
+      deleted: "Gelöscht"
+      redirected: "Umgeleitet"
+    deleted_terms: "Gelöschte Begriffe"
+    letter_nav: "Begriffe nach Anfangsbuchstaben"
+    next_version_terms: "Begriffe der nächsten Version"
+    redirected_terms: "Weitergeleitete Begriffe"
+  number:
+    format:
+      delimiter: "."
+      separator: ","
+  views:
+    pagination:
+      label: "Seiten"
+      previous: "Zurück"
+      next: "Weiter"
+  tree:
+    expand_all: "Alle aufklappen"
+    collapse_all: "Alle zuklappen"

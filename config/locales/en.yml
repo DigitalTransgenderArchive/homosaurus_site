@@ -26,7 +26,7 @@ en:
     email: Your Email
     label: Contact Us
     message: Your Message
-    message_html: If you are using the Homosaurus, we want to hear from you! Please reach out to let us know how you are using this vocabulary and share any feedback you might have. We are also open to having new members join our Collective so please let us know if that is something you are interested in.</br>The Homosaurus is a work in progress and we welcome suggestions for new terms to be added or changes to be made within the vocabulary. The Homosaurus Collective oversees the upkeep of the vocabulary and will consider all proposed terms and changes on a quarterly basis.
+    message_html: "<p>If you are using the Homosaurus, we want to hear from you! Please reach out to let us know how you are using this vocabulary and share any feedback you might have. We are also open to having new members join our Collective so please let us know if that is something you are interested in.</p><p>The Homosaurus is a work in progress and we welcome suggestions for new terms to be added or changes to be made within the vocabulary. The Homosaurus Collective oversees the upkeep of the vocabulary and will consider all proposed terms and changes on a quarterly basis.</p>"
     name: Your Name
     send: Send
     topic: Topic
@@ -111,7 +111,7 @@ en:
     cancel: Cancel
     close: Close
     post: Post
-    tagline: An International LGBTQ+ Linked Data Vocabulary
+    tagline: "An International LGBTQ+ Linked\u00A0Data Vocabulary"
     translation_needed: Translation needed
   relations:
     '1': Description
@@ -137,10 +137,34 @@ en:
   release:
     label: Release
     updates: Updates
+    changes:
+      one: "%{number} change"
+      other: "%{number} changes"
+    status_pending: "Pending"
+    released_on: "Released %{date}"
+    date_heading: "Date"
+    new_terms_heading: "New Terms"
+    page_title: "Homosaurus Releases"
+    show_title: "Homosaurus v. %{version} Updates"
+    sort:
+      ascending: "Ascending"
+      by_date: "Sort by date"
+      by_name: "Sort by name"
+      descending: "Descending"
+    status_heading: "Status"
+    total_terms_heading: "Total Terms"
+    translations_heading: "New Translations"
+    updated_terms_heading: "Updated Terms"
   search:
     button: "Search"
     placeholder: Enter Search Term
     results_label: Search Results For
+    alt_labels:
+      one: "Alternative Label"
+      other: "Alternative Labels"
+    intro: "Search Homosaurus terms by label, description or identifier. Up to 50 matching terms are shown."
+    page_title: "Search the Homosaurus"
+    page_title_version: "Search the Homosaurus %{version}"
   status:
     approved: Approved
     deleted: Deleted
@@ -167,15 +191,24 @@ en:
     hierarchy_label: Hierarchy Display
     history: History
     other_formats: Other formats (including language identifiers)
-    other_formats_legacy: Legacy formats (without language identifiers)
+    other_formats_legacy: "Legacy Formats"
     replace_term: Replace Other Term
     view_history: View History
+    save_term: "Save Term"
+    legacy_formats_note: "without language identifiers"
   user:
     bio: Biography
     fname: First Name
     lname: Last Name
     permissions: Permissions
     username: Username
+    all_languages: "All languages"
+    email: "Email"
+    log_in: "Log In"
+    no_account: "Don't have an account?"
+    password: "Password"
+    remember_me: "Remember me on this computer"
+    sign_up: "Sign up"
   vocab:
     admin:
       actions: Admin Actions
@@ -185,5 +218,27 @@ en:
       show_redirects: Show Redirected Terms
       show_visible: Show Visible Terms
       suggest_term: Suggest New Term
-    current_terms: Current Term List
-    label: Homosaurus Vocabulary Terms
+    current_terms: Current Terms
+    label: Homosaurus Vocabulary
+    back_to_top: "Back to top"
+    filter:
+      current: "Current"
+      next: "Next Version"
+      deleted: "Deleted"
+      redirected: "Redirected"
+    deleted_terms: "Deleted Terms"
+    letter_nav: "Terms by initial letter"
+    next_version_terms: "Next Version Terms"
+    redirected_terms: "Redirected Terms"
+  number:
+    format:
+      delimiter: ","
+      separator: "."
+  views:
+    pagination:
+      label: "Pages"
+      previous: "Previous"
+      next: "Next"
+  tree:
+    expand_all: "Expand All"
+    collapse_all: "Collapse All"

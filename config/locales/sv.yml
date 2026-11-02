@@ -29,7 +29,7 @@ sv:
     email: Epost
     label: "Kontakta oss"
     message: Meddelande
-    message_html: Om du använder Homosaurus vill vi gärna höra från dig! Hör gärna av dig för att berätta hur du använder den här vokabulären och dela med dig av all feedback du kan ha. Vi är också öppna för att ta in nya medlemmar i vårt kollektiv, så låt oss veta om det är något du är intresserad av. </br>Homosaurus är ett pågående arbete och vi välkomnar förslag på nya termer som kan läggas till eller ändringar som kan göras i vokabulären. Homosaurus-kollektivet övervakar underhållet av vokabulären och kommer att överväga alla föreslagna termer och ändringar kvartalsvis.
+    message_html: "<p>Om du använder Homosaurus vill vi gärna höra från dig! Hör gärna av dig för att berätta hur du använder den här vokabulären och dela med dig av all feedback du kan ha. Vi är också öppna för att ta in nya medlemmar i vårt kollektiv, så låt oss veta om det är något du är intresserad av.</p><p>Homosaurus är ett pågående arbete och vi välkomnar förslag på nya termer som kan läggas till eller ändringar som kan göras i vokabulären. Homosaurus-kollektivet övervakar underhållet av vokabulären och kommer att överväga alla föreslagna termer och ändringar kvartalsvis.</p>"
     name: Namn
     send: Skicka
     topic: Ämne
@@ -111,7 +111,7 @@ sv:
     cancel: Annullera
     close: Stänga
     post: Inlägg
-    tagline: En internationell hbtq+-tesaurus med länkade data
+    tagline: "En internationell hbtq+-tesaurus med\u00A0länkade\u00A0data"
     translation_needed: Översättning behövs
   relations:
     '1': Beskrivning
@@ -137,10 +137,34 @@ sv:
   release:
     label: Version
     updates: Uppdateringar
+    changes:
+      one: "%{number} ändring"
+      other: "%{number} ändringar"
+    status_pending: "Väntar"
+    released_on: "Publicerad %{date}"
+    date_heading: "Datum"
+    new_terms_heading: "Nya termer"
+    page_title: "Homosaurus-versioner"
+    show_title: "Uppdateringar i Homosaurus v. %{version}"
+    sort:
+      ascending: "Stigande"
+      by_date: "Sortera efter datum"
+      by_name: "Sortera efter namn"
+      descending: "Fallande"
+    status_heading: "Status"
+    total_terms_heading: "Termer totalt"
+    translations_heading: "Nya översättningar"
+    updated_terms_heading: "Uppdaterade termer"
   search:
     button: "Sök"
     placeholder: Fyll i sökord
     results_label: Sökresultat för
+    alt_labels:
+      one: "Variant"
+      other: "Varianter"
+    intro: "Sök ämnesord i Homosaurus efter benämning, beskrivning eller identifierare. Upp till 50 matchande ämnesord visas."
+    page_title: "Sök i Homosaurus"
+    page_title_version: "Sök i Homosaurus %{version}"
   status:
     approved: Godkänd
     deleted: Raderad
@@ -167,15 +191,24 @@ sv:
     hierarchy_label: Hierarkisk vy
     history: Historik
     other_formats: Andra format (inklusive språkidentifierare)
-    other_formats_legacy: Äldre format (utan språkidentifierare)
+    other_formats_legacy: "Äldre format"
     replace_term: Ersätt annan term
     view_history: Se historik
+    save_term: "Spara term"
+    legacy_formats_note: "utan språkidentifierare"
   user:
     bio: Biografi
     fname: Förnamn
     lname: Efternamn
     permissions: Behörigheter
     username: Användarnamn
+    all_languages: "Alla språk"
+    email: "E-post"
+    log_in: "Logga in"
+    no_account: "Har du inget konto?"
+    password: "Lösenord"
+    remember_me: "Kom ihåg mig på den här datorn"
+    sign_up: "Registrera dig"
   vocab:
     admin:
       actions: Administratörsfunktioner
@@ -185,5 +218,27 @@ sv:
       show_redirects: Visa omdirigerade ämnesord
       show_visible: Visa synliga ämnesord
       suggest_term: Föreslå en ny term
-    current_terms: Aktuell lista med ämnesord
-    label: Homosaurus ämnesord
+    current_terms: Aktuella ämnesord
+    label: Homosaurus vokabulär
+    back_to_top: "Till toppen"
+    filter:
+      current: "Aktuella"
+      next: "Nästa version"
+      deleted: "Borttagna"
+      redirected: "Omdirigerade"
+    deleted_terms: "Borttagna termer"
+    letter_nav: "Termer efter begynnelsebokstav"
+    next_version_terms: "Termer i nästa version"
+    redirected_terms: "Omdirigerade termer"
+  number:
+    format:
+      delimiter: " "
+      separator: ","
+  views:
+    pagination:
+      label: "Sidor"
+      previous: "Föregående"
+      next: "Nästa"
+  tree:
+    expand_all: "Expandera alla"
+    collapse_all: "Fäll ihop alla"

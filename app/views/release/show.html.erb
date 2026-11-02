@@ -1,128 +1,67 @@
-<script type="text/javascript">
-  $(document).ready(function() {
-      $('input[type="checkbox"]').on('change', function(){
-	  var allowed_tags = [];
-	  var allowed_statuses = []
-	  $('.tag-filter:checked').each(function(){
-	      allowed_tags.push($(this).val());
-	  });
-	  var check_status = $('.status-filter').length;
-	  $('.status-filter:checked').each(function(){
-	      allowed_statuses.push($(this).val());
-	  });
-	  $('.edit-request').each(function(){
-	      var $er = $(this);
-	      var er_tags = $(this).data("filter-tags").split(/[ ]+/);
-	      if (er_tags.some(i => allowed_tags.includes(i)) && (check_status ? er_tags.some(i => allowed_statuses.includes(i)) : true )){
-		  $er.show();
-	      } else {
-		  $er.hide();
-	      }
-	  });
-      });
-      $('input[type="radio"]').on('change', function(){
-	  var sort_by = $('input[type="radio"][name="filter-sort"]:checked').attr('id')
-	  var sort_order = $('input[type="radio"][name="filter-sort-order"]:checked').attr('id')
-	  var $ers = $('.edit-request');
-	  var sort_mult = (sort_order == "filter-sort-ascend") ? 1 : -1;
-	  $ers.sort(function(a, b){
-	      return sort_mult * $(a).data(sort_by).localeCompare($(b).data(sort_by));
-	  });
-	  $ers.detach().appendTo($('#release_holder'));
-      });
-  });
-</script>
-<div id="about" class="col-sm-12 col-md-12">
-  <div class="release_title">
-    <h2>Homosaurus v. <%= @release.release_identifier %> <%= t("release.updates") %></h2>
-    <% if @release.status != "Published" %>
-    <h3> <%= t("status.pending") %> </h3>
-    <% else %>
-    <h3>Released <%= @release.release_date %></h3>
+<div id="about" class="col-sm-12 col-md-12 release-page">
+  <h1 class="page-title"><%= t("release.show_title", version: @release.release_identifier) %></h1>
+  <% if @release.status != "Published" %>
+  <p class="release-date"><%= t("release.status_pending") %> · <%= t("release.changes", count: @card_total, number: number_with_delimiter(@card_total)) %></p>
+  <% else %>
+  <p class="release-date"><%= t("release.released_on", date: @release.release_date.to_s[0, 10]) %> · <%= t("release.changes", count: @card_total, number: number_with_delimiter(@card_total)) %></p>
+  <% end %>
+  <div id="filter" class="release-filter">
+    <div class="release-filter-group">
+      <i class="fa-solid fa-filter" aria-hidden="true"></i>
+      <% [["new_term", "success", "status.new_term_label"], ["redirected", "warning", "status.redirected"], ["linked", "info", "status.linked_label"], ["modified", "primary", "status.modified"]].each do |value, colour, key| %>
+        <% on = @card_types.include?(value) %>
+        <a class="release-filter-option<%= " is-off" unless on %>" href="<%= release_filter_path(types: toggled_filter(@card_types, VersionRelease::CARD_TYPES, value)) %>" role="button" aria-pressed="<%= on %>"><span class="badge text-bg-<%= colour %>"><%= t(key) %></span><span class="release-filter-count"><%= number_with_delimiter(@type_counts.fetch(value, 0)) %></span></a>
+      <% end %>
+    </div>
+    <% if current_user.present? && @release.status != "Published" %>
+      <div class="release-filter-group">
+        <% [["approved", "success", "status.approved"], ["pending", "warning", "status.pending"], ["suggested", "danger", "status.suggested"]].each do |value, colour, key| %>
+          <% on = @card_statuses.include?(value) %>
+          <a class="release-filter-option<%= " is-off" unless on %>" href="<%= release_filter_path(statuses: toggled_filter(@card_statuses, %w[approved pending suggested], value)) %>" role="button" aria-pressed="<%= on %>"><span class="badge text-bg-<%= colour %>"><%= t(key) %></span><span class="release-filter-count"><%= number_with_delimiter(@status_counts.fetch(value, 0)) %></span></a>
+        <% end %>
+      </div>
     <% end %>
-  </div>
-  <div class="info_section">
-    <div id="filter" class="form-group d-flex">
-      <div class="my-auto mx-3">
-	<h3><i class="fa-solid fa-filter fa-xl"></i></h3>
+    <div class="release-sort">
+      <i class="fa-solid fa-sort" aria-hidden="true"></i>
+      <div class="btn-group btn-group-sm">
+        <a class="btn btn-outline-secondary<%= " active" if @card_sort == "time" %>" href="<%= release_filter_path(sort: nil) %>" role="button" aria-pressed="<%= @card_sort == "time" %>" aria-label="<%= t("release.sort.by_date") %>"><i class="fa-solid fa-calendar" aria-hidden="true"></i></a>
+        <a class="btn btn-outline-secondary<%= " active" if @card_sort == "label" %>" href="<%= release_filter_path(sort: "label") %>" role="button" aria-pressed="<%= @card_sort == "label" %>" aria-label="<%= t("release.sort.by_name") %>"><i class="fa-solid fa-a" aria-hidden="true"></i></a>
       </div>
-      <div class="vr me-3"></div>
-      <div class="me-auto">
-	<div class="form-check form-check-inline">
-	  <input class="form-check-input tag-filter" type="checkbox" value="new_term" checked>
-	  <label class="form-check-label">
-	    <span class="badge text-bg-success"><%= t("status.new_term_label") %></span>
-	  </label>
-	</div>
-	<div class="form-check form-check-inline">
-	  <input class="form-check-input tag-filter" type="checkbox" value="redirected" checked>
-	  <label class="form-check-label">
-	    <span class="badge text-bg-warning"><%= t("status.redirected") %></span>
-	  </label>
-	</div>
-	<div class="form-check form-check-inline">
-	  <input class="form-check-input tag-filter" type="checkbox" value="linked" checked>
-	  <label class="form-check-label">
-	    <span class="badge text-bg-info"><%= t("status.linked_label") %></span>
-	  </label>
-	</div>
-	<div class="form-check form-check-inline">
-	  <input class="form-check-input tag-filter" type="checkbox" value="modified" checked>
-	  <label class="form-check-label">
-	    <span class="badge text-bg-primary"><%= t("status.modified") %></span>
-	  </label>
-	</div>
-	<% if @release.status != "Published" %>
-	<hr class="m-1"/>
-	<div class="form-check form-check-inline">
-	  <input class="form-check-input status-filter" type="checkbox" value="approved" checked>
-	  <label class="form-check-label">
-	    <span class="badge text-bg-success"><%= t("status.approved") %></span>
-	  </label>
-	</div>
-	<div class="form-check form-check-inline">
-	  <input class="form-check-input status-filter" type="checkbox" value="pending" checked>
-	  <label class="form-check-label">
-	    <span class="badge text-bg-warning"><%= t("status.pending") %></span>
-	  </label>
-	</div>
-	<div class="form-check form-check-inline">
-	  <input class="form-check-input status-filter" type="checkbox" value="suggested" checked>
-	  <label class="form-check-label">
-	    <span class="badge text-bg-danger"><%= t("status.suggested") %></span>
-	  </label>
-	</div>
-	<% end %>
-      </div>
-      <div class="my-auto mx-3">
-	<h3><i class="fa-solid fa-sort fa-xl"></i></h3>
-      </div>
-      <div class="vr me-3"></div>
-      <div class="my-auto">
-	<input type="radio" class="btn-check" name="filter-sort-order" id="filter-sort-ascend" checked>
-	<label class="btn" for="filter-sort-ascend"><i class="fa-solid fa-caret-up"></i></label>
-	<input type="radio" class="btn-check" name="filter-sort-order" id="filter-sort-descend">
-	<label class="btn" for="filter-sort-descend"><i class="fa-solid fa-caret-down"></i></label>
-	<div class="vr mx-3"></div>
-	<input type="radio" class="btn-check" name="filter-sort" id="filter-time" checked>
-	<label class="btn" for="filter-time"><i class="fa-solid fa-calendar"></i></label>
-	<input type="radio" class="btn-check" name="filter-sort" id="filter-label">
-	<label class="btn" for="filter-label"><i class="fa-solid fa-a"></i></label>
+      <div class="btn-group btn-group-sm">
+        <a class="btn btn-outline-secondary<%= " active" if @card_order == "asc" %>" href="<%= release_filter_path(order: nil) %>" role="button" aria-pressed="<%= @card_order == "asc" %>" aria-label="<%= t("release.sort.ascending") %>"><i class="fa-solid fa-caret-up" aria-hidden="true"></i></a>
+        <a class="btn btn-outline-secondary<%= " active" if @card_order == "desc" %>" href="<%= release_filter_path(order: "desc") %>" role="button" aria-pressed="<%= @card_order == "desc" %>" aria-label="<%= t("release.sort.descending") %>"><i class="fa-solid fa-caret-down" aria-hidden="true"></i></a>
       </div>
     </div>
   </div>
-  <hr/>
   <div id="release_holder" class="info_section">
-    <% if current_user && current_user.present? %>
-    <% ers = @release.edit_requests  %>
-    <% else  %>
-    <% ers = @release.approved_edit_requests  %>
-    <% end  %>
-    <% ers.each do |er| %>
-    <%= render partial:"partials/edit_request_partial", locals: {edit_request: er, relations: Relation.all, release_page: true} %>
-    <% end %>
+    <%= render "release/cards", edit_requests: @page_edit_requests %>
   </div>
+  <%= paginate @cards, window: 2, outer_window: 1 %>
 </div>
 
-<p><br/><strong><%= t('term.other_formats') %>:</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.nt'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonld' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttl' %>, <%= link_to t("download.csv_tabs"), request.original_url.split('?').first + '.csv' %>, <%= link_to "XML", request.original_url.split('?').first + '.xml' %>
-<p><br/><strong><%= t('term.other_formats_legacy') %>:</strong> <%= link_to "N-Triples", request.original_url.split('?').first + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url.split('?').first + '.jsonldV2' %>, <%= link_to "TTL", request.original_url.split('?').first + '.ttlV2' %>
+<% formats_base = request.original_url.split('?').first %>
+<dl class="format-groups release-formats">
+  <div>
+    <dt><%= t('download.formats') %></dt>
+    <dd>
+      <ul>
+        <li><%= link_to "N-Triples", formats_base + ".nt", data: { format: "nt" } %></li>
+        <li><%= link_to "JSON-LD", formats_base + ".jsonld", data: { format: "jsonld" } %></li>
+        <li><%= link_to "TTL", formats_base + ".ttl", data: { format: "ttl" } %></li>
+        <li><%= link_to "CSV", formats_base + ".csv", data: { format: "csv" } %></li>
+        <li><%= link_to "XML", formats_base + ".xml", data: { format: "xml" } %></li>
+      </ul>
+    </dd>
+  </div>
+  <div class="format-legacy">
+    <dt><%= t('term.other_formats_legacy') %></dt>
+    <dd>
+      <ul>
+        <li><%= link_to "N-Triples", formats_base + ".ntV2", data: { format: "nt" } %></li>
+        <li><%= link_to "JSON-LD", formats_base + ".jsonldV2", data: { format: "jsonld" } %></li>
+        <li><%= link_to "TTL", formats_base + ".ttlV2", data: { format: "ttl" } %></li>
+      </ul>
+      <p class="format-note"><%= t('term.legacy_formats_note') %></p>
+    </dd>
+  </div>
+</dl>

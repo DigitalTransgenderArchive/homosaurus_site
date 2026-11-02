@@ -10,16 +10,8 @@
   end
 
   %>
-<h2><%= t("discussion.label") %>:
-  <% if is_er %>
-    <span class="badge text-bg-dark">V. <%= @homosaurus_obj.version_release.release_identifier %> Changes [<%= @homosaurus_obj.vote_status %>]</span>
-    <% end %>
-    <% if is_er || is_term %>
-      &nbsp; <%= pref_label %> [<%= identifier %>]
-    <% else %>
-      &nbsp; <%= @homosaurus_obj.username %>
-    <% end %>
-</h2>
+<div class="discussion-page">
+<h1 class="page-title"><%= t("discussion.label") %>: <%= is_user ? @homosaurus_obj.username : pref_label %><% unless is_user %> <span class="title-id"><%= identifier %></span><% end %></h1>
 <% if is_term %>
   <% if @homosaurus_obj.visibility == "deleted" %>
     <div class="alert alert-danger" role="alert">
@@ -32,42 +24,43 @@
     </div>
   <% end %>
 <% end %>
-  
-<p><div style="clear:both;">
+<div class="discussion-actions">
+  <div class="discussion-nav">
     <% unless is_user %>
-      <%= button_to t("discussion.back_to_term"), vocabulary_show_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", class: 'btn btn-outline-secondary', style:"margin-left:20px;" %>
-      <%= button_to t("term.view_history"), vocabulary_term_history_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", class: 'btn btn-outline-secondary', style:"margin-left:20px;" %>
+      <%= button_to t("discussion.back_to_term"), vocabulary_show_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", form_class: "btn p-0", class: 'btn btn-outline-secondary' %>
+      <%= button_to t("term.view_history"), vocabulary_term_history_path(vocab_id: vocabulary_identifier, id: identifier), :method => "get", form_class: "btn p-0", class: 'btn btn-outline-secondary' %>
     <% else %>
-      <%= button_to t("menu.profile"), profile_for_path(user_id: @homosaurus_obj.id), :method => "get", class: 'btn btn-outline-secondary', style:"margin-left:20px;" %>
+      <%= button_to t("menu.profile"), profile_for_path(user_id: @homosaurus_obj.id), :method => "get", form_class: "btn p-0", class: 'btn btn-outline-secondary' %>
     <% end %>
     <% if is_er %>
-      <%= button_to t("edit_request.view_release"), release_show_path(release_id: @homosaurus_obj.version_release.release_identifier), :method => "get", class: 'btn btn-outline-secondary', style:"margin-left:20px;" %>
+      <%= button_to t("edit_request.view_release"), release_show_path(release_id: @homosaurus_obj.version_release.release_identifier), :method => "get", form_class: "btn p-0", class: 'btn btn-outline-secondary' %>
     <% end %>
-    <button class="btn btn-primary discussion-add-topic" style="margin-left:20px;"
-	    data-bs-toggle="modal" data-bs-target="#new-topic-modal"><%= t("discussion.add_topic") %> (+)</button>
+  </div>
+  <div class="discussion-tools">
+    <button class="btn btn-primary discussion-add-topic" data-bs-toggle="modal" data-bs-target="#new-topic-modal"><%= t("discussion.add_topic") %></button>
     <% if is_er and @homosaurus_obj.vote_status == "pending" and not @homosaurus_obj.hasUserVoted(current_user) and current_user.contributor? %>
-      <button class="btn btn-primary discussion-add-vote" style="margin-left:20px;"
-	      data-bs-toggle="modal" data-bs-target="#new-vote-modal"><%= t("discussion.add_vote") %> (+)</button>
+      <button class="btn btn-primary discussion-add-vote" data-bs-toggle="modal" data-bs-target="#new-vote-modal"><%= t("discussion.add_vote") %></button>
     <% end %>
-
     <% if is_er and current_user.admin? and @homosaurus_obj.vote_status == "pending" %>
-      <%= button_to t("edit_request.approve"), edit_request_approve_release_path(vocab_id: vocabulary_identifier, id: identifier, release_id: @homosaurus_obj.version_release.release_identifier), :method => "post", class: 'btn btn-primary', data: {confirm: t("edit_request.confirm_approve") } %>
+      <%= button_to t("edit_request.approve"), edit_request_approve_release_path(vocab_id: vocabulary_identifier, id: identifier, release_id: @homosaurus_obj.version_release.release_identifier), :method => "post", form_class: "btn p-0", class: 'btn btn-primary', data: {confirm: "Are you sure you want to approve this?" } %>
     <% end %>
+  </div>
 </div>
-<br/>
 
-<div class="container-fluid">
-  <% if is_er %>
-    <h2><%= t("discussion.changes_label") %></h2>
-    <%= render partial: "partials/edit_request_partial", locals: {edit_request: @homosaurus_obj, relations: Relation.all, discussion_page: true} %>
-    <h2><%= t("discussion.comment_vote_label") %></h2>
-    <h3><%= t("discussion.vote_tally") %>: &nbsp; <% @homosaurus_obj.voteSummary().each do |k, v| %>
-      	<span class='<%= Comment::vote_badge_class(k) %>'><%= k %><span class='badge text-bg-light'><%= v %></span></span>
-
-    <% end %></h3>
-  <% else %>
-    <h2><%= t("discussion.comment_label") %></h2>
-  <% end %>
+<% if is_er %>
+  <h2 class="section-title"><%= t("discussion.changes_label") %> <span class="badge badge-version">V. <%= @homosaurus_obj.version_release.release_identifier %></span> <span class="badge discussion-status discussion-status-<%= @homosaurus_obj.vote_status %>"><%= t("status.#{@homosaurus_obj.vote_status}", default: @homosaurus_obj.vote_status) %></span></h2>
+  <%= render partial: "partials/edit_request_partial", locals: {edit_request: @homosaurus_obj, relations: Relation.all.to_a, discussion_page: true} %>
+  <h2 class="section-title"><%= t("discussion.comment_vote_label") %></h2>
+  <div class="vote-tally">
+    <span class="vote-tally-label"><%= t("discussion.vote_tally") %></span>
+    <% @homosaurus_obj.voteSummary().each do |k, v| %>
+      <span class='<%= Comment::vote_badge_class(k) %>'><%= k %><span class='badge text-bg-light'><%= v %></span></span>
+    <% end %>
+  </div>
+<% else %>
+  <h2 class="section-title"><%= t("discussion.comment_label") %></h2>
+<% end %>
+<div class="discussion-comments">
   <% @comments.each do |c|  %>
   <%= render partial:"partials/comment_partial", locals: {comment: c} %>
   <% end %>
@@ -98,7 +91,7 @@
 	  </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><%= t('misc.cancel') %></button>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"><%= t('misc.cancel') %></button>
         <button type="submit" class="btn btn-primary"><%= t('misc.post') %></button>
       </div>
       <% end %>
@@ -137,7 +130,7 @@
 	  </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><%= t('misc.cancel') %></button>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"><%= t('misc.cancel') %></button>
         <button type="submit" class="btn btn-primary"><%= t('misc.post') %></button>
       </div>
       <% end %>
@@ -227,4 +220,4 @@
 	});
     });
 </script>
-
+</div>

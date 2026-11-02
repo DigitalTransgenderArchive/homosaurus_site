@@ -51,18 +51,18 @@
   </ul>
 </nav>
 
-<h2 id="organizing"><%= t("about_page.organizing_heading") %></h2>
+<h3 id="organizing" class="board-heading"><%= t("about_page.organizing_heading") %></h3>
 
   <p class="board-description"><%= t("about_page.organizing_description") %></p>
 
-<h3><%= t("about_page.board_co_convenors_heading") %></h3>
+<h4><%= t("about_page.board_co_convenors_heading") %></h4>
 <ul class="member-grid">
   <%= render layout: "homepage/member", locals: { name: "Bri Watson", photo: "faces/watson.jpg", link: "https://brimwats.com" } do %>Western University<% end %>
   <%= render layout: "homepage/member", locals: { name: "Marika Cifor", photo: "faces/cifor.jpg", link: "https://ischool.uw.edu/people/faculty/mcifor" } do %>University of Washington, Seattle<% end %>
 </ul>
 
 
-  <h3><%= t("about_page.members_heading") %></h3>
+  <h4><%= t("about_page.members_heading") %></h4>
 
   <ul class="member-grid">
   <%= render layout: "homepage/member", locals: { name: "Avery Dame-Griff", photo: "faces/damegriffe.jpg", link: "http://averydame.net/" } do %>Gonzaga University<% end %>
@@ -75,7 +75,7 @@
   <%= render layout: "homepage/member", locals: { name: "Patrick Keilty", photo: "faces/keilty.jpg", link: "https://patrickkeilty.com" } do %>University of Toronto<% end %>
 </ul>
 
-<h3><%= t("about_page.systems_subcommittee").upcase_first %></h3>
+<h4><%= t("about_page.systems_subcommittee").upcase_first %></h4>
 <ul class="member-grid">
   <%= render layout: "homepage/member", locals: { name: "Bri Watson", photo: "faces/watson.jpg", link: "https://brimwats.com" } do %>Western University<% end %>
   <%= render layout: "homepage/member", locals: { name: "Jackson Huang", photo: "faces/huang.jpg", link: "https://educopia.org/about/" } do %>Educopia<% end %>
@@ -83,11 +83,11 @@
   <%= render layout: "homepage/member", locals: { name: "K.J. Rawson", photo: "faces/rawson.jpg", link: "https://cssh.northeastern.edu/faculty/k-j-rawson/" } do %>Northeastern University<% end %>
 </ul>
 
-<h2 id="implementation"><%= t("about_page.implementation_heading") %></h2>
+<h3 id="implementation" class="board-heading"><%= t("about_page.implementation_heading") %></h3>
 
 <p class="board-description"><%= t("about_page.implementation_description") %></p>
 
-<h3><%= t("about_page.board_co_convenors_heading") %></h3>
+<h4><%= t("about_page.board_co_convenors_heading") %></h4>
 <ul class="member-grid">
   <%= render layout: "homepage/member", locals: { name: "Crystal Yragui", photo: "faces/yragui.jpg", link: "https://github.com/CECSpecialistI" } do %>University of Washington<% end %>
   <%= render layout: "homepage/member", locals: { name: "Isaac Fellman", photo: "faces/fellman.jpg", link: "https://cssh.northeastern.edu/person/isaac-fellman/" } do %>Digital Transgender Archive<% end %>
@@ -95,7 +95,7 @@
 </ul>
 
 
-<h3><%= t("about_page.members_heading") %></h3>
+<h4><%= t("about_page.members_heading") %></h4>
 <ul class="member-grid">
   <%= render layout: "homepage/member", locals: { name: "Emory LaPrade", photo: "faces/laprade.jpg", link: "https://www.linkedin.com/in/emory-laprade-855127164/" } do %>Johnson City Public Library<% end %>
   <%= render layout: "homepage/member", locals: { name: "Gabrielle Garcia", photo: "faces/garcia.jpg", link: "https://gabriellesgarcia.wordpress.com" } do %>Lambda Archives<% end %>
@@ -104,11 +104,11 @@
   <%= render layout: "homepage/member", locals: { name: "Travis Wagner", photo: "faces/wagner.jpg", link: "http://travislwagner.com/" } do %>University of Illinois<% end %>
 </ul>
 
-<h2 id="term-development"><%= t("about_page.term_development_heading") %></h2>
+<h3 id="term-development" class="board-heading"><%= t("about_page.term_development_heading") %></h3>
 
 <p class="board-description"><%= t("about_page.term_development_description") %></p>
 
-<h3><%= t("about_page.board_co_convenors_heading") %></h3>
+<h4><%= t("about_page.board_co_convenors_heading") %></h4>
 <ul class="member-grid">
   <%= render layout: "homepage/member", locals: { name: "Chloe Noland", photo: "faces/noland.jpg", link: "https://guides.library.ucsc.edu/prf.php?id=aacf3982-4626-11ef-ad2f-0a92c88187d1" } do %>University of California, Santa Cruz<span class="member-committee"><%= t("about_page.committees.english").upcase_first %></span><% end %>
   <%= render layout: "homepage/member", locals: { name: "Keahi Adolpho", photo: "faces/adolpho.jpg", link: "https://inthelibrarywiththeleadpipe.org/author/keahi-adolpho" } do %>Virginia Commonwealth University Libraries<span class="member-committee"><%= t("about_page.committees.english").upcase_first %></span><% end %>
@@ -116,7 +116,7 @@
 </ul>
 
 
-<h3><%= t("about_page.committee_co_convenors_heading") %></h3>
+<h4><%= t("about_page.committee_co_convenors_heading") %></h4>
 <ul class="member-grid">
   <%= render layout: "homepage/member", locals: { name: "Amber Redegeld", link: "https://ihlia.nl/en/about-us/organisation/" } do %>IHLIA LGBTI Heritage<span class="member-committee"><%= t("about_page.committees.dutch").upcase_first %></span><% end %>
   <%= render layout: "homepage/member", locals: { name: "Annie Wolfe", link: "https://crkn-rcdr.ca/en/node/18308" } do %><%= t("about_page.institutions.lac") %><span class="member-committee"><%= t("about_page.committees.qc_french").upcase_first %></span><% end %>
@@ -125,7 +125,7 @@
   <%= render layout: "homepage/member", locals: { name: "Sofia Zamora Morales", link: "https://www.linkedin.com/in/sof%C3%ADa-zamora-morales-7a8b2a201/" } do %>Northeastern University<span class="member-committee"><%= t("about_page.committees.spanish").upcase_first %></span><% end %>
 </ul>
 
-<h3><%= t("about_page.members_heading") %></h3>
+<h4><%= t("about_page.members_heading") %></h4>
 <ul class="member-grid">
   <%= render layout: "homepage/member", locals: { name: "Anita Mazur", link: "https://www.polymtl.ca/biblio/en/bottin-du-personnel" } do %>Polytechnique Montréal<span class="member-committee"><%= t("about_page.committees.qc_french").upcase_first %></span><% end %>
   <%= render layout: "homepage/member", locals: { name: "Críspulo Travieso Rodríguez", photo: "faces/travieso.jpg", link: "https://produccioncientifica.usal.es/investigadores/57534/detalle" } do %>Universidad de Salamanca<span class="member-committee"><%= t("about_page.committees.spanish").upcase_first %></span><% end %>

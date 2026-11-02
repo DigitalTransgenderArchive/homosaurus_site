@@ -67,16 +67,137 @@ class VersionRelease < ActiveRecord::Base
     return self.edit_requests.where(status: "approved")
   end
 
+  def all_cards_cache_key
+    count, id_sum, changes_sum, status_sum = edit_requests.pluck(Arel.sql("COUNT(*)"), Arel.sql("SUM(id)"), Arel.sql("SUM(CRC32(my_changes))"), Arel.sql("SUM(CRC32(status))")).first
+    [id, updated_at.to_i, "all", count, id_sum, changes_sum, status_sum, EditRequest.count, EditRequest.maximum(:id), Term.maximum(:updated_at).to_i]
+  end
+
+  def approved_cards_cache_key
+    count, id_sum, changes_sum = approved_edit_requests.pluck(Arel.sql("COUNT(*)"), Arel.sql("SUM(id)"), Arel.sql("SUM(CRC32(my_changes))")).first
+    [id, updated_at.to_i, count, id_sum, changes_sum, Term.maximum(:updated_at).to_i]
+  end
+
   def statistics
-    return {
-      "terms_added" => self.edit_requests.reject{|er| not er.previous().nil? }.count,
-      "terms_modified" => self.edit_requests.reject{|er| er.previous().nil? }.count,
-      "approved" => self.edit_requests.where(status: "approved").count,
-      "pending" => self.edit_requests.where(status: "pending").count,
-      "total" => self.edit_requests.count
-    }
+    self.class.manage_statistics[id]
+  end
+
+  CARD_TYPES = %w[new_term redirected linked modified].freeze
+
+  def self.edit_request_checksum
+    EditRequest.pluck(Arel.sql("COUNT(*)"), Arel.sql("SUM(CRC32(CONCAT_WS(',', id, status, version_release_id, term_id, parent_id, prev_term_id)))")).first.map(&:to_i)
+  end
+
+  def self.edit_request_ids_without_previous
+    Rails.cache.fetch(["edit-requests-without-previous", *edit_request_checksum]) do
+      rows = EditRequest.pluck(:id, :term_id, :parent_id, :version_release_id, :prev_term_id)
+      by_id = rows.map { |row| [row[0], row] }.to_h
+      first_for_term = rows.group_by { |row| row[1] }.transform_values { |list| list.min_by { |id, _, _, release, _| [release.nil? ? 0 : 1, release.to_i, id] }[0] }
+      first_child = rows.reject { |row| row[2].nil? }.group_by { |row| row[2] }.transform_values { |list| list.map(&:first).min }
+      without_previous = lambda do |row|
+        id, term_id, parent_id, _, prev_term_id = row
+        if parent_id
+          first_child[parent_id] == id && (by_id[parent_id].nil? || without_previous.(by_id[parent_id]))
+        else
+          first_for_term[term_id] == id && (prev_term_id.nil? || !first_for_term.key?(prev_term_id))
+        end
+      end
+      rows.select { |row| without_previous.(row) }.map(&:first)
+    end.to_set
+  end
+
+  def self.manage_statistics
+    Rails.cache.fetch(["release-manage-statistics", *edit_request_checksum]) do
+      new_ids = edit_request_ids_without_previous
+      by_release = EditRequest.pluck(:id, :version_release_id).group_by(&:last)
+      statuses = EditRequest.group(:version_release_id, :status).count
+      VersionRelease.pluck(:id).map do |release_id|
+        list = by_release.fetch(release_id, [])
+        added = list.count { |id, _| new_ids.include?(id) }
+        counts = statuses.select { |(rid, _), _| rid == release_id }.map { |(_, status), n| [status, n] }.to_h
+        [release_id, {
+          "terms_added" => added,
+          "terms_modified" => list.size - added,
+          "approved" => counts.fetch("approved", 0),
+          "pending" => counts.fetch("pending", 0),
+          "total" => counts.values.sum
+        }]
+      end.to_h
+    end
+  end
+
+  def card_index(include_unapproved)
+    scope = include_unapproved ? edit_requests : approved_edit_requests
+    key = include_unapproved ? all_cards_cache_key : approved_cards_cache_key
+    Rails.cache.fetch(["release-card-index", *key]) do
+      rows = scope.pluck(:id, :term_id, :status, :created_at, :my_changes)
+      new_ids = VersionRelease.edit_request_ids_without_previous
+      children = EditRequest.where(parent_id: rows.map(&:first)).pluck(:parent_id, :creator_id).group_by(&:first)
+      suggesters = User.joins(:roles).where(roles: { name: "suggester" }).distinct.pluck(:id).to_set
+      term_labels = Term.where(id: rows.map { |row| row[1] }.compact.uniq).pluck(:id, :pref_label).to_h
+      rows.map do |id, term_id, status, created_at, changes|
+        changes ||= {}
+        redirect = changes[Relation::Redirects_to] || []
+        deletion = redirect.any? && redirect[0][2].to_i == 0
+        linked = [Relation::Broader, Relation::Narrower, Relation::Related].any? { |rel| (changes[rel] || []).any? }
+        type = if new_ids.include?(id) then "new_term" elsif redirect.any? && !deletion then "redirected" elsif linked then "linked" else "modified" end
+        kids = children[id] || []
+        suggested = kids.any? && status != "approved" && kids.any? { |_, creator| suggesters.include?(creator) }
+        label = (changes[Relation::Pref_label] || []).first&.at(2) || term_labels[term_id]
+        { "id" => id, "type" => type, "status" => status, "suggested" => suggested, "label" => label.to_s, "time" => created_at.to_s }
+      end
+    end
   end
   
+  def self.term_totals(releases)
+    latest = releases.select { |r| r.status == "Published" }.group_by(&:vocabulary_id).transform_values { |rs| rs.max_by(&:id).id }
+    releases.map do |release|
+      path = Rails.root.join("public", "static_dumps", release.vocabulary.identifier, "#{release.release_identifier}.nt")
+      total = if File.exist?(path)
+        Rails.cache.fetch(["release-term-total", path.to_s, File.mtime(path).to_i]) do
+          subjects = {}
+          File.foreach(path) { |line| subjects[line[/\A<[^>]+>/]] = true if line.include?("core#prefLabel>") }
+          subjects.size
+        end
+      elsif latest[release.vocabulary_id] == release.id
+        release.vocabulary.terms.where(visibility: "visible").count
+      elsif release.status == "Pending" && release.id > latest[release.vocabulary_id].to_i
+        release.vocabulary.terms.where(visibility: "visible").count + release.edit_requests.joins(:term).where(terms: { visibility: "pending" }).distinct.count(:term_id)
+      end
+      [release.id, total]
+    end.to_h
+  end
+
+  def self.list_statistics
+    approved = EditRequest.where(status: "approved").where.not(version_release_id: nil)
+    key = ["release-statistics", *approved.pluck(Arel.sql("COUNT(*)"), Arel.sql("MAX(id)"), Arel.sql("SUM(CRC32(my_changes))")).first]
+    Rails.cache.fetch(key) do
+      state = {}
+      stats = {}
+      approved.order(:id).pluck(:term_id, :version_release_id, :my_changes).each do |term_id, release_id, changes|
+        s = (stats[release_id] ||= { "new" => {}, "updated" => {}, "translations" => 0 })
+        s["new"][term_id] = true unless state.key?(term_id)
+        values = (state[term_id] ||= {})
+        plus = []
+        minus = []
+        (changes.is_a?(Hash) ? changes : {}).each do |relation, ops|
+          next unless ops.is_a?(Array)
+          ops.each do |op|
+            next unless op.is_a?(Array) && op.size > 1
+            (op[0] == "+" ? plus : minus) << [relation, *op[1..-1]] if %w[+ -].include?(op[0])
+          end
+        end
+        removed = (minus - plus).select { |k| values.delete(k) }
+        added = (plus - minus).reject { |k| values.key?(k) }
+        added.each { |k| values[k] = true }
+        s["updated"][term_id] = true if (added.any? || removed.any?) && !s["new"].key?(term_id)
+        s["translations"] += added.count { |relation, lang, _| relation == Relation::Pref_label && lang.present? && !lang.to_s.start_with?("en") }
+      end
+      stats.transform_values do |s|
+        { "new" => s["new"].size, "updated" => s["updated"].size, "translations" => s["translations"] }
+      end
+    end
+  end
+
   def self.get_next_identifier(change_type)
     current_identifier = VersionRelease.all()[-1].release_identifier
     last_published = VersionRelease.where(status: "Published").last
@@ -111,6 +232,8 @@ class VersionRelease < ActiveRecord::Base
 
   # Return all terms that exist in this version
   def terms_in_version()
+    #return self.vocabulary.terms.reject{|t| t.first_introduced().id > self.id}
+    #return self.vocabulary.terms.reject{|t| t.visibility == "pending" or t.first_introduced().id > self.id}
     return self.vocabulary.terms.reject{|t| t.visibility == "pending" or t.first_introduced().id > self.id or t.is_replaced_by.present?}
   end
   

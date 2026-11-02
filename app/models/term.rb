@@ -13,7 +13,7 @@ class Term < ActiveRecord::Base
   has_many :term_relationships, dependent: :destroy
   has_many :relations, :through => :term_relationships
 
-  has_many :edit_requests, -> { order 'version_release_id' }
+  has_many :edit_requests, -> { order(:version_release_id, :id) }
 
   serialize :labels, Array
   serialize :labels_language, Array
@@ -137,8 +137,8 @@ class Term < ActiveRecord::Base
   # Gets preferred language, preferably in current localization, returns as term_relationship
   def pref_label_localized(lang_id = I18n.locale)
     if self.visibility == "pending"
-      tr = self.get_relationships_at_version_release(VersionRelease.pluck(:id)[-1])[Relation::Pref_label].sort_by{|i| i[0] == lang_id ? 0 : 1}[0]
-      return TermRelationship.new(term_id: self.id, relation_id: Relation::Pref_label, language_id: tr[0], data: tr[1])
+      tr = (self.get_relationships_at_version_release(VersionRelease.pluck(:id)[-1])[Relation::Pref_label] || []).sort_by{|i| i[0] == lang_id ? 0 : 1}[0]
+      return TermRelationship.new(term_id: self.id, relation_id: Relation::Pref_label, language_id: tr ? tr[0] : lang_id.to_s, data: tr ? tr[1] : (self.pref_label.presence || self.identifier))
       #return self.get_relationships_at_version_release(VersionRelease.pluck(:id)[-1])
     end
     return self.term_relationships.where(relation_id: Relation::Pref_label).order(Arel.sql("language_id = '#{lang_id.to_s}' DESC"))[0]
@@ -247,6 +247,8 @@ class Term < ActiveRecord::Base
 
   # Get version release where term was first introduced
   def first_introduced    
+    #return self.get_edit_requests().last.version_release
+    pp self.id
     return self.get_edit_requests().reject{|er| er.vote_status == "pending"}.last.version_release
   end
   # Returns whether a translation exists for a given language
@@ -332,7 +334,7 @@ class Term < ActiveRecord::Base
       graph = {}
 
       base_uri = relationships["uri"]
-      if version_release.vocabulary_identifier == "v5"
+      if version_release.id == 19
         base_uri = base_uri.sub("/v4/", "/v5/")
       end
       graph[:uri] = base_uri
@@ -444,7 +446,7 @@ class Term < ActiveRecord::Base
 
     graph << [base_uri, ::RDF::Vocab::SKOS.hasTopConcept, uri_func2.call(self.get_broadest(version_release.id))]
 
-    if self.is_replaced_by.present? and version_release.vocabulary_identifier == "v5"
+    if self.is_replaced_by.present? and version_release.id == 19
       is_replaced_by = self.is_replaced_by.sub("/v4/", "/v5/")
     elsif self.is_replaced_by.present?
       is_replaced_by = self.is_replaced_by
@@ -457,6 +459,7 @@ class Term < ActiveRecord::Base
     graph << [base_uri, ::RDF::Vocab::DC.modified, ::RDF::Literal.new("#{self.updated_at.iso8601.split('T')[0]}", datatype: ::RDF::XSD.date)] if self.updated_at.present?
     
     graph << [base_uri, ::RDF.type, ::RDF::Vocab::SKOS.Concept]
+    #graph << [base_uri, ::RDF::Vocab::SKOS.inScheme, ::RDF::URI.new("#{self.vocabulary.base_uri}")] if self.vocabulary.present?
     graph << [base_uri, ::RDF::Vocab::SKOS.inScheme, ::RDF::URI.new("#{version_release.vocabulary.base_uri}")]
     graph << [base_uri, ::RDF::Vocab::SKOS.changeNote, "Version #{version_release.release_identifier}"]
 
