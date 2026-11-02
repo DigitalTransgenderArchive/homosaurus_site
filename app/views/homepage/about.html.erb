@@ -1,307 +1,237 @@
-<script type="text/javascript">
-  $(document).ready(function() {
-
-      $(".walter_cat_walker_tribute").shorten({
-          "showChars": 986,
-          "moreText": "[Expand To Read Full Tribute]",
-          "lessText"	: "",
-      }); 
-
-  });
-</script>
-
 <%= form_tag(reveal_emails_path, :id => 'captcha_form', :class => 'form-horizontal') do %>
-<%= recaptcha_v3(action: 'about', site_key: Settings.recaptcha_site_key_v3) %>
+  <%= recaptcha_v3(action: 'about', site_key: Settings.recaptcha_site_key_v3) %>
 
 <div id="about" class="col-sm-12 col-md-12">
 
   <% unless @errors.empty? %>
-  <div id="error_explanation" class="alert alert-danger">
-    <ul class="errors">
-      <% @errors.each do |msg| %>
-      <li style="font-size: 18px;"><%= msg %></li>
-      <% end %>
-      <% if  @show_captcha_v2 %>
-      <li>
-        <%= recaptcha_tags %>
-      </li>
-      <% end %>
-    </ul>
-  </div>
+    <div id="error_explanation" class="alert alert-danger">
+      <ul class="errors">
+        <% @errors.each do |msg| %>
+          <li style="font-size: 18px;"><%= msg %></li>
+        <% end %>
+        <% if  @show_captcha_v2 %>
+          <li>
+                <%= recaptcha_tags %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 
   <% if @reveal_emails %>
-  <div id="error_explanation" class="alert alert-success">
-    <ul class="errors">
-      <li style="font-size: 18px;">Emails on the page are now revealed.</li>
-    </ul>
-  </div>
-  <% end %>
+    <div id="error_explanation" class="alert alert-success">
+      <ul class="errors">
+          <li style="font-size: 18px;"><%= t("about_page.emails_revealed") %></li>
+      </ul>
+    </div>
+    <% end %>
+
+  <h1 class="page-title"><%= t("about_page.page_title") %></h1>
+
+  <h2 id="mission"><%= t("about_page.mission_heading") %></h2>
+  <p><%= t("about_page.mission_statement") %></p>
+
+  <h2 id="history"><%= t("about_page.history_heading") %></h2>
+  <p class="history"><%= image_tag("about/homosaurus_logo_history.png", alt: "", class: "history-logo", width: 528, height: 329, decoding: "sync") %><%= t("about_page.history_html") %></p>
+
+  <h2 id="collective"><%= t("about_page.collective_heading") %></h2>
+  <p>
+    <%= t("about_page.collective_intro") %>
+  </p>
+
+  
+<nav class="about-sections" aria-label="<%= t("about_page.collective_heading") %>">
+  <ul>
+    <li><a href="#organizing"><%= t("about_page.organizing_heading") %></a></li>
+    <li><a href="#implementation"><%= t("about_page.implementation_heading") %></a></li>
+    <li><a href="#term-development"><%= t("about_page.term_development_heading") %></a></li>
+    <li><a href="#acknowledgements"><%= t("about_page.acknowledgements_heading") %></a></li>
+    <li><a href="#memoriam"><%= t("about_page.memoriam_heading") %></a></li>
+    <li><a href="#resources"><%= t("about_page.resources_heading") %></a></li>
+  </ul>
+</nav>
+
+<h2 id="organizing"><%= t("about_page.organizing_heading") %></h2>
+
+  <p class="board-description"><%= t("about_page.organizing_description") %></p>
+
+<h3><%= t("about_page.board_co_convenors_heading") %></h3>
+<ul class="member-grid">
+  <%= render layout: "homepage/member", locals: { name: "Bri Watson", photo: "faces/watson.jpg", link: "https://brimwats.com" } do %>Western University<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Marika Cifor", photo: "faces/cifor.jpg", link: "https://ischool.uw.edu/people/faculty/mcifor" } do %>University of Washington, Seattle<% end %>
+</ul>
 
 
-  <h2><%= t('about.mission_label') %></h2>
+  <h3><%= t("about_page.members_heading") %></h3>
 
-  <div class="info_section">
-    <p><%= t('about.mission_statement') %></p>
-  </div>
+  <ul class="member-grid">
+  <%= render layout: "homepage/member", locals: { name: "Avery Dame-Griff", photo: "faces/damegriffe.jpg", link: "http://averydame.net/" } do %>Gonzaga University<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Jackson Huang", photo: "faces/huang.jpg", link: "https://educopia.org/about/" } do %>Educopia<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Janaya Kizzie", photo: "faces/kizzie.jpg", link: "https://www.browndailyherald.com/article/2025/10/preserving-the-human-story-day-in-the-life-of-janaya-kizzie-an-archivist-at-the-hay" } do %>Brown University<% end %>
+  <%= render layout: "homepage/member", locals: { name: "K.J. Rawson", photo: "faces/rawson.jpg", link: "https://cssh.northeastern.edu/faculty/k-j-rawson/" } do %>Northeastern University<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Keahi Adolpho", photo: "faces/adolpho.jpg", link: "https://inthelibrarywiththeleadpipe.org/author/keahi-adolpho" } do %>Virginia Commonwealth University Libraries<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Mary Cornell", photo: "faces/cornell.jpg", link: "https://www.linkedin.com/in/mary-cornell-mlis-14291441/" } do %><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Michael Radmacher", photo: "faces/radmacher.jpg", link: "https://www.uvic.ca/library/visit-and-contact/find-a-librarian/profiles/radmacher-michael.php" } do %>University of Victoria Transgender Archives<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Patrick Keilty", photo: "faces/keilty.jpg", link: "https://patrickkeilty.com" } do %>University of Toronto<% end %>
+</ul>
 
-  <h2><%= t('term.history') %></h2>
-  <div class="info_section">
-    <%= t('about.history_html') %>
-  </div>
+<h3><%= t("about_page.systems_subcommittee").upcase_first %></h3>
+<ul class="member-grid">
+  <%= render layout: "homepage/member", locals: { name: "Bri Watson", photo: "faces/watson.jpg", link: "https://brimwats.com" } do %>Western University<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Jackson Huang", photo: "faces/huang.jpg", link: "https://educopia.org/about/" } do %>Educopia<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Janaya Kizzie", photo: "faces/kizzie.jpg", link: "https://www.browndailyherald.com/article/2025/10/preserving-the-human-story-day-in-the-life-of-janaya-kizzie-an-archivist-at-the-hay" } do %>Brown University<% end %>
+  <%= render layout: "homepage/member", locals: { name: "K.J. Rawson", photo: "faces/rawson.jpg", link: "https://cssh.northeastern.edu/faculty/k-j-rawson/" } do %>Northeastern University<% end %>
+</ul>
 
-  <h2><%= t('about.resources_label') %></h2>
-  <div class="info_section">
-    <p> <%= link_to "Documentation and Implementation Guide", "https://docs.google.com/document/d/1PgwSKGHnr4dokazFRbkoqQuYWbw8c_0LWYw0L2rkyAw/edit?usp=sharing", target: "_blank" %> </p>
-    <p> <%= link_to "Metadata Application Profile", "https://docs.google.com/document/d/1ndif61THKvrKRG8m6Y9gBVAOzwDWa95O9TbJV8tFTTA/edit?usp=sharing", target: "_blank" %> </p>
-  </div>
+<h2 id="implementation"><%= t("about_page.implementation_heading") %></h2>
 
-  <h2><%= t('about.board_label') %></h2>
-  <table class="table_with_image">
-    <tbody>
-      
-      <tr>
-	<td>&nbsp;</td>
-	<td>
-          <div class="media">
-            <div class="media-left">
-              <%= image_tag("about/about_kalani_adolpho.jpg", class: 'hidden-xs') %>
-            </div>
+<p class="board-description"><%= t("about_page.implementation_description") %></p>
 
-            <div class="media-body">
-              <h4 class="media-heading">
-		Keahi Kaʻiwalani Adolpho 
-              </h4>
-              <p>
-		<%= t('about.board.kalani') %>
-            </div>
-          </div>
-	</td>
-      </tr>
-      <tr>
-	<td>&nbsp;</td>
-	<td>
-          <div class="media">
-            <div class="media-left">
-              <%= image_tag("about/about_marika_cifor.jpg", class: 'hidden-xs') %>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">
-		Marika Cifor
-              </h4>
-              <p>
-		<%= t('about.board.cifor') %>
-              </p>
-            </div>
-          </div>
-	</td>
-      </tr>
+<h3><%= t("about_page.board_co_convenors_heading") %></h3>
+<ul class="member-grid">
+  <%= render layout: "homepage/member", locals: { name: "Crystal Yragui", photo: "faces/yragui.jpg", link: "https://github.com/CECSpecialistI" } do %>University of Washington<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Isaac Fellman", photo: "faces/fellman.jpg", link: "https://cssh.northeastern.edu/person/isaac-fellman/" } do %>Digital Transgender Archive<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Rachel Newlin", photo: "faces/newlin.jpg", link: "https://www.linkedin.com/in/rachelrnewlin/" } do %>Schaumburg Township District Library<% end %>
+</ul>
 
 
-      <tr>
-	<td>&nbsp;</td>
-	<td>
-          <div class="media">
-            <div class="media-left">
-              <%= image_tag("about/about_jay_l_colbert.jpg", class: 'hidden-xs', alt: "Photo of Jay Colbert") %>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">
-		Jay L. Colbert
-              </h4>
-              <p>
-		<%= t('about.board.colbert') %>
-              </p>
-            </div>
-          </div>
-	</td>
-      </tr>
+<h3><%= t("about_page.members_heading") %></h3>
+<ul class="member-grid">
+  <%= render layout: "homepage/member", locals: { name: "Emory LaPrade", photo: "faces/laprade.jpg", link: "https://www.linkedin.com/in/emory-laprade-855127164/" } do %>Johnson City Public Library<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Gabrielle Garcia", photo: "faces/garcia.jpg", link: "https://gabriellesgarcia.wordpress.com" } do %>Lambda Archives<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Julia Bullard", photo: "faces/bullard.jpg", link: "https://dfp.ubc.ca/people/team/julia-bullard" } do %>University of British Columbia<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Melissa Adler", photo: "faces/adler.jpg", link: "https://www.fims.uwo.ca/people/profiles/melissa_adler.html" } do %>Western University<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Travis Wagner", photo: "faces/wagner.jpg", link: "http://travislwagner.com/" } do %>University of Illinois<% end %>
+</ul>
+
+<h2 id="term-development"><%= t("about_page.term_development_heading") %></h2>
+
+<p class="board-description"><%= t("about_page.term_development_description") %></p>
+
+<h3><%= t("about_page.board_co_convenors_heading") %></h3>
+<ul class="member-grid">
+  <%= render layout: "homepage/member", locals: { name: "Chloe Noland", photo: "faces/noland.jpg", link: "https://guides.library.ucsc.edu/prf.php?id=aacf3982-4626-11ef-ad2f-0a92c88187d1" } do %>University of California, Santa Cruz<span class="member-committee"><%= t("about_page.committees.english").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Keahi Adolpho", photo: "faces/adolpho.jpg", link: "https://inthelibrarywiththeleadpipe.org/author/keahi-adolpho" } do %>Virginia Commonwealth University Libraries<span class="member-committee"><%= t("about_page.committees.english").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Siska Humlesjö", photo: "faces/humlesjo.jpg", link: "https://www.gu.se/om-universitetet/hitta-person/siskahumlesjo" } do %>University of Gothenburg<span class="member-committee"><%= t("about_page.committees.swedish").upcase_first %></span><% end %>
+</ul>
 
 
-      <tr>
-	<td>&nbsp;</td>
-	<td>
-          <div class="media">
-            <div class="media-left">
-              <%= image_tag("about/about_janaya_kizzie.jpg", class: 'hidden-xs', alt: "Photo of Janaya Kizzie") %>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">
-		Janaya Kizzie
-              </h4>
-              <p>
-		<%= t('about.board.kizzie') %>
-              </p>
-            </div>
-          </div>
-	</td>
-      </tr>
+<h3><%= t("about_page.committee_co_convenors_heading") %></h3>
+<ul class="member-grid">
+  <%= render layout: "homepage/member", locals: { name: "Amber Redegeld", link: "https://ihlia.nl/en/about-us/organisation/" } do %>IHLIA LGBTI Heritage<span class="member-committee"><%= t("about_page.committees.dutch").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Annie Wolfe", link: "https://crkn-rcdr.ca/en/node/18308" } do %><%= t("about_page.institutions.lac") %><span class="member-committee"><%= t("about_page.committees.qc_french").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Kazuyuki Sunaga", link: "https://www.kokugakuin.ac.jp/en/account/92275" } do %>Kokugakuin University<span class="member-committee"><%= t("about_page.committees.japanese").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Partha Mukhopadhyay", photo: "faces/mukhopadhyay.jpg", link: "https://klyuniv.ac.in/professors/parthasarathi-mukhopadhyay/" } do %><span class="member-committee"><%= t("about_page.committees.hindi_bengali").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Sofia Zamora Morales", link: "https://www.linkedin.com/in/sof%C3%ADa-zamora-morales-7a8b2a201/" } do %>Northeastern University<span class="member-committee"><%= t("about_page.committees.spanish").upcase_first %></span><% end %>
+</ul>
 
-      <tr>
-	<td>&nbsp;</td>
-	<td>
-          <div class="media">
-            <div class="media-left">
-              <%= image_tag("about/about_chloe_noland.jpg", class: 'hidden-xs') %>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">
-		Chloe Noland
-              </h4>
-              <p>
-		<%= t('about.board.noland') %>
-              </p>
-            </div>
-          </div>
-	</td>
-      </tr>
+<h3><%= t("about_page.members_heading") %></h3>
+<ul class="member-grid">
+  <%= render layout: "homepage/member", locals: { name: "Anita Mazur", link: "https://www.polymtl.ca/biblio/en/bottin-du-personnel" } do %>Polytechnique Montréal<span class="member-committee"><%= t("about_page.committees.qc_french").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Críspulo Travieso Rodríguez", photo: "faces/travieso.jpg", link: "https://produccioncientifica.usal.es/investigadores/57534/detalle" } do %>Universidad de Salamanca<span class="member-committee"><%= t("about_page.committees.spanish").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Ernesto Cuba", link: "https://linktr.ee/ernesto.cuba" } do %><span class="member-committee"><%= t("about_page.committees.spanish").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Gerrit Wessel", photo: "faces/wessel.jpg", link: "https://ihlia.nl/tag/gerrit-wesel/" } do %>IHLIA LGBTI Heritage &amp; QueerSearch<span class="member-committee"><%= t("about_page.committees.dutch").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Hortense Chopart", link: "https://cpi.fmdoc.org/speaker/hortense-chopart/" } do %>Université de Montréal<span class="member-committee"><%= t("about_page.committees.qc_french").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Indica Mattson", link: "https://www.linkedin.com/in/indica-mattson/" } do %>Beinecke Rare Book &amp; Manuscript Library<span class="member-committee"><%= t("about_page.committees.german").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Irina Rogova", link: "https://library.vcu.edu/about/staff/staff/rogova-irina.html" } do %>Virginia Commonwealth University<span class="member-committee"><%= t("about_page.committees.english").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Iris Bouman", link: "https://www.linkedin.com/in/iris-bouman/" } do %><%= t("about_page.independent") %><span class="member-committee"><%= t("about_page.committees.french").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Lia Ryland", link: "https://www.linkedin.com/in/liadanryland/" } do %>San Francisco Public Library<span class="member-committee"><%= t("about_page.committees.english").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Linda Strehl", photo: "faces/strehl.jpg", link: "https://forummuenchen.org/en/about-us/" } do %>Forum Queeres Archiv München &amp; QueerSearch<span class="member-committee"><%= t("about_page.committees.german").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Marie-Ève Berthiaume", link: "https://www.bibl.ulaval.ca/notre-bibliotheque/repertoire-du-personnel/marie-eve-berthiaume" } do %><%= t("about_page.institutions.laval_library") %><span class="member-committee"><%= t("about_page.committees.qc_french").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Mylène Larivière-Langlois", link: "https://www.linkedin.com/in/myl%C3%A8ne-lariv%C3%A8re-8b99a8336/" } do %>University of Montreal<span class="member-committee"><%= t("about_page.committees.qc_french").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Nicolas Longtin Martel", link: "https://agq.qc.ca/?lang=en" } do %>Archives gaies du Québec<span class="member-committee"><%= t("about_page.committees.qc_french").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Olov Kriström", link: "https://www.svt.se/kultur/bibliotekarie-raddade-queerbocker-fran-soptippen" } do %>QRAB<span class="member-committee"><%= t("about_page.committees.swedish").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Sebastian Lönnlöv", photo: "faces/lonnlov.jpg", link: "https://www.gu.se/en/about/find-staff/sebastianlonnlov" } do %>University of Gothenburg<span class="member-committee"><%= t("about_page.committees.swedish").upcase_first %></span><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Thomas Bürgisser", link: "https://www.schwulenarchiv.ch/ueber-uns" } do %><%= t("about_page.institutions.schwulenarchiv") %> &amp; QueerSearch<span class="member-committee"><%= t("about_page.committees.german").upcase_first %></span><% end %>
+</ul>
 
-      <tr>
-	<td>&nbsp;</td>
-	<td>
-          <div class="media">
-            <div class="media-left">
-              <%= image_tag("about/about_kj_rawson.jpg", class: 'hidden-xs') %>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">
-		K.J. Rawson (Chair of the Board)
-              </h4>
-              <p>
-		<%= t('about.board.rawson') %>
-              </p>
-            </div>
-          </div>
-	</td>
-      </tr>
+<h2 id="acknowledgements"><%= t("about_page.acknowledgements_heading") %></h2>
 
-      <tr>
-	<td>&nbsp;</td>
-	<td>
-          <div class="media">
-            <div class="media-left">
-              <%= image_tag("about/about_bri_watson.jpg", class: 'hidden-xs', alt: "Bri Watson photo") %>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">
-		Bri Watson
-              </h4>
-              <p>
-		<%= t('about.board.watson') %>
-              </p>
-            </div>
-          </div>
-	</td>
-      </tr>
+<h3><%= t("about_page.former_members_heading") %></h3>
+  <p>
+  <%= t("about_page.former_members_intro") %>
+  </p>
 
-      <tr>
-	<td>&nbsp;</td>
-	<td>
-          <div class="media">
-            <div class="media-left">
-              <%= image_tag("about/about_jack_van_der_wel.jpg", class: 'hidden-xs') %>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">
-		Jack van der Wel
-              </h4>
-              <p>
-		<%= t('about.board.van_der_wel') %>
-              </p>
-            </div>
-          </div>
-	</td>
-      </tr>
+<ul class="member-grid">
+  <%= render layout: "homepage/member", locals: { name: "Adrian Williams", photo: "faces/williams.jpg", link: "https://ischool.sjsu.edu/speaker/adrian-williams" } do %><%= t("about_page.roles.former_kentucky_library") %><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Billey Albina", photo: "faces/billey.jpg", link: "https://ischool.sjsu.edu/post/billey-albina" } do %><%= t("about_page.roles.former_systems_metadata_librarian") %><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Cailin Roles", link: "https://faculty.bentley.edu/profile/croles" } do %>Bentley University<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Clair Kronk", photo: "faces/kronk.jpg", link: "https://profiles.mountsinai.org/clair-kronk" } do %><%= t("about_page.roles.gsso_creator") %><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Claudia Schelling", link: "https://www.ifz-muenchen.de/das-institut/mitarbeiterinnen/ea/mitarbeiter/claudia-schelling" } do %><%= t("about_page.roles.archivist_leibniz") %><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Jay Colbert", photo: "faces/colbert.jpg", link: "https://wilde-at-heart.garden" } do %>Boston Public Library<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Kai Brust", photo: "faces/brust.jpg", link: "https://www.geschkult.fu-berlin.de/e/fmi/bereiche/nngeschichte/team/Brust.html" } do %><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Thami Jothilingam", link: "https://sacda.ufv.ca/About/team" } do %>University of the Fraser Valley<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Thea Sibbel", link: "https://lmbttortenetihonap.hu/en/node/1173" } do %>IHLIA LGBTI Heritage<% end %>
+</ul>
 
-      <tr>
-	<td>&nbsp;</td>
-	<td>
-          <div class="media">
-            <div class="media-left">
-              <%= image_tag("about/about_adrian_williams.jpg", class: 'hidden-xs') %>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">
-		Adrian Williams
-              </h4>
-              <p>
-		<%= t('about.board.williams') %>
-              </p>
-            </div>
-          </div>
-	</td>
-      </tr>
+<div class="tribute">
+  <p><%= t("about_page.most_notably") %></p>
+  <ul class="member-grid">
+  <%= render layout: "homepage/member", locals: { name: "Jack van der Wel", photo: "jack_van_der_wel.jpg" } do %>IHLIA LGBTI Heritage, <%= t("about_page.roles.homosaurus_creator") %><% end %>
+  </ul>
+</div>
 
-    </tbody>
-  </table>
+<h3><%= t("about_page.gratitude_heading") %></h3>
+<div>
+<p><%= t("about_page.gratitude_html") %></p>
+</div>
 
-  <h2><%= t('about.former_board_label') %></h2>
-  <table class="table_with_image">
-    <tbody>
-      <tr>
-	<td>&nbsp;</td>
-	<td>
-          <div class="media">
-            <div class="media-left">
-              <%= image_tag("about/about_amber_billey.png", class: 'hidden-xs') %>
-            </div>
+<h2 id="memoriam"><%= t("about_page.memoriam_heading") %></h2>
+<div class="memoriam">
+  <%= image_tag("about/about_walter_walker.jpg", alt: "", width: 720, height: 960, loading: "lazy") %>
+  <div><%= t("about_page.memoriam_html") %></div>
+</div>
 
-            <div class="media-body">
-              <h4 class="media-heading">
-		Billey Albina
-              </h4>
-              <p>
-		<%= t('about.board.billey') %>
-              </p>
-            </div>
-          </div>
-	</td>
-      </tr>
-      <tr>
-	<td>&nbsp;</td>
-	<td>
-          <div class="media">
-            <div class="media-left">
-              <%= image_tag("about/about_walter_walker.jpg", class: 'hidden-xs') %>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">
-		Walter "Cat" Walker
-              </h4>
-              <p class="walter_cat_walker_tribute">
-		<%= t('about.board.walker_html') %>
-              </p>
+<h2 id="software-development"><%= t("about_page.software_development_heading") %></h2>
+<ul class="member-grid">
+  <%= render layout: "homepage/member", locals: { name: "Steven Anderson", link: "https://github.com/scande3" } do %><%= t("about_page.since_year", year: 2015) %><% end %>
+  <%= render layout: "homepage/member", locals: { name: "Theadora Williams", link: "https://github.com/theadorabledev" } do %>2024–2025<% end %>
+  <%= render layout: "homepage/member", locals: { name: "Dani Metilli", link: "https://github.com/nbdani" } do %><%= t("about_page.since_year", year: 2025) %><% end %>
+</ul>
 
-            </div>
-          </div>
-	</td>
-      </tr>
-
-      <tr>
-	<td>&nbsp;</td>
-	<td>
-          <div class="media">
-            <div class="media-left">
-              <%= image_tag("about/about_clair_kronk.jpg", class: 'hidden-xs') %>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">
-		Clair Kronk
-              </h4>
-              <p>
-		<%= t('about.board.kronk') %>
-              </p>
-            </div>
-          </div>
-	</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h2><%= t('about.gratitude_label') %></h2>
-  <div class="info_section">
-    <p><%= t('about.gratitude_message') %></p>
-  </div>
+<h2 id="resources"><%= t("about_page.resources_heading") %></h2>
+  <p>
+  <%= t("about_page.resources_intro") %>
+  </p>
+  <ul class="resource-list">
+  <li><a href="https://docs.google.com/document/d/1PgwSKGHnr4dokazFRbkoqQuYWbw8c_0LWYw0L2rkyAw/edit?usp=sharing" target="_blank" rel="noopener"><%= t("about_page.guide_documentation") %><span class="resource-arrow" aria-hidden="true">↗</span></a></li>
+  <li><a href="https://docs.google.com/document/d/1ndif61THKvrKRG8m6Y9gBVAOzwDWa95O9TbJV8tFTTA/edit?usp=sharing" target="_blank" rel="noopener"><%= t("about_page.guide_profile") %><span class="resource-arrow" aria-hidden="true">↗</span></a></li>
+</ul>
 
 </div>
 <% end %>
+
+<script>
+  (function () {
+    var memoriam = document.querySelector('.memoriam');
+    var photo = memoriam.querySelector('img');
+    var paragraphs = memoriam.querySelectorAll('p');
+    var ratio = photo.getAttribute('width') / photo.getAttribute('height');
+    var lastWidth = 0;
+    function textHeight() {
+      return paragraphs[1].getBoundingClientRect().bottom - paragraphs[0].getBoundingClientRect().top - parseFloat(getComputedStyle(photo).marginTop);
+    }
+    function fit(force) {
+      if (!force && memoriam.clientWidth === lastWidth) return;
+      lastWidth = memoriam.clientWidth;
+      memoriam.classList.remove('memoriam-stacked');
+      photo.style.width = '';
+      if (getComputedStyle(memoriam).display !== 'grid') return;
+      var width = photo.getBoundingClientRect().width;
+      for (var i = 0; i < 12; i++) {
+        var next = textHeight() * ratio;
+        if (next > memoriam.clientWidth * 0.4) {
+          photo.style.width = '';
+          memoriam.classList.add('memoriam-stacked');
+          return;
+        }
+        if (Math.abs(next - width) < 0.5) return;
+        width = next;
+        photo.style.width = width + 'px';
+      }
+    }
+    fit(true);
+    new ResizeObserver(function () { fit(false); }).observe(memoriam);
+    document.fonts.ready.then(function () { fit(true); });
+  })();
+</script>

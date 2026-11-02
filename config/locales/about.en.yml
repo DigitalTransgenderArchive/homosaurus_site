@@ -1,0 +1,71 @@
+---
+en:
+  about_page:
+    mission_heading: "Mission"
+    mission_statement: "The Homosaurus is an international linked data vocabulary of LGBTQ+ terms. Designed to enhance broad subject term vocabularies, the Homosaurus is a robust and cutting-edge thesaurus that advances the discoverability of LGBTQ+ resources and information."
+    page_title: "About the Homosaurus"
+    history_heading: "History"
+    history_html: "The Homosaurus was originally created in 1997 by <a href=\"https://www.ihlia.nl/?lang=en\">IHLIA LGBTI Heritage</a> as a Dutch and English gay and lesbian thesaurus that was used as a standalone vocabulary to describe their collections. In 2013, Jack van der Wel, with the help of Ellen Greenblatt, transformed the original Homosaurus into a more inclusive and hierarchical thesaurus. In 2015, the <a href=\"https://www.digitaltransgenderarchive.net\">Digital Transgender Archive</a> (DTA) became one of the handful of LGBTQ+ archives using the <a href=\"/terms\">first version</a> of the Homosaurus, and the DTA’s Director, K.J. Rawson, collaborated with Jack van der Wel to transform it into an online linked data vocabulary. In 2016, Rawson and van der Wel established an Editorial Board to oversee a <a href=\"/v2\">second major revision</a>, released in May 2019, which transformed the Homosaurus into an LGBTQ+-specific vocabulary intended to supplement existing thesauri, followed by <a href=\"/v3\">version 3</a> in September 2021. <a href=\"/v4\">Version 4</a>, released in February 2025, added Spanish translations, and its later updates took the vocabulary past 4,000 terms. <a href=\"/v5\">Version 5</a>, released in June 2026, added translations in Dutch, French, German, Japanese and Swedish. The former Editorial Board is now the Homosaurus Collective."
+    emails_revealed: Emails on the page are now revealed.
+    collective_heading: Homosaurus Collective
+    collective_intro: 'The Homosaurus Collective is made up of more than 40+ members based in 9 countries, subdivided into three interdependent boards: Organizing, Implementation, and Term Development.'
+    board_co_convenors: 'Board Co-convenors:'
+    board_co_convenors_heading: Board Co-convenors
+    members_heading: Members
+    organizing_heading: Organizing Board
+    organizing_description: The Organizing Board provides coordination, visioning, and guidance across the project, and helps to develop and grow the Collective, seeking funding, hosting summits, and identifying partnerships. This board contains the Systems Subcommittee, which focuses on software functionality and coordinates with developers.
+    systems_subcommittee_member: "(+Systems Subcommittee)"
+    systems_subcommittee: "Systems Subcommittee"
+    library_profile: Library profile
+    faculty_profile: Faculty profile
+    implementation_heading: Implementation Board
+    implementation_description: The Implementation Board works with outside organizations on the implementation of the Homosaurus, developing both internal and external training practices, creating implementation resources, and tracking use and scholarly application of and writing on the Homosaurus.
+    term_development_heading: Term Development Board
+    term_development_description: The Term Development Board supports cross-language work and provides coordination among Term Development Committees. This board oversees the Dutch, English, French, German, Hindi and Bengali, Japanese, Spanish, and Swedish Language-Specific Committees, which are sustained long-term, as well as Ad-Hoc Thematic Committees, such as the Pasifika/Oceania committee, which are temporary in nature.
+    committee_co_convenors_heading: Committee Co-convenors
+    committees:
+      dutch: Dutch Committee
+      english: English Committee
+      english_co_convenor: English Committee Co-convenor
+      swedish_co_convenor: Swedish Committee Co-convenor
+      french: French Committee
+      qc_french: QC French Committee
+      german: German Committee
+      hindi_bengali: Hindi/Bengali Committee
+      japanese: Japanese Committee
+      spanish: Spanish Committee
+      swedish: Swedish Committee
+    spain: Spain
+    independent: Independent
+    institutions:
+      lac: Library and Archives Canada
+      laval_library: Université Laval Library
+      schwulenarchiv: Swiss Gay Archives
+      jck: Jewish Cultural Quarter
+    roles:
+      former_systems_metadata_librarian: formerly at Bard College
+      gsso_creator: University of Cincinnati Medical School
+      former_kentucky_library: formerly at University of Kentucky
+      archivist_leibniz: Leibniz Institute for Contemporary History
+      homosaurus_creator: Creator of the Homosaurus Vocabulary
+    acknowledgements_heading: Acknowledgements & Gratitude
+    former_members_heading: Former Members
+    former_members_intro: 'The Homosaurus Collective would like to thank the former members of the Collective for their labour and love:'
+    most_notably: 'And most notably and loudly:'
+    gratitude_heading: Gratitude
+    gratitude_html: 'The Homosaurus Collective would like to thank our fabulous collaborators: <a href="https://www.asexuality.org/">AVEN</a>, the <a href="https://blacklesbianarchives.substack.com/">Black Lesbian Archives</a>, <a href="https://www.colage.org/">COLAGE</a>, <a href="https://interactadvocates.org/">InterACT</a>, the <a href="https://leatherarchives.org/">Leather Archives &amp; Museum</a>, and the <a href="https://swahpca.wordpress.com/">Sex Work Activist Histories Project</a>. We would also like to thank the many users of the Homosaurus who have suggested terms and provided feedback over the years. In particular, we are grateful to Orla Egan, Alice Galvinhill, Ellen Greenblatt, Juniper Johnson, Dee Michel, Cailin Roles, and Lydia Willoughby for their contributions.'
+    memoriam_heading: In Memoriam
+    memoriam_html: |-
+      <p><strong>Walter <q>Cat</q> Walker</strong> served as the Head Cataloging Librarian at Loyola Marymount University in Los Angeles, California from 2004 until his untimely death in 2020. He was also a Director-at-Large of the American Library Association’s Gay Lesbian Bisexual Transgender Roundtable (<a href="https://www.ala.org/rrt">ALA GLBTRT</a>) and he volunteered at the <a href="https://one.usc.edu/">ONE National Gay &amp; Lesbian Archives</a> at the USC Libraries for 25 years.</p>
+
+      <p>Cat Walker joined the Homosaurus Collective in 2016 after he met Jack van der Wel at the <a href="https://web.archive.org/web/20160709112621/http://lgbtqalms.co.uk/conference-programme/">LGBTQ ALMS</a> conference in London. At this conference, Cat presented a keynote titled <q>Overcoming the Barriers: Improving Access to LGBTQ+ Content in Collections.</q> Cat’s lifelong activism and passion for LGBTQ+ libraries and archives motivated him to join the Collective and he quickly became an active member of our team. At the next LGBTQ ALMS conference in Berlin in 2019, Cat and Jack presented a paper together on the Abridged Homosaurus.</p>
+
+      <p>It is difficult to overstate Cat’s contributions to the Homosaurus over the four years that he worked on the project. As the Collective dramatically revised the first version of the Homosaurus, Cat played a central role in helping us to make use of many more terms and LGBTQ+-related contexts, representations, and histories. Cat worked extensively on reconciling Homosaurus version one to version two, examining the vocabulary with a close eye and pulling terms that required revision, lacked consistency across the list, or had a unique value that could be extended for related searches and needs. This list, composed of new suggested terms as well as adaptations of existing ones, was one of Cat’s most recent and ambitious contributions to the Collective’s work. At the time of his death, his documentation of related and suggested terms encompassed over 250 changes and/or new terms, important work that we will be sure to complete on his behalf and in his honor.</p>
+
+      <p>Above all, Cat was a patient, kind, and gracious teacher and collaborator and he was always the first to volunteer to take on new projects. Cat’s attention to detail, as well as his commitment to making the Homosaurus a truly beautiful and inclusive set of terms, will be impossible to replace. We are endlessly grateful to him as we celebrate all that he contributed to this important project.</p>
+    resources_heading: Resources
+    since_year: "Since %{year}"
+    software_development_heading: "Software Development"
+    resources_intro: These guides (in English) were published by the Homosaurus Collective and will eventually be translated and updated.
+    guide_documentation: Documentation and Implementation Guide
+    guide_profile: Metadata Application Profile
