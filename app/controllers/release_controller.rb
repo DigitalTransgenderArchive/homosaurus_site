@@ -11,7 +11,7 @@ class ReleaseController < ApplicationController
 
   def show
     @host = request.host || "https://homosaurus.org"
-    @release = VersionRelease.find_by(release_identifier: params[:release_id])
+    @release = VersionRelease.find_by!(release_identifier: params[:release_id])
     unless @release.status == "Published" or current_user.present?
       redirect_to release_path() and return
     end

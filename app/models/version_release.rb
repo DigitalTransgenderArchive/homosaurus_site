@@ -69,12 +69,14 @@ class VersionRelease < ActiveRecord::Base
 
   def all_cards_cache_key
     count, id_sum, changes_sum, status_sum = edit_requests.pluck(Arel.sql("COUNT(*)"), Arel.sql("SUM(id)"), Arel.sql("SUM(CRC32(my_changes))"), Arel.sql("SUM(CRC32(status))")).first
-    [id, updated_at.to_i, "all", count, id_sum, changes_sum, status_sum, EditRequest.count, EditRequest.maximum(:id), Term.maximum(:updated_at).to_i]
+    key = [id, updated_at.to_i, status, "all", count, id_sum, changes_sum, status_sum]
+    status == "Published" ? key : key + [EditRequest.count, EditRequest.maximum(:id), Term.maximum(:updated_at).to_i]
   end
 
   def approved_cards_cache_key
     count, id_sum, changes_sum = approved_edit_requests.pluck(Arel.sql("COUNT(*)"), Arel.sql("SUM(id)"), Arel.sql("SUM(CRC32(my_changes))")).first
-    [id, updated_at.to_i, count, id_sum, changes_sum, Term.maximum(:updated_at).to_i]
+    key = [id, updated_at.to_i, status, count, id_sum, changes_sum]
+    status == "Published" ? key : key + [Term.maximum(:updated_at).to_i]
   end
 
   def statistics
@@ -168,33 +170,45 @@ class VersionRelease < ActiveRecord::Base
   end
 
   def self.list_statistics
+    published = where(status: "Published").pluck(:id)
     approved = EditRequest.where(status: "approved").where.not(version_release_id: nil)
-    key = ["release-statistics", *approved.pluck(Arel.sql("COUNT(*)"), Arel.sql("MAX(id)"), Arel.sql("SUM(CRC32(my_changes))")).first]
-    Rails.cache.fetch(key) do
-      state = {}
-      stats = {}
-      approved.order(:id).pluck(:term_id, :version_release_id, :my_changes).each do |term_id, release_id, changes|
-        s = (stats[release_id] ||= { "new" => {}, "updated" => {}, "translations" => 0 })
-        s["new"][term_id] = true unless state.key?(term_id)
-        values = (state[term_id] ||= {})
-        plus = []
-        minus = []
-        (changes.is_a?(Hash) ? changes : {}).each do |relation, ops|
-          next unless ops.is_a?(Array)
-          ops.each do |op|
-            next unless op.is_a?(Array) && op.size > 1
-            (op[0] == "+" ? plus : minus) << [relation, *op[1..-1]] if %w[+ -].include?(op[0])
-          end
+    done = approved.where(version_release_id: published)
+    done_key = ["release-statistics-published", published.sort.join(","), *done.pluck(Arel.sql("COUNT(*)"), Arel.sql("MAX(id)")).first]
+    stats = Rails.cache.fetch(done_key) { replay_statistics(done.order(:id).pluck(:term_id, :version_release_id, :my_changes)) }
+    unpublished = approved.where.not(version_release_id: published)
+    open_key = ["release-statistics-pending", *done_key, *unpublished.pluck(Arel.sql("COUNT(*)"), Arel.sql("MAX(id)"), Arel.sql("SUM(CRC32(my_changes))")).first]
+    pending = Rails.cache.fetch(open_key) do
+      terms = unpublished.distinct.pluck(:term_id)
+      releases = unpublished.distinct.pluck(:version_release_id)
+      replay_statistics(approved.where(term_id: terms).order(:id).pluck(:term_id, :version_release_id, :my_changes)).slice(*releases)
+    end
+    stats.merge(pending)
+  end
+
+  def self.replay_statistics(rows)
+    state = {}
+    stats = {}
+    rows.each do |term_id, release_id, changes|
+      s = (stats[release_id] ||= { "new" => {}, "updated" => {}, "translations" => 0 })
+      s["new"][term_id] = true unless state.key?(term_id)
+      values = (state[term_id] ||= {})
+      plus = []
+      minus = []
+      (changes.is_a?(Hash) ? changes : {}).each do |relation, ops|
+        next unless ops.is_a?(Array)
+        ops.each do |op|
+          next unless op.is_a?(Array) && op.size > 1
+          (op[0] == "+" ? plus : minus) << [relation, *op[1..-1]] if %w[+ -].include?(op[0])
         end
-        removed = (minus - plus).select { |k| values.delete(k) }
-        added = (plus - minus).reject { |k| values.key?(k) }
-        added.each { |k| values[k] = true }
-        s["updated"][term_id] = true if (added.any? || removed.any?) && !s["new"].key?(term_id)
-        s["translations"] += added.count { |relation, lang, _| relation == Relation::Pref_label && lang.present? && !lang.to_s.start_with?("en") }
       end
-      stats.transform_values do |s|
-        { "new" => s["new"].size, "updated" => s["updated"].size, "translations" => s["translations"] }
-      end
+      removed = (minus - plus).select { |k| values.delete(k) }
+      added = (plus - minus).reject { |k| values.key?(k) }
+      added.each { |k| values[k] = true }
+      s["updated"][term_id] = true if (added.any? || removed.any?) && !s["new"].key?(term_id)
+      s["translations"] += added.count { |relation, lang, _| relation == Relation::Pref_label && lang.present? && !lang.to_s.start_with?("en") }
+    end
+    stats.transform_values do |s|
+      { "new" => s["new"].size, "updated" => s["updated"].size, "translations" => s["translations"] }
     end
   end
 
