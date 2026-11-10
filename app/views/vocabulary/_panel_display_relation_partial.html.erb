@@ -1,25 +1,23 @@
 <%
-  panel_class ||= 'danger'
-  title ||= ''
   values ||= []
 %>
 <% if values[0].present? %>
-  <div class="panel panel-<%=panel_class%>">
-
-  <div class="panel-heading">
-    <%= title.html_safe %>
-  </div>
-  <div class="panel-body">
-    <dl style="margin-bottom:0px">
-      <% if values.present? && values[0].present? %>
-        <% objs_sorted = Term.where(uri: values).sort_by { |obj| obj.pref_label.downcase } %>
-        <% objs_sorted.each do |relation_obj| %>
-          <dd>
-            <%= link_to "#{relation_obj.pref_label}", vocabulary_show_path(vocab_id: relation_obj.vocabulary_identifier, id: relation_obj.identifier)%>
-          </dd>
+  <div class="term-field">
+    <dt><a href="<%= Relation.find_by(id: rel_id).description_url %>"><%= t("relations.#{rel_id}") %></a></dt>
+    <dd>
+      <ul class="term-links">
+        <% unless [Relation::Lcsh_exact, Relation::Lcsh_close].include? rel_id %>
+          <% objs_sorted = Term.where(id: values.map{|v| v[1]}).sort_by { |obj| obj.pref_label_localized.data.downcase } %>
+          <% objs_sorted.each do |relation_obj| %>
+            <li><%= link_to relation_obj.pref_label_localized.data, vocabulary_show_path(vocab_id: vocab_id, id: relation_obj.identifier) %> <span class="term-id"><%= relation_obj.identifier %></span></li>
+          <% end %>
+        <% else %>
+          <% objs_sorted = LcshSubjectCache.where(uri: values.map{|v| v[1]}).sort_by { |obj| obj.label.downcase } %>
+          <% objs_sorted.each do |relation_obj| %>
+            <li><%= link_to relation_obj.label, relation_obj.uri %> <span class="term-id"><%= relation_obj.uri.split('/').last %></span></li>
+          <% end %>
         <% end %>
-      <% end %>
-    </dl>
-  </div>
+      </ul>
+    </dd>
   </div>
 <% end %>

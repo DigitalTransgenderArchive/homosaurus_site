@@ -1,13 +1,15 @@
 div.contact-us {
+  max-width: 60rem;
+  margin-inline: auto;
 
   input, select {
     border-radius: 30px 30px 30px 30px;
-    #background-color: rgba(186, 203, 231, 0.3);
-    #color: #002D59;
+    background-color: rgba(186, 203, 231, 0.3);
+    color: #002D59;
   }
   textarea {
-    #background-color: rgba(186, 203, 231, 0.3);
-    #color: #002D59;
+    background-color: rgba(186, 203, 231, 0.3);
+    color: #002D59;
   }
 
   div.newsletter_checkbox {
@@ -15,15 +17,96 @@ div.contact-us {
     margin-right: 2px;
   }
 
+  #feedback_form {
+    margin-top: 2rem;
+  }
+
+  .form-label {
+    margin-bottom: 0.35rem;
+    color: #002D59;
+    font-weight: 600;
+  }
+
+  legend.form-label {
+    float: none;
+    width: auto;
+    font-size: inherit;
+  }
+
+  .topic-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    color: #002D59;
+  }
+
+  .topic-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+
+    .form-check-input {
+      margin: 0;
+    }
+
+    .form-check-input:checked {
+      border-color: #7E3E99;
+      background-color: #7E3E99;
+    }
+
+    .form-check-input:focus {
+      border-color: #7E3E99;
+      box-shadow: 0 0 0 0.25rem color-mix(in srgb, #7E3E99 25%, transparent);
+    }
+  }
+
   #contact_submit {
-    background-color: #002D59;
-    width: 130px;
+    min-width: 130px;
+    padding: 0.3rem 1.25rem;
+    border: 2px solid #7E3E99;
+    border-radius: 999px;
+    background: #7E3E99;
     color: #FFFFFF;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    height: 35px;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .login-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.5rem;
+    margin-top: 0.5rem;
+
+    p {
+      margin: 0;
+    }
+
+    #contact_submit {
+      margin-left: auto;
+    }
+  }
+
+  .signup-link {
+    display: inline-block;
+    margin-left: 0.35rem;
+    padding: 0.3rem 1rem;
+    border: 2px solid #BACBE7;
+    border-radius: 999px;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+
+  .signup-link:hover,
+  .signup-link:focus-visible {
+    background: color-mix(in srgb, #BACBE7 30%, transparent);
+  }
+
+  #contact_submit:hover,
+  #contact_submit:focus-visible {
+    background: color-mix(in srgb, #7E3E99 85%, black);
+    border-color: color-mix(in srgb, #7E3E99 85%, black);
+    color: #FFFFFF;
   }
 
   p {
@@ -43,7 +126,7 @@ div.contact-us {
   }
 
   div.info_section {
-    padding-left: 28px;
+    padding-left: 0;
   }
 
   h2#email_subheader {
@@ -97,4 +180,9 @@ div.contact-us {
     }
   }
 
+}
+
+div.contact-us .static_holder_content_container {
+  padding-left: 0;
+  padding-right: 0;
 }

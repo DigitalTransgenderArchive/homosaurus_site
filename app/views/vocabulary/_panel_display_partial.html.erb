@@ -1,20 +1,21 @@
 <%
-  panel_class ||= 'primary'
   title ||= ''
   values ||= []
+  rel_id ||= nil
+  definitions = {
+    'identifier' => ['http://purl.org/dc/terms/identifier', t("relations.identifier")],
+    'issued' => ['http://purl.org/dc/terms/issued', t("relations.issued")],
+    'modified' => ['http://purl.org/dc/terms/modified', t("relations.modified")],
+    'replaces' => ['http://purl.org/dc/terms/replaces', t("relations.replaces")],
+    Relation::Replaced_by => ['http://purl.org/dc/terms/isReplacedBy', t("relations.5")]
+  }
+  href, label = definitions[rel_id]
 %>
 <% if values[0].present? %>
-  <div class="panel panel-<%=panel_class%>">
-
-  <div class="panel-heading">
-    <%= title.html_safe %>
-  </div>
-  <div class="panel-body">
-    <dl style="margin-bottom:0px">
-      <% values.each do |value| %>
-        <dd><%= value %></dd>
-      <% end %>
-    </dl>
-  </div>
+  <div class="term-field">
+    <dt><% if href %><a href="<%= href %>"><%= label %></a><% else %><%= title.html_safe %><% end %></dt>
+    <% values.each do |value| %>
+      <dd><% if value.respond_to?(:strftime) %><%= value.strftime("%Y-%m-%d") %><% elsif value.to_s =~ /\Ahttps?:\/\// %><%= link_to value, value %><% else %><%= value %><% end %></dd>
+    <% end %>
   </div>
 <% end %>

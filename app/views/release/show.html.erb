@@ -1,73 +1,67 @@
-<div id="about" class="col-sm-12 col-md-12">
-  <div class="release_title">
-    <h2>Homosaurus v. <%= @release.release_identifier %> Updates</h2>
-    <h3>Released <%= @release.release_date %></h3>
-  </div>
-  <div class="info_section">
-    <p>
-      <strong>List of new terms added:</strong>
-    <ol>
-      <% @release_terms.each do |release_term| %>
-        <% if release_term.change_type == "new" %>
-          <li>
-            <%  if @host.include?("-dev.org") || @host.include?("localhost")
-                  uri = "/v3/#{release_term.term.identifier}"
-                else
-                  uri = release_term.term.uri
-                end
-            %>
-            <a href="<%=uri%>"><%=release_term.term.pref_label%></a>
-          </li>
-        <% end %>
+<div id="about" class="col-sm-12 col-md-12 release-page">
+  <h1 class="page-title"><%= t("release.show_title", version: @release.release_identifier) %></h1>
+  <% if @release.status != "Published" %>
+  <p class="release-date"><%= t("release.status_pending") %> · <%= t("release.changes", count: @card_total, number: number_with_delimiter(@card_total)) %></p>
+  <% else %>
+  <p class="release-date"><%= t("release.released_on", date: @release.release_date.to_s[0, 10]) %> · <%= t("release.changes", count: @card_total, number: number_with_delimiter(@card_total)) %></p>
+  <% end %>
+  <div id="filter" class="release-filter">
+    <div class="release-filter-group">
+      <i class="fa-solid fa-filter" aria-hidden="true"></i>
+      <% [["new_term", "success", "status.new_term_label"], ["redirected", "warning", "status.redirected"], ["linked", "info", "status.linked_label"], ["modified", "primary", "status.modified"]].each do |value, colour, key| %>
+        <% on = @card_types.include?(value) %>
+        <a class="release-filter-option<%= " is-off" unless on %>" href="<%= release_filter_path(types: toggled_filter(@card_types, VersionRelease::CARD_TYPES, value)) %>" role="button" aria-pressed="<%= on %>"><span class="badge text-bg-<%= colour %>"><%= t(key) %></span><span class="release-filter-count"><%= number_with_delimiter(@type_counts.fetch(value, 0)) %></span></a>
       <% end %>
-    </ol>
-  </div>
-
-  <div class="info_section">
-    <p>
-      <strong>List of terms with preferred term changes:</strong>
-    <ol>
-      <% @release_terms.each do |release_term| %>
-        <% if release_term.change_type == "update" %>
-          <li>
-            <%  if @host.include?("-dev.org") || @host.include?("localhost")
-                  uri = "/v3/#{release_term.term.identifier}"
-                else
-                  uri = release_term.term.uri
-                end
-            %>
-            <a href="<%=uri%>"><%=release_term.term.pref_label%></a> (was <%=release_term.previous_label %>)
-          </li>
+    </div>
+    <% if current_user.present? && @release.status != "Published" %>
+      <div class="release-filter-group">
+        <% [["approved", "success", "status.approved"], ["pending", "warning", "status.pending"], ["suggested", "danger", "status.suggested"]].each do |value, colour, key| %>
+          <% on = @card_statuses.include?(value) %>
+          <a class="release-filter-option<%= " is-off" unless on %>" href="<%= release_filter_path(statuses: toggled_filter(@card_statuses, %w[approved pending suggested], value)) %>" role="button" aria-pressed="<%= on %>"><span class="badge text-bg-<%= colour %>"><%= t(key) %></span><span class="release-filter-count"><%= number_with_delimiter(@status_counts.fetch(value, 0)) %></span></a>
         <% end %>
-      <% end %>
-    </ol>
+      </div>
+    <% end %>
+    <div class="release-sort">
+      <i class="fa-solid fa-sort" aria-hidden="true"></i>
+      <div class="btn-group btn-group-sm">
+        <a class="btn btn-outline-secondary<%= " active" if @card_sort == "time" %>" href="<%= release_filter_path(sort: nil) %>" role="button" aria-pressed="<%= @card_sort == "time" %>" aria-label="<%= t("release.sort.by_date") %>"><i class="fa-solid fa-calendar" aria-hidden="true"></i></a>
+        <a class="btn btn-outline-secondary<%= " active" if @card_sort == "label" %>" href="<%= release_filter_path(sort: "label") %>" role="button" aria-pressed="<%= @card_sort == "label" %>" aria-label="<%= t("release.sort.by_name") %>"><i class="fa-solid fa-a" aria-hidden="true"></i></a>
+      </div>
+      <div class="btn-group btn-group-sm">
+        <a class="btn btn-outline-secondary<%= " active" if @card_order == "asc" %>" href="<%= release_filter_path(order: nil) %>" role="button" aria-pressed="<%= @card_order == "asc" %>" aria-label="<%= t("release.sort.ascending") %>"><i class="fa-solid fa-caret-up" aria-hidden="true"></i></a>
+        <a class="btn btn-outline-secondary<%= " active" if @card_order == "desc" %>" href="<%= release_filter_path(order: "desc") %>" role="button" aria-pressed="<%= @card_order == "desc" %>" aria-label="<%= t("release.sort.descending") %>"><i class="fa-solid fa-caret-down" aria-hidden="true"></i></a>
+      </div>
+    </div>
   </div>
-
-  <div class="info_section">
-    <p>
-      <strong>List of terms that have replaced existing terms:</strong>
-    <ol>
-      <% @release_terms.each do |release_term| %>
-        <% if release_term.change_type == "redirect" %>
-          <li>
-            <%  if @host.include?("-dev.org") || @host.include?("localhost")
-                  uri = "/v3/#{release_term.term.identifier}"
-                else
-                  uri = release_term.term.uri
-                end
-            %>
-            <a href="<%=uri%>"><%=release_term.term.pref_label%></a><br/>Replaces:
-            <ul>
-              <% release_term.changed_uris.each_with_index do |changed_uri, index| %>
-                <li><%=release_term.changed_uri_labels[index] %> (<%= changed_uri %>)</li>
-              <% end %>
-            </ul>
-          </li>
-        <% end %>
-      <% end %>
-    </ol>
+  <div id="release_holder" class="info_section">
+    <%= render "release/cards", edit_requests: @page_edit_requests %>
   </div>
+  <%= paginate @cards, window: 2, outer_window: 1 %>
 </div>
 
-<p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url + '.nt'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonld' %>, <%= link_to "TTL", request.original_url + '.ttl' %>, <%= link_to "CSV (Split by Tabs only)", request.original_url + '.csv' %>, <%= link_to "XML", request.original_url + '.xml' %>
-<p><br/><strong>Experimental Upcoming Formats With Language Labels:</strong> <%= link_to "N-Triples", request.original_url + '.ntV2'  %>, <%= link_to "JSON-LD", request.original_url + '.jsonldV2' %>, <%= link_to "TTL", request.original_url + '.ttlV2' %>
+<% formats_base = request.original_url.split('?').first %>
+<dl class="format-groups release-formats">
+  <div>
+    <dt><%= t('download.formats') %></dt>
+    <dd>
+      <ul>
+        <li><%= link_to "N-Triples", formats_base + ".nt", data: { format: "nt" } %></li>
+        <li><%= link_to "JSON-LD", formats_base + ".jsonld", data: { format: "jsonld" } %></li>
+        <li><%= link_to "TTL", formats_base + ".ttl", data: { format: "ttl" } %></li>
+        <li><%= link_to "CSV", formats_base + ".csv", data: { format: "csv" } %></li>
+        <li><%= link_to "XML", formats_base + ".xml", data: { format: "xml" } %></li>
+      </ul>
+    </dd>
+  </div>
+  <div class="format-legacy">
+    <dt><%= t('term.other_formats_legacy') %></dt>
+    <dd>
+      <ul>
+        <li><%= link_to "N-Triples", formats_base + ".ntV2", data: { format: "nt" } %></li>
+        <li><%= link_to "JSON-LD", formats_base + ".jsonldV2", data: { format: "jsonld" } %></li>
+        <li><%= link_to "TTL", formats_base + ".ttlV2", data: { format: "ttl" } %></li>
+      </ul>
+      <p class="format-note"><%= t('term.legacy_formats_note') %></p>
+    </dd>
+  </div>
+</dl>

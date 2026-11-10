@@ -1,37 +1,25 @@
 <%
-  panel_class ||= 'primary'
-  title ||= ''
   values ||= []
+  inline ||= false
 %>
 <% if values[0].present? %>
-  <div class="panel panel-<%=panel_class%>">
-
-  <div class="panel-heading">
-    <%= title.html_safe %>
-  </div>
-  <div class="panel-body">
-    <dl style="margin-bottom:0px">
-      <table width="100%">
-        <% values.each do |value| %>
-        <tr>
-          <td><%= value.split('@')[0] %></td>
-          <% if value.include?('@') %>
-            <% lang_id = value.split('@').last
-               lang_value = "English (USA)" if lang_id == 'en-US'
-               lang_value = "English (UK)" if lang_id == 'en-GB'
-               # lang_value ||= ISO_639.find_by_code(value.split('@').last)[3]
-               lang_value ||= Languages[value.split('@').last.to_sym].name
-            %>
-            <td width="100px;"><div class="well_language clear:both;">
-              <%= lang_value %>
-            </div></td>
-          <% else %>
-            <td>&nbsp;</td>
+  <%
+    groups = values.group_by { |value| value[0] }.each_with_index
+                   .sort_by { |(code, _), index| [code.to_s == I18n.locale.to_s ? 0 : 1, index] }
+                   .map(&:first)
+  %>
+  <div class="term-field">
+    <dt><a href="<%= Relation.find_by(id: rel_id).description_url %>"><%= t("relations.#{rel_id}") %></a></dt>
+    <% groups.each do |code, group| %>
+      <% language = code.nil? ? nil : Language.find_by(id: code) %>
+      <dd<% if language %> class="term-lang-group"<% end %>>
+        <% if language %><span class="term-lang"><%= language.supported ? I18n.translate("languages.#{code}") : language.name %></span><% end %>
+        <ul class="term-values<%= ' term-values-inline' if inline %>"<% if code.present? %> lang="<%= code %>"<% end %>>
+          <% group.each do |value| %>
+            <li><%= value[1] %></li>
           <% end %>
-        </tr>
-        <% end %>
-      </table>
-    </dl>
-  </div>
+        </ul>
+      </dd>
+    <% end %>
   </div>
 <% end %>

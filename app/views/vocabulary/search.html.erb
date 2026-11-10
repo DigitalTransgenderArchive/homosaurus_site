@@ -1,38 +1,44 @@
-<br/>
-<br/>
-
-<%= form_tag(vocabulary_search_results_path(id: @vocabulary_identifier), :method => "get", id: "search-form", class: 'form-inline', enforce_utf8: false) do %>
-    <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Enter Search Term' %>
-    <%= submit_tag "Search", name: nil, class: 'form-control  btn-primary'%>
+<div class="search-page">
+<% older = older_version(Vocabulary.find_by(identifier: @vocabulary_identifier)) %>
+<h1 class="page-title"><%= older ? t("search.page_title_version", version: older) : t("search.page_title") %></h1>
+<p class="search-intro"><%= t("search.intro") %></p>
+<%= form_tag(vocabulary_search_results_path(id: @vocabulary_identifier), :method => "get", id: "search-form", class: 'search-form', enforce_utf8: false) do %>
+  <%= lang_hidden_field %>
+  <div class="input-group">
+    <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: t("search.placeholder"), "aria-label": t("search.placeholder") %>
+    <%= submit_tag t("menu.search"), name: nil, class: 'btn btn-primary' %>
+  </div>
 <% end %>
 
 <% if params[:q].present? %>
-    <h2>Search Results for: <%= params[:q] %></h2>
-
-    <% @terms.each do |term| %>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <%= link_to term.pref_label, vocabulary_show_path(vocab_id: term.vocabulary_identifier, :id => term.identifier, :from_q=>params[:q]) %>
-          </div>
-          <% if term.alt_labels[0].present? or term.description.present? %>
-          <div class="panel-body">
-            <% if term.alt_labels[0].present? %>
-                <strong>Alternative Labels:</strong> <%= term.alt_labels.join(', ') %><br />
-            <% end %>
-            <% if term.description.present? %>
-                <strong>Description:</strong> <%= term.description %>
-            <% end %>
-
-          </div>
+  <h2 class="section-title"><%= t("search.results_label") %>: <%= params[:q] %></h2>
+  <dl class="format-groups search-formats">
+    <div>
+      <dt><%= t("download.formats") %></dt>
+      <dd>
+        <ul>
+          <% [["N-Triples", "nt"], ["JSON-LD", "jsonld"], ["TTL", "ttl"]].each do |format_name, extension| %>
+            <li><%= link_to format_name, request.original_url.gsub("/search/#{@vocabulary_identifier}", "/search/#{@vocabulary_identifier}.#{extension}"), data: { format: extension } %></li>
           <% end %>
-        </div>
-
-
+        </ul>
+      </dd>
+    </div>
+  </dl>
+  <ol class="search-results">
+    <% @terms.each do |term| %>
+      <% relations = term.term_relationships.where(relation_id: [Relation::Alt_label, Relation::Description]).to_a %>
+      <% alt_labels = relations.select { |r| r.relation_id == Relation::Alt_label } %>
+      <% descriptions = relations.select { |r| r.relation_id == Relation::Description } %>
+      <% description = descriptions.find { |d| d.language_id.to_s == I18n.locale.to_s } || descriptions.find { |d| d.language_id.to_s == "en" } || descriptions.first %>
+      <li>
+        <h3><%= link_to term.pref_label_localized.data, vocabulary_show_path(vocab_id: @vocabulary_identifier, id: term.identifier, from_q: params[:q]) %> <span class="search-id"><%= term.identifier %></span></h3>
+        <% if alt_labels.any? %>
+          <p class="search-alt-labels"><span class="search-field"><%= t("search.alt_labels", count: alt_labels.size) %></span> <%= safe_join(alt_labels.map { |l| l.language_id.to_s.split("-").first == I18n.locale.to_s ? l.data : safe_join([l.data, " ", content_tag(:span, l.language_id, class: "search-lang")]) }, ", ") %></p>
+        <% end %>
+        <% if description %><p class="search-description"><%= description.data %></p><% end %>
+      </li>
     <% end %>
-
-    <p><br/><strong>Other Formats:</strong> <%= link_to "N-Triples", request.original_url.gsub('/search/v3', '/search/v3.nt')  %>, <%= link_to "JSON-LD", request.original_url.gsub('/search/v3', '/search/v3.jsonld') %>, <%= link_to "TTL", request.original_url.gsub('/search/v3', '/search/v3.ttl') %>
-
+  </ol>
 
 <% end %>
-
-
+</div>
