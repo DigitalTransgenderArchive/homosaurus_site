@@ -51,6 +51,7 @@ ehthumbs.db
 .idea # Rubymine config files
 /.idea/*
 Gemfile.lock
+4.3*
 
 # Directories to ignore #
 #########################

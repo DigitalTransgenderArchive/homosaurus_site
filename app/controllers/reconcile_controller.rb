@@ -32,7 +32,7 @@ class ReconcileController < ApplicationController
       vocabulary = Vocabulary.find_by(identifier: "v3")
       opts = {}
       opts[:pf] = 'prefLabel_tesim'
-      opts[:qf] = 'prefLabel_tesim altLabel_tesim identifier_tesim otherPrefLabel_tesim'
+      opts[:qf] = 'prefLabel_tesim altLabel_tesim identifier_ssi otherPrefLabel_tesim'
       opts[:fl] = 'id,identifier_ssi, prefLabel_tesim, altLabel_tesim, description_tesim, otherPrefLabel_tesim, score'
       opts[:fq] = "active_fedora_model_ssi:#{vocabulary.solr_model} AND visibility_ssi:visible"
       queries_to_process.each do |query_key, query_data|
@@ -100,7 +100,7 @@ class ReconcileController < ApplicationController
     opts = {}
     opts[:q] = params[:prefix]
     opts[:pf] = 'prefLabel_tesim'
-    opts[:qf] = 'prefLabel_tesim altLabel_tesim identifier_tesim'
+    opts[:qf] = 'prefLabel_tesim altLabel_tesim identifier_ssi'
     opts[:fl] = 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, score'
     opts[:fq] = "active_fedora_model_ssi:#{@vocabulary.solr_model} AND visibility_ssi:visible"
     response = DSolr.find(opts)

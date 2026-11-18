@@ -4,7 +4,9 @@ class MultiSelectInput < MultiBaseInput
 
   def select_options
     @select_options ||= begin
-      collection = options.delete(:collection) || self.class.boolean_collection
+                          #collection = options.delete(:collection2) || options.delete(:collection) || self.class.boolean_collection
+      collection = @collection2
+      #collection = Term.where(vocabulary_identifier: params[:vocab_id]).order("lower(pref_label) ASC").map{|t| [t.identifier + "(" + term.pref_label + ")", term.id]}
       collection.respond_to?(:call) ? collection.call : collection.to_a
     end
   end
@@ -19,12 +21,15 @@ class MultiSelectInput < MultiBaseInput
       html_options[:id] ||= input_dom_id
     end
     html_options[:class] ||= []
-    html_options[:class] += ["#{input_dom_id} form-control multi-text-field duplicateable"]
+    html_options[:class] += ["#{input_dom_id} form-control multi-text-field duplicateable form-select"]
     html_options[:'aria-labelledby'] = label_id
+    html_options[:name] += "[data]"
     @rendered_first_element = true
-
+    
     html_options.merge!(options.slice(:include_blank))
-    template.select_tag(attribute_name, template.options_for_select(select_options, value), html_options)
+    out = template.select_tag(attribute_name, template.options_for_select(select_options, value), html_options)
+    out << template.hidden_field_tag("term[#{attribute_name}][][language_id]", nil)
+    out
   end
 
   def buffer_each(collection)

@@ -1,5 +1,12 @@
-<!DOCTYPE html>
-<meta charset="UTF-8">
+<div class="tree-page">
+<div class="page-title-row">
+<h1 class="page-title"><%= t("download.tree_view") %></h1>
+<div class="page-title-action tree-actions">
+  <button type="button" class="btn btn-outline-secondary" data-tree-action="expand"><%= t("tree.expand_all") %></button>
+  <button type="button" class="btn btn-outline-secondary" data-tree-action="collapse"><%= t("tree.collapse_all") %></button>
+</div>
+</div>
+<div id="tree-view" class="tree-view"></div>
 <style>
 
   .node circle {
@@ -20,38 +27,32 @@
 
 </style>
 
-<body>
 
 <!-- load the d3.js library -->
+<%= javascript_include_tag "d3" %>
 <script>
 
     var treeData = <%= raw(@data.to_json) %>
 
     // Set the dimensions and margins of the diagram
-    var margin = {top: 20, right: 90, bottom: 30, left: 90},
-        width = 2000 - margin.left - margin.right,
-        height = 12000 - margin.top - margin.bottom;
+    var margin = {top: 20, right: 320, bottom: 20, left: 120};
 
     // append the svg object to the body of the page
     // appends a 'group' element to 'svg'
     // moves the 'group' element to the top left margin
-    var svg = d3.select("body").append("svg")
-        .attr("width", width + margin.right + margin.left)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate("
-            + margin.left + "," + margin.top + ")");
+    var svgRoot = d3.select("#tree-view").append("svg");
+    var svg = svgRoot.append("g");
 
     var i = 0,
         duration = 750,
         root;
 
     // declares a tree layout and assigns the size
-    var treemap = d3.tree().size([height, width]);
+    var treemap = d3.tree().nodeSize([20, 240]);
 
     // Assigns parent, children, height, depth
     root = d3.hierarchy(treeData, function(d) { return d.children; });
-    root.x0 = height / 2;
+    root.x0 = 0;
     root.y0 = 0;
 
     // Collapse after the second level
@@ -79,6 +80,13 @@
 
         // Normalize for fixed-depth.
         nodes.forEach(function(d){ d.y = d.depth * 240});
+
+        var minX = d3.min(nodes, function(d) { return d.x; }),
+            maxX = d3.max(nodes, function(d) { return d.x; }),
+            maxY = d3.max(nodes, function(d) { return d.y; });
+        svgRoot.attr("width", maxY + margin.left + margin.right)
+            .attr("height", maxX - minX + margin.top + margin.bottom);
+        svg.attr("transform", "translate(" + margin.left + "," + (margin.top - minX) + ")");
 
         // ****************** Nodes section ***************************
 
@@ -221,5 +229,28 @@
         }
     }
 
+
+    function expandAll(d) {
+        if (d._children) { d.children = d._children; d._children = null; }
+        if (d.children) d.children.forEach(expandAll);
+    }
+
+    function collapseBranch(d) {
+        if (d.children) { d._children = d.children; d.children = null; }
+        if (d._children) d._children.forEach(collapseBranch);
+    }
+
+    document.querySelectorAll("[data-tree-action]").forEach(function(button) {
+        button.addEventListener("click", function() {
+            if (!root) return;
+            if (button.dataset.treeAction === "expand") {
+                expandAll(root);
+            } else {
+                (root.children || []).forEach(collapseBranch);
+            }
+            update(root);
+        });
+    });
+
 </script>
-</body>
+</div>

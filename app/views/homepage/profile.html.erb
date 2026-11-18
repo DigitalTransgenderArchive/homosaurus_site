@@ -1,0 +1,69 @@
+<% @page_title = t('menu.profile') %>
+<% empty = content_tag(:span, "—", class: "empty-count") %>
+<div class="profile-page">
+  <div class="page-title-row">
+    <h1 class="page-title"><%= t('menu.profile') %></h1>
+    <% if current_user.present? %>
+      <%= button_to t("edit_request.view_discussion"), profile_discussion_path(user_id: @user.id), :method => "get", form_class: "btn p-0 page-title-action", class: 'btn btn-outline-secondary' %>
+    <% end %>
+  </div>
+
+  <dl class="profile-fields">
+    <div><dt><%= t('user.username') %></dt><dd><%= @user.username.presence || empty %></dd></div>
+    <div><dt><%= t('user.fname') %></dt><dd><%= @user.fname.presence || empty %></dd></div>
+    <div><dt><%= t('user.lname') %></dt><dd><%= @user.lname.presence || empty %></dd></div>
+    <div><dt><%= t('user.bio') %></dt><dd><%= @user.bio.presence || empty %></dd></div>
+    <div>
+      <dt><%= t('user.permissions') %></dt>
+      <dd class="profile-permissions">
+        <% roles = UserLanguageRole.where(user_id: @user.id).to_a.sort_by { |ulr| ulr.language_id.nil? ? 0 : 1 } %>
+        <% if roles.any? %>
+          <ul class="profile-roles">
+            <% roles.each do |ulr| %>
+              <li><span class="profile-lang"><%= ulr.language_id.present? ? t("languages.#{ulr.language_id}") : t("user.all_languages") %></span> <%= ulr.role.name %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <%= empty %>
+        <% end %>
+        <% if current_user.present? and current_user.admin? %>
+          <%= button_to "Revoke Permissions", block_profile_path(user_id: @user.id), :method => "get", form_class: "btn p-0 profile-revoke", class: 'btn btn-outline-danger btn-sm', data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </dd>
+    </div>
+  </dl>
+
+  <% if current_user.present? and current_user.id == @user.id %>
+    <h2 class="section-title"><%= t('menu.edit_profile') %></h2>
+    <%= form_with model: @user, url: update_profile_path(@user), local: true, method: :post, class: 'profile-form' do |form| %>
+      <div class="mb-3">
+        <%= form.label :username, t('user.username'), class: 'form-label', for: 'profile_username' %>
+        <%= form.text_field :username, class: 'form-control', id: 'profile_username' %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :fname, t('user.fname'), class: 'form-label', for: 'profile_fname' %>
+        <%= form.text_field :fname, class: 'form-control', id: 'profile_fname' %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :lname, t('user.lname'), class: 'form-label', for: 'profile_lname' %>
+        <%= form.text_field :lname, class: 'form-control', id: 'profile_lname' %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :bio, t('user.bio'), class: 'form-label', for: 'profile_bio' %>
+        <%= form.text_area :bio, class: 'form-control', id: 'profile_bio', rows: 4 %>
+      </div>
+      <div class="profile-submit">
+        <%= form.submit "Update", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <h2 class="section-title">Contributions</h2>
+  <div class="profile-contributions">
+    <% relations = Relation.all.to_a %>
+    <% @edit_requests.each do |er| %>
+      <%= render partial: "partials/edit_request_partial", locals: {edit_request: er, relations: relations, profile_page: true} %>
+    <% end %>
+  </div>
+  <%= paginate @edit_requests, window: 2, outer_window: 1 %>
+</div>

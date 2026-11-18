@@ -1,0 +1,7 @@
+<li class="page-item<%= " active" if page.current? %>">
+  <% if page.current? -%>
+    <span class="page-link" aria-current="page"><%= page %></span>
+  <% else -%>
+    <%= link_to page, url, rel: page.rel, class: "page-link" %>
+  <% end -%>
+</li>

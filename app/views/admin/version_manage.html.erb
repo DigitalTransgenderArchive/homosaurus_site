@@ -1,0 +1,50 @@
+<div class="admin-page">
+  <h1 class="page-title">Manage Releases</h1>
+
+  <h2 class="section-title">Add a Pending Release</h2>
+  <div class="admin-actions">
+    <% { "Major" => "btn-danger", "Minor" => "btn-primary", "Patch" => "btn-patch" }.each do |t, style| %>
+      <%= button_to "#{t} (#{VersionRelease.get_next_identifier(t)})", version_publish_new_path(release_type: t), :method => :post, form_class: 'admin-action', class: "btn #{style}", data: { confirm: "Are you sure you want to add a new version release? It will not be public until later specified." } %>
+    <% end %>
+  </div>
+
+  <h2 class="section-title">Releases</h2>
+  <% all_stats = VersionRelease.manage_statistics %>
+  <div class="release-list">
+    <table class="release-table admin-release-table" role="table">
+      <thead role="rowgroup">
+        <tr role="row">
+          <th scope="col" role="columnheader">Release</th>
+          <th scope="col" role="columnheader">Type</th>
+          <th scope="col" role="columnheader">Status</th>
+          <th scope="col" role="columnheader" class="number">Terms Added</th>
+          <th scope="col" role="columnheader" class="number">Terms Modified</th>
+          <th scope="col" role="columnheader" class="number">Approved</th>
+          <th scope="col" role="columnheader" class="number">Pending</th>
+          <th scope="col" role="columnheader" class="number">Total Changes</th>
+          <th scope="col" role="columnheader"><span class="visually-hidden">Publish</span></th>
+        </tr>
+      </thead>
+      <tbody role="rowgroup">
+        <% VersionRelease.all().reverse.each do |v| %>
+          <% stats = all_stats.fetch(v.id, {}) %>
+          <tr role="row">
+            <th scope="row" role="rowheader"><%= link_to v.release_identifier, release_show_path(release_id: v.release_identifier) %></th>
+            <td role="cell" data-label="Type"><%= v.release_type %></td>
+            <td role="cell"><span class="release-status release-status-<%= v.status.to_s.downcase %>"><%= v.status %></span></td>
+            <td role="cell" class="number" data-label="Terms Added"><%= count_or_dash(stats["terms_added"]) %></td>
+            <td role="cell" class="number" data-label="Terms Modified"><%= count_or_dash(stats["terms_modified"]) %></td>
+            <td role="cell" class="number" data-label="Approved"><%= count_or_dash(stats["approved"]) %></td>
+            <td role="cell" class="number" data-label="Pending"><%= count_or_dash(stats["pending"]) %></td>
+            <td role="cell" class="number" data-label="Total Changes"><%= count_or_dash(stats["total"]) %></td>
+            <td role="cell" class="admin-publish">
+              <% if v.status == "Pending" %>
+                <%= button_to "Publish", version_publish_path(release_identifier: v.release_identifier), :method => :post, form_class: 'admin-action', class: "btn btn-sm #{{ "Major" => "btn-danger", "Minor" => "btn-primary", "Patch" => "btn-patch" }.fetch(v.release_type.to_s, "btn-primary")}", disabled: v.publishable?, data: { confirm: "Are you sure you want to publish? This can not be undone." } %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,5 +1,12 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
+<div class="tree-page">
+<div class="page-title-row">
+<h1 class="page-title"><%= t("download.indented_view") %></h1>
+<div class="page-title-action tree-actions">
+  <button type="button" class="btn btn-outline-secondary" data-tree-action="expand"><%= t("tree.expand_all") %></button>
+  <button type="button" class="btn btn-outline-secondary" data-tree-action="collapse"><%= t("tree.collapse_all") %></button>
+</div>
+</div>
+<div id="tree-view" class="tree-view"></div>
 <style>
 
   .node rect {
@@ -22,7 +29,7 @@
   }
 
 </style>
-<body>
+<%= javascript_include_tag "d3" %>
 <script>
 
     var margin = {top: 30, right: 20, bottom: 30, left: 20},
@@ -38,7 +45,7 @@
         .x(function(d) { return d.y; })
         .y(function(d) { return d.x; });
 
-    var svg = d3.select("body").append("svg")
+    var svg = d3.select("#tree-view").append("svg")
         .attr("width", width) // + margin.left + margin.right)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -48,6 +55,7 @@
         root = d3.hierarchy(flare);
         root.x0 = 0;
         root.y0 = 0;
+        (root.children || []).forEach(collapseBranch);
         update(root);
     });
 
@@ -58,7 +66,7 @@
 
         var height = Math.max(500, nodes.length * barHeight + margin.top + margin.bottom);
 
-        d3.select("svg").transition()
+        d3.select("#tree-view svg").transition()
             .duration(duration)
             .attr("height", height);
 
@@ -167,4 +175,28 @@
         return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
     }
 
+
+    function expandAll(d) {
+        if (d._children) { d.children = d._children; d._children = null; }
+        if (d.children) d.children.forEach(expandAll);
+    }
+
+    function collapseBranch(d) {
+        if (d.children) { d._children = d.children; d.children = null; }
+        if (d._children) d._children.forEach(collapseBranch);
+    }
+
+    document.querySelectorAll("[data-tree-action]").forEach(function(button) {
+        button.addEventListener("click", function() {
+            if (!root) return;
+            if (button.dataset.treeAction === "expand") {
+                expandAll(root);
+            } else {
+                (root.children || []).forEach(collapseBranch);
+            }
+            update(root);
+        });
+    });
+
 </script>
+</div>

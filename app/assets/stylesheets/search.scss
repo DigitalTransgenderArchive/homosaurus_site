@@ -1,3 +1,98 @@
+.search-page {
+  max-width: 60rem;
+  margin-inline: auto;
+}
+
 // Place all the styles related to the Search controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.search-intro {
+  max-width: 60rem;
+  margin-bottom: 1.25rem;
+}
+
+.search-form {
+  margin-bottom: 2rem;
+
+  .form-control,
+  .btn {
+    font-size: 1.05rem;
+    min-height: 3rem;
+  }
+
+  .btn {
+    padding-inline: 1.75rem;
+    font-weight: 600;
+  }
+
+  .input-group {
+    border-radius: var(--bs-border-radius);
+  }
+
+  .input-group:has(.form-control:focus) {
+    box-shadow: 0 0 0 var(--bs-focus-ring-width) var(--bs-focus-ring-color);
+  }
+
+  .form-control:focus {
+    box-shadow: none;
+  }
+}
+
+.search-page {
+  dl.search-formats {
+    margin-bottom: 1.5rem;
+  }
+
+  ol.search-results {
+    margin: 0 0 2rem;
+    padding: 0;
+    list-style: none;
+    border-bottom: 2px dotted #BACBE7;
+
+    > li {
+      padding: 1rem 0;
+      border-top: 2px dotted #BACBE7;
+    }
+
+    h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+
+      a {
+        text-decoration: none;
+      }
+
+      a:hover,
+      a:focus-visible {
+        text-decoration: underline;
+      }
+
+      .search-id {
+        margin-left: 0.35rem;
+        color: #6c757d;
+        font-size: 0.75em;
+        font-weight: normal;
+        white-space: nowrap;
+      }
+    }
+
+    p {
+      margin: 0 0 0.35rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .search-field,
+    .search-lang {
+      color: #6c757d;
+    }
+
+    .search-lang {
+      font-size: 0.85em;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+.discussion-page {
+  max-width: 60rem;
+  margin-inline: auto;
+
+  .discussion-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .discussion-nav,
+  .discussion-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    > form {
+      margin: 0;
+    }
+  }
+
+  .section-title .badge {
+    font-size: 0.45em;
+    vertical-align: 0.45em;
+  }
+
+  .discussion-status {
+    background: color-mix(in srgb, #FEC52E 35%, white);
+    color: #1d2b4f;
+  }
+
+  .discussion-status-approved {
+    background: color-mix(in srgb, #00A950 20%, white);
+  }
+
+  .discussion-status-rejected {
+    background: color-mix(in srgb, #E22726 20%, white);
+  }
+
+  .edit-request {
+    margin-bottom: 2.5rem;
+  }
+
+  .vote-tally {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    .vote-tally-label {
+      color: #6c757d;
+      font-weight: 600;
+    }
+
+    > .badge .badge {
+      margin-left: 0.35rem;
+    }
+  }
+}

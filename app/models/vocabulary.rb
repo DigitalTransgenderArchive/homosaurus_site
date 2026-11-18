@@ -3,6 +3,13 @@ class Vocabulary < ActiveRecord::Base
   has_many :terms
   has_many :version_releases
 
+  def self.latest
+    return Vocabulary.where(visibility: "visible").last.version
+  end
+
+  def latest_published_release
+    return self.version_releases.where(status: "Published").last
+  end
   def self.migrate_v1_from_dta
     voc = Vocabulary.find_by(identifier: "terms")
     if voc.blank?
@@ -251,6 +258,27 @@ class Vocabulary < ActiveRecord::Base
       end
     end
   end
+  # If v1 or v2, return specific datasets. Else coalesce all previous ones (ie v4 shows terms created v3)
+  def terms
+    if self.id > 3
+      return Term.where("vocabulary_id >= 3 AND vocabulary_id <= #{self.id}")
+    else
+      return super
+    end
+  end
+  # Given the original url request, parses which vocabulary is being sought.
+  # If none given, show latest published to logged out users and show latest overall to logged in users
+  def self.getFromURL(url, current_user_present = false)
+    Vocabulary.all.each do |v|
+      if url.include? "/#{v.identifier}"
+        return v
+      end
+    end
+    if current_user_present
+      return Vocabulary.last
+    end
+    return Vocabulary.where(visibility: "visible").last
+  end
 
   def fix_relationships
     # Handle Visible Case
@@ -357,4 +385,4 @@ class Vocabulary < ActiveRecord::Base
     end
 
   end
-end  
+end

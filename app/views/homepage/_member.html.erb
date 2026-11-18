@@ -1,0 +1,13 @@
+<% detail = yield %>
+<% avatar = local_assigns[:photo] ? image_tag("about/#{photo}", alt: "", loading: "lazy") : content_tag(:span, (name.split.size > 1 ? name.split.values_at(0, -1) : name.split).map { |word| word[0] }.join.upcase, class: "member-initials", "aria-hidden": true) %>
+<li>
+  <% if local_assigns[:link] %>
+    <%= link_to avatar, link, class: "member-avatar", tabindex: -1, "aria-hidden": true %>
+  <% else %>
+    <%= avatar %>
+  <% end %>
+  <div>
+    <span class="member-name"><%= local_assigns[:link] ? link_to(name, link) : name %></span>
+    <% if detail.present? %><span class="member-detail"><%= detail %></span><% end %>
+  </div>
+</li>

@@ -1,0 +1,71 @@
+---
+nl:
+  about_page:
+    mission_heading: "Missie"
+    mission_statement: "De Homosaurus is een internationale linked data thesaurus van LHBTQ+-termen. Ontworpen als aanvulling op bredere thesauri, is de Homosaurus een solide en vernieuwende thesaurus die de vindbaarheid van LHBTQ+-bronnen en -informatie vergroot."
+    page_title: "Over de Homosaurus"
+    history_heading: "Geschiedenis"
+    history_html: "De Homosaurus werd in 1997 ontwikkeld door <a href=\"https://www.ihlia.nl/\">IHLIA LGBTI Heritage</a> als Nederlands-Engelse thesaurus voor homo’s en lesbiennes, die als zelfstandige woordenlijst werd gebruikt om de eigen collecties te beschrijven. In 2013 maakte Jack van der Wel er, met hulp van Ellen Greenblatt, een inclusievere en hiërarchische thesaurus van. In 2015 werd het <a href=\"https://www.digitaltransgenderarchive.net\">Digital Transgender Archive</a> (DTA) een van de weinige LHBTQ+-archieven die de <a href=\"/terms\">eerste versie</a> van de Homosaurus gebruikten, en de directeur van het DTA, K.J. Rawson, werkte samen met Jack van der Wel om er een online linked data thesaurus van te maken. In 2016 richtten Rawson en Van der Wel een redactieraad op voor een <a href=\"/v2\">tweede grote herziening</a>, verschenen in mei 2019, die van de Homosaurus een LHBTQ+-specifieke thesaurus maakte als aanvulling op bestaande thesauri, gevolgd door <a href=\"/v3\">versie 3</a> in september 2021. <a href=\"/v4\">Versie 4</a>, verschenen in februari 2025, voegde Spaanse vertalingen toe, en met de latere updates groeide de Homosaurus tot meer dan 4.000 termen. <a href=\"/v5\">Versie 5</a>, verschenen in juni 2026, voegde vertalingen toe in het Duits, Frans, Japans, Nederlands en Zweeds. De voormalige redactieraad is nu het Homosaurus Collectief."
+    emails_revealed: E-mailadressen op de pagina zijn nu zichtbaar.
+    collective_heading: Homosaurus Collectief
+    collective_intro: 'Het Homosaurus Collectief bestaat uit meer dan 40 leden uit 9 landen en is onderverdeeld in drie van elkaar afhankelijke raden: de Organisatieraad, de Implementatieraad en de Raad voor Termontwikkeling.'
+    board_co_convenors: 'Medevoorzitters van de raad:'
+    board_co_convenors_heading: Medevoorzitters van de raad
+    members_heading: Leden
+    organizing_heading: Organisatieraad
+    organizing_description: De Organisatieraad zorgt voor de coördinatie, visieontwikkeling en begeleiding van het hele project en helpt bij de ontwikkeling en groei van het Collectief door financiering te werven, bijeenkomsten te organiseren en samenwerkingsverbanden aan te gaan. Deze raad omvat de commissie Systemen, die zich richt op de functionaliteit van de software en de samenwerking met ontwikkelaars coördineert.
+    systems_subcommittee_member: "(+commissie Systemen)"
+    systems_subcommittee: "commissie Systemen"
+    library_profile: Bibliotheekprofiel
+    faculty_profile: Facultair profiel
+    implementation_heading: Implementatieraad
+    implementation_description: De Implementatieraad werkt samen met externe organisaties aan de implementatie van de Homosaurus, ontwikkelt zowel interne als externe opleidingsprogramma’s, stelt implementatiemiddelen samen en houdt het gebruik, de wetenschappelijke toepassing en de publicaties over de Homosaurus bij.
+    term_development_heading: Raad voor Termontwikkeling
+    term_development_description: De Raad voor Termontwikkeling ondersteunt taaloverschrijdend werk en zorgt voor de coördinatie tussen de commissies voor termontwikkeling. Deze raad houdt toezicht op de taalspecifieke commissies voor het Nederlands, Engels, Frans, Duits, Hindi en Bengaals, Japans, Spaans en Zweeds, die op lange termijn actief zijn, evenals op ad-hoccommissies voor specifieke thema’s, zoals de commissie voor Pasifika/Oceanië, die van tijdelijke aard zijn.
+    committee_co_convenors_heading: Medevoorzitters van de commissies
+    committees:
+      dutch: Nederlandse commissie
+      english: Engelse commissie
+      english_co_convenor: medevoorzitter van de Engelse commissie
+      swedish_co_convenor: medevoorzitter van de Zweedse commissie
+      french: Franse commissie
+      qc_french: Québec-commissie
+      german: Duitse commissie
+      hindi_bengali: commissie Hindi/Bengaals
+      japanese: Japanse commissie
+      spanish: Spaanse commissie
+      swedish: Zweedse commissie
+    spain: Spanje
+    independent: Onafhankelijk
+    institutions:
+      lac: Library and Archives Canada
+      laval_library: Bibliotheek van de Université Laval
+      schwulenarchiv: Swiss Gay Archives
+      jck: Joods Cultureel Kwartier
+    roles:
+      former_systems_metadata_librarian: voorheen aan Bard College
+      gsso_creator: University of Cincinnati Medical School
+      former_kentucky_library: voorheen aan de University of Kentucky
+      archivist_leibniz: Leibniz Institute for Contemporary History
+      homosaurus_creator: bedenker van de Homosaurus
+    acknowledgements_heading: Dankwoord
+    former_members_heading: Voormalige leden
+    former_members_intro: 'Het Homosaurus Collectief wil de voormalige leden van het Collectief bedanken voor hun inzet en toewijding:'
+    most_notably: 'En met name en luid en duidelijk:'
+    gratitude_heading: Dank
+    gratitude_html: 'Het Homosaurus Collectief wil graag onze geweldige partners bedanken: <a href="https://www.asexuality.org/">AVEN</a>, the <a href="https://blacklesbianarchives.substack.com/">Black Lesbian Archives</a>, <a href="https://www.colage.org/">COLAGE</a>, <a href="https://interactadvocates.org/">InterACT</a>, the <a href="https://leatherarchives.org/">Leather Archives &amp; Museum</a> en het <a href="https://swahpca.wordpress.com/">Sex Work Activist Histories Project</a>. We willen ook graag de vele gebruikers van de Homosaurus bedanken die door de jaren heen termen hebben voorgesteld en feedback hebben gegeven. We zijn met name dankbaar aan Orla Egan, Alice Galvinhill, Ellen Greenblatt, Juniper Johnson, Dee Michel, Cailin Roles en Lydia Willoughby voor hun bijdragen.'
+    memoriam_heading: In memoriam
+    resources_heading: Bronnen
+    since_year: "Sinds %{year}"
+    software_development_heading: "Softwareontwikkeling"
+    resources_intro: Deze handleidingen (in het Engels) zijn gepubliceerd door het Homosaurus Collectief en worden uiteindelijk vertaald en bijgewerkt.
+    guide_documentation: Documentatie- en implementatiehandleiding
+    guide_profile: Metadata-applicatieprofiel
+    memoriam_html: |-
+      <p><strong>Walter <q>Cat</q> Walker</strong> was van 2004 tot zijn vroegtijdige overlijden in 2020 Head Cataloging Librarian aan de Loyola Marymount University in Los Angeles, Californië. Hij was ook Director-at-Large van de Gay Lesbian Bisexual Transgender Roundtable van de American Library Association (<a href="https://www.ala.org/rrt">ALA GLBTRT</a>) en was 25 jaar lang vrijwilliger bij de <a href="https://one.usc.edu/">ONE National Gay &amp; Lesbian Archives</a> van de USC Libraries.</p>
+
+      <p>Cat Walker trad in 2016 toe tot het Homosaurus Collectief nadat hij Jack van der Wel had ontmoet op de <a href="https://web.archive.org/web/20160709112621/http://lgbtqalms.co.uk/conference-programme/">LGBTQ ALMS</a>-conferentie in Londen. Op deze conferentie hield Cat een keynote getiteld <q>Overcoming the Barriers: Improving Access to LGBTQ+ Content in Collections.</q> Cats levenslange activisme en passie voor LHBTQ+-bibliotheken en -archieven motiveerden hem om zich bij het Collectief aan te sluiten, en hij werd snel een actief lid van ons team. Op de volgende LGBTQ ALMS-conferentie in Berlijn in 2019 presenteerden Cat en Jack samen een paper over de Abridged Homosaurus.</p>
+
+      <p>Het is moeilijk om Cats bijdragen aan de Homosaurus in de vier jaar dat hij aan het project werkte te overschatten. Toen het Collectief de eerste versie van de Homosaurus ingrijpend herzag, speelde Cat een centrale rol bij het opnemen van veel meer termen en LHBTQ+-gerelateerde contexten, representaties en geschiedenissen. Cat werkte uitgebreid aan het afstemmen van Homosaurus versie één op versie twee, onderzocht de woordenlijst nauwkeurig en haalde termen eruit die herziening nodig hadden, niet consistent waren binnen de lijst, of een unieke waarde hadden die kon worden uitgebreid voor aanverwante zoekopdrachten en behoeften. Deze lijst, bestaande uit nieuw voorgestelde termen en aanpassingen van bestaande, was een van Cats meest recente en ambitieuze bijdragen aan het werk van het Collectief. Op het moment van zijn overlijden omvatte zijn documentatie van aanverwante en voorgestelde termen meer dan 250 wijzigingen en/of nieuwe termen, belangrijk werk dat we zeker namens hem en ter ere van hem zullen afmaken.</p>
+
+      <p>Bovenal was Cat een geduldige, vriendelijke en gulle leraar en medewerker, en hij was altijd de eerste die zich aanmeldde om nieuwe projecten op te pakken. Cats oog voor detail en zijn inzet om de Homosaurus tot een werkelijk mooie en inclusieve verzameling termen te maken zijn onmogelijk te vervangen. We zijn hem eindeloos dankbaar en vieren alles wat hij heeft bijgedragen aan dit belangrijke project.</p>

@@ -6,9 +6,9 @@ class SearchV3Controller < ApplicationController
       opts = {}
       opts[:q] = params[:q]
       opts[:pf] = 'prefLabel_tesim'
-      opts[:qf] = 'prefLabel_tesim altLabel_tesim description_tesim identifier_tesim'
+      opts[:qf] = 'prefLabel_tesim altLabel_tesim description_tesim identifier_ssi'
       opts[:fl] = 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim, isReplacedBy_ssim, replaces_ssim'
-      opts[:fq] = 'active_fedora_model_ssi:HomosaurusV3'
+      opts[:fq] = 'active_fedora_model_ssi:Homosaurus' + params[:id].upcase
       response = DSolr.find(opts)
       docs = response
       @terms = docs
@@ -29,7 +29,7 @@ class SearchV3Controller < ApplicationController
     opts = {}
     opts[:q] = term
     opts[:pf] = 'prefLabel_tesim'
-    opts[:qf] = 'prefLabel_tesim altLabel_tesim description_tesim identifier_tesim'
+    opts[:qf] = 'prefLabel_tesim altLabel_tesim description_tesim identifier_ssi'
     opts[:fl] = 'id,identifier_ssi,prefLabel_tesim, altLabel_tesim, description_tesim, issued_dtsi, modified_dtsi, exactMatch_tesim, closeMatch_tesim, broader_ssim, narrower_ssim, related_ssim'
     opts[:fq] = 'active_fedora_model_ssi:HomosaurusV3'
 

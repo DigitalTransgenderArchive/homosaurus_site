@@ -2,8 +2,8 @@
 
 <%= f.label label_val, required: required %>
 <%=
-    if include_help
-      help_label ||= label_val
-      render partial: "partials/help_icon", locals: { help_label: help_label, help_content: include_help }
+    if local_assigns[:include_help]
+      help_label = local_assigns[:help_label] || label_val
+      render partial: "partials/help_icon", locals: { help_label: help_label, help_content: local_assigns[:include_help] }
   end
 %>

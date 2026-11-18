@@ -1,0 +1,1 @@
+<%= render partial: "partials/edit_request_partial", collection: edit_requests.preload({version_release: :vocabulary}, {term: :edit_requests}, {children: :creator}), as: :edit_request, locals: {relations: Relation.all.to_a, release_page: true} %>

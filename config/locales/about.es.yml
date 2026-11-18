@@ -1,0 +1,71 @@
+---
+es:
+  about_page:
+    mission_heading: "Misión"
+    mission_statement: "El Homosaurus es un vocabulario internacional de datos vinculados de términos LGBTQ+. Diseñado para mejorar vocabulario de términos temáticos amplios, Homosaurus es un tesauro robusto e innovador que promueve la capacidad de descubrimiento de recursos e información LGBTQ+."
+    page_title: "Acerca del Homosaurus"
+    history_heading: "Historia"
+    history_html: "El Homosaurus fue creado originalmente en 1997 por <a href=\"https://www.ihlia.nl/?lang=en\">IHLIA LGBTI Heritage</a> como un tesauro gay y lésbico en neerlandés e inglés que se utilizó como vocabulario independiente para describir sus colecciones. En 2013, Jack van der Wel, con la ayuda de Ellen Greenblatt, transformó el Homosaurus original en un tesauro más inclusivo y jerárquico. En 2015, el <a href=\"https://www.digitaltransgenderarchive.net\">Digital Transgender Archive</a> (DTA) se convirtió en uno del puñado de archivos LGBTQ+ que utilizaban la <a href=\"/terms\">primera versión</a> del Homosaurus, y la dirección del DTA, a cargo de K.J. Rawson, colaboró con Jack van der Wel para transformarla en un vocabulario de datos vinculados en línea. En 2016, Rawson y van der Wel establecieron un consejo editorial para supervisar una <a href=\"/v2\">segunda gran revisión</a>, publicada en mayo de 2019, que transformó el Homosaurus en un vocabulario específico para LGBTQ+, cuyo objetivo era complementar los tesauros existentes, seguida de la <a href=\"/v3\">versión 3</a> en septiembre de 2021. La <a href=\"/v4\">versión 4</a>, publicada en febrero de 2025, incorporó traducciones al español, y con sus actualizaciones posteriores el vocabulario superó los 4000 términos. La <a href=\"/v5\">versión 5</a>, publicada en junio de 2026, añadió traducciones al alemán, francés, japonés, neerlandés y sueco. El antiguo consejo editorial es hoy el Colectivo Homosaurus."
+    emails_revealed: Los correos electrónicos de la página ahora están visibles.
+    collective_heading: Colectivo Homosaurus
+    collective_intro: 'El Colectivo Homosaurus está formado por más de 40 personas integrantes de 9 países, organizadas en tres consejos interdependientes: el Consejo de Organización, el Consejo de Implementación y el Consejo de Desarrollo de Términos.'
+    board_co_convenors: 'Coconvocatoria de los consejos:'
+    board_co_convenors_heading: Coconvocatoria de los consejos
+    members_heading: Integrantes
+    organizing_heading: Consejo de Organización
+    organizing_description: El Consejo de Organización se encarga de la coordinación, la visión y la orientación del proyecto, y contribuye a desarrollar y ampliar el Colectivo mediante la búsqueda de financiación, la organización de encuentros y la identificación de alianzas. Este consejo incluye el Subcomité de Sistemas, que se ocupa de la funcionalidad del software y se coordina con el equipo de desarrollo.
+    systems_subcommittee_member: "(+Subcomité de Sistemas)"
+    systems_subcommittee: "Subcomité de Sistemas"
+    library_profile: Perfil de la biblioteca
+    faculty_profile: Perfil docente
+    implementation_heading: Consejo de Implementación
+    implementation_description: El Consejo de Implementación trabaja con organizaciones externas en la implementación del Homosaurus, desarrolla prácticas de formación internas y externas, crea recursos de implementación y hace un seguimiento del uso del Homosaurus, de su aplicación académica y de lo que se escribe sobre él.
+    term_development_heading: Consejo de Desarrollo de Términos
+    term_development_description: El Consejo de Desarrollo de Términos apoya el trabajo entre idiomas y coordina los comités de desarrollo de términos. Este consejo supervisa los comités específicos por idioma (neerlandés, inglés, francés, alemán, hindi y bengalí, japonés, español y sueco), que son permanentes, así como los comités temáticos ad hoc, como el comité de Pasifika/Oceanía, que son temporales.
+    committee_co_convenors_heading: Coconvocatoria de los comités
+    committees:
+      dutch: comité de neerlandés
+      english: comité de inglés
+      english_co_convenor: coconvocatoria del comité de inglés
+      swedish_co_convenor: coconvocatoria del comité de sueco
+      french: comité de francés
+      qc_french: comité de Quebec
+      german: comité de alemán
+      hindi_bengali: comité de hindi/bengalí
+      japanese: comité de japonés
+      spanish: comité de español
+      swedish: comité de sueco
+    spain: España
+    independent: Independiente
+    institutions:
+      lac: Library and Archives Canada
+      laval_library: Biblioteca de la Universidad Laval
+      schwulenarchiv: Swiss Gay Archives
+      jck: Jewish Cultural Quarter
+    roles:
+      former_systems_metadata_librarian: anteriormente en Bard College
+      gsso_creator: University of Cincinnati Medical School
+      former_kentucky_library: anteriormente en la Universidad de Kentucky
+      archivist_leibniz: Leibniz Institute for Contemporary History
+      homosaurus_creator: creador del vocabulario Homosaurus
+    acknowledgements_heading: "Agradecimientos"
+    former_members_heading: Antiguas personas integrantes
+    former_members_intro: 'El Colectivo Homosaurus quisiera agradecer a las antiguas personas integrantes del Colectivo su trabajo y su cariño:'
+    most_notably: 'Y muy especialmente, y en voz alta:'
+    gratitude_heading: Gratitud
+    gratitude_html: 'El Colectivo Homosaurus quisiera agradecer a nuestras fabulosas organizaciones colaboradoras: <a href="https://www.asexuality.org/">AVEN</a>, <a href="https://blacklesbianarchives.substack.com/">Black Lesbian Archives</a>, <a href="https://www.colage.org/">COLAGE</a>, <a href="https://interactadvocates.org/">InterACT</a>, <a href="https://leatherarchives.org/">Leather Archives &amp; Museum</a> y <a href="https://swahpca.wordpress.com/">Sex Work Activist Histories Project</a>. También nos gustaría agradecer a las numerosas personas usuarias del Homosaurus que han sugerido términos y proporcionado comentarios a lo largo de los años. En particular, agradecemos a Orla Egan, Alice Galvinhill, Ellen Greenblatt, Juniper Johnson, Dee Michel, Cailin Roles y Lydia Willoughby por sus contribuciones.'
+    memoriam_heading: In memoriam
+    memoriam_html: |-
+      <p><strong>Walter <q>Cat</q> Walker</strong> fue Bibliotecario Jefe de Catalogación en la Loyola Marymount University en Los Ángeles, California, desde 2004 hasta su prematura muerte en 2020. También fue Director General de la American Library Association’s Gay Lesbian Bisexual Transgender Roundtable (<a href="https://www.ala.org/rrt">ALA GLBTRT</a>) y trabajó como voluntario en los <a href="https://one.usc.edu/">ONE National Gay &amp; Lesbian Archives</a> de las USC Libraries durante 25 años.</p>
+
+      <p>Cat Walker se unió al Colectivo Homosaurus en 2016 después de conocer a Jack van der Wel en la conferencia <a href="https://web.archive.org/web/20160709112621/http://lgbtqalms.co.uk/conference-programme/">LGBTQ ALMS</a> en Londres. En esta conferencia, Cat presentó una ponencia magistral titulada <q>Superando las barreras: Mejorando el Acceso al Contenido LGBTQ+ en las Colecciones.</q> El activismo de toda la vida de Cat y su pasión por las bibliotecas y archivos LGBTQ+ le motivaron a unirse al Colectivo y rápidamente se convirtió en un miembro activo de nuestro equipo. En la próxima conferencia LGBTQ ALMS en Berlín en 2019, Cat y Jack presentaron un trabajo juntos sobre el Homosaurus Abridged.</p>
+
+      <p>Es difícil exagerar las contribuciones de Cat al Homosaurus durante los cuatro años que trabajó en el proyecto. Cuando el Colectivo revisó drásticamente la primera versión del Homosaurus, Cat desempeñó un papel fundamental al ayudarnos a utilizar muchos más términos y contextos, representaciones e historias relacionados con la comunidad LGBTQ+. Cat trabajó intensamente en la reconciliación de la versión uno del Homosaurus con la versión dos, examinando el vocabulario con lupa y extrayendo términos que requerían revisión, carecían de coherencia en toda la lista o tenían un valor único que podía ampliarse para búsquedas y necesidades relacionadas. Esta lista, compuesta por nuevos términos sugeridos y por adaptaciones de otros ya existentes, fue una de las contribuciones más recientes y ambiciosas de Cat al trabajo del Colectivo. En el momento de su muerte, su documentación de términos relacionados y sugeridos abarcaba más de 250 cambios y/o nuevos términos, un trabajo importante que nos aseguraremos de completar en su nombre y en su honor.</p>
+
+      <p>Por encima de todo, Cat era un profesor y colaborador paciente, amable y gentil, y siempre era el primero en ofrecerse voluntario para asumir nuevos proyectos. La atención de Cat por el detalle, así como su compromiso por hacer del Homosaurus un conjunto de términos verdaderamente bello e inclusivo, serán imposibles de reemplazar. Le estamos infinitamente agradecidos y celebramos todo lo que ha aportado a este importante proyecto.</p>
+    resources_heading: Recursos
+    since_year: "Desde %{year}"
+    software_development_heading: "Desarrollo de software"
+    resources_intro: Estas guías (en inglés) fueron publicadas por el Colectivo Homosaurus y con el tiempo se traducirán y se actualizarán.
+    guide_documentation: Guía de documentación e implementación
+    guide_profile: Perfil de aplicación de metadatos
