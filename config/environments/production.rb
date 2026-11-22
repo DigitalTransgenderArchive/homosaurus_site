@@ -94,4 +94,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.sendmail_settings = { location: "/usr/sbin/sendmail", arguments: %w[-i] }
 end
